@@ -271,6 +271,12 @@ export class AppService {
         return this.user.manager && this.user.manager === this.getDomain();
     }
 
+
+    add0(n: number): string {
+        if (!n) { return; }
+        return n < 10 ? '0' + n : n.toString();
+    }
+
     shortName( name: string ) {
         return name.slice(0, 8);
     }
