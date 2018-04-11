@@ -11,5 +11,5 @@ import { EnvironmentSchema } from './schema';
 const env: EnvironmentSchema = {
   name: 'development',
 };
-
+env['urlBackend'] = 'https://sonub.com:8443';
 export default env;

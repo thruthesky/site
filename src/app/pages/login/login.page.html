@@ -1,0 +1,23 @@
+<div *ngIf="fire.user.isLogin">
+    You cannot login because you are logged in already.<br>
+    Your email: {{ fire.user.email }}
+</div>
+
+<div *ngIf="fire.user.isLogout">
+    <h3>Login</h3>
+    <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
+        <div>
+            <label>Email:</label>
+            <span>
+                <input type="text" name="email" [(ngModel)]="form.user_email">
+            </span>
+        </div>
+        <div>
+            <label>Password:</label>
+            <span>
+                <input type="password" name="password" [(ngModel)]="form.user_pass">
+            </span>
+        </div>
+        <button type="submit">LOGIN</button>
+    </form>
+</div>

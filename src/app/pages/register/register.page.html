@@ -1,0 +1,80 @@
+<h2 class="title" *ngIf="a.user.isLogout">
+    {{ 'REGISTER' | t }}</h2>
+<h2 class="title" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE' | t }}</h2>
+
+<div class="loader">
+    <ion-spinner *ngIf=" show.dataLoader "></ion-spinner> spinner?? {{ 'IN LOADING' | t }}
+</div>
+
+
+
+<div class="" *ngIf=" a.teacherTheme || a.user.isLogin ">
+    <div class="">
+        <input class="" type="file" (change)="fileUpload.onChangeFile($event)">
+        <div class="w-25">
+            <img class="w-50" src="{{ userProfilePhoto( files )}}">
+        </div>
+        <div text-center>
+            <button class="" [class.skip]="files && files.length">
+                {{ 'PHOTO UPLOAD' | t }}
+            </button>
+        </div>
+        <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
+            (success)="onSuccessUploadPicture($event)"></xapi-file-upload-component>
+    </div>
+</div>
+
+
+
+<form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
+    <div>
+        <label>Email:</label>
+        <span>
+            <input type="email" name="email" [(ngModel)]="form.user_email">
+        </span>
+    </div>
+    <div>
+        <label>Password:</label>
+        <span>
+            <input type="password" name="password" [(ngModel)]="form.user_pass">
+        </span>
+    </div>
+
+    <div>
+        <label>Name:</label>
+        <span>
+            <input type="text" name="displayName" [(ngModel)]="form.name">
+        </span>
+    </div>
+    <!-- <div>
+        <label>Mobile No.:</label>
+        <span>
+            <input type="number" name="mobile" [(ngModel)]="user.mobile">
+        </span>
+    </div>
+    <div>
+        <label>City:</label>
+        <span>
+            <input type="text" name="city" [(ngModel)]="user.city">
+        </span>
+    </div> -->
+
+    <div>
+        <label class="label">{{ 'KAKAOTALK ID SHORT' | t }}</label>
+        <div class="input">
+            <input class="w-100" type="text" [(ngModel)]="form.kakaotalk_id" name="kakaotalk_id">
+            <div class="py-3 fs-lg pointer" (click)=" onClickKakaoIDHelp() ">
+                {{ 'FIND KAKAOTALK ID' | t }}
+                <i class="fa fa-question-circle"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <button type="submit" *ngIf="!loader">Register</button>
+    <div class="loader">
+        <ion-spinner *ngIf=" show.registerLoader "></ion-spinner>
+        {{ 'IN REGISTERING' | t }}
+    </div>
+    <button type="button" [routerLink]="'/'">Cancel</button>
+</form>
