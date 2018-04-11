@@ -163,9 +163,9 @@
 
     <div>
         <div class="input form-submit-button">
-            <ion-button *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</ion-button>
-            <ion-button *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</ion-button>
-            <ion-button [routerLink]="'/'">{{ 'CANCEL' | t }}</ion-button>
+            <ion-button type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</ion-button>
+            <ion-button type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</ion-button>
+            <ion-button [routerLink]="'/'" *ngIf="a.user.isLogin">{{ 'CANCEL' | t }}</ion-button>
         </div>
     </div>
 </form>
