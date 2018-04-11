@@ -69,7 +69,7 @@ export interface SESSION {
     class_begin: string;
     class_end: string;
     comment: string;
-    date: number;
+    date: any;
     expression: number;
     grammer: number;
     idx: number;
@@ -82,9 +82,9 @@ export interface SESSION {
     refund_done_at: number;
     refund_done_by: number;
     refund_done_point: number;
-    refund_reject_at: number;
+    refund_reject_at: any;
     refund_reject_message: string;
-    refund_request_at: number;
+    refund_request_at: any;
     refund_request_message: string;
     refund_settle_at: number;       // admin is the one who decide.
     refund_settle_message: string;  // admin leave a message
@@ -496,10 +496,19 @@ export class XapiLMSService extends Base {
         });
     }
 
-    get_sessions_in_refund_progress() {
-        return this.x.post({
-            session_id: this.user.sessionId,
-            route: 'lms.get_sessions_in_refund_progress'
-        });
+    get_sessions_in_refund_progress(req) {
+        req['session_id'] = this.user.sessionId;
+        req['route'] = 'lms.get_sessions_in_refund_progress';
+        return this.x.post(req);
+    }
+    admin_accept_refund_request(req) {
+        req['session_id'] = this.user.sessionId;
+        req['route'] = 'lms.admin_accept_refund_request';
+        return this.x.post(req);
+    }
+    admin_reject_refund_request(req) {
+        req['session_id'] = this.user.sessionId;
+        req['route'] = 'lms.admin_reject_refund_request';
+        return this.x.post(req);
     }
 }

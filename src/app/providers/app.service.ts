@@ -274,4 +274,13 @@ export class AppService {
     shortName( name: string ) {
         return name.slice(0, 8);
     }
+
+    dateTime( stamp: any ) {
+        stamp = parseInt( stamp, 10 );
+        if ( ! stamp ) {
+            return 0;
+        }
+        const d = new Date( stamp * 1000 );
+        return d.toLocaleString();
+    }
 }

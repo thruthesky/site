@@ -3,27 +3,55 @@
 
 @todo. Branch managers can view the list. Only admin can accept or reject the request.
 
+<div>
+    @note. Time is based on UTC+0.
+    @note. Grade is working only when teacher has input.
+</div>
+<div>
+    <form (ngSubmit)="onSubmit( $event )">
+        Option:
+        idx: <input type="text" name="idx" [(ngModel)]="form.idx" size="6">
+        date: <input type="date" name="date" [(ngModel)]="form.date" size="8">
+        teacher: <input type="text" name="teacher" [(ngModel)]="form.teacher" size="10">
+        grade >= <input type="text" name="grade" [(ngModel)]="form.grade" size="1">
+        studnet: <input type="text" name="student" [(ngModel)]="form.student" size="10">
+        order by: <input type="text" name="orderby" [(ngModel)]="form.orderby" size="4">
+        limit:  <input type="text" name="limit" [(ngModel)]="form.limit" size="3">
+        <ion-button type="submit">Search</ion-button>
+    </form>
+</div>
 <div class="list" *ngIf=" re ">
     <table border='1'>
         <tr>
             <td>idx</td>
             <td>teacher</td>
             <td>student</td>
+            <td nowrap>session time</td>
             <td>point</td>
             <td>Teacher Class Comment</td>
             <td nowrap>Student Refund Request Reason</td>
             <td nowrap>Teacher Refund Reject Reason</td>
         </tr>
-        <tr class="" *ngFor=" let s of re ">
+        <tr class="" valign='top' *ngFor=" let s of re ">
             <td class="item">{{ s.idx }}</td>
             <td class="item">{{ s.teacherName }} ( {{ s.idx_teacher }} )</td>
             <td class="item">{{ s.studentName }} ( {{ s.idx_student }} )</td>
+            <td>
+                <div>{{ s.date }}</div>
+                <div>{{ s.class_begin }}</div>
+            </td>
             <td class="item">{{ s.point }}</td>
             <td class="">{{ s.comment }}</td>
-            <td class="">{{ s.refund_request_message }}</td>
-            <td class="">{{ s.refund_reject_message }}</td>
-            <td class="item pointer">Accept</td>
-            <td class="item pointer">Reject</td>
+            <td class="">
+                <div>At: {{ s.refund_request_at }}</div>
+                {{ s.refund_request_message }}
+            </td>
+            <td class="">
+                <div *ngIf=" s.refund_reject_at ">At: {{ s.refund_reject_at }}</div>
+                {{ s.refund_reject_message }}
+            </td>
+            <td class="item pointer"><div (click)="onAccept(s.idx)">Accept</div></td>
+            <td class="item pointer"><div (click)="onReject(s.idx)">Reject</div></td>
         </tr>
     </table>
 </div>

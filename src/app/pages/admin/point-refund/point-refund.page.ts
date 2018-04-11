@@ -14,16 +14,36 @@ import { SESSION } from '../../../modules/xapi/lms.service';
 })
 export class PointRefundPage implements OnInit {
 
+    form = {
+        idx: 0,
+        date: '',
+        teacher: '',
+        student: '',
+        orderby: 'desc',
+        limit: 50,
+        grade: 0
+    };
     re: Array<SESSION> = [];
     constructor(
         public router: Router,
         public a: AppService
     ) {
-        a.lms.get_sessions_in_refund_progress().subscribe(re => {
+        this.loadSessions();
+    }
+
+    loadSessions() {
+        this.a.lms.get_sessions_in_refund_progress( this.form ).subscribe(re => {
             console.log(re);
             this.re = re;
             this.pre();
-        }, e => a.toast(e));
+        }, e => this.a.toast(e));
+    }
+    onSubmit(event: Event) {
+        event.preventDefault();
+
+        this.loadSessions();
+
+        return false;
     }
 
     ngOnInit() {
@@ -36,8 +56,40 @@ export class PointRefundPage implements OnInit {
         for (const session of this.re) {
             session.teacherName = this.a.shortName(session.teacherName);
             session.studentName = this.a.shortName(session.studentName);
+
+            const d = session.date.toString();
+            session.date = d.slice(0, 4) + '-' + d.slice(4, 6) + '-' + d.slice(6, 8);
+            session.class_begin = session.class_begin.slice(0, 2) + ':' + session.class_begin.slice(2);
+            session.refund_request_at = this.a.dateTime(session.refund_request_at);
+            session.refund_reject_at = this.a.dateTime(session.refund_reject_at);
         }
 
+    }
+
+
+    onAccept( idx ) {
+        const re = confirm('Accept? The point will go back to STUDENT.');
+        if ( ! re ) {
+            return;
+        }
+        this.a.lms.admin_accept_refund_request({idx: idx, message: '@todo add accept message later.'})
+            .subscribe( _idx => {
+                console.log('idx: ', _idx);
+                const i = this.re.findIndex( session => session.idx === _idx );
+                this.re.splice(i, 1);
+            }, e => this.a.toast(e) );
+    }
+    onReject( idx ) {
+        const re = confirm('Reject? The point will go to TEACHER.');
+        if ( ! re ) {
+            return;
+        }
+        this.a.lms.admin_reject_refund_request({idx: idx, message: '@todo add message later.'})
+            .subscribe( _idx => {
+                console.log('idx: ', _idx);
+                const i = this.re.findIndex( session => session.idx === _idx );
+                this.re.splice(i, 1);
+            }, e => this.a.toast(e) );
     }
 
 
