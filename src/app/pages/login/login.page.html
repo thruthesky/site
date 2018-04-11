@@ -1,9 +1,9 @@
-<div *ngIf="fire.user.isLogin">
+<div *ngIf="a.isLogin">
     You cannot login because you are logged in already.<br>
-    Your email: {{ fire.user.email }}
+    Your email: {{ a.user.email }}
 </div>
 
-<div *ngIf="fire.user.isLogout">
+<div *ngIf="a.isLogout">
     <h3>Login</h3>
     <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
         <div>

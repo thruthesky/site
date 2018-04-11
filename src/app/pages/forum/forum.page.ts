@@ -89,7 +89,7 @@ export class ForumPage implements OnInit, OnDestroy {
      *    if it is 'all', then it loads all categories.
      *    if not, it loads that category only.
      */
-    loadPage(category: string) {
+    loadPage(category?: string) {
         this.fire.post.page({ category: category, limit: 5 }).then(posts => {
             console.log('posts: ', posts);
         });

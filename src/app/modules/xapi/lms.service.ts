@@ -462,4 +462,11 @@ export class XapiLMSService extends Base {
             route: 'lms.my_level',
         });
     }
+
+    get_sessions_in_refund_progress() {
+        return this.x.post({
+            session_id: this.user.sessionId,
+            route: 'lms.get_sessions_in_refund_progress'
+        });
+    }
 }

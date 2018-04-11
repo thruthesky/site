@@ -1,10 +1,14 @@
-<p class="bg-secondary">
+<div class="bg-secondary" *ngIf=" ! isAdminPage ">
     OnTue Menu
     <ion-button routerLink="/teacher">HOME</ion-button>
     <ion-button routerLink="/teacher/help">Help</ion-button>
-    <ion-button routerLink="/register">Register</ion-button>
-    <ion-button (click)=" fire.user.logout() ">Log out</ion-button>
+    <ion-button routerLink="/register" *ngIf=" a.isLogout ">Register</ion-button>
+    <ion-button routerLink="/profile" *ngIf=" a.isLogin ">Profile</ion-button>
+    <ion-button routerLink="/login" *ngIf=" a.isLogout ">Login</ion-button>
+    <ion-button (click)=" a.logout({open: '/'}) " *ngIf=" a.isLogin ">Log out</ion-button>
     <ion-button routerLink="/forum">Forum</ion-button>
     <ion-button routerLink="/category">Category</ion-button>
-</p>
+    <ion-button routerLink="/admin" *ngIf=" a.isManager ">Admin Page</ion-button>
+</div>
+
 

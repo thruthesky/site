@@ -195,6 +195,9 @@ export class XapiUserService extends Base {
         return this.name || 'Anonymous';
     }
 
+    get manager() {
+        return this.profile.manager;
+    }
 
 
 

@@ -115,6 +115,8 @@ export interface USER_LOGIN_RESPONSE extends ID {
     photo: FILE;
     provider: string;
     timezone: string;
+    domain: string;
+    manager: string;            // only available if the user is admin.
 }
 export type USER_REGISTER_RESPONSE = USER_LOGIN_RESPONSE;
 export type USER_UPDATE_RESPONSE = USER_LOGIN_RESPONSE;

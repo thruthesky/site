@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { LanguageService } from './language.service';
 import { Router } from '@angular/router';
-import { Base } from '../modules/firelibrary/core';
+import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
 import env from './../../environment';
@@ -46,6 +46,7 @@ export class AppService {
     constructor(
         public ngZone: NgZone,
         public router: Router,
+        public fire: FireService,
         public language: LanguageService,
         public xapi: XapiService,
         public user: XapiUserService,
@@ -219,15 +220,20 @@ export class AppService {
         this.rerender(t);
     }
 
+
+    open(url: string) {
+        this.router.navigateByUrl(url);
+    }
     /**
      * Move the route to domain's Home
      */
     openHome() {
-        this.router.navigateByUrl(this.homeUrl);
+        this.open(this.homeUrl);
     }
     openProfile() {
-        this.router.navigateByUrl('/profile');
+        this.open('/profile');
     }
+
 
     toast(msg) {
         if (msg.message) {
@@ -243,5 +249,25 @@ export class AppService {
      */
     randomString(prefix = ''): string {
         return prefix + (+new Date).toString(36).slice(-5);
+    }
+
+
+    logout(options?) {
+        console.log(`logout( options? ) `, options);
+        this.fire.user.logout().then(() => {
+            this.user.logout();
+            if (options['open']) {
+                this.open(options['open']);
+            }
+        });
+    }
+    get isManager() {
+        return !!this.user.manager;
+    }
+    get isAdmin() {
+        return this.user.manager && this.user.manager === '*';
+    }
+    get isMyBranch() {
+        return this.user.manager && this.user.manager === this.getDomain();
     }
 }

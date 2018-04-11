@@ -50,6 +50,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'teacher-list',
+    loadChildren: './pages/teacher-list/teacher-list.page.module#TeacherListPageModule'
+  },
+
+  {
     path: 'forum',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule'
   },
@@ -61,6 +66,11 @@ const routes: Routes = [
     path: 'category',
     loadChildren: './pages/category/category.page.module#CategoryPageModule'
   },
+  {
+    path: 'admin',
+    loadChildren: './pages/admin/admin-page.module#AdminPageModule'
+  },
+
 
   /**
    * Defaults

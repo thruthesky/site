@@ -2,11 +2,10 @@
     {{ 'REGISTER' | t }}</h2>
 <h2 class="title" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE' | t }}</h2>
 
+
 <div class="loader">
     <ion-spinner *ngIf=" show.dataLoader "></ion-spinner> spinner?? {{ 'IN LOADING' | t }}
 </div>
-
-
 
 <div class="" *ngIf=" a.teacherTheme || a.user.isLogin ">
     <div class="">
@@ -71,7 +70,7 @@
     </div>
 
 
-    <button type="submit" *ngIf="!loader">Register</button>
+    <button type="submit" *ngIf="!show.registerLoader">Register</button>
     <div class="loader">
         <ion-spinner *ngIf=" show.registerLoader "></ion-spinner>
         {{ 'IN REGISTERING' | t }}

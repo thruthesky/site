@@ -1,0 +1,10 @@
+<h1>Teacher List</h1>
+
+<div>
+    <div *ngIf=" teachers.length ">
+        <div *ngFor=" let teacher of teachers ">
+            <img class="w-100" alt="profile photo" src="{{ teacher.photoURL }}">
+            {{ teacher.display_name }}
+        </div>
+    </div>
+</div>
