@@ -32,17 +32,17 @@ Save these domains in `hosts` for test.
 * www.katalkenglish.org, katalkenglish.org abc.katalkenglish.org def.katalkenglish.org test.katalkenglish.org
 
 
-# Installation
 
-````
+## Installation
+
+$bash ````
 $ sudo npm i -g ionic@rc
 $ git clone https://github.com/thruthesky/site
 $ cd site
 $ npm i
 $ git submodule update --init
 $ npm run s
-````
-
+$bash ````
 
 ## Run
 
