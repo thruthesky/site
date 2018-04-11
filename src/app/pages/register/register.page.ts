@@ -1,11 +1,10 @@
-
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FireService, USER } from './../../modules/firelibrary/core';
-import { AppService } from '../../providers/app.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FireService, USER} from './../../modules/firelibrary/core';
+import {AppService} from '../../providers/app.service';
 import {
-    USER_REGISTER, USER_REGISTER_RESPONSE, USER_DATA_RESPONSE, FILES, USER_UPDATE, USER_UPDATE_RESPONSE
+    USER_REGISTER, USER_REGISTER_RESPONSE, USER_DATA_RESPONSE, FILES, USER_UPDATE, USER_UPDATE_RESPONSE, FILE
 } from '../../modules/xapi/interfaces';
-import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
+import {XapiFileUploadComponent} from '../../components/xapi-file-upload/xapi-file-upload.component';
 
 
 @Component({
@@ -28,7 +27,7 @@ export class RegisterPage implements OnInit {
     qrmarks: FILES = [];
     // @see https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.ehcawgq9o2ps
     @ViewChild('profilePhotoUpload') fileUpload: XapiFileUploadComponent;
-
+    @ViewChild('QRMARKFileUpload') fileUploadQRMark: XapiFileUploadComponent;
 
 
     show = {
@@ -41,10 +40,14 @@ export class RegisterPage implements OnInit {
 
     timezones;
     timezoneOffset;
-    constructor(
-        public fire: FireService,
-        public a: AppService,
-    ) {
+
+    year_now = new Date().getFullYear();
+    showFindKakaotalkIDBox = false;
+    showQRMark = false;
+
+
+    constructor(public fire: FireService,
+                public a: AppService) {
         setTimeout(() => this.test(), 1000);
 
 
@@ -57,6 +60,7 @@ export class RegisterPage implements OnInit {
     test() {
         // this.testRegister();
     }
+
     testRegister() {
         const id = this.a.randomString('user');
         this.form.user_email = id + '@gmail.com';
@@ -80,6 +84,18 @@ export class RegisterPage implements OnInit {
         this.a.lms.timezones().subscribe(re => {
             this.timezones = re;
         });
+    }
+
+    keysTimezone() {
+        return Object.keys(this.timezones).sort((a: any, b: any) => a - b);
+    }
+
+    formatTimeCode(offset) {
+        if (offset > 0) {
+            return '+' + offset;
+        } else {
+            return offset;
+        }
     }
 
 
@@ -136,19 +152,22 @@ export class RegisterPage implements OnInit {
     onRegisterSuccess() {
         //
     }
+
     onRegisterFailure(e) {
         //
         console.log('Error on register: ', e);
         this.a.toast(e);
     }
+
     onUpdateSuccess() {
         //
     }
+
     onUpdateFailure() {
         //
     }
-    onSubmitRegisterForm(event?: Event) {
 
+    onSubmitRegisterForm(event?: Event) {
         if (event) {
             event.preventDefault();
         }
@@ -166,6 +185,7 @@ export class RegisterPage implements OnInit {
         this.a.user.register(this.form)
             .subscribe(re => this.registerFirebase(re), e => this.onRegisterFailure(e));
     }
+
     registerFirebase(res: USER_REGISTER_RESPONSE) {
         console.log('registerFirebase(res): ', res);
         const data: USER = {
@@ -238,7 +258,6 @@ export class RegisterPage implements OnInit {
     }
 
 
-
     userProfilePhoto(files) {
         if (files.length) {
             if (files[0]['url_portrait']) {
@@ -251,20 +270,57 @@ export class RegisterPage implements OnInit {
         }
     }
 
+    onSuccessUploadQRMark(file: FILE) {
+        if (this.qrmarks.length > 1) {
+            this.fileUploadQRMark.deleteFile(this.qrmarks[0], () => {
+            }, e => this.a.toast(e));
+        }
+        if (this.a.user.isLogout) { return; }
+        const data: USER_UPDATE = {
+            kakao_qrmark_URL: file.url,
+            user_email: this.form.user_email
+        };
+        this.a.user.update(data).subscribe(() => {
+            this.a.lms.update_kakao_qrmark_string().subscribe( res => {
+                if (!res.kakao_qrmark_string) {
+                    this.a.toast('Invalid QR MARK, Please try again');
+                    this.fileUploadQRMark.deleteFile(this.qrmarks[0], () => {
+                        this.qrmarks = [];
+                        this.a.render();
+                    }, e => this.a.toast(e));
+                } else {
+                    this.qrmarks = [file];
+                    this.showQRMark = true;
+                    this.a.render();
+                }
+            }, () => {
+                this.a.toast('Failed to convert QR mark. There may be an error on server while converting QR mark.');
+                this.fileUploadQRMark.deleteFile(this.qrmarks[0], () => {
+                    this.qrmarks = [];
+                    this.a.render();
+                }, e => this.a.toast(e));
+            });
+        }, e => this.a.toast(e));
+    }
 
 
-  onClickKakaoIDHelp() {
-    // if (this.a.isTeacher) {
-    //   this.showModalFAQ('kakaoID');
-    // }
-    // else {
-    //   this.showFindKakaotalkIDBox = true;
-    //   setTimeout(() => {
-    //     document.querySelector('.kakaotalk-id-find-box').scrollIntoView();
-    //   }, 200);
-    //   this.a.alert("프로필 관리 메뉴에서 카카오톡 아이디를 찾을 수 있습니다.");
-    // }
-  }
+    onClickKakaoIDHelp() {
+        // if (this.a.isTeacher) {
+        //     this.showModalFAQ('kakaoID');
+        // } else {
+        //     this.showFindKakaotalkIDBox = true;
+        //     setTimeout(() => {
+        //         document.querySelector('.kakaotalk-id-find-box').scrollIntoView();
+        //     }, 200);
+        //     this.a.toast('프로필 관리 메뉴에서 카카오톡 아이디를 찾을 수 있습니다.');
+        // }
+    }
+
+    showModalFAQ(modal_name) {
+        // const modal = this.modalCtrl.create(this._modal[modal_name]);
+        // modal.onDidDismiss(() => { });
+        // modal.present();
+    }
 
 
 }
