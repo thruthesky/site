@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FireService, USER, USER_NOT_FOUND } from './../../../modules/firelibrary/core';
 import { AppService } from '../../../providers/app.service';
 import { USER_LOGIN } from '../../../modules/xapi/interfaces';
+import { SESSION } from '../../../modules/xapi/lms.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { USER_LOGIN } from '../../../modules/xapi/interfaces';
 })
 export class PointRefundPage implements OnInit {
 
-    re;
+    re: Array<SESSION> = [];
     constructor(
         public router: Router,
         public a: AppService
@@ -21,10 +22,22 @@ export class PointRefundPage implements OnInit {
         a.lms.get_sessions_in_refund_progress().subscribe(re => {
             console.log(re);
             this.re = re;
+            this.pre();
         }, e => a.toast(e));
     }
 
     ngOnInit() {
+    }
+
+    pre() {
+        if (!this.re || !this.re.length) {
+            return;
+        }
+        for (const session of this.re) {
+            session.teacherName = this.a.shortName(session.teacherName);
+            session.studentName = this.a.shortName(session.studentName);
+        }
+
     }
 
 

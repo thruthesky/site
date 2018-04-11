@@ -63,6 +63,39 @@ export interface TEACHER_LIST {
 
 export type TEACHERS_LIST = Array<TEACHER_LIST>;
 
+export interface SESSION {
+    book_next: string;
+    book_used: string;
+    class_begin: string;
+    class_end: string;
+    comment: string;
+    date: number;
+    expression: number;
+    grammer: number;
+    idx: number;
+    idx_schedule: number;
+    idx_teacher: number;
+    idx_student: number;
+    paid: number;
+    point: number;
+    pronunciation: number;
+    refund_done_at: number;
+    refund_done_by: number;
+    refund_done_point: number;
+    refund_reject_at: number;
+    refund_reject_message: string;
+    refund_request_at: number;
+    refund_request_message: string;
+    refund_settle_at: number;       // admin is the one who decide.
+    refund_settle_message: string;  // admin leave a message
+    speed: number;
+    stamp_checked: number;
+    stamp_reserved: number;
+    successful: string;
+    vocabulary: number;
+    studentName?: string;
+    teacherName?: string;
+}
 
 @Injectable()
 export class XapiLMSService extends Base {

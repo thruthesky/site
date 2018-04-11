@@ -270,4 +270,8 @@ export class AppService {
     get isMyBranch() {
         return this.user.manager && this.user.manager === this.getDomain();
     }
+
+    shortName( name: string ) {
+        return name.slice(0, 8);
+    }
 }
