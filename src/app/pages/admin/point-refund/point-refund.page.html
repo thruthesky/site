@@ -3,12 +3,27 @@
 
 @todo. Branch managers can view the list. Only admin can accept or reject the request.
 
-<div *ngIf=" re ">
-    <div *ngFor=" let s of re ">
-        {{ s.idx }}
-        {{ s.teacherName }} ( {{ s.idx_teacher }} )
-        {{ s.studentName }} ( {{ s.idx_student }} )
-        <ion-button>Accept</ion-button>
-        <ion-button>Reject</ion-button>
-    </div>
+<div class="list" *ngIf=" re ">
+    <table border='1'>
+        <tr>
+            <td>idx</td>
+            <td>teacher</td>
+            <td>student</td>
+            <td>point</td>
+            <td>Teacher Class Comment</td>
+            <td nowrap>Student Refund Request Reason</td>
+            <td nowrap>Teacher Refund Reject Reason</td>
+        </tr>
+        <tr class="" *ngFor=" let s of re ">
+            <td class="item">{{ s.idx }}</td>
+            <td class="item">{{ s.teacherName }} ( {{ s.idx_teacher }} )</td>
+            <td class="item">{{ s.studentName }} ( {{ s.idx_student }} )</td>
+            <td class="item">{{ s.point }}</td>
+            <td class="">{{ s.comment }}</td>
+            <td class="">{{ s.refund_request_message }}</td>
+            <td class="">{{ s.refund_reject_message }}</td>
+            <td class="item pointer">Accept</td>
+            <td class="item pointer">Reject</td>
+        </tr>
+    </table>
 </div>
