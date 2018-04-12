@@ -511,4 +511,19 @@ export class XapiLMSService extends Base {
         req['route'] = 'lms.admin_reject_refund_request';
         return this.x.post(req);
     }
+    /**
+     * Returns the data from WordPress LMS Backend.
+     * @param req query.
+     * @see Xapi lms.interface.php::admin_query for detail explanation.
+     * @example
+             this.a.lms.admin_query({ table: 'wp_users' })
+            .subscribe(re => {
+                console.log('re: ', re);
+            }, e => this.a.toast(e));
+     */
+    admin_query( req ) {
+        req['session_id'] = this.user.sessionId;
+        req['route'] = 'lms.admin_query';
+        return this.x.post(req);
+    }
 }
