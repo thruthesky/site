@@ -6,8 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppService } from './providers/app.service';
 import { FireService, FirelibraryModule } from './modules/firelibrary/core';
 
-import * as firebase from 'firebase';
-import 'firebase/firestore';
+
 import { OntueHeaderComponentModule } from './sites/ontue/components/ontue-header/ontue-header.component.module';
 import {
     KatalkEnglishHeaderComponentModule
@@ -16,16 +15,6 @@ import {
 import { LanguageService } from './providers/language.service';
 import { XapiModule, XapiService, XapiUserService, XapiLMSService, XapiFileService } from './modules/xapi/xapi.module';
 import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
-
-
-firebase.initializeApp({
-  apiKey: 'AIzaSyBEv8lzyUI6kB8RyxG8xKnzv4WA6KfS6e4',
-  authDomain: 'ontue-client-sites.firebaseapp.com',
-  databaseURL: 'https://ontue-client-sites.firebaseio.com',
-  projectId: 'ontue-client-sites',
-  storageBucket: 'ontue-client-sites.appspot.com',
-  messagingSenderId: '328021421807'
-});
 
 
 @NgModule({

@@ -1,10 +1,17 @@
-import { Injectable, NgZone } from '@angular/core';
-import { LanguageService } from './language.service';
-import { Router } from '@angular/router';
-import { Base, FireService } from '../modules/firelibrary/core';
-import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
+import {Injectable, NgZone} from '@angular/core';
+import {LanguageService} from './language.service';
+import {Router} from '@angular/router';
+import {Base, FireService} from '../modules/firelibrary/core';
+import {XapiService, XapiUserService, XapiFileService, XapiLMSService} from '../modules/xapi/xapi.module';
 
 import env from './../../environment';
+
+
+import * as firebase from 'firebase';
+// required for side-effect??? @see https://firebase.google.com/docs/firestore/quickstart?authuser=0
+import 'firebase/firestore';
+import { firestore } from 'firebase';
+firebase.initializeApp(env['firebaseConfig']);
 
 
 export const SITE_KATALKENGLISH = 'katalkenglish';
@@ -17,7 +24,8 @@ export interface SITE {
     katalkenglish: boolean;
 }
 
-
+const KEY_LMS_INFO = 'lms-info';
+const firestoreLogCollection = 'user-activity-log-2';
 
 @Injectable()
 export class AppService {
@@ -43,16 +51,41 @@ export class AppService {
      */
     anonymousPhotoURL = 'assets/img/anonymous.png';
 
-    constructor(
-        public ngZone: NgZone,
-        public router: Router,
-        public fire: FireService,
-        public language: LanguageService,
-        public xapi: XapiService,
-        public user: XapiUserService,
-        public file: XapiFileService,
-        public lms: XapiLMSService,
-    ) {
+    /**
+     * LMS information from backend.
+     * @note this is being called once very boot.
+     * @attention this must be the only variable to be used to display LMS information.
+     */
+    info = null;
+
+    /**
+     * Push Token
+     * @type string
+     */
+    pushToken: string = null;
+
+
+    /**
+     * Firebase Notification and Messaging
+     */
+    _firebase: {
+        db: firebase.firestore.Firestore;
+        messaging: firebase.messaging.Messaging;
+    } = { db: null, messaging: null };
+
+    /**
+     * Activity Log of All Site
+     */
+    activity_log = [];
+
+    constructor(public ngZone: NgZone,
+                public router: Router,
+                public fire: FireService,
+                public language: LanguageService,
+                public xapi: XapiService,
+                public user: XapiUserService,
+                public file: XapiFileService,
+                public lms: XapiLMSService) {
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
 
@@ -63,11 +96,15 @@ export class AppService {
         console.log('urlBackend: ', env['urlBackend']);
         xapi.setServerUrl(env['urlBackend']);
 
+        this._firebase.db = firebase.firestore();
+        this._firebase.messaging = firebase.messaging();
         // this.language.setUserLanguage();
     }
+
     get isLogin() {
         return this.user.isLogin;
     }
+
     get isLogout() {
         return this.user.isLogout;
     }
@@ -76,9 +113,11 @@ export class AppService {
         this.color = color;
         console.log(`Color has been set to ${this.color}`);
     }
+
     getDomain() {
         return window.location.hostname;
     }
+
     /**
      * Returns user domain.
      * If the domain is 'localhost', then it returns 'localhost.com'
@@ -104,9 +143,11 @@ export class AppService {
     private isKatalkenglishDomain() {
         return this.getDomain().indexOf(SITE_KATALKENGLISH) !== -1;
     }
+
     private isOntueDomain() {
         return this.getDomain().indexOf(SITE_ONTUE) !== -1;
     }
+
     private isWithcenterDomain() {
         return this.getDomain().indexOf(SITE_WITHCENTER) !== -1;
     }
@@ -114,6 +155,7 @@ export class AppService {
     get studentTheme() {
         return this.site.katalkenglish;
     }
+
     get teacherTheme() {
         return this.site.ontue;
     }
@@ -214,8 +256,10 @@ export class AppService {
      * @param timeout timeout
      */
     rerender(timeout: number = 0) {
-        setTimeout(() => this.ngZone.run(() => { }), timeout);
+        setTimeout(() => this.ngZone.run(() => {
+        }), timeout);
     }
+
     render(t?) {
         this.rerender(t);
     }
@@ -224,12 +268,14 @@ export class AppService {
     open(url: string) {
         this.router.navigateByUrl(url);
     }
+
     /**
      * Move the route to domain's Home
      */
     openHome() {
         this.open(this.homeUrl);
     }
+
     openProfile() {
         this.open('/profile');
     }
@@ -261,32 +307,365 @@ export class AppService {
             }
         });
     }
+
     get isManager() {
         return !!this.user.manager;
     }
+
     get isAdmin() {
         return this.user.manager && this.user.manager === '*';
     }
+
     get isMyBranch() {
         return this.user.manager && this.user.manager === this.getDomain();
     }
 
 
     add0(n: number): string {
-        if (!n) { return; }
+        if (!n) {
+            return;
+        }
         return n < 10 ? '0' + n : n.toString();
     }
 
-    shortName( name: string ) {
+    shortName(name: string) {
         return name.slice(0, 8);
     }
 
-    dateTime( stamp: any ) {
-        stamp = parseInt( stamp, 10 );
-        if ( ! stamp ) {
+    dateTime(stamp: any) {
+        stamp = parseInt(stamp, 10);
+        if (!stamp) {
             return 0;
         }
-        const d = new Date( stamp * 1000 );
+        const d = new Date(stamp * 1000);
         return d.toLocaleString();
     }
+
+    /**
+     * Get the value of the key from localStorage
+     * @param key key of localStorage
+     * @return it can be an object or a scalar.
+     */
+    get(key: string): any {
+        return this.xapi.get(key);
+    }
+
+    /**
+     * Saves value into localStorage
+     * @param key key of localStorage
+     * @param value value to save. it can be an object or a scalar. It will be JSON.stringyfy(). So no need to do it.
+     */
+    set(key: string, value: any) {
+        return this.xapi.set(key, value);
+    }
+
+
+    /**
+     *
+     *      Gets LMS information from backend and saves into localStorage.
+     *
+     *      And initialize LMS information.
+     *
+     *          - Runs timer for local timzeone.
+     *
+     *
+     * @note to get LMS information after loading from backend, use
+     *      - this.lmsInfoUserNoOfTotalSessions
+     *      - this.lmsInfoUserNoOfReservation
+     *      - this.lmsInfoUserNoOfTotalPast
+     *      - this.lmsInfo('SELLER_RATE')
+     *
+     * @param callback - You can use callback to get the result data from backend.
+     *
+     * @attention use this method to get user information.
+     *          Once this method is being used, the app gets NOT only the user information
+     *          BUT also it saves into localStorage.
+     *
+     * @note if you only want to get user point, consider using "loadMyPoint()". It's more convenient to only get point.
+     */
+    updateLMSInfo(callback = null) {
+        this.info = this.get(KEY_LMS_INFO);
+        if (!this.info) {
+            this.info = {};
+        }
+        this.lms.info().subscribe(re => {
+            this.set(KEY_LMS_INFO, re);
+            this.info = this.get(KEY_LMS_INFO);
+            if (this.info['user'] !== void 0) {
+                if (this.info['user']['no_of_total_sessions'] !== void 0) {
+                    this.updateLmsInfoUserNoOfTotalSessions(this.info['user']['no_of_total_sessions']);
+                }
+                if (this.info['user']['no_of_reservation'] !== void 0) {
+                    this.updateLmsInfoUserNoOfReservation(this.info['user']['no_of_reservation']);
+                }
+                if (this.info['user']['no_of_past'] !== void 0) {
+                    this.updateLmsInfoUserNoOfPast(this.info['user']['no_of_past']);
+                }
+            }
+            if (callback) {
+                callback(re);
+            }
+        }, e => {
+            console.error(e);
+        });
+    }
+
+
+    /**
+     * Saves number of total sessions into localStorage
+     * User this.lmsInfoUserNoOfTotalSessions to get the number.
+     * @param count number of total sessions
+     */
+    updateLmsInfoUserNoOfTotalSessions(count) {
+        this.set('no_of_total_sessions', count);
+    }
+
+    updateLmsInfoUserNoOfReservation(count) {
+        this.set('no_of_reservation', count);
+    }
+
+    updateLmsInfoUserNoOfPast(count) {
+        this.set('no_of_past', count);
+    }
+
+
+    /**
+     * Returns total number of sessions of the login user.
+     * it includes past and future.
+     */
+    get lmsInfoUserNoOfTotalSessions(): number {
+        const count = this.get('no_of_total_sessions');
+        if (!count) {
+            return 0;
+        }
+        return parseInt(count, 10);
+    }
+
+    /**
+     * Returns number of past sessions.
+     */
+    get lmsInfoUserNoOfPast(): number {
+        const count = this.get('no_of_past');
+        if (!count) {
+            return 0;
+        }
+        return parseInt(count, 10);
+    }
+
+    /**
+     * Returns number of reservarions.
+     */
+    get lmsInfoUserNoOfReservation(): number {
+        const count = this.get('no_of_reservation');
+        if (!count) {
+            return 0;
+        }
+        return parseInt(count, 10);
+    }
+
+    /**
+     * @note don't call this method twice.
+     *
+     * - It request permission to the user.
+     * - If user accepts ( or already accepted )
+     *      a) check if token updated/changed, if yes, then update it.
+     *      b) or don't do anything.
+     */
+    onetimeInitPushMessage() {
+        this.initWebPushMessage();
+    }
+
+
+    initWebPushMessage() {
+        if ('Notification' in window) {
+            console.log('initWebPushMessage', this._firebase);
+            this._firebase.messaging.requestPermission()
+                .then(() => { /// User accepted 'push notification alert'
+                    this._firebase.messaging.getToken()
+                        .then(currentToken => { /// Got token
+                            this.pushToken = currentToken;
+                            // console.log("Got token: ", this.pushToken);
+                            this.updatePushToken();
+                        })
+                        .catch(err => {
+                            // Failed to get token.
+                            console.error('An error occurred while retrieving token. ', err);
+                        });
+                })
+                .catch(err => { /// If failed to get permission.
+                    console.error('User rejected/blocked push notification. ', err);
+                });
+            // Callback fired if Instance ID token is updated.
+            this._firebase.messaging.onTokenRefresh(() => {
+                this._firebase.messaging.getToken()
+                    .then(refreshedToken => { // Token refreshed
+                        this.pushToken = refreshedToken;
+                        // console.log("Token Refreshed: ", this.pushToken);
+                        this.updatePushToken();
+                    })
+                    .catch(err => {
+                        // console.log('Unable to retrieve refreshed token ', err);
+                    });
+            });
+
+            // When the user is on the site(opened the site), the user will not get push notification.
+            // Instead, you can do whatever in this handler.
+            this._firebase.messaging.onMessage(payload => {
+                // console.log("Message received. ", payload);
+                // ...
+                const notification = payload['notification'];
+                // const title = notification['title'];
+                const body = notification['body'];
+                this.toast(body);
+            });
+        }
+    }
+
+
+    /**
+     * Gets push token string and update it to server only IF it's new.
+     * @param token push token string
+     */
+    updatePushToken() {
+        const platform = 'web';
+        if (!this.pushToken) {
+            console.log('updatePushToken(): token is empty. It will not update. just return.');
+            return;
+        }
+        this.lms.update_push_token(this.pushToken, platform).subscribe(re => {
+            // console.log("Token updated:");
+        }, e => console.error(e));
+    }
+
+
+    /**
+     * Log whenever user login
+     */
+    onUserLogin() {
+        this.updateLMSInfo();
+        this.updatePushToken();
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'login'});
+        // console.log("userLogin::Log::");
+    }
+
+    /**
+     * This method is being called when a user opens 'register' page.
+     */
+    onUserRegisterPage() {
+        this.updatePushToken();
+        this.log({activity: 'open-register'});
+    }
+
+    onUserRegister() {
+        this.updateLMSInfo();
+        this.updatePushToken();
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'register'});
+    }
+
+    onUserProfileUpdate() {
+        this.updateLMSInfo();
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'update-profile'});
+    }
+
+
+    onLmsReserve(teacher_name) {
+        if (!teacher_name) {
+            return;
+        }
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'reserve', target: teacher_name});
+    }
+
+    /**
+     * Student and teacher can cancel a class. If a student cancells a class on schedule table, teacher name will have teacher name.
+     * If a sesison is cancelled on session reservation list, then there will be no name on teacher name variable.
+     * @param teacher_name teacher name of the session
+     */
+    onLmsCancel(teacher_name = '') {
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'cancel', target: teacher_name});
+    }
+
+    onUserViewProfile(teacher_name) {
+        if (!teacher_name) {
+            return;
+        }
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'view-profile', target: teacher_name});
+    }
+
+    onBeginPayment() {
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'payment'});
+    }
+
+    onTeacherEvaluateSession(student_name = '') {
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'evaluate', target: student_name});
+    }
+
+    onStudentCommentToTeacher(teacher_name = '') {
+        this.log({idx_user: this.user.id, name: this.user.name, activity: 'comment', target: teacher_name});
+    }
+
+
+    log(data) {
+        // data['name'] = 'test' + (new Date).getTime();
+        data['stamp'] = firestore.FieldValue.serverTimestamp();
+        // console.log(data);
+        const col = this._firebase.db.collection(firestoreLogCollection);
+        col.add(data)
+            .then((docRef) => {
+                // console.log("Document written with ID: ", docRef.id);
+                // col.doc( docRef.id ).get().then( doc => console.log('got doc: ', doc.data()));
+            })
+            .catch((error) => {
+                console.error('Error adding document: ', error);
+            });
+    }
+
+    listenActivityLog() {
+
+        if (!this.teacherTheme) {
+            return;
+        }
+        const db = this._firebase.db;
+
+
+        db.collection(firestoreLogCollection)
+            .orderBy('stamp', 'desc')
+            .limit(10)
+            .get().then(s => {
+            s.forEach(doc => {
+                const data = doc.data();
+                data['id'] = doc.id;
+                data['date'] = this.serverTime(data['stamp']);
+                this.activity_log.push(data);
+            });
+        }).catch(error => {
+            console.log('Error getting document:', error);
+        });
+
+        db.collection(firestoreLogCollection)
+            .orderBy('stamp', 'desc')
+            .limit(1)
+            .onSnapshot(shot => {
+                shot.forEach(doc => {
+                    const data = doc.data();
+                    data['id'] = doc.id;
+                    data['date'] = this.serverTime(data['stamp']);
+                    const i = this.activity_log.findIndex(v => v['id'] === doc.id);
+                    if (i !== -1) {
+                        this.activity_log[i] = data;
+                    } else {
+                        this.activity_log.unshift(data);
+                        this.activity_log.pop();
+                    }
+                });
+            }, error => {
+                console.log('snap error::', error);
+            });
+    }
+
+    serverTime(obj) {
+        const d = new Date(obj);
+        return d.toLocaleTimeString();
+    }
+
+
 }

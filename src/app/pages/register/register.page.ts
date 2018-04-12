@@ -28,7 +28,8 @@ export class RegisterPage implements OnInit {
     // @see https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.ehcawgq9o2ps
     @ViewChild('profilePhotoUpload') fileUpload: XapiFileUploadComponent;
     @ViewChild('QRMARKFileUpload') fileUploadQRMark: XapiFileUploadComponent;
-
+    showQRMark = false;
+    showFindKakaotalkIDBox = false;
 
     show = {
         dataLoader: false,
@@ -42,15 +43,17 @@ export class RegisterPage implements OnInit {
     timezoneOffset;
 
     year_now = new Date().getFullYear();
-    showFindKakaotalkIDBox = false;
-    showQRMark = false;
 
 
-    constructor(public fire: FireService,
-                public a: AppService) {
+
+    constructor(
+        public fire: FireService,
+        public a: AppService
+    ) {
 
         // setTimeout(() => this.test(), 1000);
 
+        // a.onUserRegisterPage();
         this.setTimezone();
         if (a.user.isLogin) {
             this.loadData();
@@ -162,14 +165,63 @@ export class RegisterPage implements OnInit {
         }
         this.form.domain = this.a.getDomain();
 
+        if (!this.form.user_email || !this.form.user_email.length) {
+            return this.a.toast('EMAIL REQUIRED');
+        }
+        if (this.a.user.isLogout && (!this.form.user_pass || !this.form.user_pass.length)) {
+            return this.a.toast('PASSWORD REQUIRED');
+        }
+        if (!this.form.name || !this.form.name.length) {
+            return this.a.toast('NAME REQUIRED');
+        }
+        if (!this.form.display_name || !this.form.display_name.length ) {
+            return this.a.toast('NICKNAME REQUIRED');
+        }
+        if (this.a.teacherTheme) {
+            if (!this.month || !this.month.length) {
+                return this.a.toast('Birth month is required.');
+            }
+            if (!this.day || !this.day.length) {
+                return this.a.toast('Birth day is required.');
+            }
+            if (!this.year || !this.year.length) {
+                return this.a.toast('Birth year is required.');
+            }
+
+            this.patchBirthday();
+            this.user_type = 'T';
+        }
+
+        if (this.a.user.isLogin && this.user_type === 'T' && !this.qrmarks.length) {
+            return this.a.toast('Teacher must upload QR Mark...');
+        }
+        if (!this.form.phone_number) {
+            return this.a.toast('PHONE NUMBER REQUIRED');
+        }
+        if (!this.form.kakaotalk_id) {
+            return this.a.toast('KAKAOTALK ID REQUIRED');
+        }
+
+        this.form.photoURL = this.files.length ? this.files[0].url : '';
+        this.form.kakao_qrmark_URL = this.qrmarks.length ? this.qrmarks[0].url : '';
+        this.form.user_type = this.user_type;
+
+
+
         if (this.a.user.isLogin) { // UPDATE
             // console.log('GOING TO UPDATE');
             this.updateWordpressBackend();
-        }
-        else { // REGISTER
+        } else { // REGISTER
             // console.log('GOING TO REGISTER');
             this.registerWordpressBackend();
         }
+    }
+
+    /**
+     * patch the year,month and day to create date YYYYMMDD
+     */
+    patchBirthday() {
+        this.form.birthday = this.year + this.month + this.day;
     }
 
     /**
@@ -177,11 +229,17 @@ export class RegisterPage implements OnInit {
      */
     registerWordpressBackend() {
         this.form.user_login = this.form.user_email;
-        this.a.user.register(this.form)
+        delete this.form.kakao_qrmark_string;
+        this.a.user
+            .register(this.form)
             .subscribe(re => {
+                // this.a.onUserRegister();
                 this.registerFirebase(re);
                 this.form.user_pass = null;
-                }, e => this.onRegisterFailure(e));
+                this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {}, () => {});
+                }, e => {
+                this.onRegisterFailure(e);
+            });
     }
 
     registerFirebase(res: USER_REGISTER_RESPONSE) {
@@ -220,6 +278,7 @@ export class RegisterPage implements OnInit {
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
             this.a.toast('UPDATED');
+            // this.a.onUserProfileUpdate();
             this.loadData();
         }, err => {
             this.a.toast(err);
@@ -228,8 +287,6 @@ export class RegisterPage implements OnInit {
 
 
     onSuccessUploadPicture(file) {
-        // console.log("onSuccessUpdateProfilePicture::", this.files);
-
         /**
          * Delete previous photo.
          *
@@ -266,7 +323,6 @@ export class RegisterPage implements OnInit {
         }
 
     }
-
 
     userProfilePhoto(files) {
         if (files.length) {
@@ -312,7 +368,6 @@ export class RegisterPage implements OnInit {
             });
         }, e => this.a.toast(e));
     }
-
 
     onClickKakaoIDHelp() {
         // if (this.a.isTeacher) {
