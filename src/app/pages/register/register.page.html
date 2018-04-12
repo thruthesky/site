@@ -30,7 +30,7 @@
     <div *ngIf=" a.teacherTheme ">
         <label for="timezone">{{ 'TIMEZONE' | t }}</label>
         <div class="input">
-            <select [(ngModel)]="offset" name="timezone" class="select-timezone py-2" id="timezone">
+            <select [(ngModel)]="timezoneOffset" name="timezone" class="select-timezone py-2" id="timezone">
                 <option *ngFor="let t of keysTimezone()" value="{{ t }}">{{ formatTimeCode(t) }} {{ timezones[t].name }}</option>
             </select>
         </div>
@@ -45,7 +45,7 @@
     <div *ngIf="a.isLogout">
         <label for="password">{{ 'PASSWORD' | t }}</label>
         <div class="input">
-            <input type="password" name="password" id="password" [(ngModel)]="form.user_pass" >
+            <input type="password" name="password" id="password" [(ngModel)]="form.user_pass">
         </div>
     </div>
 
@@ -64,7 +64,7 @@
                 <input type="radio" name="gender" value="M" [checked]=" form.gender == 'M' " [(ngModel)]="form.gender"> Male
             </label>
             <label>
-                <input type="radio" name="gender" value="F" [checked]=" form.gender == 'F' "  [(ngModel)]="form.gender"> Female
+                <input type="radio" name="gender" value="F" [checked]=" form.gender == 'F' " [(ngModel)]="form.gender"> Female
             </label>
         </div>
     </div>
@@ -106,7 +106,7 @@
     <div>
         <label for="phone_number">{{ 'PHONE NUMBER' | t }}</label>
         <div class="input">
-            <input type="text" name="phone_number" id="phone_number" [(ngModel)]="form.phone_number" >
+            <input type="text" name="phone_number" id="phone_number" [(ngModel)]="form.phone_number">
         </div>
     </div>
 
@@ -122,7 +122,7 @@
     <div>
         <label for="kakaotalk_id">{{ 'KAKAOTALK ID SHORT' | t }}</label>
         <div class="input">
-            <input type="text" name="kakaotalk_id" id="kakaotalk_id" [(ngModel)]="form.kakaotalk_id" >
+            <input type="text" name="kakaotalk_id" id="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
             <div class="py-3 fs-lg pointer" (click)=" onClickKakaoIDHelp() ">
                 {{ 'FIND KAKAOTALK ID' | t }}
                 <i class="fa fa-question-circle"></i>
@@ -140,14 +140,13 @@
         <div>Upload Kakaotalk QR Mark</div>
         <div class="input qr-mark">
             <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="true"
-                                (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
+                (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
             <div class="fs-lg mt-2 pointer" text-wrap (click)="showModalFAQ('qrmark')">
                 QR Mark is required for teacher. How to get QR MARK
                 <i class="fa fa-question-circle"></i>
             </div>
             <div class="alert alert-success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
-                QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{ form.kakao_qrmark_URL }}
-                )
+                QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{ form.kakao_qrmark_URL }} )
             </div>
 
             <div class="alert alert-warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">

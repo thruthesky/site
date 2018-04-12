@@ -16,9 +16,10 @@ export class AdminHomePage implements OnInit {
     form = <USER_LOGIN>{};
     constructor(
         public router: Router,
-        public fire: FireService,
         public a: AppService
-    ) { }
+    ) {
+
+    }
 
     ngOnInit() {
     }

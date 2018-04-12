@@ -38,7 +38,7 @@ export class RegisterPage implements OnInit {
     user_type: '' | 'S' | 'T';
 
 
-    timezones;
+    timezones = {};
     timezoneOffset;
 
     year_now = new Date().getFullYear();
@@ -48,8 +48,8 @@ export class RegisterPage implements OnInit {
 
     constructor(public fire: FireService,
                 public a: AppService) {
-        setTimeout(() => this.test(), 1000);
 
+        // setTimeout(() => this.test(), 1000);
 
         this.setTimezone();
         if (a.user.isLogin) {
@@ -57,20 +57,20 @@ export class RegisterPage implements OnInit {
         }
     }
 
-    test() {
-        // this.testRegister();
-    }
-
-    testRegister() {
-        const id = this.a.randomString('user');
-        this.form.user_email = id + '@gmail.com';
-        this.form.user_login = this.form.user_email;
-        this.form.user_pass = id;
-        this.form.display_name = id;
-        this.form.kakaotalk_id = id;
-        this.form.domain = this.a.getDomain();
-        this.registerWordpressBackend();
-    }
+    // test() {
+    //     // this.testRegister();
+    // }
+    //
+    // testRegister() {
+    //     const id = this.a.randomString('user');
+    //     this.form.user_email = id + '@gmail.com';
+    //     this.form.user_login = this.form.user_email;
+    //     this.form.user_pass = id;
+    //     this.form.display_name = id;
+    //     this.form.kakaotalk_id = id;
+    //     this.form.domain = this.a.getDomain();
+    //     this.registerWordpressBackend();
+    // }
 
     ngOnInit() {
         // this.form.email = 'test' + (new Date).getTime() + '@user.com';
@@ -81,7 +81,9 @@ export class RegisterPage implements OnInit {
 
     setTimezone() {
         this.timezoneOffset = this.a.lms.getUserLocalTimezoneOffset();
+        // console.log('timezoneOffset', this.timezoneOffset);
         this.a.lms.timezones().subscribe(re => {
+            // console.log('setTimezone', re);
             this.timezones = re;
         });
     }
@@ -148,23 +150,10 @@ export class RegisterPage implements OnInit {
         });
     }
 
-
-    onRegisterSuccess() {
-        //
-    }
-
     onRegisterFailure(e) {
         //
         console.log('Error on register: ', e);
         this.a.toast(e);
-    }
-
-    onUpdateSuccess() {
-        //
-    }
-
-    onUpdateFailure() {
-        //
     }
 
     onSubmitRegisterForm(event?: Event) {
@@ -172,9 +161,14 @@ export class RegisterPage implements OnInit {
             event.preventDefault();
         }
         this.form.domain = this.a.getDomain();
-        this.registerWordpressBackend();
-        return false;
 
+        if (this.a.user.isLogin) { // UPDATE
+            // console.log('GOING TO UPDATE');
+            this.updateWordpressBackend();
+        } else { // REGISTER
+            // console.log('GOING TO REGISTER');
+            this.registerWordpressBackend();
+        }
     }
 
     /**
@@ -183,7 +177,10 @@ export class RegisterPage implements OnInit {
     registerWordpressBackend() {
         this.form.user_login = this.form.user_email;
         this.a.user.register(this.form)
-            .subscribe(re => this.registerFirebase(re), e => this.onRegisterFailure(e));
+            .subscribe(re => {
+                this.registerFirebase(re);
+                this.form.user_pass = null;
+                }, e => this.onRegisterFailure(e));
     }
 
     registerFirebase(res: USER_REGISTER_RESPONSE) {
@@ -214,6 +211,18 @@ export class RegisterPage implements OnInit {
         })
             .catch(e => this.onRegisterFailure(e));
 
+    }
+
+
+    updateWordpressBackend() {
+        delete this.form.kakao_qrmark_string;
+        this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
+            // console.log('updateUserInfo:', res);
+            this.a.toast('UPDATED');
+            this.loadData();
+        }, err => {
+            this.a.toast(err);
+        });
     }
 
 
@@ -275,7 +284,7 @@ export class RegisterPage implements OnInit {
             this.fileUploadQRMark.deleteFile(this.qrmarks[0], () => {
             }, e => this.a.toast(e));
         }
-        if (this.a.user.isLogout) { return; }
+        if (this.a.isLogout) { return; }
         const data: USER_UPDATE = {
             kakao_qrmark_URL: file.url,
             user_email: this.form.user_email
