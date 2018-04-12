@@ -16,18 +16,9 @@ export class AdminHomePage implements OnInit {
     form = <USER_LOGIN>{};
     constructor(
         public router: Router,
-        public fire: FireService,
         public a: AppService
     ) {
 
-
-        /**
-         * @see lms.admin_query() for detail.
-         */
-        this.a.lms.admin_query({ table: 'wp_users', fields: '' })
-            .subscribe(re => {
-                console.log('re: ', re);
-            }, e => this.a.toast(e));
     }
 
     ngOnInit() {

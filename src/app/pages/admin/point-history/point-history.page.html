@@ -1,0 +1,31 @@
+<admin-header-component></admin-header-component>
+<h1>Point history</h1>
+
+<form (ngSubmit)="onSubmit()">
+    Student ID, name, nickname
+    <input type="text" name="uid" [(ngModel)]="uid">
+    <ion-button type="submit">Search</ion-button>
+</form>
+
+
+<table *ngIf=" re.length ">
+    <tr>
+        <td>Action</td>
+        <td>Apply Point</td>
+        <td>Point</td>
+        <td>Teacher</td>
+        <td>Time</td>
+    </tr>
+    <tr *ngFor="let log of re ">
+        <td>{{ log.action | t }}</td>
+        <td>{{ log.apply_point }}</td>
+        <td>
+            <div [class.bg-danger]=" ! log.point_change ">
+                {{ log.after_point }}
+            </div>
+        </td>
+        <td>{{ log.teacher?.display_name }}</td>
+        <td>{{ log.stamp * 1000 | date:'yyyy-MM-dd HH:mm:ss z' }}</td>
+    </tr>
+
+</table>

@@ -6,10 +6,13 @@ import { IonicModule } from '@ionic/angular';
 import { PointRefundPage } from './point-refund/point-refund.page';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { FormsModule } from '@angular/forms';
+import { PointHistoryPage } from './point-history/point-history.page';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 
 const appRoutes: Array<Route> = [
     { path: 'point-refund', pathMatch: 'full', component: PointRefundPage },
+    { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
     { path: '', pathMatch: 'full', component: AdminHomePage }
 ];
 
@@ -17,17 +20,20 @@ const appRoutes: Array<Route> = [
     declarations: [
         AdminHomePage,
         PointRefundPage,
-        AdminHeaderComponent
+        AdminHeaderComponent,
+        PointHistoryPage
     ],
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        RouterModule.forChild( appRoutes )
+        RouterModule.forChild( appRoutes ),
+        TranslatePipeModule
     ],
     entryComponents: [
         AdminHomePage,
-        PointRefundPage
+        PointRefundPage,
+        PointHistoryPage
     ],
     bootstrap: [
         AdminHomePage
