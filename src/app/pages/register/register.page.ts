@@ -165,8 +165,7 @@ export class RegisterPage implements OnInit {
         if (this.a.user.isLogin) { // UPDATE
             // console.log('GOING TO UPDATE');
             this.updateWordpressBackend();
-        }
-        else { // REGISTER
+        } else { // REGISTER
             // console.log('GOING TO REGISTER');
             this.registerWordpressBackend();
         }
