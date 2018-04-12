@@ -2,6 +2,11 @@
 
 ## TODO
 
+* Admin update user profile.
+  * Edit user profile.
+  * Edit user point.
+  * And launch the app as admin page first.
+
 * Point history page.
   * limit option. 100 by defualt.
   * dates selection option.
