@@ -25,7 +25,7 @@
   * Payments
   * Point History
 * Teacher List.
-* Do all the issues first on https://github.com/thruthesky/ontue#issue-sh-boards
+* Do all the [Ontue issues](https://github.com/thruthesky/ontue#issue-sh-boards) first.
 * move installation page to `src/app/sites/katalkenglish/installation`
 * 2 Layout for each domain. one for `desktop`, the other for `mobile`.
 * Save company information into firestore settings documents.

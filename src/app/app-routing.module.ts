@@ -55,6 +55,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'schedule-table',
+    loadChildren: './pages/schedule-table/schedule-table.page.module#ScheduleTablePageModule'
+  },
+
+  {
     path: 'forum',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule'
   },

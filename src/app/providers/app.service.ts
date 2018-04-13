@@ -277,16 +277,105 @@ export class AppService {
         return n < 10 ? '0' + n : n.toString();
     }
 
-    shortName( name: string ) {
+    shortName(name: string) {
         return name.slice(0, 8);
     }
 
-    dateTime( stamp: any ) {
-        stamp = parseInt( stamp, 10 );
-        if ( ! stamp ) {
+    dateTime(stamp: any) {
+        stamp = parseInt(stamp, 10);
+        if (!stamp) {
             return 0;
         }
-        const d = new Date( stamp * 1000 );
+        const d = new Date(stamp * 1000);
         return d.toLocaleString();
     }
+
+
+    /**
+     * Get schedule table(s)
+     * @param options Pass options
+     *  options['teachers'] = [ 123, 456, 789 ]; /// to show three teacher's schedule table.
+     * @param callback callback
+     */
+    loadSchedule(options = {}, callback?) {
+
+
+        const defaults = {
+            teachers: [],
+            days: 15,
+            min_duration: 0,
+            max_duration: 160,
+            navigate: 'today',
+            starting_day: '',
+            display_weekends: 'Y',
+            min_point: 0,
+            max_point: 100000,
+            class_begin_hour: 0,        // Loads schedule btween 00:00 am and 23:59 pm.
+            class_end_hour: 24          // Loads schedule btween 00:00 am and 23:59 pm.
+        };
+
+        options = Object.assign({}, defaults, options);
+
+
+        this.lms.schedule_table_v4(options).subscribe(re => {
+            if (!re) { // something is wrong.
+                callback(re);
+            }
+            if (re && re.schedule) {
+
+                const keys = Object.keys(re.schedule);
+                if (keys.length) {
+                    console.log('re.schedule.length:', keys.length);
+                    for (const idx of keys) {
+                        const s = re.schedule[idx];
+                        // console.log('s: ', s);
+                        const arr = s.split(',');
+                        const newSchedule = {};
+                        newSchedule['t'] = arr[0];
+                        newSchedule['b'] = arr[1];
+                        newSchedule['u'] = arr[2];
+                        newSchedule['p'] = arr[3];
+                        newSchedule['a'] = arr[4];
+                        re.schedule[idx] = newSchedule;
+                    }
+                }
+            }
+            if (re && re.table && re.table.length) {
+                for (let i = 0; i < re.table.length; i++) {
+                    const sessions = <Array<string>>re.table[i];
+                    const newSessions = [];
+                    for (const s of sessions) {
+                        const arr = s.split(',');
+                        // console.log('arr: ', arr);
+                        const session = {};
+                        session['d'] = arr[0];
+                        if (arr[1]) {
+                            session['e'] = arr[1];
+                        } else {
+                            session['e'] = newSessions[0]['e'];
+                        }
+                        session['f'] = arr[2];
+                        session['i'] = arr[3];
+                        session['n'] = arr[4];
+                        session['o'] = arr[5];
+                        session['p'] = arr[6];
+                        session['r'] = arr[7];
+                        session['s'] = arr[8];
+                        session['w'] = arr[9];
+                        newSessions.push(session);
+                    }
+                    re.table[i] = newSessions;
+                }
+            }
+
+            // console.log('new: ', re);
+            callback(re);
+        });
+
+        // this.lms.schedule_table(options).subscribe(re => {
+        //     console.log('old: ', re);
+        //     callback(re);
+        // });
+    }
+
 }

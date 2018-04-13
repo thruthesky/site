@@ -242,6 +242,11 @@ export class XapiLMSService extends Base {
         data['session_id'] = this.user.sessionId;
         return this.x.post(data);
     }
+    schedule_table_v4(data) {
+        data['route'] = 'lms.schedule_table_v4';
+        data['session_id'] = this.user.sessionId;
+        return this.x.post(data);
+    }
 
 
     teacher_list(data) {
