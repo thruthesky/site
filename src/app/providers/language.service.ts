@@ -18,7 +18,7 @@ export class LanguageService {
      */
     loadUserLanguage() {
         const ln = this.getUserLanguage();
-        this.fire.setLanguage( ln ).then(re => console.log('lang: ', re)).catch( e => alert(e.message) );
+        this.fire.setLanguage( ln ).then(re => {}).catch( e => alert(e.message) );
     }
     /**
      * Returns language code like 'ko', 'en', 'jp'.

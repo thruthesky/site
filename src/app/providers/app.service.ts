@@ -5,10 +5,15 @@ import {Base, FireService} from '../modules/firelibrary/core';
 import {XapiService, XapiUserService, XapiFileService, XapiLMSService} from '../modules/xapi/xapi.module';
 
 
+
+/**
+ * Firebase initialization.
+ */
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 import { firestore } from 'firebase';
 import env from '../../environment';
+import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
 firebase.initializeApp(env['firebaseConfig']);
 
 
@@ -346,7 +351,7 @@ export class AppService {
      *  options['teachers'] = [ 123, 456, 789 ]; /// to show three teacher's schedule table.
      * @param callback callback
      */
-    loadSchedule(options = {}, callback?) {
+    loadSchedule(options = {}, callback: (re: SCHEDULE_TABLE) => void ) {
 
 
         const defaults = {

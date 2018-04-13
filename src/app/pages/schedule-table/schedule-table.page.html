@@ -1,1 +1,27 @@
-ScheduleTablePageModule
+<h1>Schedule Table</h1>
+
+
+<div class="schedule-table table" *ngIf="re">
+    <div class="schedule-header tr">
+            <div class="td">
+                PRO
+            </div>
+            <div class="td">
+                Date
+            </div>
+    </div>
+    <div class="schedule-rows tr" *ngFor="let row of re.table; let i = index">
+        <div class="td session-profile">
+
+        </div>
+        <div class="td session-datetime">
+        </div>
+        <div class="td session-wrapper"  *ngFor=" let session of row  ">
+            <div class="session">
+                {{ session[N.date] }}
+                {{ session[N.point] }}
+            </div>
+        </div>
+
+    </div>
+</div>

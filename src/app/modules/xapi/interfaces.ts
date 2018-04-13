@@ -347,3 +347,75 @@ export interface STUDENT_COMMENT_TO_TEACHER {
 export type STUDENT_COMMENTS_TO_TEACHER = Array<STUDENT_COMMENT_TO_TEACHER>;
 
 
+export interface SCHEDULE_TABLE_HEADER {
+    date: string;
+    day: string;
+    display_date: string;
+    user_time_date: string;
+    user_time_day: string;
+}
+
+
+export interface SESSION {
+    d: any;
+    f: any;
+    i: any;
+    e: any;
+    o: any;
+    w: any;
+    p: any;
+    r: any;
+    s: any;
+    n: any;
+}
+
+export interface SCHEDULE {
+    t: any;
+    b: any;
+    u: any;
+    p: any;
+    a: any;
+}
+
+
+
+export interface SCHEDULE_TABLE {
+    header: Array<SCHEDULE_TABLE_HEADER>;
+    no_of_schedules: number;
+    schedule: { [key: number]: SCHEDULE };
+    student: { [key: string]: any };
+    table: Array<Array<{ [key: string]: SESSION }>>;
+    teacher: any;
+    teachers: Array<{
+        [key: number]: {
+            idx: string;
+            name: string;
+            photoURL: string;
+        }
+    }>;
+}
+
+export const N = {
+    'date': 'd',
+    'dayoff': 'f',
+    'idx_reservation': 'i',
+    'idx_schedule': 'e',
+    'open': 'o',              /// 'open' can have one of SESSION_OPEN, SESSION_RESERVED, SESSION_NO_SCHEDULE
+    'owner': 'w',
+    'point': 'p',
+    'prere': 'r',
+    'status': 's',            /// 'status'  can have one of SESSION_FUTURE or SESSION_PAST
+    'student_name': 'n',
+
+    'idx_teacher': 't',
+    'class_begin': 'b',
+    'user_time_class_begin': 'u',
+    'duration': 'a',
+
+    'session_no_schedule': 'N',
+    'session_open': 'O',    /// This 'O' means, the class is open. Not reserved.
+    'session_past': 'P',
+    'session_future': 'F',
+    'session_reserved': 'R'
+};
+
