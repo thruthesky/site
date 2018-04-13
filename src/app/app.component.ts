@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
     // a.setColor('black');
 
     this.openHomePage();
+    // this.a.onetimeInitPushMessage();
   }
 
   ngOnInit() {
