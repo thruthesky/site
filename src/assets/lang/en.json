@@ -21,5 +21,10 @@
     "AUTH/WRONG-PASSWORD": "Password was incorrect, #info",
     "YOU ARE NOT LOGGED IN": "You are not logged in.",
     "Email": "Email",
-    "Version": "Version: #version"
+    "Version": "Version: #version",
+    "LMS.SESSION_RESERVE": "Reservation",
+    "LMS.SESSION_CANCEL": "Cancellation",
+    "ADMIN.PAYMENT": "Payment",
+    "LMS.ADMIN_ACCEPT_REFUND_REQUEST": "Refunded by admin",
+    "LMS.SESSION_REFUND": "Refunded by teacher"
 }

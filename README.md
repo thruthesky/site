@@ -2,6 +2,28 @@
 
 ## TODO
 
+* Admin update user profile.
+  * Edit user profile.
+  * Edit user point.
+  * And launch the app as admin page first.
+
+* Point history page.
+  * limit option. 100 by defualt.
+  * dates selection option.
+  * pagination.
+
+* Branch site.
+  * Think about share:
+    Branch should not add premium on the price of point.
+    This means, admin and teacher will get less.
+    Branch gets minimum of 20% upto 30%.
+    Teacher share decreases from 90% to 70% ( or 60% ).
+  * If teacher gets less than 70%. There will be problem. Teachers will try to steal students.
+
+* Admin complete search and stats. of
+  * Sessions, Schedules
+  * Payments
+  * Point History
 * Teacher List.
 * Do all the issues first on https://github.com/thruthesky/ontue#issue-sh-boards
 * move installation page to `src/app/sites/katalkenglish/installation`

@@ -12,7 +12,7 @@ const env: EnvironmentSchema = {
   name: 'development',
 };
 env['urlBackend'] = 'https://sonub.com:8443';
-
+// env['urlBackend'] = 'https://www.ontue.com';
 env['firebaseConfig'] = {
     apiKey: 'AIzaSyCF9jsyLjQEDi4963DpOYi2wV0j19XSM2Q',
     authDomain: 'ontue-30fb9.firebaseapp.com',
