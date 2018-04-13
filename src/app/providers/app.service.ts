@@ -4,13 +4,11 @@ import {Router} from '@angular/router';
 import {Base, FireService} from '../modules/firelibrary/core';
 import {XapiService, XapiUserService, XapiFileService, XapiLMSService} from '../modules/xapi/xapi.module';
 
-import env from './../../environment';
-
 
 import * as firebase from 'firebase';
-// required for side-effect??? @see https://firebase.google.com/docs/firestore/quickstart?authuser=0
 import 'firebase/firestore';
 import { firestore } from 'firebase';
+import env from '../../environment';
 firebase.initializeApp(env['firebaseConfig']);
 
 

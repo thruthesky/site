@@ -14,11 +14,11 @@ const env: EnvironmentSchema = {
 env['urlBackend'] = 'https://sonub.com:8443';
 // env['urlBackend'] = 'https://www.ontue.com';
 env['firebaseConfig'] = {
-    apiKey: 'AIzaSyCF9jsyLjQEDi4963DpOYi2wV0j19XSM2Q',
-    authDomain: 'ontue-30fb9.firebaseapp.com',
-    databaseURL: 'https://ontue-30fb9.firebaseio.com',
-    projectId: 'ontue-30fb9',
-    storageBucket: '',
-    messagingSenderId: '1068647439857'
+    apiKey: 'AIzaSyBEv8lzyUI6kB8RyxG8xKnzv4WA6KfS6e4',
+    authDomain: 'ontue-client-sites.firebaseapp.com',
+    databaseURL: 'https://ontue-client-sites.firebaseio.com',
+    projectId: 'ontue-client-sites',
+    storageBucket: 'ontue-client-sites.appspot.com',
+    messagingSenderId: '328021421807'
 };
 export default env;
