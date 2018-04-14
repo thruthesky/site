@@ -344,6 +344,13 @@ export class AppService {
         return d.toLocaleString();
     }
 
+    countStar(grade) {
+        grade = parseInt(grade);
+        if (grade >= 5) grade = 5;
+        let re = Array(grade).fill(true);
+        return re;
+    }
+
 
     /**
      * Get schedule table(s)
