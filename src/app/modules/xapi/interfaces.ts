@@ -369,7 +369,7 @@ export interface SESSION {
     n: any;
 }
 
-export interface SCHEDULE {
+export interface SCHEDULE_COMPRESSED {
     t: any;
     b: any;
     u: any;
@@ -378,22 +378,26 @@ export interface SCHEDULE {
 }
 
 
+export interface TEACHER {
+    idx: string;
+    name: string;
+    photoURL: string;
+}
+
+export type TABLE = Array<Array<{ [key: string]: SESSION }>>;
 
 export interface SCHEDULE_TABLE {
     header: Array<SCHEDULE_TABLE_HEADER>;
     no_of_schedules: number;
-    schedule: { [key: number]: SCHEDULE };
+    schedule: { [idx_schedule: string]: SCHEDULE_COMPRESSED };
     student: { [key: string]: any };
-    table: Array<Array<{ [key: string]: SESSION }>>;
+    table: TABLE;
     teacher: any;
-    teachers: Array<{
-        [key: number]: {
-            idx: string;
-            name: string;
-            photoURL: string;
-        }
-    }>;
+    teachers: {
+        [idx: string]: TEACHER
+    };
 }
+
 
 export const N = {
     'date': 'd',

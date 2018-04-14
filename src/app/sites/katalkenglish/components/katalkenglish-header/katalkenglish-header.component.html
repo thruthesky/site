@@ -1,5 +1,4 @@
-
-<p>
+<nav *ngIf=" a.showHeader ">
     <ion-button routerLink="{{ a.homeUrl }}">HOME</ion-button>
     <ion-button routerLink="/help">Help</ion-button>
     <ion-button routerLink="/login" *ngIf="a.isLogout">Login</ion-button>
@@ -12,5 +11,4 @@
     <ion-button>Change Language</ion-button>
     <ion-button routerLink="/teacher-list">Teacher List</ion-button>
     <ion-button routerLink="/schedule-table">All Teacher Schedule</ion-button>
-</p>
-
+</nav>

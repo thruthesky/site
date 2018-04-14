@@ -38,6 +38,10 @@
 
 * Enhance. Language Translation for 4 languages. English, Korean, Japanese, Chinese.
 
+## Documents
+
+* [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)
+
 ## Work Environment
 
 Save these domains in `hosts` for test.

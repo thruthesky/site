@@ -1,8 +1,8 @@
-import {Injectable, NgZone} from '@angular/core';
-import {LanguageService} from './language.service';
-import {Router} from '@angular/router';
-import {Base, FireService} from '../modules/firelibrary/core';
-import {XapiService, XapiUserService, XapiFileService, XapiLMSService} from '../modules/xapi/xapi.module';
+import { Injectable, NgZone } from '@angular/core';
+import { LanguageService } from './language.service';
+import { Router } from '@angular/router';
+import { Base, FireService } from '../modules/firelibrary/core';
+import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
 
 
@@ -21,6 +21,9 @@ export const SITE_KATALKENGLISH = 'katalkenglish';
 export const SITE_ONTUE = 'ontue';
 export const SITE_WITHCENTER = 'withcenter';
 
+export const KEY_SCHEDULES = 'key-schedules';
+
+
 export interface SITE {
     ontue: boolean;
     withcenter: boolean;
@@ -28,11 +31,16 @@ export interface SITE {
 }
 
 const KEY_LMS_INFO = 'lms-info';
-const firestoreLogCollection = 'user-activity-log-2';
+const firestoreLogCollection = 'user-activity-log';
 
 @Injectable()
 export class AppService {
-    color: string = null;
+    // color: string = null;
+
+    /**
+     * If true app should show header. if false, app should hide header.
+     */
+    showHeader = true;
 
     /**
      * It prepares site code on booting. So, it won't be computed again on run time.
@@ -49,6 +57,7 @@ export class AppService {
         withcenter: false
     };
 
+    urlBackend: string;
     /**
      * User's default photo
      */
@@ -81,14 +90,21 @@ export class AppService {
      */
     activity_log = [];
 
+
+    /**
+     * Loader for loading my point.
+     */
+    inLoadingMyPoint = false;
+
+
     constructor(public ngZone: NgZone,
-                public router: Router,
-                public fire: FireService,
-                public language: LanguageService,
-                public xapi: XapiService,
-                public user: XapiUserService,
-                public file: XapiFileService,
-                public lms: XapiLMSService) {
+        public router: Router,
+        public fire: FireService,
+        public language: LanguageService,
+        public xapi: XapiService,
+        public user: XapiUserService,
+        public file: XapiFileService,
+        public lms: XapiLMSService) {
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
 
@@ -96,8 +112,9 @@ export class AppService {
         Base.collectionDomain = 'database';
         this.site[this.getSite()] = true;
 
-        console.log('urlBackend: ', env['urlBackend']);
-        xapi.setServerUrl(env['urlBackend']);
+        this.urlBackend = env['urlBackend'];
+        console.log('urlBackend: ', this.urlBackend);
+        xapi.setServerUrl(this.urlBackend);
 
         this._firebase.db = firebase.firestore();
         this._firebase.messaging = firebase.messaging();
@@ -112,10 +129,10 @@ export class AppService {
         return this.user.isLogout;
     }
 
-    setColor(color) {
-        this.color = color;
-        console.log(`Color has been set to ${this.color}`);
-    }
+    // setColor(color) {
+    //     // this.color = color;
+    //     // console.log(`Color has been set to ${this.color}`);
+    // }
 
     getDomain() {
         return window.location.hostname;
@@ -331,9 +348,36 @@ export class AppService {
         return n < 10 ? '0' + n : n.toString();
     }
 
-    shortName(name: string) {
-        return name.slice(0, 8);
+
+    /**
+     * Return teacher name after sanitizing it.
+     * @param name Teacher name
+     * @param length Number of maximum name length
+     */
+    shortName(name: string, length = 8, def = 'No Name') {
+
+        if (!name) {
+            return def;
+        }
+        if (name.length > length) {
+            name = name.slice(0, length);
+        }
+        return name;
+
     }
+
+    /**
+     * same as shortName. For backward compatibilities.
+     * @param name same as shortName
+     * @param length same as shortName
+     * @param def same as shortName
+     */
+    preTeacherName(name, length = 8, def = 'No Name') {
+        return this.shortName(name, length, def);
+    }
+
+
+
 
     dateTime(stamp: any) {
         stamp = parseInt(stamp, 10);
@@ -344,10 +388,16 @@ export class AppService {
         return d.toLocaleString();
     }
 
+    /**
+     * return number of stars.
+     * @param grade grade
+     */
     countStar(grade) {
-        grade = parseInt(grade);
-        if (grade >= 5) grade = 5;
-        let re = Array(grade).fill(true);
+        grade = parseInt(grade, 10);
+        if (grade >= 5) {
+            grade = 5;
+        }
+        const re = Array(grade).fill(true);
         return re;
     }
 
@@ -358,12 +408,11 @@ export class AppService {
      *  options['teachers'] = [ 123, 456, 789 ]; /// to show three teacher's schedule table.
      * @param callback callback
      */
-    loadSchedule(options = {}, callback: (re: SCHEDULE_TABLE) => void ) {
-
+    loadSchedule(options = {}, callback: (re: SCHEDULE_TABLE) => void) {
 
         const defaults = {
             teachers: [],
-            days: 15,
+            days: 7,
             min_duration: 0,
             max_duration: 160,
             navigate: 'today',
@@ -437,6 +486,9 @@ export class AppService {
         //     console.log('old: ', re);
         //     callback(re);
         // });
+    }
+    deleteScheduleCache() {
+        this.set(KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
     }
 
     /**
@@ -642,7 +694,7 @@ export class AppService {
     onUserLogin() {
         this.updateLMSInfo();
         this.updatePushToken();
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'login'});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'login' });
         // console.log("userLogin::Log::");
     }
 
@@ -651,18 +703,18 @@ export class AppService {
      */
     onUserRegisterPage() {
         this.updatePushToken();
-        this.log({activity: 'open-register'});
+        this.log({ activity: 'open-register' });
     }
 
     onUserRegister() {
         this.updateLMSInfo();
         this.updatePushToken();
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'register'});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'register' });
     }
 
     onUserProfileUpdate() {
         this.updateLMSInfo();
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'update-profile'});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'update-profile' });
     }
 
 
@@ -670,7 +722,7 @@ export class AppService {
         if (!teacher_name) {
             return;
         }
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'reserve', target: teacher_name});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'reserve', target: teacher_name });
     }
 
     /**
@@ -679,26 +731,26 @@ export class AppService {
      * @param teacher_name teacher name of the session
      */
     onLmsCancel(teacher_name = '') {
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'cancel', target: teacher_name});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'cancel', target: teacher_name });
     }
 
     onUserViewProfile(teacher_name) {
         if (!teacher_name) {
             return;
         }
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'view-profile', target: teacher_name});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'view-profile', target: teacher_name });
     }
 
     onBeginPayment() {
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'payment'});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'payment' });
     }
 
     onTeacherEvaluateSession(student_name = '') {
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'evaluate', target: student_name});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'evaluate', target: student_name });
     }
 
     onStudentCommentToTeacher(teacher_name = '') {
-        this.log({idx_user: this.user.id, name: this.user.name, activity: 'comment', target: teacher_name});
+        this.log({ idx_user: this.user.id, name: this.user.name, activity: 'comment', target: teacher_name });
     }
 
 
@@ -729,15 +781,15 @@ export class AppService {
             .orderBy('stamp', 'desc')
             .limit(10)
             .get().then(s => {
-            s.forEach(doc => {
-                const data = doc.data();
-                data['id'] = doc.id;
-                data['date'] = this.serverTime(data['stamp']);
-                this.activity_log.push(data);
+                s.forEach(doc => {
+                    const data = doc.data();
+                    data['id'] = doc.id;
+                    data['date'] = this.serverTime(data['stamp']);
+                    this.activity_log.push(data);
+                });
+            }).catch(error => {
+                console.log('Error getting document:', error);
             });
-        }).catch(error => {
-            console.log('Error getting document:', error);
-        });
 
         db.collection(firestoreLogCollection)
             .orderBy('stamp', 'desc')
@@ -765,5 +817,41 @@ export class AppService {
         return d.toLocaleTimeString();
     }
 
+
+
+
+    /**
+     * Returns `thousands comma` format.
+     *
+     * @todo This method looks like overloading processor.
+     *
+     * @todo consider to user number pipe.
+     * @param n number
+     */
+    number_format(n) {
+        return n.toString().split('').reverse().reduce((t, v, i, a) => {
+            return t += v + (i < a.length - 1 && (i + 1) % 3 === 0 ? ',' : '');
+        }, '').split('').reverse().join('');
+    }
+
+
+    /**
+     * Loads user point.
+     * @note inLoadingMyPoint will be set true on loading.
+     * @param callback callback
+     */
+    loadMyPoint(callback) {
+        this.inLoadingMyPoint = true;
+        this.lms.my_point().subscribe(re => {
+            let point = re['point'];
+            point = this.number_format(point);
+            this.inLoadingMyPoint = false;
+            callback(point);
+            this.render();
+        }, e => {
+            this.inLoadingMyPoint = false;
+            this.toast(e);
+        });
+    }
 
 }

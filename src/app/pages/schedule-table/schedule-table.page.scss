@@ -1,0 +1,62 @@
+.schedule-table {
+    font-size: 10pt;
+    text-align: center;
+    .schedule-header {
+        display: flex;
+    }
+    .schedule-row {
+        display: flex;
+    }
+    .td {
+        padding: 2px;
+        width: 42px;
+        height: 72px;
+        overflow: hidden;
+        ion-icon {
+            font-size: 20pt;
+        }
+    }
+    .profile .photo {
+        width: 32px;
+        height: 38.4px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/**
+ * Icon colors
+ */
+
+[icon-name="lock"] {
+    color: #ccc;
+}
+
+[icon-name="square"] {
+    color: #ddd;
+}
+
+[icon-name="qr-scanner"] {
+    color: #ddd;
+}
+
+[icon-name="radio-button-off"] {
+    color: #88f;
+    cursor: pointer;
+}
+
+[icon-name="checkmark"] {
+    color: rgb(104, 104, 104);
+}
+
+[owner="me"] {
+    color: #d00 !important;
+    cursor: pointer;
+}
+
+[icon-name="heart"] {
+    color: #d00 !important;
+    cursor: pointer;
+}
