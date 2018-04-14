@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { LanguageService } from './language.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
@@ -284,9 +284,19 @@ export class AppService {
         this.rerender(t);
     }
 
-
-    open(url: string) {
-        this.router.navigateByUrl(url);
+    /**
+     * Pass params to a page.
+     * @param url url to move
+     * @param params Params to deliver
+     *
+     * @example this.a.open('payment-result', { result: false, message: '결제를 취소하였습니다. You have cancelled the payment.' });
+     */
+    open(url: string, params?) {
+        const navigationExtras: NavigationExtras = {
+            queryParams: params,
+            fragment: ''
+        };
+        this.router.navigate([url], navigationExtras);
     }
 
     /**
@@ -852,6 +862,37 @@ export class AppService {
             this.inLoadingMyPoint = false;
             this.toast(e);
         });
+    }
+
+
+    intval(n) {
+        try {
+            return parseInt(n, 10);
+        } catch (e) {
+            return 0;
+        }
+    }
+
+    floatval(n) {
+        try {
+            return parseFloat(n);
+        } catch (e) {
+            return 0;
+        }
+    }
+
+    /**
+     * IE 버전을 리턴한다.
+     * 숫자로 8,9,10,11, 12, 13 을 리턴한다.
+     * IE 가 아니면 거짓을 리턴한다.
+     * 예를 들어 Edge 나 Chrome 은 false 를 리턴한다.
+     */
+    detectIE() {
+        return window['detect_ie_version']();
+    }
+
+    onClickContactAdmin() {
+        //
     }
 
 }

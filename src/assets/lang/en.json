@@ -41,5 +41,7 @@
     "WEDNESDAY": "Wed",
     "THURSDAY": "Thu",
     "FRIDAY": "Fri",
-    "SATURDAY": "Sat"
+    "SATURDAY": "Sat",
+    "PAYMENT SUCCESS": "Payment Success",
+    "YOUR POINT IS": "Your point is #point."
 }

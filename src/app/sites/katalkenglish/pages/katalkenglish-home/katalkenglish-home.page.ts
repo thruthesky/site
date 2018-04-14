@@ -4,7 +4,7 @@ import { FireService } from '../../../../modules/firelibrary/core';
 
 
 @Component({
-  selector: 'app-page-katalkenglish-home',
+  selector: 'katalkenglish-home-page',
   templateUrl: 'katalkenglish-home.page.html',
   styleUrls: ['katalkenglish-home.page.scss'],
 })

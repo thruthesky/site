@@ -38,6 +38,10 @@
 
 * Enhance. Language Translation for 4 languages. English, Korean, Japanese, Chinese.
 
+* SEO. Need SSR to properly translate text.
+  * index.html
+  * manifest.json
+
 ## Documents
 
 * [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)

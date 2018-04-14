@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 
 @Component({
-  selector: 'app-page-katalkenglish-help',
+  selector: 'katalkenglish-help-page',
   templateUrl: 'katalkenglish-help.page.html',
   styleUrls: ['katalkenglish-help.page.scss'],
 })

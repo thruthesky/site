@@ -1,0 +1,14 @@
+{
+  "name": "카톡영어",
+  "short_name": "카톡영어",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/img/katalkenglish.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#4e8ef7",
+  "theme_color": "#4e8ef7",
+  "gcm_sender_id": "103953800507"
+}

@@ -14,6 +14,14 @@ const routes: Routes = [
     path: 'install',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-install/katalkenglish-install.page.module#KatalkEnglishInstallPageModule'
   },
+  {
+    path: 'payment',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-payment/katalkenglish-payment.page.module#KatalkEnglishPaymentPageModule'
+  },
+  {
+    path: 'payment-result',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-result/katalkenglish-payment-result.page.module#KatalkEnglishPaymentResultPageModule'
+  },
 
 
   /**
