@@ -1,25 +1,32 @@
 <h1>Schedule Table</h1>
 
 
-<div class="schedule-table table" *ngIf="re">
-    <div class="schedule-header tr">
-            <div class="td">
-                PRO
+<div class="table schedule-table" *ngIf="re">
+    <div class="tr schedule-header">
+        <div class="td" *ngIf=" isAllTeacher ">
+            {{ 'TEACHER' | t }}
+        </div>
+        <div class="td">
+            <div class="time">{{ 'TIME' | t }}</div>
+            <div class="minute">{{ 'MINUTE' | t }}</div>
+        </div>
+        <div class="td datetime d-flex-column justify-content-center align-items-center text-center" *ngFor="let header of re.header">
+            <div class="d-flex-column justify-content-center align-items-center text-center" (click)="onClickNavigate( header.date )">
+                <!--{{ header | json }}-->
+                <span>{{ header.display_date }}</span>
+                <span class="d-inline-block"> {{ header.user_time_day | t }}</span>
             </div>
-            <div class="td">
-                Date
-            </div>
+        </div>
     </div>
-    <div class="schedule-rows tr" *ngFor="let row of re.table; let i = index">
-        <div class="td session-profile">
+    <div class="tr schedule-row" *ngFor="let row of re.table; let i = index">
+        <div class="td profile">
 
         </div>
-        <div class="td session-datetime">
+        <div class="td datetime">
         </div>
-        <div class="td session-wrapper"  *ngFor=" let session of row  ">
+        <div class="td session" *ngFor=" let session of row  ">
             <div class="session">
-                {{ session[N.date] }}
-                {{ session[N.point] }}
+                {{ session[N.date] }} {{ session[N.point] }}
             </div>
         </div>
 

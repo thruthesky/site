@@ -64,5 +64,13 @@ export class ScheduleTablePage implements OnInit {
     get isSingleTeacher() {
         return !!this.params['idx_teacher'];
     }
+    get isAllTeacher() {
+        return !this.isSingleTeacher;
+    }
+
+    onClickNavigate(navigate) {
+        this.loadScheduleaAndDisplay({ navigate: navigate });
+    }
+
 }
 
