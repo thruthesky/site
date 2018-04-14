@@ -2,6 +2,10 @@
 
 ## TODO
 
+* Paypal payment test on real server.
+
+* Once student is logged in, chage the domain from `*.katalkenglish.com` to `www.katalkenglish.com`
+
 * Admin update user profile.
   * Edit user profile.
   * Edit user point.
