@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
 })
 export class MaterialModule { }

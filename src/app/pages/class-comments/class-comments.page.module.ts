@@ -27,5 +27,5 @@ const routes: Routes = [
   bootstrap: [ClassComponentsPage],
   schemas: []
 })
-export class ClassComponentsPageModule { }
+export class ClassCommentsPageModule { }
 

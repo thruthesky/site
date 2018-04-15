@@ -55,5 +55,6 @@
     "TEACHER_LIST": "Teacher List",
     "ALL_SCHEDULE": "All Schedule",
     "PAYMENT": "Payment",
-    "PAYMENT_HISTORY": "Payment History"
+    "PAYMENT_HISTORY": "Payment History",
+    "CLOSE": "Close"
 }

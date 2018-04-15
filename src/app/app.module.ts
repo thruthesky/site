@@ -15,6 +15,7 @@ import {
 import { LanguageService } from './providers/language.service';
 import { XapiModule, XapiService, XapiUserService, XapiLMSService, XapiFileService } from './modules/xapi/xapi.module';
 import { TranslatePipeModule } from './modules/firelibrary/pipes/translate/translate.pipe.module';
+import { KatalkEnglishFooterComponentModule } from './sites/katalkenglish/components/katalkenglish-footer/katalkenglish-footer.component.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { TranslatePipeModule } from './modules/firelibrary/pipes/translate/trans
     FirelibraryModule.forRoot({ functions: true }),
     OntueHeaderComponentModule,
     KatalkEnglishHeaderComponentModule,
+    KatalkEnglishFooterComponentModule,
     XapiModule,
     TranslatePipeModule
   ],

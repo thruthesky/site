@@ -16,11 +16,11 @@ export class KatalkEnglishPaymentHistoryPage {
     ) {
 
         this.a.lms.get_payment_history().subscribe( res => {
-            console.log("get_payment_history", res['payments']);
+            console.log(`get_payment_history`, res['payments']);
             this.payments = res['payments'];
             // if ( this.payments[0] ) this.onClickPrintPreview(this.payments[0]);
           }, e => {
-            this.a.alert(e);
+            this.a.toast(e);
           });
     }
 }

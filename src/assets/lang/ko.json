@@ -13,5 +13,6 @@
     "TEACHER_LIST": "강사 목록",
     "ALL_SCHEDULE": "전체 시간표",
     "PAYMENT": "수업료 결제",
-    "PAYMENT_HISTORY": "결제 내역"
+    "PAYMENT_HISTORY": "결제 내역",
+    "CLOSE": "닫기"
 }

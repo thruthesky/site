@@ -11,5 +11,6 @@
     "TEACHER_LIST": "教师名单",
     "ALL_SCHEDULE": "所有时间表",
     "PAYMENT": "学费",
-    "PAYMENT_HISTORY": "支付历史"
+    "PAYMENT_HISTORY": "支付历史",
+    "CLOSE": "关"
 }

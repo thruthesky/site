@@ -6,6 +6,8 @@
   * Ask Mr. Han for chinese translation.
   * Ask Humie for japanese trnaslation.
 * Complete class comments.
+  * comment create
+  * comment pagination.
 * Show menu of class comments on teacher page.
 
 * Use Ivy renderer.
