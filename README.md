@@ -2,6 +2,22 @@
 
 ## TODO
 
+* add katalk menu page
+* student rgister success(welcome) page after registration page so, student will be oriented and redirected to level test page.
+* add student advertisement page.
+* add share curriculumn page for both student and teacher. so, teacher's can also read and follow.
+* add teacher menu page.
+* add my point page
+* add password change page
+* add available schedule page.
+* add teacher schedule create/edit/list
+* add session future, past page.
+* add settings page.
+* add teacher's payment information page.
+* add teacher's curriculmn vitae page.
+* add teacher's dashboard. ( menu )
+* add teacher's dayoff page.
+
 * Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
   * Ask Mr. Han for chinese translation.
   * Ask Humie for japanese trnaslation.

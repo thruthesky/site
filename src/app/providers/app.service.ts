@@ -371,7 +371,7 @@ export class AppService {
             o = {
                 message: this.fire.ln[title] + ' ' + this.fire.ln[message]
             };
-        } else if ( o.message === void 0 ) {
+        } else if (o.message === void 0) {
             o['message'] = 'No message';
         }
         const defaults = {
@@ -992,4 +992,21 @@ export class AppService {
         return dt;
     }
 
+
+    /**
+     * Returns true if the user is using IE or Edge.
+     */
+    isIeEdge() {
+        return !!window['ie_version'];
+    }
+    warningIeEdge() {
+        if (this.isIeEdge()) {
+            setTimeout(() => {
+                this.toast({
+                    message: this.fire.ln.IE_EDGE_WARNING,
+                    panelClass: 'ie-version'
+                });
+            }, 500);
+        }
+    }
 }
