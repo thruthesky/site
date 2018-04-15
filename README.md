@@ -2,6 +2,11 @@
 
 ## TODO
 
+* Use Ivy renderer.
+
+* Make the app main file size less than 250K gzipped.
+  * if needed, remove ionic component, angular material from header, and front page.
+
 * Use Angular Material.
   * Do not use Ionic Component.
 

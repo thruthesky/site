@@ -22,11 +22,14 @@ export class LanguageService {
     /**
      * Loads user language.
      */
-    loadUserLanguage() {
+    loadUserLanguage( callback? ) {
         const ln = this.getUserLanguage();
         this.fire.setLanguage( ln, '/assets/lang/' + ln + '.json?reloadTag=' + env['reloadTag'] )
             .then(re => {
                 /// re draw?
+                if ( callback ) {
+                    callback();
+                }
             }).
             catch( e => alert(e.message) );
     }
@@ -59,9 +62,9 @@ export class LanguageService {
      * @example how to change into another language.
      *              a.language.setUserLanguage('en');
      */
-    setUserLanguage( ln ) {
+    setUserLanguage( ln, callback? ) {
         _.set( LANGUAGE_CODE, ln );
-        this.loadUserLanguage();
+        this.loadUserLanguage( callback );
     }
 
 }
