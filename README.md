@@ -2,9 +2,15 @@
 
 ## TODO
 
+* Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
+  * Ask Mr. Han for chinese translation.
+  * Ask Humie for japanese trnaslation.
+* Complete class comments.
+* Show menu of class comments on teacher page.
+
 * Use Ivy renderer.
 
-* Make the app main file size less than 250K gzipped.
+* Make the app `main.xxx...xxx.js` with `bundling` file size less than 1.5MB ( 400 gzipped ).
   * if needed, remove ionic component, angular material from header, and front page.
 
 * Use Angular Material.
@@ -233,9 +239,12 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 
 ## Langage Translate
 
-* It uses `FireLibrary` Language Transation. It has `language.service.ts` and `translate.pipe.ts` for easy to use.
+* It uses `FireLibrary` Language Transation for multi-language support.
+  It has `language.service.ts` for encapsulating `FireLibrary`.
 
-How to use pipe)
+* When you are refering, `fire.ln.[CODE]`, do not encapsulate it in any method to make it easy or shortter, since when template changes, it may call the encapsulation all the time.
+
+* How to use pipe
 
 language JSON file.
 

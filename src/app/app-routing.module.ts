@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'payment-result',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-result/katalkenglish-payment-result.page.module#KatalkEnglishPaymentResultPageModule'
   },
+  {
+    path: 'payment-history',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-history/katalkenglish-payment-history.page.module#KatalkEnglishPaymentHistoryPageModule'
+  },
 
 
   /**
@@ -46,6 +50,11 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: './pages/register/register.page.module#RegisterPageModule'
+  },
+
+  {
+    path: 'class-comments',
+    loadChildren: './pages/class-comments/class-comments.page.module#ClassCommentsPageModule'
   },
 
   {

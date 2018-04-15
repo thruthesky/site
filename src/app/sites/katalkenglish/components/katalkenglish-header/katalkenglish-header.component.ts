@@ -13,7 +13,7 @@ export class KatalkEnglishHeaderComponent {
   selectedLanguage = '';
   constructor(
     public a: AppService,
-    public fire: FireService,
+    public f: FireService,
     public user: XapiUserService
   ) {
     // console.log(`HeaderComponent:constructor()`);
@@ -22,7 +22,7 @@ export class KatalkEnglishHeaderComponent {
     this.selectedLanguage = this.a.language.getUserLanguage();
   }
   onClickLogout() {
-    this.fire.user.logout().then( () => {
+    this.a.fire.user.logout().then( () => {
       this.user.logout();
     });
     this.a.openHome();

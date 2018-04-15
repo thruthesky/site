@@ -1,19 +1,18 @@
 <nav *ngIf=" a.showHeader ">
-    <button class="home" mat-button routerLink="{{ a.homeUrl }}">HOME</button>
-    <button mat-button routerLink="/help">{{ a.fire.t('help') }}</button>
-    <button mat-button routerLink="/login" *ngIf="a.isLogout">Login</button>
-    <button mat-button (click)=" onClickLogout() " *ngIf="a.isLogin">Log out</button>
-    <button mat-button routerLink="/register" *ngIf="a.isLogout">Register</button>
-    <button mat-button routerLink="/profile" *ngIf="a.isLogin">Update Profile</button>
+    <button class="home" mat-button routerLink="{{ a.homeUrl }}">{{ f.ln.HOME }}</button>
+    <button mat-button routerLink="/help">{{ f.ln.HELP }}</button>
+    <button mat-button routerLink="/login" *ngIf="a.isLogout">{{ f.ln.LOGIN }}</button>
+    <button mat-button (click)=" onClickLogout() " *ngIf="a.isLogin">{{ f.ln.LOGOUT }}</button>
+    <button mat-button routerLink="/register" *ngIf="a.isLogout">{{ f.ln.REGISTER }}</button>
+    <button mat-button routerLink="/profile" *ngIf="a.isLogin">{{ f.ln.UPDATE_PROFILE }}</button>
     <button mat-button routerLink="/install">Install</button>
-    <button mat-button routerLink="/forum">Forum</button>
+    <button mat-button routerLink="/forum">{{ f.ln.FORUM }}</button>
     <button mat-button routerLink="/category">Category</button>
-    <button mat-button routerLink="/teacher-list">Teacher List</button>
-    <button mat-button routerLink="/schedule-table">All Teacher Schedule</button>
-    <button mat-button routerLink="/payment">Payment</button>
-
-    <button mat-button routerLink="/payment-history">Payment History</button>
-
+    <button mat-button routerLink="/class-comments">{{ f.ln.CLASS_COMMENTS }}</button>
+    <button mat-button routerLink="/teacher-list">{{ f.ln.TEACHER_LIST }}</button>
+    <button mat-button routerLink="/schedule-table">{{ f.ln.ALL_SCHEDULE }}</button>
+    <button mat-button routerLink="/payment">{{ f.ln.PAYMENT }}</button>
+    <button mat-button routerLink="/payment-history">{{ f.ln.PAYMENT_HISTORY }}</button>
     <mat-form-field>
         <mat-select [(value)]="selectedLanguage" (selectionChange)=" onChangeLanguage() " placeholder="Select Your Language">
             <mat-option>None</mat-option>
@@ -23,7 +22,6 @@
             <mat-option value="jp">Japanese</mat-option>
         </mat-select>
     </mat-form-field>
-
-    <p>You selected: {{selectedLanguage}}</p>
 </nav>
+
 

@@ -121,6 +121,17 @@ export class AppService {
         // this.language.setUserLanguage();
     }
 
+
+    /**
+     * Short for `fire.t()`
+     * @param code code
+     * @param info info
+     */
+    t(code, info?) {
+        return this.fire.t(code, info);
+    }
+
+
     get isLogin() {
         return this.user.isLogin;
     }
@@ -893,6 +904,28 @@ export class AppService {
 
     onClickContactAdmin() {
         //
+    }
+
+
+
+    /**
+     * Display short date
+     * @param stamp unix timestamp
+     */
+    shortDate(stamp) {
+
+        const d = new Date(stamp * 1000);
+        const today = new Date();
+
+        let dt;
+        if (d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()) {
+            dt = d.toLocaleString();
+            dt = dt.substring(dt.indexOf(',') + 2).toLowerCase();
+            dt = dt.replace(/\:\d\d /, ' ');
+        } else {
+            dt = d.getFullYear().toString().substr(2, 2) + '-' + d.getMonth() + '-' + d.getDate();
+        }
+        return dt;
     }
 
 }

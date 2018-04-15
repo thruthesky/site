@@ -1,5 +1,4 @@
 {
-    "HOME": "Home",
     "UNKNOWN-ERROR": "Unkown error. #info",
     "FIREBASE-API-ERROR": "Firebase API error. #info",
     "NO-DOCUMENT-ID": "No document ID: #documentID",
@@ -44,5 +43,17 @@
     "SATURDAY": "Sat",
     "PAYMENT SUCCESS": "Payment Success",
     "YOUR POINT IS": "Your point is #point.",
-    "Help": "Help"
+
+    "HOME": "Home",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "update_profile": "Update Profile",
+    "register": "Register",
+    "FORUM": "Forum",
+    "Help": "Help",
+    "CLASS_COMMENTS": "Student Comments",
+    "TEACHER_LIST": "Teacher List",
+    "ALL_SCHEDULE": "All Schedule",
+    "PAYMENT": "Payment",
+    "PAYMENT_HISTORY": "Payment History"
 }

@@ -1,4 +1,15 @@
 {
+    "HOME": "家",
+    "LOGIN": "登录",
+    "LOGOUT": "登出",
+    "update_profile": "轮廓",
+    "register": "寄存器",
+    "FORUM": "座谈会",
     "Email": "电子邮件",
-    "HELP": "帮帮我"
+    "HELP": "帮帮我",
+    "CLASS_COMMENTS": "类评论",
+    "TEACHER_LIST": "教师名单",
+    "ALL_SCHEDULE": "所有时间表",
+    "PAYMENT": "学费",
+    "PAYMENT_HISTORY": "支付历史"
 }
