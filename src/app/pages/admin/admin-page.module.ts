@@ -7,7 +7,7 @@ import { PointRefundPage } from './point-refund/point-refund.page';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { FormsModule } from '@angular/forms';
 import { PointHistoryPage } from './point-history/point-history.page';
-import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 
 
 const appRoutes: Array<Route> = [

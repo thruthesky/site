@@ -1,15 +1,28 @@
 <nav *ngIf=" a.showHeader ">
-    <ion-button routerLink="{{ a.homeUrl }}">HOME</ion-button>
-    <ion-button routerLink="/help">Help</ion-button>
-    <ion-button routerLink="/login" *ngIf="a.isLogout">Login</ion-button>
-    <ion-button (click)=" onClickLogout() " *ngIf="a.isLogin">Log out</ion-button>
-    <ion-button routerLink="/register" *ngIf="a.isLogout">Register</ion-button>
-    <ion-button routerLink="/profile" *ngIf="a.isLogin">Update Profile</ion-button>
-    <ion-button routerLink="/install">Install</ion-button>
-    <ion-button routerLink="/forum">Forum</ion-button>
-    <ion-button routerLink="/category">Category</ion-button>
-    <ion-button>Change Language</ion-button>
-    <ion-button routerLink="/teacher-list">Teacher List</ion-button>
-    <ion-button routerLink="/schedule-table">All Teacher Schedule</ion-button>
-    <ion-button routerLink="/payment">Payment</ion-button>
+    <button class="home" mat-button routerLink="{{ a.homeUrl }}">HOME</button>
+    <button mat-button routerLink="/help">{{ a.fire.t('help') }}</button>
+    <button mat-button routerLink="/login" *ngIf="a.isLogout">Login</button>
+    <button mat-button (click)=" onClickLogout() " *ngIf="a.isLogin">Log out</button>
+    <button mat-button routerLink="/register" *ngIf="a.isLogout">Register</button>
+    <button mat-button routerLink="/profile" *ngIf="a.isLogin">Update Profile</button>
+    <button mat-button routerLink="/install">Install</button>
+    <button mat-button routerLink="/forum">Forum</button>
+    <button mat-button routerLink="/category">Category</button>
+    <button mat-button routerLink="/teacher-list">Teacher List</button>
+    <button mat-button routerLink="/schedule-table">All Teacher Schedule</button>
+    <button mat-button routerLink="/payment">Payment</button>
+
+
+    <mat-form-field>
+        <mat-select [(value)]="selectedLanguage" (selectionChange)=" onChangeLanguage() " placeholder="Select Your Language">
+            <mat-option>None</mat-option>
+            <mat-option value="en">English</mat-option>
+            <mat-option value="ko">Korean</mat-option>
+            <mat-option value="ch">Chinese</mat-option>
+            <mat-option value="jp">Japanese</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <p>You selected: {{selectedLanguage}}</p>
 </nav>
+

@@ -14,7 +14,7 @@ import {
 
 import { LanguageService } from './providers/language.service';
 import { XapiModule, XapiService, XapiUserService, XapiLMSService, XapiFileService } from './modules/xapi/xapi.module';
-import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
+import { TranslatePipeModule } from './modules/firelibrary/pipes/translate/translate.pipe.module';
 
 
 @NgModule({

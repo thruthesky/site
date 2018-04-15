@@ -2,5 +2,6 @@
     "Version": "버전: #version",
     "Email": "이메일",
     "PAYMENT SUCCESS": "축하합니다. 결제 성공하였습니다.",
-    "YOUR POINT IS": "회원님의 포인트는 #point 입니다."
+    "YOUR POINT IS": "회원님의 포인트는 #point 입니다.",
+    "HELP": "도움말"
 }

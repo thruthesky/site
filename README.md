@@ -2,6 +2,9 @@
 
 ## TODO
 
+* Use Angular Material.
+  * Do not use Ionic Component.
+
 * Paypal payment test on real server.
 
 * Once student is logged in, chage the domain from `*.katalkenglish.com` to `www.katalkenglish.com`
