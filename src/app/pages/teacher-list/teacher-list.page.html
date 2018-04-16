@@ -1,9 +1,7 @@
 <section class="teacher-list">
     <section class="page-header">
         <div *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST PAGE TITLE' | t }}</div>
-        <h2 *ngIf=" mode != 'leveltest' ">
-            {{ "SELECT TEACHER TO RESERVE" | t }}
-        </h2>
+        <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT TEACHER TO RESERVE" | t }}</h2>
         <button (click)=" display_options = !display_options " *ngIf=" ! display_options ">
             {{ 'OPTIONS' | t }}
             <ion-icon name="options"></ion-icon>
