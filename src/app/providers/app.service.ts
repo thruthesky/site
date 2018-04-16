@@ -14,6 +14,8 @@ import 'firebase/firestore';
 import { firestore } from 'firebase';
 import env from '../../environment';
 import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
+import { MatSnackBar } from '@angular/material';
+import { HttpErrorResponse } from '@angular/common/http';
 firebase.initializeApp(env['firebaseConfig']);
 
 
@@ -100,6 +102,7 @@ export class AppService {
     constructor(public ngZone: NgZone,
         public router: Router,
         public fire: FireService,
+        public snackBar: MatSnackBar,
         public language: LanguageService,
         public xapi: XapiService,
         public user: XapiUserService,
@@ -120,6 +123,17 @@ export class AppService {
         this._firebase.messaging = firebase.messaging();
         // this.language.setUserLanguage();
     }
+
+
+    /**
+     * Short for `fire.t()`
+     * @param code code
+     * @param info info
+     */
+    t(code, info?) {
+        return this.fire.t(code, info);
+    }
+
 
     get isLogin() {
         return this.user.isLogin;
@@ -311,12 +325,73 @@ export class AppService {
     }
 
 
-    toast(msg) {
-        if (msg.message) {
-            alert(msg.message);
-        } else {
-            alert(msg);
+    /**
+     * Display a toast/snack bar at the bottom of the page.
+     *
+     * It closes the 'loader' box. normally, 'loader' will be opened for http request.
+     *
+     * @param o option to display a toast
+     *
+     *      It can be
+     *          - a string.
+     *          - an Error object of Javascripit 'Error' class
+     *          - an object of { title: '...', message: '...' }
+     *
+     * @code
+     *      x.subscribe(re => re, e => this.a.toast( e )
+     *
+            a.toast('Hello, Alert !');
+            a.toast( { title: 'title', message: 'message' );
+            a.toast( new Error('This is an error alert') );
+
+     * @endcode
+     */
+    toast(o) {
+        if (!o) {
+            o = { message: 'No toast message' };
+        } else if (typeof o === 'string') { // Mostly a message to user
+            o = { message: o };
+        } else if (o instanceof Error) { // Mostly an error from backend.
+            o = {
+                message: this.xapi.getError(o).message,
+                panelClass: 'error' + this.xapi.getError(o).code
+            };
+        } else if (o instanceof HttpErrorResponse) { // backend wordpress response error. status may be 200.
+            /**
+             * @todo This error happens rarely. @see https://github.com/thruthesky/ontue/issues/192
+             * @todo try to produce php error and display error log on console.
+             * @todo Sometimes, somehow, the error disappears and cannot be reproduced.
+             */
+            const HER = o;
+            const title = 'HTTP_ERROR';
+            let message = 'HTTP_ERROR_DESC';
+            if (HER.status === 200) {
+                message = 'PHP_ERROR_DESC';
+            }
+            o = {
+                message: this.fire.ln[title] + ' ' + this.fire.ln[message]
+            };
+        } else if ( o.message === void 0 ) {
+            o['message'] = 'No message';
         }
+        const defaults = {
+            duration: 8000,
+            action: this.fire.ln['CLOSE'],
+            panelClass: 'toast'
+        };
+        o = Object.assign(defaults, o);
+        console.log('o:', o);
+        const snackBarRef = this.snackBar.open(o.message, o.action, {
+            duration: o.duration,
+            panelClass: o.panelClass
+        });
+
+
+        // if (msg.message) {
+        //     alert(msg.message);
+        // } else {
+        //     alert(msg);
+        // }
     }
 
     /**
@@ -893,6 +968,28 @@ export class AppService {
 
     onClickContactAdmin() {
         //
+    }
+
+
+
+    /**
+     * Display short date
+     * @param stamp unix timestamp
+     */
+    shortDate(stamp) {
+
+        const d = new Date(stamp * 1000);
+        const today = new Date();
+
+        let dt;
+        if (d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()) {
+            dt = d.toLocaleString();
+            dt = dt.substring(dt.indexOf(',') + 2).toLowerCase();
+            dt = dt.replace(/\:\d\d /, ' ');
+        } else {
+            dt = d.getFullYear().toString().substr(2, 2) + '-' + d.getMonth() + '-' + d.getDate();
+        }
+        return dt;
     }
 
 }

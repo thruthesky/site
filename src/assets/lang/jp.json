@@ -1,4 +1,16 @@
 {
+    "HOME": "ホーム",
+    "LOGIN": "ログイン",
+    "LOGOUT": "ログアウト",
+    "update_profile": "プロフィール",
+    "register": "登録",
+    "FORUM": "フォーラム",
     "Email": "メール",
-    "HELP": "助けて"
+    "HELP": "助けて",
+    "CLASS_COMMENTS": "授業後期",
+    "TEACHER_LIST": "教師リスト",
+    "ALL_SCHEDULE": "すべてのスケジュール",
+    "PAYMENT": "授業料",
+    "PAYMENT_HISTORY": "支払歴",
+    "CLOSE": "閉じる"
 }

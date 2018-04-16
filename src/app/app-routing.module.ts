@@ -8,7 +8,8 @@ const routes: Routes = [
   },
   {
     path: 'help',
-    loadChildren: './sites/katalkenglish/pages/katalkenglish-help/katalkenglish-help.page.module#KatalkEnglishHelpPageModule'
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-help/katalkenglish-help.page.module#KatalkEnglishHelpPageModule',
+    runGuardsAndResolvers: 'always'
   },
   {
     path: 'install',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'payment-result',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-result/katalkenglish-payment-result.page.module#KatalkEnglishPaymentResultPageModule'
+  },
+  {
+    path: 'payment-history',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-history/katalkenglish-payment-history.page.module#KatalkEnglishPaymentHistoryPageModule'
   },
 
 
@@ -45,6 +50,11 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: './pages/register/register.page.module#RegisterPageModule'
+  },
+
+  {
+    path: 'class-comments',
+    loadChildren: './pages/class-comments/class-comments.page.module#ClassCommentsPageModule'
   },
 
   {
@@ -93,7 +103,9 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
