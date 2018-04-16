@@ -5,6 +5,7 @@ import {
     USER_REGISTER, USER_REGISTER_RESPONSE, USER_DATA_RESPONSE, FILES, USER_UPDATE, USER_UPDATE_RESPONSE, FILE
 } from '../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
+import { LoaderService } from '../../providers/loader/loader.service';
 
 @Component({
     selector: 'app-component-register',
@@ -45,10 +46,14 @@ export class RegisterPage implements OnInit {
 
     constructor(
         public a: AppService,
-        public f: FireService
+        public f: FireService,
+        public loader: LoaderService
     ) {
 
-        // setTimeout(() => this.test(), 1000);
+        loader.openLoader({title: 'Registering', content: 'Please wait while registering...'});
+        setTimeout(() => loader.closeLoader(), 5000);
+
+        setTimeout(() => this.test(), 1000);
 
         // a.onUserRegisterPage();
         this.setTimezone();
@@ -57,20 +62,20 @@ export class RegisterPage implements OnInit {
         }
     }
 
-    // test() {
-    //     // this.testRegister();
-    // }
-    //
-    // testRegister() {
-    //     const id = this.a.randomString('user');
-    //     this.form.user_email = id + '@gmail.com';
-    //     this.form.user_login = this.form.user_email;
-    //     this.form.user_pass = id;
-    //     this.form.display_name = id;
-    //     this.form.kakaotalk_id = id;
-    //     this.form.domain = this.a.getDomain();
-    //     this.registerWordpressBackend();
-    // }
+    test() {
+        // this.testRegister();
+    }
+
+    testRegister() {
+        const id = this.a.randomString('user');
+        this.form.user_email = id + '@gmail.com';
+        this.form.user_login = this.form.user_email;
+        this.form.user_pass = id;
+        this.form.display_name = id;
+        this.form.kakaotalk_id = id;
+        this.form.domain = this.a.getDomain();
+        this.registerWordpressBackend();
+    }
 
     ngOnInit() {
         // this.form.email = 'test' + (new Date).getTime() + '@user.com';
@@ -223,6 +228,9 @@ export class RegisterPage implements OnInit {
 
     /**
      * Register into WordPress backend first before register into Firebase.
+     * The validation has done already before this method.
+     *
+     * This is being invoked only for un-registered users.
      */
     registerWordpressBackend() {
         this.form.user_login = this.form.user_email;
@@ -235,7 +243,7 @@ export class RegisterPage implements OnInit {
                 this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {      // set timezone.
                     this.registerFirebase(re, () => {           // register into firebase.
                         // for student, go to welcome page.
-                        if ( this.a.site.katalkenglish ) {
+                        if (this.a.site.katalkenglish) {
                             this.a.open('/welcome');
                         }
                     });

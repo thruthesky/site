@@ -9,6 +9,7 @@ import { RegisterPage } from './register.page';
 
 import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload/xapi-file-upload.component.module';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { LoaderSerivceModule } from '../../providers/loader/loader.service.module';
 
 
 
@@ -22,7 +23,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     TranslatePipeModule,
-    XapiFileUploadComponentModule
+    XapiFileUploadComponentModule,
+    LoaderSerivceModule
   ],
   exports: [
     RouterModule

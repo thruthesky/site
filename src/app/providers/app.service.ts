@@ -14,6 +14,10 @@ import 'firebase/firestore';
 import { firestore } from 'firebase';
 import env from '../../environment';
 import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
+/**
+ * Material SnackBar is included in AppService since it is being used everywhere.
+ * It should be used in even app.component or home component page of each site.
+ */
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
 firebase.initializeApp(env['firebaseConfig']);
