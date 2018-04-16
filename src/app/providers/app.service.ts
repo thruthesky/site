@@ -52,6 +52,7 @@ export class AppService {
      * This will not recompute anything and it's good to use in template.
      * @code
      *      <section id="ontue" *ngIf=" a.site.ontue ">
+     *      if ( this.a.site.katalkenglish ) { ... }
      */
     site: SITE = {
         ontue: false,
@@ -362,15 +363,13 @@ export class AppService {
              * @todo try to produce php error and display error log on console.
              * @todo Sometimes, somehow, the error disappears and cannot be reproduced.
              */
-            const HER = o;
-            const title = 'HTTP_ERROR';
-            let message = 'HTTP_ERROR_DESC';
-            if (HER.status === 200) {
-                message = 'PHP_ERROR_DESC';
+            if ( o.status === 0 ) {
+                o = { message: this.fire.ln.NO_INTERNET };
+            } else if (o.status === 200) {
+                o = { message: this.fire.ln.PHP_ERROR };
+            } else {
+                o = { message: o.message };
             }
-            o = {
-                message: this.fire.ln[title] + ' ' + this.fire.ln[message]
-            };
         } else if (o.message === void 0) {
             o['message'] = 'No message';
         }
