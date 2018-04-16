@@ -10,9 +10,11 @@ import { FireService } from '../../../../modules/firelibrary/core';
 })
 export class KatalkEnglishHomePage {
   constructor(
-    public a: AppService,
-    public fire: FireService
+    public a: AppService
   ) {
+
+    a.warningIeEdge();
+
 
   }
 }

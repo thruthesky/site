@@ -12,5 +12,7 @@
     "ALL_SCHEDULE": "すべてのスケジュール",
     "PAYMENT": "授業料",
     "PAYMENT_HISTORY": "支払歴",
-    "CLOSE": "閉じる"
+    "CLOSE": "閉じる",
+    "MENU": "メニュー",
+    "IE_EDGE_WARNING": "ああ！ あなたは問題があります。 Chromeウェブブラウザを使用する必要があります。 IE / Edgeは非常に遅いです。"
 }

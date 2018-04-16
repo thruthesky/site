@@ -13,6 +13,7 @@
 // or .wp mode classes. The mode class is automatically applied to the <body>
 // element in the app.
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 .mat-snack-bar-container {
     border-radius: 0 !important;
     @media all and (min-width: 748px) {
@@ -25,3 +26,4 @@
         }
     }
 }
+

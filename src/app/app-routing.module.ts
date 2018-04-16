@@ -29,6 +29,12 @@ const routes: Routes = [
   },
 
 
+  {
+    path: 'menu',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-menu/katalkenglish-menu.page.module#KatalkEnglishMenuPageModule'
+  },
+
+
   /**
    * ontue.com for Teachers
    */

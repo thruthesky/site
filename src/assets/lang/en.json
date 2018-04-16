@@ -56,5 +56,7 @@
     "ALL_SCHEDULE": "All Schedule",
     "PAYMENT": "Payment",
     "PAYMENT_HISTORY": "Payment History",
-    "CLOSE": "Close"
+    "CLOSE": "Close",
+    "MENU": "Menu",
+    "IE_EDGE_WARNING": "Ooh! You have a problem. You need to use Chrome web browser. IE/Edge is very slow."
 }
