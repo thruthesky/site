@@ -35,6 +35,13 @@ export class LoginPage implements OnInit {
 
         this.a.user.login(this.form.user_email, this.form.user_pass).subscribe(re => {
             console.log('a.user.login() success: ');
+            /**
+             *
+	         * @desc If you work on a test/work server,
+             *      you need to copy `XAPI_SECRET_CODE_SALT` from the real server into that test/work server
+	         *      Or unless, the login will be invalid.
+             *      And you will have problem with firebase.
+             */
             this.fire.user.login(this.a.getFirebaseLoginEmail(re.ID), re.session_id)
                 .then(x => {
                     console.log('fire.user.login() success: ');
@@ -71,7 +78,7 @@ export class LoginPage implements OnInit {
                             });
                         })
                             .catch(e3 => {
-                                this.a.toast( 'FAILURE_OF_FIREBASE_REGISTRATION_ON_LOGIN' );
+                                this.a.toast('FAILURE_OF_FIREBASE_REGISTRATION_ON_LOGIN');
                             });
                     } else { // Firebaes Login Failed.
                         this.a.toast(e);

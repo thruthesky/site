@@ -11,7 +11,7 @@ import { EnvironmentSchema } from './schema';
 const env: EnvironmentSchema = {
   name: 'development',
 };
-env['urlBackend'] = 'https://sonub.com:8443';
+env['urlBackend'] = 'http://workserver.ontue.com';
 // env['urlBackend'] = 'https://www.ontue.com';
 env['firebaseConfig'] = {
   apiKey: 'AIzaSyBEv8lzyUI6kB8RyxG8xKnzv4WA6KfS6e4',

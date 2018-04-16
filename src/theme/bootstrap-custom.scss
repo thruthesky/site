@@ -1,10 +1,21 @@
 // Custom.scss
 // Option B: Include parts of Bootstrap
-
 // Required
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
+/**
+ * Adding `box-sizing` Reboot's page default.
+ * So, the paddings and borders will not affect the breaks.
+ */
+.container,
+.container-fluid {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+}
 
 // Optional
 // without optimization. it's 250KB.

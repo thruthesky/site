@@ -1,13 +1,17 @@
+
+
 <div class="page">
     <div class="page-header">
         <h2 *ngIf="a.user.isLogout">{{ 'REGISTER' | t }}</h2>
         <h2 *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE' | t }}</h2>
     </div>
 
+
+
     <div class="loader">
         <ion-spinner *ngIf=" show.dataLoader "></ion-spinner> spinner?? {{ 'IN LOADING' | t }}
     </div>
-    
+
     <div class="" *ngIf=" a.teacherTheme || a.user.isLogin ">
         <div class="">
             <input class="" type="file" (change)="fileUpload.onChangeFile($event)">
@@ -23,9 +27,9 @@
                 (success)="onSuccessUploadPicture($event)"></xapi-file-upload-component>
         </div>
     </div>
-    
+
     <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
-    
+
         <div *ngIf=" a.teacherTheme ">
             <label for="timezone">{{ 'TIMEZONE' | t }}</label>
             <div class="input">
@@ -41,21 +45,21 @@
                 <input type="email" name="email" id="email" [(ngModel)]="form.user_email">
             </div>
         </div>
-    
+
         <div *ngIf="a.isLogout">
             <label for="password">{{ 'PASSWORD' | t }}</label>
             <div class="input">
                 <input type="password" name="password" id="password" [(ngModel)]="form.user_pass">
             </div>
         </div>
-    
+
         <div>
             <label for="name">{{ 'NAME' | t }}</label>
             <div class="input">
-                <input  id="name" type="text" name="name" [(ngModel)]="form.name">
+                <input id="name" type="text" name="name" [(ngModel)]="form.name">
             </div>
         </div>
-    
+
         <div *ngIf=" a.teacherTheme ">
             <div class="label">{{ 'GENDER' | t }}</div>
             <div>
@@ -67,7 +71,7 @@
                 </label>
             </div>
         </div>
-    
+
         <div *ngIf=" a.teacherTheme ">
             <label class="label">{{ 'BIRTHDAY' | t }}</label>
             <div class="input">
@@ -91,53 +95,53 @@
                 </label>
             </div>
         </div>
-    
+
         <div>
             <label for="display_name">{{ 'NICKNAME' | t }}</label>
             <div class="input">
-                <input id="display_name"  type="text" name="display_name" [(ngModel)]="form.display_name">
+                <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
                 <div class="fs-lg mt-2" text-wrap>
                     {{ 'NICKNAME DESC' | t }}
                 </div>
             </div>
         </div>
-    
+
         <div>
             <label for="phone_number">{{ 'PHONE NUMBER' | t }}</label>
             <div class="input">
-                <input id="phone_number"  type="text" name="phone_number" [(ngModel)]="form.phone_number">
+                <input id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
             </div>
         </div>
-    
+
         <div *ngIf=" a.teacherTheme ">
             <label for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
             <div class="input">
-                <input id="bookable_time"  type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
+                <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
                 <div class="small">Input minutes to prevent a sudden booking.</div>
             </div>
         </div>
-    
+
         <div>
             <label for="kakaotalk_id">{{ 'KAKAOTALK ID SHORT' | t }}</label>
             <div class="input">
-                <input id="kakaotalk_id"  type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
+                <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
                 <div class="py-3 fs-lg pointer" (click)=" onClickKakaoIDHelp() ">
                     {{ 'FIND KAKAOTALK ID' | t }}
                     <i class="fa fa-question-circle"></i>
                 </div>
             </div>
         </div>
-    
+
         <div class="kakaotalk-id-find-box" (click)=" showFindKakaotalkIDBox = false " *ngIf=" showFindKakaotalkIDBox ">
             <img src="assets/img/find-kakaotalk-id.jpg">
         </div>
-    
+
         <div *ngIf=" a.teacherTheme ">
             <div>Upload Kakaotalk QR Mark</div>
 
             <div class="input qr-mark">
-                <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true" [files]="qrmarks" 
-                [showUploadedFiles]="true" (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
+                <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="true"
+                    (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
 
                 <div class="fs-lg mt-2 pointer" text-wrap (click)="showModalFAQ('qrmark')">
                     QR Mark is required for teacher. How to get QR MARK
@@ -147,7 +151,7 @@
                 <div class="alert alert-success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
                     QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{ form.kakao_qrmark_URL }} )
                 </div>
-    
+
                 <div class="alert alert-warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">
                     <i class="fas fa-spinner fa-spin"></i>
                     There is something wrong in converting Kakao QR Mark into string. If this message does not appear within 10 seconds, please
