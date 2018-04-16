@@ -20,5 +20,11 @@
     "NO_INTERNET": "앗! 인터넷에 연결되지 않았습니다.",
     "WELCOME_TITLE": "#name님, 가입을 축하드립니다.",
     "WELCOME_MESSAGE": "세상에서 가장 높은 품격의 화상영어수업을 세상에서 가장 낮은 수업료로 만나보세요.",
-    "WELCOME_TRY": "지금 바로 5 회 무료 체험 수업을 예약 해 보세요."
+    "WELCOME_TRY": "지금 바로 5 회 무료 체험 수업을 예약 해 보세요.",
+    "PASSWORD": "비밀번호",
+    "NAME": "이름",
+    "GENDER": "성별",
+    "NICKNAME": "닉네임",
+    "PHONE_NUMBER": "전화번호",
+    "KAKAOTALK_ID_SHORT": "카카오톡 아이디"
 }
