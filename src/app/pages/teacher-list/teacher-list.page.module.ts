@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 
 import { TeacherListPage } from './teacher-list.page';
-import {TranslatePipeModule} from '../../pipes/translate/translate.pipe.module';
+import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 
 
 

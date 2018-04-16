@@ -4,7 +4,7 @@ import { FireService } from '../../../../modules/firelibrary/core';
 
 
 @Component({
-  selector: 'app-page-katalkenglish-home',
+  selector: 'katalkenglish-home-page',
   templateUrl: 'katalkenglish-home.page.html',
   styleUrls: ['katalkenglish-home.page.scss'],
 })
@@ -13,8 +13,7 @@ export class KatalkEnglishHomePage {
     public a: AppService,
     public fire: FireService
   ) {
-    console.log(`KatalkEnglisHomePage:;constructor()`);
-    a.language.resetUserLanguage('en');
+
   }
 }
 

@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 import { ScheduleTablePage } from './schedule-table.page';
+import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 
 const routes: Routes = [
   { path: '', component: ScheduleTablePage }
@@ -14,7 +15,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslatePipeModule
   ],
   exports: [
     RouterModule

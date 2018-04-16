@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Library as _ } from '../modules/firelibrary/providers/etc/library';
 import { FireService } from '../modules/firelibrary/core';
 
+import env from '../../environment';
+
+
 const LANGUAGE_CODE = 'language_code';
 
 @Injectable()
@@ -10,6 +13,9 @@ export class LanguageService {
         private fire: FireService
     ) {
 
+        /**
+         * Load user's language when it is injected by AppService.
+         */
         this.loadUserLanguage();
     }
 
@@ -18,7 +24,11 @@ export class LanguageService {
      */
     loadUserLanguage() {
         const ln = this.getUserLanguage();
-        this.fire.setLanguage( ln ).then(re => {}).catch( e => alert(e.message) );
+        this.fire.setLanguage( ln, '/assets/lang/' + ln + '.json?reloadTag=' + env['reloadTag'] )
+            .then(re => {
+                /// re draw?
+            }).
+            catch( e => alert(e.message) );
     }
     /**
      * Returns language code like 'ko', 'en', 'jp'.
@@ -46,10 +56,10 @@ export class LanguageService {
      *
      * @param ln User language
      *
-     * @example
-     *              language.resetUserLanguage('ko');
+     * @example how to change into another language.
+     *              a.language.setUserLanguage('en');
      */
-    resetUserLanguage( ln ) {
+    setUserLanguage( ln ) {
         _.set( LANGUAGE_CODE, ln );
         this.loadUserLanguage();
     }

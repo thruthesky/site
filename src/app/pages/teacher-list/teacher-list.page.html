@@ -84,7 +84,7 @@
             <div class="container-fluid" *ngIf=" re ">
                 <div class="row">
                     <div class="row hide-effect mx-1 my-2 py-1 py-md-0 pointer" *ngFor="let teacher of teachers"
-                             routerLink="/teacher-schedule" [queryParams]="{teacher: teacher}">
+                             routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
                         <div class="hover-img-effect  d-inline-block  h-100 w-100px  text-center  rounded-2 bg-white">
                             <div class="hover-cover d-flex align-items-center justify-content-center">
                                 <i class="fas fa-external-link-square fa-2x white"></i>

@@ -2,6 +2,13 @@
 
 ## TODO
 
+* Use Angular Material.
+  * Do not use Ionic Component.
+
+* Paypal payment test on real server.
+
+* Once student is logged in, chage the domain from `*.katalkenglish.com` to `www.katalkenglish.com`
+
 * Admin update user profile.
   * Edit user profile.
   * Edit user point.
@@ -37,6 +44,14 @@
 * Push notification.
 
 * Enhance. Language Translation for 4 languages. English, Korean, Japanese, Chinese.
+
+* SEO. Need SSR to properly translate text.
+  * index.html
+  * manifest.json
+
+## Documents
+
+* [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)
 
 ## Work Environment
 

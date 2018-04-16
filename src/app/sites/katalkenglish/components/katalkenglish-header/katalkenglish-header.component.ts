@@ -9,6 +9,8 @@ import { XapiUserService } from '../../../../modules/xapi/xapi.module';
   styleUrls: ['katalkenglish-header.component.scss'],
 })
 export class KatalkEnglishHeaderComponent {
+
+  selectedLanguage = '';
   constructor(
     public a: AppService,
     public fire: FireService,
@@ -17,12 +19,17 @@ export class KatalkEnglishHeaderComponent {
     // console.log(`HeaderComponent:constructor()`);
     // console.log(`current: ${a.color}, change: red`);
     // a.setColor('red');
+    this.selectedLanguage = this.a.language.getUserLanguage();
   }
   onClickLogout() {
     this.fire.user.logout().then( () => {
       this.user.logout();
     });
     this.a.openHome();
+  }
+  onChangeLanguage() {
+    console.log( this.selectedLanguage );
+    this.a.language.setUserLanguage( this.selectedLanguage );
   }
 }
 

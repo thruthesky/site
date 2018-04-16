@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { KatalkEnglishHomePage } from './katalkenglish-home.page';
 import { UserInfoComponentModule } from '../../../../components/user-info/user-info.component.module';
-import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
 
 const routes: Routes = [
   { path: '', component: KatalkEnglishHomePage }
