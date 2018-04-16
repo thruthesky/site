@@ -1,23 +1,32 @@
-<div *ngIf="a.isLogin">
-    You cannot login because you are logged in already.<br>
-    Your email: {{ a.user.email }}
-</div>
+<div class="page">
 
-<div *ngIf="a.isLogout">
-    <h3>Login</h3>
-    <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
-        <div>
-            <label>Email:</label>
-            <span>
-                <input type="text" name="email" [(ngModel)]="form.user_email">
-            </span>
+    <section class="page-header">
+        <div class="loggedin" *ngIf="a.isLogin">
+            You cannot login because you are logged in already.<br>
+            Your email: {{ a.user.email }}
         </div>
-        <div>
-            <label>Password:</label>
-            <span>
-                <input type="password" name="password" [(ngModel)]="form.user_pass">
-            </span>
-        </div>
-        <button type="submit">LOGIN</button>
-    </form>
+        <ng-container  *ngIf="a.isLogout">
+            <div>로그인을 합니다.</div>
+            <div>가입을 하지 않았으면 간단하게
+            <span tappable routerLink="/register">회원가입</span>을 해 주세요!</div>
+        </ng-container>
+    </section>
+
+    <div class="page-body" *ngIf="a.isLogout">
+        <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
+            <div>
+                <label>Email:</label>
+                <span>
+                    <input type="text" name="email" [(ngModel)]="form.user_email">
+                </span>
+            </div>
+            <div>
+                <label>Password:</label>
+                <span>
+                    <input type="password" name="password" [(ngModel)]="form.user_pass">
+                </span>
+            </div>
+            <button type="submit">LOGIN</button>
+        </form>
+    </div>     
 </div>

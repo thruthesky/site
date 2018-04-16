@@ -2,6 +2,9 @@
 
 ## TODO
 
+* for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
+  * if the user is on student page, then do not show profile update on registration since the user will be redirected to welcome page immediately.
+
 * student rgister success(welcome) page after registration page so, student will be oriented and redirected to level test page.
 * add student advertisement page.
 * add share curriculumn page for both student and teacher. so, teacher's can also read and follow.
@@ -79,9 +82,18 @@
   * index.html
   * manifest.json
 
-## Documents
+## References & Docuemnts
+
+* Xapi
+  * [Xapi](https://docs.google.com/document/d/1m3-wYZOaZQGbAzXeVlIpJNSdTIt3HCUiIt9UTmZUgXo/edit#heading=h.66hbi6holm5y) is a Wordpress Plugin primarily built for `Sonub.Com` and later LMS feature was added for `OnTue.COM`. It is the backend of `OnTue LMS` that the app is using.
+  * [WordPress Xapi as PHP Restful API](https://docs.google.com/document/d/1w4QIQhkaGa55etiEiw1jsbfS_XhN8MQwFyex9l1BBeg/edit#heading=h.id4flcesu3j3)
+  * [OnTue LMS with Xapi](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.zfa2sr5gxz1q)
+
+* [FireLibrary](https://github.com/thruthesky/firelibrary)
 
 * [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)
+
+
 
 ## Work Environment
 
@@ -263,19 +275,7 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 
 * When you are refering, `fire.ln.[CODE]`, do not encapsulate it in any method to make it easy or shortter, since when template changes, it may call the encapsulation all the time.
 
-* How to use pipe
-
-language JSON file.
-
-```` JSON
-  "Version": "Version #version"
-````
-
-In template)
-
-```` Template
-{{ 'version' | t: {version: '0.3'} }}
-````
+* How to use pipe. See [FireLibrary Language Translation](https://github.com/thruthesky/firelibrary#language-translation)
 
 ## Admin Page Module
 

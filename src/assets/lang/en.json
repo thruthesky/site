@@ -32,8 +32,6 @@
     "minute short": "min",
     "DATE": "Date",
     "User": "User",
-    "PHONE_NUMBER": "Phone Number",
-    "NAME": "Name",
     "SUNDAY": "Sun",
     "MONDAY": "Mon",
     "TUESDAY": "Tue",
@@ -58,5 +56,15 @@
     "PAYMENT_HISTORY": "Payment History",
     "CLOSE": "Close",
     "MENU": "Menu",
-    "IE_EDGE_WARNING": "Ooh! You have a problem. You need to use Chrome web browser. IE/Edge is very slow."
+    "IE_EDGE_WARNING": "Ooh! You have a problem. You need to use Chrome web browser. IE/Edge is very slow.",
+    "NO_INTERNET": "No internet. Please check if you have Internet connection.",
+    "WELCOME_TITLE": "Welcome, #name.",
+    "WELCOME_MESSAGE": "We are pleased to serve you the best qualified English Education with the lowest price in the world.",
+    "WELCOME_TRY": "You can reserve 5 trial classes now.",
+    "PASSWORD": "Password",
+    "NAME": "Name",
+    "GENDER": "Gender",
+    "NICKNAME": "Nickname",
+    "PHONE_NUMBER": "Phone Number",
+    "KAKAOTALK_ID_SHORT": "Katalk ID"
 }

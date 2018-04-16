@@ -1,11 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FireService, USER} from './../../modules/firelibrary/core';
-import {AppService} from '../../providers/app.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FireService, USER } from './../../modules/firelibrary/core';
+import { AppService } from '../../providers/app.service';
 import {
     USER_REGISTER, USER_REGISTER_RESPONSE, USER_DATA_RESPONSE, FILES, USER_UPDATE, USER_UPDATE_RESPONSE, FILE
 } from '../../modules/xapi/interfaces';
-import {XapiFileUploadComponent} from '../../components/xapi-file-upload/xapi-file-upload.component';
-
+import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
 
 @Component({
     selector: 'app-component-register',
@@ -44,11 +43,9 @@ export class RegisterPage implements OnInit {
 
     year_now = new Date().getFullYear();
 
-
-
     constructor(
-        public fire: FireService,
-        public a: AppService
+        public a: AppService,
+        public f: FireService
     ) {
 
         // setTimeout(() => this.test(), 1000);
@@ -174,7 +171,7 @@ export class RegisterPage implements OnInit {
         if (!this.form.name || !this.form.name.length) {
             return this.a.toast('NAME REQUIRED');
         }
-        if (!this.form.display_name || !this.form.display_name.length ) {
+        if (!this.form.display_name || !this.form.display_name.length) {
             return this.a.toast('NICKNAME REQUIRED');
         }
         if (this.a.teacherTheme) {
@@ -231,26 +228,32 @@ export class RegisterPage implements OnInit {
         this.form.user_login = this.form.user_email;
         delete this.form.kakao_qrmark_string;
         this.a.user
-            .register(this.form)
+            .register(this.form)                // register into Xapi backend.
             .subscribe(re => {
                 // this.a.onUserRegister();
-                this.registerFirebase(re);
                 this.form.user_pass = null;
-                this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {}, () => {});
-                }, e => {
+                this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {      // set timezone.
+                    this.registerFirebase(re, () => {           // register into firebase.
+                        // for student, go to welcome page.
+                        if ( this.a.site.katalkenglish ) {
+                            this.a.open('/welcome');
+                        }
+                    });
+                }, () => { });
+            }, e => {
                 this.onRegisterFailure(e);
             });
     }
 
-    registerFirebase(res: USER_REGISTER_RESPONSE) {
+    registerFirebase(res: USER_REGISTER_RESPONSE, callback) {
         console.log('registerFirebase(res): ', res);
         const data: USER = {
             email: this.a.getFirebaseLoginEmail(res.ID),
             password: res.session_id
         };
-        this.fire.user.register(data).then(() => {
+        this.a.fire.user.register(data).then(() => {
             console.log('Firebase: user registered successfully: ');
-            this.fire.auth.onAuthStateChanged(user => {
+            this.a.fire.auth.onAuthStateChanged(user => {
                 if (user) {
                     const profile: USER = {
                         email: res.user_email,
@@ -258,9 +261,13 @@ export class RegisterPage implements OnInit {
                         name: res.name
                     };
                     profile['ID'] = res.ID;
-                    this.fire.user.create(profile).then(re => {
+                    this.a.fire.user.create(profile).then(re => {
+                        /**
+                         * Hereby, user registration has completed.
+                         */
                         console.log('Firebase. user data document created successfully: ', re);
                         // this.a.openProfile();
+                        callback();
                     }).catch(e => {
                         console.log('register.page .registerFirebase > onAuthState.Changed > fire.user.create() failed()', this.form);
                         this.onRegisterFailure(e);
@@ -347,7 +354,7 @@ export class RegisterPage implements OnInit {
             user_email: this.form.user_email
         };
         this.a.user.update(data).subscribe(() => {
-            this.a.lms.update_kakao_qrmark_string().subscribe( res => {
+            this.a.lms.update_kakao_qrmark_string().subscribe(res => {
                 if (!res.kakao_qrmark_string) {
                     this.a.toast('Invalid QR MARK, Please try again');
                     this.fileUploadQRMark.deleteFile(this.qrmarks[0], () => {
