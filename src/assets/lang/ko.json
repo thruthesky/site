@@ -26,5 +26,7 @@
     "GENDER": "성별",
     "NICKNAME": "닉네임",
     "PHONE_NUMBER": "전화번호",
-    "KAKAOTALK_ID_SHORT": "카카오톡 아이디"
+    "KAKAOTALK_ID_SHORT": "카카오톡 아이디",
+    "IN_REGISTERING": "회원가입",
+    "IN_REGISTERING_DESCRIPTION": "회원 가입 중입니다. 잠시만 기다려주세요."
 }

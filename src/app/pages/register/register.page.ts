@@ -50,10 +50,7 @@ export class RegisterPage implements OnInit {
         public loader: LoaderService
     ) {
 
-        loader.openLoader({title: 'Registering', content: 'Please wait while registering...'});
-        setTimeout(() => loader.closeLoader(), 5000);
-
-        setTimeout(() => this.test(), 1000);
+        // setTimeout(() => this.test(), 1000);
 
         // a.onUserRegisterPage();
         this.setTimezone();
@@ -62,20 +59,20 @@ export class RegisterPage implements OnInit {
         }
     }
 
-    test() {
-        // this.testRegister();
-    }
+    // test() {
+    //     this.testRegister();
+    // }
 
-    testRegister() {
-        const id = this.a.randomString('user');
-        this.form.user_email = id + '@gmail.com';
-        this.form.user_login = this.form.user_email;
-        this.form.user_pass = id;
-        this.form.display_name = id;
-        this.form.kakaotalk_id = id;
-        this.form.domain = this.a.getDomain();
-        this.registerWordpressBackend();
-    }
+    // testRegister() {
+    //     const id = this.a.randomString('user');
+    //     this.form.user_email = id + '@gmail.com';
+    //     this.form.user_login = this.form.user_email;
+    //     this.form.user_pass = id;
+    //     this.form.display_name = id;
+    //     this.form.kakaotalk_id = id;
+    //     this.form.domain = this.a.getDomain();
+    //     this.registerWordpressBackend();
+    // }
 
     ngOnInit() {
         // this.form.email = 'test' + (new Date).getTime() + '@user.com';
@@ -155,9 +152,17 @@ export class RegisterPage implements OnInit {
         });
     }
 
+    /**
+     * User registration has complete.
+     * You can do whatever you want to do like logging, pushing, etc.
+     */
+    onRegisterSuccess() {
+        this.loader.closeLoader();
+    }
     onRegisterFailure(e) {
         //
         console.log('Error on register: ', e);
+        this.loader.closeLoader();
         this.a.toast(e);
     }
 
@@ -233,6 +238,12 @@ export class RegisterPage implements OnInit {
      * This is being invoked only for un-registered users.
      */
     registerWordpressBackend() {
+
+        this.loader.openLoader({
+            title: this.f.ln.IN_REGISTERING,
+            content: this.f.ln.IN_REGISTERING_DESCRIPTION
+        });
+
         this.form.user_login = this.form.user_email;
         delete this.form.kakao_qrmark_string;
         this.a.user
@@ -242,9 +253,16 @@ export class RegisterPage implements OnInit {
                 this.form.user_pass = null;
                 this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {      // set timezone.
                     this.registerFirebase(re, () => {           // register into firebase.
-                        // for student, go to welcome page.
+                        // registration is complete by here.
+
+                        this.onRegisterSuccess();
+                        /**
+                         * If the user is a student, then show welcome page.
+                         */
                         if (this.a.site.katalkenglish) {
                             this.a.open('/welcome');
+                        } else {
+
                         }
                     });
                 }, () => { });
