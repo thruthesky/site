@@ -2,6 +2,7 @@
 
 ## TODO
 
+* Apply HMR for easy scss design.
 * for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
   * if the user is on student page, then do not show profile update on registration since the user will be redirected to welcome page immediately.
 
