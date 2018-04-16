@@ -1,13 +1,12 @@
 <section class="teacher-list">
-    <section class="page-header d-flex justify-content-between">
-        <div class="title white" *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST PAGE TITLE' | t }}</div>
-        <h2 class="title white" *ngIf=" mode != 'leveltest' ">
+    <section class="page-header">
+        <div *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST PAGE TITLE' | t }}</div>
+        <h2 *ngIf=" mode != 'leveltest' ">
             {{ "SELECT TEACHER TO RESERVE" | t }}
         </h2>
-        <button class="pointer d-flex align-items-center fs-110 bg-transparent hover-effect"
-                (click)=" display_options = !display_options " *ngIf=" ! display_options ">
+        <button (click)=" display_options = !display_options " *ngIf=" ! display_options ">
             {{ 'OPTIONS' | t }}
-            <ion-icon class="ml-3" name="options"></ion-icon>
+            <ion-icon name="options"></ion-icon>
         </button>
     </section>
 
