@@ -14,5 +14,9 @@
     "PAYMENT_HISTORY": "支払歴",
     "CLOSE": "閉じる",
     "MENU": "メニュー",
-    "IE_EDGE_WARNING": "ああ！ あなたは問題があります。 Chromeウェブブラウザを使用する必要があります。 IE / Edgeは非常に遅いです。"
+    "IE_EDGE_WARNING": "ああ！ あなたは問題があります。 Chromeウェブブラウザを使用する必要があります。 IE / Edgeは非常に遅いです。",
+    "NO_INTERNET": "インターネットがない。 インターネットに接続しているか確認してください。",
+    "WELCOME_TITLE": "ようこそ、#name。",
+    "WELCOME_MESSAGE": "世界で最も安い料金で最高の英語力をお届けすることを嬉しく思います。",
+    "WELCOME_TRY": "今すぐ5つのトライアルクラスを予約できます。"
 }
