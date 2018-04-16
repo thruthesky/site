@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+
+  /**
+   * KatalkEnglish.com student site.
+   */
   {
     path: '', pathMatch: 'full',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-home/katalkenglish-home.page.module#KatalkEnglishHomePageModule'
@@ -29,6 +33,10 @@ const routes: Routes = [
   },
 
 
+  {
+    path: 'welcome',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-welcome/katalkenglish-welcome.page.module#KatalkEnglishWelcomePageModule'
+  },
   {
     path: 'menu',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-menu/katalkenglish-menu.page.module#KatalkEnglishMenuPageModule'

@@ -2,6 +2,9 @@
 
 ## TODO
 
+* for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
+  * if the user is on student page, then do not show profile update on registration since the user will be redirected to welcome page immediately.
+
 * student rgister success(welcome) page after registration page so, student will be oriented and redirected to level test page.
 * add student advertisement page.
 * add share curriculumn page for both student and teacher. so, teacher's can also read and follow.
