@@ -281,3 +281,14 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 ## Admin Page Module
 
 * Since admin pages is only for admins, it does not lazy load. it loads all the subpages at once.
+
+## Dialog Loader
+
+Use dialog loader when you need to show a loader.
+
+```` typescript
+constructor( public loader: LoaderService ) {
+  loader.openLoader({title: 'Registering', content: 'Please wait while registering...'});
+  setTimeout(() => loader.closeLoader(), 5000);
+}
+````

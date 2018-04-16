@@ -24,5 +24,7 @@
     "GENDER": "性别",
     "NICKNAME": "昵称",
     "PHONE_NUMBER": "电话号码",
-    "KAKAOTALK_ID_SHORT": "Katalk ID"
+    "KAKAOTALK_ID_SHORT": "Katalk ID",
+    "IN_REGISTERING": "注册",
+    "IN_REGISTERING_DESCRIPTION": "正在注册...请稍候..."
 }
