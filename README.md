@@ -2,7 +2,6 @@
 
 ## TODO
 
-* add katalk menu page
 * student rgister success(welcome) page after registration page so, student will be oriented and redirected to level test page.
 * add student advertisement page.
 * add share curriculumn page for both student and teacher. so, teacher's can also read and follow.
@@ -17,7 +16,7 @@
 * add teacher's curriculmn vitae page.
 * add teacher's dashboard. ( menu )
 * add teacher's dayoff page.
-
+* schedule table navigation. No favicon anymore.
 * Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
   * Ask Mr. Han for chinese translation.
   * Ask Humie for japanese trnaslation.
@@ -25,6 +24,8 @@
   * comment create
   * comment pagination.
 * Show menu of class comments on teacher page.
+
+* complete: katalk menu page
 
 * Use Ivy renderer.
 

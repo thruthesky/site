@@ -61,17 +61,24 @@ export class ScheduleTablePage implements OnInit {
     loadScheduleaAndDisplay(options) {
         this.a.loadSchedule(options, re => {
             console.log('re: ', re);
-            const table: TABLE = re.table;
-            re.table = [];
-            this.re = re;
-            this.re.table.push(table.shift());
-            this.dispalyRows(table);
+            if ( this.isSingleTeacher ) {
+                this.re = re;
+            } else {
+                const table: TABLE = re.table;
+                re.table = [];
+                this.re = re;
+                this.re.table.push(table.shift());
+                this.dispalyRows(table);
+            }
         });
     }
     dispalyRows(table) {
         if (table && table.length) {
             setTimeout(() => {
                 this.re.table.push(table.shift());
+                if ( table && table.length ) {
+                    this.re.table.push(table.shift());
+                }
                 this.dispalyRows(table);
             }, 100);
         }
