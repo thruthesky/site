@@ -1,28 +1,26 @@
 <nav *ngIf=" a.showHeader ">
-    <button class="home" mat-button routerLink="{{ a.homeUrl }}">{{ f.ln.HOME }}</button>
-    <button mat-button routerLink="/help">{{ f.ln.HELP }}</button>
-    <button mat-button routerLink="/login" *ngIf="a.isLogout">{{ f.ln.LOGIN }}</button>
-    <button mat-button (click)=" onClickLogout() " *ngIf="a.isLogin">{{ f.ln.LOGOUT }}</button>
-    <button mat-button routerLink="/register" *ngIf="a.isLogout">{{ f.ln.REGISTER }}</button>
-    <button mat-button routerLink="/profile" *ngIf="a.isLogin">{{ f.ln.UPDATE_PROFILE }}</button>
-    <button mat-button routerLink="/install">Install</button>
-    <button mat-button routerLink="/forum">{{ f.ln.FORUM }}</button>
-    <button mat-button routerLink="/category">Category</button>
-    <button mat-button routerLink="/class-comments">{{ f.ln.CLASS_COMMENTS }}</button>
-    <button mat-button routerLink="/teacher-list">{{ f.ln.TEACHER_LIST }}</button>
-    <button mat-button routerLink="/schedule-table">{{ f.ln.ALL_SCHEDULE }}</button>
-    <button mat-button routerLink="/payment">{{ f.ln.PAYMENT }}</button>
-    <button mat-button routerLink="/payment-history">{{ f.ln.PAYMENT_HISTORY }}</button>
-    <mat-form-field>
-        <mat-select [(value)]="selectedLanguage" (selectionChange)=" onChangeLanguage() " placeholder="Select Your Language">
-            <mat-option>None</mat-option>
-            <mat-option value="en">English</mat-option>
-            <mat-option value="ko">Korean</mat-option>
-            <mat-option value="ch">Chinese</mat-option>
-            <mat-option value="jp">Japanese</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <button mat-button routerLink="/menu">{{ f.ln.MENU }}</button>
+    <button class="home" routerLink="{{ a.homeUrl }}">{{ f.ln.HOME }}</button>
+    <button routerLink="/help">{{ f.ln.HELP }}</button>
+    <button routerLink="/login" *ngIf="a.isLogout">{{ f.ln.LOGIN }}</button>
+    <button (click)=" onClickLogout() " *ngIf="a.isLogin">{{ f.ln.LOGOUT }}</button>
+    <button routerLink="/register" *ngIf="a.isLogout">{{ f.ln.REGISTER }}</button>
+    <button routerLink="/profile" *ngIf="a.isLogin">{{ f.ln.UPDATE_PROFILE }}</button>
+    <button routerLink="/install">Install</button>
+    <button routerLink="/forum">{{ f.ln.FORUM }}</button>
+    <button routerLink="/category">Category</button>
+    <button routerLink="/class-comments">{{ f.ln.CLASS_COMMENTS }}</button>
+    <button routerLink="/teacher-list">{{ f.ln.TEACHER_LIST }}</button>
+    <button routerLink="/schedule-table">{{ f.ln.ALL_SCHEDULE }}</button>
+    <button routerLink="/payment">{{ f.ln.PAYMENT }}</button>
+    <button routerLink="/payment-history">{{ f.ln.PAYMENT_HISTORY }}</button>
+
+
+    <select [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() " placeholder="Select Your Language">
+        <option>None</option>
+        <option value="en">English</option>
+        <option value="ko">Korean</option>
+        <option value="ch">Chinese</option>
+        <option value="jp">Japanese</option>
+    </select>
+    <button routerLink="/menu">{{ f.ln.MENU }}</button>
 </nav>
-
-

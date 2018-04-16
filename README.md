@@ -89,7 +89,10 @@
   * [WordPress Xapi as PHP Restful API](https://docs.google.com/document/d/1w4QIQhkaGa55etiEiw1jsbfS_XhN8MQwFyex9l1BBeg/edit#heading=h.id4flcesu3j3)
   * [OnTue LMS with Xapi](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.zfa2sr5gxz1q)
 
+* [FireLibrary](https://github.com/thruthesky/firelibrary)
+
 * [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)
+
 
 
 ## Work Environment
@@ -272,19 +275,7 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 
 * When you are refering, `fire.ln.[CODE]`, do not encapsulate it in any method to make it easy or shortter, since when template changes, it may call the encapsulation all the time.
 
-* How to use pipe
-
-language JSON file.
-
-```` JSON
-  "Version": "Version #version"
-````
-
-In template)
-
-```` Template
-{{ 'version' | t: {version: '0.3'} }}
-````
+* How to use pipe. See [FireLibrary Language Translation](https://github.com/thruthesky/firelibrary#language-translation)
 
 ## Admin Page Module
 

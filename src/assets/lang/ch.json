@@ -18,5 +18,11 @@
     "NO_INTERNET": "没有互联网。 请检查您是否有互联网连接。",
     "WELCOME_TITLE": "欢迎，#name。",
     "WELCOME_MESSAGE": "我们很高兴为您提供世界上最低价格的最优质的英语教育。",
-    "WELCOME_TRY": "你现在可以预定5个试验班。"
+    "WELCOME_TRY": "你现在可以预定5个试验班。",
+    "PASSWORD": "密码",
+    "NAME": "名称",
+    "GENDER": "性别",
+    "NICKNAME": "昵称",
+    "PHONE_NUMBER": "电话号码",
+    "KAKAOTALK_ID_SHORT": "Katalk ID"
 }

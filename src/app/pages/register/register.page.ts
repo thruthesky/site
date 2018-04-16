@@ -6,8 +6,6 @@ import {
 } from '../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
 
-
-
 @Component({
     selector: 'app-component-register',
     templateUrl: 'register.page.html',
@@ -46,7 +44,8 @@ export class RegisterPage implements OnInit {
     year_now = new Date().getFullYear();
 
     constructor(
-        public a: AppService
+        public a: AppService,
+        public f: FireService
     ) {
 
         // setTimeout(() => this.test(), 1000);
