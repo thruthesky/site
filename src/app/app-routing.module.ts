@@ -38,6 +38,10 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-welcome/katalkenglish-welcome.page.module#KatalkEnglishWelcomePageModule'
   },
   {
+    path: 'my-point',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-my-point/katalkenglish-my-point.page.module#KatalkEnglishMyPointPageModule'
+  },
+  {
     path: 'menu',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-menu/katalkenglish-menu.page.module#KatalkEnglishMenuPageModule'
   },

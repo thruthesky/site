@@ -1,32 +1,37 @@
-<section class="page-header">
-    {{ 'PAYMENT RESULT PAGE TITLE' | t }}
-</section>
-
-<section class="page-body">
-
-    
-    <div class="p-5">
-
-        <div *ngIf=" re ">
-            <h2 class="blue">{{ 'PAYMENT SUCCESS' | t }}</h2>
-        </div>
-        <div *ngIf=" ! re ">
-            <h2 class="red">앗, 결제에 실패하였습니다.</h2>
-            <div>{{ message }}</div>
-        </div>
-    </div>
-    <div class="pl-5" *ngIf=" ! a.inLoadingMyPoint ">
-        <div>
-            {{ 'YOUR POINT IS' | t:{point: point} }}
-        </div>
-
-        <ion-button routerLink="/payment-history">
-            수업료 결제 내역은 결제 내역 메뉴에서 확인 할 수 있습니다.
-        </ion-button>
-
-        <div *ngIf=" a.inLoadingMyPoint ">
-            <ion-spinner class="size-3"></ion-spinner>
-            {{ 'IN LOADING' | t}}
-        </div>
+<section class="page-wrapper">
+    <div class="page">
+        <section class="page-header">
+                {{ 'PAYMENT RESULT PAGE TITLE' | t }}
+            </section>
+            
+            <section class="page-body">
+            
+                
+                <div class="p-5">
+            
+                    <div *ngIf=" re ">
+                        <h2 class="blue">{{ 'PAYMENT SUCCESS' | t }}</h2>
+                    </div>
+                    <div *ngIf=" ! re ">
+                        <h2 class="red">앗, 결제에 실패하였습니다.</h2>
+                        <div>{{ message }}</div>
+                    </div>
+                </div>
+                <div class="pl-5" *ngIf=" ! a.inLoadingMyPoint ">
+                    <div>
+                        {{ 'YOUR POINT IS' | t:{point: point} }}
+                    </div>
+            
+                    <ion-button routerLink="/payment-history">
+                        수업료 결제 내역은 결제 내역 메뉴에서 확인 할 수 있습니다.
+                    </ion-button>
+            
+                    <div *ngIf=" a.inLoadingMyPoint ">
+                        <ion-spinner class="size-3"></ion-spinner>
+                        {{ 'IN LOADING' | t}}
+                    </div>
+                </div>
+            </section>
+                
     </div>
 </section>

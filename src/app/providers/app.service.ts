@@ -367,7 +367,7 @@ export class AppService {
              * @todo try to produce php error and display error log on console.
              * @todo Sometimes, somehow, the error disappears and cannot be reproduced.
              */
-            if ( o.status === 0 ) {
+            if (o.status === 0) {
                 o = { message: this.fire.ln.NO_INTERNET };
             } else if (o.status === 200) {
                 o = { message: this.fire.ln.PHP_ERROR };
@@ -928,12 +928,12 @@ export class AppService {
      * @note inLoadingMyPoint will be set true on loading.
      * @param callback callback
      */
-    loadMyPoint(callback) {
+    loadMyPoint(callback, loaderTmeout = 0) {
         this.inLoadingMyPoint = true;
         this.lms.my_point().subscribe(re => {
             let point = re['point'];
             point = this.number_format(point);
-            this.inLoadingMyPoint = false;
+            setTimeout(() => this.inLoadingMyPoint = false, loaderTmeout);
             callback(point);
             this.render();
         }, e => {

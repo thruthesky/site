@@ -2,6 +2,7 @@
 
 ## TODO
 
+* Make responsive header menu based on break point.
 * Apply HMR for easy scss design.
 * for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
   * if the user is on student page, then do not show profile update on registration since the user will be redirected to welcome page immediately.
@@ -10,7 +11,7 @@
 * add student advertisement page.
 * add share curriculumn page for both student and teacher. so, teacher's can also read and follow.
 * add teacher menu page.
-* add my point page
+* @done add my point page
 * add password change page
 * add available schedule page.
 * add teacher schedule create/edit/list
@@ -36,8 +37,6 @@
 * Make the app `main.xxx...xxx.js` with `bundling` file size less than 1.5MB ( 400 gzipped ).
   * if needed, remove ionic component, angular material from header, and front page.
 
-* Use Angular Material.
-  * Do not use Ionic Component.
 
 * Paypal payment test on real server.
 
@@ -196,6 +195,13 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
     * `AppService.fire` is the FireLibrary service
     * `AppService.user` is the XapiUserService
     * and so on.
+
+
+## Developer's Guide Line
+
+
+* Use Angular Material.
+  * Do not use Ionic Component.
 
 ## Route and Lazy Loading
 

@@ -2,7 +2,7 @@
     "HOME": "ホーム",
     "LOGIN": "ログイン",
     "LOGOUT": "ログアウト",
-    "update_profile": "プロフィール",
+    "UPDATE_PROFILE_MENU": "プロフィール",
     "register": "登録",
     "FORUM": "フォーラム",
     "Email": "メール",
@@ -26,5 +26,8 @@
     "PHONE_NUMBER": "電話番号",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
     "IN_REGISTERING": "登録中",
-    "IN_REGISTERING_DESCRIPTION": "登録中にお待ちください..."
+    "IN_REGISTERING_DESCRIPTION": "登録中にお待ちください...",
+    "INSTALL": "インストール",
+    "CATEGORY": "カテゴリー",
+    "IN LOADING": "読み込み中。。。待って下さい。"
 }

@@ -1,53 +1,50 @@
-.page{
-    max-width: 992px;
-    margin: auto;
-    background-color: #f3f3f3;
-    font-family: Roboto,"Helvetica Neue",sans-serif!important;
-
-    .loader{
+    .loader {
         padding: 1em;
     }
 
-    &-header{
+    header {
         padding: 1em;
         background-color: #673ab7;
         color: white;
-
-        h2{
-            margin: 0!important;
-            font-weight: 300!important;
+        h2 {
+            margin: 0 !important;
+            font-weight: 300 !important;
             font-size: 1.25em;
         }
     }
 
-    form{
-        padding: 1em;
+    form {
+        padding: 2em;
         font-size: 85%;
-
-        &>div{
+        &>div {
             display: flex;
             margin-bottom: 1.2em;
-
-            label{
-                width: 146px;
-                padding: .5em;
+            .label {
+                width: 150px;
             }
-
-            input{
-                width:95%;
-                padding: .6em;
+            .input {
+                display: flex;
+                flex-direction: column;
+                width: 842px;
+                padding: .5em 0;
+                input {
+                    padding: .5em 0;
+                }
             }
-
-            .input{
-                width: 100%!important;
+            #timezone {
+                align-self: start;
+            }
+            #gender-group,
+            #birthday-group {
+                display: flex;
+                flex-direction: row;
             }
         }
     }
 
-    .form-submit-button{
-        width: 100%!important;
-
-        button{
+    .form-submit-button {
+        width: 842px;
+        button {
             padding: 1em 2em;
             border-radius: 3px;
             background-color: #1515aa;
@@ -55,9 +52,30 @@
         }
     }
 
-}
+    .select-timezone {
+        display: flex;
+        align-items: center;
+    }
 
-
-
-
-
+    
+    .photo-upload {
+        position: relative;
+        overflow: hidden;
+        width: 140px;
+        margin: 0 auto;
+        .input-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 100;
+            opacity: .001;
+            font-size: 300pt;
+            height: 300px;
+            cursor: pointer;
+        }
+        .photo-upload-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }

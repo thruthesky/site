@@ -45,11 +45,11 @@
     "HOME": "Home",
     "LOGIN": "Login",
     "LOGOUT": "Logout",
-    "update_profile": "Update Profile",
+    "UPDATE_PROFILE_MENU": "Profile",
     "register": "Register",
     "FORUM": "Forum",
     "Help": "Help",
-    "CLASS_COMMENTS": "Student Comments",
+    "CLASS_COMMENTS": "Comments",
     "TEACHER_LIST": "Teacher List",
     "ALL_SCHEDULE": "All Schedule",
     "PAYMENT": "Payment",
@@ -68,5 +68,8 @@
     "PHONE_NUMBER": "Phone Number",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
     "IN_REGISTERING": "Registering",
-    "IN_REGISTERING_DESCRIPTION": "Please wait while registering..."
+    "IN_REGISTERING_DESCRIPTION": "Please wait while registering...",
+    "INSTALL":"Install",
+    "CATEGORY": "Category",
+    "IN LOADING": "Loading.. Please, wait."
 }

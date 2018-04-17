@@ -1,144 +1,148 @@
-<section class="teacher-list">
-    <section class="page-header">
-        <div *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST PAGE TITLE' | t }}</div>
-        <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT TEACHER TO RESERVE" | t }}</h2>
-        <button (click)=" display_options = !display_options " *ngIf=" ! display_options ">
-            {{ 'OPTIONS' | t }}
-            <ion-icon name="options"></ion-icon>
-        </button>
-    </section>
-
-    <section class="options hide-effect" *ngIf=" display_options ">
-        <div class="bg-white p-4">
-            <div class="container-fluid mb-3 px-1">
-                <div class="row">
-                    <div class="col">
-                        <div>{{ "TEACHER LIST OPTIONS" | t }}</div>
+<section class="page-wrapper">
+    <div class="page">
+        <section class="teacher-list">
+                <section class="page-header">
+                    <div *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST PAGE TITLE' | t }}</div>
+                    <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT TEACHER TO RESERVE" | t }}</h2>
+                    <button (click)=" display_options = !display_options " *ngIf=" ! display_options ">
+                        {{ 'OPTIONS' | t }}
+                        <ion-icon name="options"></ion-icon>
+                    </button>
+                </section>
+            
+                <section class="page-options hide-effect" *ngIf=" display_options ">
+                    <div class="bg-white p-4">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col">
+                                    <div>{{ "TEACHER LIST OPTIONS" | t }}</div>
+                                </div>
+                                <div class="col-4">
+                                    <button (click)=" display_options = false ">
+                                        <ion-icon name="ion-close"></ion-icon>
+                                        <span class="text-uppercase">{{ 'CLOSE' | t }}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-md-flex d-block">
+                            <div class="border">
+                                <label for="gender">{{ "GENDER" | t }}</label>
+                                <select id="gender" (onChange)=" onChangeOption() " [(ngModel)]="gender">
+                                    <option value="F">{{"FEMALE" | t}}</option>
+                                    <option value="M">{{"MALE" | t}}</option>
+                                    <option value="">{{"ALL" | t}}</option>
+                                </select>
+                            </div>
+                            <div class="border">
+                                <label for="grade">{{ "TEACHER GRADE" | t }}</label>
+                                <select id="grade" (onChange)=" onChangeOption() " [(ngModel)]="recommend">
+                                    <option value="Y">{{"RECOMMENDED TEACHER" | t}}</option>
+                                    <option value="">{{"ALL TEACHER" | t}}</option>
+                                </select>
+                            </div>
+            
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <button class="fs-90 bg-transparent" (click)=" display_options = false ">
-                            <i class="fal fa-times"></i>
-                            <span class="text-uppercase">{{ 'CLOSE' | t }}</span>
-                        </button>
+                </section>
+            
+                <section class="page-desc p-4">
+            
+                    <div *ngIf=" re && a.studentTheme ">
+                        <div *ngIf="a.user.isLogin ">
+                            <div >
+                                {{ a.user.name }}님,
+                                전체 선생님 수는 <b>{{ re.total }}</b> 명이며, 회원님의 예약된 수업은 <b>{{ a.lmsInfoUserNoOfReservation }}</b>회이며 지난 수업은
+                                <span *ngIf=" a.lmsInfoUserNoOfPast "><b>{{ a.lmsInfoUserNoOfPast }}</b>회입니다.</span>
+                                <span *ngIf=" a.lmsInfoUserNoOfPast == 0">없습니다.</span>
+                            </div>
+                        </div>
+            
+                        <div *ngIf="a.user.isLogout ">
+                            <div >
+                                현재 표시되는 선생님은 {{ re.total }} 명입니다. 옵션을 통해서 모든 선생님을 볼 수 있습니다. 로그인을 하시면 회원님의 수업 정보가 표시됩니다.
+                            </div>
+                        </div>
+            
                     </div>
-                </div>
-            </div>
-            <div class="d-md-flex d-block m-0  px-1">
-                <div class="mr-md-2 mr-0 border">
-                    <label>{{ "GENDER" | t }}</label>
-                    <select (onChange)=" onChangeOption() " [(ngModel)]="gender">
-                        <option value="F">{{"FEMALE" | t}}</option>
-                        <option value="M">{{"MALE" | t}}</option>
-                        <option value="">{{"ALL" | t}}</option>
-                    </select>
-                </div>
-                <div class="ml-md-2 ml-0 mt-3 mt-md-0 border">
-                    <label>{{ "TEACHER GRADE" | t }}</label>
-                    <select (onChange)=" onChangeOption() " [(ngModel)]="recommend">
-                        <option value="Y">{{"RECOMMENDED TEACHER" | t}}</option>
-                        <option value="">{{"ALL TEACHER" | t}}</option>
-                    </select>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="page-desc p-4">
-
-        <div *ngIf=" re && a.studentTheme ">
-            <div *ngIf="a.user.isLogin ">
-                <div >
-                    {{ a.user.name }}님,
-                    전체 선생님 수는 <b>{{ re.total }}</b> 명이며, 회원님의 예약된 수업은 <b>{{ a.lmsInfoUserNoOfReservation }}</b>회이며 지난 수업은
-                    <span *ngIf=" a.lmsInfoUserNoOfPast "><b>{{ a.lmsInfoUserNoOfPast }}</b>회입니다.</span>
-                    <span *ngIf=" a.lmsInfoUserNoOfPast == 0">없습니다.</span>
-                </div>
-            </div>
-
-            <div *ngIf="a.user.isLogout ">
-                <div >
-                    현재 표시되는 선생님은 {{ re.total }} 명입니다. 옵션을 통해서 모든 선생님을 볼 수 있습니다. 로그인을 하시면 회원님의 수업 정보가 표시됩니다.
-                </div>
-            </div>
-
-        </div>
-
-
-
-        <div class="text-center p-2" *ngIf=" a.teacherTheme ">
-            In this page,
-            you will see recommended teachers who are mostly visible to students.
-            Other teachers' profile will be available by search.
-        </div>
-
-
-    </section>
-
-    <section class="page-body pb-5">
-
-
-        <div class="teachers  mb-5 mb-md-6 pt-md-5">
-            <div class="container-fluid" *ngIf=" re ">
-                <div class="row">
-                    <div class="row hide-effect mx-1 my-2 py-1 py-md-0 pointer" *ngFor="let teacher of teachers"
-                             routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
-                        <div class="hover-img-effect  d-inline-block  h-100 w-100px  text-center  rounded-2 bg-white">
-                            <div class="hover-cover d-flex align-items-center justify-content-center">
-                                <i class="fas fa-external-link-square fa-2x white"></i>
-                            </div>
-                            <div class="teacher-profile-photo of-hidden ">
-                                <img class="w-100" alt="profile photo" src="{{ teacher.photoURL }}">
-                            </div>
-                            <div class="text-uppercase mb-2 mt-4">{{ a.shortName( teacher.display_name )}}</div>
-                            <div class="grade fs-90 fw-light" [attr.grade]=" teacher.grade " >
-                                <span *ngIf="teacher.grade!=0" class="fs-90">추천:</span>
-                                <span class="fs-90">
-                    <i class="star fas fa-star" *ngFor="let i of a.countStar(teacher.grade)"></i>
-                  </span>
-                            </div>
-                            <div class="mt-2 mb-4 fs-90 fw-light">
-                                ({{ teacher.total_reservation }} 명 참여)
+            
+            
+            
+                    <div class="text-center p-2" *ngIf=" a.teacherTheme ">
+                        In this page,
+                        you will see recommended teachers who are mostly visible to students.
+                        Other teachers' profile will be available by search.
+                    </div>
+            
+            
+                </section>
+            
+                <section class="page-body pb-5">
+            
+            
+                    <div class="teachers  mb-5 mb-md-6 pt-md-5">
+                        <div class="container-fluid" *ngIf=" re ">
+                            <div class="row">
+                                <div class="row hide-effect mx-1 my-2 py-1 py-md-0 pointer" *ngFor="let teacher of teachers"
+                                            routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
+                                    <div class="hover-img-effect  d-inline-block  h-100 w-100px  text-center  rounded-2 bg-white">
+                                        <div class="hover-cover d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-external-link-square fa-2x white"></i>
+                                        </div>
+                                        <div class="teacher-profile-photo of-hidden ">
+                                            <img class="w-100" alt="profile photo" src="{{ teacher.photoURL }}">
+                                        </div>
+                                        <div class="text-uppercase mb-2 mt-4">{{ a.shortName( teacher.display_name )}}</div>
+                                        <div class="grade fs-90 fw-light" [attr.grade]=" teacher.grade " >
+                                            <span *ngIf="teacher.grade!=0" class="fs-90">추천:</span>
+                                            <span class="fs-90">
+                                <i class="star fas fa-star" *ngFor="let i of a.countStar(teacher.grade)"></i>
+                                </span>
+                                        </div>
+                                        <div class="mt-2 mb-4 fs-90 fw-light">
+                                            ({{ teacher.total_reservation }} 명 참여)
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="showmoreteacher-wrapper middle-line-wrapper my-5 my-md-6em h-0 "
-             *ngIf=" ! noMoreTeachers && ! show.loadTeacher">
-            <button class="middle-line d-flex align-items-center justify-content-center
-                        px-5 py-4  rounded-2 bg-dodgerblue white hover-effect"
-                    (click)=" onClickShowMoreTeacher()">
-                <span class="d-inline-block">강사 더보기</span>
-                <i class="fal fa-arrow-to-bottom ml-3"></i>
-            </button>
-        </div>
-        <div class=" middle-line-wrapper  my-5em"
-             *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
-            <i class="middle-line fal fa-ellipsis-h fa-7x darkgrey"></i>
-        </div>
-        <div class="d-flex-column flex-md-row align-items-center justify-content-center mb-md-5 p-md-0 text-center"
-             *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
-            <div class="px-3 p-md-0">더 이상 추천 강사가 없습니다. 옵션을 통해 더 많은 강사를 볼 수 있습니다.</div>
-            <ion-button class="no-more-teachers d-flex align-items-center justify-content-center ml-3
-                      rounded-2 bg-dodgerblue white hover-effect text-uppercase"
-                    (click)="onClickShowAllTeachers() ">
-                <span>옵션 창 열기</span>
-                <ion-icon class="ml-3" name="options"></ion-icon>
-            </ion-button>
-        </div>
-
-        <div class="loader-big" *ngIf=" show.loadTeacher ">
-            <div class="d-flex-column align-items-center justify-content-center h-100 w-100 " >
-                <ion-spinner class="size-100" name="ios"></ion-spinner>
-                <div class="text p-5 fs-2rem dimgrey fw-bold text-uppercase">
-                    {{ 'IN LOADING' | t }}..
-                </div>
-            </div>
-        </div>
-    </section>
-
+            
+                    <div class="showmoreteacher-wrapper middle-line-wrapper my-5 my-md-6em h-0 "
+                            *ngIf=" ! noMoreTeachers && ! show.loadTeacher">
+                        <button class="middle-line d-flex align-items-center justify-content-center
+                                    px-5 py-4  rounded-2 bg-dodgerblue white hover-effect"
+                                (click)=" onClickShowMoreTeacher()">
+                            <span class="d-inline-block">강사 더보기</span>
+                            <i class="fal fa-arrow-to-bottom ml-3"></i>
+                        </button>
+                    </div>
+                    <div class=" middle-line-wrapper  my-5em"
+                            *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
+                        <i class="middle-line fal fa-ellipsis-h fa-7x darkgrey"></i>
+                    </div>
+                    <div class="d-flex-column flex-md-row align-items-center justify-content-center mb-md-5 p-md-0 text-center"
+                            *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
+                        <div class="px-3 p-md-0">더 이상 추천 강사가 없습니다. 옵션을 통해 더 많은 강사를 볼 수 있습니다.</div>
+                        <ion-button class="no-more-teachers d-flex align-items-center justify-content-center ml-3
+                                    rounded-2 bg-dodgerblue white hover-effect text-uppercase"
+                                (click)="onClickShowAllTeachers() ">
+                            <span>옵션 창 열기</span>
+                            <ion-icon class="ml-3" name="options"></ion-icon>
+                        </ion-button>
+                    </div>
+            
+                    <div class="loader-big" *ngIf=" show.loadTeacher ">
+                        <div class="d-flex-column align-items-center justify-content-center h-100 w-100 " >
+                            <ion-spinner name="circles"></ion-spinner>
+                            <div class="text p-5 fs-2rem dimgrey fw-bold text-uppercase">
+                                {{ 'IN LOADING' | t }}..
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+            </section>
+                                
+    </div>
 </section>
-

@@ -1,11 +1,15 @@
-<div>{{ 'WELCOME_TITLE' | t:{name: a.user.name} }}</div>
-<section>
-    <div (click)=" a.open('teacher-list') ">
-        <div class="mb-2">
-            {{ 'WELCOME_MESSAGE' | t }}
-        </div>
-        <div class="pl-3">
-            {{ 'WELCOME_TRY' | t }}
-        </div>
+<section class="page-wrapper">
+    <div class="page">
+        <div>{{ 'WELCOME_TITLE' | t:{name: a.user.name} }}</div>
+        <section>
+            <div (click)=" a.open('teacher-list') ">
+                <div class="mb-2">
+                    {{ 'WELCOME_MESSAGE' | t }}
+                </div>
+                <div class="pl-3">
+                    {{ 'WELCOME_TRY' | t }}
+                </div>
+            </div>
+        </section>
     </div>
 </section>

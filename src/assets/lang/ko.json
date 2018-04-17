@@ -2,7 +2,7 @@
     "HOME": "홈",
     "LOGIN": "로그인",
     "LOGOUT": "로그아웃",
-    "update_profile": "회원정보",
+    "UPDATE_PROFILE_MENU": "회원정보",
     "Email": "이메일",
     "register": "회원가입",
     "FORUM": "게시판",
@@ -28,5 +28,8 @@
     "PHONE_NUMBER": "전화번호",
     "KAKAOTALK_ID_SHORT": "카카오톡 아이디",
     "IN_REGISTERING": "회원가입",
-    "IN_REGISTERING_DESCRIPTION": "회원 가입 중입니다. 잠시만 기다려주세요."
+    "IN_REGISTERING_DESCRIPTION": "회원 가입 중입니다. 잠시만 기다려주세요.",
+    "INSTALL": "설치하다",
+    "CATEGORY": "범주",
+    "IN LOADING": "로딩중입니다. 잠시만 기다려주세요."
 }

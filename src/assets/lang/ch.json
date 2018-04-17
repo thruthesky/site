@@ -2,7 +2,7 @@
     "HOME": "家",
     "LOGIN": "登录",
     "LOGOUT": "登出",
-    "update_profile": "轮廓",
+    "UPDATE_PROFILE_MENU": "轮廓",
     "register": "寄存器",
     "FORUM": "座谈会",
     "Email": "电子邮件",
@@ -26,5 +26,8 @@
     "PHONE_NUMBER": "电话号码",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
     "IN_REGISTERING": "注册",
-    "IN_REGISTERING_DESCRIPTION": "正在注册...请稍候..."
+    "IN_REGISTERING_DESCRIPTION": "正在注册...请稍候...",
+    "INSTALL": "安装",
+    "CATEGORY": "类别",
+    "IN LOADING": "加载请稍候。"
 }
