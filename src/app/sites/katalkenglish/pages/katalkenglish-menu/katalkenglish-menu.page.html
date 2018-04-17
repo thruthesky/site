@@ -1,139 +1,143 @@
-<div class="page-header white text-center">
-    궁금한 점이 있으시면 언제든지
-    <span class="app-button mt-0" (click)=" a.onClickContactAdmin() ">카톡으로 질문</span> 해 주세요!
-</div>
-<section class="page-body">
-
-    <ul class="pointers">
-
-
-        <li class="menu-help" (click)="a.open('help')" *ngIf="a.studentTheme">
-            <ion-icon name="help-circle" item-start></ion-icon>
-            {{ 'HELP' | t }}
-        </li>
-
-
-        <li class="menu-login" *ngIf=" a.user.isLogout " (click)=" a.open('login') ">
-            <ion-icon name="log-in" item-start></ion-icon>
-            {{ 'LOGIN' | t }}
-        </li>
-        <li class="menu-registration" *ngIf=" a.user.isLogout " (click)=" a.open('register') ">
-            <ion-icon name="person-add" item-start></ion-icon>
-            {{ "REGISTER" | t}}
-        </li>
-
-        <li class="menu-profile" *ngIf=" a.user.isLogin " (click)=" a.open('register')">
-            <ion-icon name="person-add" item-start></ion-icon>
-            {{ 'PROFILE' | t }}
-        </li>
-
-
-        <li class="menu-message" (click)="a.open('my-point')" *ngIf=" a.user.isLogin ">
-            <ion-icon name="logo-usd" item-start></ion-icon>
-            나의 포인트
-        </li>
-
-
-        <li class="menu-level" (click)="a.open('session-past', {showLevel: true})" *ngIf=" a.user.isLogin ">
-            <ion-icon name="stats" item-start></ion-icon>
-            나의 영어 레벨
-        </li>
-
-
-
-
-        <li class="menu-qna" (click)=" a.onClickContactAdmin() ">
-            <ion-icon name="help-circle" color="primary" item-start></ion-icon>
-            {{ 'QNA' | t }}
-        </li>
-
-        <li class="menu-future-sessions" (click)="a.open('session-future')">
-            <ion-icon name="list-box" color="primary" item-start></ion-icon>
-            {{ 'RESERVATIONS LONG TEXT' | t }}
-        </li>
-
-        <li class="menu-past-sessions" (click)="a.open('session-past')">
-            <ion-icon name="list-box" color="light" item-start></ion-icon>
-            {{ 'PASTS LONG TEXT' | t }}
-        </li>
-
-
-
-        <li class="menu-teacher-list" (click)="a.open('student-curriculumn')" *ngIf=" a.studentTheme ">
-            <ion-icon name="bookmarks" item-start></ion-icon>
-            교재 및 수업 과정 안내
-        </li>
-
-
-        <li class="menu-teacher-list" (click)="a.open('teacher-list')">
-            <ion-icon name="people" item-start></ion-icon>
-            {{ 'RESERVE SESSION' | t }}
-        </li>
-
-
-
-        <li class="menu-schedule-table" (click)="a.open('schedule-table')" *ngIf="!a.isIeEdge()">
-            <ion-icon name="apps" item-start></ion-icon>
-            {{ 'ALL SCHEDULE TABLE' | t }}
-        </li>
-
-
-
-        <li class="menu-class-comments" (click)="a.open('class-comment')">
-            <ion-icon name="chatbubbles" item-start></ion-icon>
-            {{ 'CLASS COMMENTS' | t }}
-        </li>
-
-
-        <li class="menu-payment" (click)="a.open('payment')" *ngIf="a.studentTheme">
-            <ion-icon name="card" item-start></ion-icon>
-            {{ 'PAYMENT LONG TEXT' | t }}
-        </li>
-
-
-
-
-        <li class="menu-payment-history" (click)="a.open('payment-history')" *ngIf="a.studentTheme">
-            <ion-icon name="list-box" item-start></ion-icon>
-            {{ 'PAYMENT HISTORY' | t }}
-        </li>
-
-
-
-
-        <li class="menu-today-sessions" (click)="a.open('schedule-available')" *ngIf="a.studentTheme">
-            <ion-icon name="apps" item-start></ion-icon>
-            {{ 'AVAILABLE SESSIONS LONG' | t }}
-        </li>
-
-
-
-        <li class="menu-password-change" *ngIf=" a.user.isLogin " (click)=" a.open('password-change')">
-            <ion-icon name="key" item-start></ion-icon>
-            {{ 'CHANGE PASSWORD' | t }}
-        </li>
-
-
-
-
-
-        <li class="menu-message" (click)="a.open('message')" *ngIf=" a.user.isLogin ">
-            <ion-icon name="chatboxes" item-start></ion-icon>
-            {{ 'MESSAGE' | t }}
-        </li>
-
-
-        <li class="menu-settings" (click)="a.open('settings')">
-            <ion-icon name="settings" item-start></ion-icon>
-            {{ 'SETTINGS' | t }}
-        </li>
-
-        <li class="menu-logout" *ngIf=" a.user.isLogin " (click)="a.user.logout(); a.open('home')">
-            <ion-icon name="log-out" item-start></ion-icon>
-            {{ 'LOGOUT' | t }}
-        </li>
-
-    </ul>
-
+<section class="page-wrapper">
+    <div class="page">
+        <div class="page-header white text-center">
+            궁금한 점이 있으시면 언제든지
+            <span class="app-button mt-0" (click)=" a.onClickContactAdmin() ">카톡으로 질문</span> 해 주세요!
+        </div>
+        <section class="page-body">
+        
+            <ul class="pointers">
+        
+        
+                <li class="menu-help" (click)="a.open('help')" *ngIf="a.studentTheme">
+                    <ion-icon name="help-circle" item-start></ion-icon>
+                    {{ 'HELP' | t }}
+                </li>
+        
+        
+                <li class="menu-login" *ngIf=" a.user.isLogout " (click)=" a.open('login') ">
+                    <ion-icon name="log-in" item-start></ion-icon>
+                    {{ 'LOGIN' | t }}
+                </li>
+                <li class="menu-registration" *ngIf=" a.user.isLogout " (click)=" a.open('register') ">
+                    <ion-icon name="person-add" item-start></ion-icon>
+                    {{ "REGISTER" | t}}
+                </li>
+        
+                <li class="menu-profile" *ngIf=" a.user.isLogin " (click)=" a.open('register')">
+                    <ion-icon name="person-add" item-start></ion-icon>
+                    {{ 'PROFILE' | t }}
+                </li>
+        
+        
+                <li class="menu-message" (click)="a.open('my-point')" *ngIf=" a.user.isLogin ">
+                    <ion-icon name="logo-usd" item-start></ion-icon>
+                    나의 포인트
+                </li>
+        
+        
+                <li class="menu-level" (click)="a.open('session-past', {showLevel: true})" *ngIf=" a.user.isLogin ">
+                    <ion-icon name="stats" item-start></ion-icon>
+                    나의 영어 레벨
+                </li>
+        
+        
+        
+        
+                <li class="menu-qna" (click)=" a.onClickContactAdmin() ">
+                    <ion-icon name="help-circle" color="primary" item-start></ion-icon>
+                    {{ 'QNA' | t }}
+                </li>
+        
+                <li class="menu-future-sessions" (click)="a.open('session-future')">
+                    <ion-icon name="list-box" color="primary" item-start></ion-icon>
+                    {{ 'RESERVATIONS LONG TEXT' | t }}
+                </li>
+        
+                <li class="menu-past-sessions" (click)="a.open('session-past')">
+                    <ion-icon name="list-box" color="light" item-start></ion-icon>
+                    {{ 'PASTS LONG TEXT' | t }}
+                </li>
+        
+        
+        
+                <li class="menu-teacher-list" (click)="a.open('student-curriculumn')" *ngIf=" a.studentTheme ">
+                    <ion-icon name="bookmarks" item-start></ion-icon>
+                    교재 및 수업 과정 안내
+                </li>
+        
+        
+                <li class="menu-teacher-list" (click)="a.open('teacher-list')">
+                    <ion-icon name="people" item-start></ion-icon>
+                    {{ 'RESERVE SESSION' | t }}
+                </li>
+        
+        
+        
+                <li class="menu-schedule-table" (click)="a.open('schedule-table')" *ngIf="!a.isIeEdge()">
+                    <ion-icon name="apps" item-start></ion-icon>
+                    {{ 'ALL SCHEDULE TABLE' | t }}
+                </li>
+        
+        
+        
+                <li class="menu-class-comments" (click)="a.open('class-comment')">
+                    <ion-icon name="chatbubbles" item-start></ion-icon>
+                    {{ 'CLASS COMMENTS' | t }}
+                </li>
+        
+        
+                <li class="menu-payment" (click)="a.open('payment')" *ngIf="a.studentTheme">
+                    <ion-icon name="card" item-start></ion-icon>
+                    {{ 'PAYMENT LONG TEXT' | t }}
+                </li>
+        
+        
+        
+        
+                <li class="menu-payment-history" (click)="a.open('payment-history')" *ngIf="a.studentTheme">
+                    <ion-icon name="list-box" item-start></ion-icon>
+                    {{ 'PAYMENT HISTORY' | t }}
+                </li>
+        
+        
+        
+        
+                <li class="menu-today-sessions" (click)="a.open('schedule-available')" *ngIf="a.studentTheme">
+                    <ion-icon name="apps" item-start></ion-icon>
+                    {{ 'AVAILABLE SESSIONS LONG' | t }}
+                </li>
+        
+        
+        
+                <li class="menu-password-change" *ngIf=" a.user.isLogin " (click)=" a.open('password-change')">
+                    <ion-icon name="key" item-start></ion-icon>
+                    {{ 'CHANGE PASSWORD' | t }}
+                </li>
+        
+        
+        
+        
+        
+                <li class="menu-message" (click)="a.open('message')" *ngIf=" a.user.isLogin ">
+                    <ion-icon name="chatboxes" item-start></ion-icon>
+                    {{ 'MESSAGE' | t }}
+                </li>
+        
+        
+                <li class="menu-settings" (click)="a.open('settings')">
+                    <ion-icon name="settings" item-start></ion-icon>
+                    {{ 'SETTINGS' | t }}
+                </li>
+        
+                <li class="menu-logout" *ngIf=" a.user.isLogin " (click)="a.user.logout(); a.open('home')">
+                    <ion-icon name="log-out" item-start></ion-icon>
+                    {{ 'LOGOUT' | t }}
+                </li>
+        
+            </ul>
+        
+        </section>
+                                
+    </div>
 </section>
-

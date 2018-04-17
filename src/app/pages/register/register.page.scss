@@ -1,14 +1,10 @@
-.page{
-    max-width: 992px;
-    margin: auto;
-    background-color: #f3f3f3;
-    font-family: Roboto,"Helvetica Neue",sans-serif!important;
+
 
     .loader{
         padding: 1em;
     }
 
-    &-header{
+    .page-header{
         padding: 1em;
         background-color: #673ab7;
         color: white;
@@ -55,7 +51,7 @@
         }
     }
 
-}
+
 
 
 

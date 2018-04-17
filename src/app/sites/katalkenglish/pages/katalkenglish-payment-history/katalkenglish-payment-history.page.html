@@ -1,33 +1,38 @@
-<h1>payment history</h1>
+<section class="page-wrapper">
+    <div class="page">
+            <h1>payment history</h1>
 
-<section>
-    <h1 class="title">{{ 'PAYMENT HISTORY PAGE TITLE' | t }}</h1>
-</section>
-
-<section class="">{{ 'PAYMENT HISTORY PAGE DESC' | t }}</section>
-
-<section class="mt-5">
-
-
-    <div class="container px-2 px-md-0 text-center">
-        <div class="row">
-            <div class="py-4" class="col">{{ 'NO' | t }}</div>
-            <!-- <div class="py-4" class="col">transaction ID</div> -->
-            <div class="py-4" class="col">{{ 'DATE' | t }}</div>
-            <div class="py-4" class="col">{{ 'PAYMENT METHOD SHORT' | t }}</div>
-            <div class="py-4" class="col">{{ 'AMOUNT' | t }}</div>
-            <div class="py-4" class="col">{{ 'POINT' | t }}</div>
-        </div>
-        <div class="row" *ngFor="let payment of payments; even as o" align-items-center
-            justify-content-between>
-            <div class="col">{{ payment.idx }}</div>
-            <!-- <div class="col">{{ payment.paymentID }</div> -->
-            <div class="col">{{ a.shortDate( payment.stamp_end ) }}</div>
-            <div class="col">{{ payment.payment_method }}</div>
-            <div class="col">{{ payment.amount }} {{ payment.currency | lowercase }}</div>
-            <div class="col">{{ payment.point }}</div>
-        </div>
+            <section>
+                <h1 class="title">{{ 'PAYMENT HISTORY PAGE TITLE' | t }}</h1>
+            </section>
+            
+            <section class="">{{ 'PAYMENT HISTORY PAGE DESC' | t }}</section>
+            
+            <section class="mt-5">
+            
+            
+                <div class="container px-2 px-md-0 text-center">
+                    <div class="row">
+                        <div class="py-4" class="col">{{ 'NO' | t }}</div>
+                        <!-- <div class="py-4" class="col">transaction ID</div> -->
+                        <div class="py-4" class="col">{{ 'DATE' | t }}</div>
+                        <div class="py-4" class="col">{{ 'PAYMENT METHOD SHORT' | t }}</div>
+                        <div class="py-4" class="col">{{ 'AMOUNT' | t }}</div>
+                        <div class="py-4" class="col">{{ 'POINT' | t }}</div>
+                    </div>
+                    <div class="row" *ngFor="let payment of payments; even as o" align-items-center
+                        justify-content-between>
+                        <div class="col">{{ payment.idx }}</div>
+                        <!-- <div class="col">{{ payment.paymentID }</div> -->
+                        <div class="col">{{ a.shortDate( payment.stamp_end ) }}</div>
+                        <div class="col">{{ payment.payment_method }}</div>
+                        <div class="col">{{ payment.amount }} {{ payment.currency | lowercase }}</div>
+                        <div class="col">{{ payment.point }}</div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            
     </div>
 </section>
-
-
