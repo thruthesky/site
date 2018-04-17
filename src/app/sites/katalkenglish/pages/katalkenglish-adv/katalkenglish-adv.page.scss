@@ -1,0 +1,51 @@
+@import '../../../../../theme/vars.scss';
+.page-body {
+    @media ( min-width: $md) {
+        padding: 0 3em;
+    }
+    font-size: 1.8em;
+    @media ( min-width: $md) {
+        font-size: 2.2em;
+    }
+    text-align: center;
+    &>div {
+        padding-top: 2em;
+        line-height: 160%;
+    }
+    .why {
+        img {
+            width: 160px;
+            @media ( min-width: $md) {
+                width: 240px;
+            }
+        }
+    }
+    .where,
+    .office,
+    .uber,
+    .bubble {
+        img {
+            border-radius: 50%;
+            width: 240px;
+            @media ( min-width: $md) {
+                width: 320px;
+            }
+        }
+    }
+    .yes,
+    .surprise {
+        img {
+            width: 240px;
+            @media ( min-width: $md) {
+                width: 320px;
+            }
+        }
+    }
+    .try-now {
+        margin: 1.5em 0 2em;
+        padding: 2em;
+        background-color: orange;
+        color: white;
+        cursor: pointer;
+    }
+}

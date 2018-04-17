@@ -42,6 +42,10 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-my-point/katalkenglish-my-point.page.module#KatalkEnglishMyPointPageModule'
   },
   {
+    path: 'story',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-adv/katalkenglish-adv.page.module#KatalkEnglishAdvPageModule'
+  },
+  {
     path: 'menu',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-menu/katalkenglish-menu.page.module#KatalkEnglishMenuPageModule'
   },
