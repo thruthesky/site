@@ -9,7 +9,7 @@ ion-toolbar{
         margin:auto;
     }
 
-    button,.button{
+    button,.select-wrapper{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -28,7 +28,7 @@ ion-toolbar{
 
     }
         
-    .button{
+    .select-wrapper{
         padding-right: .3em;
         padding-left: .1em;
         border-left: 1px solid rgb(166, 166, 166);

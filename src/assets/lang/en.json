@@ -68,5 +68,7 @@
     "PHONE_NUMBER": "Phone Number",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
     "IN_REGISTERING": "Registering",
-    "IN_REGISTERING_DESCRIPTION": "Please wait while registering..."
+    "IN_REGISTERING_DESCRIPTION": "Please wait while registering...",
+    "INSTALL":"Install",
+    "CATEGORY": "Category"
 }

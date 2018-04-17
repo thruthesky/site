@@ -10,7 +10,7 @@
                 <ion-spinner *ngIf=" show.dataLoader "></ion-spinner> spinner?? {{ 'IN LOADING' | t }}
             </div>
         
-            <div class="" *ngIf=" a.teacherTheme || a.user.isLogin ">
+            <div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
                 <div class="">
                     <input class="" type="file" (change)="fileUpload.onChangeFile($event)">
                     <div class="w-25">
@@ -28,39 +28,33 @@
         
             <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
         
-                <div *ngIf=" a.teacherTheme ">
-                    <label for="timezone">{{ 'TIMEZONE' | t }}</label>
+                <div class="select-timezone" *ngIf=" a.teacherTheme ">
+                    <label class="label" for="timezone">{{ 'TIMEZONE' | t }}</label>
                     <div class="input">
-                        <select [(ngModel)]="timezoneOffset" name="timezone" class="select-timezone py-2" id="timezone">
+                        <select id="timezone" [(ngModel)]="timezoneOffset" name="timezone">
                             <option *ngFor="let t of keysTimezone()" value="{{ t }}">{{ formatTimeCode(t) }} {{ timezones[t].name }}</option>
                         </select>
                     </div>
                 </div>
         
                 <div>
-                    <label for="email">{{ f.ln.EMAIL }}</label>
-                    <div class="input">
-                        <input type="email" name="email" id="email" [(ngModel)]="form.user_email">
-                    </div>
+                    <label class="label" for="email">{{ f.ln.EMAIL }}</label>
+                    <input class="input" type="email" name="email" id="email" [(ngModel)]="form.user_email">
                 </div>
         
                 <div *ngIf="a.isLogout">
-                    <label for="password">{{ f.ln.PASSWORD }}</label>
-                    <div class="input">
-                        <input type="password" name="password" id="password" [(ngModel)]="form.user_pass">
-                    </div>
+                    <label class="label" for="password">{{ f.ln.PASSWORD }}</label>
+                    <input class="input" type="password" name="password" id="password" [(ngModel)]="form.user_pass">
                 </div>
         
                 <div>
-                    <label for="name">{{ f.ln.NAME }}</label>
-                    <div class="input">
-                        <input id="name" type="text" name="name" [(ngModel)]="form.name">
-                    </div>
+                    <label class="label" for="name">{{ f.ln.NAME }}</label>
+                    <input class="input" id="name" type="text" name="name" [(ngModel)]="form.name">
                 </div>
         
                 <div *ngIf=" a.teacherTheme ">
-                    <div class="label">{{ f.ln.GENDER }}</div>
-                    <div>
+                    <label class="label">{{ f.ln.GENDER }}</label>
+                    <div id="gender-group" class="input">
                         <label>
                             <input type="radio" name="gender" value="M" [checked]=" form.gender == 'M' " [(ngModel)]="form.gender"> Male
                         </label>
@@ -72,7 +66,7 @@
         
                 <div *ngIf=" a.teacherTheme ">
                     <label class="label">{{ 'BIRTHDAY' | t }}</label>
-                    <div class="input">
+                    <div id="birthday-group" class="input">
                         <label class="mr-3">Month
                             <select [(ngModel)]="month" name="month" class="py-2">
                                 <option *ngFor="let m of [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{ a.add0(m) }}">{{ a.add0(m) }}</option>
@@ -95,7 +89,7 @@
                 </div>
         
                 <div>
-                    <label for="display_name">{{ f.ln.NICKNAME }}</label>
+                    <label class="label" for="display_name">{{ f.ln.NICKNAME }}</label>
                     <div class="input">
                         <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
                         <div class="fs-lg mt-2" text-wrap>
@@ -105,14 +99,12 @@
                 </div>
         
                 <div>
-                    <label for="phone_number">{{ f.ln.PHONE_NUMBER }}</label>
-                    <div class="input">
-                        <input id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
-                    </div>
+                    <label class="label" for="phone_number">{{ f.ln.PHONE_NUMBER }}</label>
+                    <input class="input" id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
                 </div>
         
                 <div *ngIf=" a.teacherTheme ">
-                    <label for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
+                    <label class="label" for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
                     <div class="input">
                         <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
                         <div class="small">Input minutes to prevent a sudden booking.</div>
@@ -120,9 +112,9 @@
                 </div>
         
                 <div>
-                    <label for="kakaotalk_id">{{ f.ln.KAKAOTALK_ID_SHORT }}</label>
+                    <label class="label" for="kakaotalk_id">{{ f.ln.KAKAOTALK_ID_SHORT }}</label>
                     <div class="input">
-                        <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
+                        <input  id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
                         <div class="py-3 fs-lg pointer" (click)=" onClickKakaoIDHelp() ">
                             {{ 'FIND KAKAOTALK ID' | t }}
                             <i class="fa fa-question-circle"></i>
@@ -135,7 +127,7 @@
                 </div>
         
                 <div *ngIf=" a.teacherTheme ">
-                    <div>Upload Kakaotalk QR Mark</div>
+                    <div class="label">Upload Kakaotalk QR Mark</div>
         
                     <div class="input qr-mark">
                         <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="true"
@@ -160,7 +152,7 @@
                 </div>
         
                 <div>
-                    <label></label>
+                    <label class="label"></label>
                     <div class="form-submit-button">
                         <button type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</button>
                         <button type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</button>
