@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+$katalkenglish-page-width: 1024px;
+$katalkenglish-header-height: 64px;
+$katalkenglish-padding: 8px;
+#katalkenglish {
+    #katalkenglish-header {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $katalkenglish-header-height;
+        overflow: hidden;
+        background-color: #bb88bb;
+        .inner {
+            margin: 0 auto;
+            max-width: $katalkenglish-page-width;
+        }
+    }
+    .page {
+        margin-top: $katalkenglish-header-height;
+        .page-inner {
+            margin: 0 auto;
+            max-width: $katalkenglish-page-width;
+        }
+    }
+}
