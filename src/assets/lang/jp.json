@@ -28,5 +28,6 @@
     "IN_REGISTERING": "登録中",
     "IN_REGISTERING_DESCRIPTION": "登録中にお待ちください...",
     "INSTALL": "インストール",
-    "CATEGORY": "カテゴリー"
+    "CATEGORY": "カテゴリー",
+    "IN LOADING": "読み込み中。。。待って下さい。"
 }

@@ -30,5 +30,6 @@
     "IN_REGISTERING": "회원가입",
     "IN_REGISTERING_DESCRIPTION": "회원 가입 중입니다. 잠시만 기다려주세요.",
     "INSTALL": "설치하다",
-    "CATEGORY": "범주"
+    "CATEGORY": "범주",
+    "IN LOADING": "로딩중입니다. 잠시만 기다려주세요."
 }

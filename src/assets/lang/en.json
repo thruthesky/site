@@ -70,5 +70,6 @@
     "IN_REGISTERING": "Registering",
     "IN_REGISTERING_DESCRIPTION": "Please wait while registering...",
     "INSTALL":"Install",
-    "CATEGORY": "Category"
+    "CATEGORY": "Category",
+    "IN LOADING": "Loading.. Please, wait."
 }
