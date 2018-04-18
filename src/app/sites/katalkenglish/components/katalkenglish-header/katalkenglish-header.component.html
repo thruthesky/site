@@ -18,6 +18,14 @@
                 <span>{{ f.ln.REGISTER }}</span>
             </button>
 
+            <button routerLink="/forum" *ngIf="a.isLogin">
+                <span>{{ f.ln.FORUM }}</span>
+            </button>
+
+            <button routerLink="/category" *ngIf="a.isLogin">
+                <span>{{ f.ln.CATEGORY }}</span>
+            </button>
+
         </nav>
         <nav class="sub-nav">
             <button routerLink="/schedule-table">
