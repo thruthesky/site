@@ -7,15 +7,16 @@
     <ion-spinner *ngIf=" show.dataLoader "></ion-spinner> {{ 'IN LOADING' | t }}
 </div>
 
-<div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
+<div class="photo-upload" *ngIf=" !a.teacherTheme || a.user.isLogin ">
     <input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">
     <div class="photo-upload-button">
         <div class="photo">
             <img src="{{ userProfilePhoto( files )}}">
         </div>
         <div>
-            <button class="" [class.skip]="files && files.length">
-                {{ 'PHOTO UPLOAD' | t }}
+            <button class="btn" [class.skip]="files && files.length">
+                <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+                <span>{{ 'PHOTO UPLOAD' | t }}</span>
             </button>
         </div>
     </div>
@@ -26,7 +27,7 @@
 
 <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
 
-    <div class="select-timezone" *ngIf=" a.teacherTheme ">
+    <div class="select-timezone" *ngIf=" !a.teacherTheme ">
         <label class="label" for="timezone">{{ 'TIMEZONE' | t }}</label>
         <div class="input">
             <select id="timezone" [(ngModel)]="timezoneOffset" name="timezone">
@@ -50,7 +51,7 @@
         <input class="input" id="name" type="text" name="name" [(ngModel)]="form.name">
     </div>
 
-    <div *ngIf=" a.teacherTheme ">
+    <div *ngIf=" !a.teacherTheme ">
         <label class="label">{{ f.ln.GENDER }}</label>
         <div id="gender-group" class="input">
             <label>
@@ -62,8 +63,8 @@
         </div>
     </div>
 
-    <div *ngIf=" a.teacherTheme ">
-        <label class="label">{{ 'BIRTHDAY' | t }}</label>
+    <div *ngIf=" !a.teacherTheme ">
+        <label class="label label-center">{{ 'BIRTHDAY' | t }}</label>
         <div id="birthday-group" class="input">
             <label class="mr-3">Month
                 <select [(ngModel)]="month" name="month" class="py-2">
@@ -88,7 +89,7 @@
 
     <div>
         <label class="label" for="display_name">{{ f.ln.NICKNAME }}</label>
-        <div class="input">
+        <div class="input-group">
             <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
             <div class="fs-lg mt-2" text-wrap>
                 {{ 'NICKNAME DESC' | t }}
@@ -101,9 +102,9 @@
         <input class="input" id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
     </div>
 
-    <div *ngIf=" a.teacherTheme ">
+    <div *ngIf=" !a.teacherTheme ">
         <label class="label" for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
-        <div class="input">
+        <div class="input-group">
             <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
             <div class="small">Input minutes to prevent a sudden booking.</div>
         </div>
@@ -111,7 +112,7 @@
 
     <div>
         <label class="label" for="kakaotalk_id">{{ f.ln.KAKAOTALK_ID_SHORT }}</label>
-        <div class="input">
+        <div class="input-group">
             <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
             <div class="py-3 fs-lg pointer" (click)=" onClickKakaoIDHelp() ">
                 {{ 'FIND KAKAOTALK ID' | t }}
@@ -124,7 +125,7 @@
         <img src="assets/img/find-kakaotalk-id.jpg">
     </div>
 
-    <div *ngIf=" a.teacherTheme ">
+    <div *ngIf=" !a.teacherTheme ">
         <div class="label">Upload Kakaotalk QR Mark</div>
 
         <div class="input qr-mark">
