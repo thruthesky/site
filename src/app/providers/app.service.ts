@@ -428,6 +428,20 @@ export class AppService {
         return this.user.manager && this.user.manager === this.getDomain();
     }
 
+    get isTeacher(): boolean {
+        if ( this.isLogout ) {
+            return false;
+        }
+        return this.lms.getUserType() === 'teacher';
+    }
+
+    get isStudent(): boolean {
+        if ( this.user.isLogout ) {
+            return false;
+        }
+        return this.lms.getUserType() !== 'teacher';
+    }
+
 
     add0(n: number): string {
         if (!n) {

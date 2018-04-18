@@ -15,6 +15,7 @@ export class OntueDayoffPage {
 
 
     today = new Date();
+    showLoader = false;
 
     constructor(
         public a: AppService
@@ -27,7 +28,14 @@ export class OntueDayoffPage {
     }
 
     loadDayoffs() {
-        this.a.lms.get_dayoffs().subscribe(re => this.dayoffs = re['dayoffs'], e => this.a.toast(e));
+        this.showLoader = true;
+        this.a.lms.get_dayoffs().subscribe(re => {
+            this.dayoffs = re['dayoffs'];
+            this.showLoader = false;
+        }, e => {
+            this.a.toast(e);
+            this.showLoader = false;
+        });
     }
 
     onClickCreateDayoff() {
@@ -44,7 +52,7 @@ export class OntueDayoffPage {
 
     onClickDeleteDate(dayoff) {
         this.a.lms.delete_dayoff(dayoff.date).subscribe(re => {
-            console.log(re);
+            // console.log(re);
             // this.loadDayoffs();
             const idx = re['idx_dayoff'];
             this.dayoffs = this.dayoffs.filter(off => off['idx'] !== idx);
