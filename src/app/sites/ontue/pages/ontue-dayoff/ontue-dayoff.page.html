@@ -23,12 +23,12 @@
             <form>
                 <div>
                     <div class="" style="display: inline-block; border: 1px solid grey; padding: .5em;" (click)="dp.open()">
-                        Select a date:
-                        {{ date }}
+                        Select a date: {{ date }}
                     </div>
                     <input name="date" [(ngModel)]="date" matInput [matDatepicker]="dp" disabled style="display: none;">
                     <button matSuffix (click)="dp.open()">Open Calendar</button>
                     <mat-datepicker #dp disabled="false"></mat-datepicker>
+
                 </div>
 
 
