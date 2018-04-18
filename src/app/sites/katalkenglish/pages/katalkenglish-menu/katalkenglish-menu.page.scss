@@ -1,0 +1,47 @@
+.page-header{
+    padding: 1.25em;
+    background-color: #3f51b5!important;
+    text-align: center;
+    color: #fff;
+
+    span{
+        display: inline-block;
+        padding: .2em .5em;
+        border-radius: 2px;
+        background: #1515aa;
+        cursor: pointer;
+    }
+}
+
+.page-body{
+    padding-bottom: 3em;
+    background: #fff;
+    
+     ul{
+         margin: 0;
+         padding: 0 1em;
+         list-style: none;
+
+         li{
+            cursor: pointer;
+
+            div{
+                display: flex;
+                align-items:center;
+
+                div{
+                    width: 100%;
+                    padding: 13px 8px 13px 0;
+                    border-bottom: 1px solid #dedede;
+                }
+
+                ion-icon{
+                    margin-right: .8em;
+                    font-size: 1.8em;
+                }
+            }
+
+         }
+
+     }
+}

@@ -1,81 +1,97 @@
-    .loader {
-        padding: 1em;
+.loader {
+    padding: 1em;
+}
+
+header {
+    padding: 1em;
+    background-color: #673ab7;
+    color: white;
+    h2 {
+        margin: 0 !important;
+        font-weight: 300 !important;
+        font-size: 1.25em;
+    }
+}
+
+
+form{
+    margin-top: 2em;
+
+    input, #timezone, .select{
+        padding: .5em;
     }
 
-    header {
-        padding: 1em;
-        background-color: #673ab7;
-        color: white;
-        h2 {
-            margin: 0 !important;
-            font-weight: 300 !important;
-            font-size: 1.25em;
-        }
+    input[type="text"],
+    input[type="number"],
+    input[type="password"],
+    input[type="email"]{
+        width:100%;
     }
 
-    form {
-        padding: 2em;
-        font-size: 85%;
-        &>div {
-            display: flex;
-            margin-bottom: 1.2em;
-            .label {
-                width: 150px;
-            }
-            .input {
-                display: flex;
-                flex-direction: column;
-                width: 842px;
-                padding: .5em 0;
-                input {
-                    padding: .5em 0;
-                }
-            }
-            #timezone {
-                align-self: start;
-            }
-            #gender-group,
-            #birthday-group {
-                display: flex;
-                flex-direction: row;
-            }
-        }
+    .col-9, .col-md-10{
+        padding-right: 3em;
     }
 
-    .form-submit-button {
-        width: 842px;
-        button {
-            padding: 1em 2em;
-            border-radius: 3px;
+    .col-3, .col-md-2{
+        padding-top: .5em;
+    }
+
+    .row{
+        margin-bottom: 1em;
+    }
+
+    .select{
+        margin: 0 .5em;
+    }
+
+    .app-button{
+        button{
+            display: inline-block;
+            padding: .4em .8em;
+            border-radius: 2px;
             background-color: #1515aa;
             color: #fff;
         }
     }
-
-    .select-timezone {
-        display: flex;
-        align-items: center;
-    }
+}
 
     
     .photo-upload {
         position: relative;
-        overflow: hidden;
-        width: 140px;
         margin: 0 auto;
+        width: 140px;
+        overflow: hidden;
+
         .input-box {
             position: absolute;
             top: 0;
             right: 0;
-            z-index: 100;
-            opacity: .001;
-            font-size: 300pt;
             height: 300px;
+            font-size: 300pt;
+            opacity: .001;
             cursor: pointer;
+            z-index: 100;
         }
+
         .photo-upload-button {
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            .btn{
+                display:flex;
+                align-items:center;
+                margin-top:2em;
+                padding: .8em 1em;
+                border: 0;
+                background-color: #1e90ff;
+                color: #fff;
+                font-size: .7em;
+
+                ion-icon{
+                    margin-right: .8em;
+                    font-size: 1.2em;
+                }
+            }
         }
     }

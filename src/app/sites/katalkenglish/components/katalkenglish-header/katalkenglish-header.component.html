@@ -1,5 +1,52 @@
 <header id="katalkenglish-header">
-    <div class="inner">
+
+    <div id="mobile-header" class="inner">
+        <nav *ngIf=" a.showHeader ">
+            <button routerLink="/menu">
+                <img src="../../../assets/img/menu-icon.png" alt="">
+            </button>
+
+            <button routerLink="/">
+                <img src="../../../assets/logo/katalk-english.png" alt="">
+            </button>
+
+            <button routerLink="/login" *ngIf="a.isLogout">
+                <span>{{ f.ln.LOGIN }}</span>
+            </button>
+
+            <button routerLink="/register" *ngIf="a.isLogout">
+                <span>{{ f.ln.REGISTER }}</span>
+            </button>
+
+            <button routerLink="/forum" *ngIf="a.isLogin">
+                <span>{{ f.ln.FORUM }}</span>
+            </button>
+
+            <button routerLink="/category" *ngIf="a.isLogin">
+                <span>{{ f.ln.CATEGORY }}</span>
+            </button>
+
+        </nav>
+        <nav class="sub-nav">
+            <button routerLink="/schedule-table">
+                <span>{{ f.ln.ALL_SCHEDULE }}</span>
+            </button>
+
+            <button (click)=" a.onClickContactAdmin() ">
+                <span>{{ 'QNA' | t }}</span>
+            </button>
+
+            <button routerLink="/teacher-list">
+                <span>{{ f.ln.TEACHER_LIST }}</span>
+            </button>
+
+            <button routerLink="/help">
+                <span>{{ f.ln.HELP }}</span>
+            </button>
+        </nav>
+    </div>
+
+    <div id="desktop-header" class="inner">
         <nav *ngIf=" a.showHeader ">
             <button routerLink="{{ a.homeUrl }}">
                 <img src="../../../assets/logo/withcenter-icon.png" alt="">
@@ -101,9 +148,9 @@
                 <select text-center [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() " placeholder="Select Your Language">
                     <option>None</option>
                     <option value="en">English</option>
-                    <option value="ko">Korean</option>
-                    <option value="ch">Chinese</option>
-                    <option value="jp">Japanese</option>
+                    <option value="ko">한국어</option>
+                    <option value="ch">香港 (繁體中文)</option>
+                    <option value="jp">日本語</option>
                 </select>
             </span>
 

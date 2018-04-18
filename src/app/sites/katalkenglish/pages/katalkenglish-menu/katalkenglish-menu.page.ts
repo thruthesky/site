@@ -3,7 +3,8 @@ import { AppService } from '../../../../providers/app.service';
 
 @Component({
     selector: 'katalkenglish-menu-page',
-    templateUrl: 'katalkenglish-menu.page.html'
+    templateUrl: 'katalkenglish-menu.page.html',
+    styleUrls: ['katalkenglish-menu.page.scss']
 })
 export class KatalkEnglishMenuPage {
 
