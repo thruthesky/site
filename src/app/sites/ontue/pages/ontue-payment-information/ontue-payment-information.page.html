@@ -1,0 +1,198 @@
+<header>
+    {{ "PAYMENT SETTING" | t }}
+    <div>Please Choose a Payment Method and Fill Out the Appropriate Information</div>
+</header>
+<section>
+    <div>
+        <div>
+            <div>
+                <label>
+                    <input type="radio" name="payment_method"
+                           [(ngModel)]="payment_information['payment_method']" value="gcash">
+                    <span>
+                        <i class="fal fa-tablet-alt d-inline-block mx-auto fs-4rem icon-effect"></i>
+                        <span>GCAsh</span>
+                    </span>
+                </label>
+            </div>
+            <div>
+                <label class="hover-icon-effect pointer ">
+                    <input type="radio" name="payment_method" [(ngModel)]="payment_information['payment_method']"
+                           value="western-union">
+                    <span>
+                        <i class="fal fa-barcode d-inline-block fs-4rem mx-auto icon-effect"></i>
+                        <span>Western Union</span>
+                    </span>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="payment_method" [(ngModel)]="payment_information['payment_method']"
+                           value="paypal">
+                    <span>
+                        <i class="fal fa-credit-card d-inline-block fs-4rem mx-auto icon-effect"></i>
+                        <span>Paypal</span>
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['first_name']"/>
+                            First Name
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['middle_name']"/>
+                            Middle Name
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                        <input type="text" [(ngModel)]="payment_information['last_name']"/>
+                        Last Name
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['phone_number']"/>
+                            Phone Number
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['email']"/>
+                            Email
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['country']"/>
+                            Country
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['province']"/>
+                            Province
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text"
+                                   [(ngModel)]="payment_information['city']"/>
+                            City
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['address']"/>
+                            Address
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text" [(ngModel)]="payment_information['zipcode']"/>
+                            Zipcode
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button (click)="onClickSubmit()">
+                UPDATE
+            </button>
+        </div>
+
+        <hr>
+
+        <div>
+            <div>{{ "PAYMENT INFORMATION HISTORY" | t }}</div>
+            <button (click)="onClickShowHistory()">
+                Show History
+                <i class="fal fa-list-ul ml-2"></i>
+            </button>
+        </div>
+
+
+        <ul>
+            <ng-container *ngFor="let info of payment_information_history; let odd = odd">
+                <li (click)="info['more'] =  !info['more']">
+                    <div>
+                        <span>Date/Time Changed: {{a.shortDate(info.stamp)}}</span>
+                        <span [class.rotate-45-on]="info['more']" [class.rotate-45-off]="!info['more']">
+                            <i class="fal fa-plus"></i>
+                        </span>
+                    </div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>{{info['first_name']}}</div>
+                                <div>First Name</div>
+                            </div>
+                            <div>
+                                <div>{{info['middle_name']}}</div>
+                                <div>Middle Name</div>
+                            </div>
+                            <div>
+                                <div>{{info['last_name']}}</div>
+                                <div>Last Name</div>
+                            </div>
+                            <div>
+                                <div>{{info['phone_number']}}</div>
+                                <div>Phone Number</div>
+                            </div>
+                            <div>
+                                <div>{{info['email']}}</div>
+                                <div>Email</div>
+                            </div>
+                            <div>
+                                <div>{{info['payment_method']}}</div>
+                                <div>Payment Method</div>
+                            </div>
+                            <div>
+                                <div>{{info['country']}}</div>
+                                <div>Country</div>
+                            </div>
+                            <div>
+                                <div>{{info['province']}}</div>
+                                <div>Province</div>
+                            </div>
+                            <div>
+                                <div>{{info['city']}}</div>
+                                <div>City</div>
+                            </div>
+                            <div>
+                                <div>{{info['address']}}</div>
+                                <div>Address</div>
+                            </div>
+                            <div>
+                                <div>{{info['zipcode']}}</div>
+                                <div>Zipcode</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</section>
