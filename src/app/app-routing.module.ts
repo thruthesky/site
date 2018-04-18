@@ -104,6 +104,11 @@ const routes: Routes = [
     loadChildren: './pages/forum/forum.page.module#ForumPageModule'
   },
 
+  {
+    path: 'settings',
+    loadChildren: './pages/settings/settings.page.module#SettingsPageModule'
+  },
+
   /**
    * Admin Pages
    */
