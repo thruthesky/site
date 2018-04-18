@@ -18,11 +18,11 @@
 * add available schedule page.
 * add teacher schedule create/edit/list
 * add session future, past page.
-* add settings page.
+* @done add settings page.
 * add teacher's payment information page.
 * add teacher's curriculmn vitae page.
 * add teacher's dashboard. ( menu )
-* add teacher's dayoff page.
+* @done add teacher's dayoff page.
 * schedule table navigation. No favicon anymore.
 * Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
   * Ask Mr. Han for chinese translation.
