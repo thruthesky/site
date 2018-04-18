@@ -1,0 +1,42 @@
+<div class="page-header">{{ 'SETTINGS PAGE' | translate }}</div>
+<section class="page-desc">{{ 'SETTINGS PAGE DESC' | translate }}</section>
+<section class="page-body">
+
+    <div>{{ 'SELECT YOUR LANGUAGE' | translate }}</div>
+    <ul>
+        <li>
+            <label>English
+                <input type="radio" value="en" [checked]=" a.getLanguage() == 'en' " (ionSelect)="a.setLanguage('en')">
+            </label>
+        </li>
+        <li>
+            <label>한국어
+                <input type="radio" value="ko" [checked]=" a.getLanguage() == 'ko' " (ionSelect)="a.setLanguage('ko')">
+            </label>
+        </li>
+
+        <li>
+            <label>Japanese
+                <input type="radio" value="jp" [checked]=" a.getLanguage() == 'jp' " (ionSelect)="a.setLanguage('jp')">
+            </label>
+        </li>
+
+        <li>
+            <label>Chineese
+                <input type="radio" value="cn" [checked]=" a.getLanguage() == 'cn' " (ionSelect)="a.setLanguage('cn')">
+            </label>
+        </li>
+
+    </ul>
+
+
+    <div>{{ 'SELECT YOUR TIMEZONE' | translate }}</div>
+    <ul>
+        <li *ngFor="let t of keysTimezone()">
+            <label>{{ tz[t].name }} ( UTC {{ format(t) }} )
+            <input type="radio" value="{{ t }}" (ionSelect)=' onClickTimezone( t ) ' [checked]="t == userTZ">
+            </label>
+        </li>
+
+    </ul>
+</section>
