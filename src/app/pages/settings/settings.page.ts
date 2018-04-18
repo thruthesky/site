@@ -47,7 +47,7 @@ export class SettingsPage {
             // console.log(re);
             this.a.user.loadProfile().subscribe(() => {
             });
-        }, e => this.a.alert(e));
+        }, e => this.a.toast(e));
     }
 
 
