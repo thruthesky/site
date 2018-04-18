@@ -31,3 +31,4 @@ const routes: Routes = [
     schemas: []
 })
 export class SettingsPageModule { }
+

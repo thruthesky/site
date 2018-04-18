@@ -31,5 +31,6 @@
     "CATEGORY": "カテゴリー",
     "IN LOADING": "読み込み中。。。待って下さい。",
     "KATALK_STORY": "私たちの物語",
-    "SETTINGS": "設定"
+    "SETTINGS": "設定",
+    "LOGIN_INVALID": "ログインしてください"
 }

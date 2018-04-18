@@ -1,17 +1,18 @@
 <div class="bg-secondary" *ngIf=" ! isAdminPage ">
     OnTue Menu
-    <ion-button routerLink="/teacher">HOME</ion-button>
-    <ion-button routerLink="/teacher/help">Help</ion-button>
-    <ion-button routerLink="/register" *ngIf=" a.isLogout ">Register</ion-button>
-    <ion-button routerLink="/profile" *ngIf=" a.isLogin ">Profile</ion-button>
-    <ion-button routerLink="/login" *ngIf=" a.isLogout ">Login</ion-button>
-    <ion-button (click)=" a.logout({open: '/'}) " *ngIf=" a.isLogin ">Log out</ion-button>
-    <ion-button routerLink="/forum">Forum</ion-button>
-    <ion-button routerLink="/category">Category</ion-button>
-    <ion-button routerLink="/admin" *ngIf=" a.isManager ">Admin Page</ion-button>
-    <ion-button routerLink="/teacher-list">Teacher List</ion-button>
-    <ion-button routerLink="/dayoff">Dayoff</ion-button>
-    <ion-button routerLink="/payment-information">Payment Information</ion-button>
+    <button routerLink="/teacher">HOME</button>
+    <button routerLink="/teacher/help">Help</button>
+    <button routerLink="/register" *ngIf=" a.isLogout ">Register</button>
+    <button routerLink="/profile" *ngIf=" a.isLogin ">Profile</button>
+    <button routerLink="/login" *ngIf=" a.isLogout ">Login</button>
+    <button (click)=" a.logout({open: '/'}) " *ngIf=" a.isLogin ">Log out</button>
+    <button routerLink="/forum">Forum</button>
+    <button routerLink="/category">Category</button>
+    <button routerLink="/admin" *ngIf=" a.isManager ">Admin Page</button>
+    <button routerLink="/teacher-list">Teacher List</button>
+    <button routerLink="/dayoff">Dayoff</button>
+    <button routerLink="/payment-information">Payment Information</button>
+    <button routerLink="/settings">settings</button>
 </div>
 
 

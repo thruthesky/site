@@ -10,13 +10,13 @@ export class OntueDayoffPage {
 
 
     dayoffs = [];
-    date;
     showForm = false;
 
 
     today = new Date();
     showLoader = false;
 
+    _date = '';
     constructor(
         public a: AppService
     ) {
@@ -25,6 +25,14 @@ export class OntueDayoffPage {
 
         this.loadDayoffs();
 
+    }
+
+    set date( date ) {
+        const d = new Date(date);
+        this._date = d.getFullYear() + '-' + this.a.add0((d.getMonth() + 1)) + '-' + this.a.add0(d.getDate());
+    }
+    get date() {
+        return this._date;
     }
 
     loadDayoffs() {
@@ -51,12 +59,17 @@ export class OntueDayoffPage {
     }
 
     onClickDeleteDate(dayoff) {
+        this.showLoader = true;
         this.a.lms.delete_dayoff(dayoff.date).subscribe(re => {
             // console.log(re);
             // this.loadDayoffs();
+            this.showLoader = false;
             const idx = re['idx_dayoff'];
             this.dayoffs = this.dayoffs.filter(off => off['idx'] !== idx);
-        }, e => this.a.toast(e));
+        }, e => {
+            this.showLoader = false;
+            this.a.toast(e);
+        });
     }
 
     preDate(date) {

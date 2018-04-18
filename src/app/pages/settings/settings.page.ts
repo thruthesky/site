@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AppService} from '../../providers/app.service';
 
-
 @Component({
     selector: 'settings-page',
     templateUrl: 'settings.page.html',
@@ -18,13 +17,13 @@ export class SettingsPage {
         a.lms.timezones().subscribe(re => {
             // console.log( re);
             this.tz = re;
-        });
+        }, e => this.a.toast(e));
 
         if (a.user.isLogin) {
             a.lms.timezone().subscribe(re => {
                 // console.log('timezone', re);
                 this.userTZ = re['offset'];
-            });
+            }, e => this.a.toast(e));
         }
     }
 

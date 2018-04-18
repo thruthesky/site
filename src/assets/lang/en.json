@@ -73,5 +73,6 @@
     "CATEGORY": "Category",
     "IN LOADING": "Loading.. Please, wait.",
     "KATALK_STORY": "Our Story",
-    "SETTINGS": "Settings"
+    "SETTINGS": "Settings",
+    "LOGIN_INVALID": "Please, login"
 }
