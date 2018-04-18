@@ -77,5 +77,6 @@
     "SETTINGS PAGE TITLE": "Settings",
     "SETTINGS PAGE DESC": "You can change your language and timezone.",
     "SELECT YOUR LANGUAGE": "Language",
-    "SELECT YOUR TIMEZONE": "Timezone"
+    "SELECT YOUR TIMEZONE": "Timezone",
+    "LOGIN_INVALID": "Please, login"
 }

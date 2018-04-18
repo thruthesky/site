@@ -35,5 +35,6 @@
     "SETTINGS PAGE TITLE": "设置",
     "SETTINGS PAGE DESC": "您可以更改您的语言和时区。",
     "SELECT YOUR LANGUAGE": "语言",
-    "SELECT YOUR TIMEZONE": "时区"
+    "SELECT YOUR TIMEZONE": "时区",
+    "LOGIN_INVALID": "请登录"
 }

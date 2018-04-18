@@ -8,11 +8,13 @@ import { AdminHeaderComponent } from './components/admin-header/admin-header.com
 import { FormsModule } from '@angular/forms';
 import { PointHistoryPage } from './point-history/point-history.page';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { AdminPaymentPage } from './payment/admin-payment.page';
 
 
 const appRoutes: Array<Route> = [
     { path: 'point-refund', pathMatch: 'full', component: PointRefundPage },
     { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
+    { path: 'payment', pathMatch: 'full', component: AdminPaymentPage },
     { path: '', pathMatch: 'full', component: AdminHomePage }
 ];
 
@@ -21,7 +23,8 @@ const appRoutes: Array<Route> = [
         AdminHomePage,
         PointRefundPage,
         AdminHeaderComponent,
-        PointHistoryPage
+        PointHistoryPage,
+        AdminPaymentPage
     ],
     imports: [
         CommonModule,
@@ -33,7 +36,8 @@ const appRoutes: Array<Route> = [
     entryComponents: [
         AdminHomePage,
         PointRefundPage,
-        PointHistoryPage
+        PointHistoryPage,
+        AdminPaymentPage
     ],
     bootstrap: [
         AdminHomePage

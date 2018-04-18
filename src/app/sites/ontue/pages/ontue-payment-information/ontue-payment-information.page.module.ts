@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { SettingsPage } from './settings.page';
-import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { OntuePaymentInformationPage } from './ontue-payment-information.page';
 
 
 const routes: Routes = [
-    { path: '', component: SettingsPage }
+    { path: '', component: OntuePaymentInformationPage }
 ];
 @NgModule({
     imports: [
@@ -22,13 +22,12 @@ const routes: Routes = [
         RouterModule
     ],
     declarations: [
-        SettingsPage
+        OntuePaymentInformationPage
     ],
     entryComponents: [
-        SettingsPage
+        OntuePaymentInformationPage
     ],
-    bootstrap: [SettingsPage],
+    bootstrap: [OntuePaymentInformationPage],
     schemas: []
 })
-export class SettingsPageModule { }
-
+export class OntuePaymentInformationPageModule { }

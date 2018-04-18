@@ -304,3 +304,12 @@ constructor( public loader: LoaderService ) {
   setTimeout(() => loader.closeLoader(), 5000);
 }
 ````
+
+
+## Firebase
+
+### Firebase User Login and Session
+
+* firebase user's email and password is set automatically.
+* `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
+  * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.

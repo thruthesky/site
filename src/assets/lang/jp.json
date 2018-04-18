@@ -35,5 +35,6 @@
     "SETTINGS PAGE TITLE": "設定",
     "SETTINGS PAGE DESC": "言語とタイムゾーンを変更することができます。",
     "SELECT YOUR LANGUAGE": "言語",
-    "SELECT YOUR TIMEZONE": "タイムゾーン"
+    "SELECT YOUR TIMEZONE": "タイムゾーン",
+    "LOGIN_INVALID": "ログインしてください"
 }
