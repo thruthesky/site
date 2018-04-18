@@ -16,6 +16,7 @@ header {
 form {
     padding: 2em;
     font-size: 85%;
+
     &>div {
         display: flex;
         margin-bottom: 1.2em;
@@ -28,16 +29,13 @@ form {
         .input,.input-group {
             display: flex;
             flex-direction: column;
-            padding: .5em 0;
+            padding: .5em;
             width: 85%;
 
-            input {
-                padding: .5em 0;
+            input,select {
+                padding: .5em;
             }
-        }
 
-        .input-group{
-            padding: 0!important;
         }
 
         #timezone {
@@ -63,6 +61,14 @@ form {
             .input,.input-group,.form-submit-button {
                 width: 60%;
             }
+        }
+
+        .input-group{
+            padding: 0!important;
+        }
+
+        .small{
+            margin-top:.5em;
         }
 
     }
