@@ -58,6 +58,10 @@ const routes: Routes = [
     path: 'teacher',
     loadChildren: './sites/ontue/pages/ontue-home/ontue-home.page.module#OntueHomePageModule'
   },
+  {
+    path: 'dayoff',
+    loadChildren: './sites/ontue/pages/ontue-dayoff/ontue-dayoff.page.module#OntueDayoffPageModule'
+  },
 
 
   /**
