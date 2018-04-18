@@ -73,5 +73,9 @@
     "CATEGORY": "Category",
     "IN LOADING": "Loading.. Please, wait.",
     "KATALK_STORY": "Our Story",
-    "SETTINGS": "Settings"
+    "SETTINGS": "Settings",
+    "SETTINGS PAGE TITLE": "Settings",
+    "SETTINGS PAGE DESC": "You can change your language and timezone.",
+    "SELECT YOUR LANGUAGE": "Language",
+    "SELECT YOUR TIMEZONE": "Timezone"
 }

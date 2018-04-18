@@ -1,6 +1,9 @@
 # Site
 
 ## TODO
+
+* SSR Or. At least sitemap.
+  * put sitemap link in index.html and the sitemap will be like  a web of all pages.
 * update a.taost to logout when login session invalid.
 * add western union, Phil bdo, korean Bank.
 * Make responsive header menu based on break point.

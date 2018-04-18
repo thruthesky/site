@@ -2,8 +2,7 @@
     {{ 'SETTINGS PAGE TITLE' | t }}
 <div class="desc">{{ 'SETTINGS PAGE DESC' | t }}</div>
 </header>
-<section>
-
+<main>
     <div>{{ 'SELECT YOUR LANGUAGE' | t }}</div>
     <ul>
         <li>
@@ -39,6 +38,6 @@
             <input type="radio" value="{{ t }}" (click)=' onClickTimezone( t ) ' [checked]="t == userTZ" name="timezone">
             </label>
         </li>
-
     </ul>
-</section>
+</main>
+
