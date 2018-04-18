@@ -1,7 +1,8 @@
 # Site
 
 ## TODO
-
+* update a.taost to logout when login session invalid.
+* add western union, Phil bdo, korean Bank.
 * Make responsive header menu based on break point.
 * Apply HMR for easy scss design.
 * for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
