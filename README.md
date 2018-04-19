@@ -2,6 +2,10 @@
 
 ## TODO
 
+* SSR Or. At least sitemap.
+  * put sitemap link in index.html and the sitemap will be like  a web of all pages.
+* update a.taost to logout when login session invalid.
+* add western union, Phil bdo, korean Bank.
 * Make responsive header menu based on break point.
 * Apply HMR for easy scss design.
 * for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
@@ -300,3 +304,12 @@ constructor( public loader: LoaderService ) {
   setTimeout(() => loader.closeLoader(), 5000);
 }
 ````
+
+
+## Firebase
+
+### Firebase User Login and Session
+
+* firebase user's email and password is set automatically.
+* `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
+  * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.

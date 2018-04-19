@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { OntueDayoffPage } from './ontue-dayoff.page';
 import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../../../app.material.module';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

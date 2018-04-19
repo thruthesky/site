@@ -62,6 +62,10 @@ const routes: Routes = [
     path: 'dayoff',
     loadChildren: './sites/ontue/pages/ontue-dayoff/ontue-dayoff.page.module#OntueDayoffPageModule'
   },
+  {
+    path: 'payment-information',
+    loadChildren: './sites/ontue/pages/ontue-payment-information/ontue-payment-information.page.module#OntuePaymentInformationPageModule'
+  },
 
 
   /**
