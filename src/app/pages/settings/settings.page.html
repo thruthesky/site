@@ -1,43 +1,36 @@
 <header>
     {{ 'SETTINGS PAGE TITLE' | t }}
-<div class="desc">{{ 'SETTINGS PAGE DESC' | t }}</div>
 </header>
+<div class="desc">{{ 'SETTINGS PAGE DESC' | t }}</div>
+
 <main>
-    <div>{{ 'SELECT YOUR LANGUAGE' | t }}</div>
-    <ul>
-        <li>
-            <label>English
-                <input type="radio" value="en" name="language" [checked]=" a.language.getUserLanguage() == 'en' "  (click)="a.language.setUserLanguage('en')">
-            </label>
-        </li>
-        <li>
-            <label>한국어
-                <input type="radio" value="ko" name="language" [checked]=" a.language.getUserLanguage() == 'ko' " (click)="a.language.setUserLanguage('ko')">
-            </label>
-        </li>
+    <div class="header-li">{{ 'SELECT YOUR LANGUAGE' | t }}</div>
 
-        <li>
-            <label>Japanese
-                <input type="radio" value="jp" name="language" [checked]=" a.language.getUserLanguage() == 'jp' " (click)="a.language.setUserLanguage('jp')">
-            </label>
-        </li>
-
-        <li>
-            <label>Chinese
-                <input type="radio" value="ch" name="language" [checked]=" a.language.getUserLanguage() == 'ch' " (click)="a.language.setUserLanguage('ch')">
-            </label>
-        </li>
-
-    </ul>
+    <div>
+        <label class="list">English
+            <input type="radio" value="en" name="language" [checked]=" a.language.getUserLanguage() == 'en' "  (click)="a.language.setUserLanguage('en')">
+        </label>
+    
+        <label class="list">한국어
+            <input type="radio" value="ko" name="language" [checked]=" a.language.getUserLanguage() == 'ko' " (click)="a.language.setUserLanguage('ko')">
+        </label>
+    
+        <label class="list">Japanese
+            <input type="radio" value="jp" name="language" [checked]=" a.language.getUserLanguage() == 'jp' " (click)="a.language.setUserLanguage('jp')">
+        </label>
+    
+        <label class="list">Chinese
+            <input type="radio" value="ch" name="language" [checked]=" a.language.getUserLanguage() == 'ch' " (click)="a.language.setUserLanguage('ch')">
+        </label>
+    </div>
 
 
-    <div>{{ 'SELECT YOUR TIMEZONE' | t }}</div>
-    <ul>
-        <li *ngFor="let t of keysTimezone()">
-            <label>{{ tz[t].name }} ( UTC {{ format(t) }} )
-            <input type="radio" value="{{ t }}" (click)=' onClickTimezone( t ) ' [checked]="t == userTZ" name="timezone">
-            </label>
-        </li>
-    </ul>
+
+    <div class="header-li">{{ 'SELECT YOUR TIMEZONE' | t }}</div>
+
+    <label class="list" *ngFor="let t of keysTimezone()">{{ tz[t].name }} ( UTC {{ format(t) }} )
+        <input type="radio" value="{{ t }}" (click)=' onClickTimezone( t ) ' [checked]="t == userTZ" name="timezone">
+    </label>
+
 </main>
 

@@ -1,0 +1,34 @@
+header, .desc{
+    padding:1em 2em;
+}
+
+header{
+    background-color: #e91e63!important;
+    font-weight: bolder
+}
+    
+.desc {
+    background-color: #e1e6e7;
+}
+
+.header-li,.list{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    border:1px solid rgba(grey,0.2);
+    border-top:none;
+    background: white;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.header-li{
+    margin-top: 1em;
+    border-top:1px solid rgba(grey,0.2);
+    background:rgba(dodgerblue,0.2);
+    font-weight: bolder;
+}
+
+.list:hover{
+    background:rgba(grey,0.05);
+}

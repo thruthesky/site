@@ -1,0 +1,253 @@
+.teacher-list{
+
+    padding-bottom: 4em;
+
+    *,
+    *::before,
+    *::after{
+        box-sizing: border-box;
+    }
+
+
+    .page-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        padding:.3em 1.2em;
+        background-color: #607d8b;
+        color:white;
+        font-size: .7em;
+
+        h2{
+            font-weight: 600;
+        }
+
+        button{
+            display:flex;
+            align-items: center;
+            border:none;
+            background:none;
+            cursor: pointer;
+
+            ion-icon{
+                margin-left: .2em;
+            }
+        }
+    }
+    
+
+    .page-options{
+        padding: 1em 0;
+        background: white;
+
+
+        select{
+            margin-top:.5em;
+            padding: .8em .5em;
+            width:100%;
+        }
+
+        button{
+            display: flex;
+            align-items:center;
+            margin-left: auto;
+            border:none;
+            background:none;
+            cursor: pointer;
+
+            ion-icon{
+                font-size: 1.6em;
+            }
+
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+
+
+    .page-desc{
+        padding: 1.2em;
+        background-color: #e1e6e7;
+        font-size: .8em;
+        text-align: center;
+    }
+
+
+    .teachers{
+        
+        margin: .5em -.1em;
+
+        .col{
+            padding:.1em;
+        }
+
+        .row{
+            justify-content: space-around;
+
+            @media screen and(max-width:544px) {
+                margin-right:0;
+                margin-left:0;
+            }
+        }
+
+        .profile-wrapper{
+            margin: .4em auto;
+            padding-bottom: .8em;
+            width: 100px;
+            border:1px solid rgba(grey,0.2);
+            border-radius: 2px;
+            background: white;
+            text-align: center;
+            overflow: hidden;
+
+            .name{
+                margin-top: .6em;
+                text-transform: uppercase;
+                font-size: 90%;
+            }
+
+            .grade,.reservation{
+                margin-top: .6em;
+                font-size: 80%;
+            }
+
+            .grade{
+                svg{
+                    height: .9em;
+                }
+            }
+
+            .grade[grade="5"]{
+                color: #f06000;
+              }
+              
+              .grade[grade="4"] {
+                color: #ff9900;
+              }
+              
+              .grade[grade="3"] {
+                color: #4a8d23;
+              }
+              
+              .grade[grade="2"] {
+                color: #272775;
+              }
+              
+              .grade[grade="1"] {
+                color: #272727;
+              }
+            
+        }
+
+        .teacher-profile-photo{
+            height: 120px;
+            width: 100px;
+            overflow: hidden;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        
+            img{
+                width:100%;
+            }
+        
+        }
+
+
+        @media screen and (max-width:544px) {
+            .container-fluid{
+                padding-right: .4em;
+                padding-left: .4em;
+            }   
+        }
+
+
+        .hover-img-effect {
+            position: relative;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+
+            .hover-cover {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                opacity: 0;
+                border-radius: 2px;
+                background: rgba(#607d8b, 0.4);
+                transition: opacity 0.2s ease-in-out;
+
+            
+                .icon{
+                    margin:0 auto;
+                    height: 2em;
+                    color:white;
+                }
+            }
+
+
+            &:hover {
+              -webkit-transform: scale(0.98);
+              -ms-transform: scale(0.98);
+              transform: scale(0.98);
+              .hover-cover {
+                opacity: 1;
+              }
+            }
+
+        }
+        
+
+    }
+
+
+    #no-more-teachers{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:4em 0;
+
+        button{
+            margin-left:2em;
+            padding: .5em 1em;
+            border-radius: 2px;
+            border:none;
+            background:dodgerblue;
+            color:white;
+        }
+    }
+
+    .loader-big {
+        margin: 0 !important;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right:0;
+        bottom:0;
+        background: rgba(white, 0.8);
+        z-index: 777;
+
+        &>div{
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+            height: 100%;
+            width:100%;
+            font-size: 1.5em;
+            color:grey;
+
+            ion-spinner{
+                margin: 1em;
+                height:100px;
+                width: 100px;
+            }
+        }
+
+      }
+
+}
