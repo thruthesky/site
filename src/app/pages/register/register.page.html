@@ -7,7 +7,7 @@
     <ion-spinner *ngIf=" show.dataLoader "></ion-spinner> {{ 'IN LOADING' | t }}
 </div>
 
-<div class="photo-upload" *ngIf=" !a.teacherTheme || a.user.isLogin ">
+<div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
     <input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">
     <div class="photo-upload-button">
         <div class="photo">
@@ -29,7 +29,7 @@
     <div class="container-fluid">
 
 
-        <div class="row"  *ngIf=" !a.teacherTheme ">
+        <div class="row"  *ngIf=" a.teacherTheme ">
             <div class="col-md-2 col-3">
                 <label for="timezone">{{ 'TIMEZONE' | t }}</label>
             </div>
@@ -73,7 +73,7 @@
         </div>
 
 
-        <div class="row"  *ngIf=" !a.teacherTheme ">
+        <div class="row"  *ngIf=" a.teacherTheme ">
             <div class="col-md-2 col-3">
                 <label>{{ f.ln.GENDER }}</label>
             </div>
@@ -90,7 +90,7 @@
         </div>
 
 
-        <div class="row" *ngIf=" !a.teacherTheme ">
+        <div class="row" *ngIf=" a.teacherTheme ">
             <div class="col-md-2 col-3">
                 <label>{{ 'BIRTHDAY' | t }}</label>
             </div>
@@ -144,7 +144,7 @@
         </div>
 
 
-        <div class="row" *ngIf=" !a.teacherTheme ">
+        <div class="row" *ngIf=" a.teacherTheme ">
             <div class="col-md-2 col-3">
                 <label for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
             </div>
@@ -182,7 +182,7 @@
         </div>
 
 
-        <div class="row"  *ngIf=" !a.teacherTheme ">
+        <div class="row"  *ngIf=" a.teacherTheme ">
             <div class="col-md-2 col-3">
                 <div>Upload Kakaotalk QR Mark</div>
             </div>

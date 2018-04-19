@@ -374,7 +374,7 @@ export class AppService {
              */
             if (code === -42001) {
                 this.user.logout();
-                console.log( this.fire.getText() );
+                // console.log( this.fire.getText() );
                 o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
             }
 
