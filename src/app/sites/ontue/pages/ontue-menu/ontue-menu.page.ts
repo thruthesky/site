@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
 import { AppService } from '../../../../providers/app.service';
 // import {TeacherPolicyComponent} from '../../components/teacher-policy/teacher-policy';
 @Component({
