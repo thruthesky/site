@@ -66,6 +66,15 @@ const routes: Routes = [
     path: 'payment-information',
     loadChildren: './sites/ontue/pages/ontue-payment-information/ontue-payment-information.page.module#OntuePaymentInformationPageModule'
   },
+  {
+    path: 'my-schedule',
+    loadChildren: './sites/ontue/pages/ontue-my-schedule/ontue-my-schedule.page.module#OntueMySchedulePageModule'
+  },
+
+  {
+    path: 'schedule-edit',
+    loadChildren: './sites/ontue/pages/ontue-schedule-edit/ontue-schedule-edit.page.module#OntueScheduleEditPageModule'
+  },
 
 
   /**
