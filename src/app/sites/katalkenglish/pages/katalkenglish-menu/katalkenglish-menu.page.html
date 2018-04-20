@@ -1,4 +1,3 @@
-
 <div class="page-header">
     궁금한 점이 있으시면 언제든지
     <span (click)=" a.onClickContactAdmin() ">카톡으로 질문</span> 해 주세요!
@@ -68,17 +67,17 @@
             </div>
         </li>
 
-        <li class="menu-future-sessions" (click)="a.open('session-future')">
+        <li class="menu-future-sessions" routerLink="/session-future">
             <div>
                 <ion-icon name="list-box" color="primary" item-start></ion-icon>
-                <div>{{ 'RESERVATIONS LONG TEXT' | t }}</div>
+                <div>{{ 'SESSION_FUTURE' | t }}</div>
             </div>
         </li>
 
-        <li class="menu-past-sessions" (click)="a.open('session-past')">
+        <li class="menu-past-sessions" routerLink="/session-past">
             <div>
                 <ion-icon name="list-box" color="light" item-start></ion-icon>
-                <div>{{ 'PASTS LONG TEXT' | t }}</div>
+                <div>{{ 'SESSION_PAST' | t }}</div>
             </div>
         </li>
 
@@ -180,7 +179,25 @@
             </div>
         </li>
 
+        <li routerLink="/forum">
+            <div>
+                <ion-icon name="log-out" item-start></ion-icon>
+                <div>{{ 'REMINDER' | t }}</div>
+            </div>
+        </li>
+        <li routerLink="/forum">
+            <div>
+                <ion-icon name="log-out" item-start></ion-icon>
+                <div>{{ 'POLICY' | t }}</div>
+            </div>
+        </li>
+        <li routerLink="/forum">
+            <div>
+                <ion-icon name="log-out" item-start></ion-icon>
+                <div>{{ 'QnA' | t }}</div>
+            </div>
+        </li>
+
     </ul>
 
 </section>
-

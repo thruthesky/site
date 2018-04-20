@@ -36,5 +36,10 @@
     "SETTINGS PAGE DESC": "言語とタイムゾーンを変更することができます。",
     "SELECT YOUR LANGUAGE": "言語",
     "SELECT YOUR TIMEZONE": "タイムゾーン",
-    "LOGIN_INVALID": "ログインしてください"
+    "LOGIN_INVALID": "ログインしてください",
+    "REMINDER": "リマインダー",
+    "QNA": "お問い合わせ",
+    "POLICY": "ポリシー",
+    "SESSION_FUTURE": "予約",
+    "SESSION_PAST": "過去のクラス"
 }
