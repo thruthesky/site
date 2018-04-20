@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+$ontue-page-width: 1024px;
+$ontue-header-height: 64px;
+$ontue-padding: 8px;
+#ontue {
+    #ontue-header {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $ontue-header-height;
+        overflow: hidden;
+        .inner {
+            margin: 0 auto;
+            max-width: $ontue-page-width;
+        }
+    }
+    .page {
+        margin-top: $ontue-header-height;
+        min-height: 600px;
+        .page-inner {
+            margin: 0 auto;
+            max-width: $ontue-page-width;
+        }
+    }
+
+    @media all and (max-width:820px){
+        .page{
+            margin-top: $ontue-header-height+42;
+        }
+    }
+}

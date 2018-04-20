@@ -230,6 +230,25 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
   * Layout of `www.katalkenglish.com` for desktop.
   * Layout of `www.katalkenglish.com` for mobile.
 
+### Layout for header, page, footer
+
+* Basic structure of page must be the following.
+
+```` html
+<header>
+  <h1>Page Title</h1>
+</header>
+<main>
+  <section class="content">
+    ... page content ...
+  </section>
+</main>
+<footer>
+  footer of the page.
+  But no copyright since there is a footer for copyright in app.component.html.
+</footer>
+````
+
 ## Naming Convention
 
 ### Module Names
