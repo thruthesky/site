@@ -11,7 +11,7 @@
 * for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
   * if the user is on student page, then do not show profile update on registration since the user will be redirected to welcome page immediately.
 
-* @done student rgister success(welcome) page after registration page so, student will be oriented and redirected to level test page.
+* @done student register success(welcome) page after registration page so, student will be oriented and redirected to level test page.
 * Translate student adv.
 * Translate menu page.
 * @done add student advertisement page.
@@ -24,13 +24,13 @@
 * add session future, past page.
 * @done add settings page.
 * add teacher's payment information page.
-* add teacher's curriculmn vitae page.
+* add teacher's curriculum vitae page.
 * add teacher's dashboard. ( menu )
 * @done add teacher's dayoff page.
 * schedule table navigation. No favicon anymore.
 * Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
   * Ask Mr. Han for chinese translation.
-  * Ask Humie for japanese trnaslation.
+  * Ask Humie for japanese translation.
 * Complete class comments.
   * comment create
   * comment pagination.
