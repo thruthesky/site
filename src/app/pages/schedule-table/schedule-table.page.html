@@ -1,52 +1,108 @@
 <section class="page-wrapper">
     <div class="page">
-            <h1>Schedule Table</h1>
+        <h1>Schedule Table</h1>
 
-            <div class="table schedule-table" *ngIf="re">
-                <div class="tr schedule-header">
-                    <div class="td" *ngIf=" isAllTeacher ">
-                        {{ 'TEACHER' | t }}
-                    </div>
-                    <div class="td time">
-                        <div class="time">{{ 'TIME' | t }}</div>
-                        <div class="minute">{{ 'MINUTE' | t }}</div>
-                    </div>
-                    <div class="td day" *ngFor="let header of re.header" (click)="onClickNavigate( header.date )">
-                        <div>{{ header.display_date }}</div>
-                        <div class="d-inline-block"> {{ header.user_time_day | t }}</div>
-                    </div>
+        <form (onSubmit)="onSearchSubmit()">
+            시:
+            <select name="class_begin_hour" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
+                <option *ngFor=" let h of formOptions.begin_hours " value="{{ h }}">{{ h }}</option>
+            </select>
+            ~
+            <select name="class_end_hour" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
+                <option *ngFor=" let h of formOptions.end_hours " value="{{ h }}">{{ h }}</option>
+            </select>
+            분:
+            <select name="duaration" [(ngModel)]="form.duration" (change)="onSearchSubmit()">
+                <option value="0">전체</option>
+                <option value="10">10분</option>
+                <option value="20">20분</option>
+                <option value="30">30분</option>
+                <option value="40">40분</option>
+                <option value="50">50분</option>
+                <option value="60">60분</option>
+            </select>
+
+            포인트:
+            <select name="point" [(ngModel)]="form.point" (change)="onSearchSubmit()">
+                <option value="0">전체</option>
+                <option value="1">&lt; 1000</option>
+                <option value="1000">1000</option>
+                <option value="2000">2000</option>
+                <option value="3000">3000</option>
+                <option value="4000">4000</option>
+                <option value="5000">5000</option>
+            </select>
+            표시
+            <select name="days" [(ngModel)]="form.days" (change)="onSearchSubmit()">
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+
+            주말
+            <select name="weekend" [(ngModel)]="form.display_weekends" (change)="onSearchSubmit()">
+                <option value="Y">표시</option>
+                <option value="N">숨기기</option>
+            </select>
+        </form>
+
+
+        <div class="schedule-loader" *ngIf=" show.schedule_loader ">
+            <ion-spinner name="circles"></ion-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
+        </div>
+
+        <div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">
+            {{ 'NO_SCHEUDLE_TRY_SEARCH' | t }}
+        </div>
+        <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
+            <div class="tr schedule-header">
+                <div class="td" *ngIf=" isAllTeacher ">
+                    {{ 'TEACHER' | t }}
                 </div>
-                <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
-                    <div class="td profile" *ngIf=" isAllTeacher ">
-                        <div class="photo">
-                            <img src="{{ teacher_photoURL( sessions ) }}">
-                        </div>
-                    </div>
-                    <div class="td datetime">
-                        <div *ngIf=" a.user.isLogin ">
-                            {{ session_time( sessions ) }}
-                        </div>
-                        <div>
-                            {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }}
-                        </div>
-                        <div class="teacher-name" *ngIf=" isAllTeacher ">
-                            {{ teacher_name( sessions ) }}
-                        </div>
-                    </div>
-                    <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
-                        [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
-                        <div class="info">
-                            <div class="loader" *ngIf=" session.in_progress ">
-                                <ion-spinner name="circles"></ion-spinner>
-                            </div>
-                            <div class="status-icon" *ngIf=" ! session.in_progress ">
-                                <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
-                            </div>
-                            <div>{{ session[N.point] }}</div>
-                        </div>
-                    </div>
-            
+                <div class="td time">
+                    <div class="time">{{ 'TIME' | t }}</div>
+                    <div class="minute">{{ 'MINUTE' | t }}</div>
+                </div>
+                <div class="td day" *ngFor="let header of re.header" (click)="onClickNavigate( header.date )">
+                    <div>{{ header.display_date }}</div>
+                    <div class="d-inline-block"> {{ header.user_time_day | t }}</div>
                 </div>
             </div>
+            <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
+                <div class="td profile" *ngIf=" isAllTeacher ">
+                    <div class="photo">
+                        <img src="{{ teacher_photoURL( sessions ) }}">
+                    </div>
+                </div>
+                <div class="td datetime">
+                    <div *ngIf=" a.user.isLogin ">
+                        {{ session_time( sessions ) }}
+                    </div>
+                    <div>
+                        {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }}
+                    </div>
+                    <div class="teacher-name" *ngIf=" isAllTeacher ">
+                        {{ teacher_name( sessions ) }}
+                    </div>
+                </div>
+                <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
+                    [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
+                    <div class="info">
+                        <div class="loader" *ngIf=" session.in_progress ">
+                            <ion-spinner name="circles"></ion-spinner>
+                        </div>
+                        <div class="status-icon" *ngIf=" ! session.in_progress ">
+                            <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
+                        </div>
+                        <div>{{ session[N.point] }}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </section>
