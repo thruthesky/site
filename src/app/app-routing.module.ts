@@ -50,6 +50,15 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-menu/katalkenglish-menu.page.module#KatalkEnglishMenuPageModule'
   },
 
+  {
+    path: 'session-future',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-session-future/katalkenglish-session-future.page.module#KatalkEnglishSessionFuturePageModule'
+  },
+  {
+    path: 'session-past',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-session-past/katalkenglish-session-past.page.module#KatalkEnglishSessionPastPageModule'
+  },
+
 
   /**
    * ontue.com for Teachers
@@ -75,6 +84,16 @@ const routes: Routes = [
     path: 'schedule-edit',
     loadChildren: './sites/ontue/pages/ontue-schedule-edit/ontue-schedule-edit.page.module#OntueScheduleEditPageModule'
   },
+
+  {
+    path: 'teacher-session-future',
+    loadChildren: './sites/ontue/pages/ontue-session-future/ontue-session-future.page.module#OntueSessionFuturePageModule'
+  },
+  {
+    path: 'teacher-session-past',
+    loadChildren: './sites/ontue/pages/ontue-session-past/ontue-session-past.page.module#OntueSessionPastPageModule'
+  },
+
 
 
   /**
