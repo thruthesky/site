@@ -37,5 +37,9 @@
     "SELECT YOUR LANGUAGE": "言語",
     "SELECT YOUR TIMEZONE": "タイムゾーン",
     "LOGIN_INVALID": "ログインしてください",
-    "QNA":"質問と答え"
+    "REMINDER": "リマインダー",
+    "QNA": "お問い合わせ",
+    "POLICY": "ポリシー",
+    "SESSION_FUTURE": "予約",
+    "SESSION_PAST": "過去のクラス"
 }

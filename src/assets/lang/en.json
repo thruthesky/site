@@ -78,5 +78,10 @@
     "SETTINGS PAGE DESC": "You can change your language and timezone.",
     "SELECT YOUR LANGUAGE": "Language",
     "SELECT YOUR TIMEZONE": "Timezone",
-    "LOGIN_INVALID": "Please, login"
+    "LOGIN_INVALID": "Please, login",
+    "REMINDER": "Reminders",
+    "QNA": "QnA",
+    "POLICY": "Policies",
+    "SESSION_FUTURE": "Reservations",
+    "SESSION_PAST": "Past Classes"
 }
