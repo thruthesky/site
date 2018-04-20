@@ -38,6 +38,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 64px;
 
     @media all and (min-width:820px){
         margin: 0 -.58em;
@@ -68,17 +69,22 @@ nav{
 }
 
 .select-wrapper{
-    // padding-bottom:15px;
+    position: relative!important;
+    padding-bottom:7px;
+    // border-left: 1px solid rgb(166, 166, 166)!important;
+    // border-right: 1px solid rgb(166, 166, 166)!important;
+    background: rgba(dodgerblue,0.6);
 
-    border-left: 1px solid rgb(166, 166, 166)!important;
-    border-right: 1px solid rgb(166, 166, 166)!important;
 
     select{
+        position: relative;
         padding: 0 .6em;
+        padding-bottom:8px;
         height: 65px;
-        // padding-top: 40px;
+        padding-top: 40px;
         border:none;
-        background: #f5f5f5;
+        background: rgba(#fff,0);
+        color:white;
         text-align-last: center;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -86,15 +92,20 @@ nav{
         &::-ms-expand{
             display: none; //for ie
         }
-
+        
         cursor: pointer;
+
+        option{
+            color:black!important;
+        }
 
     }
 
     .custom-icon{
         position: absolute;
-        margin:0 auto;
-        margin-top: 15px;
+        top: 15px;
+        left:50%;
+        transform: translateX(-50%);
         height: 24px;
     }
 } 
