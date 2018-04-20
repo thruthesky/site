@@ -3,8 +3,8 @@
     <h2 *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE' | t }}</h2>
 </header>
 
-<div class="loader">
-    <ion-spinner *ngIf=" show.dataLoader "></ion-spinner> {{ 'IN LOADING' | t }}
+<div class="loader" *ngIf=" show.dataLoader ">
+    <ion-spinner></ion-spinner> {{ 'IN LOADING' | t }}
 </div>
 
 <div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
@@ -124,11 +124,9 @@
                 <label for="display_name">{{ f.ln.NICKNAME }}</label>
             </div>
             <div class="col-md-10 col-9">
-                <div>
-                    <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
-                    <div class="fs-lg mt-2" text-wrap>
-                        {{ 'NICKNAME DESC' | t }}
-                    </div>
+                <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
+                <div class="small-text" text-wrap>
+                    {{ 'NICKNAME DESC' | t }}
                 </div>
             </div>
         </div>
@@ -149,10 +147,8 @@
                 <label for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
             </div>
             <div class="col-md-10 col-9">
-                <div>
-                    <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
-                    <div>Input minutes to prevent a sudden booking.</div>
-                </div>
+                <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
+                <div class="small-text">Input minutes to prevent a sudden booking.</div>
             </div>
         </div>
 
@@ -164,9 +160,9 @@
             <div class="col-md-10 col-9">
                 <div>
                     <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
-                    <div (click)=" onClickKakaoIDHelp() ">
+                    <div class="small-text" (click)=" onClickKakaoIDHelp() ">
                         {{ 'FIND KAKAOTALK ID' | t }}
-                        <i class="fa fa-question-circle"></i>
+                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa" data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path></svg>
                     </div>
                 </div>
             </div>
@@ -191,16 +187,16 @@
                         <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="true"
                             (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
             
-                        <div class="fs-lg mt-2 pointer" text-wrap (click)="showModalFAQ('qrmark')">
+                        <div class="small-text" text-wrap (click)="showModalFAQ('qrmark')">
                             QR Mark is required for teacher. How to get QR MARK
-                            <i class="fa fa-question-circle"></i>
+                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa" data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path></svg>
                         </div>
             
-                        <div class="alert alert-success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
+                        <div class="success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
                             QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{ form.kakao_qrmark_URL }} )
                         </div>
             
-                        <div class="alert alert-warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">
+                        <div class="warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">
                             <i class="fas fa-spinner fa-spin"></i>
                             There is something wrong in converting Kakao QR Mark into string. If this message does not appear within 10 seconds, please
                             contact to admin.
@@ -217,7 +213,7 @@
                 <div class="app-button">
                     <button type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</button>
                     <button type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</button>
-                    <button [routerLink]="'/'" *ngIf="a.user.isLogin">{{ 'CANCEL' | t }}</button>
+                    <button [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
                 </div>
             </div>
         </div>

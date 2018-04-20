@@ -1,11 +1,13 @@
 .loader {
     padding: 1em;
+    text-align: center;
 }
 
 header {
     padding: 1em;
     background-color: #673ab7;
     color: white;
+
     h2 {
         margin: 0 !important;
         font-weight: 300 !important;
@@ -14,7 +16,8 @@ header {
 }
 
 form{
-    margin-top: 2em;
+    margin-top: 3em;
+    padding-bottom: 5em;
 
     input, #timezone, .select{
         padding: .5em;
@@ -25,6 +28,11 @@ form{
     input[type="password"],
     input[type="email"]{
         width:100%;
+    }
+
+    .small-text{
+        margin-top:.5em;
+        font-size: .8em;
     }
 
     .col-9, .col-md-10{
@@ -46,17 +54,48 @@ form{
     .app-button{
         button{
             display: inline-block;
-            padding: .4em .8em;
+            margin-right: .5em;
+            margin-top:.5em;
+            padding: .5em .9em;
+            border:none;
             border-radius: 2px;
             background-color: #1515aa;
             color: #fff;
+            cursor: pointer;
         }
+    }
+
+
+    .qr-mark{
+
+        .success,.warning{
+            margin: 1em 0;
+            padding: 1em 3em;
+        }
+
+        .success{
+            border-radius:2px;
+            border:1px solid green;
+            background:rgba(green,0.1);
+        }
+
+        .warning{
+            border-radius:2px;
+            border:1px solid darkred;
+            background:rgba(darkred,0.1);
+        }
+    }
+
+    .question-circle-icon{
+        margin-left: .6em;
+        margin-top: .3em;
+        height: 1em;
     }
 }
 
     .photo-upload {
         position: relative;
-        margin: 0 auto;
+        margin: 3em auto;
         width: 140px;
         overflow: hidden;
 
@@ -81,7 +120,7 @@ form{
                 align-items:center;
                 margin-top:2em;
                 padding: .8em 1em;
-                border: 0;
+                border: none;
                 background-color: #1e90ff;
                 color: #fff;
                 font-size: .7em;
@@ -92,4 +131,5 @@ form{
                 }
             }
         }
+        
     }
