@@ -59,8 +59,8 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-home/ontue-home.page.module#OntueHomePageModule'
   },
   {
-    path: 'dayoff',
-    loadChildren: './sites/ontue/pages/ontue-dayoff/ontue-dayoff.page.module#OntueDayoffPageModule'
+    path: 'teacher-menu',
+    loadChildren: './sites/ontue/pages/ontue-menu/ontue-menu.page.module#OntueMenuPageModule'
   },
   {
     path: 'payment-information',
