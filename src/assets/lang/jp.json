@@ -9,7 +9,7 @@
     "HELP": "助けて",
     "CLASS_COMMENTS": "授業後期",
     "TEACHER_LIST": "教師リスト",
-    "ALL_SCHEDULE": "すべてのスケジュール",
+    "ALL_SCHEDULE": "スケジュール",
     "PAYMENT": "授業料",
     "PAYMENT_HISTORY": "支払歴",
     "CLOSE": "閉じる",
@@ -30,5 +30,16 @@
     "INSTALL": "インストール",
     "CATEGORY": "カテゴリー",
     "IN LOADING": "読み込み中。。。待って下さい。",
-    "KATALK_STORY": "私たちの物語"
+    "KATALK_STORY": "私たちの物語",
+    "SETTINGS": "設定",
+    "SETTINGS PAGE TITLE": "設定",
+    "SETTINGS PAGE DESC": "言語とタイムゾーンを変更することができます。",
+    "SELECT YOUR LANGUAGE": "言語",
+    "SELECT YOUR TIMEZONE": "タイムゾーン",
+    "LOGIN_INVALID": "ログインしてください",
+    "REMINDER": "リマインダー",
+    "QNA": "お問い合わせ",
+    "POLICY": "ポリシー",
+    "SESSION_FUTURE": "予約",
+    "SESSION_PAST": "過去のクラス"
 }

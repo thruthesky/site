@@ -2,12 +2,16 @@
 
 ## TODO
 
+* SSR Or. At least sitemap.
+  * put sitemap link in index.html and the sitemap will be like  a web of all pages.
+* update a.taost to logout when login session invalid.
+* add western union, Phil bdo, korean Bank.
 * Make responsive header menu based on break point.
 * Apply HMR for easy scss design.
 * for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
   * if the user is on student page, then do not show profile update on registration since the user will be redirected to welcome page immediately.
 
-* @done student rgister success(welcome) page after registration page so, student will be oriented and redirected to level test page.
+* @done student register success(welcome) page after registration page so, student will be oriented and redirected to level test page.
 * Translate student adv.
 * Translate menu page.
 * @done add student advertisement page.
@@ -18,15 +22,15 @@
 * add available schedule page.
 * add teacher schedule create/edit/list
 * add session future, past page.
-* add settings page.
+* @done add settings page.
 * add teacher's payment information page.
-* add teacher's curriculmn vitae page.
+* add teacher's curriculum vitae page.
 * add teacher's dashboard. ( menu )
-* add teacher's dayoff page.
+* @done add teacher's dayoff page.
 * schedule table navigation. No favicon anymore.
 * Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
   * Ask Mr. Han for chinese translation.
-  * Ask Humie for japanese trnaslation.
+  * Ask Humie for japanese translation.
 * Complete class comments.
   * comment create
   * comment pagination.
@@ -226,6 +230,25 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
   * Layout of `www.katalkenglish.com` for desktop.
   * Layout of `www.katalkenglish.com` for mobile.
 
+### Layout for header, page, footer
+
+* Basic structure of page must be the following.
+
+```` html
+<header>
+  <h1>Page Title</h1>
+</header>
+<main>
+  <section class="content">
+    ... page content ...
+  </section>
+</main>
+<footer>
+  footer of the page.
+  But no copyright since there is a footer for copyright in app.component.html.
+</footer>
+````
+
 ## Naming Convention
 
 ### Module Names
@@ -300,3 +323,12 @@ constructor( public loader: LoaderService ) {
   setTimeout(() => loader.closeLoader(), 5000);
 }
 ````
+
+
+## Firebase
+
+### Firebase User Login and Session
+
+* firebase user's email and password is set automatically.
+* `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
+  * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.

@@ -14,16 +14,4 @@
 // element in the app.
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-.mat-snack-bar-container {
-    border-radius: 0 !important;
-    @media all and (min-width: 748px) {
-        border-radius: 2px !important;
-    }
-    &.error-42205 {
-        background-color: brown;
-        .mat-simple-snackbar-action {
-            color: white;
-        }
-    }
-}
 

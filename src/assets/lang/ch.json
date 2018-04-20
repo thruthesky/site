@@ -9,7 +9,7 @@
     "HELP": "帮帮我",
     "CLASS_COMMENTS": "类评论",
     "TEACHER_LIST": "教师名单",
-    "ALL_SCHEDULE": "所有时间表",
+    "ALL_SCHEDULE": "时间表",
     "PAYMENT": "学费",
     "PAYMENT_HISTORY": "支付历史",
     "CLOSE": "关",
@@ -30,5 +30,16 @@
     "INSTALL": "安装",
     "CATEGORY": "类别",
     "IN LOADING": "加载请稍候。",
-    "KATALK_STORY": "我们的故事"
+    "KATALK_STORY": "我们的故事",
+    "SETTINGS": "设置",
+    "SETTINGS PAGE TITLE": "设置",
+    "SETTINGS PAGE DESC": "您可以更改您的语言和时区。",
+    "SELECT YOUR LANGUAGE": "语言",
+    "SELECT YOUR TIMEZONE": "时区",
+    "LOGIN_INVALID": "请登录",
+    "REMINDER": "提醒",
+    "QNA": "问题与解答",
+    "POLICY": "政策",
+    "SESSION_FUTURE": "预订",
+    "SESSION_PAST": "过去的类"
 }

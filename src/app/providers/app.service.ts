@@ -357,11 +357,28 @@ export class AppService {
         } else if (typeof o === 'string') { // Mostly a message to user
             o = { message: o };
         } else if (o instanceof Error) { // Mostly an error from backend.
+
+            const code = this.xapi.getError(o).code;
             o = {
                 message: this.xapi.getError(o).message,
-                panelClass: 'error' + this.xapi.getError(o).code
+                panelClass: 'error' + code
             };
-        } else if (o instanceof HttpErrorResponse) { // backend wordpress response error. status may be 200.
+
+            /**
+             * Login session invalid.
+             *
+             * When user's login session is not valid anymore, logout.
+             * It rewrite the error message.
+             *
+             * @see README ### Firebase User Login and Session
+             */
+            if (code === -42001) {
+                this.user.logout();
+                // console.log( this.fire.getText() );
+                o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
+            }
+
+        } else if (o instanceof HttpErrorResponse) { // PHP ERROR. backend wordpress response error. status may be 200.
             /**
              * @todo This error happens rarely. @see https://github.com/thruthesky/ontue/issues/192
              * @todo try to produce php error and display error log on console.
@@ -426,6 +443,20 @@ export class AppService {
 
     get isMyBranch() {
         return this.user.manager && this.user.manager === this.getDomain();
+    }
+
+    get isTeacher(): boolean {
+        if (this.isLogout) {
+            return false;
+        }
+        return this.lms.getUserType() === 'teacher';
+    }
+
+    get isStudent(): boolean {
+        if (this.user.isLogout) {
+            return false;
+        }
+        return this.lms.getUserType() !== 'teacher';
     }
 
 

@@ -1,0 +1,13 @@
+
+.mat-snack-bar-container {
+    border-radius: 0 !important;
+    @media all and (min-width: 748px) {
+        border-radius: 2px !important;
+    }
+    &.error-42205, &.error-42001 {
+        background-color: brown;
+        .mat-simple-snackbar-action {
+            color: white;
+        }
+    }
+}

@@ -50,6 +50,15 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-menu/katalkenglish-menu.page.module#KatalkEnglishMenuPageModule'
   },
 
+  {
+    path: 'session-future',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-session-future/katalkenglish-session-future.page.module#KatalkEnglishSessionFuturePageModule'
+  },
+  {
+    path: 'session-past',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-session-past/katalkenglish-session-past.page.module#KatalkEnglishSessionPastPageModule'
+  },
+
 
   /**
    * ontue.com for Teachers
@@ -58,6 +67,33 @@ const routes: Routes = [
     path: 'teacher',
     loadChildren: './sites/ontue/pages/ontue-home/ontue-home.page.module#OntueHomePageModule'
   },
+  {
+    path: 'teacher-menu',
+    loadChildren: './sites/ontue/pages/ontue-menu/ontue-menu.page.module#OntueMenuPageModule'
+  },
+  {
+    path: 'payment-information',
+    loadChildren: './sites/ontue/pages/ontue-payment-information/ontue-payment-information.page.module#OntuePaymentInformationPageModule'
+  },
+  {
+    path: 'my-schedule',
+    loadChildren: './sites/ontue/pages/ontue-my-schedule/ontue-my-schedule.page.module#OntueMySchedulePageModule'
+  },
+
+  {
+    path: 'schedule-edit',
+    loadChildren: './sites/ontue/pages/ontue-schedule-edit/ontue-schedule-edit.page.module#OntueScheduleEditPageModule'
+  },
+
+  {
+    path: 'teacher-session-future',
+    loadChildren: './sites/ontue/pages/ontue-session-future/ontue-session-future.page.module#OntueSessionFuturePageModule'
+  },
+  {
+    path: 'teacher-session-past',
+    loadChildren: './sites/ontue/pages/ontue-session-past/ontue-session-past.page.module#OntueSessionPastPageModule'
+  },
+
 
 
   /**
@@ -102,6 +138,11 @@ const routes: Routes = [
   {
     path: 'forum',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule'
+  },
+
+  {
+    path: 'settings',
+    loadChildren: './pages/settings/settings.page.module#SettingsPageModule'
   },
 
   /**

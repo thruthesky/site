@@ -14,7 +14,6 @@ $katalkenglish-padding: 8px;
         right: 0;
         height: $katalkenglish-header-height;
         overflow: hidden;
-        background-color: #bb88bb;
         .inner {
             margin: 0 auto;
             max-width: $katalkenglish-page-width;
@@ -25,6 +24,12 @@ $katalkenglish-padding: 8px;
         .page-inner {
             margin: 0 auto;
             max-width: $katalkenglish-page-width;
+        }
+    }
+
+    @media all and (max-width:820px){
+        .page{
+            margin-top: $katalkenglish-header-height+42;
         }
     }
 }
