@@ -14,8 +14,7 @@ export class OntueMenuPage {
   // };
 
   constructor(
-    public a: AppService,
-    // public modalCtrl: ModalController
+    public a: AppService
   ) {
 
 

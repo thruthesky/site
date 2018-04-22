@@ -4,6 +4,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
+import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID } from '../modules/xapi/error';
 
 
 /**
@@ -28,6 +29,9 @@ export const SITE_ONTUE = 'ontue';
 export const SITE_WITHCENTER = 'withcenter';
 
 export const KEY_SCHEDULES = 'key-schedules';
+
+export const KEY_WEEKEND = 'key-weekend';
+export const KEY_DAYS = 'key-days';
 
 
 export interface SITE {
@@ -356,8 +360,9 @@ export class AppService {
             o = { message: 'No toast message' };
         } else if (typeof o === 'string') { // Mostly a message to user
             o = { message: o };
-        } else if (o instanceof Error) { // Mostly an error from backend.
+        } else if (o instanceof Error) { // Mostly an error code from backend.
 
+            console.log('error from server?', o);
             const code = this.xapi.getError(o).code;
             o = {
                 message: this.xapi.getError(o).message,
@@ -372,13 +377,16 @@ export class AppService {
              *
              * @see README ### Firebase User Login and Session
              */
-            if (code === -42001) {
+            if (code === CODE_WRONG_SESSION_ID || code === CODE_NO_USER_BY_THAT_SESSION_ID) {
                 this.user.logout();
                 // console.log( this.fire.getText() );
                 o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
+            } else if ( code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL ) {
+                o['message'] = this.fire.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
             }
 
         } else if (o instanceof HttpErrorResponse) { // PHP ERROR. backend wordpress response error. status may be 200.
+            console.log('error of http: ', o);
             /**
              * @todo This error happens rarely. @see https://github.com/thruthesky/ontue/issues/192
              * @todo try to produce php error and display error log on console.
@@ -452,6 +460,11 @@ export class AppService {
         return this.lms.getUserType() === 'teacher';
     }
 
+    /**
+     * Returns true of the login use is a student.
+     *
+     * It compares with the user type.
+     */
     get isStudent(): boolean {
         if (this.user.isLogout) {
             return false;
@@ -460,6 +473,14 @@ export class AppService {
     }
 
 
+    /**
+     * Adds '0' infront of the `n` if the `n` is smaller than 10.
+     * @param n numbre
+     * @example
+     *      add0(1);
+     *      - input:  1
+     *      - output: 01
+     */
     add0(n: number): string {
         if (!n) {
             return;
@@ -529,6 +550,9 @@ export class AppService {
      */
     loadSchedule(options = {}, callback: (re: SCHEDULE_TABLE) => void) {
 
+        /**
+         * Default options.
+         */
         const defaults = {
             teachers: [],
             days: 7,
@@ -542,6 +566,7 @@ export class AppService {
             class_begin_hour: 0,        // Loads schedule btween 00:00 am and 23:59 pm.
             class_end_hour: 24          // Loads schedule btween 00:00 am and 23:59 pm.
         };
+
 
         options = Object.assign({}, defaults, options);
 
@@ -599,7 +624,7 @@ export class AppService {
 
             // console.log('new: ', re);
             callback(re);
-        });
+        }, e => this.toast(e));
 
         // this.lms.schedule_table(options).subscribe(re => {
         //     console.log('old: ', re);
@@ -1042,5 +1067,20 @@ export class AppService {
                 });
             }, 500);
         }
+    }
+
+
+    /**
+     * Returns true if the width of the view is less than 768px.
+     *
+     * It assumes that the device is 'mobile' if the width is smaller than 768px.
+     */
+    isMobileView(): boolean {
+        const width = window.innerWidth;
+        return width < 768;
+    }
+
+    isDesktopView(): boolean {
+        return ! this.isMobileView();
     }
 }

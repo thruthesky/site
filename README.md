@@ -2,6 +2,11 @@
 
 ## TODO
 
+* Check all page, link, menu with offline.
+* Reloading angular route if the user clicks the same route.
+  * without chaning anything from routerLink="..."
+  * Check if there is any route event happens when the route of the page is being clicked.
+    * if `navigate before event` happens on same route, then we can do something.
 * SSR Or. At least sitemap.
   * put sitemap link in index.html and the sitemap will be like  a web of all pages.
 * update a.taost to logout when login session invalid.

@@ -1,53 +1,105 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SCHEDULE_TABLE, N, TEACHER, SCHEDULE_COMPRESSED, TABLE } from '../../modules/xapi/interfaces';
 import { SESSION } from '../../modules/xapi/lms.service';
 
-
+const MAX_POINT = 100000;
+const MAX_DURATION = 999;
 @Component({
     selector: 'schedule-table-page',
     templateUrl: 'schedule-table.page.html',
     styleUrls: ['schedule-table.page.scss'],
 })
-export class ScheduleTablePage implements OnInit {
+export class ScheduleTablePage implements OnInit, OnDestroy {
 
     N = N;
-    re: SCHEDULE_TABLE;
+    re: SCHEDULE_TABLE = null;
     params: any;
     limit = 60; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
     noMoreTeachers: boolean;
+
+    form = {
+        teachers: [],
+        class_begin_hour: '0',
+        class_end_hour: '24',
+        duration: '0',
+        min_duration: 0,
+        max_duration: MAX_DURATION,
+        point: '0',
+        min_point: 0,
+        max_point: MAX_POINT,
+        days: 6,
+        display_weekends: 'Y'
+    };
+    formOptions = {
+        begin_hours: Array(24).fill(0).map((e, i) => i),
+        end_hours: Array(24).fill(0).map((e, i) => i + 1)
+    };
 
 
     myPoint = 0;
 
     defaultPhotoUrl;
+    show = {
+        schedule_loader: false
+    };
     constructor(
         public router: Router,
         public active: ActivatedRoute,
         public a: AppService
     ) {
 
-
         this.defaultPhotoUrl = a.urlBackend + '/wp-content/plugins/xapi-2/lms/img/default-teacher-photo.jpg';
         // a.showHeader = false;
         this.active.queryParams.subscribe(params => {
             console.log('params:', params);
             this.params = params;
-            const options = {};
             if (params['idx_teacher']) {
-                options['teachers'] = [params['idx_teacher']];
+                this.form.teachers = [params['idx_teacher']];
+            } else {
+                this.form.teachers = [];
             }
-            this.loadScheduleaAndDisplay(options);
+            this.loadScheduleaAndDisplay(this.form);
         });
-
-
 
     }
 
     ngOnInit() {
 
+    }
+    ngOnDestroy() {
+        this.re = null;
+    }
+
+    onSearchSubmit() {
+        const duration = parseInt(this.form.duration, 10);
+        delete this.form.duration;
+        if (duration) {
+            this.form.min_duration = duration;
+            this.form.max_duration = duration + 9;
+        } else {
+            this.form.min_duration = 0;
+            this.form.max_duration = MAX_DURATION;
+        }
+        const point = parseInt(this.form.point, 10);
+        console.log('point:', point);
+        delete this.form.point;
+        if (point) {
+            this.form.min_point = point;
+            if ( point === 1 ) {
+                this.form.max_point = 999;
+            } else {
+                this.form.max_point = point + 999;
+            }
+        } else {
+            this.form.min_point = 0;
+            this.form.max_point = MAX_POINT;
+        }
+        console.log('onSearchSubmit(): ', this.form);
+        this.loadScheduleaAndDisplay(this.form);
+        return false;
     }
 
     /**
@@ -59,9 +111,12 @@ export class ScheduleTablePage implements OnInit {
      *      - log `activity log` into firebase.
      */
     loadScheduleaAndDisplay(options) {
+        this.re = null;
+        this.show.schedule_loader = true;
         this.a.loadSchedule(options, re => {
             console.log('re: ', re);
-            if ( this.isSingleTeacher ) {
+            this.show.schedule_loader = false;
+            if (this.isSingleTeacher) {
                 this.re = re;
             } else {
                 const table: TABLE = re.table;
@@ -73,14 +128,20 @@ export class ScheduleTablePage implements OnInit {
         });
     }
     dispalyRows(table) {
-        if (table && table.length) {
+        if (table && table.length ) {
             setTimeout(() => {
-                this.re.table.push(table.shift());
-                if ( table && table.length ) {
+                console.log(this.re);
+                /**
+                 * `this.re` becomes null when the options has changed and load schedule again in the middle of display previously loaded schedules.
+                 */
+                if ( this.re && this.re.table ) {
                     this.re.table.push(table.shift());
+                    this.dispalyRows(table);
                 }
-                this.dispalyRows(table);
-            }, 100);
+                // if (table && table.length) {
+                //     this.re.table.push(table.shift());
+                // }
+            }, 50);
         }
     }
 
