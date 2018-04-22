@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing.module';
 import { AppService } from './providers/app.service';
 import { FireService, FirelibraryModule } from './modules/firelibrary/core';
 
@@ -18,13 +18,16 @@ import { XapiModule, XapiService, XapiUserService, XapiLMSService, XapiFileServi
 import { TranslatePipeModule } from './modules/firelibrary/pipes/translate/translate.pipe.module';
 import { KatalkEnglishFooterComponentModule } from './sites/katalkenglish/components/katalkenglish-footer/katalkenglish-footer.component.module';
 import { OntueFooterComponentModule } from './sites/ontue/components/ontue-footer/ontue-footer.component.module';
+import { RedirectPage } from './app.redirect';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RedirectPage
   ],
   entryComponents: [
+    RedirectPage
   ],
   imports: [
     BrowserAnimationsModule,

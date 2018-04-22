@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RedirectPage } from './app.redirect';
 
 const routes: Routes = [
 
@@ -12,8 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'help',
-    loadChildren: './sites/katalkenglish/pages/katalkenglish-help/katalkenglish-help.page.module#KatalkEnglishHelpPageModule',
-    runGuardsAndResolvers: 'always'
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-help/katalkenglish-help.page.module#KatalkEnglishHelpPageModule'
   },
   {
     path: 'install',
@@ -105,6 +105,9 @@ const routes: Routes = [
   /**
    * Common pages
    */
+  {
+    path: 'redirect', component: RedirectPage
+  },
   {
     path: 'register',
     loadChildren: './pages/register/register.page.module#RegisterPageModule'

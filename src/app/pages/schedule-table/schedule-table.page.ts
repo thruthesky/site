@@ -130,7 +130,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
     dispalyRows(table) {
         if (table && table.length ) {
             setTimeout(() => {
-                console.log(this.re);
+                // console.log(this.re);
                 /**
                  * `this.re` becomes null when the options has changed and load schedule again in the middle of display previously loaded schedules.
                  */
