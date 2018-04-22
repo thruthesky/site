@@ -16,6 +16,7 @@
     "MENU": "メニュー",
     "IE_EDGE_WARNING": "ああ！ あなたは問題があります。 Chromeウェブブラウザを使用する必要があります。 IE / Edgeは非常に遅いです。",
     "NO_INTERNET": "インターネットがない。 インターネットに接続しているか確認してください。",
+    "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
     "WELCOME_TITLE": "ようこそ、#name。",
     "WELCOME_MESSAGE": "世界で最も安い料金で最高の英語力をお届けすることを嬉しく思います。",
     "WELCOME_TRY": "今すぐ5つのトライアルクラスを予約できます。",
@@ -41,5 +42,6 @@
     "QNA": "お問い合わせ",
     "POLICY": "ポリシー",
     "SESSION_FUTURE": "予約",
-    "SESSION_PAST": "過去のクラス"
+    "SESSION_PAST": "過去のクラス",
+    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered."
 }

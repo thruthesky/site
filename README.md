@@ -2,6 +2,7 @@
 
 ## TODO
 
+* Check all page, link, menu with offline.
 * Reloading angular route if the user clicks the same route.
   * without chaning anything from routerLink="..."
   * Check if there is any route event happens when the route of the page is being clicked.

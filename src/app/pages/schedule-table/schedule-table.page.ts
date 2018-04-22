@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SCHEDULE_TABLE, N, TEACHER, SCHEDULE_COMPRESSED, TABLE } from '../../modules/xapi/interfaces';
@@ -12,7 +12,7 @@ const MAX_DURATION = 999;
     templateUrl: 'schedule-table.page.html',
     styleUrls: ['schedule-table.page.scss'],
 })
-export class ScheduleTablePage implements OnInit {
+export class ScheduleTablePage implements OnInit, OnDestroy {
 
     N = N;
     re: SCHEDULE_TABLE = null;
@@ -58,6 +58,8 @@ export class ScheduleTablePage implements OnInit {
             this.params = params;
             if (params['idx_teacher']) {
                 this.form.teachers = [params['idx_teacher']];
+            } else {
+                this.form.teachers = [];
             }
             this.loadScheduleaAndDisplay(this.form);
         });
@@ -66,6 +68,9 @@ export class ScheduleTablePage implements OnInit {
 
     ngOnInit() {
 
+    }
+    ngOnDestroy() {
+        this.re = null;
     }
 
     onSearchSubmit() {
@@ -123,14 +128,20 @@ export class ScheduleTablePage implements OnInit {
         });
     }
     dispalyRows(table) {
-        if (table && table.length) {
+        if (table && table.length ) {
             setTimeout(() => {
-                this.re.table.push(table.shift());
-                if (table && table.length) {
+                console.log(this.re);
+                /**
+                 * `this.re` becomes null when the options has changed and load schedule again in the middle of display previously loaded schedules.
+                 */
+                if ( this.re && this.re.table ) {
                     this.re.table.push(table.shift());
+                    this.dispalyRows(table);
                 }
-                this.dispalyRows(table);
-            }, 100);
+                // if (table && table.length) {
+                //     this.re.table.push(table.shift());
+                // }
+            }, 50);
         }
     }
 

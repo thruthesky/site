@@ -58,6 +58,7 @@
     "MENU": "Menu",
     "IE_EDGE_WARNING": "Ooh! You have a problem. You need to use Chrome web browser. IE/Edge is very slow.",
     "NO_INTERNET": "No internet. Please check if you have Internet connection.",
+    "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
     "WELCOME_TITLE": "Welcome, #name.",
     "WELCOME_MESSAGE": "We are pleased to serve you the best qualified English Education with the lowest price in the world.",
     "WELCOME_TRY": "You can reserve 5 trial classes now.",
@@ -83,5 +84,6 @@
     "QNA": "QnA",
     "POLICY": "Policies",
     "SESSION_FUTURE": "Reservations",
-    "SESSION_PAST": "Past Classes"
+    "SESSION_PAST": "Past Classes",
+    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered."
 }
