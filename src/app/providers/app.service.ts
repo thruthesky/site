@@ -34,6 +34,8 @@ const SCHEDULE_CACHE_INTERVAL = 1800; // 1 for 1 second. 1800 for 30 min. 3600 f
 
 export const KEY_WEEKEND = 'key-weekend';
 export const KEY_DAYS = 'key-days';
+export const KEY_TEACHER_LIST = 'key-teacher-list';
+
 
 
 export interface SITE {

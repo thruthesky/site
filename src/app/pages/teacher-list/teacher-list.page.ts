@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../../providers/app.service';
+import { AppService, KEY_TEACHER_LIST } from '../../providers/app.service';
 import { Router } from '@angular/router';
+
+
+interface OPTIONS {
+    useCache?: boolean;
+}
 
 
 @Component({
@@ -10,13 +15,13 @@ import { Router } from '@angular/router';
 })
 export class TeacherListPage implements OnInit {
 
-    re;
+    re = null;
     teachers = [];
 
     gender = '';
     recommend = 'Y';
     page_no: number;
-    limit = 60; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
+    limit = 120; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
     noMoreTeachers: boolean;
 
     show = {
@@ -32,19 +37,33 @@ export class TeacherListPage implements OnInit {
         public a: AppService
     ) {
         this.init();
-        this.loadTeachers();
+        this.loadTeachers({ useCache: true });
     }
 
     ngOnInit() {
     }
 
     init() {
+        this.re = null;
         this.teachers = [];
         this.page_no = 1;
         this.noMoreTeachers = false;
     }
 
-    loadTeachers() {
+    displayTeachers(re) {
+        if (re) {
+            this.re = re;
+            if (this.re.teachers) {
+                this.teachers = this.teachers.concat(this.re.teachers);
+            }
+        }
+    }
+    loadTeachers(options: OPTIONS = {}) {
+        if (options.useCache) {
+            const data = this.a.get(KEY_TEACHER_LIST);
+            console.log(`Use cached teacher list`, data);
+            this.displayTeachers(data);
+        }
         this.show.loadTeacher = true;
         this.a.lms.teacher_list({
             gender: this.gender,
@@ -52,11 +71,17 @@ export class TeacherListPage implements OnInit {
             page_no: this.page_no,
             limit: this.limit
         }).subscribe(re => {
+            /**
+             * If cached data has been loaded.
+             */
+            if (options.useCache) {
+                this.init();
+                console.log('Save cache teacher list', re);
+                this.a.set( KEY_TEACHER_LIST, re );
+            }
             this.show.loadTeacher = false;
-            // console.log(re);
-            this.re = re;
-            this.teachers = this.teachers.concat( this.re.teachers );
-            if ( this.re.teachers.length < this.limit ) {
+            this.displayTeachers(re);
+            if (this.re.teachers.length < this.limit) {
                 this.noMoreTeachers = true;
             }
         }, e => {
@@ -71,13 +96,13 @@ export class TeacherListPage implements OnInit {
     }
 
     onClickShowMoreTeacher() {
-        this.page_no ++;
+        this.page_no++;
         this.loadTeachers();
     }
 
     onClickShowAllTeachers() {
         this.display_options = true;
-        document.querySelector('.page-header').scrollIntoView({behavior: 'smooth', block: 'start'});
+        document.querySelector('.page-header').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
 }
