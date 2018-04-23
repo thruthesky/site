@@ -41,8 +41,8 @@
         background: white;
 
 
-        select{
-            margin-top:.5em;
+        mat-form-field{
+            margin-top:1.2em;
             padding: .8em .5em;
             width:100%;
         }
@@ -79,11 +79,12 @@
         margin: .5em -.1em;
 
         .col{
-            padding:.1em;
+            padding:.4em .1em;
         }
 
         .row{
             justify-content: space-around;
+            align-items: stretch;
 
             @media screen and(max-width:544px) {
                 margin-right:0;
@@ -93,8 +94,8 @@
 
         .profile-wrapper{
             margin: .4em auto;
-            padding-bottom: .8em;
             width: 100px;
+            height: 100%;
             border:1px solid rgba(grey,0.2);
             border-radius: 2px;
             background: white;
@@ -203,20 +204,29 @@
     }
 
 
-    #no-more-teachers{
+    #no-more-teachers,.showmoreteacher-wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
         margin:4em 0;
 
         button{
+            display: flex;
+            align-items:center;
             margin-left:2em;
-            padding: .5em 1em;
+            padding: .8em 1.3em;
             border-radius: 2px;
             border:none;
             background:dodgerblue;
             color:white;
+            cursor: pointer;
+
         }
+    }
+
+    .loader{
+        margin-top: 3em;
+        text-align: center;
     }
 
     // .loader-big {

@@ -29,6 +29,21 @@ header{
     font-weight: bolder;
 }
 
-.list:hover{
-    background:rgba(grey,0.05);
+.list{
+
+    &{
+        span{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &:hover{
+        background:rgba(grey,0.05);
+    }
+}
+
+.custom-icon{
+    height: 24px;
+    margin-right: 1em;
 }

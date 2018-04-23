@@ -1,22 +1,46 @@
-<div class="bg-secondary" *ngIf=" ! isAdminPage ">
-    OnTue Menu
-    <button routerLink="/teacher">HOME</button>
-    <button routerLink="/teacher/help">Help</button>
-    <button routerLink="/register" *ngIf=" a.isLogout ">Register</button>
-    <button routerLink="/profile" *ngIf=" a.isLogin ">Profile</button>
-    <button routerLink="/login" *ngIf=" a.isLogout ">Login</button>
-    <button (click)=" a.logout({open: '/'}) " *ngIf=" a.isLogin ">Log out</button>
-    <button routerLink="/forum">Forum</button>
-    <button routerLink="/category">Category</button>
-    <button routerLink="/admin" *ngIf=" a.isManager ">Admin Page</button>
-    <button routerLink="/teacher-list">Teacher List</button>
-    <button routerLink="/dayoff">Dayoff</button>
-    <button routerLink="/payment-information">Payment Information</button>
-    <button routerLink="/settings">settings</button>
-    <button routerLink="/teacher-menu">Menu</button>
-    <button routerLink="/my-schedule">my-schedule</button>
-    <button routerLink="/teacher-session-future">reservations</button>
-    <button routerLink="/teacher-session-past">past classes</button>
+<div id="ontue-header" *ngIf=" ! isAdminPage ">
+
+    <nav class="inner container-fluid">
+        <div class="row">
+            <div class="col-3" routerLink="/teacher">
+                <div class="logo" >
+                    <svg aria-hidden="true" data-prefix="fas" data-icon="video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528 64h-12.118a48 48 0 0 0-33.941 14.059L384 176v-64c0-26.51-21.49-48-48-48H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48v-64l97.941 97.941A48 48 0 0 0 515.882 448H528c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48z"></path></svg>
+                    <span>OnTue</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="buttons">
+                    <button routerLink="/teacher-list">Teacher</button>
+                    <button routerLink="/teacher/help">Help</button>
+                    <button routerLink="/teacher-session-future" *ngIf=" a.isLogin ">reserved</button>
+                    <button routerLink="/teacher-session-past" *ngIf=" a.isLogin ">past</button>
+                    <button routerLink="/category">Category</button> 
+                    <button routerLink="/my-schedule"  *ngIf=" a.isLogin ">schedule</button>
+                    <button routerLink="/register" *ngIf=" a.isLogout ">Register</button>
+                    <button routerLink="/login" *ngIf=" a.isLogout ">Login</button>
+                </div>
+            </div>
+            <div class="menu col-3">
+                    <button routerLink="/teacher-menu">
+                        <ion-icon name="ios-menu"></ion-icon>
+                    </button>
+            </div>
+        </div>
+        <!-- <button routerLink="/teacher">Home</button> -->
+        <!-- <button routerLink="/profile" *ngIf=" a.isLogin ">Profile</button> -->
+        <!-- <button (click)=" a.logout({open: '/'}) " *ngIf=" a.isLogin ">Log out</button> -->
+        <!-- <button routerLink="/forum">Forum</button> -->
+        <!-- <button routerLink="/category">Category</button> -->
+        <!-- <button routerLink="/admin" *ngIf=" a.isManager ">Admin Page</button> -->
+
+        <!-- <button routerLink="/dayoff">Dayoff</button> -->
+        <!-- <button routerLink="/payment-information">Payment Information</button> -->
+        <!-- <button routerLink="/settings">settings</button> -->
+
+        <!-- <button routerLink="/my-schedule">my-schedule</button> -->
+
+    </nav>
+
 </div>
 
 
