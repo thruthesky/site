@@ -1,0 +1,270 @@
+.page-header{
+    padding: 1.25em;
+    background-color: #2196f3;
+    color: #000;
+}
+
+.page-body{
+
+  .container-fluid{
+    box-sizing: border-box;
+    text-align: center;
+
+    .text{
+      font-size: .90em;
+    }
+  }
+
+  .step-header{
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: center!important;
+  }
+
+
+  h4 {
+    margin: .2em 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: black;
+  }
+
+  .darktomato {
+    color: #ff5435;
+  }
+
+  .faq {
+    margin-top: 3em;
+    padding-bottom:7em;
+    
+    .part {
+      margin: 1em 0;
+      cursor: pointer;
+      .desc {
+        line-height: 180%;
+        &>div {
+          padding: 2em;
+        }
+
+        &>div:first-child{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        h2{
+          margin: 0;
+          font-weight: 400;
+
+          &+div{
+            font-weight: 200;
+            font-size: 90%;
+          }
+        }
+      }
+    }
+
+
+  }
+
+
+    .reservation .desc {
+      background: white;
+      color:#1e88e5;
+      &>div:first-child {
+        background-color: #1e88e5;
+        color: white;
+      }
+    }
+
+  .kakao .desc {
+    background: white;
+    color: #662c00;
+    &>div:first-child {
+      background-color: #ffd600;
+      color: black;
+    }
+  }
+  
+  .leveltest .desc {
+    background: white;
+    color: #29434e;
+    &>div:first-child {
+      background-color: #546e7a;
+      color: white;
+    }
+  }
+
+  .c2c .desc {
+    background: white;
+    color: #512da8;
+    &>div:first-child {
+      background-color: #512da8;
+      color: white;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 1em;
+    }
+  }
+  
+
+  .payment .desc {
+    background: white;
+    color: black;
+    &>div:first-child {
+      background-color: #ffca28;
+      color: black;
+    }
+  }
+  
+  
+
+  .student-choice .desc {
+    background: white;
+    color: black;
+    &>div:first-child {
+      background-color: #2e7d32;
+      color: white;
+    }
+  }
+  
+  
+
+  .qna .desc {
+    background: white;
+    color: black;
+    &>div:first-child {
+      background-color: #ffc107;
+      color: black;
+    }
+  }
+  
+
+  .problem .desc {
+    background: #251a1f;
+    color: white;
+    &>div:first-child {
+      background-color: #753650;
+      color: white;
+    }
+  }
+  
+  .refund .desc {
+    background: #1a2025;
+    color: white;
+    &>div:first-child {
+      background-color: #366375;
+      color: white;
+    }
+  }
+  .cancel .desc {
+    background:  #23251a;
+    color: white;
+    &>div:first-child {
+      background-color: #647536;
+      color: white;
+    }
+  }
+
+
+
+  .accordion-hidden,.accordion-showed{
+    height: auto;
+    overflow: hidden;
+    transition: all 0.1s ease-in-out;
+
+    &>div{
+
+      padding: 1em 0;
+    }
+
+  }
+
+  .accordion-hidden{
+    padding-top:0!important;
+    padding-bottom: 0!important;
+    max-height: 0;
+  }
+  .accordion-showed{
+    max-height: 500px;
+  }
+  
+  .rotate-45-off,.rotate-45-on{
+    svg{
+      margin-left: .8em;
+      height: 2em!important;
+    }
+  }
+
+  .rotate-45-on{
+    transition: all .1s ease-in-out;
+    transform: rotate(45deg)!important;
+  }
+
+  .rotate-45-off{
+    transition: all .1s ease-in-out;
+    transform: rotate(0deg)!important;
+  }
+
+  .bg-image{
+    padding:.5em 1em 4em 1em;
+    border: 1px solid #e9ecef!important;
+    background: linear-gradient(to bottom,rgba(white, 0.83), rgba(white, 0.83)),url("/../../../../assets/img/banner1.jpg")!important;
+    background-size:cover!important;
+    background-position: bottom!important;
+    background-repeat: no-repeat!important;
+  }
+
+  .icon-inner,.icon-cover{
+    display: inline-block;
+    font-size: inherit;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 7em;
+  }
+
+  .icon-cover{
+    color: #ff5435;
+
+  }
+
+  .icon-layer{
+    text-align: center;
+    width: 100%;
+    height: 7em;
+    display: inline-block;
+    position: relative;
+  }
+
+  @media screen and (max-width:544px) {
+    .space-top{
+      margin-top: 2em;
+    }
+  }
+
+
+  .icon-check{
+    display: inline-block;
+    color: rgba(115, 19, 2, 0.74);
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 7em;
+  }
+
+  .icon-yellow{
+    color:yellow;
+  }
+}
