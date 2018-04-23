@@ -1,6 +1,6 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AppService } from '../../providers/app.service';
+import { AppService, KEY_SCHEDULES } from '../../providers/app.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SCHEDULE_TABLE, N, TEACHER, SCHEDULE_COMPRESSED, TABLE } from '../../modules/xapi/interfaces';
 import { SESSION } from '../../modules/xapi/lms.service';
@@ -31,7 +31,9 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         min_point: 0,
         max_point: MAX_POINT,
         days: 6,
-        display_weekends: 'Y'
+        display_weekends: 'Y',
+        navigate: 'today',
+        useCache: true          /// ** Only first schedule table list will be cached.
     };
     formOptions = {
         begin_hours: Array(24).fill(0).map((e, i) => i),
@@ -54,7 +56,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         this.defaultPhotoUrl = a.urlBackend + '/wp-content/plugins/xapi-2/lms/img/default-teacher-photo.jpg';
         // a.showHeader = false;
         this.active.queryParams.subscribe(params => {
-            console.log('params:', params);
+            // console.log('params:', params);
             this.params = params;
             if (params['idx_teacher']) {
                 this.form.teachers = [params['idx_teacher']];
@@ -84,7 +86,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             this.form.max_duration = MAX_DURATION;
         }
         const point = parseInt(this.form.point, 10);
-        console.log('point:', point);
+        // console.log('point:', point);
         delete this.form.point;
         if (point) {
             this.form.min_point = point;
@@ -97,7 +99,8 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             this.form.min_point = 0;
             this.form.max_point = MAX_POINT;
         }
-        console.log('onSearchSubmit(): ', this.form);
+        // console.log('onSearchSubmit(): ', this.form);
+        this.form.useCache = false;
         this.loadScheduleaAndDisplay(this.form);
         return false;
     }
@@ -114,7 +117,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         this.re = null;
         this.show.schedule_loader = true;
         this.a.loadSchedule(options, re => {
-            console.log('re: ', re);
+            console.log('loaded schedule data: ', re);
             this.show.schedule_loader = false;
             if (this.isSingleTeacher) {
                 this.re = re;
@@ -156,7 +159,9 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
     }
 
     onClickNavigate(navigate) {
-        this.loadScheduleaAndDisplay({ navigate: navigate });
+        this.form.navigate = navigate;
+        this.form.useCache = false;
+        this.loadScheduleaAndDisplay(this.form);
     }
 
 
@@ -324,6 +329,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         } else if (session[N.open] === N.session_reserved && session[N.owner] === 'me') {
             this.cancelSession(session);
         }
+        this.a.cacheDeleteSchedule();
     }
 
     updatePoint() {

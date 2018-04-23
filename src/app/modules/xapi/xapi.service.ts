@@ -141,9 +141,19 @@ export class XapiService extends Base {
         return null;
     }
 
+    /**
+     * It saves data into LocalStorage. It does try/catch.
+     * @param key key
+     * @param data data to save
+     */
     set(key, data) {
         // console.log("storage::set()", data);
-        return localStorage.setItem(key, JSON.stringify(data));
+        try {
+            localStorage.setItem(key, JSON.stringify(data));
+        } catch (e) {
+            console.log('Failed to set localStorage(). 5MB exhausted?');
+            return false;
+        }
     }
 
 

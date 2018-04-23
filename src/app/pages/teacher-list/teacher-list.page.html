@@ -83,6 +83,8 @@
 
     <section class="page-body">
 
+
+
         <div class="teachers">
             <div class="container-fluid" *ngIf=" re ">
                 <div class="row">
@@ -117,6 +119,15 @@
         </div>
 
 
+        <div *ngIf=" show.loadTeacher ">
+            <div>
+                <ion-spinner></ion-spinner>
+                <div>
+                    {{ 'IN LOADING' | t }}..
+                </div>
+            </div>
+        </div>
+
         <div class="showmoreteacher-wrapper" *ngIf=" ! noMoreTeachers && ! show.loadTeacher">
             <button (click)=" onClickShowMoreTeacher()">
                 <span>강사 더보기</span>
@@ -137,14 +148,6 @@
             </button>
         </div>
 
-        <div class="loader-big" *ngIf=" show.loadTeacher ">
-            <div>
-                <ion-spinner name="ios"></ion-spinner>
-                <div>
-                    {{ 'IN LOADING' | t }}..
-                </div>
-            </div>
-        </div>
     </section>
 
 </section>

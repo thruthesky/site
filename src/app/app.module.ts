@@ -7,10 +7,9 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppService } from './providers/app.service';
 import { FireService, FirelibraryModule } from './modules/firelibrary/core';
 
-
 import { OntueHeaderComponentModule } from './sites/ontue/components/ontue-header/ontue-header.component.module';
 import {
-    KatalkEnglishHeaderComponentModule
+  KatalkEnglishHeaderComponentModule
 } from './sites/katalkenglish/components/katalkenglish-header/katalkenglish-header.component.module';
 
 import { LanguageService } from './providers/language.service';
@@ -20,6 +19,7 @@ import { KatalkEnglishFooterComponentModule } from './sites/katalkenglish/compon
 import { OntueFooterComponentModule } from './sites/ontue/components/ontue-footer/ontue-footer.component.module';
 import { RedirectPage } from './app.redirect';
 
+import { NgForageModule, NgForageConfig } from 'ngforage';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import { RedirectPage } from './app.redirect';
     KatalkEnglishHeaderComponentModule,
     KatalkEnglishFooterComponentModule,
     XapiModule,
-    TranslatePipeModule
+    TranslatePipeModule,
+    NgForageModule.forRoot()
   ],
   exports: [
   ],
@@ -51,6 +52,16 @@ import { RedirectPage } from './app.redirect';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  public constructor(ngfConfig: NgForageConfig) {
+    ngfConfig.configure({
+      name: 'MyApp',
+      driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
+        NgForageConfig.DRIVER_INDEXEDDB,
+        NgForageConfig.DRIVER_LOCALSTORAGE
+      ]
+    });
+  }
+}
 
 
