@@ -1,9 +1,7 @@
-
-<header class="page-header">
-    카톡영어에 처음 오신분들은 본 페이지의 내용을 꼭 한번 읽어주세요.
+<header>
+    <h1>{{ 'HELP PAGE TITLE' | t }}</h1>
 </header>
-
-<main class="page-body">
+<main>
     <div class="bg-image">
         <h2 class="step-header">간편한 4 STEP</h2>
         <section class="container-fluid">
@@ -45,19 +43,19 @@
     </div>
     <section class="faq">
 
-        <div class="part reservation" (click)="accordion1=!accordion1">
+        <div class="part reservation" (click)="accord.on1=!accord.on1">
             <div class="desc">
                 <div>
                     <div>
                         <h2>자유예약</h2>
                         <div>학생이 직접 수업을 예약하고 취소</div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion1" [class.rotate-45-on]="accordion1">
+                    <span [class.rotate-45-off]="!accord.on1" [class.rotate-45-on]="accord.on1">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
                 
-                <div [class.accordion-hidden]="!accordion1" [class.accordion-showed]="accordion1">
+                <div [class.accordion-hidden]="!accord.on1" [class.accordion-showed]="accord.on1">
                     <div>
                     선생님 변경, 날짜/시간 변경 그리고 수업이 잘못되었을 때 수업 포인트 돌려받기 신청 등 모든 것이 자동화되어져 있습니다.
                     </div>
@@ -68,7 +66,7 @@
         </div>
 
 
-        <div class="part kakao" (click)="accordion2=!accordion2">
+        <div class="part kakao" (click)="accord.on2=!accord.on2">
             <div class="desc">
                 <div >
                     <div>
@@ -77,12 +75,12 @@
                             화상영어 전화영어 업체의 가장 큰 골치거리 중 하나가 바로 학생과 선생님이 직접 수업료를 주고 받는 것
                         </div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion2" [class.rotate-45-on]="accordion2">
+                    <span [class.rotate-45-off]="!accord.on2" [class.rotate-45-on]="accord.on2">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
     
-                <div [class.accordion-hidden]="!accordion2" [class.accordion-showed]="accordion2">
+                <div [class.accordion-hidden]="!accord.on2" [class.accordion-showed]="accord.on2">
                     <div>그래서 학생과 선생님의 소통을 차단하기 위해 별도의 화상영어 프로그램을 설치하는데</div>
                     <div>이러한 화상영어 프로그램의 문제점은 스피커, 마이커, 웹캠 등의 문제가 자주 발생하며 컴퓨터가 느려지거나 먹통이되기도 해서 수업에 큰 지장을 초래합니다.</div>
                     <div>저희는 모든 한국인이 사용하는 화상 프로그램인 카카오톡을 선택했습니다.</div>
@@ -93,21 +91,21 @@
         </div>
 
 
-        <div class="part leveltest" (click)="accordion3=!accordion3">
+        <div class="part leveltest" (click)="accord.on3=!accord.on3">
             <div class="desc">
                     <div>
                         <div>
                             <h2>무료 체험(레벨테스트)</h2>
                             <div>
-                                회원 가입을 하고 <!--{{ a.info?.MAX_FREE_CLASS }} -->회 무료 체험
+                                회원 가입을 하고 {{ a.info?.MAX_FREE_CLASS }} 회 무료 체험
                             </div>
                         </div>
-                        <span [class.rotate-45-off]="!accordion3" [class.rotate-45-on]="accordion3">
+                        <span [class.rotate-45-off]="!accord.on3" [class.rotate-45-on]="accord.on3">
                             <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                         </span>
                     </div>
 
-                    <div [class.accordion-hidden]="!accordion3" [class.accordion-showed]="accordion3">
+                    <div [class.accordion-hidden]="!accord.on3" [class.accordion-showed]="accord.on3">
                         <div>모든 수업 마다 평가하므로 처음 하는 무료 체험 수업이 곧 레벨테스트가 되는 것입니다.</div>
                         <div>
             
@@ -126,7 +124,7 @@
         </div>
 
 
-        <div class="part c2c" (click)="accordion4=!accordion4">
+        <div class="part c2c" (click)="accord.on4=!accord.on4">
             <div class="desc">
                 <div>
                     <div>
@@ -135,12 +133,12 @@
                             선생님은 원하는 시간과 금액으로 수업 스케쥴을 오픈하며 학생은 선생님, 시간, 금액이 마음에 들면 예약하면 됩니다.
                         </div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion4" [class.rotate-45-on]="accordion4">
+                    <span [class.rotate-45-off]="!accord.on4" [class.rotate-45-on]="accord.on4">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
     
-                <div [class.accordion-hidden]="!accordion4" [class.accordion-showed]="accordion4">
+                <div [class.accordion-hidden]="!accord.on4" [class.accordion-showed]="accord.on4">
                     <div>
                         여기서 중요한 점 몇 가지는 아래와 같습니다.
                     </div>
@@ -155,7 +153,7 @@
         </div>
 
 
-        <div class="part payment" (click)="accordion5=!accordion5">
+        <div class="part payment" (click)="accord.on5=!accord.on5">
             <div class="desc">
                 <div>
                     <div>
@@ -164,12 +162,12 @@
                             자유 예약에 따라 학생마다 수업료가 달라서 정해진 수업료가 없습니다.
                         </div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion5" [class.rotate-45-on]="accordion5">
+                    <span [class.rotate-45-off]="!accord.on5" [class.rotate-45-on]="accord.on5">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
     
-                <div [class.accordion-hidden]="!accordion5" [class.accordion-showed]="accordion5">
+                <div [class.accordion-hidden]="!accord.on5" [class.accordion-showed]="accord.on5">
                     <div>
                         원하는 만큼 수업료를 지불하고 예약을 하면 됩니다.
                     </div>
@@ -181,7 +179,7 @@
         </div>
 
 
-        <div class="part student-choice" (click)="accordion6=!accordion6">
+        <div class="part student-choice" (click)="accord.on6=!accord.on6">
             <div class="desc">
     
                 <div>
@@ -191,12 +189,12 @@
                         수업료를 지불하면 포인트가 충전됩니다.
                     </div>
                 </div>
-                <span [class.rotate-45-off]="!accordion6" [class.rotate-45-on]="accordion6">
+                <span [class.rotate-45-off]="!accord.on6" [class.rotate-45-on]="accord.on6">
                     <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                 </span>
                 </div>
     
-                <div [class.accordion-hidden]="!accordion6" [class.accordion-showed]="accordion6">
+                <div [class.accordion-hidden]="!accord.on6" [class.accordion-showed]="accord.on6">
                     <div>이 포인트로 수업 예약 할 수 있는데, 선생님의 수업 시간표에 보시면 포인트 금액이 표시되어 있습니다.</div>
                     <div>이 포인트 금액을 보시고 원하는 금액에 맞는 수업을 적절히 예약 하시면 됩니다.</div>
                     <div>수업은 하루에 1번, 10번 또는 한달에 1번 등 마음데로 예약 가능합니다.</div>
@@ -206,19 +204,19 @@
         </div>
 
 
-        <div class="part problem" (click)="accordion7=!accordion7">
+        <div class="part problem" (click)="accord.on7=!accord.on7">
             <div class="desc">
                 <div>
                     <div>
                         <h2>수업에 문제가 있는 경우</h2>
                         <div>선생님의 잘못으로 수업이 안된 경우 포인트 복구 신청을 하시면 됩니다.</div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion7" [class.rotate-45-on]="accordion7">
+                    <span [class.rotate-45-off]="!accord.on7" [class.rotate-45-on]="accord.on7">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
     
-                <div [class.accordion-hidden]="!accordion7" [class.accordion-showed]="accordion7">
+                <div [class.accordion-hidden]="!accord.on7" [class.accordion-showed]="accord.on7">
                     <div>
                     수업에 문제가 있으면 즉시 카카오톡 문의로 문제 상황을 설명 해 주셔야합니다.
                     예를 들어 수업 시간에 선생님으로 부터 전화가 걸려오지 않는다면 학생은 즉시 카카오톡 문의 채팅으로 'xxx 선생님이 수업 시간에 전화를 걸어 오지 않습니다.' 와 같이 남겨주셔야합니다.
@@ -229,19 +227,19 @@
         </div>
 
 
-        <div class="part refund" (click)="accordion8=!accordion8">
+        <div class="part refund" (click)="accord.on8=!accord.on8">
             <div class="desc">
                 <div>
                     <div>
                         <h2>포인트 복구 신청</h2>
                         <div>수업 참석이 어려운 경우 반드시 정해진 시간 내에 수업 취소를 해주세요.</div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion8" [class.rotate-45-on]="accordion8">
+                    <span [class.rotate-45-off]="!accord.on8" [class.rotate-45-on]="accord.on8">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
                 
-                <div [class.accordion-hidden]="!accordion8" [class.accordion-showed]="accordion8">
+                <div [class.accordion-hidden]="!accord.on8" [class.accordion-showed]="accord.on8">
                     <div>
                         선생님의 실수로 수업이 잘 안된 경우 포인트를 돌려 받을 수 있습니다.
                         지난 수업 메뉴에서 포인트 복구 버튼을 클릭하고 포인트 복구 신청을 하시면 됩니다.
@@ -254,20 +252,20 @@
             </div>
         </div>
   
-        <!-- <div class="part cancel " *ngIf=" a.lmsInfoCancellableMinutes() "  (click)="accordion9=!accordion9">             -->
-        <div class="part cancel " (click)="accordion9=!accordion9">
+        <!-- <div class="part cancel " *ngIf=" a.lmsInfoCancellableMinutes() "  (click)="accord.on9=!accord.on9">             -->
+        <div class="part cancel " (click)="accord.on9=!accord.on9">
             <div class="desc">
                 <div>
                     <div>
                         <h2>수업 취소</h2>
                         <div>자유 예약 시스템을 악용하지 마시고 정당하게 이용해 주세요.</div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion9" [class.rotate-45-on]="accordion9">
+                    <span [class.rotate-45-off]="!accord.on9" [class.rotate-45-on]="accord.on9">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
 
-                <div [class.accordion-hidden]="!accordion9" [class.accordion-showed]="accordion9">
+                <div [class.accordion-hidden]="!accord.on9" [class.accordion-showed]="accord.on9">
                     <div>
                     수업 취소는 수업 시간 전 <!--{{ a.lmsInfoCancellableMinutes() }}--> 분 까지 하셔야합니다.
                     </div>
@@ -276,19 +274,19 @@
         </div>
 
 
-        <div class="part qna" (click)="accordion10=!accordion10">
+        <div class="part qna" (click)="accord.on10=!accord.on10">
             <div class="desc">
                 <div>
                     <div>
                         <h2>질문과 답변</h2>
                         <div>저희는 카카오톡을 통해서 많은 서비스를 하고 있으며 질문과 답변 엮시 카카오톡으로 진행됩니다.</div>
                     </div>
-                    <span [class.rotate-45-off]="!accordion10" [class.rotate-45-on]="accordion10">
+                    <span [class.rotate-45-off]="!accord.on10" [class.rotate-45-on]="accord.on10">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                     </span>
                 </div>
     
-                <div [class.accordion-hidden]="!accordion10" [class.accordion-showed]="accordion10">
+                <div [class.accordion-hidden]="!accord.on10" [class.accordion-showed]="accord.on10">
                     <div>카톡영어를 꼭 친구추가 해 주세요.</div>
                 </div>
             </div>

@@ -23,4 +23,5 @@ env['firebaseConfig'] = {
   messagingSenderId: '328021421807'
 };
 env['reloadTag'] = (new Date).getTime(); /// Warning this must be only in environment.
+env['disableLog']  = true;
 export default env;

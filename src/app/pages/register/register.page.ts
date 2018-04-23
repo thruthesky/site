@@ -249,7 +249,7 @@ export class RegisterPage implements OnInit {
         this.a.user
             .register(this.form)                // register into Xapi backend.
             .subscribe(re => {
-                // this.a.onUserRegister();
+                this.a.onUserRegister();
                 this.form.user_pass = null;
                 this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {      // set timezone.
                     this.registerFirebase(re, () => {           // register into firebase.
@@ -311,7 +311,7 @@ export class RegisterPage implements OnInit {
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
             this.a.toast('UPDATED');
-            // this.a.onUserProfileUpdate();
+            this.a.onUserProfileUpdate();
             this.loadData();
         }, err => {
             this.a.toast(err);
