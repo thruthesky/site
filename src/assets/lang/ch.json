@@ -16,6 +16,7 @@
     "MENU": "菜单",
     "IE_EDGE_WARNING": "哦！ 你有个问题。 您需要使用Chrome浏览器。 IE / Edge非常慢。",
     "NO_INTERNET": "没有互联网。 请检查您是否有互联网连接。",
+    "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
     "WELCOME_TITLE": "欢迎，#name。",
     "WELCOME_MESSAGE": "我们很高兴为您提供世界上最低价格的最优质的英语教育。",
     "WELCOME_TRY": "你现在可以预定5个试验班。",
@@ -41,5 +42,6 @@
     "QNA": "问题与解答",
     "POLICY": "政策",
     "SESSION_FUTURE": "预订",
-    "SESSION_PAST": "过去的类"
+    "SESSION_PAST": "过去的类",
+    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered."
 }

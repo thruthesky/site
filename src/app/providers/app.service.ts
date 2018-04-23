@@ -1,9 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
 import { LanguageService } from './language.service';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras, NavigationStart } from '@angular/router';
 import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
+import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID } from '../modules/xapi/error';
 
 
 /**
@@ -89,6 +90,8 @@ export class AppService {
 
     /**
      * Firebase Notification and Messaging
+     *
+     * @todo naming. `firebase` instead of `_firebase`.
      */
     _firebase: {
         db: firebase.firestore.Firestore;
@@ -107,7 +110,8 @@ export class AppService {
     inLoadingMyPoint = false;
 
 
-    constructor(public ngZone: NgZone,
+    constructor(
+        public ngZone: NgZone,
         public router: Router,
         public fire: FireService,
         public snackBar: MatSnackBar,
@@ -126,6 +130,17 @@ export class AppService {
         this.urlBackend = env['urlBackend'];
         console.log('urlBackend: ', this.urlBackend);
         xapi.setServerUrl(this.urlBackend);
+
+
+        this.router.events.subscribe((e: any) => {
+            if (e instanceof NavigationStart) {
+                if (this.router.url === e.url) {
+                    console.log('same url');
+                    this.router.navigate(['/redirect'], { queryParams: { url: e.url } });
+                }
+            }
+        });
+
 
         this._firebase.db = firebase.firestore();
         this._firebase.messaging = firebase.messaging();
@@ -359,8 +374,9 @@ export class AppService {
             o = { message: 'No toast message' };
         } else if (typeof o === 'string') { // Mostly a message to user
             o = { message: o };
-        } else if (o instanceof Error) { // Mostly an error from backend.
+        } else if (o instanceof Error) { // Mostly an error code from backend.
 
+            console.log('error from server?', o);
             const code = this.xapi.getError(o).code;
             o = {
                 message: this.xapi.getError(o).message,
@@ -375,13 +391,16 @@ export class AppService {
              *
              * @see README ### Firebase User Login and Session
              */
-            if (code === -42001) {
+            if (code === CODE_WRONG_SESSION_ID || code === CODE_NO_USER_BY_THAT_SESSION_ID) {
                 this.user.logout();
                 // console.log( this.fire.getText() );
                 o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
+            } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
+                o['message'] = this.fire.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
             }
 
         } else if (o instanceof HttpErrorResponse) { // PHP ERROR. backend wordpress response error. status may be 200.
+            console.log('error of http: ', o);
             /**
              * @todo This error happens rarely. @see https://github.com/thruthesky/ontue/issues/192
              * @todo try to produce php error and display error log on console.
@@ -1076,6 +1095,6 @@ export class AppService {
     }
 
     isDesktopView(): boolean {
-        return ! this.isMobileView();
+        return !this.isMobileView();
     }
 }
