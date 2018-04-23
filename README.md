@@ -2,6 +2,14 @@
 
 ## TODO
 
+* Cache Teacher list page.
+* WebSQL for Schedule Cache. localStorage hsa 5MB quota problem.
+  * It does try/catch {} error handling if the data is too big but it's not enough.
+  * Since localStorage is limited for 5 MB.
+    * @todo find a way to save more than this Since we are only supporting IE11 and above.
+
+    
+
 * Check all page, link, menu with offline.
 * Reloading angular route if the user clicks the same route.
   * without chaning anything from routerLink="..."

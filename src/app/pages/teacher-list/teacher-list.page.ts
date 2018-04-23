@@ -31,16 +31,6 @@ export class TeacherListPage implements OnInit {
         public router: Router,
         public a: AppService
     ) {
-        // this.a.lms.teacher_list({
-        //   }).subscribe(re => {
-        //     console.log(re);
-        //     this.re = re;
-        //     this.teachers = this.teachers.concat( this.re.teachers );
-        //     if ( this.re.teachers.length < this.limit ) {
-        //       this.noMoreTeachers = true;
-        //     }
-        //   }, e => this.a.toast(e));
-
         this.init();
         this.loadTeachers();
     }

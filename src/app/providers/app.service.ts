@@ -29,6 +29,8 @@ export const SITE_ONTUE = 'ontue';
 export const SITE_WITHCENTER = 'withcenter';
 
 export const KEY_SCHEDULES = 'key-schedules';
+const SCHEDULE_CACHE_INTERVAL = 1800; // 1 for 1 second. 1800 for 30 min. 3600 for 1 hour.
+
 
 export const KEY_WEEKEND = 'key-weekend';
 export const KEY_DAYS = 'key-days';
@@ -38,6 +40,21 @@ export interface SITE {
     ontue: boolean;
     withcenter: boolean;
     katalkenglish: boolean;
+}
+
+export interface SCHEDULE_OPTIONS {
+    teachers: Array<number>;
+    days: number;
+    min_duration: number;
+    max_duration: number;
+    navigate: string;
+    starting_day: string;
+    display_weekends: string;
+    min_point: number;
+    max_point: number;
+    class_begin_hour: number;        // Loads schedule btween 00:00 am and 23:59 pm.
+    class_end_hour: number;          // Loads schedule btween 00:00 am and 23:59 pm.
+    useCache: boolean;
 }
 
 const KEY_LMS_INFO = 'lms-info';
@@ -555,6 +572,112 @@ export class AppService {
         return re;
     }
 
+    getUnixTimestamp() {
+        return Math.round((new Date()).getTime() / 1000);
+    }
+
+
+    /**
+     * Returns a `key` for saving cached schedule table data into localStorage.
+     * @param options schedule table search options
+     */
+    cacheKeySchedule(options: SCHEDULE_OPTIONS) {
+        let key = KEY_SCHEDULES;
+        key += '-' + options.teachers.toString();
+        console.log('cacheKeySchedule:', key);
+        return key;
+    }
+
+
+
+    // /**
+    //  * Returns key for schedule table search based on the search options.
+    //  *
+    //  * It can cache for each teacher. It should cache only for first page loading.
+    //  *
+    //  * @param options Options
+    //  */
+    // cacheKeySchedule(options: SCHEDULE_OPTIONS) {
+    //     let key = KEY_SCHEDULES;
+    //     key += '-' + options.class_begin_hour;
+    //     key += '-' + options.class_end_hour;
+    //     key += '-' + options.days;
+    //     key += '-' + options.display_weekends;
+    //     key += '-' + options.max_duration;
+    //     key += '-' + options.max_point;
+    //     key += '-' + options.min_duration;
+    //     key += '-' + options.min_point;
+    //     key += '-' + options.navigate;
+    //     key += '-' + options.teachers.toString();
+    //     console.log('cacheKeySchedule:', key);
+    //     return key;
+    // }
+
+    /**
+     * Caches schedule table for `first schedule table` list only.
+     *
+     * Only caches for 'first schedule table' without any search options.
+     * `options.useCache` is set to `true` only once in `constructor` of 'schedule-table.page.ts'
+     * so, if user reset the options or navigate, then it will not use cache.
+     * Even if the user navigate 'tomorrow' and navigate back to 'first schedule table' it does not use cache since it has navigated.
+     * Again, ONLY the first schedule load triggerred within 'constructor' or 'schedule-table-page.ts'.
+     * When a reservation/cancellation happens, all the cache is deleted.
+     */
+    cacheSetSchedule(re, options: SCHEDULE_OPTIONS) {
+        // if ( options.navigate !== 'today' ) {
+        //     return;
+        // }
+        if (options.useCache) {
+            re['time'] = this.getUnixTimestamp();
+            const key = this.cacheKeySchedule(options);
+            this.set(key, re);
+        }
+    }
+
+    /**
+     * Returns cached schedule data.
+     * @param options options
+     */
+    cacheGetSchedule(options: SCHEDULE_OPTIONS): SCHEDULE_TABLE {
+        const key = this.cacheKeySchedule(options);
+        // const key = KEY_SCHEDULES;
+        const re = this.get(key);
+        if (re && re['time']) {
+            const timeCache = parseInt(re['time'], 10);
+            const timeNow = this.getUnixTimestamp();
+            const passed = timeNow - timeCache;
+
+            if (passed < SCHEDULE_CACHE_INTERVAL) {   //
+                const left = SCHEDULE_CACHE_INTERVAL - passed;
+                console.log(`Using cached schedule data. Cache Expiration Interval: ${SCHEDULE_CACHE_INTERVAL}. Time now(${timeNow}) - Time cached(${timeCache}) = ${passed} seconds has passed. and ${left} seconds left to re-cache.`);
+                // console.log(`Using Cached schedule. ${left} seconds left for update.`);
+                // return null;
+                return re;
+            } else {
+                console.log(`Cached data has expired. Cache interval: ${SCHEDULE_CACHE_INTERVAL} but, ${passed} has passed. timeCache: ${timeCache}, timeNow: ${timeNow}. Going to get new data.`);
+                return null;
+            }
+        } else {
+            console.log('No cached data. Going to load all teacher schedules');
+            return null;
+        }
+    }
+    /**
+     * Removing cached schedule table data only.
+     */
+    cacheDeleteSchedule() {
+        const keys = Object.keys(localStorage);
+        console.log('cacheDeleteSchedule. Keys: ', keys);
+        if (keys) {
+            for (const key of keys) {
+                if (key.indexOf(KEY_SCHEDULES) !== -1) {
+                    console.log('removing : ', key);
+                    localStorage.removeItem(key);
+                }
+            }
+        }
+        // this.set(KEY_SCHEDULES, null);
+    }
 
     /**
      * Get schedule table(s)
@@ -562,12 +685,12 @@ export class AppService {
      *  options['teachers'] = [ 123, 456, 789 ]; /// to show three teacher's schedule table.
      * @param callback callback
      */
-    loadSchedule(options = {}, callback: (re: SCHEDULE_TABLE) => void) {
+    loadSchedule(options: SCHEDULE_OPTIONS = <any>{}, callback: (re: SCHEDULE_TABLE) => void) {
 
         /**
          * Default options.
          */
-        const defaults = {
+        const defaults: SCHEDULE_OPTIONS = {
             teachers: [],
             days: 7,
             min_duration: 0,
@@ -578,19 +701,30 @@ export class AppService {
             min_point: 0,
             max_point: 100000,
             class_begin_hour: 0,        // Loads schedule btween 00:00 am and 23:59 pm.
-            class_end_hour: 24          // Loads schedule btween 00:00 am and 23:59 pm.
+            class_end_hour: 24,          // Loads schedule btween 00:00 am and 23:59 pm.
+            useCache: false
         };
 
 
         options = Object.assign({}, defaults, options);
 
+        /**
+         * Use cached data for all schedule table.
+         */
+        if (options.useCache) {
+            const schedules = this.cacheGetSchedule(options);
+            if (schedules) {
+                console.log('got cached schedule. length of table: ', schedules.table.length);
+                callback(schedules);
+                return;
+            }
+        }
 
         this.lms.schedule_table_v4(options).subscribe(re => {
             if (!re) { // something is wrong.
-                callback(re);
+                callback(re); // just call the callback with the data even if something is wrong.
             }
             if (re && re.schedule) {
-
                 const keys = Object.keys(re.schedule);
                 if (keys.length) {
                     console.log('re.schedule.length:', keys.length);
@@ -636,6 +770,9 @@ export class AppService {
                 }
             }
 
+            // console.log('optins: ', options);
+            this.cacheSetSchedule(re, options);
+
             // console.log('new: ', re);
             callback(re);
         }, e => this.toast(e));
@@ -659,7 +796,10 @@ export class AppService {
     }
 
     /**
-     * Saves value into localStorage
+     * Saves value into localStorage.
+     *
+     * All data saving to `localStorage` must use this method. This method does safe try/catch {} error handling.
+     *
      * @param key key of localStorage
      * @param value value to save. it can be an object or a scalar. It will be JSON.stringyfy(). So no need to do it.
      */
