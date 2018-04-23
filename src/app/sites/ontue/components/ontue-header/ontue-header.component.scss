@@ -1,0 +1,55 @@
+#ontue-header{
+    font-family: sans-serif!important;
+
+    .container-fluid{
+        box-sizing: border-box;
+    }
+
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button,.logo{
+        padding: 0 1em;
+        height: 56px;
+        border:none;
+        background:none;
+        color: #fff;
+        font-size:1rem;
+        font-weight: 300;
+        cursor: pointer;
+    }
+
+    .menu{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        ion-icon{
+            font-size: 2.25em;
+        }
+
+        button{
+            padding: 0;
+        }
+    }
+
+    .logo{
+        display: flex;
+        align-items: center;
+        padding: 0;
+        font-size: 1.25em;
+        cursor: pointer;
+        
+        svg{
+            padding: .3em;
+            margin-right: .4em;
+            height: 1.8em;
+            border:1px solid white;
+            border-radius: 2px;
+        }
+    }
+
+
+}
