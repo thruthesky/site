@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
-import {AppService} from '../../../../providers/app.service';
+import { Component } from '@angular/core';
+import { AppService } from '../../../../providers/app.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'ontue-schedule-edit-page',
@@ -9,8 +10,13 @@ import {AppService} from '../../../../providers/app.service';
 export class OntueScheduleEditPage {
 
     constructor(
-        public a: AppService
+        public a: AppService,
+        private route: ActivatedRoute
     ) {
+
+        this.route.queryParams.subscribe(params => {
+            console.log(params);
+        });
     }
 }
 
