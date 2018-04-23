@@ -29,6 +29,9 @@ export const SITE_WITHCENTER = 'withcenter';
 
 export const KEY_SCHEDULES = 'key-schedules';
 
+export const KEY_WEEKEND = 'key-weekend';
+export const KEY_DAYS = 'key-days';
+
 
 export interface SITE {
     ontue: boolean;
@@ -452,6 +455,11 @@ export class AppService {
         return this.lms.getUserType() === 'teacher';
     }
 
+    /**
+     * Returns true of the login use is a student.
+     *
+     * It compares with the user type.
+     */
     get isStudent(): boolean {
         if (this.user.isLogout) {
             return false;
@@ -460,6 +468,14 @@ export class AppService {
     }
 
 
+    /**
+     * Adds '0' infront of the `n` if the `n` is smaller than 10.
+     * @param n numbre
+     * @example
+     *      add0(1);
+     *      - input:  1
+     *      - output: 01
+     */
     add0(n: number): string {
         if (!n) {
             return;
@@ -529,6 +545,9 @@ export class AppService {
      */
     loadSchedule(options = {}, callback: (re: SCHEDULE_TABLE) => void) {
 
+        /**
+         * Default options.
+         */
         const defaults = {
             teachers: [],
             days: 7,
@@ -542,6 +561,7 @@ export class AppService {
             class_begin_hour: 0,        // Loads schedule btween 00:00 am and 23:59 pm.
             class_end_hour: 24          // Loads schedule btween 00:00 am and 23:59 pm.
         };
+
 
         options = Object.assign({}, defaults, options);
 
@@ -599,7 +619,7 @@ export class AppService {
 
             // console.log('new: ', re);
             callback(re);
-        });
+        }, e => this.toast(e));
 
         // this.lms.schedule_table(options).subscribe(re => {
         //     console.log('old: ', re);
@@ -1042,5 +1062,20 @@ export class AppService {
                 });
             }, 500);
         }
+    }
+
+
+    /**
+     * Returns true if the width of the view is less than 768px.
+     *
+     * It assumes that the device is 'mobile' if the width is smaller than 768px.
+     */
+    isMobileView(): boolean {
+        const width = window.innerWidth;
+        return width < 768;
+    }
+
+    isDesktopView(): boolean {
+        return ! this.isMobileView();
     }
 }
