@@ -11,9 +11,9 @@ import { EnvironmentSchema } from './schema';
 const env: EnvironmentSchema = {
   name: 'development',
 };
-// env['urlBackend'] = 'http://workserver.ontue.com';
+env['urlBackend'] = 'http://workserver.ontue.com';
 // env['urlBackend'] = 'https://www.ontue.com';
-env['urlBackend'] = 'https://sonub.com:8443';
+// env['urlBackend'] = 'https://sonub.com:8443';
 env['firebaseConfig'] = {
   apiKey: 'AIzaSyBEv8lzyUI6kB8RyxG8xKnzv4WA6KfS6e4',
   authDomain: 'ontue-client-sites.firebaseapp.com',
@@ -23,4 +23,5 @@ env['firebaseConfig'] = {
   messagingSenderId: '328021421807'
 };
 env['reloadTag'] = (new Date).getTime(); /// Warning this must be only in environment.
+env['disableLog']  = true;
 export default env;

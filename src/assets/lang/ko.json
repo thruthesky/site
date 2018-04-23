@@ -45,5 +45,6 @@
     "POLICY": "이용자 약관",
     "SESSION_FUTURE": "예약된 수업",
     "SESSION_PAST": "지난 수업",
-    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "입력하신 이메일로 사용자 정보를 찾을 수 없습니다. 가입된 이메일 주소인지 확인해 주세요."
+    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "입력하신 이메일로 사용자 정보를 찾을 수 없습니다. 가입된 이메일 주소인지 확인해 주세요.",
+    "HELP PAGE TITLE": "카톡영어에 처음 오신분들은 본 페이지의 내용을 꼭 한번 읽어주세요."
 }

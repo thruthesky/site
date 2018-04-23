@@ -85,5 +85,7 @@
     "POLICY": "Policies",
     "SESSION_FUTURE": "Reservations",
     "SESSION_PAST": "Past Classes",
-    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered."
+    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered.",
+    "HELP PAGE TITLE": "If you are new to Katok English, please read the contents of this page."
+
 }

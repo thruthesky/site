@@ -43,5 +43,6 @@
     "POLICY": "政策",
     "SESSION_FUTURE": "预订",
     "SESSION_PAST": "过去的类",
-    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered."
+    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered.",
+    "HELP PAGE TITLE": "如果您是Katok英语的新手，请阅读本页面的内容。"
 }

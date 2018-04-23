@@ -43,5 +43,6 @@
     "POLICY": "ポリシー",
     "SESSION_FUTURE": "予約",
     "SESSION_PAST": "過去のクラス",
-    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered."
+    "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered.",
+    "HELP PAGE TITLE": "カトク英語初めての方は、本ページの内容を是非一度お読みください。"
 }
