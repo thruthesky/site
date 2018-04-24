@@ -8,6 +8,7 @@ import { ScheduleTablePage } from './schedule-table.page';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
 import { ScheduleTableOptionsComponent } from './schedule-table-option/schedule-table-options.component';
+import { ScheduleTableProfileComponent } from './schedule-table-profile/schedule-table-profile.component';
 
 const routes: Routes = [
   { path: '', component: ScheduleTablePage }
@@ -26,7 +27,8 @@ const routes: Routes = [
   ],
   declarations: [
     ScheduleTablePage,
-    ScheduleTableOptionsComponent
+    ScheduleTableOptionsComponent,
+    ScheduleTableProfileComponent
   ],
   entryComponents: [
     ScheduleTablePage

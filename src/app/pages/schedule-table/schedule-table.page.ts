@@ -46,16 +46,11 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         schedule_loader: false
     };
 
-    /**
-     * Teacher's youtube URL with dom sanitizing.
-     */
-    urlYoutube = null;
 
     userTime = '';
     constructor(
         public router: Router,
         public active: ActivatedRoute,
-        public domSanitizer: DomSanitizer,
         public a: AppService
     ) {
 
@@ -450,83 +445,16 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
     /**
      * Teacher's age
      */
-    teacher_age() {
-        return this.re.teacher.age;
-    }
-    teacher_grade() {
-        return this.re.teacher.grade;
-    }
-    teacher_gender() {
-        // console.log(this.re.teacher);
-        return this.re.teacher.gender;
-    }
-
-
-    onClickAddKakao() {
-        const url = this.teacher_kakaoURL();
-        // console.log("kakao::url:: ", url);
-        if (url) {
-            window.open(url, '_blank');
-        } else {
-            this.a.toast(this.a.t('TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID'));
-        }
-    }
-
-
-    /**
-     *
-     * @param session
-     */
-    teacher_kakaoURL(session = null) {
-        // console.log("session: ", session);
-        const teacher = this.teacher(session);
-        // console.log(teacher);
-        if (teacher) {
-            if (teacher.kakao_qrmark_string !== void 0) {
-                return teacher.kakao_qrmark_string;
-            } else {
-                return null;
-            }
-        } else {
-            /**
-             *
-             */
-            return this.re.teacher.kakao_qrmark_string;
-        }
-    }
-
-
-
-    onClickShowCurriculum() {
-        alert('show curriculmn vitae');
-        // const createCommentModal = this.modalCtrl.create(CurriculumVitaeView, { teacher: this.teacher_profile }, { cssClass: 'vitae-view' }
-        // );
-        // createCommentModal.onDidDismiss(() => { });
-        // createCommentModal.present();
-    }
-
-    onClickCommentList() {
-        alert('show comments');
-        // const createCommentModal = this.modalCtrl.create(StudentCommentList, { idx_teacher: this.teacher_profile['ID'], teacher_photoURL: this.teacher_profile['photoURL'], teacher_name: this.teacher_profile['name'] }, { cssClass: 'student-comment-list' }
-        // );
-        // createCommentModal.onDidDismiss(reason => {
-        //   if (reason == 'commentCreate') this.onClickCommentCreate();
-        // });
-        // createCommentModal.present();
-    }
-    playTeacherYoutube() {
-        const ID = this.a.getYoutubeID(this.re.teacher.youtube_video_url);
-        if (!ID) {
-            return this.a.toast('본 강사는 유튜브 동영상을 등록하지 않았습니다.');
-        }
-        this.urlYoutube = this.domSanitizer.bypassSecurityTrustResourceUrl(this.a.getYoutubeUrl(ID));
-        // if (this.a.isCordova) {
-        //   this.youtube.openVideo(ID);
-        // } else {
-        //   this.urlYoutube = this.domSanitizer.bypassSecurityTrustResourceUrl(this.a.getYoutubeUrl(ID));
-        // }
-
-    }
+    // teacher_age() {
+    //     return this.re.teacher.age;
+    // }
+    // teacher_grade() {
+    //     return this.re.teacher.grade;
+    // }
+    // teacher_gender() {
+    //     // console.log(this.re.teacher);
+    //     return this.re.teacher.gender;
+    // }
 
 
 
