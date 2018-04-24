@@ -49,12 +49,31 @@
                 <option value="N">숨기기</option>
             </select>
         </form>
-        <mat-chip-list>
-            <mat-chip>3000포인트</mat-chip>
-            <mat-chip>6일</mat-chip>
-            <mat-chip color="primary" selected="true">오전</mat-chip>
-            <mat-chip color="accent" selected="true">주말표시</mat-chip>
-        </mat-chip-list>
+
+        <div class="search-chip-list">
+            <div class="chip">오전*오후</div>
+            <div class="chip">1분이상</div>
+            <div class="chip">1포인트 이상</div>
+            <div class="chip">주말포함</div>
+            <div class="chip">6일표시</div>
+        </div>
+        <div class="search-option-display">
+            <div class="">
+
+                    오전
+                    오후
+        
+                    시간 직접 선택:
+                    <select name="class_begin_hour" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
+                        <option *ngFor=" let h of formOptions.begin_hours " value="{{ h }}">{{ h }}</option>
+                    </select>
+                    ~
+                    <select name="class_end_hour" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
+                        <option *ngFor=" let h of formOptions.end_hours " value="{{ h }}">{{ h }}</option>
+                    </select>
+            </div>
+        </div>
+
 
 
         <div class="schedule-loader" *ngIf=" show.schedule_loader ">
