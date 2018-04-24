@@ -230,6 +230,21 @@ export class XapiLMSService extends Base {
         return this.x.post(data);
     }
 
+
+    /**
+     *
+     * @param idx
+     * @returns mixed 1 schedule and lms info
+     */
+    my_schedules_by_idx(idx): Observable<any> {
+        const data = {
+            idx: idx,
+            route: 'lms.my_schedule',
+            session_id: this.user.sessionId
+        };
+        return this.x.post(data);
+    }
+
     schedule_search(data) {
         data['route'] = 'lms.schedule_search';
         data['session_id'] = this.user.sessionId;

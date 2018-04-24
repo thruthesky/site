@@ -18,10 +18,12 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
     allDays = false;
     params;
 
+
     php_to_kwr;
     usd_to_kwr;
     share_teacher;
     transaction_fee;
+    buyer_rate;
     max_point_per_minute;
 
 
@@ -35,37 +37,38 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
     ) {
 
         this.route.queryParams.subscribe(params => {
-            console.log(params);
+            // console.log('queryParams::', params);
+            // console.log('my_schedule_info::', this.a.my_schedule_info);
 
             this.params = params;
-            this.php_to_kwr = this.params['php_to_kwr'];
-            this.usd_to_kwr = this.params['usd_to_kwr'];
-            this.share_teacher = this.params['share_teacher'];
-            this.transaction_fee = this.params['transaction_fee'];
-            this.max_point_per_minute = this.params['max_point_per_minute'];
-
-
             if (this.params.idx) {
                 // GET DATA FROM SERVER
-                // this.a.lms.my_schedules_by_idx().subscribe( s => {
-                //     this.data = {
-                //         idx: s.idx,
-                //         point: s.point,
-                //         prere: s.prere,
-                //         class_begin_hour: s.user_time_class_begin.substr(0, 2),
-                //         class_begin_minute: s.user_time_class_begin.substr(2, 2),
-                //         duration: s.duration,
-                //         sunday: s.user_time_days.sunday,
-                //         monday: s.user_time_days.monday,
-                //         tuesday: s.user_time_days.tuesday,
-                //         wednesday: s.user_time_days.wednesday,
-                //         thursday: s.user_time_days.thursday,
-                //         friday: s.user_time_days.friday,
-                //         saturday: s.user_time_days.saturday
-                //     };
-                // }, e => {
-                //     this.a.toast(e);
-                // });
+                this.a.lms.my_schedules_by_idx(this.params.idx).subscribe( re => {
+                    const s = re.schedules[0];
+                    this.data = {
+                        idx: s.idx,
+                        point: s.point,
+                        prere: s.prere,
+                        class_begin_hour: s.user_time_class_begin.substr(0, 2),
+                        class_begin_minute: s.user_time_class_begin.substr(2, 2),
+                        duration: s.duration,
+                        sunday: s.user_time_days.sunday,
+                        monday: s.user_time_days.monday,
+                        tuesday: s.user_time_days.tuesday,
+                        wednesday: s.user_time_days.wednesday,
+                        thursday: s.user_time_days.thursday,
+                        friday: s.user_time_days.friday,
+                        saturday: s.user_time_days.saturday
+                    };
+                    this.php_to_kwr = re['php_to_kwr'];
+                    this.usd_to_kwr = re['usd_to_kwr'];
+                    this.share_teacher = re['share_teacher'];
+                    this.transaction_fee = re['transaction_fee'];
+                    this.buyer_rate = re['buyer_rate'];
+                    this.max_point_per_minute = re['max_point_per_minute'];
+                }, e => {
+                    this.a.toast(e);
+                });
             }
         });
 
@@ -185,13 +188,27 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
     countSelectedDays() {
 
         let c = 0;
-        if (this.data['sunday']) c++;
-        if (this.data['monday']) c++;
-        if (this.data['tuesday']) c++;
-        if (this.data['wednesday']) c++;
-        if (this.data['thursday']) c++;
-        if (this.data['friday']) c++;
-        if (this.data['saturday']) c++;
+        if (this.data['sunday']) {
+            c++;
+        }
+        if (this.data['monday']) {
+            c++;
+        }
+        if (this.data['tuesday']) {
+            c++;
+        }
+        if (this.data['wednesday']) {
+            c++;
+        }
+        if (this.data['thursday']) {
+            c++;
+        }
+        if (this.data['friday']) {
+            c++;
+        }
+        if (this.data['saturday']) {
+            c++;
+        }
 
         return c;
 
@@ -199,8 +216,12 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
 
 
     maxPoint() {
-        if (!this.data['point']) return 0;
-        if (!this.data['duration']) return 0;
+        if (!this.data['point']) {
+            return 0;
+        }
+        if (!this.data['duration']) {
+            return 0;
+        }
         return this.data['point'] > this.data['duration'] * this.max_point_per_minute;
     }
 }

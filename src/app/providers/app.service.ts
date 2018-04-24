@@ -59,6 +59,7 @@ export interface SCHEDULE_OPTIONS {
     useCache: boolean;
 }
 
+
 const KEY_LMS_INFO = 'lms-info';
 const firestoreLogCollection = 'user-activity-log';
 
