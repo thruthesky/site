@@ -57,7 +57,7 @@
     "CLOSE": "Close",
     "MENU": "Menu",
     "IE_EDGE_WARNING": "Ooh! You have a problem. You need to use Chrome web browser. IE/Edge is very slow.",
-    "NO_INTERNET": "No internet. Please check if you have Internet connection.",
+    "NO_INTERNET": "No internet. Can't connect to server. Please check if you have Internet connection.",
     "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
     "WELCOME_TITLE": "Welcome, #name.",
     "WELCOME_MESSAGE": "We are pleased to serve you the best qualified English Education with the lowest price in the world.",

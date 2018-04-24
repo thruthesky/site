@@ -733,13 +733,16 @@ export class AppService {
         }
 
         this.lms.schedule_table_v4(options).subscribe(re => {
+            // console.log('schedule_table_v4() result:', re);
             if (!re) { // something is wrong.
+                console.error('Something went wrong with schedule_table_v4()');
                 callback(re); // just call the callback with the data even if something is wrong.
             }
-            if (re && re.schedule) {
+            if (re && re.schedule ) {
+                // console.log('re.schedule:', re.schedule);
                 const keys = Object.keys(re.schedule);
                 if (keys.length) {
-                    console.log('re.schedule.length:', keys.length);
+                    // console.log('re.schedule.length:', keys.length);
                     for (const idx of keys) {
                         const s = re.schedule[idx];
                         // console.log('s: ', s);
@@ -754,7 +757,9 @@ export class AppService {
                     }
                 }
             }
+            // console.log('re.table.lenght: ', re.table.length);
             if (re && re.table && re.table.length) {
+                // console.log('it got table');
                 for (let i = 0; i < re.table.length; i++) {
                     const sessions = <Array<string>>re.table[i];
                     const newSessions = [];

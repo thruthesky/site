@@ -5,8 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SCHEDULE_TABLE, N, TEACHER, SCHEDULE_COMPRESSED, TABLE } from '../../modules/xapi/interfaces';
 import { SESSION } from '../../modules/xapi/lms.service';
 
-const MAX_POINT = 100000;
-const MAX_DURATION = 999;
+const MAX_POINT = 9999;
+const MAX_DURATION = 120;
 @Component({
     selector: 'schedule-table-page',
     templateUrl: 'schedule-table.page.html',
@@ -35,11 +35,6 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         navigate: 'today',
         useCache: true          /// ** Only first schedule table list will be cached.
     };
-    formOptions = {
-        begin_hours: Array(24).fill(0).map((e, i) => i),
-        end_hours: Array(24).fill(0).map((e, i) => i + 1)
-    };
-
 
     myPoint = 0;
 
@@ -76,29 +71,29 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
     }
 
     onSearchSubmit() {
-        const duration = parseInt(this.form.duration, 10);
-        delete this.form.duration;
-        if (duration) {
-            this.form.min_duration = duration;
-            this.form.max_duration = duration + 9;
-        } else {
-            this.form.min_duration = 0;
-            this.form.max_duration = MAX_DURATION;
-        }
-        const point = parseInt(this.form.point, 10);
-        // console.log('point:', point);
-        delete this.form.point;
-        if (point) {
-            this.form.min_point = point;
-            if ( point === 1 ) {
-                this.form.max_point = 999;
-            } else {
-                this.form.max_point = point + 999;
-            }
-        } else {
-            this.form.min_point = 0;
-            this.form.max_point = MAX_POINT;
-        }
+        // const duration = parseInt(this.form.duration, 10);
+        // delete this.form.duration;
+        // if (duration) {
+        //     this.form.min_duration = duration;
+        //     this.form.max_duration = duration + 9;
+        // } else {
+        //     this.form.min_duration = 0;
+        //     this.form.max_duration = MAX_DURATION;
+        // }
+        // const point = parseInt(this.form.point, 10);
+        // // console.log('point:', point);
+        // delete this.form.point;
+        // if (point) {
+        //     this.form.min_point = point;
+        //     if ( point === 1 ) {
+        //         this.form.max_point = 999;
+        //     } else {
+        //         this.form.max_point = point + 999;
+        //     }
+        // } else {
+        //     this.form.min_point = 0;
+        //     this.form.max_point = MAX_POINT;
+        // }
         // console.log('onSearchSubmit(): ', this.form);
         this.form.useCache = false;
         this.loadScheduleaAndDisplay(this.form);
@@ -117,16 +112,22 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         this.re = null;
         this.show.schedule_loader = true;
         this.a.loadSchedule(options, re => {
-            console.log('loaded schedule data: ', re);
             this.show.schedule_loader = false;
-            if (this.isSingleTeacher) {
+            /**
+             * If there are schedules.
+             */
+            if ( re.table.length ) {
+                if (this.isSingleTeacher) {         // if single teacher.
+                    this.re = re;
+                } else {
+                    const table: TABLE = re.table;
+                    re.table = [];
+                    this.re = re;
+                    this.re.table.push(table.shift());
+                    this.dispalyRows(table);
+                }
+            } else {            // if there is no schedule.
                 this.re = re;
-            } else {
-                const table: TABLE = re.table;
-                re.table = [];
-                this.re = re;
-                this.re.table.push(table.shift());
-                this.dispalyRows(table);
             }
         });
     }
@@ -256,6 +257,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
     }
 
     session_time(sessions) {
+        // console.log('session_time: ', sessions);
         if (!sessions || !sessions.length) {
             return 0;
         }
@@ -267,7 +269,9 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         if (!schedule) {
             return 0;
         }
+        // console.log('schedule: ', schedule, this.N.user_time_class_begin);
         const begin = schedule[this.N.user_time_class_begin];
+        // console.log('begin: ', begin);
         const hour = begin.substr(0, 2);
         const minute = begin.substr(2, 2);
         return hour + ':' + minute;
