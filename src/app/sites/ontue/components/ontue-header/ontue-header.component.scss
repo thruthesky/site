@@ -8,6 +8,19 @@
     .buttons{
         display: flex;
         justify-content: space-between;
+
+        @media screen and (max-width:768px){
+            display: none;
+        }
+
+        &-sm{
+            display: none;
+            text-align: center;
+
+            @media screen and (max-width:768px){
+                display: block;
+            }
+        }
     }
 
     button,.logo{
@@ -46,6 +59,7 @@
             padding: .3em;
             margin-right: .4em;
             height: 1.8em;
+            min-width: 2em!important;
             border:1px solid white;
             border-radius: 2px;
         }
