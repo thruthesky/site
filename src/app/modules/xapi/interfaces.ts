@@ -382,6 +382,14 @@ export interface TEACHER {
     idx: string;
     name: string;
     photoURL: string;
+    age: number;
+    grade: number;
+    gender: string;
+    kakao_qrmark_string: string;
+    youtube_video_url?: string;
+    nationality?: string;
+    total_reservation?: number;
+    introduction?: string;
 }
 
 export type TABLE = Array<Array<{ [key: string]: SESSION }>>;
@@ -392,7 +400,7 @@ export interface SCHEDULE_TABLE {
     schedule: { [idx_schedule: string]: SCHEDULE_COMPRESSED };
     student: { [key: string]: any };
     table: TABLE;
-    teacher: any;
+    teacher: TEACHER;
     teachers: {
         [idx: string]: TEACHER
     };

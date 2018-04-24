@@ -70,7 +70,7 @@
     "KAKAOTALK_ID_SHORT": "Katalk ID",
     "IN_REGISTERING": "Registering",
     "IN_REGISTERING_DESCRIPTION": "Please wait while registering...",
-    "INSTALL":"Install",
+    "INSTALL": "Install",
     "CATEGORY": "Category",
     "IN LOADING": "Loading.. Please, wait.",
     "KATALK_STORY": "Our Story",
@@ -151,4 +151,21 @@
     "STUDENT_HELP_PAGE_SUB_HEADER_10":"We have a lot of services through KakaoTalk, and we are going to Q & A with KakaoTalk.",
     "STUDENT_HELP_PAGE_CONTENT_10_1":"Please add katok english as a friend."
 
+
+
+        ,
+    "TAKEN": "Sessions",
+    "HAD SESSIONS": "",
+    "ADD KAKAO": "Add Kakao Friend",
+    "VIDEO": "Video",
+    "OPEN REVIEW": "Comments",
+    "CURRICULUM VITAE": "Curriculum Vitae",
+    "ALL SCHEDULE": "All Schedules",
+    "SCHEDULE TABLE SEARCH OPTIONS SHORT": "Options",
+    "TIMEZONE NOW": "Timezone",
+    "CHANGE TIMEZONE": "Change Timezone",
+    "POINT": "Point",
+    "AGE_GENDER": "#age/#gender",
+    "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "Ooh, This teacher has no Kakaotalk ID.",
+    "CURRENT_TIME": "#country #hour:#minute #ap"
 }

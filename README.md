@@ -2,6 +2,12 @@
 
 ## TODO
 
+
+* schedule table
+  * show curriulumn vitae
+  * show comments
+  * play teacher youtube video on mobile.
+
 * Cache Teacher list page.
 * WebSQL for Schedule Cache. localStorage hsa 5MB quota problem.
   * It does try/catch {} error handling if the data is too big but it's not enough.

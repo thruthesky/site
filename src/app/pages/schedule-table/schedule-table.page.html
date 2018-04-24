@@ -1,59 +1,183 @@
-<section class="page-wrapper">
-    <div class="page">
-        <h1>Schedule Table</h1>
-        <schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
-        <div class="schedule-loader" *ngIf=" show.schedule_loader ">
-            <ion-spinner name="circles"></ion-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
-        </div>
+<h1>
+    Schedule Table</h1>
 
-        <div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">
-            {{ 'NO_SCHEUDLE_TRY_SEARCH' | t }}
-        </div>
-        <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
-            <div class="tr schedule-header">
-                <div class="td" *ngIf=" isAllTeacher ">
-                    {{ 'TEACHER' | t }}
+<ng-container *ngIf=" isSingleTeacher && re && re.teacher ">
+    <ion-grid *ngIf=" isLoadComplete; else singleTeacherLoader" no-padding>
+        <ion-row class="px-4 py-3 px-md-5 py-md-4 bg-white" justify-content-between align-items-stretch>
+            <ion-col col-4 col-md-1>
+                <div class="teacher-profile-photo size-100x120 of-hidden">
+                    <img class="mx-auto w-100" src="{{ teacher_photoURL() }}">
                 </div>
-                <div class="td time">
-                    <div class="time">{{ 'TIME' | t }}</div>
-                    <div class="minute">{{ 'MINUTE' | t }}</div>
-                </div>
-                <div class="td day" *ngFor="let header of re.header" (click)="onClickNavigate( header.date )">
-                    <div>{{ header.display_date }}</div>
-                    <div class="d-inline-block"> {{ header.user_time_day | t }}</div>
-                </div>
-            </div>
-            <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
-                <div class="td profile" *ngIf=" isAllTeacher ">
-                    <div class="photo">
-                        <img src="{{ teacher_photoURL( sessions ) }}">
-                    </div>
-                </div>
-                <div class="td datetime">
-                    <div *ngIf=" a.user.isLogin ">
-                        {{ session_time( sessions ) }}
-                    </div>
-                    <div>
-                        {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }}
-                    </div>
-                    <div class="teacher-name" *ngIf=" isAllTeacher ">
-                        {{ teacher_name( sessions ) }}
-                    </div>
-                </div>
-                <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
-                    [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
-                    <div class="info">
-                        <div class="loader" *ngIf=" session.in_progress ">
-                            <ion-spinner name="circles"></ion-spinner>
-                        </div>
-                        <div class="status-icon" *ngIf=" ! session.in_progress ">
-                            <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
-                        </div>
-                        <div>{{ session[N.point] }}</div>
-                    </div>
+            </ion-col>
+            <ion-col class="d-flex-column justify-content-between ml-md-4 ml-0" col-8 col-md-3>
+                <div class="d-flex align-items-center">
+                    <span class="d-inline-block fs-2rem fw-bold text-uppercase">{{ teacher_name() }}</span>
+                    <span class="grade d-inline-block ml-3 ml-md-5 text-center" [attr.grade]=" teacher_grade() ">
+                        <i class="star fas fa-star fs-110" *ngFor="let i of a.countStar(teacher_grade())"></i>
+                        <!-- <i class="star empty-star fal fa-star" *ngFor="let i of a.countEmptyStar(teacher_grade())"></i> -->
+                    </span>
                 </div>
 
-            </div>
+
+                <div>
+                    <span class="mr-3 mr-md-5">{{ re.teacher.nationality }}</span>
+                    {{ 'AGE_GENDER' | t:{ age: teacher_age(), gender: teacher_gender() | t } }}
+
+                    <!-- <ng-container *ngIf=" a.isKorean; else English ">{{ teacher_age() }}세 ({{ teacher_gender() | t }})</ng-container>
+                            <ng-template #English>{{ teacher_age() }}/{{ teacher_gender() | t }}</ng-template> -->
+                </div>
+                <div>
+                    {{ 'TAKEN' | t }}: {{ re.teacher.total_reservation }} {{ 'HAD SESSIONS' | t }}
+                </div>
+                <div>
+                    <button class="kakao d-flex align-items-center justify-content-center py-2 w-100 rounded-2 hover-effect" (click)=" onClickAddKakao() ">
+                        <div class="size-30">
+                            <img class="w-100" src="assets/img/add-friend.png">
+                        </div>
+                        <div class="pl-3 fs-90 black ">{{ 'ADD KAKAO' | t }}</div>
+                    </button>
+                </div>
+            </ion-col>
+            <ion-col class="d-none d-md-flex align-items-center" col-12 col-md-4>
+                <div class="fs-110 line-height-1-8em fw-light hover-effect pointer" text-justify (click)="onClickShowCurriculum()">
+                    <span *ngIf=" re.teacher.introduction">
+                        <i class="fas fa-quote-left mr-3 mb-2"></i>
+                        {{ re.teacher.introduction.slice(0,150)}} ...
+                        <i class="fas fa-quote-right ml-3 mb-2"></i>
+                    </span>
+                </div>
+            </ion-col>
+            <ion-col class="mt-3 mt-md-0" col-12 col-md-2>
+                <ion-grid class="h-100" no-padding>
+                    <ion-row class="h-100" align-items-stretch>
+                        <ion-col col-4 col-md-12>
+                            <button class="hover-effect h-sm-100  w-sm-100px w-100 py-3 px-0 fs-90 rounded-2 bg-darkorange white" (click)=" playTeacherYoutube(); ">
+                                <div>
+                                    {{ 'VIDEO' | t }}
+                                    <i class="fas fa-play ml-md-2 ml-1 fs-110  white"></i>
+                                </div>
+                            </button>
+                        </ion-col>
+                        <ion-col class="d-flex align-items-center pr-2 p-md-0 " col-4 col-md-12>
+                            <button class="comment h-sm-100 mx-md-0 w-100 py-3 px-0 rounded-2 fs-90 bg-dodgerblue-80 white hover-effect" (click)=" onClickCommentList() ">
+                                <!--<div class="pointer p-2" *ngIf="a.user.isLogin" (click)="onClickCommentCreate()">{{ 'WRITE REVIEW' | t }}</div>-->
+                                <div class="pointer">
+                                    {{ 'OPEN REVIEW' | t }}
+                                    <i class="fas fa-external-link ml-md-2 ml-1 fs-110"></i>
+                                </div>
+                            </button>
+                        </ion-col>
+                        <ion-col class="d-flex-column justify-content-end pl-2 p-md-0" col-4 col-md-12>
+                            <button class="h-sm-100 w-100 py-3 px-0 fs-90 rounded-2 bg-dodgerblue-80 white hover-effect" (click)="onClickShowCurriculum()">
+                                {{ 'CURRICULUM VITAE' | t }}
+                                <i class="fas fa-clipboard ml-md-2 ml-1 fs-110"></i>
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ng-template #singleTeacherLoader>
+        <ion-row>
+            <ion-col>
+                <div class="alert alert-info border-0 rounded-0">
+                    <div>선생님 정보와 수업 시간표 정보를 로드중입니다.</div>
+                    <div>잠시만 기다려주세요.</div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ng-template>
+</ng-container>
+<div class="single-teacher p-3" *ngIf=" isSingleTeacher && urlYoutube  ">
+    <div class="video-container">
+        <iframe class="youtube-video border-0" [src]=" urlYoutube "></iframe>
+    </div>
+</div>
+<!--/single-teacher-->
+<div class="multiple-teachers" *ngIf=" ! singleTeacher ">
+    <section class="page-header d-flex justify-content-between">
+        <h2 class="title">{{ "ALL SCHEDULE" | t }}</h2>
+
+        <div (click)=" display_options = !display_options " *ngIf=" ! display_options ">
+            <ion-icon name="options"></ion-icon>
+            {{ 'SCHEDULE TABLE SEARCH OPTIONS SHORT' | t }}
+        </div>
+
+    </section>
+</div>
+<!--/multiple-teachers-->
+
+
+
+<div class="user-point d-flex justify-content-between p-3  border border-left-0 border-right-0 bg-ghostwhite" *ngIf=" a.user.isLogin ">
+
+    <div class="d-md-flex align-items-center py-md-2 py-0 pl-2 pl-md-0 ">
+        <div class="ml-md-3 pl-md-3 pl-0">
+            {{ 'TIMEZONE NOW' | t }}: {{ a.userTime }}
+        </div>
+        <div class="pl-0">
+            <button class="app-button secondary  mt-2 mt-md-0 mx-md-4 m-0 hover-effect py-2" (click)=" a.open('settings') ">{{ 'CHANGE TIMEZONE' | t }}</button>
+            <span class="ml-3 ml-md-0">{{ 'POINT' | t }}:</span>
+            <span *ngIf=" ! a.inLoadingMyPoint ">{{ a.userPoint }}</span>
+            <ion-spinner class="size-3" *ngIf=" a.inLoadingMyPoint "></ion-spinner>
         </div>
     </div>
-</section>
+</div>
+
+
+
+<schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
+<div class="schedule-loader" *ngIf=" show.schedule_loader ">
+    <ion-spinner name="circles"></ion-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
+</div>
+
+<div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">
+    {{ 'NO_SCHEUDLE_TRY_SEARCH' | t }}
+</div>
+<div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
+    <div class="tr schedule-header">
+        <div class="td" *ngIf=" isAllTeacher ">
+            {{ 'TEACHER' | t }}
+        </div>
+        <div class="td time">
+            <div class="time">{{ 'TIME' | t }}</div>
+            <div class="minute">{{ 'MINUTE' | t }}</div>
+        </div>
+        <div class="td day" *ngFor="let header of re.header" (click)="onClickNavigate( header.date )">
+            <div>{{ header.display_date }}</div>
+            <div class="d-inline-block"> {{ header.user_time_day | t }}</div>
+        </div>
+    </div>
+    <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
+        <div class="td profile" *ngIf=" isAllTeacher ">
+            <div class="photo">
+                <img src="{{ teacher_photoURL( sessions ) }}">
+            </div>
+        </div>
+        <div class="td datetime">
+            <div *ngIf=" a.user.isLogin ">
+                {{ session_time( sessions ) }}
+            </div>
+            <div>
+                {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }}
+            </div>
+            <div class="teacher-name" *ngIf=" isAllTeacher ">
+                {{ teacher_name( sessions ) }}
+            </div>
+        </div>
+        <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
+            [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
+            <div class="info">
+                <div class="loader" *ngIf=" session.in_progress ">
+                    <ion-spinner name="circles"></ion-spinner>
+                </div>
+                <div class="status-icon" *ngIf=" ! session.in_progress ">
+                    <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
+                </div>
+                <div>{{ session[N.point] }}</div>
+            </div>
+        </div>
+
+    </div>
+</div>

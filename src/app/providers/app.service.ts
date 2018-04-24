@@ -35,6 +35,7 @@ const SCHEDULE_CACHE_INTERVAL = 1800; // 1 for 1 second. 1800 for 30 min. 3600 f
 export const KEY_WEEKEND = 'key-weekend';
 export const KEY_DAYS = 'key-days';
 export const KEY_TEACHER_LIST = 'key-teacher-list';
+export const KEY_LMS_INFO = 'lms-info';
 
 
 
@@ -59,7 +60,7 @@ export interface SCHEDULE_OPTIONS {
     useCache: boolean;
 }
 
-const KEY_LMS_INFO = 'lms-info';
+
 const firestoreLogCollection = 'user-activity-log';
 
 @Injectable()
@@ -129,16 +130,35 @@ export class AppService {
     inLoadingMyPoint = false;
 
 
+    /**
+     * It update the time every 10 seconds to display user time.
+     *      - It runs on booting
+     *      - and chagnes every 10 seconds.
+     */
+    userTime = '';
+
+    /**
+     * User's point is updated in this variable. Use this variable whereever.
+     *
+     * It updates when
+     *      - app boots
+     *      - whenever point chagnes
+     *
+     * If it is null, then it is loading.
+     */
+    userPoint: number = null;
+
+
     constructor(
         public ngZone: NgZone,
         public router: Router,
-        public fire: FireService,
         public snackBar: MatSnackBar,
-        public language: LanguageService,
-        public xapi: XapiService,
-        public user: XapiUserService,
-        public file: XapiFileService,
-        public lms: XapiLMSService) {
+        public readonly fire: FireService,
+        public readonly language: LanguageService,
+        public readonly xapi: XapiService,
+        public readonly user: XapiUserService,
+        public readonly file: XapiFileService,
+        public readonly lms: XapiLMSService) {
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
 
@@ -174,6 +194,13 @@ export class AppService {
         this._firebase.db = firebase.firestore();
         this._firebase.messaging = firebase.messaging();
         // this.language.setUserLanguage();
+
+        setTimeout(() => {
+            this.updateUserPoint();
+        }, 1000);
+        setInterval(() => {
+            this.updateUserTimezone();
+        }, 10000);
     }
 
 
@@ -531,6 +558,31 @@ export class AppService {
         return n < 10 ? '0' + n : n.toString();
     }
 
+    getYoutubeID(url) {
+        if (!url) {
+            return '';
+        }
+        const arr = url.split('v=');
+        if (arr.length === 1) {
+            return '';
+        }
+        const rest = arr[1].split('&');
+        return rest[0];
+    }
+
+    /**
+     * Returns url of embeded youtube.
+     * @param ID Youtube video ID
+     */
+    getYoutubeUrl(ID) {
+        let url = 'https://www.youtube.com/embed/' + ID;
+        url += '?autoplay=1&loop=1';
+        return url;
+    }
+
+
+
+
 
     /**
      * Return teacher name after sanitizing it.
@@ -738,7 +790,7 @@ export class AppService {
                 console.error('Something went wrong with schedule_table_v4()');
                 callback(re); // just call the callback with the data even if something is wrong.
             }
-            if (re && re.schedule ) {
+            if (re && re.schedule) {
                 // console.log('re.schedule:', re.schedule);
                 const keys = Object.keys(re.schedule);
                 if (keys.length) {
@@ -992,7 +1044,7 @@ export class AppService {
      * @param token push token string
      */
     updatePushToken() {
-        if ( env['disableLog'] )  { return; } // development only
+        if (env['disableLog']) { return; } // development only
         const platform = 'web';
         if (!this.pushToken) {
             console.log('updatePushToken(): token is empty. It will not update. just return.');
@@ -1071,7 +1123,7 @@ export class AppService {
 
 
     log(data) {
-        if ( env['disableLog'] )  { return; } // development only
+        if (env['disableLog']) { return; } // development only
         // data['name'] = 'test' + (new Date).getTime();
         data['stamp'] = firestore.FieldValue.serverTimestamp();
         // console.log(data);
@@ -1256,4 +1308,64 @@ export class AppService {
     isDesktopView(): boolean {
         return !this.isMobileView();
     }
+
+    /**
+     * Updates user's point from the server.
+     */
+    updateUserPoint() {
+        if (this.user.isLogin) {
+            this.loadMyPoint(p => {
+                this.userPoint = p;
+            });
+        }
+    }
+    updateUserTimezone() {
+        const info = this.get(KEY_LMS_INFO);
+        if (!info || !info['user']) {
+            return;
+        }
+        // console.log(info);
+        const user = info['user'];
+        // console.log(`updateUserTimezone: `, user);
+
+        if (user && user['timezone']) {
+        } else {
+            return;
+        }
+
+        // this.time = this.a.lms.localeString(this.re['student']['timezone']);
+        const date = this.lms.userDate(user['timezone']);
+        let hour = date.getHours();
+        let ap = '';
+
+        if (hour < 12) {
+            ap = 'am';
+        } else {
+            ap = 'pm';
+        }
+        if (hour !== 12) {
+            hour = hour % 12;
+        }
+
+
+        const min = this.add0(date.getMinutes());
+
+
+        // if (this.isKorean) {
+        //     if (ap == 'am') ap = '오전';
+        //     else ap = '오후';
+
+        //     this.userTime = user['timezone_country'] + ' '
+        //         + ap + ' '
+        //         + hour + '시 ' + min + '분';
+        // }
+        // else {
+        //     this.userTime = user['timezone_country'] + ' '
+        //         + hour + ':' + min + ' ' + ap;
+        // }
+
+        this.userTime = this.t('CURRENT_TIME', { ap: ap, hour: hour, minute: min, country: user['timezone_country'] });
+        // console.log(this.userTime);
+    }
+
 }

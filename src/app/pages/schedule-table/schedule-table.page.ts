@@ -1,9 +1,10 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AppService, KEY_SCHEDULES } from '../../providers/app.service';
+import { AppService, KEY_SCHEDULES, KEY_LMS_INFO } from '../../providers/app.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SCHEDULE_TABLE, N, TEACHER, SCHEDULE_COMPRESSED, TABLE } from '../../modules/xapi/interfaces';
 import { SESSION } from '../../modules/xapi/lms.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const MAX_POINT = 9999;
 const MAX_DURATION = 120;
@@ -15,6 +16,9 @@ const MAX_DURATION = 120;
 export class ScheduleTablePage implements OnInit, OnDestroy {
 
     N = N;
+    /**
+     * If ` re == null `, then it is loading.
+     */
     re: SCHEDULE_TABLE = null;
     params: any;
     limit = 60; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
@@ -36,15 +40,22 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         useCache: true          /// ** Only first schedule table list will be cached.
     };
 
-    myPoint = 0;
 
     defaultPhotoUrl;
     show = {
         schedule_loader: false
     };
+
+    /**
+     * Teacher's youtube URL with dom sanitizing.
+     */
+    urlYoutube = null;
+
+    userTime = '';
     constructor(
         public router: Router,
         public active: ActivatedRoute,
+        public domSanitizer: DomSanitizer,
         public a: AppService
     ) {
 
@@ -61,6 +72,14 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             this.loadScheduleaAndDisplay(this.form);
         });
 
+
+    }
+
+    isLoading() {
+        return this.re === null;
+    }
+    isLoadComplete() {
+        return !this.isLoading();
     }
 
     ngOnInit() {
@@ -116,7 +135,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             /**
              * If there are schedules.
              */
-            if ( re.table.length ) {
+            if (re.table.length) {
                 if (this.isSingleTeacher) {         // if single teacher.
                     this.re = re;
                 } else {
@@ -132,13 +151,13 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         });
     }
     dispalyRows(table) {
-        if (table && table.length ) {
+        if (table && table.length) {
             setTimeout(() => {
                 // console.log(this.re);
                 /**
                  * `this.re` becomes null when the options has changed and load schedule again in the middle of display previously loaded schedules.
                  */
-                if ( this.re && this.re.table ) {
+                if (this.re && this.re.table) {
                     this.re.table.push(table.shift());
                     this.dispalyRows(table);
                 }
@@ -336,17 +355,6 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         this.a.cacheDeleteSchedule();
     }
 
-    updatePoint() {
-
-        if (this.a.user.isLogin) {
-            this.a.loadMyPoint(p => {
-                this.myPoint = p;
-                // this.cdr.detectChanges();
-            });
-
-        }
-    }
-
 
     reserveSession(session: SESSION) {
 
@@ -370,7 +378,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             session[N.idx_reservation] = re.idx_reservation;
             this.a.updateLmsInfoUserNoOfTotalSessions(re['no_of_total_sessions']);
             this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
-            this.updatePoint();
+            this.a.updateUserPoint();
             this.a.onLmsReserve(this.teacher_name([session]));
         }, e => {
             session['in_progress'] = false;
@@ -392,7 +400,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             session[N.point] = this.schedule(session[N.idx_schedule])[N.point];
             this.a.updateLmsInfoUserNoOfTotalSessions(re['no_of_total_sessions']);
             this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
-            this.updatePoint();
+            this.a.updateUserPoint();
             this.a.onLmsCancel(this.teacher_name([session]));
         }, e => {
             session['in_progress'] = false;
@@ -435,6 +443,91 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             }
         }
     }
+
+
+    /// teacher profile
+
+    /**
+     * Teacher's age
+     */
+    teacher_age() {
+        return this.re.teacher.age;
+    }
+    teacher_grade() {
+        return this.re.teacher.grade;
+    }
+    teacher_gender() {
+        // console.log(this.re.teacher);
+        return this.re.teacher.gender;
+    }
+
+
+    onClickAddKakao() {
+        const url = this.teacher_kakaoURL();
+        // console.log("kakao::url:: ", url);
+        if (url) {
+            window.open(url, '_blank');
+        } else {
+            this.a.toast(this.a.t('TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID'));
+        }
+    }
+
+
+    /**
+     *
+     * @param session
+     */
+    teacher_kakaoURL(session = null) {
+        // console.log("session: ", session);
+        const teacher = this.teacher(session);
+        // console.log(teacher);
+        if (teacher) {
+            if (teacher.kakao_qrmark_string !== void 0) {
+                return teacher.kakao_qrmark_string;
+            } else {
+                return null;
+            }
+        } else {
+            /**
+             *
+             */
+            return this.re.teacher.kakao_qrmark_string;
+        }
+    }
+
+
+
+    onClickShowCurriculum() {
+        alert('show curriculmn vitae');
+        // const createCommentModal = this.modalCtrl.create(CurriculumVitaeView, { teacher: this.teacher_profile }, { cssClass: 'vitae-view' }
+        // );
+        // createCommentModal.onDidDismiss(() => { });
+        // createCommentModal.present();
+    }
+
+    onClickCommentList() {
+        alert('show comments');
+        // const createCommentModal = this.modalCtrl.create(StudentCommentList, { idx_teacher: this.teacher_profile['ID'], teacher_photoURL: this.teacher_profile['photoURL'], teacher_name: this.teacher_profile['name'] }, { cssClass: 'student-comment-list' }
+        // );
+        // createCommentModal.onDidDismiss(reason => {
+        //   if (reason == 'commentCreate') this.onClickCommentCreate();
+        // });
+        // createCommentModal.present();
+    }
+    playTeacherYoutube() {
+        const ID = this.a.getYoutubeID(this.re.teacher.youtube_video_url);
+        if (!ID) {
+            return this.a.toast('본 강사는 유튜브 동영상을 등록하지 않았습니다.');
+        }
+        this.urlYoutube = this.domSanitizer.bypassSecurityTrustResourceUrl(this.a.getYoutubeUrl(ID));
+        // if (this.a.isCordova) {
+        //   this.youtube.openVideo(ID);
+        // } else {
+        //   this.urlYoutube = this.domSanitizer.bypassSecurityTrustResourceUrl(this.a.getYoutubeUrl(ID));
+        // }
+
+    }
+
 
 
 }
