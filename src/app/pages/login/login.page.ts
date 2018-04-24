@@ -35,6 +35,9 @@ export class LoginPage implements OnInit {
 
         this.a.user.login(this.form.user_email, this.form.user_pass).subscribe(re => {
             console.log('a.user.login() success: ');
+
+            this.a.onUserLogin();
+
             /**
              *
 	         * @desc If you work on a test/work server,

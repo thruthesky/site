@@ -160,6 +160,16 @@ export class AppService {
             }
         });
 
+        // Just in case the app may need sometime to init.
+        // Try to connect to the server first before it display the first page.
+        setTimeout(() => {
+            // console.log("going to call this.updateLMSInfo()");
+            this.updateLMSInfo();
+            if (this.user.isLogin) {
+                this.log({ idx_user: this.user.id, name: this.user.name, activity: 'visit' });
+            }
+        }, 500);
+
 
         this._firebase.db = firebase.firestore();
         this._firebase.messaging = firebase.messaging();
@@ -977,6 +987,7 @@ export class AppService {
      * @param token push token string
      */
     updatePushToken() {
+        if ( env['disableLog'] )  { return; } // development only
         const platform = 'web';
         if (!this.pushToken) {
             console.log('updatePushToken(): token is empty. It will not update. just return.');
@@ -1055,6 +1066,7 @@ export class AppService {
 
 
     log(data) {
+        if ( env['disableLog'] )  { return; } // development only
         // data['name'] = 'test' + (new Date).getTime();
         data['stamp'] = firestore.FieldValue.serverTimestamp();
         // console.log(data);
