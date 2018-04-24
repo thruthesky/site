@@ -78,11 +78,11 @@
                 </div>
     
                 <div [class.accordion-hidden]="!accord.on2" [class.accordion-showed]="accord.on2">
-                    <div>그래서 학생과 선생님의 소통을 차단하기 위해 별도의 화상영어 프로그램을 설치하는데</div>
-                    <div>이러한 화상영어 프로그램의 문제점은 스피커, 마이커, 웹캠 등의 문제가 자주 발생하며 컴퓨터가 느려지거나 먹통이되기도 해서 수업에 큰 지장을 초래합니다.</div>
-                    <div>저희는 모든 한국인이 사용하는 화상 프로그램인 카카오톡을 선택했습니다.</div>
-                    <div>선생님과의 소통! 마음데로 하십시오! 밤낮으로 채팅하십시오!</div>
-                    <div>저희는 최소한의 수수료로 운영하기 때문에 학생이 선생님과 소통하여 직접 수업료를 보내는 것에 대해서 염려하지 않습니다.</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_2_1' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_2_2' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_2_3' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_2_4' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_2_5' | t }}</div>
                 </div>
             </div>
         </div>
@@ -92,10 +92,8 @@
             <div class="desc">
                     <div>
                         <div>
-                            <h2>무료 체험(레벨테스트)</h2>
-                            <div>
-                                회원 가입을 하고 {{ a.info?.MAX_FREE_CLASS }} 회 무료 체험
-                            </div>
+                            <h2>{{ 'STUDENT_HELP_PAGE_HEADER_3' | t }}</h2>
+                            <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_3' | t }}</div>
                         </div>
                         <span [class.rotate-45-off]="!accord.on3" [class.rotate-45-on]="accord.on3">
                             <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -125,10 +123,8 @@
             <div class="desc">
                 <div>
                     <div>
-                        <h2>선생님과 학생의 직거래</h2>
-                        <div>
-                            선생님은 원하는 시간과 금액으로 수업 스케쥴을 오픈하며 학생은 선생님, 시간, 금액이 마음에 들면 예약하면 됩니다.
-                        </div>
+                        <h2>{{ 'STUDENT_HELP_PAGE_HEADER_4' | t }}</h2>
+                        <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_4' | t }}</div>
                     </div>
                     <span [class.rotate-45-off]="!accord.on4" [class.rotate-45-on]="accord.on4">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -136,15 +132,13 @@
                 </div>
     
                 <div [class.accordion-hidden]="!accord.on4" [class.accordion-showed]="accord.on4">
-                    <div>
-                        여기서 중요한 점 몇 가지는 아래와 같습니다.
-                    </div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_4_1' | t }}</div>
                     <ul>
-                        <li>1. 예약과 취소 및 선생님 변경을 마음데로 할 수 있습니다.</li>
-                        <li>2. 선생님도 학생의 수업을 취소 할 수 있습니다.</li>
-                        <li>3. 잘못된 수업의 수업 포인트를 돌려 받을 수 있습니다.</li>
+                        <li>1. {{ 'STUDENT_HELP_PAGE_CONTENT_4_1_1' | t }}</li>
+                        <li>2. {{ 'STUDENT_HELP_PAGE_CONTENT_4_1_2' | t }}</li>
+                        <li>3. {{ 'STUDENT_HELP_PAGE_CONTENT_4_1_3' | t }}</li>
                     </ul>
-                    <div>참고로 직거래 시스템을 악용하는 경우 페널티를 받을 수 있으므로 공정하게 이용해 주시기 부탁드립니다.</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_4_2' | t }}</div>
                 </div>
             </div>
         </div>
@@ -154,10 +148,8 @@
             <div class="desc">
                 <div>
                     <div>
-                        <h2>수업료의 선택과 결제</h2>
-                        <div>
-                            자유 예약에 따라 학생마다 수업료가 달라서 정해진 수업료가 없습니다.
-                        </div>
+                        <h2>{{ 'STUDENT_HELP_PAGE_HEADER_5' | t }}</h2>
+                        <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_5' | t }}</div>
                     </div>
                     <span [class.rotate-45-off]="!accord.on5" [class.rotate-45-on]="accord.on5">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -165,12 +157,9 @@
                 </div>
     
                 <div [class.accordion-hidden]="!accord.on5" [class.accordion-showed]="accord.on5">
-                    <div>
-                        원하는 만큼 수업료를 지불하고 예약을 하면 됩니다.
-                    </div>
-                    <div>카톡영어는 전 세계로 서비스되고 있으며 결제는 페이팔을 통해
-                        <b>미국달러</b>로 이루어집니다.</div>
-                    <div>만약 결제에 어려움이 있다면 질문 메뉴를 통해서 상담을 해 주십시오.</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_5_1' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_5_2' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_5_3' | t }}</div>
                 </div>
             </div>
         </div>
@@ -181,10 +170,8 @@
     
                 <div>
                 <div>
-                    <h2>학생이 수업료 선택</h2>
-                    <div>
-                        수업료를 지불하면 포인트가 충전됩니다.
-                    </div>
+                    <h2>{{ 'STUDENT_HELP_PAGE_HEADER_6' | t }}</h2>
+                    <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_6' | t }}</div>
                 </div>
                 <span [class.rotate-45-off]="!accord.on6" [class.rotate-45-on]="accord.on6">
                     <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -192,9 +179,9 @@
                 </div>
     
                 <div [class.accordion-hidden]="!accord.on6" [class.accordion-showed]="accord.on6">
-                    <div>이 포인트로 수업 예약 할 수 있는데, 선생님의 수업 시간표에 보시면 포인트 금액이 표시되어 있습니다.</div>
-                    <div>이 포인트 금액을 보시고 원하는 금액에 맞는 수업을 적절히 예약 하시면 됩니다.</div>
-                    <div>수업은 하루에 1번, 10번 또는 한달에 1번 등 마음데로 예약 가능합니다.</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_6_1' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_6_2' | t }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_6_3' | t }}</div>
                 </div>
     
             </div>
@@ -205,8 +192,8 @@
             <div class="desc">
                 <div>
                     <div>
-                        <h2>수업에 문제가 있는 경우</h2>
-                        <div>선생님의 잘못으로 수업이 안된 경우 포인트 복구 신청을 하시면 됩니다.</div>
+                        <h2>{{ 'STUDENT_HELP_PAGE_HEADER_7' | t }}</h2>
+                        <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_7' | t }}</div>
                     </div>
                     <span [class.rotate-45-off]="!accord.on7" [class.rotate-45-on]="accord.on7">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -214,11 +201,7 @@
                 </div>
     
                 <div [class.accordion-hidden]="!accord.on7" [class.accordion-showed]="accord.on7">
-                    <div>
-                    수업에 문제가 있으면 즉시 카카오톡 문의로 문제 상황을 설명 해 주셔야합니다.
-                    예를 들어 수업 시간에 선생님으로 부터 전화가 걸려오지 않는다면 학생은 즉시 카카오톡 문의 채팅으로 'xxx 선생님이 수업 시간에 전화를 걸어 오지 않습니다.' 와 같이 남겨주셔야합니다.
-                    그래야 저희가 최대한 빠르게 조사를 할 수 있으며 학생이 결석하지 않았다는 증거가 되는 것입니다.
-                    </div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_7_1' | t }}</div>
                 </div>
             </div>
         </div>
@@ -228,8 +211,8 @@
             <div class="desc">
                 <div>
                     <div>
-                        <h2>포인트 복구 신청</h2>
-                        <div>수업 참석이 어려운 경우 반드시 정해진 시간 내에 수업 취소를 해주세요.</div>
+                        <h2>{{ 'STUDENT_HELP_PAGE_HEADER_8' | t }}</h2>
+                        <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_8' | t }}</div>
                     </div>
                     <span [class.rotate-45-off]="!accord.on8" [class.rotate-45-on]="accord.on8">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -237,14 +220,7 @@
                 </div>
                 
                 <div [class.accordion-hidden]="!accord.on8" [class.accordion-showed]="accord.on8">
-                    <div>
-                        선생님의 실수로 수업이 잘 안된 경우 포인트를 돌려 받을 수 있습니다.
-                        지난 수업 메뉴에서 포인트 복구 버튼을 클릭하고 포인트 복구 신청을 하시면 됩니다.
-                        주의 하실 점은 포인트 복구는 수업이 끝난 시간으로 부터 반드시 만 48시간 이내에 하셔야합니다.
-                        학생의 실수로 수업이 잘 안된 경우 포인트를 돌려 받지 못합니다. 학생의 결석이나 컴퓨터 또는 인터넷, 헤드셋 등이 고장나 이 안되어서 수업을 한 경우 포인트가 안되므로 유념하시기 바랍니다.
-                        따라서 수업 참석이 어려운 경우 반드시 미리 수업을 취소해야만 합니다.
-                        수업 포인트 복구와 관련하여 꼭 관련 규정을 확인 해 주세요.
-                    </div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_8_1' | t }}</div>
                 </div>
             </div>
         </div>
@@ -275,8 +251,8 @@
             <div class="desc">
                 <div>
                     <div>
-                        <h2>질문과 답변</h2>
-                        <div>저희는 카카오톡을 통해서 많은 서비스를 하고 있으며 질문과 답변 엮시 카카오톡으로 진행됩니다.</div>
+                        <h2>{{ 'STUDENT_HELP_PAGE_HEADER_10' | t }}</h2>
+                        <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_10' | t }}</div>
                     </div>
                     <span [class.rotate-45-off]="!accord.on10" [class.rotate-45-on]="accord.on10">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -284,7 +260,7 @@
                 </div>
     
                 <div [class.accordion-hidden]="!accord.on10" [class.accordion-showed]="accord.on10">
-                    <div>카톡영어를 꼭 친구추가 해 주세요.</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_10_1' | t }}</div>
                 </div>
             </div>
         </div>
