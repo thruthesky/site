@@ -35,20 +35,12 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         navigate: 'today',
         useCache: true          /// ** Only first schedule table list will be cached.
     };
-    formOptions = {
-        begin_hours: Array(24).fill(0).map((e, i) => i),
-        end_hours: Array(24).fill(0).map((e, i) => i + 1)
-    };
-
 
     myPoint = 0;
 
     defaultPhotoUrl;
     show = {
         schedule_loader: false
-    };
-    chip = {
-        show: ''
     };
     constructor(
         public router: Router,

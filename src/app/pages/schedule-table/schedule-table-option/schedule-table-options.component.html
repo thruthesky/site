@@ -1,0 +1,94 @@
+<div class="search-chip-list">
+    <div class="chip" (click)=" chip.show = 'hours' ">{{ form.class_begin_hour }}~{{ form.class_end_hour }}시</div>
+    <div class="chip" (click)=" chip.show = 'minutes' ">{{ form.min_duration }}분 이상</div>
+    <div class="chip" (click)=" chip.show = 'points' ">{{ form.min_point }}포인트 이상</div>
+    <div class="chip" (click)=" chip.show = 'weekends' ">{{ form.display_weekends == 'Y' ? '주말표시' : '주말제외' }}</div>
+    <div class="chip" (click)=" chip.show = 'days' ">{{ form.days }}일표시</div>
+</div>
+<div class="search-chip-options" *ngIf="chip.show">
+    <div class="hours" *ngIf="chip.show == 'hours'">
+        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 24; onSearchSubmit() ">전체(오전 오후, 하루종일)</div>
+        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">오전</div>
+        <div (click)=" form.class_begin_hour = 12; form.class_end_hour = 24; onSearchSubmit() ">오후</div>
+        시간 직접 선택:
+        <select name="class_begin_hour" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
+            <option *ngFor=" let h of formOptions.begin_hours " value="{{ h }}">{{ h }}</option>
+        </select>
+        ~
+        <select name="class_end_hour" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
+            <option *ngFor=" let h of formOptions.end_hours " value="{{ h }}">{{ h }}</option>
+        </select>
+    </div>
+    <div class="minutes" *ngIf=" chip.show == 'minutes' ">
+        <select name="duaration" [(ngModel)]="form.min_duration" (change)="onSearchSubmit()">
+            <option value="0">0분 이상</option>
+            <option value="5">5분 이상</option>
+            <option value="10">10분 이상</option>
+            <option value="15">15분 이상</option>
+            <option value="20">20분 이상</option>
+            <option value="25">25분 이상</option>
+            <option value="30">30분 이상</option>
+            <option value="40">40분 이상</option>
+            <option value="50">50분 이상</option>
+            <option value="60">60분 이상</option>
+        </select>
+        <select name="duaration" [(ngModel)]="form.max_duration" (change)="onSearchSubmit()">
+            <option value="4">4분 이하</option>
+            <option value="9">9분 이하</option>
+            <option value="14">14분 이하</option>
+            <option value="19">19분 이하</option>
+            <option value="24">24분 이하</option>
+            <option value="29">29분 이하</option>
+            <option value="39">39분 이하</option>
+            <option value="49">49분 이하</option>
+            <option value="59">59분 이하</option>
+            <option value="120">120분 이하</option>
+        </select>
+    </div>
+    <div class="points" *ngIf=" chip.show == 'points' ">
+        <select name="point" [(ngModel)]="form.min_point" (change)="onSearchSubmit()">
+            <option value="0">0</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="2000">2000</option>
+            <option value="3000">3000</option>
+            <option value="4000">4000</option>
+            <option value="5000">5000</option>
+        </select>
+        포인트 이상
+        <select name="point" [(ngModel)]="form.max_point" (change)="onSearchSubmit()">
+            <option value="499">499</option>
+            <option value="999">999</option>
+            <option value="1999">1999</option>
+            <option value="2999">2999</option>
+            <option value="3999">3999</option>
+            <option value="4999">4999</option>
+            <option value="5999">5999</option>
+            <option value="9999">9999</option>
+        </select>
+        포인트 이하
+    </div>
+
+    <div class="weekends" *ngIf=" chip.show == 'weekends' ">
+        주말
+        <select name="weekend" [(ngModel)]="form.display_weekends" (change)="onSearchSubmit()">
+            <option value="Y">표시</option>
+            <option value="N">숨기기</option>
+        </select>
+    </div>
+
+    <div class="days" *ngIf=" chip.show == 'days' ">
+        시간표 표시 일 수:
+        <select name="days" [(ngModel)]="form.days" (change)="onSearchSubmit()">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+
+    <div class="close" (click)=" chip.show = '' ">[X] Close</div>
+</div>

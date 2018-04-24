@@ -61,25 +61,3 @@
     cursor: pointer;
 }
 
-
-.search-chip-list {
-    margin: 1em 0;
-    .chip {
-        display: inline-block;
-        margin-left: 6px;
-        padding: 4px 6px;
-        border-radius: 4px;
-        background-color: #88f;
-        color: white;
-        font-size: 9pt;
-        font-weight: 100;
-        cursor: pointer;
-    }
-}
-.search-chip-options {
-    .close {
-        background-color: #d00;
-        color: white;
-        cursor: pointer;
-    }
-}
