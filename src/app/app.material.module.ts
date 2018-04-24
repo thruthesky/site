@@ -3,7 +3,8 @@ import {
   MatButtonModule, MatCheckboxModule, MatSelectModule, MatSnackBarModule, MatSpinner,
   MatProgressSpinnerModule, MatDialogModule, MatDatepickerModule,
   MatInputModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatChipsModule
 } from '@angular/material';
 
 @NgModule({
@@ -16,7 +17,8 @@ import {
     MatProgressSpinnerModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatChipsModule
   ],
   exports: [
     MatInputModule,
@@ -27,7 +29,8 @@ import {
     MatProgressSpinnerModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatChipsModule
   ],
 })
 export class MaterialModule { }
