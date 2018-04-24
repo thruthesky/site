@@ -83,7 +83,10 @@
     "STUDENT_HELP_PAGE_CONTENT_2_4":"선생님과의 소통! 마음데로 하십시오! 밤낮으로 채팅하십시오!",
     "STUDENT_HELP_PAGE_CONTENT_2_5":"저희는 최소한의 수수료로 운영하기 때문에 학생이 선생님과 소통하여 직접 수업료를 보내는 것에 대해서 염려하지 않습니다.",
     "STUDENT_HELP_PAGE_HEADER_3":"무료 체험(레벨테스트)",
-    "STUDENT_HELP_PAGE_SUB_HEADER_3":"회원 가입을 하고 {{ a.info?.MAX_FREE_CLASS }} 회 무료 체험",
+    "STUDENT_HELP_PAGE_SUB_HEADER_3":"회원 가입을 하고 #max_free_class 회 무료 체험",
+    "STUDENT_HELP_PAGE_CONTENT_3_1":"모든 수업 마다 평가하므로 처음 하는 무료 체험 수업이 곧 레벨테스트가 되는 것입니다.",
+    "STUDENT_HELP_PAGE_CONTENT_3_2":"무료 체험은 최대 #MAX_FREE_CLASS 회 할 수 있으며 한 강사당 #MAX_FREE_CLASS_WITH_SAME_TEACHER 회 까지 할 수 있습니다. 그리고 무료 체험 수업은 #MAX_FREE_CLASS_MINUTES 분 미만의 수업만 예약 할 수 있으며, 예약된 총 수업(무료 체험 포함)이 #MAX_FREE_CLASS_LIMIT 회가 넘으면 더 이상 무료 체험 예약을 할 수 없습니다.",
+    "STUDENT_HELP_PAGE_CONTENT_3_3":"위 조건이 맞지 않으면 알림창이 뜨며, 만약 수업 포인트가 있다면, 무료 체험이 아닌 유료 수업으로 예약됩니다.",
     "STUDENT_HELP_PAGE_HEADER_4":"선생님과 학생의 직거래",
     "STUDENT_HELP_PAGE_SUB_HEADER_4":"선생님은 원하는 시간과 금액으로 수업 스케쥴을 오픈하며 학생은 선생님, 시간, 금액이 마음에 들면 예약하면 됩니다.",
     "STUDENT_HELP_PAGE_CONTENT_4_1":"여기서 중요한 점 몇 가지는 아래와 같습니다.",
@@ -106,7 +109,11 @@
     "STUDENT_HELP_PAGE_HEADER_8":"포인트 복구 신청",
     "STUDENT_HELP_PAGE_SUB_HEADER_8":"수업 참석이 어려운 경우 반드시 정해진 시간 내에 수업 취소를 해주세요.",
     "STUDENT_HELP_PAGE_CONTENT_8_1":" 선생님의 실수로 수업이 잘 안된 경우 포인트를 돌려 받을 수 있습니다. 지난 수업 메뉴에서 포인트 복구 버튼을 클릭하고 포인트 복구 신청을 하시면 됩니다. 주의 하실 점은 포인트 복구는 수업이 끝난 시간으로 부터 반드시 만 48시간 이내에 하셔야합니다. 학생의 실수로 수업이 잘 안된 경우 포인트를 돌려 받지 못합니다. 학생의 결석이나 컴퓨터 또는 인터넷, 헤드셋 등이 고장나 이 안되어서 수업을 한 경우 포인트가 안되므로 유념하시기 바랍니다. 따라서 수업 참석이 어려운 경우 반드시 미리 수업을 취소해야만 합니다. 수업 포인트 복구와 관련하여 꼭 관련 규정을 확인 해 주세요.",
+    "STUDENT_HELP_PAGE_HEADER_9":"수업 취소",
+    "STUDENT_HELP_PAGE_SUB_HEADER_9":"자유 예약 시스템을 악용하지 마시고 정당하게 이용해 주세요.",
+    "STUDENT_HELP_PAGE_CONTENT_9_1":"수업 취소는 수업 시간 전 #lmsInfoCancellableMinutes 분 까지 하셔야합니다.",
     "STUDENT_HELP_PAGE_HEADER_10":"질문과 답변",
     "STUDENT_HELP_PAGE_SUB_HEADER_10":"저희는 카카오톡을 통해서 많은 서비스를 하고 있으며 질문과 답변 엮시 카카오톡으로 진행됩니다.",
     "STUDENT_HELP_PAGE_CONTENT_10_1":"카톡영어를 꼭 친구추가 해 주세요."
+
 }

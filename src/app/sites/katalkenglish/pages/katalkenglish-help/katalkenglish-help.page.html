@@ -93,7 +93,7 @@
                     <div>
                         <div>
                             <h2>{{ 'STUDENT_HELP_PAGE_HEADER_3' | t }}</h2>
-                            <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_3' | t }}</div>
+                            <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_3' | t:{ 'max_free_class':a.info?.MAX_FREE_CLASS} }}</div>
                         </div>
                         <span [class.rotate-45-off]="!accord.on3" [class.rotate-45-on]="accord.on3">
                             <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -101,18 +101,17 @@
                     </div>
 
                     <div [class.accordion-hidden]="!accord.on3" [class.accordion-showed]="accord.on3">
-                        <div>모든 수업 마다 평가하므로 처음 하는 무료 체험 수업이 곧 레벨테스트가 되는 것입니다.</div>
-                        <div>
-            
-                        무료 체험은 최대 {{ a.info?.MAX_FREE_CLASS }} 회 할 수 있으며 한 강사당 {{ a.info?.MAX_FREE_CLASS_WITH_SAME_TEACHER }} 회 까지 할 수 있습니다. 그리고 무료 체험 수업은
-                        {{ a.info?.MAX_FREE_CLASS_MINUTES }} 분 미만의 수업만 예약 할 수 있으며, 예약된 총 수업(무료 체험 포함)이 {{ a.info?.MAX_FREE_CLASS_LIMIT }} 회가
-                        넘으면 더 이상 무료 체험 예약을 할 수 없습니다.
-            
+                        <div>{{ 'STUDENT_HELP_PAGE_CONTENT_3_1' | t }}</div>
+
+                        <div>{{ 'STUDENT_HELP_PAGE_CONTENT_3_2' | t:{
+                            'MAX_FREE_CLASS':a.info?.MAX_FREE_CLASS,
+                            'MAX_FREE_CLASS_WITH_SAME_TEACHER':a.info?.MAX_FREE_CLASS_WITH_SAME_TEACHER,
+                            'MAX_FREE_CLASS_MINUTES':a.info?.MAX_FREE_CLASS_MINUTES,
+                            'MAX_FREE_CLASS_LIMIT': a.info?.MAX_FREE_CLASS_LIMIT 
+                            } }}
                         </div>
             
-                        <div>
-                        위 조건이 맞지 않으면 알림창이 뜨며, 만약 수업 포인트가 있다면, 무료 체험이 아닌 유료 수업으로 예약됩니다.
-                        </div>
+                        <div>{{ 'STUDENT_HELP_PAGE_CONTENT_3_3' | t }}</div>
                     </div>
             
             </div>
@@ -225,13 +224,12 @@
             </div>
         </div>
   
-        <!-- <div class="part cancel " *ngIf=" a.lmsInfoCancellableMinutes() "  (click)="accord.on9=!accord.on9">             -->
-        <div class="part cancel " (click)="accord.on9=!accord.on9">
+        <div class="part cancel "  *ngIf=" a.lmsInfoCancellableMinutes() " (click)="accord.on9=!accord.on9">
             <div class="desc">
                 <div>
                     <div>
-                        <h2>수업 취소</h2>
-                        <div>자유 예약 시스템을 악용하지 마시고 정당하게 이용해 주세요.</div>
+                        <h2>{{ 'STUDENT_HELP_PAGE_HEADER_9' | t }}</h2>
+                        <div>{{ 'STUDENT_HELP_PAGE_SUB_HEADER_9' | t }}</div>
                     </div>
                     <span [class.rotate-45-off]="!accord.on9" [class.rotate-45-on]="accord.on9">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
@@ -239,9 +237,7 @@
                 </div>
 
                 <div [class.accordion-hidden]="!accord.on9" [class.accordion-showed]="accord.on9">
-                    <div>
-                    수업 취소는 수업 시간 전 <!--{{ a.lmsInfoCancellableMinutes() }}--> 분 까지 하셔야합니다.
-                    </div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_9_1' | t:{'lmsInfoCancellableMinutes': a.lmsInfoCancellableMinutes()} }}</div>
                 </div>
             </div>
         </div>
