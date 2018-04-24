@@ -45,4 +45,20 @@
     "SESSION_PAST": "過去のクラス",
     "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered.",
     "HELP PAGE TITLE": "カトク英語初めての方は、本ページの内容を是非一度お読みください。"
+
+        ,
+    "TAKEN": "Sessions",
+    "HAD SESSIONS": "",
+    "ADD KAKAO": "Add Kakao Friend",
+    "VIDEO": "Video",
+    "OPEN REVIEW": "Comments",
+    "CURRICULUM VITAE": "Curriculum Vitae",
+    "ALL SCHEDULE": "All Schedules",
+    "SCHEDULE TABLE SEARCH OPTIONS SHORT": "Options",
+    "TIMEZONE NOW": "Timezone",
+    "CHANGE TIMEZONE": "Change Timezone",
+    "POINT": "Point",
+    "AGE_GENDER": "#age/#gender",
+    "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "Ooh, This teacher has no Kakaotalk ID.",
+    "CURRENT_TIME": "#country #hour:#minute #ap"
 }

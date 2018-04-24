@@ -47,4 +47,20 @@
     "SESSION_PAST": "지난 수업",
     "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "입력하신 이메일로 사용자 정보를 찾을 수 없습니다. 가입된 이메일 주소인지 확인해 주세요.",
     "HELP PAGE TITLE": "카톡영어에 처음 오신분들은 본 페이지의 내용을 꼭 한번 읽어주세요."
+
+
+
+        ,
+    "TAKEN": "참여",
+    "HAD SESSIONS": "명 참여",
+    "ADD KAKAO": "선생님 카카오톡 친구 추가",
+    "VIDEO": "동영상",
+    "OPEN REVIEW": "평가",
+    "CURRICULUM VITAE": "선생님 이력서",
+    "ALL SCHEDULE": "전체 시간표",
+    "SCHEDULE TABLE SEARCH OPTIONS SHORT": "옵션",
+    "POINT": "포인트",
+    "AGE_GENDER": "#age세 #gender",
+    "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "앗, 이 선생님의 카카오톡을 입력하지 않았습니다.",
+    "CURRENT_TIME": "#country #ap #hour시 #minute분"
 }
