@@ -871,6 +871,15 @@ export class AppService {
     }
 
 
+    lmsInfoCancellableMinutes() {
+        if (this.info && this.info['MAX_CANCELLABLE_TIME']) {
+            return parseInt(this.info['MAX_CANCELLABLE_TIME'], 10) / 60;
+        } else {
+            return 0;
+        }
+    }
+
+
     /**
      * Saves number of total sessions into localStorage
      * User this.lmsInfoUserNoOfTotalSessions to get the number.
