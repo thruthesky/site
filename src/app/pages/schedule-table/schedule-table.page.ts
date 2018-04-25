@@ -43,7 +43,8 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
 
     defaultPhotoUrl;
     show = {
-        schedule_loader: false
+        schedule_loader: false,
+        more_icon_description: false
     };
 
 
