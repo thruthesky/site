@@ -1,6 +1,5 @@
 <div class="page-header">
-    궁금한 점이 있으시면 언제든지
-    <span (click)=" a.onClickContactAdmin() ">카톡으로 질문</span> 해 주세요!
+    <span (click)=" a.onClickContactAdmin() ">{{ 'KATALKENGLISH_MENU_WELCOME_MESSAGE' | t}}</span> 
 </div>
 <section class="page-body">
 
@@ -45,7 +44,7 @@
         <li class="menu-message" routerLink="/my-point" *ngIf=" a.user.isLogin ">
             <div>
                 <ion-icon name="logo-usd" item-start></ion-icon>
-                <div>나의 포인트</div>
+                <div>{{"MY_POINT" | t}}</div>
             </div>
         </li>
 
@@ -53,7 +52,7 @@
         <li class="menu-level" (click)="a.open('session-past', {showLevel: true})" *ngIf=" a.user.isLogin ">
             <div>
                 <ion-icon name="stats" item-start></ion-icon>
-                <div>나의 영어 레벨</div>
+                <div>{{ "MY_ENGLISH_LEVEL" | t }} </div>
             </div>
         </li>
 
@@ -86,7 +85,7 @@
         <li class="menu-teacher-list" (click)="a.open('student-curriculumn')" *ngIf=" a.studentTheme ">
             <div>
                 <ion-icon name="bookmarks" item-start></ion-icon>
-                <div>교재 및 수업 과정 안내</div>
+                <div>{{ 'TEACHING_MATERIALS' | t}}</div>
             </div>
         </li>
 
@@ -94,7 +93,7 @@
         <li class="menu-teacher-list" (click)="a.open('teacher-list')">
             <div>
                 <ion-icon name="people" item-start></ion-icon>
-                <div>{{ 'RESERVE SESSION' | t }}</div>
+                <div>{{ 'RESERVE_SESSION' | t }}</div>
             </div>
         </li>
 
@@ -103,7 +102,7 @@
         <li class="menu-schedule-table" (click)="a.open('schedule-table')" *ngIf="!a.isIeEdge()">
             <div>
                 <ion-icon name="apps" item-start></ion-icon>
-                <div>{{ 'ALL SCHEDULE TABLE' | t }}</div>
+                <div>{{ 'ALL_SCHEDULE_TABLE' | t }}</div>
             </div>
         </li>
 
@@ -112,7 +111,7 @@
         <li class="menu-class-comments" (click)="a.open('class-comment')">
             <div>
                 <ion-icon name="chatbubbles" item-start></ion-icon>
-                <div>{{ 'CLASS COMMENTS' | t }}</div>
+                <div>{{ 'CLASS_COMMENTS' | t }}</div>
             </div>
         </li>
 
@@ -120,7 +119,7 @@
         <li class="menu-payment" (click)="a.open('payment')" *ngIf="a.studentTheme">
             <div>
                 <ion-icon name="card" item-start></ion-icon>
-                <div>{{ 'PAYMENT LONG TEXT' | t }}</div>
+                <div>{{ 'PAYMENT_LONG_TEXT' | t }}</div>
             </div>
         </li>
 
@@ -130,7 +129,7 @@
         <li class="menu-payment-history" (click)="a.open('payment-history')" *ngIf="a.studentTheme">
             <div>
                 <ion-icon name="list-box" item-start></ion-icon>
-                <div>{{ 'PAYMENT HISTORY' | t }}</div>
+                <div>{{ 'PAYMENT_HISTORY' | t }}</div>
             </div>
         </li>
 
@@ -140,7 +139,7 @@
         <li class="menu-today-sessions" (click)="a.open('schedule-available')" *ngIf="a.studentTheme">
             <div>
                 <ion-icon name="apps" item-start></ion-icon>
-                <div>{{ 'AVAILABLE SESSIONS LONG' | t }}</div>
+                <div>{{ 'AVAILABLE_SESSIONS_LONG' | t }}</div>
             </div>
         </li>
 
@@ -149,12 +148,9 @@
         <li class="menu-password-change" *ngIf=" a.user.isLogin " (click)=" a.open('password-change')">
             <div>
                 <ion-icon name="key" item-start></ion-icon>
-                <div>{{ 'CHANGE PASSWORD' | t }}</div>
+                <div>{{ 'CHANGE_PASSWORD' | t }}</div>
             </div>
         </li>
-
-
-
 
 
         <li class="menu-message" (click)="a.open('message')" *ngIf=" a.user.isLogin ">

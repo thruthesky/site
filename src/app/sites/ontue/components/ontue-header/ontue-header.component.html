@@ -12,12 +12,15 @@
                 <div class="buttons">
                     <button routerLink="/teacher-list">Teacher</button>
                     <button routerLink="/teacher/help">Help</button>
-                    <button routerLink="/teacher-session-future" *ngIf=" a.isLogin ">reserved</button>
-                    <button routerLink="/teacher-session-past" *ngIf=" a.isLogin ">past</button>
+                    <button routerLink="/teacher-session-future" *ngIf=" a.isLogin ">Reserved</button>
+                    <button routerLink="/teacher-session-past" *ngIf=" a.isLogin ">Past</button>
                     <button routerLink="/category">Category</button> 
-                    <button routerLink="/my-schedule"  *ngIf=" a.isLogin ">schedule</button>
+                    <button routerLink="/my-schedule"  *ngIf=" a.isLogin ">Schedule</button>
                     <button routerLink="/register" *ngIf=" a.isLogout ">Register</button>
                     <button routerLink="/login" *ngIf=" a.isLogout ">Login</button>
+                </div>
+                <div class="buttons-sm" (click)=" a.onClickContactAdmin() ">
+                    <button>Contact Us</button>
                 </div>
             </div>
             <div class="menu col-3">

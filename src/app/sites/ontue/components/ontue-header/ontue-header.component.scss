@@ -8,6 +8,19 @@
     .buttons{
         display: flex;
         justify-content: space-between;
+
+        @media screen and (max-width:992px){
+            display: none;
+        }
+
+        &-sm{
+            display: none;
+            text-align: center;
+
+            @media screen and (max-width:992px){
+                display: block;
+            }
+        }
     }
 
     button,.logo{
@@ -27,6 +40,7 @@
         justify-content: flex-end;
 
         ion-icon{
+            padding-left: 2em;
             font-size: 2.25em;
         }
 
@@ -46,6 +60,7 @@
             padding: .3em;
             margin-right: .4em;
             height: 1.8em;
+            min-width: 2em!important;
             border:1px solid white;
             border-radius: 2px;
         }

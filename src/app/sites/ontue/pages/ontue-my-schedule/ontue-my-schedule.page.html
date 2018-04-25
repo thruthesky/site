@@ -4,11 +4,6 @@
 <main>
     <section class="content">
 
-        <nav>
-            <button (click)="onClickScheduleAdd()">Add Schedule</button>
-        </nav>
-
-        <section class="page-body bg-white">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
@@ -18,18 +13,18 @@
                     </div>
                     <div class="col">
                         <div>
-                            <div *ngIf="data" (click)="onClickScheduleAdd()">
+                            <button *ngIf="data" (click)="onClickScheduleAdd()">
                                 <div>
                                     <i class="fal fa-calendar-plus fa-3x mb-4"></i>
                                     Add Schedule
                                 </div>
-                            </div>
-                            <div *ngIf="data" routerLink="/schedule-dayoff">
+                            </button>
+                            <button *ngIf="data" routerLink="/schedule-dayoff">
                                 <div>
                                     <i class="fal fa-calendar-minus fa-3x mb-4"></i>
                                     Add Day off
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -100,7 +95,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div (click)="onClickScheduleEdit(s)">
+                        <div (click)="onClickScheduleEdit(s.idx)">
                             <button>
                                 <i class="fal fa-edit mr-2"></i>
                                 Edit
@@ -120,7 +115,6 @@
                 <ion-spinner class="size-3"></ion-spinner>
                 Loading... Please wait...
             </div>
-        </section>
     </section>
 </main>
 <footer>

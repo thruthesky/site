@@ -61,6 +61,8 @@ export interface SCHEDULE_OPTIONS {
 }
 
 
+
+const KEY_LMS_INFO = 'lms-info';
 const firestoreLogCollection = 'user-activity-log';
 
 @Injectable()
@@ -925,6 +927,15 @@ export class AppService {
         }, e => {
             console.error(e);
         });
+    }
+
+
+    lmsInfoCancellableMinutes() {
+        if (this.info && this.info['MAX_CANCELLABLE_TIME']) {
+            return parseInt(this.info['MAX_CANCELLABLE_TIME'], 10) / 60;
+        } else {
+            return 0;
+        }
     }
 
 

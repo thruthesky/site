@@ -58,30 +58,13 @@ export class OntueMySchedulePage {
             return;
         }
 
-        this.router.navigate(['/schedule-edit'], {
-            queryParams: {
-                php_to_kwr: this.data['php_to_kwr'],
-                usd_to_kwr: this.data['usd_to_kwr'],
-                share_teacher: this.data['share_teacher'],
-                transaction_fee: this.data['transaction_fee'],
-                max_point_per_minute: this.data['max_point_per_minute']
-            },
-            queryParamsHandling: 'preserve'
-        });
+        this.router.navigate(['/schedule-edit']);
     }
 
 
-    onClickScheduleEdit(schedule) {
-        this.router.navigate(['/schedule-edit'], {
-            queryParams: {
-                schedule: schedule,
-                php_to_kwr: this.data['php_to_kwr'],
-                usd_to_kwr: this.data['usd_to_kwr'],
-                share_teacher: this.data['share_teacher'],
-                transaction_fee: this.data['transaction_fee'],
-                max_point_per_minute: this.data['max_point_per_minute']
-            }
-        });
+    onClickScheduleEdit(idx) {
+        console.log('onClickScheduleEdit::idx ', idx);
+        this.router.navigate(['/schedule-edit'], { queryParams: { idx: idx } });
     }
 
 
@@ -99,7 +82,6 @@ export class OntueMySchedulePage {
     getMySchedule() {
         this.a.lms.my_schedules().subscribe(re => {
             this.data = re;
-
         }, e => this.a.toast(e));
     }
 
