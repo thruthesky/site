@@ -54,6 +54,9 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         public a: AppService
     ) {
 
+        if ( a.isDesktopView() ) {
+            this.form.days = 15;
+        }
         this.defaultPhotoUrl = a.urlBackend + '/wp-content/plugins/xapi-2/lms/img/default-teacher-photo.jpg';
         // a.showHeader = false;
         this.active.queryParams.subscribe(params => {

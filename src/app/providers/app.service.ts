@@ -687,6 +687,8 @@ export class AppService {
      * Even if the user navigate 'tomorrow' and navigate back to 'first schedule table' it does not use cache since it has navigated.
      * Again, ONLY the first schedule load triggerred within 'constructor' or 'schedule-table-page.ts'.
      * When a reservation/cancellation happens, all the cache is deleted.
+     *
+     * @see README#KNOWN-BUG regarding cache
      */
     cacheSetSchedule(re, options: SCHEDULE_OPTIONS) {
         // if ( options.navigate !== 'today' ) {
@@ -702,6 +704,7 @@ export class AppService {
     /**
      * Returns cached schedule data.
      * @param options options
+     * @see README#KNOWN-BUG regarding cache
      */
     cacheGetSchedule(options: SCHEDULE_OPTIONS): SCHEDULE_TABLE {
         const key = this.cacheKeySchedule(options);
@@ -749,6 +752,7 @@ export class AppService {
      * @param options Pass options
      *  options['teachers'] = [ 123, 456, 789 ]; /// to show three teacher's schedule table.
      * @param callback callback
+     * @see README#KNOWN-BUG regarding cache
      */
     loadSchedule(options: SCHEDULE_OPTIONS = <any>{}, callback: (re: SCHEDULE_TABLE) => void) {
 

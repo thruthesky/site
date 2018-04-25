@@ -351,3 +351,13 @@ constructor( public loader: LoaderService ) {
 * firebase user's email and password is set automatically.
 * `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
   * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.
+
+## KNOWN-BUG
+
+* First list of schedule table is being cached.
+  * And this leads a bug when the user access schedule table with 'mobile view' at first
+    And it cached.
+    And changes to 'desktop view' later and visit the schedule table again,
+    Then, the user will see 'mobile view' of 'schedule table' since it is cached.
+    This is a very rare case. and we just ignore this.
+    If the user visits another teacher's schedule table, it may look okay as in 'desktop view'.
