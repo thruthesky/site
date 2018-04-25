@@ -19,8 +19,6 @@ import { KatalkEnglishFooterComponentModule } from './sites/katalkenglish/compon
 import { OntueFooterComponentModule } from './sites/ontue/components/ontue-footer/ontue-footer.component.module';
 import { RedirectPage } from './app.redirect';
 
-import { NgForageModule, NgForageConfig } from 'ngforage';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +37,7 @@ import { NgForageModule, NgForageConfig } from 'ngforage';
     KatalkEnglishHeaderComponentModule,
     KatalkEnglishFooterComponentModule,
     XapiModule,
-    TranslatePipeModule,
-    NgForageModule.forRoot()
+    TranslatePipeModule
   ],
   exports: [
   ],
@@ -53,14 +50,8 @@ import { NgForageModule, NgForageConfig } from 'ngforage';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  public constructor(ngfConfig: NgForageConfig) {
-    ngfConfig.configure({
-      name: 'MyApp',
-      driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
-        NgForageConfig.DRIVER_INDEXEDDB,
-        NgForageConfig.DRIVER_LOCALSTORAGE
-      ]
-    });
+  public constructor() {
+
   }
 }
 

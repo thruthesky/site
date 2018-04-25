@@ -2,21 +2,23 @@
 
 ## TODO
 
+* Forum functionality and live chat design.
+  * When a student leave a question/comment, we begin to chat.
 
 * schedule table
+  * add more design.
   * show curriulumn vitae
   * show comments
   * play teacher youtube video on mobile.
 
-* Cache Teacher list page.
-* WebSQL for Schedule Cache. localStorage hsa 5MB quota problem.
-  * It does try/catch {} error handling if the data is too big but it's not enough.
-  * Since localStorage is limited for 5 MB.
-    * @todo find a way to save more than this Since we are only supporting IE11 and above.
-
-    
+* @done Cache Teacher list page.
+  * Do not use localForage.
 
 * Check all page, link, menu with offline.
+
+
+
+
 * Reloading angular route if the user clicks the same route.
   * without chaning anything from routerLink="..."
   * Check if there is any route event happens when the route of the page is being clicked.
