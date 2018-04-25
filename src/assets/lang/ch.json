@@ -113,6 +113,22 @@
     "STUDENT_HELP_PAGE_CONTENT_9_1":"您必须在课程开始前#lmsInfoCancellableMinutes分钟前取消您的课程。",
     "STUDENT_HELP_PAGE_HEADER_10":"问题和答案",
     "STUDENT_HELP_PAGE_SUB_HEADER_10":"我们通过KakaoTalk提供很多服务，我们将与KakaoTalk进行问答。",
-    "STUDENT_HELP_PAGE_CONTENT_10_1":"请添加katok英语作为朋友。"
+    "STUDENT_HELP_PAGE_CONTENT_10_1":"请添加katok英语作为朋友。",
+
+
+    "TAKEN": "会议",
+    "HAD SESSIONS": "",
+    "ADD KAKAO": "添加Kakao朋友",
+    "VIDEO": "视频",
+    "OPEN REVIEW": "注释",
+    "CURRICULUM VITAE": "出版物",
+    "ALL SCHEDULE": "所有时间表",
+    "SCHEDULE TABLE SEARCH OPTIONS SHORT": "选项",
+    "TIMEZONE NOW": "时区",
+    "CHANGE TIMEZONE": "更改时区",
+    "POINT": "点",
+    "AGE_GENDER": "#age/#gender",
+    "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "哦，这位老师没有Kakaotalk ID。",
+    "CURRENT_TIME": "#country #hour:#minute #ap"
 
 }

@@ -114,6 +114,22 @@
     "STUDENT_HELP_PAGE_CONTENT_9_1":"수업 취소는 수업 시간 전 #lmsInfoCancellableMinutes 분 까지 하셔야합니다.",
     "STUDENT_HELP_PAGE_HEADER_10":"질문과 답변",
     "STUDENT_HELP_PAGE_SUB_HEADER_10":"저희는 카카오톡을 통해서 많은 서비스를 하고 있으며 질문과 답변 엮시 카카오톡으로 진행됩니다.",
-    "STUDENT_HELP_PAGE_CONTENT_10_1":"카톡영어를 꼭 친구추가 해 주세요."
+    "STUDENT_HELP_PAGE_CONTENT_10_1":"카톡영어를 꼭 친구추가 해 주세요.",
 
+
+
+    "TAKEN": "세션 수",
+    "HAD SESSIONS": "",
+    "ADD KAKAO": "카카오 친구 추가",
+    "VIDEO": "비디오",
+    "OPEN REVIEW": "코멘트",
+    "CURRICULUM VITAE": "간행물",
+    "ALL SCHEDULE": "모든 일정",
+    "SCHEDULE TABLE SEARCH OPTIONS SHORT": "Options",
+    "TIMEZONE NOW": "옵션",
+    "CHANGE TIMEZONE": "시간대 변경",
+    "POINT": "포인트",
+    "AGE_GENDER": "#age/#gender",
+    "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "오,이 선생님은 카카오 톡 신분증이 없습니다.",
+    "CURRENT_TIME": "#country #hour:#minute #ap"
 }

@@ -155,11 +155,11 @@
     "STUDENT_HELP_PAGE_CONTENT_9_1":"You must cancel your class until #lmsInfoCancellableMinutes minutes before class time.",
     "STUDENT_HELP_PAGE_HEADER_10":"Questions and answers",
     "STUDENT_HELP_PAGE_SUB_HEADER_10":"We have a lot of services through KakaoTalk, and we are going to Q & A with KakaoTalk.",
-    "STUDENT_HELP_PAGE_CONTENT_10_1":"Please add katok english as a friend."
+    "STUDENT_HELP_PAGE_CONTENT_10_1":"Please add katok english as a friend.",
 
 
 
-        ,
+    
     "TAKEN": "Sessions",
     "HAD SESSIONS": "",
     "ADD KAKAO": "Add Kakao Friend",

@@ -3,13 +3,113 @@
     height: 120px;
     overflow: hidden;
 }
+
 .kakaotalk-add-friend-button {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5em 0;
+    border:none;
+    background-color: rgba(255,232,24,.9);
+    width: 100%;
+
     .icon {
+        height: 30px;
         width: 30px;
-        img {
+        margin-right: 1em;
+        
+        img{
             width: 100%;
-            height: auto;
         }
     }
+}
+
+.buttons{
+    height: 100%;
+    div{
+        padding: 0;
+    }
+
+    .row{
+        height: 100%;
+    }
+
+    .video-button,
+    .resume-button,
+    .review-button{
+
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .9em;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            svg{
+                height: 1.3em;
+            }
+        }
+
+    }
+
+    .video-button{
+        button{
+            background: #ff8c00
+        }
+    }
+
+    .review-button{
+        display: flex;
+        align-items: center;
+    }
+
+    .resume-button{
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+
+.container-fluid{
+    background: white;
+
+    .grade{
+        svg{
+            height: 1em;
+        }
+    }
+    
+    .profile-row{
+        justify-content: space-between;
+        padding: 1em 1.5em;
+    }
+}
+
+.teacher-intro{
+    text-align: justify;
+    span{
+        line-height: 1.9em;
+        font-weight: 300;
+    
+        svg{
+            height: 1em;
+        }
+    
+    }
+    .quote-right{
+        margin-left:.5em;
+    }
+
+    .quote-left{
+        margin-right: .5em;
+    }
+
+}
+
+.bio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: .8em;
 }

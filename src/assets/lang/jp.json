@@ -112,7 +112,23 @@
     "STUDENT_HELP_PAGE_CONTENT_9_1":"您必须在课程开始前#lmsInfoCancellableMinutes分钟前取消您的课程。",
     "STUDENT_HELP_PAGE_HEADER_10":"質問と回答",
     "STUDENT_HELP_PAGE_SUB_HEADER_10":"私たちは、カカオトークを通じて多くのサービスをしており、質問と回答ヨクシカカオトークで行われます。",
-    "STUDENT_HELP_PAGE_CONTENT_10_1":"カトク、英語をぜひ友達に追加してください。"
+    "STUDENT_HELP_PAGE_CONTENT_10_1":"カトク、英語をぜひ友達に追加してください。",
+
+
+    "TAKEN": "セッション",
+    "HAD SESSIONS": "",
+    "ADD KAKAO": "カカオフレンドを追加",
+    "VIDEO": "ビデオ",
+    "OPEN REVIEW": "コメント",
+    "CURRICULUM VITAE": "出版",
+    "ALL SCHEDULE": "すべてのスケジュール",
+    "SCHEDULE TABLE SEARCH OPTIONS SHORT": "オプション",
+    "TIMEZONE NOW": "タイムゾーン",
+    "CHANGE TIMEZONE": "タイムゾーンを変更する",
+    "POINT": "ポイント",
+    "AGE_GENDER": "#age/#gender",
+    "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "カカオトークのIDはありません。",
+    "CURRENT_TIME": "#country #hour:#minute #ap"
 
 
 }
