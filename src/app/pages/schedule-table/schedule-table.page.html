@@ -7,34 +7,8 @@
         [teacherName]=" teacher_name() "
     ></schedule-table-profile-component>
 
-<!--/single-teacher-->
-<div class="multiple-teachers" *ngIf=" ! singleTeacher ">
-    <section class="page-header d-flex justify-content-between">
-        <h2 class="title">{{ "ALL SCHEDULE" | t }}</h2>
-        <div (click)=" display_options = !display_options " *ngIf=" ! display_options ">
-            <ion-icon name="options"></ion-icon>
-            {{ 'SCHEDULE TABLE SEARCH OPTIONS SHORT' | t }}
-        </div>
-    </section>
-</div>
-<!--/multiple-teachers-->
+    <lms-info-component></lms-info-component>
 
-
-
-<div class="user-point d-flex justify-content-between p-3  border border-left-0 border-right-0 bg-ghostwhite" *ngIf=" a.user.isLogin ">
-
-    <div class="d-md-flex align-items-center py-md-2 py-0 pl-2 pl-md-0 ">
-        <div class="ml-md-3 pl-md-3 pl-0">
-            {{ 'TIMEZONE NOW' | t }}: {{ a.userTime }}
-        </div>
-        <div class="pl-0">
-            <button class="app-button secondary  mt-2 mt-md-0 mx-md-4 m-0 hover-effect py-2" (click)=" a.open('settings') ">{{ 'CHANGE TIMEZONE' | t }}</button>
-            <span class="ml-3 ml-md-0">{{ 'POINT' | t }}:</span>
-            <span *ngIf=" ! a.inLoadingMyPoint ">{{ a.userPoint }}</span>
-            <ion-spinner class="size-3" *ngIf=" a.inLoadingMyPoint "></ion-spinner>
-        </div>
-    </div>
-</div>
 
 <schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
 <div class="schedule-loader" *ngIf=" show.schedule_loader ">

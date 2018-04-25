@@ -9,6 +9,7 @@ import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/t
 import { MaterialModule } from '../../app.material.module';
 import { ScheduleTableOptionsComponent } from './schedule-table-option/schedule-table-options.component';
 import { ScheduleTableProfileComponent } from './schedule-table-profile/schedule-table-profile.component';
+import { LmsInfoComponentModule } from '../../components/lms-info/lms-info.component.module';
 
 const routes: Routes = [
   { path: '', component: ScheduleTablePage }
@@ -20,7 +21,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     TranslatePipeModule,
-    MaterialModule
+    MaterialModule,
+    LmsInfoComponentModule
   ],
   exports: [
     RouterModule

@@ -1,0 +1,15 @@
+.teacher-profile-photo {
+    width: 100px;
+    height: 120px;
+    overflow: hidden;
+}
+.kakaotalk-add-friend-button {
+    display: flex;
+    .icon {
+        width: 30px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
