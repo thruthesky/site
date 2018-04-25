@@ -37,24 +37,6 @@ export class ScheduleTableProfileComponent {
         }
     }
 
-
-    onClickShowCurriculum() {
-        alert('show curriculmn vitae');
-        // const createCommentModal = this.modalCtrl.create(CurriculumVitaeView, { teacher: this.teacher_profile }, { cssClass: 'vitae-view' }
-        // );
-        // createCommentModal.onDidDismiss(() => { });
-        // createCommentModal.present();
-    }
-
-    onClickCommentList() {
-        alert('show comments');
-        // const createCommentModal = this.modalCtrl.create(StudentCommentList, { idx_teacher: this.teacher_profile['ID'], teacher_photoURL: this.teacher_profile['photoURL'], teacher_name: this.teacher_profile['name'] }, { cssClass: 'student-comment-list' }
-        // );
-        // createCommentModal.onDidDismiss(reason => {
-        //   if (reason == 'commentCreate') this.onClickCommentCreate();
-        // });
-        // createCommentModal.present();
-    }
     playTeacherYoutube() {
         const ID = this.a.getYoutubeID(this.re.teacher.youtube_video_url);
         if (!ID) {

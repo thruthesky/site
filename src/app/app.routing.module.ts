@@ -93,6 +93,10 @@ const routes: Routes = [
     path: 'teacher-session-past',
     loadChildren: './sites/ontue/pages/ontue-session-past/ontue-session-past.page.module#OntueSessionPastPageModule'
   },
+  {
+    path: 'teacher-curriculum-vitae',
+    loadChildren: './sites/ontue/pages/ontue-curriculum-vitae/ontue-curriculum-vitae.page.module#OntueCurriculumVitaePageModule'
+  },
 
 
 

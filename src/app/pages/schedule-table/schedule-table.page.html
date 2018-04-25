@@ -2,8 +2,20 @@
         [isSingleTeacher]="isSingleTeacher"
         [isLoadComplete]="isLoadComplete"
         [re] = " re "
-        [teacherName]=" teacher_name() ">
-    </schedule-table-profile-component>
+        [teacherName]=" teacher_name(re?.table[0]) "
+    ></schedule-table-profile-component>
+
+<!--/single-teacher-->
+<div class="multiple-teachers" *ngIf=" ! singleTeacher ">
+    <section class="page-header d-flex justify-content-between">
+        <h2 class="title">{{ "ALL SCHEDULE" | t }}</h2>
+        <div (click)=" display_options = !display_options " *ngIf=" ! display_options ">
+            <ion-icon name="options"></ion-icon>
+            {{ 'SCHEDULE TABLE SEARCH OPTIONS SHORT' | t }}
+        </div>
+    </section>
+</div>
+<!--/multiple-teachers-->
 
 
 

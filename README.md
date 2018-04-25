@@ -39,12 +39,12 @@
 * @done add my point page
 * add password change page
 * add available schedule page.
-* add teacher schedule create/edit/list
 * add session future, past page.
+* @done add teacher schedule create/edit/list
 * @done add settings page.
-* add teacher's payment information page.
+* @done add teacher's payment information page.
 * add teacher's curriculum vitae page.
-* add teacher's dashboard. ( menu )
+* @done add teacher's dashboard. ( menu )
 * @done add teacher's dayoff page.
 * schedule table navigation. No favicon anymore.
 * Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
