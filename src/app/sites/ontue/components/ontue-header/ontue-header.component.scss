@@ -21,6 +21,14 @@
                 display: block;
             }
         }
+
+        button{
+            transition: all 0.1s ease-in-out;
+
+            &:hover{
+                opacity: 0.7;
+            }
+        }
     }
 
     button,.logo{
@@ -32,6 +40,7 @@
         font-size:1rem;
         font-weight: 300;
         cursor: pointer;
+
     }
 
     .menu{

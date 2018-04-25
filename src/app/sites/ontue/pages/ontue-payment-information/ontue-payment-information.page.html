@@ -1,21 +1,20 @@
 <header>
-    {{ "PAYMENT SETTING" | t }}
+    <h1>{{ "PAYMENT SETTING" | t }}</h1>
     <div>Please Choose a Payment Method and Fill Out the Appropriate Information</div>
 </header>
 <main>
-    <div>
-        <div>
-            <div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
                 <label>
-                    <input type="radio" name="payment_method"
-                           [(ngModel)]="payment_information['payment_method']" value="gcash">
+                    <input type="radio" name="payment_method" [(ngModel)]="payment_information['payment_method']" value="gcash">
                     <span>
                         <i class="fal fa-tablet-alt d-inline-block mx-auto fs-4rem icon-effect"></i>
                         <span>GCAsh</span>
                     </span>
                 </label>
             </div>
-            <div>
+            <div class="col-4">
                 <label class="hover-icon-effect pointer ">
                     <input type="radio" name="payment_method" [(ngModel)]="payment_information['payment_method']"
                            value="western-union">
@@ -25,7 +24,7 @@
                     </span>
                 </label>
             </div>
-            <div>
+            <div class="col-4">
                 <label>
                     <input type="radio" name="payment_method" [(ngModel)]="payment_information['payment_method']"
                            value="paypal">
@@ -93,8 +92,7 @@
 
                     <div>
                         <label>
-                            <input type="text"
-                                   [(ngModel)]="payment_information['city']"/>
+                            <input type="text" [(ngModel)]="payment_information['city']"/>
                             City
                         </label>
                     </div>
