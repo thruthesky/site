@@ -62,7 +62,6 @@ export interface SCHEDULE_OPTIONS {
 
 
 
-const KEY_LMS_INFO = 'lms-info';
 const firestoreLogCollection = 'user-activity-log';
 
 @Injectable()
