@@ -79,12 +79,10 @@ const routes: Routes = [
     path: 'my-schedule',
     loadChildren: './sites/ontue/pages/ontue-my-schedule/ontue-my-schedule.page.module#OntueMySchedulePageModule'
   },
-
   {
     path: 'schedule-edit',
     loadChildren: './sites/ontue/pages/ontue-schedule-edit/ontue-schedule-edit.page.module#OntueScheduleEditPageModule'
   },
-
   {
     path: 'teacher-session-future',
     loadChildren: './sites/ontue/pages/ontue-session-future/ontue-session-future.page.module#OntueSessionFuturePageModule'
@@ -94,8 +92,8 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-session-past/ontue-session-past.page.module#OntueSessionPastPageModule'
   },
   {
-    path: 'teacher-curriculum-vitae',
-    loadChildren: './sites/ontue/pages/ontue-curriculum-vitae/ontue-curriculum-vitae.page.module#OntueCurriculumVitaePageModule'
+    path: 'teacher-my-curriculum-vitae',
+    loadChildren: './sites/ontue/pages/ontue-my-curriculum-vitae/ontue-my-curriculum-vitae.page.module#OntueMyCurriculumVitaePageModule'
   },
 
 
@@ -135,6 +133,11 @@ const routes: Routes = [
   {
     path: 'teacher-list',
     loadChildren: './pages/teacher-list/teacher-list.page.module#TeacherListPageModule'
+  },
+
+  {
+    path: 'teacher-curriculum-vitae-view',
+    loadChildren: './pages/teacher-curriculum-vitae-view/teacher-curriculum-vitae-view.page.module#TeacherCurriculumVitaeViewPageModule'
   },
 
   {

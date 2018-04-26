@@ -7,11 +7,11 @@ import {XapiFileUploadComponent} from '../../../../components/xapi-file-upload/x
 
 
 @Component({
-    selector: 'ontue-curriculum-vitae-page',
-    templateUrl: 'ontue-curriculum-vitae.page.html',
-    styleUrls: ['ontue-curriculum-vitae.page.scss']
+    selector: 'ontue-my-curriculum-vitae-page',
+    templateUrl: 'ontue-my-curriculum-vitae.page.html',
+    styleUrls: ['ontue-my-curriculum-vitae.page.scss']
 })
-export class OntueCurriculumVitaePage {
+export class OntueMyCurriculumVitaePage {
 
     account: USER_UPDATE = <USER_UPDATE>{};
 

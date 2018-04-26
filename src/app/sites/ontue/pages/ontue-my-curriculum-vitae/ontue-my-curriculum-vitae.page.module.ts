@@ -3,14 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../../../app.material.module';
-import { OntueCurriculumVitaePage } from './ontue-curriculum-vitae.page';
-import {XapiFileUploadComponentModule} from "../../../../components/xapi-file-upload/xapi-file-upload.component.module";
+import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { OntueMyCurriculumVitaePage } from './ontue-my-curriculum-vitae.page';
+import { XapiFileUploadComponentModule } from '../../../../components/xapi-file-upload/xapi-file-upload.component.module';
+
 
 
 const routes: Routes = [
-    { path: '', component: OntueCurriculumVitaePage }
+    { path: '', component: OntueMyCurriculumVitaePage }
 ];
 @NgModule({
     imports: [
@@ -26,12 +27,12 @@ const routes: Routes = [
         RouterModule
     ],
     declarations: [
-        OntueCurriculumVitaePage
+        OntueMyCurriculumVitaePage
     ],
     entryComponents: [
-        OntueCurriculumVitaePage
+        OntueMyCurriculumVitaePage
     ],
-    bootstrap: [OntueCurriculumVitaePage],
+    bootstrap: [OntueMyCurriculumVitaePage],
     schemas: []
 })
-export class OntueCurriculumVitaePageModule { }
+export class OntueMyCurriculumVitaePageModule { }

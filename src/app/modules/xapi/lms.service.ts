@@ -546,4 +546,12 @@ export class XapiLMSService extends Base {
         req['route'] = 'lms.admin_query';
         return this.x.post(req);
     }
+
+    get_teacher_info_by_idx(idx_teacher, full = false) {
+        return this.x.post({
+            idx_teacher: idx_teacher,
+            full: full,
+            route: 'lms.get_teacher_info_by_idx',
+        });
+    }
 }

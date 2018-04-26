@@ -1,0 +1,170 @@
+<header>
+    <h1>Curriculum Vitae</h1>
+</header>
+<main>
+    <div class="m-5">
+        <h1>{{ "CURRICULUM VITAE" | t }}</h1>
+        <p>Please Fill Out the Appropriate Information</p>
+    </div>
+    <form (submit)="onSubmitUpdate()">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="p-relative of-hidden pointer">
+                        <input type="file" (change)="fileUpload.onChangeFile($event)">
+                        <div>
+                            <img src="{{files.length ? files[0].url : a.anonymousPhotoURL}}">
+                        </div>
+                    </div>
+                    <xapi-file-upload-component #fileUploadWidget [title]="false" [fileSelectionButton]="false"
+                                                [files]="files"
+                                                [showUploadedFiles]="false"
+                                                (success)="onSuccessUploadPicture($event)">
+                    </xapi-file-upload-component>
+                </div>
+                <div class="col">
+                    <div>
+                        <input type="file" (change)="fileUploadQRMark.onChangeFile($event)">
+                        <div *ngIf="a.user.isLogin" (click)="fileUploadQRMark.onClickCamera()">
+                            <ng-container *ngIf="!showQRMark">
+                                <div>Upload QR Mark</div>
+                                <div><i class="fal fa-qrcode fa-5x my-3"></i></div>
+                            </ng-container>
+                            <ng-container *ngIf="showQRMark">
+                                <div>
+                                    <img src="{{qrmarks[0].url}}">
+                                </div>
+                            </ng-container>
+                            <div class="fs-lg text-center" text-wrap>
+                                QR Mark is required for teacher, open your mobile KakaoTalk > Edit Profile>
+                                My QR Code > Click Download.
+                            </div>
+                            <div>
+                                <i class="fal fa-qrcode mr-3"></i>
+                                {{qrmarks.length? 'UPDATE': 'UPLOAD'}} QR MARK
+                            </div>
+                        </div>
+                    </div>
+                    <xapi-file-upload-component #fileUploadWidgetQRMARK
+                                                [title]="false"
+                                                [fileSelectionButton]="false"
+                                                [files]="qrmarks"
+                                                [showUploadedFiles]="false"
+                                                (success)="onSuccessUploadQRMark( $event )">
+                    </xapi-file-upload-component>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <input type="text" readonly [(ngModel)]="account.name"
+                               name="name" disabled/>
+                        <label>{{ 'TEACHER ID' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.fullname"
+                               name="fullname"/>
+                        <label>{{ 'FULL NAME' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.display_name"
+                               name="display_name"/>
+                        <label>{{ 'NICKNAME' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="email" [(ngModel)]="account.user_email"
+                               name="user_email"/>
+                        <label>{{ 'EMAIL' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.phone_number"
+                               name="phone_number"/>
+                        <label>{{ 'PHONE NO' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.last_education"
+                               name="last_education"/>
+                        <label>{{ 'SCHOOL' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.major" name="major"/>
+                        <label>{{ 'MAJOR' | t }}</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <select [(ngModel)]="account.nationality" name="nationality">
+                            <option value="">Select...</option>
+                            <option *ngFor="let c of a.countries" value="{{c}}">{{c}}</option>
+                        </select>
+                        <label>{{ 'NATIONALITY' | t }}</label>
+                    </div>
+                    <div>
+                        <ion-datetime name="birthday" max="{{minYear}}" displayFormat="MM/DD/YYYY"
+                                      pickerFormat="MMDDYYYY"
+                                      [(ngModel)]="birthday" (ngModelChange)="onChangeBirthDate()"></ion-datetime>
+                        <label>{{ 'BIRTHDAY' | t }}</label>
+                    </div>
+                    <div>
+                        <div>
+                            <label><input type="radio" name="male" [(ngModel)]="account.gender" value="M">Male</label>
+                            <label><input type="radio" name="female" [(ngModel)]="account.gender"
+                                          value="F">Female</label>
+                        </div>
+                        <label>{{ 'GENDER' | t }}</label>
+                    </div>
+                    <div>
+                        <ion-datetime displayFormat="YYYY" [(ngModel)]="account.experience"
+                                      name="experience"></ion-datetime>
+                        <label>{{ 'Year you start teaching' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.youtube_video_url"
+                               name="youtube_video_url"/>
+                        <label>{{ 'YOUTUBE VIDEO' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.kakaotalk_id"
+                               name="kakaotalk_id"/>
+                        <label>{{ 'KAKAOTALK ID' | t }}</label>
+                    </div>
+                    <div>
+                        <input type="text" [(ngModel)]="account.hobby"
+                               name="hobby"/>
+                        <label>{{ 'HOBBIES' | t }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <input type="text" [(ngModel)]="account.address"
+                               name="address"/>
+                        <label>{{ 'ADDRESS' | t }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="m-0 p-0">
+                        <label>{{ 'GREETINGS' | t }}</label>
+                        <textarea rows="8" [(ngModel)]="account.introduction" name="introduction"></textarea>
+                    </div>
+                    <div class="mt-5 mb-3" text-center>
+                        <button>
+                            {{ 'UPDATE BUTTON' | t }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+
+    <div class="loader" *ngIf=" showLoader ">
+        <ion-spinner></ion-spinner>
+        Loading... Please Wait...
+    </div>
+
+</main>
