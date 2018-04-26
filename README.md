@@ -2,6 +2,8 @@
 
 ## TODO
 
+* cache teacher list for 2 hours. schedule table for 30 minutes.
+
 * Forum functionality and live chat design.
   * When a student leave a question/comment, we begin to chat.
 
