@@ -1,0 +1,91 @@
+<header>
+    <h1>Curriculum Vitae View</h1>
+    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule</button>
+</header>
+<main>
+    <div class="container-fluid" *ngIf="teacher">
+        <div class="row">
+            <div class="col">
+                <div class="size-100x120 rounded-2 of-hidden mx-md-0 mx-auto">
+                    <img src="{{ teacher.photoURL ? teacher.photoURL : a.anonymousPhotoURL }}">
+                </div>
+                <div class="grade mt-4 width-100px">
+                    <i class="star fas fa-star fs-110" *ngFor="let i of a.countStar(teacher.grade)"></i>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <span> {{teacher.fullname}}</span>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div>
+                                <i class="fal fa-map mr-2 d-none d-md-inline"></i>
+                                Nationality : {{teacher.nationality}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                Gender : <span *ngIf="teacher.gender"
+                                               [innerHTML]="teacher.gender=='F'?'Female':'Male'"></span></div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                Course : {{teacher.major}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                Birthday :
+                                {{teacher.birthday.slice(0,4)}}-{{teacher.birthday.slice(4,6)}}-{{teacher.birthday.slice(6,8)}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                Teaching English since : {{teacher.experience}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                Age : {{teacher.age}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                Hobbies :{{teacher.hobby}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
+                                School : {{teacher.last_education}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr class="mt-4">
+                <div>
+                    <span class=" d-flex align-items-center" *ngIf="teacher.phone_number">
+                        <i class="fal fa-phone mr-2"></i>
+                        Phone No:  {{teacher.phone_number}}
+                    </span>
+                    <span class="mt-3 mt-md-0 d-flex align-items-center" *ngIf="teacher.user_email">
+                    <i class="fal fa-envelope mr-2"></i>
+                    Email : {{teacher.user_email}}
+                    </span>
+                </div>
+                <div class="line-height-1-8em p-4 border bg-light fs-110 fw-light">{{teacher.introduction}}</div>
+            </div>
+        </div>
+    </div>
+
+    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule</button>
+
+    <div class="loader" *ngIf=" showLoader ">
+        <ion-spinner></ion-spinner>
+        Loading... Please Wait...
+    </div>
+
+</main>
