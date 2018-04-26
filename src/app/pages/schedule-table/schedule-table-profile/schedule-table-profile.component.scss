@@ -92,6 +92,7 @@
 
 
 .container-fluid{
+    box-sizing: border-box;
     background: white;
 
     .grade{
@@ -123,9 +124,7 @@
     .profile-row{
         justify-content: space-between;
         padding: 1em;
-
         @media screen and (max-width:768px) {
-            width: 100%;
             padding: 1em .1em;
         }
     }

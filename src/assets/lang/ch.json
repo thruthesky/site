@@ -129,6 +129,11 @@
     "POINT": "点",
     "AGE_GENDER": "#age/#gender",
     "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "哦，这位老师没有Kakaotalk ID。",
-    "CURRENT_TIME": "#country #hour:#minute #ap"
+    "CURRENT_TIME": "#country #hour:#minute #ap",
+
+    "MORNING":"调幅",
+    "AFTERNOON":"下午",
+    "FULL DAY":"全部（上午下午，全天）",
+    "DIRECT-TIME":"直接选择时间："
 
 }

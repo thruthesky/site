@@ -173,5 +173,10 @@
     "POINT": "Point",
     "AGE_GENDER": "#age/#gender",
     "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "Ooh, This teacher has no Kakaotalk ID.",
-    "CURRENT_TIME": "#country #hour:#minute #ap"
+    "CURRENT_TIME": "#country #hour:#minute #ap",
+
+    "MORNING":"Morning",
+    "AFTERNOON":"Afternoon",
+    "FULL DAY":"Full (morning afternoon, all day)",
+    "DIRECT-TIME":"Direct selection of time:"
 }

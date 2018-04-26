@@ -131,5 +131,10 @@
     "POINT": "포인트",
     "AGE_GENDER": "#age/#gender",
     "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "오,이 선생님은 카카오 톡 신분증이 없습니다.",
-    "CURRENT_TIME": "#country #hour:#minute #ap"
+    "CURRENT_TIME": "#country #hour:#minute #ap",
+
+    "MORNING":"오전",
+    "AFTERNOON":"오후",
+    "FULL DAY":"전체(오전 오후, 하루종일)",
+    "DIRECT-TIME":"시간 직접 선택:"
 }
