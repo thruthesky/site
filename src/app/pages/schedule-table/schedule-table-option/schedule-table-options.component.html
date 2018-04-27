@@ -1,72 +1,82 @@
 <div class="search-chip-list">
-    <div class="chip" (click)=" chip.show = 'hours' ">{{ form.class_begin_hour }}~{{ form.class_end_hour }}시</div>
-    <div class="chip" (click)=" chip.show = 'minutes' ">{{ form.min_duration }}분 이상</div>
-    <div class="chip" (click)=" chip.show = 'points' ">{{ form.min_point }}포인트 이상</div>
-    <div class="chip" (click)=" chip.show = 'weekends' ">{{ form.display_weekends == 'Y' ? '주말표시' : '주말제외' }}</div>
-    <div class="chip" (click)=" chip.show = 'days' ">{{ form.days }}일표시</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'hours' "  (click)=" chip.show = 'hours' ">{{ form.class_begin_hour }}~{{ form.class_end_hour }}시</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'minutes' "  (click)=" chip.show = 'minutes' ">{{ form.min_duration }}분 이상</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'points' "  (click)=" chip.show = 'points' ">{{ form.min_point }}포인트 이상</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'weekends' "  (click)=" chip.show = 'weekends' ">{{ form.display_weekends == 'Y' ? '주말표시' : '주말제외' }}</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'days' "  (click)=" chip.show = 'days' ">{{ form.days }}일표시</div>
 </div>
 <div class="search-chip-options" *ngIf="chip.show">
     <div class="hours" *ngIf="chip.show == 'hours'">
-        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 24; onSearchSubmit() ">전체(오전 오후, 하루종일)</div>
-        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">오전</div>
-        <div (click)=" form.class_begin_hour = 12; form.class_end_hour = 24; onSearchSubmit() ">오후</div>
-        시간 직접 선택:
-        <select name="class_begin_hour" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
-            <option *ngFor=" let h of formOptions.begin_hours " value="{{ h }}">{{ h }}</option>
-        </select>
-        ~
-        <select name="class_end_hour" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
-            <option *ngFor=" let h of formOptions.end_hours " value="{{ h }}">{{ h }}</option>
-        </select>
+
+            <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">{{ 'MORNING' | t }}</div>
+            <div (click)=" form.class_begin_hour = 12; form.class_end_hour = 24; onSearchSubmit() ">{{'AFTERNOON' | t }}</div>
+            <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 24; onSearchSubmit() ">{{'FULL DAY' | t }}</div>
+
+        <div class="select">
+            <span>{{ 'DIRECT-TIME' | t}}</span>
+            <select name="class_begin_hour" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
+                <option *ngFor=" let h of formOptions.begin_hours " value="{{ h }}">{{ h }}</option>
+            </select>
+            ~
+            <select name="class_end_hour" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
+                <option *ngFor=" let h of formOptions.end_hours " value="{{ h }}">{{ h }}</option>
+            </select>
+        </div>
     </div>
     <div class="minutes" *ngIf=" chip.show == 'minutes' ">
-        <select name="duaration" [(ngModel)]="form.min_duration" (change)="onSearchSubmit()">
-            <option value="0">0분 이상</option>
-            <option value="5">5분 이상</option>
-            <option value="10">10분 이상</option>
-            <option value="15">15분 이상</option>
-            <option value="20">20분 이상</option>
-            <option value="25">25분 이상</option>
-            <option value="30">30분 이상</option>
-            <option value="40">40분 이상</option>
-            <option value="50">50분 이상</option>
-            <option value="60">60분 이상</option>
-        </select>
-        <select name="duaration" [(ngModel)]="form.max_duration" (change)="onSearchSubmit()">
-            <option value="4">4분 이하</option>
-            <option value="9">9분 이하</option>
-            <option value="14">14분 이하</option>
-            <option value="19">19분 이하</option>
-            <option value="24">24분 이하</option>
-            <option value="29">29분 이하</option>
-            <option value="39">39분 이하</option>
-            <option value="49">49분 이하</option>
-            <option value="59">59분 이하</option>
-            <option value="120">120분 이하</option>
-        </select>
+        <mat-form-field>
+                <mat-select name="duaration" [(ngModel)]="form.max_duration" (selectionChange)="onSearchSubmit()">
+                    <mat-option value="4">4분 이하</mat-option>
+                    <mat-option value="9">9분 이하</mat-option>
+                    <mat-option value="14">14분 이하</mat-option>
+                    <mat-option value="19">19분 이하</mat-option>
+                    <mat-option value="24">24분 이하</mat-option>
+                    <mat-option value="29">29분 이하</mat-option>
+                    <mat-option value="39">39분 이하</mat-option>
+                    <mat-option value="49">49분 이하</mat-option>
+                    <mat-option value="59">59분 이하</mat-option>
+                    <mat-option value="120">120분 이하</mat-option>
+                </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+                <mat-select name="duaration" [(ngModel)]="form.min_duration" (selectionChange)="onSearchSubmit()">
+                    <mat-option value="0">0분 이상</mat-option>
+                    <mat-option value="5">5분 이상</mat-option>
+                    <mat-option value="10">10분 이상</mat-option>
+                    <mat-option value="15">15분 이상</mat-option>
+                    <mat-option value="20">20분 이상</mat-option>
+                    <mat-option value="25">25분 이상</mat-option>
+                    <mat-option value="30">30분 이상</mat-option>
+                    <mat-option value="40">40분 이상</mat-option>
+                    <mat-option value="50">50분 이상</mat-option>
+                    <mat-option value="60">60분 이상</mat-option>
+                </mat-select>
+        </mat-form-field>
     </div>
     <div class="points" *ngIf=" chip.show == 'points' ">
-        <select name="point" [(ngModel)]="form.min_point" (change)="onSearchSubmit()">
-            <option value="0">0</option>
-            <option value="500">500</option>
-            <option value="1000">1000</option>
-            <option value="2000">2000</option>
-            <option value="3000">3000</option>
-            <option value="4000">4000</option>
-            <option value="5000">5000</option>
-        </select>
-        포인트 이상
-        <select name="point" [(ngModel)]="form.max_point" (change)="onSearchSubmit()">
-            <option value="499">499</option>
-            <option value="999">999</option>
-            <option value="1999">1999</option>
-            <option value="2999">2999</option>
-            <option value="3999">3999</option>
-            <option value="4999">4999</option>
-            <option value="5999">5999</option>
-            <option value="9999">9999</option>
-        </select>
-        포인트 이하
+    <mat-form-field>
+        <mat-select placeholder="포인트 이상" name="point" [(ngModel)]="form.min_point" (selectionChange)="onSearchSubmit()">
+            <mat-option value="0">0</mat-option>
+            <mat-option value="500">500</mat-option>
+            <mat-option value="1000">1000</mat-option>
+            <mat-option value="2000">2000</mat-option>
+            <mat-option value="3000">3000</mat-option>
+            <mat-option value="4000">4000</mat-option>
+            <mat-option value="5000">5000</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="포인트 이하" name="point" [(ngModel)]="form.max_point" (selectionChange)="onSearchSubmit()">
+            <mat-option value="499">499</mat-option>
+            <mat-option value="999">999</mat-option>
+            <mat-option value="1999">1999</mat-option>
+            <mat-option value="2999">2999</mat-option>
+            <mat-option value="3999">3999</mat-option>
+            <mat-option value="4999">4999</mat-option>
+            <mat-option value="5999">5999</mat-option>
+            <mat-option value="9999">9999</mat-option>
+        </mat-select>
+    </mat-form-field>
     </div>
 
     <div class="weekends" *ngIf=" chip.show == 'weekends' ">
@@ -90,5 +100,7 @@
         </select>
     </div>
 
-    <div class="close" (click)=" chip.show = '' ">[X] Close</div>
+    <div class="close" (click)=" chip.show = '' ">
+        <button>[X] CLOSE</button>
+    </div>
 </div>

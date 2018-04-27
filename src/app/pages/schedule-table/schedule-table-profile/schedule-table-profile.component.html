@@ -2,14 +2,14 @@
 <ng-container *ngIf=" isSingleTeacher && re && re.teacher ">
     <div class="container-fluid" *ngIf=" isLoadComplete; else singleTeacherLoader">
         <div class="profile-row row">
-            <div class="col-4 col-md-1">
+            <div class="col-4 col-md-2">
                 <div class="teacher-profile-photo">
                     <img src="{{ re.teacher.photoURL }}">
                 </div>
             </div>
             <div class="bio col-8 col-md-3">
                 <div>
-                    <span>{{ teacherName }}</span>
+                    <span class="teacher-name">{{ teacherName }}</span>
                     <span class="grade" [attr.grade]=" re.teacher.grade ">
                         <svg  *ngFor="let i of a.countStar( re.teacher.grade )" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
                     </span>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="teacher-intro col-12 col-md-4">
-                <div (click)="onClickShowCurriculum()">
+                <div routerLink="/teacher-curriculum-vitae-view">
                     <span *ngIf=" re.teacher.introduction">
                         <svg class="quote-left" aria-hidden="true" data-prefix="fas" data-icon="quote-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M0 432V304C0 166.982 63.772 67.676 193.827 32.828 209.052 28.748 224 40.265 224 56.027v33.895c0 10.057-6.228 19.133-15.687 22.55C142.316 136.312 104 181.946 104 256h72c26.51 0 48 21.49 48 48v128c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48zm336 48h128c26.51 0 48-21.49 48-48V304c0-26.51-21.49-48-48-48h-72c0-74.054 38.316-119.688 104.313-143.528C505.772 109.055 512 99.979 512 89.922V56.027c0-15.762-14.948-27.279-30.173-23.199C351.772 67.676 288 166.982 288 304v128c0 26.51 21.49 48 48 48z"></path></svg>
                         {{ re.teacher.introduction.slice(0,150)}} ...
@@ -48,7 +48,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-12 col-md-2">
+            <div class="col-12 col-md-3">
                 <div class="buttons container-fluid">
                     <div class="row">
                         <div class="video-button col-4 col-md-12">
@@ -65,7 +65,7 @@
                             </button>
                         </div>
                         <div class="resume-button col-4 col-md-12">
-                            <button class="app-button" routerLink="/teacher-curriculum-vitae">
+                            <button class="app-button" routerLink="/teacher-curriculum-vitae-view" [queryParams]="{idx_teacher: re.teacher.ID}">
                                 {{ 'CURRICULUM VITAE' | t }}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z"/></svg>
                             </button>
@@ -85,6 +85,7 @@
             </div>
         </div>
     </ng-template>
+
 </ng-container>
 <div class="single-teacher" *ngIf=" isSingleTeacher && urlYoutube  ">
     <div class="video-container">

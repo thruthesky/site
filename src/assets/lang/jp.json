@@ -128,7 +128,12 @@
     "POINT": "ポイント",
     "AGE_GENDER": "#age/#gender",
     "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "カカオトークのIDはありません。",
-    "CURRENT_TIME": "#country #hour:#minute #ap"
+    "CURRENT_TIME": "#country #hour:#minute #ap",
+
+    "MORNING":"午前",
+    "AFTERNOON":"Afternoon",
+    "FULL DAY":"全体（午前午後、一日中）",
+    "DIRECT-TIME":"時間ダイレクト選択："
 
 
 }

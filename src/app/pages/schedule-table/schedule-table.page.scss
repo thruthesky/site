@@ -1,13 +1,32 @@
 .schedule-table {
     font-size: 10pt;
     text-align: center;
+    background: #fff;
+
     .schedule-header {
+        position: sticky;
+        top:63px;
+        @media screen and (max-width:768px) {
+            top:105px;
+        }
+        left: 0;
         display: flex;
+        justify-content: space-around;
+        border-bottom:1px solid #e9ecef;
+        border-top:1px solid #e9ecef;
+        background: #fff;
+        font-weight: bold;
     }
     .schedule-row {
         display: flex;
+        justify-content: space-around;
+        border-bottom:1px solid #e9ecef;
     }
     .td {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         padding: 2px;
         width: 42px;
         height: 72px;
@@ -16,19 +35,28 @@
             font-size: 20pt;
         }
     }
-    .profile .photo {
-        width: 32px;
-        height: 38.4px;
-        overflow: hidden;
-        img {
-            width: 100%;
+
+    .profile {
+        .photo {
+            width: 32px;
+            height: 38.4px;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+
+        &-header,&{
+            width: 58px;
         }
     }
+
 }
 
 /**
  * Icon colors
  */
+
 
 [icon-name="lock"] {
     color: #ccc;

@@ -20,6 +20,7 @@
 
 
 <schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
+
 <div class="schedule-loader" *ngIf=" show.schedule_loader ">
     <ion-spinner name="circles"></ion-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
 </div>
@@ -28,8 +29,10 @@
     {{ 'NO_SCHEUDLE_TRY_SEARCH' | t }}
 </div>
 <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
+
+
     <div class="tr schedule-header">
-        <div class="td" *ngIf=" isAllTeacher ">
+        <div class="td profile-header" *ngIf=" isAllTeacher ">
             {{ 'TEACHER' | t }}
         </div>
         <div class="td time">
@@ -41,6 +44,8 @@
             <div class="d-inline-block"> {{ header.user_time_day | t }}</div>
         </div>
     </div>
+
+
     <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
         <div class="td profile" *ngIf=" isAllTeacher ">
             <div class="photo">
@@ -72,6 +77,9 @@
         </div>
 
     </div><!--/schedule-row-->
+
+
+
 </div><!--/schedule-table-->
 
 <div class="icon-desc resize-on-break-point my-4">

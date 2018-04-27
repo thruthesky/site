@@ -10,6 +10,7 @@
     justify-content: center;
     padding: .5em 0;
     border:none;
+    border-radius: 2px;
     background-color: rgba(255,232,24,.9);
     width: 100%;
 
@@ -24,8 +25,14 @@
     }
 }
 
+
 .buttons{
     height: 100%;
+
+    @media screen and (max-width:768px) {
+        margin-top: 1em;
+    }
+
     div{
         padding: 0;
     }
@@ -42,12 +49,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: .9em;
+            padding: 9px;
             width: 100%;
             text-align: center;
             cursor: pointer;
             svg{
                 height: 1.3em;
+                width: auto;
+                margin-left: .6em;
+                @media screen and (max-width:768px) {
+                    margin-left: .4em;
+                }
             }
         }
 
@@ -57,37 +69,74 @@
         button{
             background: #ff8c00
         }
+
+        @media screen and (max-width:768px) {
+            padding-right: .5em;
+        }
     }
 
     .review-button{
-        display: flex;
-        align-items: center;
+        @media screen and (max-width:768px) {
+            padding: 0 .5em;
+        }
+
     }
 
     .resume-button{
-        display: flex;
-        align-items: flex-end;
+        @media screen and (max-width:768px) {
+            padding-left:.5em;
+        }
     }
 }
 
 
+
 .container-fluid{
+    box-sizing: border-box;
     background: white;
 
     .grade{
         svg{
             height: 1em;
         }
+
+        &[grade="5"]{
+            color: #f06000;
+          }
+          
+          &[grade="4"] {
+            color: #ff9900;
+          }
+          
+          &[grade="3"] {
+            color: #4a8d23;
+          }
+          
+          &[grade="2"] {
+            color: #272775;
+          }
+          
+          &[grade="1"] {
+            color: #272727;
+          }
     }
     
     .profile-row{
         justify-content: space-between;
-        padding: 1em 1.5em;
+        padding: 1em;
+        @media screen and (max-width:768px) {
+            padding: 1em .1em;
+        }
     }
 }
 
 .teacher-intro{
     text-align: justify;
+
+    @media screen and (max-width:768px) {
+        display: none;
+    }
+
     span{
         line-height: 1.9em;
         font-weight: 300;
@@ -107,9 +156,16 @@
 
 }
 
+
 .bio{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-size: .8em;
+
+    .teacher-name{
+        font-weight: bold;
+        font-size: 130%;
+        margin-right: .3em;
+    }
 }
