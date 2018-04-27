@@ -1,0 +1,98 @@
+<header>
+
+    <h1 class="">{{ "SCHEDULE AVAILABLE PAGE TITLE" | t }}</h1>
+
+</header>
+
+<section *ngIf=" a.user.isLogin ">
+    주의! 아래의 수업을 예약하면 곧 수업이 시작됩니다.
+</section>
+
+<div class="p-5 bg-orange black fs-2rem text-center" *ngIf=" a.user.isLogout ">
+
+    앗!
+    <span class="blue">로그인을 해야</span>지만 수업 시간을 확인하고 예약 할 수 있습니다.
+</div>
+
+<main>
+    <div class="d-flex my-5 mx-4 p-4 alert alert-warning rounded-0" *ngIf=" pageInLoading; else pageLoaded ">
+        <ion-spinner></ion-spinner>
+        <span class="p-2">{{ 'IN LOADING' | t }}</span>
+    </div>
+    <ng-template #pageLoaded>
+        <div class="mt-md-2">
+            <ion-grid *ngIf=" re && re?.available_schedules?.length; else NoSchedule">
+                <ion-row justify-content-around>
+                    <ion-col *ngFor="let schedule of re.available_schedules" col-auto>
+                        <div class="teacher mt-md-5 mb-md-3 w-100px bg-white" >
+
+                            <div class="d-flex justify-content-center">
+                                <div class="teacher-profile-photo size-100x120 of-hidden">
+                                    <img class="w-100" src="{{ schedule.teacher.photoURL }}">
+                                </div>
+                            </div>
+                            <div class="text-center mt-1">
+                                <div class="py-3 text-uppercase">{{ a.preTeacherName( schedule.teacher.name )}}</div>
+                                <div class="grade fs-90" [attr.grade]=" schedule.teacher.grade ">
+                                    추천:
+                                    <i class="star fas fa-star" *ngFor="let i of a.countStar(schedule.teacher.grade)"></i>
+                                    <!-- <i class="star empty-star fal fa-star" *ngFor="let i of a.countEmptyStar(schedule.teacher.grade)"></i> -->
+
+                                </div>
+                                <div class="pb-2 fs-90">
+                                    ({{ schedule.teacher.total_reservation }} 명 참여)
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center pb-2 fs-90">
+                                    <span *ngIf=" a.user.isLogin ">{{ class_begin(schedule) }} /</span>
+                                    <span> {{ schedule.duration }} {{ 'MINUTE' | t }} </span>
+                                    <i class="fal fa-clock ml-1 fs-90 dodgerblue" *ngIf=" !a.user.isLogin "></i>
+                                </div>
+                                <div class="pb-2 d-flex align-items-center justify-content-center fs-90">
+                                    {{ schedule.point }} 포인트
+                                    <i class="fal fa-check-circle ml-1 fs-90 green"></i>
+                                </div>
+
+                                <div class="reserve-button" (click)="onClickSchedule(schedule)" *ngIf="  !loading[schedule.idx] ">
+                                    {{ 'RESERVE NOW' | t }}
+                                    <i class="fal fa-calendar-check ml-2"></i>
+                                </div>
+                                <div class="d-flex-column align-items-center p-3" *ngIf=" loading[schedule.idx] ">
+                                    <div class="p-2 fs-lg">{{ 'IN RESERVING' | t }}</div>
+                                    <ion-spinner></ion-spinner>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <ng-template #NoSchedule>
+                <div class="alert alert-warning mx-3 my-5 p-5">
+                    <h2 class="mb-3">앗, 지금 즉시 수업을 예약 할 수 없습니다.</h2>
+                    지금 즉시 수업(예약)을 할 수 없는 이유는 주로 아래와 같습니다.
+                    <ol>
+                        <li>
+                            지금 현재 시간에 수업 가능한 선생님이 없거나
+                        </li>
+                        <li>
+                            회원님께서 곧 수업이 있는 경우 지금 즉시 수업 시작되는 다른 수업을 예약 할 수 없습니다.
+                        </li>
+                        <li>
+                            레벨테스트를 다 하였거나,
+                        </li>
+                        <li>
+                            회원님의 포인트가 없거나 수업을 예약하기에 부족한 경우에는 선생님 목록이 나타나지 않습니다.
+                        </li>
+                    </ol>
+                    <div>다른 시간에 다시 예약을 시도 해 주세요.</div>
+                </div>
+            </ng-template>
+
+        </div>
+    </ng-template>
+
+
+
+</main>

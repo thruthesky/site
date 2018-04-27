@@ -361,6 +361,14 @@ constructor( public loader: LoaderService ) {
   Meaning, the user will always see the latest updated list since it caches every time the user access teacher list page.
 
 
+## Reload version tag
+
+* It is stated in environemnt ts files like below.
+
+```` typescript
+env['reloadTag'] = (new Date).getTime();
+````
+
 ## KNOWN-BUG
 
 * First list of schedule table is being cached.

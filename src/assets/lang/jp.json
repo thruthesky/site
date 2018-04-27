@@ -133,7 +133,10 @@
     "MORNING":"午前",
     "AFTERNOON":"Afternoon",
     "FULL DAY":"全体（午前午後、一日中）",
-    "DIRECT-TIME":"時間ダイレクト選択："
+    "DIRECT-TIME":"時間ダイレクト選択：",
+    "INSTANCE_SCHEDULE": "Instance Class",
+    "INSTANCE_CLASS_RESERVED": "You reserved a class that starts soon. Moving to reserved session menu.",
+    "LOGIN_FIRST": "Please login first."
 
 
 }

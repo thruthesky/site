@@ -59,6 +59,11 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-session-past/katalkenglish-session-past.page.module#KatalkEnglishSessionPastPageModule'
   },
 
+  {
+    path: 'instance-schedule',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-instance-schedule/katalkenglish-instance-schedule.page.module#KatalkEnglishInstanceSchedulePageModule'
+  },
+
 
   /**
    * ontue.com for Teachers

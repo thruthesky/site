@@ -33,13 +33,14 @@
     "INSTALL": "설치하다",
     "CATEGORY": "범주",
     "IN LOADING": "로딩중입니다. 잠시만 기다려주세요.",
-    "KATALK_STORY": "우리들의 이야이기",
+    "KATALK_STORY": "월1만원",
     "SETTINGS": "설정",
     "SETTINGS PAGE TITLE": "설정",
     "SETTINGS PAGE DESC": "언어와 시간대를 선택할 수 있습니다.",
     "SELECT YOUR LANGUAGE": "언어 선택",
     "SELECT YOUR TIMEZONE": "시간대 선택",
     "LOGIN_INVALID": "로그인을 하십시오.",
+    "LOGIN_FIRST": "로그인을 먼저하십시오.",
     "REMINDER": "공지사항",
     "QNA": "질문과답변",
     "POLICY": "이용자 약관",
@@ -136,5 +137,7 @@
     "MORNING":"오전",
     "AFTERNOON":"오후",
     "FULL DAY":"전체(오전 오후, 하루종일)",
-    "DIRECT-TIME":"시간 직접 선택:"
+    "DIRECT-TIME":"시간 직접 선택:",
+    "INSTANCE_SCHEDULE": "즉시수업",
+    "INSTANCE_CLASS_RESERVED": "지금 곧 시작하는 수업을 예약을 하였습니다. 예약된 수업 메뉴로 이동합니다."
 }

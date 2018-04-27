@@ -73,7 +73,7 @@
     "INSTALL": "Install",
     "CATEGORY": "Category",
     "IN LOADING": "Loading.. Please, wait.",
-    "KATALK_STORY": "Our Story",
+    "KATALK_STORY": "Intro",
     "SETTINGS": "Settings",
     "SETTINGS PAGE TITLE": "Settings",
     "SETTINGS PAGE DESC": "You can change your language and timezone.",
@@ -178,5 +178,8 @@
     "MORNING":"Morning",
     "AFTERNOON":"Afternoon",
     "FULL DAY":"Full (morning afternoon, all day)",
-    "DIRECT-TIME":"Direct selection of time:"
+    "DIRECT-TIME":"Direct selection of time:",
+    "INSTANCE_SCHEDULE": "Instance Class",
+    "INSTANCE_CLASS_RESERVED": "You reserved a class that starts soon. Moving to reserved session menu.",
+    "LOGIN_FIRST": "Please login first."
 }
