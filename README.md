@@ -2,7 +2,8 @@
 
 ## TODO
 
-* cache teacher list for 2 hours. schedule table for 30 minutes.
+* branch opton.
+  * branch admin page for student, reservation/cancellation, payment, share.
 
 * Forum functionality and live chat design.
   * When a student leave a question/comment, we begin to chat.
@@ -17,9 +18,6 @@
   * Do not use localForage.
 
 * Check all page, link, menu with offline.
-
-
-
 
 * Reloading angular route if the user clicks the same route.
   * without chaning anything from routerLink="..."
@@ -355,6 +353,13 @@ constructor( public loader: LoaderService ) {
 * firebase user's email and password is set automatically.
 * `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
   * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.
+
+
+## Cache
+
+* `Teacher list` is cached and show when the user access. and it caches again in background.
+  Meaning, the user will always see the latest updated list since it caches every time the user access teacher list page.
+
 
 ## KNOWN-BUG
 
