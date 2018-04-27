@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataComponentModule } from '../../components/data/data.component.module';
 import { CommentComponentModule } from '../../components/comment/comment.component.module';
+import { QnaComponent } from './qna/qna-component';
 
 const AppRoutes: Array<Route> = [
     { component: ForumPage, path: ''  }
@@ -13,7 +14,8 @@ const AppRoutes: Array<Route> = [
 
 @NgModule({
     declarations: [
-        ForumPage
+        ForumPage,
+        QnaComponent
     ],
     entryComponents: [
         ForumPage

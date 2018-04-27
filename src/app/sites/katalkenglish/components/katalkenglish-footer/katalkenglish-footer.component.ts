@@ -10,9 +10,9 @@ import { XapiUserService } from '../../../../modules/xapi/xapi.module';
 })
 export class KatalkEnglishFooterComponent {
 
+  year = (new Date).getFullYear();
   constructor(
-    public a: AppService,
-    public f: FireService
+    public a: AppService
   ) {
   }
 }

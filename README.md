@@ -2,6 +2,8 @@
 
 ## TODO
 
+* Front page of katalk english, ontue
+
 * Forum
   * Qna
   * Policy

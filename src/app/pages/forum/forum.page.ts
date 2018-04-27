@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FireService, CATEGORY, POST, COLLECTIONS, DATA_UPLOAD } from './../../modules/firelibrary/core';
 import * as firebase from 'firebase';
 import { AppService } from '../../providers/app.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'forum-page',
@@ -25,9 +26,26 @@ export class ForumPage implements OnInit, OnDestroy {
     // category;
 
     constructor(
+        public activatedRoute: ActivatedRoute,
         public fire: FireService,
         public a: AppService
     ) {
+
+
+        fire.setSettings({
+            listenOnPostChange: true,
+            listenOnCommentChange: true,
+            listenOnPostLikes: true,
+            listenOnCommentLikes: true
+        });
+        activatedRoute.data.subscribe(params => {
+            console.log('params: ', params);
+            if (params['category']) {
+                this.loadPage(params['category']);
+            } else {
+                this.a.toast('No category was selected to display posts');
+            }
+        });
         this.initPost();
         this.fire.category.categories().then(re => {
             if (re.length) {
@@ -38,16 +56,9 @@ export class ForumPage implements OnInit, OnDestroy {
             }
         });
 
-        // fire.post.settings = {
-        //   listenOnLikes: true
-        // };
-        fire.setSettings({
-            listenOnPostChange: true,
-            listenOnCommentChange: true,
-            listenOnPostLikes: true,
-            listenOnCommentLikes: true
-        });
-        this.loadPage('all');
+        fire.post.settings = {
+          listenOnLikes: true
+        };
     }
 
     ngOnInit() {
