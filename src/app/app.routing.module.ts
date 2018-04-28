@@ -146,6 +146,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'teacher-review-list',
+    loadChildren: './pages/teacher-review-list/teacher-review-list.page.module#TeacherReviewListPageModule'
+  },
+
+  {
     path: 'schedule-table',
     loadChildren: './pages/schedule-table/schedule-table.page.module#ScheduleTablePageModule'
   },
