@@ -18,7 +18,8 @@
     "PASSWORD-TOO-LONG": "Password length exceeds at maximum 128 characters.",
     "AUTH/ID-TOKEN-REVOKED": "ID token is revoked/expired. Login again to get a new id token.",
     "AUTH/WRONG-PASSWORD": "Password was incorrect, #info",
-    "YOU ARE NOT LOGGED IN": "You are not logged in.",
+    "YOU ARE NOT LOGGED IN": "Please login first.",
+
     "Email": "Email",
     "Version": "Version: #version",
     "LMS.SESSION_RESERVE": "Reservation",
@@ -182,6 +183,10 @@
     "INSTANCE_SCHEDULE": "Instance Class",
     "INSTANCE_CLASS_RESERVED": "You reserved a class that starts soon. Moving to reserved session menu.",
     "LOGIN_FIRST": "Please login first.",
+
     "INPUT_TITLE": "Input title.",
-    "INPUT_CONTENT": "Input content."
+    "INPUT_CONTENT": "Input content.",
+    "OK": "Ok",
+    "LOGIN_REQUIRED_ALERT_TITLE": "Login required",
+    "LOGIN_REQUIRED_ALERT_CONTENT": "You need to login first."
 }

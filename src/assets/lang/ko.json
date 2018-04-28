@@ -1,4 +1,6 @@
 {
+
+    "YOU ARE NOT LOGGED IN": "로그인을 먼저 해 주세요.",
     "HOME": "홈",
     "LOGIN": "로그인",
     "LOGOUT": "로그아웃",
@@ -141,5 +143,8 @@
     "INSTANCE_SCHEDULE": "즉시수업",
     "INSTANCE_CLASS_RESERVED": "지금 곧 시작하는 수업을 예약을 하였습니다. 예약된 수업 메뉴로 이동합니다.",
     "INPUT_TITLE": "제목을 입력하세요.",
-    "INPUT_CONTENT": "내용을 입력하세요."
+    "INPUT_CONTENT": "내용을 입력하세요.",
+    "OK": "확인",
+    "LOGIN_REQUIRED_ALERT_TITLE": "로그인",
+    "LOGIN_REQUIRED_ALERT_CONTENT": "로그인을 먼저하셔야 합니다."
 }

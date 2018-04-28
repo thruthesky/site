@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FireService, CATEGORY, POST, COLLECTIONS, DATA_UPLOAD } from './../../modules/firelibrary/core';
 import * as firebase from 'firebase';
 import { AppService } from '../../providers/app.service';
 import { ActivatedRoute } from '@angular/router';
+import { ModalService } from '../../providers/modal/modal.service';
 
 @Component({
     selector: 'forum-page',
@@ -31,9 +32,11 @@ export class ForumPage implements OnInit, OnDestroy {
     };
     percentage = 0;
     constructor(
+        public ngZone: NgZone,
         public activatedRoute: ActivatedRoute,
-        public fire: FireService,
-        public a: AppService
+        public readonly fire: FireService,
+        public readonly a: AppService,
+        public readonly modal: ModalService
     ) {
 
 
@@ -113,7 +116,7 @@ export class ForumPage implements OnInit, OnDestroy {
      */
     loadPage(category?: string) {
         this.fire.post.page({ category: category, limit: 5 }).then(posts => {
-            console.log('posts: ', posts);
+            // console.log('posts: ', posts);
         });
     }
 
@@ -213,8 +216,18 @@ export class ForumPage implements OnInit, OnDestroy {
     }
     onProgress(percentage) {
         this.percentage = percentage;
+        this.ngZone.run( x => x );
         if ( this.percentage === 100 ) {
             setTimeout( () => this.percentage = 0, 1000 );
         }
+    }
+    onClickCreate() {
+        if ( this.a.user.isLogout ) {
+            // this.modal.alert({
+            //     title: this.a.t('LOGIN_REQUIRED_ALERT_TITLE'),
+            //     content: this.a.t('LOGIN_REQUIRED_ALERT_CONTENT')
+            // });
+        }
+        this.show.qnaForm = true;
     }
 }

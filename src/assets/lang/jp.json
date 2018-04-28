@@ -137,6 +137,10 @@
     "INSTANCE_SCHEDULE": "インスタンスクラス",
     "INSTANCE_CLASS_RESERVED": "あなたはすぐに始まるクラスを予約しました。 予約済みセッションメニューに移動します。",
     "LOGIN_FIRST": "まずログインしてください。",
+    "YOU ARE NOT LOGGED IN": "まずログインしてください。",
     "INPUT_TITLE": "入力タイトル。",
-    "INPUT_CONTENT": "入力内容。"
+    "INPUT_CONTENT": "入力内容。",
+    "OK": "オーケー",
+    "LOGIN_REQUIRED_ALERT_TITLE": "ログインが必要です",
+    "LOGIN_REQUIRED_ALERT_CONTENT": "まずログインする必要があります。"
 }

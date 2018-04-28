@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "s": "ng serve --disable-host-check"
+    "s": "ng serve --disable-host-check",
+    "bt": "ng build --prod --named-chunks=true"
   },
   "private": true,
   "dependencies": {

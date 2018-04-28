@@ -12,7 +12,8 @@ export class CommentComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
 
   @Input() post: POST = {};
   @Input() comment: COMMENT = {};
-  form: COMMENT;
+  editing = false;
+  // form: COMMENT;
   loader = {
     progress: false
   };
@@ -20,7 +21,7 @@ export class CommentComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
     public fire: FireService
   ) {
     // console.log('>>>>> constructor() ::: ');
-    this.initComment();
+    // this.initComment();
   }
 
 
@@ -35,7 +36,7 @@ export class CommentComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
    * Prepare `this.form` with an 'Temporary Comment ID` to crate.
    */
   initComment() {
-    this.form = { id: this.fire.comment.getId(), data: [] };
+    // this.form = { id: this.fire.comment.getId(), data: [] };
   }
   ngOnInit() {
     // console.log('>>>>> ngOnInit() ::: ');
@@ -45,6 +46,7 @@ export class CommentComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
     }
     // console.log("comment in init()", this.comment);
     setTimeout(() => {
+      // console.log(this.comment);
       this.comment.date = (new Date(this.comment.created)).toLocaleTimeString();
     }, 1);
 
@@ -65,49 +67,49 @@ export class CommentComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
   myComment() {
     return this.comment.uid === this.fire.user.uid;
   }
-  /**
-   * Creates or Updates a comment.
-   * This is being invoked when user submits the comment form.
-   *
-   *
-   * @param parentnId is the parent id. if it is not set, it would be undefined.
-   */
-  onSubmit(event: Event) {
-    console.log(`parentId: ${this.comment.parentId}`, 'form: ', this.form, 'comment:', this.comment);
-    event.preventDefault();
-    this.form.postId = this.post.id;
-    this.form.parentId = this.comment.id;
-    this.loader.progress = true;
-    if (this.form.created) {
-      this.fire.comment.edit(this.form).then(re => this.onSubmitThen(re)).catch(e => this.onSubmitCatch(e));
-    } else {
-      this.fire.comment.create(this.form).then(re => this.onSubmitThen(re)).catch(e => this.onSubmitCatch(e));
-    }
-    return false;
-  }
-  onSubmitThen(re) {
-    this.initComment();
-    this.loader.progress = false;
-  }
-  onSubmitCatch(e) {
-    this.loader.progress = false;
-    alert(e.message);
-  }
+  // /**
+  //  * Creates or Updates a comment.
+  //  * This is being invoked when user submits the comment form.
+  //  *
+  //  *
+  //  * @param parentnId is the parent id. if it is not set, it would be undefined.
+  //  */
+  // onSubmit(event: Event) {
+  //   console.log(`parentId: ${this.comment.parentId}`, 'form: ', this.form, 'comment:', this.comment);
+  //   event.preventDefault();
+  //   this.form.postId = this.post.id;
+  //   this.form.parentId = this.comment.id;
+  //   this.loader.progress = true;
+  //   if (this.form.created) {
+  //     this.fire.comment.edit(this.form).then(re => this.onSubmitThen(re)).catch(e => this.onSubmitCatch(e));
+  //   } else {
+  //     this.fire.comment.create(this.form).then(re => this.onSubmitThen(re)).catch(e => this.onSubmitCatch(e));
+  //   }
+  //   return false;
+  // }
+  // onSubmitThen(re) {
+  //   this.initComment();
+  //   this.loader.progress = false;
+  // }
+  // onSubmitCatch(e) {
+  //   this.loader.progress = false;
+  //   alert(e.message);
+  // }
 
 
   /**
    * Sets the form to edit.
    */
-  onClickEdit() {
-    // this.form = this.comment;
-    // this.form.id = this.comment.id;
-    this.form = this.comment;
-  }
+  // onClickEdit() {
+  //   this.form = this.comment;
+  //   this.form.id = this.comment.id;
+  //   this.form = this.comment;
+  // }
   /**
    * Hide edit form and show comment.
    */
   onClickEditCancel() {
-    this.form = this.comment;
+    // this.form = this.comment;
   }
 
 

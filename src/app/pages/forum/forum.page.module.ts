@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { DataComponentModule } from '../../components/data/data.component.module';
 import { CommentComponentModule } from '../../components/comment/comment.component.module';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
+
 
 const AppRoutes: Array<Route> = [
     { component: ForumPage, path: ''  }
@@ -26,7 +28,8 @@ const AppRoutes: Array<Route> = [
         RouterModule.forChild( AppRoutes ),
         DataComponentModule,
         CommentComponentModule,
-        TranslatePipeModule
+        TranslatePipeModule,
+        ModalSerivceModule
     ],
     bootstrap: [
         ForumPage

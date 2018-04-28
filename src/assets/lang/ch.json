@@ -138,6 +138,10 @@
     "INSTANCE_SCHEDULE": "实例类",
     "INSTANCE_CLASS_RESERVED": "你预留了一个即将开课的课程。 移至保留的会话菜单。",
     "LOGIN_FIRST": "请先登录。",
+    "YOU ARE NOT LOGGED IN": "请先登录。",
     "INPUT_TITLE": "输入标题。",
-    "INPUT_CONTENT": "输入内容。"
+    "INPUT_CONTENT": "输入内容。",
+    "OK": "好",
+    "LOGIN_REQUIRED_ALERT_TITLE": "要求登录",
+    "LOGIN_REQUIRED_ALERT_CONTENT": "您需要先登录。"
 }

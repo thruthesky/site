@@ -7,9 +7,9 @@
 
 <section id="qna" *ngIf=" category === 'qna' ">
   Questions and Answers
-  <button (click)=" show.qnaForm = true " *ngIf=" ! show.qnaForm ">Create</button>
+  <button (click)=" onClickCreate() " *ngIf=" ! show.qnaForm ">Create</button>
 
-  <section class="form-box" *ngIf=" true || show.qnaForm ">
+  <section class="form-box" *ngIf=" show.qnaForm ">
     <form (ngSubmit)=" post.category='qna'; onSubmit( $event ) ">
       <h3 class="m-0 p-0">
         {{ post.created ? 'EDIT POST' : 'CREATE POST' }}
@@ -20,7 +20,6 @@
       <div>
         <textarea name="content" [(ngModel)]="post.content" placeholder=" {{ 'INPUT_CONTENT' | t }} "></textarea>
       </div>
-
       <div class="row">
         <div class="col upload">
           <app-data [path]=" 'posts/' + post.id " [data]=" post.data " [displayFiles]="false" [displayProgress]="false" (upload)="onUpload()"
