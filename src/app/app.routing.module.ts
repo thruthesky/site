@@ -161,6 +161,24 @@ const routes: Routes = [
   },
 
   {
+    path: 'qna',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { category: 'qna' }
+  },
+
+  {
+    path: 'policy',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { category: 'policy' }
+  },
+
+  {
+    path: 'rules',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { category: 'rules' }
+  },
+
+  {
     path: 'settings',
     loadChildren: './pages/settings/settings.page.module#SettingsPageModule'
   },

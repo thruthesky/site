@@ -2,6 +2,14 @@
 
 ## TODO
 
+* Front page of katalk english, ontue
+
+* Forum
+  * Qna
+  * Policy
+  * Regulation
+  * No discussion.
+
 * branch opton.
   * branch admin page for student, reservation/cancellation, payment, share.
 

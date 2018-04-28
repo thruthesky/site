@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { LanguageService } from './language.service';
-import { Router, NavigationExtras, NavigationStart } from '@angular/router';
+import { Router, NavigationExtras, NavigationStart, NavigationEnd } from '@angular/router';
 import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
@@ -185,6 +185,13 @@ export class AppService {
                     console.log('same url');
                     this.router.navigate(['/redirect'], { queryParams: { url: e.url } });
                 }
+            }
+
+            /**
+             * Scroll the page to the top after transitioning into another page.
+             */
+            if (e instanceof NavigationEnd) {
+                window.document.body.scrollTop = window.document.documentElement.scrollTop = 0;
             }
         });
 

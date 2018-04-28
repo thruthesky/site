@@ -6,7 +6,7 @@
     ></schedule-table-profile-component>
 
 <!--/single-teacher-->
-<div class="multiple-teachers" *ngIf=" ! singleTeacher ">
+<div class="multiple-teachers" *ngIf=" isAllTeacher ">
     <section class="page-header d-flex justify-content-between">
         <h2 class="title">{{ "ALL SCHEDULE" | t }}</h2>
         <div (click)=" display_options = !display_options " *ngIf=" ! display_options ">

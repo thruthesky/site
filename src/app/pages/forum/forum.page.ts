@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FireService, CATEGORY, POST, COLLECTIONS, DATA_UPLOAD } from './../../modules/firelibrary/core';
 import * as firebase from 'firebase';
 import { AppService } from '../../providers/app.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'forum-page',
@@ -24,11 +25,34 @@ export class ForumPage implements OnInit, OnDestroy {
     /// post list
     // category;
 
+    category = null;
+    show = {
+        qnaForm: false
+    };
+    percentage = 0;
     constructor(
+        public activatedRoute: ActivatedRoute,
         public fire: FireService,
         public a: AppService
     ) {
+
+
+        fire.setSettings({
+            listenOnPostChange: true,
+            listenOnCommentChange: true,
+            listenOnPostLikes: true,
+            listenOnCommentLikes: true
+        });
         this.initPost();
+        activatedRoute.data.subscribe(params => {
+            console.log('params: ', params);
+            if (params['category']) {
+                this.category = params['category'];
+                this.loadPage(this.category);
+            } else {
+                this.a.toast('No category was selected to display posts');
+            }
+        });
         this.fire.category.categories().then(re => {
             if (re.length) {
                 re.map(category => {
@@ -38,16 +62,6 @@ export class ForumPage implements OnInit, OnDestroy {
             }
         });
 
-        // fire.post.settings = {
-        //   listenOnLikes: true
-        // };
-        fire.setSettings({
-            listenOnPostChange: true,
-            listenOnCommentChange: true,
-            listenOnPostLikes: true,
-            listenOnCommentLikes: true
-        });
-        this.loadPage('all');
     }
 
     ngOnInit() {
@@ -59,19 +73,27 @@ export class ForumPage implements OnInit, OnDestroy {
 
     initPost() {
         this.post = { id: this.fire.post.getId(), data: [] };
+        // console.log('initPost(): ', this.post);
     }
+
     openCreateForm() {
 
     }
 
 
-    getSelectedCategoryName() {
-        if (this.fire.post.categoryId === 'all') {
-            return 'All Categories';
-        } else {
-            return this.categories[this.fire.post.categoryId].name;
-        }
-    }
+    // getSelectedCategoryName() {
+    //     if (this.fire.post.categoryId === void 0) {
+    //         return '';
+    //     }
+    //     if (this.fire.post.categoryId === 'all') {
+    //         return 'All Categories';
+    //     } else {
+    //         if (this.categories && this.categories[this.fire.post.categoryId]) {
+    //             return this.categories[this.fire.post.categoryId].name;
+    //         }
+    //         return '';
+    //     }
+    // }
 
     getPostIDs() {
         return this.fire.post.pagePostIds;
@@ -114,6 +136,7 @@ export class ForumPage implements OnInit, OnDestroy {
                 });
         } else {
             this.loader.creating = true;
+            console.log('OnSubmit(): ', this.post);
             this.fire.post.create(this.post).then(re => {
                 console.log('postId:', re.data.id);
                 // this.post.id = re.data.id;
@@ -184,4 +207,14 @@ export class ForumPage implements OnInit, OnDestroy {
             .catch(e => alert(e.message));
     }
 
+
+    onUpload() {
+        console.log('onUpload(): ', this.post.data);
+    }
+    onProgress(percentage) {
+        this.percentage = percentage;
+        if ( this.percentage === 100 ) {
+            setTimeout( () => this.percentage = 0, 1000 );
+        }
+    }
 }

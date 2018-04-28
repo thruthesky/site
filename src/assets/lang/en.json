@@ -181,5 +181,7 @@
     "DIRECT-TIME":"Direct selection of time:",
     "INSTANCE_SCHEDULE": "Instance Class",
     "INSTANCE_CLASS_RESERVED": "You reserved a class that starts soon. Moving to reserved session menu.",
-    "LOGIN_FIRST": "Please login first."
+    "LOGIN_FIRST": "Please login first.",
+    "INPUT_TITLE": "Input title.",
+    "INPUT_CONTENT": "Input content."
 }

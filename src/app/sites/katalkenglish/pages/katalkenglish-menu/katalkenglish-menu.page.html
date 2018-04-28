@@ -59,10 +59,24 @@
 
 
 
-        <li class="menu-qna" (click)=" a.onClickContactAdmin() ">
+        <li class="menu-qna" routerLink="/qna">
             <div>
                 <ion-icon name="help-circle" color="primary" item-start></ion-icon>
                 <div>{{ 'QNA' | t }}</div>
+            </div>
+        </li>
+
+        <li class="menu-qna" routerLink="/policy">
+            <div>
+                <ion-icon name="help-circle" color="primary" item-start></ion-icon>
+                <div>{{ 'POLICY' | t }}</div>
+            </div>
+        </li>
+
+        <li class="menu-qna" routerLink="/rules">
+            <div>
+                <ion-icon name="help-circle" color="primary" item-start></ion-icon>
+                <div>{{ 'RULES' | t }}</div>
             </div>
         </li>
 

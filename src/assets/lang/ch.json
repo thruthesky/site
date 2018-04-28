@@ -135,8 +135,9 @@
     "AFTERNOON":"下午",
     "FULL DAY":"全部（上午下午，全天）",
     "DIRECT-TIME":"直接选择时间：",
-    "INSTANCE_SCHEDULE": "Instance Class",
-    "INSTANCE_CLASS_RESERVED": "You reserved a class that starts soon. Moving to reserved session menu.",
-    "LOGIN_FIRST": "Please login first."
-
+    "INSTANCE_SCHEDULE": "实例类",
+    "INSTANCE_CLASS_RESERVED": "你预留了一个即将开课的课程。 移至保留的会话菜单。",
+    "LOGIN_FIRST": "请先登录。",
+    "INPUT_TITLE": "输入标题。",
+    "INPUT_CONTENT": "输入内容。"
 }
