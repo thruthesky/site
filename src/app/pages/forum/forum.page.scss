@@ -1,0 +1,48 @@
+$padding: .6em;
+#qna {
+    padding: $padding;
+    .posts {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        .post {
+            margin-top: 1em;
+            .title {
+                font-size: 1.25em;
+            }
+            .meta {
+                text-align: right;
+                font-size: .9em;
+            }
+            .content {
+                padding: 1em;
+                background-color: #eee;
+            }
+        }
+    }
+
+    .form-box {
+        [name='title'] {
+            padding: $padding;
+            width: 100%;
+        }
+        [name='content'] {
+            padding: $padding;
+            width: 100%;
+            height: 5em;
+        }
+        .buttons {
+            text-align: right;
+            button {
+                padding: $padding;
+            }
+        }
+
+        .upload {
+            display: flex;
+            .progress {
+                padding: .4em 0 0 .6em;
+            }
+        }
+    }
+}

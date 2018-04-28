@@ -1,68 +1,77 @@
+<section id="qna" *ngIf=" category === 'policy' ">
+  <h1>Policy</h1>
+</section>
+<section id="qna" *ngIf=" category === 'rules' ">
+  <h1>Rules</h1>
+</section>
 
-      <h2 class="p-0 m-0">{{ getSelectedCategoryName() }}</h2>
-      <section class="form box">
-        <form (ngSubmit)=" onSubmit( $event ) ">
-          <h3 class="m-0 p-0">
-            {{ post.id ? 'EDIT POST' : 'CREATE POST' }}
-          </h3>
-          <div>
-            Select Category :
-            <select name="category" [(ngModel)]="post.category" *ngIf="categoryIds.length">
-              <option value="" selected>Select Category</option>
-              <option value="wrong-category">Wrong Category ID</option>
-              <option *ngFor=" let id of categoryIds " [value]=" id ">{{ categories[id].name ? categories[id].name : id }}</option>
-            </select>
-            <div *ngIf="categoryIds.length && post.category && subcategories">
-              Select Sub Category :
-              <select name="subcategory" [(ngModel)]="post.subcategory">
-                <option *ngFor=" let categoryName of subcategories " [value]=" categoryName ">{{ categoryName }}</option>
-              </select>
-            </div>
-          </div>
-          <div>Title:
-            <input name="name" [(ngModel)]="post.title">
-          </div>
-          <div>Content:
-            <input name="description" [(ngModel)]="post.content">
-          </div>
-          
-          <app-data [path]=" 'posts/' + post.id " [data]=" post.data "></app-data>
-      
-          <button type="submit" *ngIf=" ! loader.creating ">{{ post.created ? 'EDIT' : 'CREATE' }} POST</button>
-          <button type="button" (click)="initPost()">Cancel</button>
+<section id="qna" *ngIf=" category === 'qna' ">
+  Questions and Answers
+  <button (click)=" show.qnaForm = true " *ngIf=" ! show.qnaForm ">Create</button>
+
+  <section class="form-box" *ngIf=" true || show.qnaForm ">
+    <form (ngSubmit)=" post.category='qna'; onSubmit( $event ) ">
+      <h3 class="m-0 p-0">
+        {{ post.created ? 'EDIT POST' : 'CREATE POST' }}
+      </h3>
+      <div>
+        <input name="title" [(ngModel)]="post.title" placeholder="{{ 'INPUT_TITLE' | t }}">
+      </div>
+      <div>
+        <textarea name="content" [(ngModel)]="post.content" placeholder=" {{ 'INPUT_CONTENT' | t }} "></textarea>
+      </div>
+
+      <div class="row">
+        <div class="col upload">
+          <app-data [path]=" 'posts/' + post.id " [data]=" post.data " [displayFiles]="false" [displayProgress]="false" (upload)="onUpload()"
+            (progress)="onProgress( $event )"></app-data>
+          <div class="progress" *ngIf=" percentage ">Upload: {{ percentage }}%</div>
+        </div>
+        <div class="col buttons">
+          <button class="submit" type="submit" *ngIf=" ! loader.creating ">{{ post.created ? 'EDIT' : 'CREATE' }} POST</button>
+          <button class="cancel" type="button" (click)="initPost(); show.qnaForm = false ">Cancel</button>
           <span class="loader" *ngIf=" loader.creating || loader.editing ">Loading...</span>
-        </form>
-      </section>
-      
-      
-      <hr> Forums:
-      <button (click)="loadPage('all')">All categories</button>
-      <button *ngFor=" let id of categoryIds " (click)=" loadPage( id ) ">{{ categories[id].name ? categories[id].name : id }}</button>
-      <hr>
-      
-      
-      <ul>
-        <li *ngFor=" let id of getPostIDs()">
-          <div>{{ getPost(id).category }} / {{ getPost(id).title }} by {{ getPost(id).displayName }} / {{ getPost(id).date }} / ID: {{ id }}</div>
-          <div style="padding: 1em; background-color: #eee;">
-            {{ getPost(id).content }}
-          </div>
-          <div class="files" *ngIf=" ! getPost(id).deleted && getPost(id)?.data?.length " >
-            <div class="file" style="display: inline-block; overflow: hidden; margin: 2px; padding: 2px; width: 120px; height: 100px; border: 1px solid grey;"
-              *ngFor="let data of getPost(id).data">
-              <img src="{{ data.thumbnailUrl ? data.thumbnailUrl : data.url }}">
-            </div>
-          </div>
-          <div>
-            <button (click)="onClickEdit( getPost(id) )" *ngIf="myPost(getPost(id))">Edit</button>
-            <button (click)="onClickDelete( id )" *ngIf="myPost(getPost(id))">Delete</button>
-            <button (click)="onClickLike(id)" *ngIf=" !getPost(id)['likeInProgress'] ">Like({{getPost(id).numberOfLikes ? getPost(id).numberOfLikes : 0}})</button>
-            <span class="loader" *ngIf=" getPost(id)['likeInProgress'] ">Like...</span>
-            <button (click)="onClickDislike(id)" *ngIf=" !getPost(id)['dislikeInProgress'] ">Dislike({{getPost(id).numberOfDislikes ? getPost(id).numberOfDislikes : 0}})</button>
-            <span class="loader" *ngIf=" getPost(id)['dislikeInProgress'] ">Dislike...</span>
-          </div>
-          <app-comment-list [post]=" getPost(id) "></app-comment-list>
-        </li>
-      </ul>
-      <button (click)=" loadPage() ">Load Next Page</button>
-      
+        </div>
+      </div>
+      <div class="files" *ngIf="post.data?.length ">
+        <div *ngFor="let file of post.data" style="position: relative; display: inline-block; margin: 2px; border: 1px solid grey; padding: 2px; width: 120px; height: 68px; overflow: hidden;">
+          <img width="100%" src="{{ file.url }}">
+          <div (click)="onClickDelete(file)" *ngIf=" ! loader " style="position: absolute; z-index: 100; bottom: 0; padding: .25em; background-color: white; cursor: pointer;">Delete</div>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- <hr> Forums:
+  <button (click)="loadPage('all')">All categories</button>
+  <button *ngFor=" let id of categoryIds " (click)=" loadPage( id ) ">{{ categories[id].name ? categories[id].name : id }}</button>
+  <hr> -->
+
+  <ul class="posts">
+    <li class="post" *ngFor=" let id of getPostIDs()">
+      <div class="title">{{ getPost(id).title }}</div>
+      <div class="meta">by {{ getPost(id).displayName }} / {{ getPost(id).date }}</div>
+      <div class="content">
+        {{ getPost(id).content }}
+      </div>
+      <div class="files" *ngIf=" ! getPost(id).deleted && getPost(id)?.data?.length ">
+        <div class="file" style="display: inline-block; overflow: hidden; margin: 2px; padding: 2px; width: 120px; height: 100px; border: 1px solid grey;"
+          *ngFor="let data of getPost(id).data">
+          <img src="{{ data.thumbnailUrl ? data.thumbnailUrl : data.url }}">
+        </div>
+      </div>
+      <div>
+        <button (click)="onClickEdit( getPost(id) )" *ngIf="myPost(getPost(id))">Edit</button>
+        <button (click)="onClickDelete( id )" *ngIf="myPost(getPost(id))">Delete</button>
+        <button (click)="onClickLike(id)" *ngIf=" !getPost(id)['likeInProgress'] ">Like({{getPost(id).numberOfLikes ? getPost(id).numberOfLikes : 0}})</button>
+        <span class="loader" *ngIf=" getPost(id)['likeInProgress'] ">Like...</span>
+        <button (click)="onClickDislike(id)" *ngIf=" !getPost(id)['dislikeInProgress'] ">Dislike({{getPost(id).numberOfDislikes ? getPost(id).numberOfDislikes : 0}})</button>
+        <span class="loader" *ngIf=" getPost(id)['dislikeInProgress'] ">Dislike...</span>
+      </div>
+      <app-comment-list [post]=" getPost(id) "></app-comment-list>
+    </li>
+  </ul>
+  <button (click)=" loadPage() ">Load Next Page</button>
+
+</section>
+<!--/ #qna -->
