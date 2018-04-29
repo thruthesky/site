@@ -188,5 +188,6 @@
     "INPUT_CONTENT": "Input content.",
     "OK": "Ok",
     "LOGIN_REQUIRED_ALERT_TITLE": "Login required",
-    "LOGIN_REQUIRED_ALERT_CONTENT": "You need to login first."
+    "LOGIN_REQUIRED_ALERT_CONTENT": "You need to login first.",
+    "ANONYMOUS": "Anonymous"
 }

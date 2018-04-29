@@ -2,6 +2,10 @@
 
 ## TODO
 
+* 질문 답변. 공개 비공개 옵션.
+  * 기본적으로 모두 비공개이고, 운영자가 답변을 할 때, 공개 할 수 있음.
+* 운영자만 답변하는 옵션.
+
 * witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
   * Since it is completely separated service.
   * Make the workserver as real server.

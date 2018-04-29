@@ -6,7 +6,8 @@ import { AppService } from '../../providers/app.service';
 
 @Component({
     selector: 'app-comment-form',
-    templateUrl: './comment-form.component.html'
+    templateUrl: './comment-form.component.html',
+    styleUrls: ['./comment-form.component.scss']
 })
 export class CommentFormComponent implements OnInit, OnDestroy {
 
@@ -14,11 +15,14 @@ export class CommentFormComponent implements OnInit, OnDestroy {
     @Input() comment: COMMENT = {};
     @Output() created = new EventEmitter<string>();
     @Output() edited = new EventEmitter<string>();
+    @Output() cancelled = new EventEmitter<void>();
     form: COMMENT;
     loader = {
         progress: false
     };
+    percentage = 0;
     constructor(
+        public ngZone: NgZone,
         public readonly a: AppService,
         public readonly fire: FireService
     ) {
@@ -82,6 +86,23 @@ export class CommentFormComponent implements OnInit, OnDestroy {
          * Pass by value.
          */
         this.form = Object.assign({}, this.comment);
+    }
+
+    onClickEditCancel() {
+        // this.form = this.comment;
+        this.cancelled.emit();
+    }
+
+
+    onUpload() {
+        console.log('onUpload(): ', this.post.data);
+    }
+    onProgress(percentage) {
+        this.percentage = percentage;
+        this.ngZone.run(x => x);
+        if (this.percentage === 100) {
+            setTimeout(() => this.percentage = 0, 1000);
+        }
     }
 }
 

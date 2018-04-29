@@ -1,9 +1,11 @@
-<form (ngSubmit)=" onSubmit( $event ) ">
+<!-- <form (ngSubmit)=" onSubmit( $event ) ">
   <input type="text" name="content" [(ngModel)]="comment.content" [disabled]="loader.creating">
   <app-data [path]=" 'posts/' + post.id + '/comments/' + comment.id " [data]=" comment.data "></app-data>
   <button type="submit" *ngIf=" ! loader.creating ">Create Comment</button>
   <span class="loader" *ngIf="loader.creating">Creating a post. Please wait.</span>
-</form>
+</form> -->
+
+<app-comment-form [post]="post" [comment]="comment" (created)=" 1 "></app-comment-form>
 
 <div class="loader" *ngIf="loader.commentList">Loading comments. Please wait.</div>
 <ul>
@@ -11,3 +13,4 @@
     <app-comment [post]="post" [comment]="comments(id)"></app-comment>
   </li>
 </ul>
+

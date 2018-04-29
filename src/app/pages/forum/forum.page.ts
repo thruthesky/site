@@ -117,6 +117,18 @@ export class ForumPage implements OnInit, OnDestroy {
     loadPage(category?: string) {
         this.fire.post.page({ category: category, limit: 5 }).then(posts => {
             // console.log('posts: ', posts);
+
+            if (this.fire.post.pagePostIds.length) {
+                for (const id of this.fire.post.pagePostIds) {
+                    const post = posts[id];
+                    // post.date = (new Date(post.created)).toLocaleDateString();
+                    if (!post.displayName) {
+                        // this.getPost(id).displayName = this.a.t('ANONYMOUS');
+                    }
+                    console.log(this.getPost(id));
+                }
+            }
+            this.a.rerender(10);
         });
     }
 
@@ -140,6 +152,7 @@ export class ForumPage implements OnInit, OnDestroy {
         } else {
             this.loader.creating = true;
             console.log('OnSubmit(): ', this.post);
+            this.post.displayName = this.a.user.name;
             this.fire.post.create(this.post).then(re => {
                 console.log('postId:', re.data.id);
                 // this.post.id = re.data.id;
@@ -216,13 +229,13 @@ export class ForumPage implements OnInit, OnDestroy {
     }
     onProgress(percentage) {
         this.percentage = percentage;
-        this.ngZone.run( x => x );
-        if ( this.percentage === 100 ) {
-            setTimeout( () => this.percentage = 0, 1000 );
+        this.ngZone.run(x => x);
+        if (this.percentage === 100) {
+            setTimeout(() => this.percentage = 0, 1000);
         }
     }
     onClickCreate() {
-        if ( this.a.user.isLogout ) {
+        if (this.a.user.isLogout) {
             // this.modal.alert({
             //     title: this.a.t('LOGIN_REQUIRED_ALERT_TITLE'),
             //     content: this.a.t('LOGIN_REQUIRED_ALERT_CONTENT')

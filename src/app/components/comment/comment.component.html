@@ -23,7 +23,7 @@
       <span class="loader" *ngIf=" comment['dislikeInProgress'] ">Dislike...</span>
     </div>
 
-    <app-comment-form #commentForm [post]="post" [comment]="comment" (created)=" 1 " (edited)=" editing = false; "></app-comment-form>
+    <app-comment-form #commentForm [post]="post" [comment]="comment" (created)=" 1 " (edited)=" editing = false; " (cancelled)=" editing = false; "></app-comment-form>
   
   
     <!-- <div class="form">

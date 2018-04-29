@@ -146,5 +146,6 @@
     "INPUT_CONTENT": "내용을 입력하세요.",
     "OK": "확인",
     "LOGIN_REQUIRED_ALERT_TITLE": "로그인",
-    "LOGIN_REQUIRED_ALERT_CONTENT": "로그인을 먼저하셔야 합니다."
+    "LOGIN_REQUIRED_ALERT_CONTENT": "로그인을 먼저하셔야 합니다.",
+    "ANONYMOUS": "익명"
 }
