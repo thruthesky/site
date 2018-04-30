@@ -87,8 +87,8 @@ export class TeacherReviewListPage {
     async onClickDelete(comment) {
 
         const confirm = await this.alertCtrl.create({
-            title: this.a.t('DELETE COMMENT'),
-            message: this.a.t('CONFIRM DELETE COMMENT'),
+            header: this.a.t('DELETE COMMENT'),
+            subHeader: this.a.t('CONFIRM DELETE COMMENT'),
             buttons: [
                 {
                     text: this.a.t('YES'),
@@ -124,27 +124,27 @@ export class TeacherReviewListPage {
 
 
     onClickCommentEdit(comment) {
-        const createCommentModal = this.modalCtrl.create(StudentCommentEdit, {comment: comment}, {cssClass: 'student-comment-edit'}
-        );
-        createCommentModal.onDidDismiss(res => {
-            // if(res && res['comment']) {
-            //   console.log("comment", res['comment']);
-            //   console.log("onClickCommentEdit::comment", comment);
-            //   comment['comment'] = res.comment.comment;
-            //   comment['rate'] = res.comment.rate;
-            //   comment['rate'] = res.comment.rate;
-            // }
-
-            if (res === 'success') {
-                this.loadCommentList();
-            }
-        });
-        createCommentModal.present();
+        // const createCommentModal = this.modalCtrl.create(StudentCommentEdit, {comment: comment}, {cssClass: 'student-comment-edit'}
+        // );
+        // createCommentModal.onDidDismiss(res => {
+        //     // if(res && res['comment']) {
+        //     //   console.log("comment", res['comment']);
+        //     //   console.log("onClickCommentEdit::comment", comment);
+        //     //   comment['comment'] = res.comment.comment;
+        //     //   comment['rate'] = res.comment.rate;
+        //     //   comment['rate'] = res.comment.rate;
+        //     // }
+        //
+        //     if (res === 'success') {
+        //         this.loadCommentList();
+        //     }
+        // });
+        // createCommentModal.present();
     }
 
 
     onClickCancel() {
-        this.router.navigate('/schedule-table', {queryParams: {idx_teacher: this.idx_teacher}});
+        this.router.navigate(['schedule-table'], {queryParams: {idx_teacher: this.idx_teacher}});
     }
 
     onPostPageClick($event) {
@@ -153,7 +153,7 @@ export class TeacherReviewListPage {
     }
 
     onClickCommentCreate() {
-        this.viewCtrl.dismiss('commentCreate');
+        this.router.navigate(['teacher-review-create'], {queryParams: {idx_teacher: this.idx_teacher}});
     }
 
 

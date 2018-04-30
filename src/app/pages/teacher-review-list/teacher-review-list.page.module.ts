@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
 import { TeacherReviewListPage } from './teacher-review-list.page';
+import { PageNavigatorComponentModule } from '../../components/page-navigator/page-navigator.component.module';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
-        MaterialModule
+        MaterialModule,
+        PageNavigatorComponentModule
     ],
     exports: [
         RouterModule
