@@ -466,6 +466,11 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
+    student_comment_to_teacher_by_idx(req) {
+        req['route'] = 'lms.student_comment_to_teacher_by_idx';
+        return this.x.post(req);
+    }
+
     student_comment_to_teacher_edit(req) {
         req['route'] = 'lms.student_comment_to_teacher_edit';
         req['session_id'] = this.user.sessionId;

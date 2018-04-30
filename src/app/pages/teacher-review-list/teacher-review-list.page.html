@@ -1,0 +1,105 @@
+<header>
+    <h1>Comment From Student</h1>
+    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
+        << teacher schedule
+    </button>
+    <button *ngIf="a.user.isLogin && a.studentTheme" routerLink="/teacher-review-create" [queryParams]="{idx_teacher:idx_teacher}">
+        <span class="text-uppercase fw-bold">{{ 'WRITE REVIEW' | t }}</span>
+        <i class="fas fa-edit ml-2"></i>
+    </button>
+</header>
+<main>
+
+    <section *ngIf="idx_teacher">
+
+        <div>
+            <div>
+                <img src="{{teacher_photoURL}}">
+            </div>
+            <div>
+                <i class="fas fa-users mr-1"></i>
+                {{a.preTeacherName(teacher_name)}}
+            </div>
+        </div>
+
+        <hr>
+
+        <ng-container *ngFor="let comment of comments">
+            <div class="comment" *ngIf="comment.idx">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-3">
+                            <div>
+                                <img src="{{comment?.photoURL ? comment.photoURL : a.anonymousPhotoURL }}">
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div>
+                                <div>
+                                    <div>
+                                        <i class="fas fa-graduation-cap mr-1"></i>
+                                        {{ comment.student_name }}
+                                    </div>
+                                    <div>{{ 'DATE' | t }}: {{ a.shortDate(comment.stamp) }}</div>
+                                    <div>
+                                        {{ 'RATING' | t }}:
+                                        <span *ngIf="comment.rate < 1"><i class="fal fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 1"><i class="fas fa-star"></i>*</span>
+
+                                        <span *ngIf="comment.rate < 2"><i class="fal fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 2"><i class="fas fa-star"></i>*</span>
+
+                                        <span *ngIf="comment.rate < 3"><i class="fal fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 3"><i class="fas fa-star"></i>*</span>
+
+                                        <span *ngIf="comment.rate < 4"><i class="fal fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 4"><i class="fas fa-star"></i>*</span>
+
+                                        <span *ngIf="comment.rate < 5"><i class="fal fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 5"><i class="fas fa-star"></i>*</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <div>
+                                    <button *ngIf="comment.idx_student == a.user.id" (click)="onClickDelete(comment)">
+                                        <i class="fa fa-trash"></i> {{ 'DELETE' | t }}
+                                    </button>
+                                    <button *ngIf="comment.idx_student == a.user.id"
+                                          (click)="onClickCommentEdit(comment)">
+                                        <i class="fa fa-pencil"></i> {{ 'EDIT' | t }}
+                                    </button>
+                                </div>
+                                {{comment.comment}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div *ngIf="error">
+            <span>{{error}}</span>
+        </div>
+    </section>
+
+
+    <div class="loader" *ngIf=" showLoader ">
+        <ion-spinner></ion-spinner>
+        <div>{{ 'IN LOADING' | t }}</div>
+    </div>
+    <div class="d-flex justify-content-center mb-5">
+        <page-navigator-component [no_of_total_items]=" pageOption['totalRecord'] "
+                                  [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
+                                  [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
+                                  [no_of_current_page]=" pageOption['currentPage'] "
+                                  [show_prev_next]=" true "
+                                  (pageClick)="onPostPageClick($event)">
+        </page-navigator-component>
+    </div>
+
+    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
+        << teacher schedule
+    </button>
+
+
+</main>

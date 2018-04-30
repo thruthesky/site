@@ -146,6 +146,19 @@ const routes: Routes = [
   },
 
   {
+    path: 'teacher-review-list',
+    loadChildren: './pages/teacher-review-list/teacher-review-list.page.module#TeacherReviewListPageModule'
+  },
+  {
+    path: 'teacher-review-create',
+    loadChildren: './pages/teacher-review-edit/teacher-review-edit.page.module#TeacherReviewEditPageModule'
+  },
+  {
+    path: 'teacher-review-edit',
+    loadChildren: './pages/teacher-review-edit/teacher-review-edit.page.module#TeacherReviewEditPageModule'
+  },
+
+  {
     path: 'schedule-table',
     loadChildren: './pages/schedule-table/schedule-table.page.module#ScheduleTablePageModule'
   },
