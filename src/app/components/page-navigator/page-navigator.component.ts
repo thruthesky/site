@@ -37,7 +37,9 @@ export class PageNavigatorComponent implements OnChanges {
     }
 
     ngOnChanges() {
-        if (this.no_of_total_items > 0) this.showPagination();
+        if (this.no_of_total_items > 0) {
+            this.showPagination();
+        }
     }
 
     showPagination() {

@@ -45,9 +45,9 @@ export class TeacherReviewListPage {
                 this.a.lms.get_teacher_info_by_idx(params['idx_teacher'], false).subscribe(re => {
                     console.log('get_teacher_info_by_idx', re);
 
-                    this.idx_teacher = re['idx_teacher'];
+                    this.idx_teacher = re['ID'];
                     this.teacher_name = re['display_name'];
-                    this.teacher_photoURL = re['teacher_photoURL'];
+                    this.teacher_photoURL = re['photoURL'];
                     this.loadCommentList();
                     this.showLoader = false;
                 }, e => {
@@ -79,6 +79,7 @@ export class TeacherReviewListPage {
             this.pageOption.totalRecord = res['total']
             this.loading = false;
         }, e => {
+            console.log('get_student_comments_to_teacher::error');
             this.a.toast(e);
             this.loading = false;
         });

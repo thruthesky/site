@@ -97,13 +97,13 @@
         Loading... Please Wait...
     </div>
     <div class="d-flex justify-content-center mb-5">
-        <page-navigator [no_of_total_items]=" pageOption['totalRecord'] "
+        <page-navigator-component [no_of_total_items]=" pageOption['totalRecord'] "
                         [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
                         [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
                         [no_of_current_page]=" pageOption['currentPage'] "
                         [show_prev_next]=" true "
                         (pageClick)="onPostPageClick($event)">
-        </page-navigator>
+        </page-navigator-component>
     </div>
 
     <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule</button>
