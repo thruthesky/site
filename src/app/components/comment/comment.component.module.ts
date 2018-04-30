@@ -7,6 +7,7 @@ import { CommentListComponent } from './comment-list.component';
 import { FormsModule } from '@angular/forms';
 import { DataComponentModule } from '../data/data.component.module';
 import { CommentFormComponent } from './comment-form.component';
+import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { CommentFormComponent } from './comment-form.component';
     IonicModule,
     RouterModule,
     FormsModule,
-    DataComponentModule
+    DataComponentModule,
+    TranslatePipeModule
   ],
   declarations: [
     CommentComponent,

@@ -29,7 +29,7 @@ $padding: .6em;
         [name='content'] {
             padding: $padding;
             width: 100%;
-            height: 5em;
+            height: 10em;
         }
         .buttons {
             text-align: right;
@@ -42,6 +42,9 @@ $padding: .6em;
             .progress {
                 padding: .4em 0 0 .6em;
             }
+        }
+        .spinner {
+            margin: .2em 0 0 .3em;
         }
         .files {
             .file {

@@ -26,6 +26,9 @@ $katalkenglish-padding: 8px;
             max-width: $katalkenglish-page-width;
         }
     }
+    #katalkenglish-footer {
+        width: 100%;
+    }
 
     @media all and (max-width:820px){
         .page{

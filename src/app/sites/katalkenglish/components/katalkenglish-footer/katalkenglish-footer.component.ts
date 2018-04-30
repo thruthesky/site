@@ -11,9 +11,15 @@ import { XapiUserService } from '../../../../modules/xapi/xapi.module';
 export class KatalkEnglishFooterComponent {
 
   year = (new Date).getFullYear();
+  selectedLanguage = '';
   constructor(
     public a: AppService
   ) {
+    this.selectedLanguage = this.a.language.getUserLanguage();
+  }
+  onChangeLanguage() {
+    console.log(this.selectedLanguage);
+    this.a.language.setUserLanguage(this.selectedLanguage);
   }
 }
 

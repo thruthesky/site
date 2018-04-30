@@ -1,9 +1,15 @@
-<footer class="p-5">
+<footer id="katalkenglish-footer" class="p-5">
 
     About
     Terms Privacy Affiliate
     2006-{{ year }} Withcenter, Inc. All Rights Reserved.
     Contact
-
+    <select text-center [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() " placeholder="Select Your Language">
+        <option>None</option>
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+        <option value="ch">香港 (繁體中文)</option>
+        <option value="jp">日本語</option>
+    </select>
 </footer>
 

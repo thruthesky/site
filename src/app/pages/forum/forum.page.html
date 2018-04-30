@@ -6,13 +6,13 @@
 </section>
 
 <section id="qna" *ngIf=" category === 'qna' ">
-  Questions and Answers
-  <button (click)=" onClickCreate() " *ngIf=" ! show.qnaForm ">Create</button>
+  {{ 'QNA_FORUM_TITLE' | t }}
+  <button (click)=" onClickCreate() " *ngIf=" ! status ">{{ 'QNA_CREATE' | t }}</button>
 
-  <section class="form-box" *ngIf=" true || show.qnaForm ">
+  <section class="form-box" *ngIf=" status ">
     <form (ngSubmit)=" post.category='qna'; onSubmit( $event ) ">
       <h3 class="m-0 p-0">
-        {{ post.created ? 'EDIT POST' : 'CREATE POST' }}
+        {{ status == 'edit' ? ('QNA_FORM_EDIT_TITLE' | t) : ('QNA_FORM_CREATE_TITLE' | t) }}
       </h3>
       <div>
         <input name="title" [(ngModel)]="post.title" placeholder="{{ 'INPUT_TITLE' | t }}">
@@ -30,12 +30,15 @@
           [displayProgress]="false"
           (upload)="onUpload()"
           (progress)="onProgress( $event )"></app-data>
+          <div class="spinner" *ngIf=" appData.loader "><mat-spinner [diameter]="26"></mat-spinner></div>
           <div class="progress" *ngIf=" percentage ">Upload: {{ percentage }}%</div>
         </div>
         <div class="col buttons">
-          <button class="submit" type="submit" *ngIf=" ! loader.creating ">{{ post.created ? 'EDIT' : 'CREATE' }} POST</button>
-          <button class="cancel" type="button" (click)="initPost(); show.qnaForm = false ">Cancel</button>
-          <span class="loader" *ngIf=" loader.creating || loader.editing ">Loading...</span>
+          <span *ngIf=" ! loader.creating && ! loader.editing ">
+              <button class="submit" type="submit">{{ 'QNA_FORM_SUBMIT' | t }}<!--{{ post.created ? 'EDIT' : 'CREATE' }} POST--></button>
+              <button class="cancel" type="button" (click)="initPost(); status = null ">{{ 'CANCEL' | t }}</button>
+          </span>
+          <span class="loader" *ngIf=" loader.creating || loader.editing ">{{ 'LOADING' | t }}</span>
         </div>
       </div>
       <div class="files" *ngIf="post.data?.length ">
@@ -56,9 +59,8 @@
   <ul class="posts">
     <li class="post" *ngFor=" let id of getPostIDs()">
       <div class="title">{{ getPost(id).title }}</div>
-      <div class="meta">by {{ getPost(id).displayName ? getPost(id).displayName : ('ANONYMOUS' | t )}} / {{ getPost(id).date }}</div>
-      <div class="content">
-        {{ getPost(id).content }}
+      <div class="meta">{{ getPost(id).displayName ? getPost(id).displayName : ('ANONYMOUS' | t )}} {{ getPost(id).date }}</div>
+      <div class="content" [innerHTML]=" getPost(id).content ">
       </div>
       <div class="files" *ngIf=" ! getPost(id).deleted && getPost(id)?.data?.length ">
         <div class="file" style="display: inline-block; overflow: hidden; margin: 2px; padding: 2px; width: 120px; height: 100px; border: 1px solid grey;"
@@ -67,17 +69,17 @@
         </div>
       </div>
       <div>
-        <button (click)="onClickEdit( getPost(id) )" *ngIf="myPost(getPost(id))">Edit</button>
-        <button (click)="onClickDelete( id )" *ngIf="myPost(getPost(id))">Delete</button>
-        <button (click)="onClickLike(id)" *ngIf=" !getPost(id)['likeInProgress'] ">Like({{getPost(id).numberOfLikes ? getPost(id).numberOfLikes : 0}})</button>
-        <span class="loader" *ngIf=" getPost(id)['likeInProgress'] ">Like...</span>
-        <button (click)="onClickDislike(id)" *ngIf=" !getPost(id)['dislikeInProgress'] ">Dislike({{getPost(id).numberOfDislikes ? getPost(id).numberOfDislikes : 0}})</button>
-        <span class="loader" *ngIf=" getPost(id)['dislikeInProgress'] ">Dislike...</span>
+        <button (click)="onClickEdit( getPost(id) )" *ngIf="myPost(getPost(id))">{{ 'EDIT' | t }}</button>
+        <button (click)="onClickDelete( id )" *ngIf="myPost(getPost(id))">{{ 'DELETE' | t }}</button>
+        <button (click)="onClickLike(id)" *ngIf=" !getPost(id)['likeInProgress'] ">{{ 'LIKE' | t }}({{getPost(id).numberOfLikes ? getPost(id).numberOfLikes : 0}})</button>
+        <span class="loader" *ngIf=" getPost(id)['likeInProgress'] ">{{ 'LOADING' | t }}...</span>
+        <button (click)="onClickDislike(id)" *ngIf=" !getPost(id)['dislikeInProgress'] ">{{ 'DISLIKE' | t }}({{getPost(id).numberOfDislikes ? getPost(id).numberOfDislikes : 0}})</button>
+        <span class="loader" *ngIf=" getPost(id)['dislikeInProgress'] ">{{ 'LOADING' | t }}...</span>
       </div>
       <app-comment-list [post]=" getPost(id) "></app-comment-list>
     </li>
   </ul>
-  <button (click)=" loadPage() ">Load Next Page</button>
+  <button (click)=" loadPage() ">{{ 'LOAD_NEXT_PAGE' | t }}</button>
 
 </section>
 <!--/ #qna -->

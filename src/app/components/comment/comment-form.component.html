@@ -16,19 +16,19 @@
                     <input type="text" name="content" [(ngModel)]="form.content" [disabled]="loader.progress">
                 </td>
                 <td>
-                    <button type="submit" *ngIf=" ! loader.progress ">{{ form.created ? 'Edit' : 'Create' }} Comment</button>
-                    <button type="button" (click)="onClickEditCancel()" *ngIf=" form.created && ! loader.progress">Cancel</button>
+                    <button type="submit" *ngIf=" ! loader.progress ">{{ form.created ? ('EDIT COMMENT' | t)  : ('CREATE COMMENT' | t) }}</button>
+                    <button type="button" (click)="onClickEditCancel()" *ngIf=" form.created && ! loader.progress">{{ 'CANCEL' | t }}</button>
                 </td>
             </tr>
         </table>
-        <span class="loader" *ngIf="loader.progress">Requesting. Please wait.</span>
+        <span class="loader" *ngIf="loader.progress">{{ 'LOADING' | t }}</span>
     </form>
-    <div class="progress" *ngIf=" percentage ">Upload: {{ percentage }}%</div>
+    <div class="progress" *ngIf=" percentage ">{{ 'UPLOAD' | t }}: {{ percentage }}%</div>
     <div class="files" *ngIf="form.data?.length ">
         <div class="file" *ngFor="let file of form.data" >
             <img width="100%" src="{{ file.url }}">
-            <div class="delete" (click)="appData.onClickDelete(file)" *ngIf=" ! appData.loader ">Delete</div>
-            <div class="delete-loader" *ngIf=" appData.loader == file.name ">Deleting...</div>
+            <div class="delete" (click)="appData.onClickDelete(file)" *ngIf=" ! appData.loader ">{{ 'DELETE' | t }}</div>
+            <div class="delete-loader" *ngIf=" appData.loader == file.name ">{{ 'DELETING' | t }}...</div>
         </div>
     </div>
 </div>

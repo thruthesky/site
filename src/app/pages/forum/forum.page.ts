@@ -27,9 +27,7 @@ export class ForumPage implements OnInit, OnDestroy {
     // category;
 
     category = null;
-    show = {
-        qnaForm: false
-    };
+    status: 'create' | 'edit' = null;
     percentage = 0;
     constructor(
         public ngZone: NgZone,
@@ -44,7 +42,8 @@ export class ForumPage implements OnInit, OnDestroy {
             listenOnPostChange: true,
             listenOnCommentChange: true,
             listenOnPostLikes: true,
-            listenOnCommentLikes: true
+            listenOnCommentLikes: true,
+            date: 'TodayTimeOtherdayDate'
         });
         this.initPost();
         activatedRoute.data.subscribe(params => {
@@ -103,6 +102,9 @@ export class ForumPage implements OnInit, OnDestroy {
     }
     getPost(id) {
         return this.fire.post.pagePosts[id];
+        // const post = this.fire.post.pagePosts[id];
+        // console.log('post.content: ', post.content);
+        // return post;
     }
 
     /**
@@ -117,18 +119,37 @@ export class ForumPage implements OnInit, OnDestroy {
     loadPage(category?: string) {
         this.fire.post.page({ category: category, limit: 5 }).then(posts => {
             // console.log('posts: ', posts);
-
+            // const keys = Object.keys( posts );
+            // console.log('keys: ', keys);
+            // for ( const id of keys ) {
+            //     const post = posts[id];
+            //     post.content = 'replace';
+            // }
             if (this.fire.post.pagePostIds.length) {
+                console.log('==> step page');
                 for (const id of this.fire.post.pagePostIds) {
-                    const post = posts[id];
-                    // post.date = (new Date(post.created)).toLocaleDateString();
-                    if (!post.displayName) {
-                        // this.getPost(id).displayName = this.a.t('ANONYMOUS');
+                    if ( this.fire.post.pagePosts[ id ].content ) {
+                        this.fire.post.pagePosts[ id ].content += ' <br>Hello 2 .. !';
                     }
-                    console.log(this.getPost(id));
+                    /// 여기서 부터. \n 을 <BR> HTML 로 변환 할 것.
+
+                    // console.log('content: ', this.fire.post.pagePosts[ id ].content);
+                    // const post = posts[id];
+                    // posts[id].content += '<br>Hello!!';
+                    // console.log('post content:', post.content);
+                    // post.date = (new Date(post.created)).toLocaleDateString();
+                    // if (!post.displayName) {
+                    //     // this.getPost(id).displayName = this.a.t('ANONYMOUS');
+                    // }
+                    // console.log(this.getPost(id));
                 }
             }
-            this.a.rerender(10);
+            this.a.rerender(100);
+            // console.log('pagePosts', this.fire.post.pagePosts);
+            // for (const id of this.fire.post.pagePostIds) {
+            //     console.log('content: ', this.fire.post.pagePosts[ id ].content);
+            // }
+
         });
     }
 
@@ -143,6 +164,7 @@ export class ForumPage implements OnInit, OnDestroy {
             this.fire.post.edit(this.post).then(re => {
                 console.log('post edit', re);
                 this.loader.editing = false;
+                this.status = null;
                 this.initPost();
             })
                 .catch(e => {
@@ -159,6 +181,7 @@ export class ForumPage implements OnInit, OnDestroy {
                 // this.fire.post.addPostOnTop( this.post );
                 this.initPost();
                 this.loader.creating = false;
+                this.status = null;
             }).catch(e => {
                 this.loader.creating = false;
                 alert(e.message);
@@ -193,6 +216,9 @@ export class ForumPage implements OnInit, OnDestroy {
             return alert('Post is already deleted.');
         }
         console.log('Update edit form: ', post);
+        /**
+         * User can write even if they are logged out when the anonymously login options is set.
+         */
         if (this.fire.user.isLogout) {
             alert('Please login first');
             return;
@@ -200,7 +226,8 @@ export class ForumPage implements OnInit, OnDestroy {
             alert('You are not the owner of the post');
             return;
         }
-        this.post = post;
+        this.post = Object.assign({}, post);
+        this.status = 'edit';
     }
 
     onClickDelete(id: string) {
@@ -235,12 +262,12 @@ export class ForumPage implements OnInit, OnDestroy {
         }
     }
     onClickCreate() {
+        this.status = 'create';
         if (this.a.user.isLogout) {
             // this.modal.alert({
             //     title: this.a.t('LOGIN_REQUIRED_ALERT_TITLE'),
             //     content: this.a.t('LOGIN_REQUIRED_ALERT_CONTENT')
             // });
         }
-        this.show.qnaForm = true;
     }
 }

@@ -5,10 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { KatalkEnglishFooterComponent } from './katalkenglish-footer.component';
 import { MaterialModule } from '../../../../app.material.module';
 import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     IonicModule,
     RouterModule,
     MaterialModule,
