@@ -1,53 +1,51 @@
 <header>
     <h1>Comment From Student</h1>
-    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule</button>
+    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule
+    </button>
 </header>
 <main>
 
 
-    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule</button>
-    <section id="student-comments" class="p-5">
-        <div *ngIf="loading"
-             class="position-absolute d-flex align-items-center justify-content-center top-0 right-0 bottom-0 left-0 bg-opacity-white">
-            <div class="text-center">
+    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule
+    </button>
+    <section>
+        <div *ngIf="loading">
+            <div>
                 <i class="fa fa-spinner fa-spin fs-4rem"></i>
-                <div class="mt-4 fs-2rem">{{ 'IN LOADING' | t }}</div>
+                <div>{{ 'IN LOADING' | t }}</div>
             </div>
         </div>
 
-        <div class="d-flex-column align-items-center justify-content-center">
-            <div class="d-flex align-items-center justify-content-center size-100x120 rounded-2 of-hidden">
+        <div>
+            <div>
                 <img src="{{teacher_photoURL}}">
             </div>
-            <div class="my-3 fw-bold text-uppercase dodgerblue">
+            <div>
                 <i class="fas fa-users mr-1"></i>
                 {{a.preTeacherName(teacher_name)}}
             </div>
         </div>
 
-        <hr class="mb-5">
+        <hr>
 
         <ng-container *ngFor="let comment of comments">
             <div class="comment" *ngIf="comment.idx">
-                <ion-grid no-padding>
-                    <ion-row>
-                        <ion-col class="d-none d-md-flex" col-md-3>
-                            <div class="d-flex align-items-center justify-content-center  size-100 rounded-50 of-hidden">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-3">
+                            <div>
                                 <img src="{{comment?.photoURL ? comment.photoURL : a.anonymousPhotoURL }}">
                             </div>
-                        </ion-col>
-                        <ion-col col-md-9 col-12>
-                            <div class="d-flex justify-content-center md-justify-content-start">
-                                <div class="d-md-none d-sm-flex align-items-center justify-content-center size-100 rounded-50 of-hidden">
-                                    <img src="{{comment?.photoURL ? comment.photoURL : a.anonymousPhotoURL }}">
-                                </div>
-                                <div  class="d-flex-column d-md-flex-row align-items-center mt-auto ml-md-3 ml-5 ">
-                                    <div class="name mr-4 m-0 fw-bold fs-90 text-uppercase">
+                        </div>
+                        <div class="col-9">
+                            <div>
+                                <div>
+                                    <div>
                                         <i class="fas fa-graduation-cap mr-1"></i>
                                         {{ comment.student_name }}
                                     </div>
-                                    <div class="date mr-4 my-2 my-md-0">{{ 'DATE' | t }}: {{ a.shortDate(comment.stamp) }}</div>
-                                    <div class="rating mr-4 darkorange">
+                                    <div>{{ 'DATE' | t }}: {{ a.shortDate(comment.stamp) }}</div>
+                                    <div>
                                         {{ 'RATING' | t }}:
                                         <span *ngIf="comment.rate < 1"><i class="fal fa-star"></i></span>
                                         <span *ngIf="comment.rate >= 1"><i class="fas fa-star"></i></span>
@@ -67,46 +65,45 @@
                                 </div>
                             </div>
                             <div class="description">
-                                <div class="mb-2">
-                    <span class="hover-effect  pointer mr-4 py-2" *ngIf="comment.idx_student == a.user.id"
-                          (click)="onClickDelete(comment)">
-                    <i class="fa fa-trash"></i> 
-                    {{ 'DELETE' | t }}
-                  </span>
-                                    <span class="hover-effect pointer py-2" *ngIf="comment.idx_student == a.user.id"
+                                <div>
+                                    <span *ngIf="comment.idx_student == a.user.id" (click)="onClickDelete(comment)">
+                                        <i class="fa fa-trash"></i> {{ 'DELETE' | t }}
+                                    </span>
+                                    <span *ngIf="comment.idx_student == a.user.id"
                                           (click)="onClickCommentEdit(comment)">
-                    <i class="fa fa-pencil"></i> 
-                    {{ 'EDIT' | t }}
-                  </span>
+                                        <i class="fa fa-pencil"></i> {{ 'EDIT' | t }}
+                                    </span>
                                 </div>
                                 {{comment.comment}}
                             </div>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
+                        </div>
+                    </div>
+                </div>
             </div>
         </ng-container>
-        <div class="alert alert-secondary my-5" *ngIf="error">
-            <span class="fs-2rem">{{error}}</span>
+        <div *ngIf="error">
+            <span>{{error}}</span>
         </div>
     </section>
 
 
     <div class="loader" *ngIf=" showLoader ">
         <ion-spinner></ion-spinner>
-        Loading... Please Wait...
+        <div>{{ 'IN LOADING' | t }}</div>
     </div>
     <div class="d-flex justify-content-center mb-5">
         <page-navigator-component [no_of_total_items]=" pageOption['totalRecord'] "
-                        [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
-                        [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
-                        [no_of_current_page]=" pageOption['currentPage'] "
-                        [show_prev_next]=" true "
-                        (pageClick)="onPostPageClick($event)">
+                                  [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
+                                  [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
+                                  [no_of_current_page]=" pageOption['currentPage'] "
+                                  [show_prev_next]=" true "
+                                  (pageClick)="onPostPageClick($event)">
         </page-navigator-component>
     </div>
 
-    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule</button>
+    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}">
+        << teacher schedule
+    </button>
 
 
 </main>
