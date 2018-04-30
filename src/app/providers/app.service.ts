@@ -216,6 +216,8 @@ export class AppService {
         setInterval(() => {
             this.updateUserTimezone();
         }, 10000);
+
+        fire.user.loginAnonymously();
     }
 
 
@@ -507,6 +509,10 @@ export class AppService {
         // }
     }
 
+    alert( msg: string ) {
+        alert(msg);
+    }
+
     /**
      * Returns a random string.
      * @param prefix Prefix to add infront of the random string
@@ -516,6 +522,10 @@ export class AppService {
     }
 
 
+    /**
+     * This let user log out from Firebase and Wordpress PHP Backend and moves to a page.
+     * @param options logout option
+     */
     logout(options?) {
         console.log(`logout( options? ) `, options);
         this.fire.user.logout().then(() => {

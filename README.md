@@ -2,6 +2,16 @@
 
 ## TODO
 
+* 질문 답변. 공개 비공개 옵션.
+  * 기본적으로 모두 비공개이고, 운영자가 답변을 할 때, 공개 할 수 있음.
+* 운영자만 답변하는 옵션.
+
+* witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
+  * Since it is completely separated service.
+  * Make the workserver as real server.
+
+* put `countries` somewhere else. so it will not increase main.js bundle size.
+* Suggestion: Move comment component under forum page module since it is a dependant of forum.
 * Front page of katalk english, ontue
 
 * Forum
@@ -9,6 +19,8 @@
   * Policy
   * Regulation
   * No discussion.
+* Forum QnA. specify Live chat available time.
+  * 2pm to 11 pm in China, Korea, Japan time.
 
 * branch opton.
   * branch admin page for student, reservation/cancellation, payment, share.
@@ -342,9 +354,9 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 
 * Since admin pages is only for admins, it does not lazy load. it loads all the subpages at once.
 
-## Dialog Loader
+## Dialog Loader - Angular Material Dialog
 
-Use dialog loader when you need to show a loader.
+Use loader service for showing a loader in dialog window when you need to show a loader.
 
 ```` typescript
 constructor( public loader: LoaderService ) {
@@ -352,6 +364,11 @@ constructor( public loader: LoaderService ) {
   setTimeout(() => loader.closeLoader(), 5000);
 }
 ````
+
+## Alert, Confirm - Angular Material Dialog
+
+Use `modal` service to do 'alert' or 'confirm'.
+
 
 
 ## Firebase

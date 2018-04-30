@@ -47,7 +47,13 @@ export class DataComponent implements OnInit {
   @Output() progress = new EventEmitter<number>();
 
   percentage = 0;
-  loader = false;
+  /**
+   * This `loader` has information of which file is being deleted.
+   * If this is 0, then it is not working.
+   * If this is 1, then it is uploading.
+   * If this is a string, then it is the name of the file that is being deleted.
+   */
+  loader: any = 0;
   constructor(
     public fire: FireService
   ) { }
@@ -83,7 +89,7 @@ export class DataComponent implements OnInit {
       name: ''
     };
 
-    this.loader = true;
+    this.loader = 1;
     if (this.deleteOldFiles && this.data.length) {
       for (const data of this.data) {
         if (data.url) {
@@ -106,28 +112,28 @@ export class DataComponent implements OnInit {
         this.progress.emit(this.percentage);
       },
       (e) => { // upload failed
-        this.loader = false;
+        this.loader = 0;
         alert(e.message);
       },
       () => { // upload success
         this.percentage = 0;
         upload.url = uploadTask.snapshot['downloadURL'];
         upload.fullPath = dataRef.fullPath;
-        this.loader = false;
+        this.loader = 0;
         this.addFile(upload);
         this.upload.emit();
       }
     );
   }
   onClickDelete(data: DATA_UPLOAD) {
-    this.loader = true;
+    this.loader = data.name;
     console.log(`DataComponent::onClickDelete()`);
     this.fire.data.delete(data).then(re => {
-      this.loader = false;
+      this.loader = 0;
       this.removeFile(data);
     })
       .catch(e => {
-        this.loader = false;
+        this.loader = 0;
         alert(e.message);
       });
   }

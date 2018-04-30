@@ -37,11 +37,34 @@ $padding: .6em;
                 padding: $padding;
             }
         }
-
         .upload {
             display: flex;
             .progress {
                 padding: .4em 0 0 .6em;
+            }
+        }
+        .files {
+            .file {
+                position: relative;
+                display: inline-block;
+                padding: 2px; 
+                margin: 2px;
+                border: 1px solid grey;
+                width: 120px;
+                height: 68px;
+                overflow: hidden;
+                .delete, .delete-loader {
+                    position: absolute;
+                    z-index: 100;
+                    bottom: 0;
+                    padding: .25em;
+                    background-color: white;
+                    cursor: pointer;
+                }
+                .delete-loader {
+                    background-color: red;
+                    color: white;
+                }
             }
         }
     }

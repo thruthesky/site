@@ -182,7 +182,7 @@
             </div>
         </li>
 
-        <li class="menu-logout" *ngIf=" a.user.isLogin " (click)="a.user.logout(); a.open('home')">
+        <li class="menu-logout" *ngIf=" a.user.isLogin " (click)="a.logout('/');">
             <div>
                 <ion-icon name="log-out" item-start></ion-icon>
                 <div>{{ 'LOGOUT' | t }}</div>
