@@ -1,0 +1,68 @@
+<header>
+    <h1>{{ 'WRITE REVIEW' | t }}</h1>
+    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
+        << teacher schedule
+    </button>
+    <button *ngIf="idx_teacher" routerLink="/teacher-review-list" [queryParams]="{idx_teacher: idx_teacher}">
+        << teacher review
+    </button>
+</header>
+<main>
+    <div>
+        <div>
+            <div>{{ 'RATING' | t }} : {{rate}}</div>
+            <div>
+              <span *ngIf="rate < 1 " (click)="rate=1">*
+                <i class="pointer fal fa-star fa-3x"></i>
+              </span>
+                <span *ngIf="rate >= 1" (click)="rate=1">*
+                <i class="pointer fas fa-star fa-3x"></i>
+              </span>
+                <span *ngIf="rate < 2" (click)="rate=2">*
+                <i class="pointer fal fa-star fa-3x"></i>
+              </span>
+                <span *ngIf="rate >= 2 " (click)="rate=2">*
+                <i class="pointer fas fa-star fa-3x"></i>
+              </span>
+
+                <span *ngIf="rate < 3" (click)="rate=3">*
+                <i class="pointer fal fa-star fa-3x"></i>
+              </span>
+                <span *ngIf="rate >= 3" (click)="rate=3">*
+                <i class="pointer fas fa-star fa-3x"></i>
+              </span>
+
+                <span *ngIf="rate < 4" (click)="rate=4">*
+                <i class="pointer fal fa-star fa-3x"></i>
+              </span>
+                <span *ngIf="rate >= 4" (click)="rate=4">*
+                <i class="pointer fas fa-star fa-3x"></i>
+              </span>
+
+                <span *ngIf="rate < 5" (click)="rate=5">*
+                <i class="pointer fal fa-star fa-3x"></i>
+              </span>
+                <span *ngIf="rate >= 5" (click)="rate=5">*
+                <i class="pointer fas fa-star fa-3x"></i>
+              </span>
+            </div>
+        </div>
+        <div>
+            <textarea rows="10" [(ngModel)]="comment" placeholder="{{ 'RATE COMMENT' | t }}"></textarea>
+            <div><b> NOTE:</b> {{ 'STUDENT RATE COMMENT' | t }}</div>
+        </div>
+        <div>
+            <button type="button" (click)="onClickSubmit()">
+                <span *ngIf="showLoader"><i class="fa fa-spinner fa-spin mr-2"></i>{{ 'IN LOADING' | t }}</span>
+                <span *ngIf="!showLoader">{{ 'SUBMIT' | t }}</span>
+            </button>
+            <button type="button" (click)="onClickCancel()">{{ 'CANCEL' | t }}</button>
+        </div>
+    </div>
+    <div class="loader" *ngIf=" showLoader ">
+        <ion-spinner></ion-spinner>
+        <div>{{ 'IN LOADING' | t }}</div>
+    </div>
+
+
+</main>

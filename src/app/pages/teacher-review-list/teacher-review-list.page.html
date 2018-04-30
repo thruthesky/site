@@ -1,20 +1,16 @@
 <header>
     <h1>Comment From Student</h1>
-    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule
+    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
+        << teacher schedule
+    </button>
+    <button *ngIf="a.user.isLogin && a.studentTheme" routerLink="/teacher-review-create" [queryParams]="{idx_teacher:idx_teacher}">
+        <span class="text-uppercase fw-bold">{{ 'WRITE REVIEW' | t }}</span>
+        <i class="fas fa-edit ml-2"></i>
     </button>
 </header>
 <main>
 
-
-    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}"><< teacher schedule
-    </button>
-    <section>
-        <div *ngIf="loading">
-            <div>
-                <i class="fa fa-spinner fa-spin fs-4rem"></i>
-                <div>{{ 'IN LOADING' | t }}</div>
-            </div>
-        </div>
+    <section *ngIf="idx_teacher">
 
         <div>
             <div>
@@ -48,31 +44,31 @@
                                     <div>
                                         {{ 'RATING' | t }}:
                                         <span *ngIf="comment.rate < 1"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 1"><i class="fas fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 1"><i class="fas fa-star"></i>*</span>
 
                                         <span *ngIf="comment.rate < 2"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 2"><i class="fas fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 2"><i class="fas fa-star"></i>*</span>
 
                                         <span *ngIf="comment.rate < 3"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 3"><i class="fas fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 3"><i class="fas fa-star"></i>*</span>
 
                                         <span *ngIf="comment.rate < 4"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 4"><i class="fas fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 4"><i class="fas fa-star"></i>*</span>
 
                                         <span *ngIf="comment.rate < 5"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 5"><i class="fas fa-star"></i></span>
+                                        <span *ngIf="comment.rate >= 5"><i class="fas fa-star"></i>*</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="description">
                                 <div>
-                                    <span *ngIf="comment.idx_student == a.user.id" (click)="onClickDelete(comment)">
+                                    <button *ngIf="comment.idx_student == a.user.id" (click)="onClickDelete(comment)">
                                         <i class="fa fa-trash"></i> {{ 'DELETE' | t }}
-                                    </span>
-                                    <span *ngIf="comment.idx_student == a.user.id"
+                                    </button>
+                                    <button *ngIf="comment.idx_student == a.user.id"
                                           (click)="onClickCommentEdit(comment)">
                                         <i class="fa fa-pencil"></i> {{ 'EDIT' | t }}
-                                    </span>
+                                    </button>
                                 </div>
                                 {{comment.comment}}
                             </div>
@@ -101,7 +97,7 @@
         </page-navigator-component>
     </div>
 
-    <button *ngIf="teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher:teacher.ID}">
+    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
         << teacher schedule
     </button>
 

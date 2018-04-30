@@ -125,22 +125,8 @@ export class TeacherReviewListPage {
 
 
     onClickCommentEdit(comment) {
-        // const createCommentModal = this.modalCtrl.create(StudentCommentEdit, {comment: comment}, {cssClass: 'student-comment-edit'}
-        // );
-        // createCommentModal.onDidDismiss(res => {
-        //     // if(res && res['comment']) {
-        //     //   console.log("comment", res['comment']);
-        //     //   console.log("onClickCommentEdit::comment", comment);
-        //     //   comment['comment'] = res.comment.comment;
-        //     //   comment['rate'] = res.comment.rate;
-        //     //   comment['rate'] = res.comment.rate;
-        //     // }
-        //
-        //     if (res === 'success') {
-        //         this.loadCommentList();
-        //     }
-        // });
-        // createCommentModal.present();
+        console.log('onClickCommentEdit', comment);
+        this.router.navigate(['teacher-review-edit'], {queryParams: {idx_comment: comment.idx}});
     }
 
 
