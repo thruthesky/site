@@ -178,5 +178,8 @@
     "CHANGE PASSWORD DESC": "古いパスワードと新しいパスワードを入力してください",
     "OLD PASSWORD": "旧パスワード",
     "NEW PASSWORD": "新しいパスワード",
-    "CHANGE PASSWORD BUTTON": "新しいパスワードの送信"
+    "CHANGE PASSWORD BUTTON": "新しいパスワードの送信",
+
+    "ADMIN_PERMISSION_REQUIRED": "管理者としてログインしてください。",
+    "MANAGER_PERMISSION_REQUIRED": "マネージャーまたは管理者としてログインしてください。"
 }

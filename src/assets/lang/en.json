@@ -224,6 +224,9 @@
     "CHANGE PASSWORD DESC": "Please provide old password and new password",
     "OLD PASSWORD": "Old Password",
     "NEW PASSWORD": "New Password",
-    "CHANGE PASSWORD BUTTON": "Submit New Password"
+    "CHANGE PASSWORD BUTTON": "Submit New Password",
+
+    "ADMIN_PERMISSION_REQUIRED": "Please login as admin.",
+    "MANAGER_PERMISSION_REQUIRED": "Please login as manager or administrator."
 
 }

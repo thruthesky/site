@@ -182,5 +182,8 @@
     "CHANGE PASSWORD DESC": "이전 비밀번호와 새 비밀번호를 입력하십시오.",
     "OLD PASSWORD": "이전 암호",
     "NEW PASSWORD": "새 비밀번호",
-    "CHANGE PASSWORD BUTTON": "새 비밀번호 제출"
+    "CHANGE PASSWORD BUTTON": "새 비밀번호 제출",
+
+    "ADMIN_PERMISSION_REQUIRED": "관리자로 로그인을 하셔야합니다.",
+    "MANAGER_PERMISSION_REQUIRED": "매니저로 로그인을 하셔야합니다."
 }

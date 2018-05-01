@@ -179,5 +179,8 @@
     "CHANGE PASSWORD DESC": "请提供旧密码和新密码",
     "OLD PASSWORD": "旧密码",
     "NEW PASSWORD": "新密码",
-    "CHANGE PASSWORD BUTTON": "提交新密码"
+    "CHANGE PASSWORD BUTTON": "提交新密码",
+
+    "ADMIN_PERMISSION_REQUIRED": "请以管理员身份登录。",
+    "MANAGER_PERMISSION_REQUIRED": "请以管理员或管理员身份登录。"
 }

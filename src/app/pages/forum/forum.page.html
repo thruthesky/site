@@ -69,6 +69,7 @@
         </div>
       </div>
       <div>
+        <button (click)=" commentList.show.replyForm = onClickReply()" *ngIf=" ! commentList.show.replyForm ">{{ 'REPLY' | t }}</button>
         <button (click)="onClickEdit( getPost(id) )" *ngIf="myPost(getPost(id))">{{ 'EDIT' | t }}</button>
         <button (click)="onClickDelete( id )" *ngIf="myPost(getPost(id))">{{ 'DELETE' | t }}</button>
         <button (click)="onClickLike(id)" *ngIf=" !getPost(id)['likeInProgress'] ">{{ 'LIKE' | t }}({{getPost(id).numberOfLikes ? getPost(id).numberOfLikes : 0}})</button>
@@ -76,7 +77,7 @@
         <button (click)="onClickDislike(id)" *ngIf=" !getPost(id)['dislikeInProgress'] ">{{ 'DISLIKE' | t }}({{getPost(id).numberOfDislikes ? getPost(id).numberOfDislikes : 0}})</button>
         <span class="loader" *ngIf=" getPost(id)['dislikeInProgress'] ">{{ 'LOADING' | t }}...</span>
       </div>
-      <app-comment-list [post]=" getPost(id) "></app-comment-list>
+      <app-comment-list #commentList [post]=" getPost(id) "></app-comment-list>
     </li>
   </ul>
   <button (click)=" loadPage() ">{{ 'LOAD_NEXT_PAGE' | t }}</button>

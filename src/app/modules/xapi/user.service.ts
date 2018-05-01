@@ -195,6 +195,11 @@ export class XapiUserService extends Base {
         return this.name || 'Anonymous';
     }
 
+    /**
+     * Returns manager.
+     *
+     * Use this method to see if the user is a manager.
+     */
     get manager() {
         return this.profile.manager;
     }

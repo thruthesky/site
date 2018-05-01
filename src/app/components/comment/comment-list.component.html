@@ -5,7 +5,7 @@
   <span class="loader" *ngIf="loader.creating">Creating a post. Please wait.</span>
 </form> -->
 
-<app-comment-form [post]="post" [comment]="comment" (created)=" 1 "></app-comment-form>
+<app-comment-form [post]="post" [comment]="comment" (created)=" 1 " *ngIf=" show.replyForm "></app-comment-form>
 
 <div class="loader" *ngIf="loader.commentList">{{ 'LOADING_COMMENTS' | t }}</div>
 <ul class="comment-list">
