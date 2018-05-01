@@ -357,17 +357,7 @@ export class RegisterPage implements OnInit {
 
     }
 
-    userProfilePhoto(files) {
-        if (files.length) {
-            if (files[0]['url_portrait']) {
-                return files[0]['url_portrait'];
-            } else {
-                return files[0]['url'];
-            }
-        } else {
-            return this.a.anonymousPhotoURL;
-        }
-    }
+
 
     onSuccessUploadQRMark(file: FILE) {
         if (this.qrmarks.length > 1) {

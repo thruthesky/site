@@ -159,7 +159,7 @@
 
 
 
-        <li class="menu-password-change" *ngIf=" a.user.isLogin " (click)=" a.open('password-change')">
+        <li class="menu-password-change" *ngIf=" a.user.isLogin " routerLink="/password-change">
             <div>
                 <ion-icon name="key" item-start></ion-icon>
                 <div>{{ 'CHANGE_PASSWORD' | t }}</div>

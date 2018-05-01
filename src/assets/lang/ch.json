@@ -159,7 +159,25 @@
     "CREATE COMMENT": "创建评论",
     "EDIT COMMENT": "编辑评论",
     "UPLOAD": "上传",
-    "DELTING": "删除",
+    "DELETING": "删除",
     "LOAD_NEXT_PAGE": "加载下一页",
-    "LOADING_COMMENTS": "请等待加载评论。"
+    "LOADING_COMMENTS": "请等待加载评论。",
+
+    "REVIEW LIST TITLE": "评论给老师",
+    "WRITE REVIEW TITLE": "写评论",
+    "SCHEDULE PAGE": "日程表页面",
+    "REVIEWS PAGE": "评论页",
+    "RATING": "评分",
+    "RATE COMMENT": "评论评论",
+    "STUDENT RATE COMMENT": "你只能为正确开设的课程撰写证言。",
+    "SUBMIT": "提交",
+    "IDX TEACHER MISSING": "教师身份证失踪。",
+    "DELETE COMMENT": "删除评论",
+    "CONFIRM DELETE COMMENT": "你确定要删除这条评论？”",
+    "YES": "是的",
+    "CHANGE PASSWORD TITLE": "更改密码",
+    "CHANGE PASSWORD DESC": "请提供旧密码和新密码",
+    "OLD PASSWORD": "旧密码",
+    "NEW PASSWORD": "新密码",
+    "CHANGE PASSWORD BUTTON": "提交新密码"
 }

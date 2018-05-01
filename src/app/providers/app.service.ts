@@ -1406,4 +1406,17 @@ export class AppService {
         // console.log(this.userTime);
     }
 
+
+    userProfilePhoto(files) {
+        if (files.length) {
+            if (files[0]['url_portrait']) {
+                return files[0]['url_portrait'];
+            } else {
+                return files[0]['url'];
+            }
+        } else {
+            return this.anonymousPhotoURL;
+        }
+    }
+
 }

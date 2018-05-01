@@ -162,7 +162,25 @@
     "CREATE COMMENT": "댓글 작성",
     "EDIT COMMENT": "댓글 수정",
     "UPLOAD": "업로드",
-    "DELTING": "삭제중",
+    "DELETING": "삭제중",
     "LOAD_NEXT_PAGE": "다음 페이지",
-    "LOADING_COMMENTS": "코멘트를 로딩중입니다. 잠시만 기다려주세요."
+    "LOADING_COMMENTS": "코멘트를 로딩중입니다. 잠시만 기다려주세요.",
+
+    "REVIEW LIST TITLE": "교사들에게 리뷰",
+    "WRITE REVIEW TITLE": "리뷰 쓰기",
+    "SCHEDULE PAGE": "스케줄 페이지",
+    "REVIEWS PAGE": "리뷰 페이지",
+    "RATING": "평가",
+    "RATE COMMENT": "코멘트 쓰기",
+    "STUDENT RATE COMMENT": "올바르게 수행 된 수업에만 추천서를 쓸 수 있습니다.",
+    "SUBMIT": "제출",
+    "IDX TEACHER MISSING": "교사 ID가 없습니다.",
+    "DELETE COMMENT": "주석 삭제",
+    "CONFIRM DELETE COMMENT": "이 댓글을 삭제 하시겠습니까?",
+    "YES": "예",
+    "CHANGE PASSWORD TITLE": "암호 변경",
+    "CHANGE PASSWORD DESC": "이전 비밀번호와 새 비밀번호를 입력하십시오.",
+    "OLD PASSWORD": "이전 암호",
+    "NEW PASSWORD": "새 비밀번호",
+    "CHANGE PASSWORD BUTTON": "새 비밀번호 제출"
 }

@@ -59,13 +59,13 @@
 * add share curriculumn page for both student and teacher. so, teacher's can also read and follow.
 * add teacher menu page.
 * @done add my point page
-* add password change page
+* @done add password change page
 * add available schedule page.
 * add session future, past page.
 * @done add teacher schedule create/edit/list
 * @done add settings page.
 * @done add teacher's payment information page.
-* add teacher's curriculum vitae page.
+* @done add teacher's curriculum vitae page.
 * @done add teacher's dashboard. ( menu )
 * @done add teacher's dayoff page.
 * schedule table navigation. No favicon anymore.

@@ -204,7 +204,26 @@
     "CREATE COMMENT": "Create Comment",
     "EDIT COMMENT": "Edit Comment",
     "UPLOAD": "Upload",
-    "DELTING": "Deleting",
+    "DELETING": "Deleting",
     "LOAD_NEXT_PAGE": "Load next page",
-    "LOADING_COMMENTS": "Please wait while loading comments."
+    "LOADING_COMMENTS": "Please wait while loading comments.",
+
+    "REVIEW LIST TITLE": "Reviews to teacher",
+    "WRITE REVIEW TITLE": "Write Review",
+    "SCHEDULE PAGE": "Schedule Page",
+    "REVIEWS PAGE": "Reviews Page",
+    "RATING": "Rating",
+    "RATE COMMENT": "Write comment",
+    "STUDENT RATE COMMENT": "You can write a testimonial only for correctly conducted classes.",
+    "SUBMIT": "Submit",
+    "IDX TEACHER MISSING": "Teacher id missing.",
+    "DELETE COMMENT": "Deleting comment",
+    "CONFIRM DELETE COMMENT": "Are you sure you want to delete this comment?",
+    "YES": "Yes",
+    "CHANGE PASSWORD TITLE": "Change Password",
+    "CHANGE PASSWORD DESC": "Please provide old password and new password",
+    "OLD PASSWORD": "Old Password",
+    "NEW PASSWORD": "New Password",
+    "CHANGE PASSWORD BUTTON": "Submit New Password"
+
 }

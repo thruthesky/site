@@ -158,7 +158,25 @@
     "CREATE COMMENT": "コメントを作成する",
     "EDIT COMMENT": "コメントを編集",
     "UPLOAD": "アップロード",
-    "DELTING": "削除",
+    "DELETING": "削除",
     "LOAD_NEXT_PAGE": "次のページを読み込む",
-    "LOADING_COMMENTS": "コメントを読み込んでいる間お待ちください。"
+    "LOADING_COMMENTS": "コメントを読み込んでいる間お待ちください。",
+
+    "REVIEW LIST TITLE": "教師に対するレビュー",
+    "WRITE REVIEW TITLE": "レビューを書く",
+    "SCHEDULE PAGE": "スケジュールページ",
+    "REVIEWS PAGE": "レビューページ",
+    "RATING": "評価",
+    "RATE COMMENT": "コメントを書く",
+    "STUDENT RATE COMMENT": "あなたは正しく行われたクラスのための賛辞を書くことができます。",
+    "SUBMIT": "送信",
+    "IDX TEACHER MISSING": "教師IDがありません",
+    "DELETE COMMENT": "コメントを削除する",
+    "CONFIRM DELETE COMMENT": "コメントを削除してもよろしいですか？」：このコメントを削除してもよろしいですか？",
+    "YES": "はい",
+    "CHANGE PASSWORD TITLE": "パスワードの変更",
+    "CHANGE PASSWORD DESC": "古いパスワードと新しいパスワードを入力してください",
+    "OLD PASSWORD": "旧パスワード",
+    "NEW PASSWORD": "新しいパスワード",
+    "CHANGE PASSWORD BUTTON": "新しいパスワードの送信"
 }

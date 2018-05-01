@@ -2,223 +2,249 @@
     <h2 *ngIf="a.user.isLogout">{{ 'REGISTER' | t }}</h2>
     <h2 *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE' | t }}</h2>
 </header>
-
-<div class="loader" *ngIf=" show.dataLoader ">
-    <ion-spinner></ion-spinner> {{ 'IN LOADING' | t }}
-</div>
-
-<div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
-    <input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">
-    <div class="photo-upload-button">
-        <div class="photo">
-            <img src="{{ userProfilePhoto( files )}}">
-        </div>
-        <div>
-            <button class="btn" [class.skip]="files && files.length">
-                <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
-                <span>{{ 'PHOTO UPLOAD' | t }}</span>
-            </button>
-        </div>
+<main>
+    <div class="loader" *ngIf=" show.dataLoader ">
+        <ion-spinner></ion-spinner>
+        {{ 'IN LOADING' | t }}
     </div>
-    <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
-    (success)="onSuccessUploadPicture($event)"></xapi-file-upload-component>
-</div>
 
-
-<form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
-    <div class="container-fluid">
-
-
-        <div class="row"  *ngIf=" a.teacherTheme ">
-            <div class="col-md-2 col-3">
-                <label for="timezone">{{ 'TIMEZONE' | t }}</label>
+    <div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
+        <input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">
+        <div class="photo-upload-button">
+            <div class="photo">
+                <img src="{{ a.userProfilePhoto( files )}}">
             </div>
-            <div class="col-md-10 col-9">
-                <div>
-                    <select id="timezone" [(ngModel)]="timezoneOffset" name="timezone">
-                        <option *ngFor="let t of keysTimezone()" value="{{ t }}">{{ formatTimeCode(t) }} {{ timezones[t].name }}</option>
-                    </select>
+            <div>
+                <button class="btn" [class.skip]="files && files.length">
+                    <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+                    <span>{{ 'PHOTO UPLOAD' | t }}</span>
+                </button>
+            </div>
+        </div>
+        <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files"
+                                    [showUploadedFiles]="false"
+                                    (success)="onSuccessUploadPicture($event)"></xapi-file-upload-component>
+    </div>
+
+
+    <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
+        <div class="container-fluid">
+
+
+            <div class="row" *ngIf=" a.teacherTheme ">
+                <div class="col-md-2 col-3">
+                    <label for="timezone">{{ 'TIMEZONE' | t }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <div>
+                        <select id="timezone" [(ngModel)]="timezoneOffset" name="timezone">
+                            <option *ngFor="let t of keysTimezone()" value="{{ t }}">{{ formatTimeCode(t) }} {{
+                                timezones[t].name }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        
-        <div class="row">
-            <div class="col-md-2 col-3">
-                <label for="email">{{ f.ln.EMAIL }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                 <input type="email" name="email" id="email" [(ngModel)]="form.user_email">
-            </div>
-        </div>
 
 
-        <div class="row" *ngIf="a.isLogout">
-            <div class="col-md-2 col-3">
-                <label for="password">{{ f.ln.PASSWORD }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                <input type="password" name="password" id="password" [(ngModel)]="form.user_pass">
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-2 col-3">
-                <label for="name">{{ f.ln.NAME }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                <input id="name" type="text" name="name" [(ngModel)]="form.name">
-            </div>
-        </div>
-
-
-        <div class="row"  *ngIf=" a.teacherTheme ">
-            <div class="col-md-2 col-3">
-                <label>{{ f.ln.GENDER }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                <div id="gender-group" class="input">
-                    <label>
-                        <input type="radio" name="gender" value="M" [checked]=" form.gender == 'M' " [(ngModel)]="form.gender"> Male
-                    </label>
-                    <label>
-                        <input type="radio" name="gender" value="F" [checked]=" form.gender == 'F' " [(ngModel)]="form.gender"> Female
-                    </label>
+            <div class="row">
+                <div class="col-md-2 col-3">
+                    <label for="email">{{ f.ln.EMAIL }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <input type="email" name="email" id="email" [(ngModel)]="form.user_email">
                 </div>
             </div>
-        </div>
 
 
-        <div class="row" *ngIf=" a.teacherTheme ">
-            <div class="col-md-2 col-3">
-                <label>{{ 'BIRTHDAY' | t }}</label>
+            <div class="row" *ngIf="a.isLogout">
+                <div class="col-md-2 col-3">
+                    <label for="password">{{ f.ln.PASSWORD }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <input type="password" name="password" id="password" [(ngModel)]="form.user_pass">
+                </div>
             </div>
-            <div class="col-md-10 col-9">
-                <div>
-                    <label>Month
-                        <select class="select" [(ngModel)]="month" name="month">
-                            <option *ngFor="let m of [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{ a.add0(m) }}">{{ a.add0(m) }}</option>
-                        </select>
-                    </label>
-                    <label>{{ 'Day' | t }}
-                        <select class="select" [(ngModel)]="day" name="day">
-                            <option *ngFor="let d of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]" value="{{ a.add0(d) }}">{{ a.add0(d) }}</option>
-                        </select>
-                    </label>
-                    <label>{{ 'Year' | t }}
-                        <select class="select" [(ngModel)]="year" name="year">
-                            <option *ngFor="let y of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+
+
+            <div class="row">
+                <div class="col-md-2 col-3">
+                    <label for="name">{{ f.ln.NAME }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <input id="name" type="text" name="name" [(ngModel)]="form.name">
+                </div>
+            </div>
+
+
+            <div class="row" *ngIf=" a.teacherTheme ">
+                <div class="col-md-2 col-3">
+                    <label>{{ f.ln.GENDER }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <div id="gender-group" class="input">
+                        <label>
+                            <input type="radio" name="gender" value="M" [checked]=" form.gender == 'M' "
+                                   [(ngModel)]="form.gender"> Male
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="F" [checked]=" form.gender == 'F' "
+                                   [(ngModel)]="form.gender"> Female
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" *ngIf=" a.teacherTheme ">
+                <div class="col-md-2 col-3">
+                    <label>{{ 'BIRTHDAY' | t }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <div>
+                        <label>Month
+                            <select class="select" [(ngModel)]="month" name="month">
+                                <option *ngFor="let m of [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{ a.add0(m) }}">{{
+                                    a.add0(m) }}
+                                </option>
+                            </select>
+                        </label>
+                        <label>{{ 'Day' | t }}
+                            <select class="select" [(ngModel)]="day" name="day">
+                                <option *ngFor="let d of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]"
+                                        value="{{ a.add0(d) }}">{{ a.add0(d) }}
+                                </option>
+                            </select>
+                        </label>
+                        <label>{{ 'Year' | t }}
+                            <select class="select" [(ngModel)]="year" name="year">
+                                <option *ngFor="let y of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                                                                     21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
                                                                     41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
-                                                                    61,62,63,64,65,66,67,68,69,70]" value="{{ year_now - y -17 }}">{{ year_now - y -17 }}</option>
-                        </select>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-2 col-3">
-                <label for="display_name">{{ f.ln.NICKNAME }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
-                <div class="small-text" text-wrap>
-                    {{ 'NICKNAME DESC' | t }}
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-2 col-3">
-                <label for="phone_number">{{ f.ln.PHONE_NUMBER }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                <input id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
-            </div>
-        </div>
-
-
-        <div class="row" *ngIf=" a.teacherTheme ">
-            <div class="col-md-2 col-3">
-                <label for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
-                <div class="small-text">Input minutes to prevent a sudden booking.</div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-2 col-3">
-                <label for="kakaotalk_id">{{ f.ln.KAKAOTALK_ID_SHORT }}</label>
-            </div>
-            <div class="col-md-10 col-9">
-                <div>
-                    <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
-                    <div class="small-text" (click)=" onClickKakaoIDHelp() ">
-                        {{ 'FIND KAKAOTALK ID' | t }}
-                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa" data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path></svg>
+                                                                    61,62,63,64,65,66,67,68,69,70]"
+                                        value="{{ year_now - y -17 }}">{{ year_now - y -17 }}
+                                </option>
+                            </select>
+                        </label>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <div class="row" *ngIf=" showFindKakaotalkIDBox ">
-            <div class="col">
-                <div class="kakaotalk-id-find-box" (click)=" showFindKakaotalkIDBox = false " >
-                    <img src="assets/img/find-kakaotalk-id.jpg">
+            <div class="row">
+                <div class="col-md-2 col-3">
+                    <label for="display_name">{{ f.ln.NICKNAME }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
+                    <div class="small-text" text-wrap>
+                        {{ 'NICKNAME DESC' | t }}
+                    </div>
                 </div>
             </div>
-        </div>
 
 
-        <div class="row"  *ngIf=" a.teacherTheme ">
-            <div class="col-md-2 col-3">
-                <div>Upload Kakaotalk QR Mark</div>
+            <div class="row">
+                <div class="col-md-2 col-3">
+                    <label for="phone_number">{{ f.ln.PHONE_NUMBER }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <input id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
+                </div>
             </div>
-            <div class="col-md-10 col-9">
+
+
+            <div class="row" *ngIf=" a.teacherTheme ">
+                <div class="col-md-2 col-3">
+                    <label for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
+                    <div class="small-text">Input minutes to prevent a sudden booking.</div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-2 col-3">
+                    <label for="kakaotalk_id">{{ f.ln.KAKAOTALK_ID_SHORT }}</label>
+                </div>
+                <div class="col-md-10 col-9">
+                    <div>
+                        <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
+                        <div class="small-text" (click)=" onClickKakaoIDHelp() ">
+                            {{ 'FIND KAKAOTALK ID' | t }}
+                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa"
+                                 data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" *ngIf=" showFindKakaotalkIDBox ">
+                <div class="col">
+                    <div class="kakaotalk-id-find-box" (click)=" showFindKakaotalkIDBox = false ">
+                        <img src="assets/img/find-kakaotalk-id.jpg">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" *ngIf=" a.teacherTheme ">
+                <div class="col-md-2 col-3">
+                    <div>Upload Kakaotalk QR Mark</div>
+                </div>
+                <div class="col-md-10 col-9">
                     <div class="qr-mark">
-                        <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="true"
-                            (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
-            
+                        <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true"
+                                                    [files]="qrmarks" [showUploadedFiles]="true"
+                                                    (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
+
                         <div class="small-text" text-wrap (click)="showModalFAQ('qrmark')">
                             QR Mark is required for teacher. How to get QR MARK
-                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa" data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path></svg>
+                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa"
+                                 data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
+                            </svg>
                         </div>
-            
+
                         <div class="success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
-                            QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{ form.kakao_qrmark_URL }} )
+                            QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{
+                            form.kakao_qrmark_URL }} )
                         </div>
-            
+
                         <div class="warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">
                             <i class="fas fa-spinner fa-spin"></i>
-                            There is something wrong in converting Kakao QR Mark into string. If this message does not appear within 10 seconds, please
+                            There is something wrong in converting Kakao QR Mark into string. If this message does not
+                            appear within 10 seconds, please
                             contact to admin.
                         </div>
-            
+
                     </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-2 col-3"></div>
-            <div class="col-md-10 col-9">
-                <div class="app-button">
-                    <button type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</button>
-                    <button type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</button>
-                    <button [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
                 </div>
             </div>
+
+
+            <div class="row">
+                <div class="col-md-2 col-3"></div>
+                <div class="col-md-10 col-9">
+                    <div class="app-button">
+                        <button type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</button>
+                        <button type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</button>
+                        <button [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
-
-    </div>
-
-</form>
+    </form>
+</main>

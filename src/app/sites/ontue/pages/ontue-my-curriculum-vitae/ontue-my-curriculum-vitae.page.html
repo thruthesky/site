@@ -13,7 +13,7 @@
                     <div class="p-relative of-hidden pointer">
                         <input type="file" (change)="fileUpload.onChangeFile($event)">
                         <div>
-                            <img src="{{files.length ? files[0].url : a.anonymousPhotoURL}}">
+                            <img src="{{ a.userProfilePhoto( files )}}">
                         </div>
                     </div>
                     <xapi-file-upload-component #fileUploadWidget [title]="false" [fileSelectionButton]="false"

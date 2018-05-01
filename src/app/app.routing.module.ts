@@ -129,6 +129,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: './pages/login/login.page.module#LoginPageModule'
   },
+  {
+    path: 'password-change',
+    loadChildren: './pages/password-change/password-change.page.module#PasswordChangePageModule'
+  },
 
   {
     path: 'profile',

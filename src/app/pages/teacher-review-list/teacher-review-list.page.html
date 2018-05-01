@@ -1,10 +1,10 @@
 <header>
-    <h1>Comment From Student</h1>
+    <h1>{{ 'REVIEW LIST TITLE' | t}}</h1>
     <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
-        << teacher schedule
+        {{ 'TEACHER SCHEDULE' | t }}
     </button>
     <button *ngIf="a.user.isLogin && a.studentTheme" routerLink="/teacher-review-create" [queryParams]="{idx_teacher:idx_teacher}">
-        <span class="text-uppercase fw-bold">{{ 'WRITE REVIEW' | t }}</span>
+        <span>{{ 'WRITE REVIEW' | t }}</span>
         <i class="fas fa-edit ml-2"></i>
     </button>
 </header>
@@ -98,7 +98,7 @@
     </div>
 
     <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
-        << teacher schedule
+        {{ 'TEACHER SCHEDULE' | t }}
     </button>
 
 

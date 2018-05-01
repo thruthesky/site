@@ -76,7 +76,7 @@ export class TeacherReviewListPage {
             }
             this.pageOption.currentPage = res['page'];
             this.pageOption.limitPerPage = res['limit'];
-            this.pageOption.totalRecord = res['total']
+            this.pageOption.totalRecord = res['total'];
             this.loading = false;
         }, e => {
             console.log('get_student_comments_to_teacher::error');
