@@ -76,6 +76,7 @@ export class ForumPage implements OnInit, OnDestroy {
     }
     ngOnDestroy() {
         this.fire.post.stopLoadPage();
+        // console.log("Going to destroy: ", this.fire.post  );
     }
 
     initPost() {

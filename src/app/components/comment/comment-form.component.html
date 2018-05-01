@@ -12,16 +12,16 @@
                         (upload)="onUpload()"
                         (progress)="onProgress( $event )"></app-data>
                 </td>
-                <td>
+                <td width="98%">
                     <input type="text" name="content" [(ngModel)]="form.content" [disabled]="loader.progress">
                 </td>
-                <td>
+                <td nowrap>
                     <button type="submit" *ngIf=" ! loader.progress ">{{ form.created ? ('EDIT COMMENT' | t)  : ('CREATE COMMENT' | t) }}</button>
-                    <button type="button" (click)="onClickEditCancel()" *ngIf=" form.created && ! loader.progress">{{ 'CANCEL' | t }}</button>
+                    <button type="button" *ngIf=" form.created && ! loader.progress" (click)="onClickEditCancel()">{{ 'CANCEL' | t }}</button>
+                    <span class="loader" *ngIf="loader.progress">{{ 'LOADING' | t }}</span>
                 </td>
             </tr>
         </table>
-        <span class="loader" *ngIf="loader.progress">{{ 'LOADING' | t }}</span>
     </form>
     <div class="progress" *ngIf=" percentage ">{{ 'UPLOAD' | t }}: {{ percentage }}%</div>
     <div class="files" *ngIf="form.data?.length ">

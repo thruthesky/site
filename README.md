@@ -140,7 +140,7 @@
 
 * [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)
 
-
+* [PHPJS library](http://locutus.io/php/) are saved under src/app/etc/php.
 
 ## Work Environment
 

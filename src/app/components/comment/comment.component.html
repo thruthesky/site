@@ -1,9 +1,9 @@
-<section class="comment" [style.margin-left]="comment.depth * 30 + 'px'">
+<section class="comment" [attr.depth]="comment.depth">
     <div class="content" *ngIf=" ! editing ">
-      <div>{{ comment.displayName ? comment.displayName : 'Anonymous' }} at {{ comment.date }} / {{ comment.id }}
+      <div>{{ comment.displayName ? comment.displayName : ('Anonymous' | t) }} {{ comment.date }}
       </div>
       <!-- {{ comment | json }} -->
-      <div style="padding: 1em; background-color:aquamarine;">
+      <div class="content">
         {{ comment.content }}
       </div>
       <div class="files" *ngIf=" !comment.deleted && comment.data?.length ">
@@ -15,12 +15,12 @@
     </div>
   
     <div class="buttons" *ngIf=" ! editing ">
-      <button (click)=" editing = true; commentForm.edit(); " *ngIf="myComment()">Edit</button>
-      <button (click)="onClickDelete()" *ngIf="myComment()">Delete</button>
-      <button (click)="onClickLike()" *ngIf=" !comment['likeInProgress'] ">Like({{comment.numberOfLikes ? comment.numberOfLikes : 0}})</button>
-      <span class="loader" *ngIf=" comment['likeInProgress'] ">Like...</span>
-      <button (click)="onClickDislike()" *ngIf=" !comment['dislikeInProgress'] ">Dislike({{comment.numberOfDislikes ? comment.numberOfDislikes : 0}})</button>
-      <span class="loader" *ngIf=" comment['dislikeInProgress'] ">Dislike...</span>
+      <button (click)=" editing = true; commentForm.edit(); " *ngIf="myComment()">{{ 'EDIT' | t }}</button>
+      <button (click)="onClickDelete()" *ngIf="myComment()">{{ 'DELETE' | t }}</button>
+      <button (click)="onClickLike()" *ngIf=" !comment['likeInProgress'] ">{{ 'LIKE' | t }}({{comment.numberOfLikes ? comment.numberOfLikes : 0}})</button>
+      <span class="loader" *ngIf=" comment['likeInProgress'] ">{{ 'LOADING' | t }}...</span>
+      <button (click)="onClickDislike()" *ngIf=" !comment['dislikeInProgress'] ">{{ 'DISLIKE' | t }}({{comment.numberOfDislikes ? comment.numberOfDislikes : 0}})</button>
+      <span class="loader" *ngIf=" comment['dislikeInProgress'] ">{{ 'LOADING' | t }}...</span>
     </div>
 
     <app-comment-form #commentForm [post]="post" [comment]="comment" (created)=" 1 " (edited)=" editing = false; " (cancelled)=" editing = false; "></app-comment-form>

@@ -205,5 +205,6 @@
     "EDIT COMMENT": "Edit Comment",
     "UPLOAD": "Upload",
     "DELTING": "Deleting",
-    "LOAD_NEXT_PAGE": "Load next page"
+    "LOAD_NEXT_PAGE": "Load next page",
+    "LOADING_COMMENTS": "Please wait while loading comments."
 }
