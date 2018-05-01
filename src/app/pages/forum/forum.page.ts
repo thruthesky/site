@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import { AppService } from '../../providers/app.service';
 import { ActivatedRoute } from '@angular/router';
 import { ModalService } from '../../providers/modal/modal.service';
+import { nl2br } from './../../etc/php/nl2br';
 
 @Component({
     selector: 'forum-page',
@@ -36,14 +37,13 @@ export class ForumPage implements OnInit, OnDestroy {
         public readonly a: AppService,
         public readonly modal: ModalService
     ) {
-
-
         fire.setSettings({
             listenOnPostChange: true,
             listenOnCommentChange: true,
             listenOnPostLikes: true,
             listenOnCommentLikes: true,
-            date: 'TodayTimeOtherdayDate'
+            date: 'TodayTimeOtherdayDate',
+            onPostChange: post => this.sanitizePost(post)
         });
         this.initPost();
         activatedRoute.data.subscribe(params => {
@@ -65,12 +65,18 @@ export class ForumPage implements OnInit, OnDestroy {
         });
 
     }
+    sanitizePost(post: POST) {
+        // post.content += '<hr> Copyright (C) 2018';
+        //
+        post.content = nl2br( post.content );
+    }
 
     ngOnInit() {
         this.openCreateForm();
     }
     ngOnDestroy() {
         this.fire.post.stopLoadPage();
+        // console.log("Going to destroy: ", this.fire.post  );
     }
 
     initPost() {
@@ -126,11 +132,12 @@ export class ForumPage implements OnInit, OnDestroy {
             //     post.content = 'replace';
             // }
             if (this.fire.post.pagePostIds.length) {
-                console.log('==> step page');
+                // console.log('==> step page');
                 for (const id of this.fire.post.pagePostIds) {
-                    if ( this.fire.post.pagePosts[ id ].content ) {
-                        this.fire.post.pagePosts[ id ].content += ' <br>Hello 2 .. !';
-                    }
+                    this.sanitizePost(posts[id]);
+                    // if (this.fire.post.pagePosts[id].content) {
+                    //     // this.fire.post.pagePosts[ id ].content += ' <br>Hello 2 .. !';
+                    // }
                     /// 여기서 부터. \n 을 <BR> HTML 로 변환 할 것.
 
                     // console.log('content: ', this.fire.post.pagePosts[ id ].content);
@@ -249,7 +256,6 @@ export class ForumPage implements OnInit, OnDestroy {
         })
             .catch(e => alert(e.message));
     }
-
 
     onUpload() {
         console.log('onUpload(): ', this.post.data);
