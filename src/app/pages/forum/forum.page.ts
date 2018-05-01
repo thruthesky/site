@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import { AppService } from '../../providers/app.service';
 import { ActivatedRoute } from '@angular/router';
 import { ModalService } from '../../providers/modal/modal.service';
+import { nl2br } from './../../etc/php/nl2br';
 
 @Component({
     selector: 'forum-page',
@@ -36,8 +37,6 @@ export class ForumPage implements OnInit, OnDestroy {
         public readonly a: AppService,
         public readonly modal: ModalService
     ) {
-
-
         fire.setSettings({
             listenOnPostChange: true,
             listenOnCommentChange: true,
@@ -67,7 +66,9 @@ export class ForumPage implements OnInit, OnDestroy {
 
     }
     sanitizePost(post: POST) {
-        post.content += '<hr> Copyright (C) 2018';
+        // post.content += '<hr> Copyright (C) 2018';
+        //
+        post.content = nl2br( post.content );
     }
 
     ngOnInit() {
@@ -254,7 +255,6 @@ export class ForumPage implements OnInit, OnDestroy {
         })
             .catch(e => alert(e.message));
     }
-
 
     onUpload() {
         console.log('onUpload(): ', this.post.data);

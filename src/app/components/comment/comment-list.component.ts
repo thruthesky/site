@@ -26,7 +26,7 @@ export class CommentListComponent implements OnInit, OnDestroy {
     }
 
     sanitizeComment(comment: COMMENT) {
-        comment.content += '<hr> Comment Copyright(C)';
+        // comment.content += '<hr> Comment Copyright(C)';
     }
     initComment() {
         this.comment = { id: this.fire.comment.getId(), data: [] };
