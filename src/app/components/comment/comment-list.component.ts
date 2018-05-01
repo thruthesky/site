@@ -20,8 +20,14 @@ export class CommentListComponent implements OnInit, OnDestroy {
         public fire: FireService
     ) {
         this.initComment();
+        this.fire.setSettings({
+            onCommentChange: comment => this.sanitizeComment(comment)
+        });
     }
 
+    sanitizeComment(comment: COMMENT) {
+        comment.content += '<hr> Comment Copyright(C)';
+    }
     initComment() {
         this.comment = { id: this.fire.comment.getId(), data: [] };
     }
@@ -38,10 +44,12 @@ export class CommentListComponent implements OnInit, OnDestroy {
             return;
         }
         this.loader.commentList = true;
-        this.fire.comment.load(this.post.id).then(comments => {
-            // console.log(`comments: `, comments);
+        this.fire.comment.load(this.post.id).then(commentIds => {
+            if ( commentIds && commentIds.length ) {
+                commentIds.forEach( id => this.sanitizeComment( this.fire.comment.getComment( id ) ) );
+            }
             this.loader.commentList = false;
-            setTimeout(() => this.ngZone.run(() => {}), 2000);
+            setTimeout(() => this.ngZone.run(() => {}), 200);
         }).catch(e => alert(e.message));
     }
     ngOnDestroy() {

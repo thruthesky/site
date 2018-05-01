@@ -43,7 +43,8 @@ export class ForumPage implements OnInit, OnDestroy {
             listenOnCommentChange: true,
             listenOnPostLikes: true,
             listenOnCommentLikes: true,
-            date: 'TodayTimeOtherdayDate'
+            date: 'TodayTimeOtherdayDate',
+            onPostChange: post => this.sanitizePost(post)
         });
         this.initPost();
         activatedRoute.data.subscribe(params => {
@@ -64,6 +65,9 @@ export class ForumPage implements OnInit, OnDestroy {
             }
         });
 
+    }
+    sanitizePost(post: POST) {
+        post.content += '<hr> Copyright (C) 2018';
     }
 
     ngOnInit() {
@@ -126,11 +130,12 @@ export class ForumPage implements OnInit, OnDestroy {
             //     post.content = 'replace';
             // }
             if (this.fire.post.pagePostIds.length) {
-                console.log('==> step page');
+                // console.log('==> step page');
                 for (const id of this.fire.post.pagePostIds) {
-                    if ( this.fire.post.pagePosts[ id ].content ) {
-                        this.fire.post.pagePosts[ id ].content += ' <br>Hello 2 .. !';
-                    }
+                    this.sanitizePost(posts[id]);
+                    // if (this.fire.post.pagePosts[id].content) {
+                    //     // this.fire.post.pagePosts[ id ].content += ' <br>Hello 2 .. !';
+                    // }
                     /// 여기서 부터. \n 을 <BR> HTML 로 변환 할 것.
 
                     // console.log('content: ', this.fire.post.pagePosts[ id ].content);
