@@ -161,5 +161,6 @@
     "UPLOAD": "上传",
     "DELTING": "删除",
     "LOAD_NEXT_PAGE": "加载下一页",
-    "LOADING_COMMENTS": "请等待加载评论。"
+    "LOADING_COMMENTS": "请等待加载评论。",
+    "ADMIN_PERMISSION_REQUIRED": "请以管理员身份登录。"
 }

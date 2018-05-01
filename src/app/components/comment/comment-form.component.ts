@@ -55,6 +55,10 @@ export class CommentFormComponent implements OnInit, OnDestroy {
     onSubmit(event: Event) {
         console.log(`parentId: ${this.comment.parentId}`, 'form: ', this.form, 'comment:', this.comment);
         event.preventDefault();
+        if ( ! this.a.isManager ) {
+            this.a.toast( this.a.t('ADMIN_PERMISSION_REQUIRED'));
+            return false;
+        }
         this.loader.progress = true;
         this.form.displayName = this.a.user.name;
         console.log('this.form: ', this.form);

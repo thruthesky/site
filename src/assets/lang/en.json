@@ -206,5 +206,6 @@
     "UPLOAD": "Upload",
     "DELTING": "Deleting",
     "LOAD_NEXT_PAGE": "Load next page",
-    "LOADING_COMMENTS": "Please wait while loading comments."
+    "LOADING_COMMENTS": "Please wait while loading comments.",
+    "ADMIN_PERMISSION_REQUIRED": "Please login as admin."
 }

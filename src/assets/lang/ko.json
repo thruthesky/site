@@ -164,5 +164,6 @@
     "UPLOAD": "업로드",
     "DELTING": "삭제중",
     "LOAD_NEXT_PAGE": "다음 페이지",
-    "LOADING_COMMENTS": "코멘트를 로딩중입니다. 잠시만 기다려주세요."
+    "LOADING_COMMENTS": "코멘트를 로딩중입니다. 잠시만 기다려주세요.",
+    "ADMIN_PERMISSION_REQUIRED": "관리자로 로그인을 하셔야합니다."
 }
