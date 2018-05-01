@@ -14,11 +14,15 @@ import { USER_LOGIN } from '../../../modules/xapi/interfaces';
 export class AdminHomePage implements OnInit {
 
     form = <USER_LOGIN>{};
+    adminList = null;
     constructor(
         public router: Router,
         public a: AppService
     ) {
 
+        a.xapi.post({route: 'lms.admin_list'}).subscribe( re => {
+            this.adminList = re;
+        });
     }
 
     ngOnInit() {

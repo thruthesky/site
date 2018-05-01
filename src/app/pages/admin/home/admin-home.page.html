@@ -1,4 +1,15 @@
 <admin-header-component></admin-header-component>
+<h1>Admin Dashboard</h1>
+<h2>Admin List</h2>
+Add admin
+<form>
+    Admin email: <input type="email" name="email">
+    Domain: <input type="text" name="domain">
+    <button>Submit</button>
+</form>
 
-
-admin home
+<section *ngIf=" adminList ">
+    <div *ngFor="let admin of adminList">
+        {{ admin.user_email }} =&gt; {{ admin.manager }}
+    </div>
+</section>
