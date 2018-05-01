@@ -215,6 +215,14 @@ export class ForumPage implements OnInit, OnDestroy {
         return post.uid === this.fire.user.uid;
     }
 
+    onClickReply() {
+        if ( this.a.isManager ) {
+            return true;
+        } else {
+            this.a.toast( this.a.t('MANAGER_PERMISSION_REQUIRED') );
+            return false;
+        }
+    }
     /**
      * Updates the post edit form with the post to edit.
      */

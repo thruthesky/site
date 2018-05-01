@@ -207,5 +207,6 @@
     "DELTING": "Deleting",
     "LOAD_NEXT_PAGE": "Load next page",
     "LOADING_COMMENTS": "Please wait while loading comments.",
-    "ADMIN_PERMISSION_REQUIRED": "Please login as admin."
+    "ADMIN_PERMISSION_REQUIRED": "Please login as admin.",
+    "MANAGER_PERMISSION_REQUIRED": "Please login as manager or administrator."
 }

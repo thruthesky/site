@@ -161,5 +161,6 @@
     "DELTING": "削除",
     "LOAD_NEXT_PAGE": "次のページを読み込む",
     "LOADING_COMMENTS": "コメントを読み込んでいる間お待ちください。",
-    "ADMIN_PERMISSION_REQUIRED": "管理者としてログインしてください。"
+    "ADMIN_PERMISSION_REQUIRED": "管理者としてログインしてください。",
+    "MANAGER_PERMISSION_REQUIRED": "マネージャーまたは管理者としてログインしてください。"
 }

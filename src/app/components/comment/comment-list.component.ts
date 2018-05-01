@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FireService, POST, COMMENT } from '../../modules/firelibrary/core';
+import { AppService } from '../../providers/app.service';
 
 
 
@@ -16,9 +17,13 @@ export class CommentListComponent implements OnInit, OnDestroy {
         creating: false,
         commentList: false
     };
+    show = {
+        replyForm: false
+    };
     constructor(
         public ngZone: NgZone,
-        public fire: FireService
+        public fire: FireService,
+        public readonly a: AppService
     ) {
         this.initComment();
         this.fire.setSettings({
