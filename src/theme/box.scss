@@ -1,0 +1,10 @@
+.box {
+    &.notice {
+        padding: 1em;
+        background-color: rgb(18, 18, 189);
+        color: white;
+        a {
+            color: white;
+        }
+    }
+}

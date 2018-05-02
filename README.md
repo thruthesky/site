@@ -186,6 +186,11 @@ But we simply decide to differenciate the theme based on domain. It's much simpl
 
 When source code is changed, we need only one time compilation and publishment. You don't have to manage all the three apps in one project.
 
+## Setting an admin
+
+Please see [LMS Management - Admin](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd)
+
+
 ## Folder structure
 
 ### Pages
