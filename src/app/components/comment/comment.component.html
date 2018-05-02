@@ -2,7 +2,6 @@
     <div class="content" *ngIf=" ! editing ">
       <div>{{ comment.displayName ? comment.displayName : ('Anonymous' | t) }} {{ comment.date }}
       </div>
-      <!-- {{ comment | json }} -->
       <div class="content">
         {{ comment.content }}
       </div>
@@ -24,22 +23,6 @@
       <span class="loader" *ngIf=" comment['dislikeInProgress'] ">{{ 'LOADING' | t }}...</span>
     </div>
 
-    <app-comment-form #commentForm [post]="post" [comment]="comment" (created)=" 1 " (edited)=" editing = false; " (cancelled)=" editing = false; "  *ngIf=" show.replyForm "></app-comment-form>
-  
-  
-    <!-- <div class="form">
-      <form (ngSubmit)=" onSubmit( $event ) ">
-        <table>
-          <tr>
-            <td><app-data [path]=" 'posts/' + post.id + '/comments/' + form.id " [data]=" form.data "></app-data></td>
-            <td><input type="text" name="content" [(ngModel)]="form.content" [disabled]="loader.progress"></td>
-            <td><button type="submit" *ngIf=" ! loader.progress ">{{ form.created ? 'Edit' : 'Create' }} Comment</button></td>
-          </tr>
-        </table>
-        <button type="button" (click)="onClickEditCancel()" *ngIf=" form.created && ! loader.progress">Cancel</button>
-        <span class="loader" *ngIf="loader.progress">Requesting. Please wait.</span>
-      </form>
-    </div> -->
-  
+    <app-comment-form #commentForm [post]="post" [comment]="comment" (created)=" 1 " (edited)=" editing = false; " (cancelled)=" editing = false; "  *ngIf=" show.replyForm "></app-comment-form> 
   </section>
   

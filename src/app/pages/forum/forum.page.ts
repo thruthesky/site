@@ -123,7 +123,7 @@ export class ForumPage implements OnInit, OnDestroy {
      *    if not, it loads that category only.
      */
     loadPage(category?: string) {
-        this.fire.post.page({ category: category, limit: 5 }).then(posts => {
+        this.fire.post.page({ category: category, limit: 30 }).then(posts => {
             // console.log('posts: ', posts);
             // const keys = Object.keys( posts );
             // console.log('keys: ', keys);
