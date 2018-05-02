@@ -1,4 +1,419 @@
-<h2>session list</h2>
+<section>
 
-for student and teacher.
-for past and future.
+    <div *ngIf=" share.options ">
+
+        <div class="container-fluid" *ngIf=" past ">
+
+            <div class="row">
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <label>{{ 'DATE BEGIN' | t}}</label>
+                            <ion-datetime name="date_begin" displayFormat="MM/DD/YYYY" pickerFormat="YYYYMMDD"
+                                          [(ngModel)]="date_begin"
+                                          (ngModelChange)="onChangeSearchOption()"></ion-datetime>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <label>{{ 'DATE END' | t}}</label>
+                            <ion-datetime name="date_end" displayFormat="MM/DD/YYYY" pickerFormat="YYYYMMDD"
+                                          [(ngModel)]="date_end"
+                                          (ngModelChange)="onChangeSearchOption()"></ion-datetime>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-fluid" *ngIf=" my_teachers ">
+            <div class="row">
+                <label class="blue">{{ 'SELECT TEACHER'| t }}</label>
+                <select [(ngModel)]="show_teacher" (change)="onChangeSearchOption()">
+                    <option *ngFor="let teacher of teachers_keys" [value]="teacher">{{ my_teachers[teacher].name }}
+                    </option>
+                    <option [value]="0">{{ "ALL TEACHER" | t}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="container-fluid" *ngIf=" past ">
+            <div class="row">
+                <ion-checkbox [(ngModel)]="show_refund_in_progress" color="vibrant"
+                              (ionChange)="onChangeSearchOption()"></ion-checkbox>
+                <label>
+                    {{ 'DISPLAY SESSION IN PROGRESS' | t}}
+                </label>
+            </div>
+            <div class="row">
+                <ion-checkbox [(ngModel)]="show_refunded" color="vibrant"
+                              (ionChange)="onChangeSearchOption()"></ion-checkbox>
+                <label>
+                    {{ 'DISPLAY REFUNDED SESSION' | t}}
+                </label>
+            </div>
+            <ng-container *ngIf="a.isStudent">
+                <div class="row">
+                    <ion-checkbox [(ngModel)]="displayTeacherName" color="vibrant"></ion-checkbox>
+                    <label>
+                        선생님 이름 표시
+                    </label>
+                </div>
+                <div class="row">
+                    <ion-checkbox [(ngModel)]="displayDate" color="vibrant"></ion-checkbox>
+                    <label>날짜 표시</label>
+                </div>
+                <div class="row">
+                    <ion-checkbox [(ngModel)]="displayPoint" color="vibrant"></ion-checkbox>
+                    <label>포인트 표시</label>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="container-fluid">
+            <button (click)=" share.options = false ">
+                <i class="fal fa-times mr-1"></i>
+                {{ 'CLOSE' | t}}
+            </button>
+        </div>
+        <hr>
+    </div>
+    <!--/options-->
+
+    <div class="alert alert-warning mt-md-5 mt-0 mb-0" *ngIf=" a.isTeacher ">
+        Teacher must see this page in wide screen since the content in this page is wide.
+    </div>
+
+    <div class="container-fluid" *ngIf=" re && books.length ">
+        <div class="row">
+            <div class="col-md-2 col-12">
+                <i class=" d-md-inline d-none fal fa-list fa-4x  mb-3 orange"></i>
+                <div>
+                    <i class="d-inline d-md-none fal fs-2rem fa-list  mr-2 orange"></i>
+                    <div>{{ 'SEARCHED SESSIONS' | t }}</div>
+                    <div>{{ books.length }}</div>
+                    <div>( {{ 'TOTAL' | t }} : {{ re.total_sessions }} )</div>
+                </div>
+            </div>
+            <div class="col-md-2 col-12" *ngIf=" a.isTeacher ">
+                <i class="fal fa-check-circle fa-4x  d-none d-md-inline mb-3 green"></i>
+                <div>
+                    <i class="fal fa-check-circle d-inline d-md-none  mr-2 fs-2rem green"></i>
+                    <div>{{ 'SEARCHED POINT' | t }}</div>
+                    <div>{{ re.total_points | number }}</div>
+                </div>
+            </div>
+            <ng-container *ngIf=" past ">
+                <div class="col-md-2 col-12" *ngIf=" re.total_session_refunded ">
+                    <i class="fal d-none d-md-inline fa-retweet fa-4x mb-3 brown"></i>
+                    <div>
+                        <i class="fal fa-redo-alt  d-inline d-md-none mr-2  brown fs-2rem"></i>
+                        <div>{{ 'REFUNDED SESSIONS' | t}}</div>
+                        <div>{{re.total_session_refunded}}</div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-12" *ngIf=" re.total_session_refund_in_progress ">
+                    <i class="fal fa-sync d-none d-md-inline fa-4x mb-3 teal"></i>
+                    <div>
+                        <i class="fal fa-sync d-inline d-md-none mr-2 fs-2rem teal"></i>
+                        <div>{{ 'SESSIONS IN REFUND PROGRESS' | t}}</div>
+                        <div> {{re.total_session_refund_in_progress}}</div>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="col-md-2 col-12">
+                <i class="fal fa-calendar-alt fa-4x d-none d-md-inline mb-3 indigo"></i>
+                <div>
+                    <i class="fal fa-calendar-alt d-inline d-md-none mr-2 fs-2rem indigo"></i>
+                    <div>{{ 'SEARCH PERIOD' | t}}</div>
+                    <div>
+                        <span>{{ date_begin }}</span>
+                        <span> ~ </span>
+                        <span> {{ date_end }} </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-12" routerLink="/settings">
+                <i class="fal fa-globe dodgerblue fa-4x d-none d-md-inline  mb-3"></i>
+                <div>
+                    <i class="fal fa-globe d-inline d-md-none mr-2 fs-2rem dodgerblue"></i>
+                    <div>{{ 'TIMEZONE NOW' | t}}</div>
+                    <div>{{ a.userTime }}</div>
+                </div>
+                <div>{{ 'CHANGE TIMEZONE' | t }}</div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div *ngIf=" re && books.length == 0 ">
+        <ng-container *ngIf=" future ">{{ 'NO MORE RESERVATIONS' | t}}</ng-container>
+        <ng-container *ngIf=" past ">{{ 'NO MORE PASTS' | t}}</ng-container>
+    </div>
+
+    <div *ngIf=" re == null ">
+        <ion-spinner></ion-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
+    </div>
+
+    <div *ngIf=" books.length ">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-3 col-md-1" *ngIf="a.isStudent">
+                    <div>{{ 'TEACHER' | t}}</div>
+                </div>
+                <div class="col-3 col-md-2" *ngIf="a.isTeacher">
+                    <div>{{ 'STUDENT' | t}}</div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="a.isTeacher">
+                    <div>{{ 'CLASS NO' | t}}</div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="displayDate">
+                    <div>{{ 'DATE' | t}}</div>
+                </div>
+                <div class="col-2 col-md-1">
+                    <div>{{ 'TIME' | t}}</div>
+                </div>
+                <div class="col-1 col-md-1">
+                    <div>{{ 'MINUTE' | t}}</div>
+                </div>
+                <div class="col-2 col-md-2" *ngIf=" future ">
+                    <div> {{ 'KAKAOTALK' | t}}
+                        <br> {{ 'ADD FRIEND' | t}}
+                    </div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="displayPoint">
+                    <div>{{ 'POINT' | t}}</div>
+                </div>
+                <div class="col-2 col-md-3">
+                    <ng-container *ngIf=" a.isStudent && past ">
+                        <div> 결과</div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="row" *ngFor="let book of books; let i = index; let o = odd; let e = even"
+                 [ngClass]=" { 'odd': o, 'even': e } ">
+                <div class="col-3 col-md-1" *ngIf="a.isStudent">
+                    <section class="teacher-photo">
+                        <div class="pointer mx-auto size-40 rounded-50 of-hidden"
+                             (click)=" a.open('schedule-table', { ID: book.idx_teacher })">
+                            <img class="d-block w-100" src="{{ photoURL( book )  }}">
+                        </div>
+                        <div class="mt-2  fs-90 text-uppercase" *ngIf="displayTeacherName">{{
+                            a.preTeacherName(my_teachers[book.idx_teacher].name) }}
+                        </div>
+                    </section>
+                </div>
+                <div class="col-3 col-md-2" *ngIf="a.isTeacher">
+                    <div class="fw-bold fs-90"> {{ a.preTeacherName(book.student_name) }}</div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf=" a.isTeacher ">
+                    <div>{{book.idx}}</div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="displayDate">
+                    <div>{{ date(book.date_display) }}</div>
+                </div>
+                <div class="col-2 col-md-1">
+                    <div>{{book.class_begin_display}}</div>
+                </div>
+                <div class="col-1 col-md-1">
+                    <div>{{book.duration}}</div>
+                </div>
+                <div class="col-2 col-md-2" *ngIf=" future ">
+                    <div class="kakaotalk-id">
+                        <ng-container *ngIf="a.isTeacher">
+                            {{book.student_kakaotalk_id}}
+                        </ng-container>
+                        <ng-container *ngIf="a.isStudent">
+                            <div>
+                                {{ my_teachers[book.idx_teacher].kakaotalk_id }}
+                            </div>
+
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="displayPoint">
+                    <div class="blue"> {{ point(book) }}</div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <ng-container *ngIf=" book.past ">
+                                <ng-container *ngIf=" a.isTeacher ">
+                                    <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
+                                        <button [class.warning]=" ! evaluated(book) "
+                                                (click)=" a.open('evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
+                                            Eval
+                                        </button>
+                                    </div>
+                                    <div class="col-6" *ngIf=" refundable(book) ">
+                                        <button (click)=" onClickRefund( book ) ">Refund</button>
+                                    </div>
+                                    <div class="col-6" *ngIf=" paid(book) ">
+                                        <div>Paid</div>
+                                    </div>
+                                    <div class="col-6" *ngIf=" refunded( book ) ">
+                                        <div>Refunded</div>
+                                    </div>
+                                    <div class="col-6" *ngIf=" refund_in_progress(book) ">
+                                        <div>
+                                            <span *ngIf=" rejected(book); else Requested ">Rejected</span>
+                                            <ng-template #Requested>
+                                                <button (click)=" onClickShowRequest( book ) ">
+                                                    <ion-icon name="mail"></ion-icon>
+                                                    Refund Requested
+                                                </button>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf=" a.isStudent ">
+                                    <div class="col-6" *ngIf=" !refunded(book) ">
+                                        <button (click)=" onClickEvaluateView(book.idx)">강의평가</button>
+                                    </div>
+                                    <div class="col-6" *ngIf=" !refund_in_progress(book) ">
+                                        <button (click)=" onClickCommentCreate( book.idx_teacher ) ">후기작성</button>
+                                    </div>
+                                    <div class="col-6" *ngIf=" rejected( book ) ">
+                                        <span class="py-2 darkred">포인트 복구 거절 됨</span>
+                                    </div>
+                                    <div class="col-6" *ngIf=" refunded(book) ">
+                                        <span class="py-2 darkred">복구됨</span>
+                                    </div>
+                                    <div class="col-6" *ngIf=" !book.refund_timeover && ! rejected( book ) ">
+                                        <ng-container *ngIf=" ! refunded( book ) ">
+                                            <button (click)=" onClickCancelRefundRequest( book )"
+                                                    *ngIf=" book.refund_request_at > 0 ">{{ "CANCEL REFUND REQUEST" | t
+                                                }}
+                                            </button>
+                                            <button (click)=" onClickRefundRequest( book )"
+                                                    *ngIf=" book.refund_request_at == 0 ">
+                                                <span *ngIf="loadingRefundRequest">
+                                                    <i class="fa fa-spinner fa-spin"></i>
+                                                </span>
+                                                {{ "REQUEST REFUND" | t}}
+                                            </button>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+
+                        <div class="row" *ngIf=" future ">
+                            <div class="col-6">
+                                <button class="hover-effect border border-dark-06 rounded-2 lightgrey"
+                                        *ngIf=" ! book.process " (click)="onClickCancel( book )">
+                                    <i class="fal fa-times"></i>
+                                    <span>{{ 'CANCEL' | t}}</span>
+                                </button>
+                                <span class="pl-5" *ngIf=" book.process ">
+                                    <i class="fal fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                            <div class="col-6" *ngIf=" a.isTeacher ">
+                                <button [ngClass]=" book.stamp_checked != 0 ? 'bg-green' : 'bg-red' " (click)="onClickReady( book )">
+                                    <span *ngIf=" book.ready ">
+                                        <i class="fal fa-spinner fa-spin"></i>
+                                    </span>
+                                    <span>{{ 'READY' | t}}</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/books-->
+
+
+    <div class="container-fluid" *ngIf=" a.isTeacher ">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <div>Total Points from payable sessions</div>
+                    <div>
+                        {{teacher_summary['total_points_from_payable_session']}}
+                    </div>
+                </div>
+                <div>
+                    <div>Your Total Share Points</div>
+                    <div>
+                        {{teacher_summary['total_teacher_share_points']}}
+                    </div>
+                </div>
+                <div>
+                    <div>No. of payable sessions</div>
+                    <div>
+                        {{teacher_summary['counts_of_payable_session']}}
+                    </div>
+                </div>
+                <div>
+                    <div>No. of not Payable sessions</div>
+                    <div>
+                        {{teacher_summary['counts_of_not_payable_session']}}
+                    </div>
+                </div>
+                <div>
+                    <div>Session not evaluated. <span>*No pay</span>.</div>
+                    <div [class.warning]=" true ">Eval</div>
+                </div>
+
+                <div>
+                    <div>Session you confirmed.</div>
+                    <div>Ready</div>
+                </div>
+                <div>
+                    <div>Session you must confirm.</div>
+                    <div>Ready</div>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <div>No. of paid sessions</div>
+                    <div>
+                        {{teacher_summary['counts_of_paid_session']}}
+                    </div>
+                </div>
+                <div>
+                    <div>No. of refunded sessions</div>
+                    <div>
+                        {{teacher_summary['counts_of_refunded_session']}}
+                    </div>
+                </div>
+                <div>
+                    <div>No. of refund in progress</div>
+                    <div>
+                        {{teacher_summary['counts_of_rejected_refund'] + teacher_summary['counts_of_requested_refund']}}
+                    </div>
+                </div>
+                <div>
+                    <div>No. of Incomplete Evaluation</div>
+                    <div>
+                        {{teacher_summary['counts_of_incomplete_eval']}}
+                    </div>
+                </div>
+                <div>
+                    <div>Point Refund Request Rejected.</div>
+                    <div>Rejected</div>
+                </div>
+                <div>
+                    <div>Accept Refund Request</div>
+                    <div>Accept</div>
+                </div>
+                <div>
+                    <div>Reject Refund Request.</div>
+                    <div>Reject</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
