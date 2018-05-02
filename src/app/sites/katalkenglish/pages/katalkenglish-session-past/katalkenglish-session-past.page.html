@@ -3,55 +3,51 @@
 </header>
 <main>
     <section>
-        <div class=" p-1dot25em">
+        <div>
             <ng-container *ngIf=" a.isStudent ">
                 {{ a.user.name }} 님, 포인트:
-                <span *ngIf=" a.inLoadingMyPoint ">
-            <i class="fal fa-spinner fa-spin"></i>
-          </span>
-                <span class="fw-bold" *ngIf=" ! a.inLoadingMyPoint ">
-            {{ share.point }}
-          </span>
+                <span *ngIf=" a.inLoadingMyPoint "><i class="fal fa-spinner fa-spin"></i></span>
+                <span *ngIf=" ! a.inLoadingMyPoint ">{{ share.point }}</span>
             </ng-container>
         </div>
 
-        <div class="pointer hover-effect d-flex align-items-center p-1dot25em" (click)=" share.options = ! share.options ">
-            <ion-icon name="options" class="mr-2"></ion-icon>
+        <div (click)=" share.options = ! share.options ">
+            <ion-icon name="options"></ion-icon>
             {{ "OPTIONS" | t }}
         </div>
     </section>
-    <section class="my-level pt-3 pb-5 bg-white" *ngIf="showLevel">
-        <div class="mt-4 fs-4rem red py-3 px-5" text-center>Level {{ myLevel }}</div>
-        <div class="my-3 fs-2rem" text-center>회원님의 영어 레벨</div>
-        <div class="pl-md-5 pl-0 fs-110 fw-light" text-center text-md-left>레벨은 1부터 9까지 있습니다 :</div>
-        <ion-grid class="my-5" no-padding text-center>
-            <ion-row class="px-md-0 px-2" align-items-stretch justify-content-around>
-                <ion-col class="px-2 px-md-0" col-md-2 col-4>
-                    <div class="py-md-5 py-4 rounded-2 bg-inactive" [class.bg-active]="myLevel<4">
-                        <div class="mb-2"><i class="fas fa-bookmark fa-3x lightslategrey"></i></div>
+    <section *ngIf="showLevel">
+        <div>Level {{ myLevel }}</div>
+        <div>회원님의 영어 레벨</div>
+        <div>레벨은 1부터 9까지 있습니다 :</div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-4">
+                    <div [class.bg-active]="myLevel<4">
+                        <div><i class="fas fa-bookmark"></i></div>
                         <div>레벨1 ~ 레벨3</div>
-                        <div class="mt-3 fw-bold">초급</div>
+                        <div>초급</div>
                     </div>
-                </ion-col>
-                <ion-col class="px-2 px-md-0" col-md-2 col-4>
-                    <div class="py-md-5 py-4 rounded-2 bg-inactive" [class.bg-active]="myLevel<7&&myLevel>3">
-                        <div class="mb-2"><i class="fas fa-trophy fa-3x green"></i></div>
+                </div>
+                <div class="col-md-2 col-4">
+                    <div [class.bg-active]="myLevel<7&&myLevel>3">
+                        <div><i class="fas fa-trophy"></i></div>
                         <div>레벨4 ~ 레벨6</div>
-                        <div class="mt-3 fw-bold">중급</div>
+                        <div>중급</div>
                     </div>
-                </ion-col>
-                <ion-col class="px-2 px-md-0" col-md-2 col-4>
-                    <div class="py-md-5 py-4 rounded-2 bg-inactive" [class.bg-active]="myLevel<10&&myLevel>6">
-                        <div class="mb-2"><i class="fas fa-trophy-alt fa-3x darkorange"></i></div>
+                </div>
+                <div class="col-md-2 col-4">
+                    <div [class.bg-active]="myLevel<10&&myLevel>6">
+                        <div><i class="fas fa-trophy-alt"></i></div>
                         <div>레벨7 ~ 레벨9</div>
-                        <div class="mt-3 fw-bold">고급</div>
+                        <div>고급</div>
                     </div>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+                </div>
+            </div>
+        </div>
 
-        <div class="pl-md-5 px-3 py-3 fw-light"> 마지막 수업 20회를 바탕으로 각 수업 평가의 평균을 내어 레벨을 정합니다. </div>
-        <div class="pl-md-5 px-3 pb-3 fw-light"> 강의 평가를 클릭하시면 각 수업 별 세부 평가 내용을 확인 할 수 있습니다. </div>
+        <div> 마지막 수업 20회를 바탕으로 각 수업 평가의 평균을 내어 레벨을 정합니다. </div>
+        <div> 강의 평가를 클릭하시면 각 수업 별 세부 평가 내용을 확인 할 수 있습니다. </div>
 
     </section>
     <section>
