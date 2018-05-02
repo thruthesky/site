@@ -60,6 +60,13 @@ export interface SCHEDULE_OPTIONS {
     useCache: boolean;
 }
 
+export interface SHARE_SESSION_LIST {
+    options: boolean;
+    point: number;
+    inLoadingPoint: boolean;
+}
+
+
 
 
 const firestoreLogCollection = 'user-activity-log';
@@ -156,6 +163,14 @@ export class AppService {
      */
     userPoint: number = null;
 
+
+    NO_SCHEDULE_PER_PAGE = 50;
+
+
+    /**
+     * No of days to show on past session in session-list
+     */
+    DEFAULT_DAYS_TO_SHOW_ON_PAST_PAGE = 90; // 90 days.
 
     constructor(
         public ngZone: NgZone,
@@ -1416,6 +1431,38 @@ export class AppService {
             }
         } else {
             return this.anonymousPhotoURL;
+        }
+    }
+
+
+    /**
+     * Returns number from a string.
+     * @param n number
+     *
+     *
+     */
+    toInt(n: any) {
+        try {
+            return parseInt(n);
+        } catch (e) {
+            return 0;
+        }
+        // if (typeof n == 'string') {
+        //     return parseInt(n);
+        // }
+        // else if (typeof n == 'number') {
+        //     return n;
+        // }
+        // else {
+        //     return 0;
+        // }
+    }
+
+    toFloat(n) {
+        try {
+            return parseFloat(n);
+        } catch (e) {
+            return 0;
         }
     }
 
