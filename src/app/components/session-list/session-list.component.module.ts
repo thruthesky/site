@@ -4,22 +4,25 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { SessionListComponent } from './session-list.component';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    IonicModule,
-    RouterModule,
-    TranslatePipeModule
-  ],
-  declarations: [
-    SessionListComponent
-  ],
-  exports: [
-    RouterModule,
-    SessionListComponent
-  ],
-  schemas: []
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule,
+        TranslatePipeModule
+    ],
+    declarations: [
+        SessionListComponent
+    ],
+    exports: [
+        RouterModule,
+        SessionListComponent
+    ],
+    schemas: []
 })
-export class SessionListComponentModule { }
+export class SessionListComponentModule {
+}
