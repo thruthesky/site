@@ -227,6 +227,9 @@
     "CHANGE PASSWORD BUTTON": "Submit New Password",
 
     "ADMIN_PERMISSION_REQUIRED": "Please login as admin.",
-    "MANAGER_PERMISSION_REQUIRED": "Please login as manager or administrator."
+    "MANAGER_PERMISSION_REQUIRED": "Please login as manager or administrator.",
+
+
+    "REPLY": "Reply"
 
 }

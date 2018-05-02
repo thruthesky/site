@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnDestroy, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
 import { FireService, POST, COMMENT } from '../../modules/firelibrary/core';
+import { AppService } from '../../providers/app.service';
 
 
 @Component({
@@ -17,8 +18,12 @@ export class CommentComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
   loader = {
     progress: false
   };
+  show = {
+      replyForm: false
+  };
   constructor(
-    public fire: FireService
+    public fire: FireService,
+    public readonly a: AppService
   ) {
     // console.log('>>>>> constructor() ::: ');
     // this.initComment();
@@ -134,4 +139,13 @@ export class CommentComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
       .catch(e => alert(e.message));
   }
 
+
+  onClickReply() {
+    if (this.a.isManager) {
+      return true;
+    } else {
+      this.a.toast(this.a.t('MANAGER_PERMISSION_REQUIRED'));
+      return false;
+    }
+  }
 }

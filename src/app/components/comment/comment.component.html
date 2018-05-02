@@ -15,6 +15,7 @@
     </div>
   
     <div class="buttons" *ngIf=" ! editing ">
+        <button (click)=" show.replyForm = onClickReply()" *ngIf=" ! show.replyForm ">{{ 'REPLY' | t }}</button>
       <button (click)=" editing = true; commentForm.edit(); " *ngIf="myComment()">{{ 'EDIT' | t }}</button>
       <button (click)="onClickDelete()" *ngIf="myComment()">{{ 'DELETE' | t }}</button>
       <button (click)="onClickLike()" *ngIf=" !comment['likeInProgress'] ">{{ 'LIKE' | t }}({{comment.numberOfLikes ? comment.numberOfLikes : 0}})</button>
@@ -23,7 +24,7 @@
       <span class="loader" *ngIf=" comment['dislikeInProgress'] ">{{ 'LOADING' | t }}...</span>
     </div>
 
-    <app-comment-form #commentForm [post]="post" [comment]="comment" (created)=" 1 " (edited)=" editing = false; " (cancelled)=" editing = false; "></app-comment-form>
+    <app-comment-form #commentForm [post]="post" [comment]="comment" (created)=" 1 " (edited)=" editing = false; " (cancelled)=" editing = false; "  *ngIf=" show.replyForm "></app-comment-form>
   
   
     <!-- <div class="form">
