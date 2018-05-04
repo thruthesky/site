@@ -1443,7 +1443,7 @@ export class AppService {
      */
     toInt(n: any) {
         try {
-            return parseInt(n);
+            return parseInt(n, 10);
         } catch (e) {
             return 0;
         }

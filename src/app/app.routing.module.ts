@@ -189,6 +189,11 @@ const routes: Routes = [
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
     data: { category: 'rules' }
   },
+  {
+    path: 'reminder',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { category: 'reminder' }
+  },
 
   {
     path: 'settings',

@@ -1,10 +1,14 @@
 .box {
-    &.notice {
-        padding: 1em;
-        background-color: rgb(18, 18, 189);
+    padding: 1em;
+    background-color: rgb(47, 47, 65);
+    color: white;
+    a {
         color: white;
-        a {
-            color: white;
-        }
+    }
+    &.notice {
+        background-color: rgb(18, 18, 189);
+    }
+    &.warning {
+        background-color: orangered;
     }
 }
