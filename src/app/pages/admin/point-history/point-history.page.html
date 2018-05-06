@@ -2,8 +2,9 @@
 <h1>Point history</h1>
 
 <form (ngSubmit)="onSubmit()">
-    Student ID, name, nickname
+    Student UID or email
     <input type="text" name="uid" [(ngModel)]="uid">
+    LIMIT <input type="number" name="limit" [(ngModel)]="limit">
     <ion-button type="submit">Search</ion-button>
 </form>
 
