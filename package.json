@@ -11,6 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "s": "ng serve --disable-host-check",
+    "serve:local": "ng serve --disable-host-check --configuration=local-backend-server",
+    "serve:remote": "ng serve --disable-host-check --configuration=remote-backend-server",
     "bt": "ng build --prod --named-chunks=true"
   },
   "private": true,

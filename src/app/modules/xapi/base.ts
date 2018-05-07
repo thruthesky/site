@@ -61,6 +61,7 @@ export class Base {
             re = JSON.parse(e.message);
         } catch (ex) { // failed to JOSN parse error message. Meaning it is not error object of backend.
             console.error(' ========> JSON.parse() failed: ', ex.message);
+            console.error(e);
             re['code'] = -1;
             re['message'] = e.message;
         }
