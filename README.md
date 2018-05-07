@@ -2,6 +2,9 @@
 
 ## TODO
 
+* Do admin page.
+  * user profile search/edit. point update.
+  * first page real time update.
 * witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
   * Since it is completely separated service.
   * Make the workserver as real server.
