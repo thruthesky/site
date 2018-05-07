@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Library as _ } from '../modules/firelibrary/providers/etc/library';
 import { FireService } from '../modules/firelibrary/core';
 
-import env from '../../environment';
+import { environment } from './../../environments/environment';
+
 
 
 const LANGUAGE_CODE = 'language_code';
@@ -22,16 +23,16 @@ export class LanguageService {
     /**
      * Loads user language.
      */
-    loadUserLanguage( callback? ) {
+    loadUserLanguage(callback?) {
         const ln = this.getUserLanguage();
-        this.fire.setLanguage( ln, '/assets/lang/' + ln + '.json?reloadTag=' + env['reloadTag'] )
+        this.fire.setLanguage(ln, '/assets/lang/' + ln + '.json?reloadTag=' + environment['reloadTag'])
             .then(re => {
                 /// re draw?
-                if ( callback ) {
+                if (callback) {
                     callback();
                 }
             }).
-            catch( e => alert(e.message) );
+            catch(e => alert(e.message));
     }
     /**
      * Returns language code like 'ko', 'en', 'jp'.
@@ -42,8 +43,8 @@ export class LanguageService {
      * @return language code.
      */
     getUserLanguage(): string {
-        const ln = _.get( LANGUAGE_CODE );
-        if ( ln && ln.length === 2 ) {
+        const ln = _.get(LANGUAGE_CODE);
+        if (ln && ln.length === 2) {
             return ln;
         } else {
             return _.getBrowserLanguage();
@@ -62,9 +63,9 @@ export class LanguageService {
      * @example how to change into another language.
      *              a.language.setUserLanguage('en');
      */
-    setUserLanguage( ln, callback? ) {
-        _.set( LANGUAGE_CODE, ln );
-        this.loadUserLanguage( callback );
+    setUserLanguage(ln, callback?) {
+        _.set(LANGUAGE_CODE, ln);
+        this.loadUserLanguage(callback);
     }
 
 }

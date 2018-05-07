@@ -91,7 +91,6 @@
 * Make the app `main.xxx...xxx.js` with `bundling` file size less than 1.5MB ( 400 gzipped ).
   * if needed, remove ionic component, angular material from header, and front page.
 
-
 * Paypal payment test on real server.
 
 * Once student is logged in, chage the domain from `*.katalkenglish.com` to `www.katalkenglish.com`
@@ -164,8 +163,17 @@ sudo npm i -g ionic@rc
 git clone https://github.com/thruthesky/site
 cd site
 npm i
+npm i rxjs-compat
 git submodule update --init
 npm run s
+````
+
+## Update
+
+```` bash
+rm -rf node_modules
+rm package-lock.json
+npm i
 ````
 
 ## Run
@@ -194,7 +202,6 @@ When source code is changed, we need only one time compilation and publishment. 
 ## Setting an admin
 
 Please see [LMS Management - Admin](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd)
-
 
 ## Folder structure
 
@@ -255,9 +262,7 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
     * `AppService.user` is the XapiUserService
     * and so on.
 
-
 ## Developer's Guide Line
-
 
 * Use Angular Material.
   * Do not use Ionic Component.
@@ -381,8 +386,6 @@ constructor( public loader: LoaderService ) {
 
 Use `modal` service to do 'alert' or 'confirm'.
 
-
-
 ## Firebase
 
 ### Firebase User Login and Session
@@ -391,12 +394,10 @@ Use `modal` service to do 'alert' or 'confirm'.
 * `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
   * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.
 
-
 ## Cache
 
 * `Teacher list` is cached and show when the user access. and it caches again in background.
   Meaning, the user will always see the latest updated list since it caches every time the user access teacher list page.
-
 
 ## Reload version tag
 
