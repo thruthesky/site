@@ -13,7 +13,7 @@ import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 import { firestore } from 'firebase';
-import env from '../../environment';
+import { environment } from './../../environments/environment';
 import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
 /**
  * Material SnackBar is included in AppService since it is being used everywhere.
@@ -21,7 +21,7 @@ import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
  */
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
-firebase.initializeApp(env['firebaseConfig']);
+firebase.initializeApp(environment['firebaseConfig']);
 
 
 export const SITE_KATALKENGLISH = 'katalkenglish';
@@ -189,7 +189,7 @@ export class AppService {
         Base.collectionDomain = 'database';
         this.site[this.getSite()] = true;
 
-        this.urlBackend = env['urlBackend'];
+        this.urlBackend = environment['urlBackend'];
         console.log('urlBackend: ', this.urlBackend);
         xapi.setServerUrl(this.urlBackend);
 
@@ -1097,7 +1097,7 @@ export class AppService {
      * @param token push token string
      */
     updatePushToken() {
-        if (env['disableLog']) { return; } // development only
+        if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         const platform = 'web';
         if (!this.pushToken) {
             console.log('updatePushToken(): token is empty. It will not update. just return.');
@@ -1176,7 +1176,7 @@ export class AppService {
 
 
     log(data) {
-        if (env['disableLog']) { return; } // development only
+        if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         // data['name'] = 'test' + (new Date).getTime();
         data['stamp'] = firestore.FieldValue.serverTimestamp();
         // console.log(data);
