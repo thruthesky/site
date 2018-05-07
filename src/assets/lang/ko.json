@@ -189,5 +189,7 @@
 
 
 
-    "REPLY": "답변"
+    "REPLY": "답변",
+
+    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info"
 }

@@ -185,5 +185,7 @@
     "MANAGER_PERMISSION_REQUIRED": "请以管理员或管理员身份登录。",
 
 
-    "REPLY": "回复"
+    "REPLY": "回复",
+
+    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info"
 }

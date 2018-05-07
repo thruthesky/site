@@ -275,7 +275,7 @@ export class RegisterPage implements OnInit {
         console.log('registerFirebase(res): ', res);
         const data: USER = {
             email: this.a.getFirebaseLoginEmail(res.ID),
-            password: res.session_id
+            password: this.a.getFirebaseLoginPassword(res.ID)
         };
         this.a.fire.user.register(data).then(() => {
             console.log('Firebase: user registered successfully: ');

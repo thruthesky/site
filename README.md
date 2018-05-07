@@ -168,8 +168,10 @@ npm i
 ## Run
 
 ```` bash
-npm run s
+npm run s                           ; Run with workserver.
 ng s --disable-host-check
+npm run serve:local                 ; Run with local backend server.
+npm run serve:remote                ; Run on production server.
 ````
 
 ## Documentation
@@ -332,6 +334,10 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 * It will get domain of the site and save it on user field.
 * Security does not matter on Firebase since Firebaes only holds not important data.
  The point is secured on `PHP backend`.
+
+## Login
+
+* Security does not matter on Firebase. Read ##Registration.
 
 ### Flowchart
 

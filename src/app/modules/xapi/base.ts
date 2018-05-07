@@ -60,6 +60,9 @@ export class Base {
         try {
             re = JSON.parse(e.message);
         } catch (ex) { // failed to JOSN parse error message. Meaning it is not error object of backend.
+            /**
+             * @warning by 2018-05-07. Firebase error object comes here.
+             */
             console.error(' ========> JSON.parse() failed: ', ex.message);
             console.error(e);
             re['code'] = -1;

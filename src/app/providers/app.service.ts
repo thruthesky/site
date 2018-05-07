@@ -222,6 +222,8 @@ export class AppService {
 
 
         this._firebase.db = firebase.firestore();
+        const settings = {/* your settings... */ timestampsInSnapshots: true }; // 2018-05-07 backward compatibilities for firebase firestore new version.
+        this._firebase.db.settings(settings);
         this._firebase.messaging = firebase.messaging();
         // this.language.setUserLanguage();
 
@@ -281,7 +283,18 @@ export class AppService {
      * @param ID User ID of WordPress Backend
      */
     getFirebaseLoginEmail(ID): string {
-        return 'user' + ID + '@wordpress.com';
+        return 'user' + ID + '@php-wordpress-backend-server.com';
+    }
+    /**
+     * It returns simple password.
+     *
+     * It does not care the security.
+     * @see README ## Registration and ## Login
+     *
+     * @param ID User UID of backend
+     */
+    getFirebaseLoginPassword(ID): string {
+        return 'password-' + ID;
     }
 
 
@@ -481,7 +494,7 @@ export class AppService {
              */
             if (code === CODE_WRONG_SESSION_ID || code === CODE_NO_USER_BY_THAT_SESSION_ID) {
                 this.user.logout();
-                // console.log( this.fire.getText() );
+                console.log( '==> login session invalid. login again' );
                 o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
             } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
                 o['message'] = this.fire.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
@@ -524,7 +537,7 @@ export class AppService {
         // }
     }
 
-    alert( msg: string ) {
+    alert(msg: string) {
         alert(msg);
     }
 

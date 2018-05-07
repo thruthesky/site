@@ -183,5 +183,7 @@
     "ADMIN_PERMISSION_REQUIRED": "管理者としてログインしてください。",
     "MANAGER_PERMISSION_REQUIRED": "マネージャーまたは管理者としてログインしてください。",
 
-    "REPLY": "応答"
+    "REPLY": "応答",
+
+    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info"
 }
