@@ -10,12 +10,14 @@ import { PointHistoryPage } from './point-history/point-history.page';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { AdminPaymentPage } from './payment/admin-payment.page';
 import { UserInfoComponentModule } from '../../components/user-info/user-info.component.module';
+import { UserPage } from './user/user.page';
 
 
 const appRoutes: Array<Route> = [
     { path: 'point-refund', pathMatch: 'full', component: PointRefundPage },
     { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
     { path: 'payment', pathMatch: 'full', component: AdminPaymentPage },
+    { path: 'user', pathMatch: 'full', component: UserPage },
     { path: '', pathMatch: 'full', component: AdminHomePage }
 ];
 
@@ -25,7 +27,8 @@ const appRoutes: Array<Route> = [
         PointRefundPage,
         AdminHeaderComponent,
         PointHistoryPage,
-        AdminPaymentPage
+        AdminPaymentPage,
+        UserPage
     ],
     imports: [
         CommonModule,
@@ -39,7 +42,8 @@ const appRoutes: Array<Route> = [
         AdminHomePage,
         PointRefundPage,
         PointHistoryPage,
-        AdminPaymentPage
+        AdminPaymentPage,
+        UserPage
     ],
     bootstrap: [
         AdminHomePage

@@ -1,0 +1,61 @@
+<admin-header-component></admin-header-component>
+<h1>User</h1>
+
+
+<form (ngSubmit)="onSubmit()">
+    User
+    <input type="text" name="name" [(ngModel)]="form.name" placeholder="uid, email, kakaotalk id, display name"> Type
+
+    <input type="checkbox" name="type_male" [(ngModel)]="form.student"> Student,
+    <input type="checkbox" name="type_male" [(ngModel)]="form.teacher"> Teacher
+
+    <input type="checkbox" name="type_male" [(ngModel)]="form.male"> Male,
+    <input type="checkbox" name="type_male" [(ngModel)]="form.female"> Female Point:
+    <input type="text" name="point_begin" [(ngModel)]="form.point_begin"> ~
+    <input type="text" name="point_end" [(ngModel)]="form.point_end"> Reg Date.:
+    <input type="text" name="date_begin" [(ngModel)]="form.date_begin"> ~
+    <input type="text" name="date_end" [(ngModel)]="form.date_end"> Domain:
+    <input type="text" name="domain" [(ngModel)]="form.domain"> Manager:
+    <input type="checkbox" name="manager" [(ngModel)]="form.manager"> Grade:
+    <input type="text" name="grade_begin" [(ngModel)]="form.grade_begin"> ~
+    <input type="text" name="grade_end" [(ngModel)]="form.grade_end"> List Order:
+    <input type="text" name="list_order_begin" [(ngModel)]="form.list_order_begin"> ~
+    <input type="text" name="list_order_end" [(ngModel)]="form.list_order_end"> Bookable Time:
+    <input type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
+    <input type="text" name="bookable_time_end" [(ngModel)]="form.bookable_time_end"> Timezone:
+    <input type="text" name="timezone" [(ngModel)]="form.timezone"> Limit
+    <input type="text" name="limit" [(ngModel)]="form.limit"> Order
+    <select name="order" [(ngModel)]="form.order">
+        <option value="regdate">Reg. Date</option>
+        <option value="ID">User ID</option>
+        <option value="point">Point</option>
+        <option value="grade">Grade</option>
+        <option value="list_order">List Order</option>
+        <option value="bookable_time">Bookable Time</option>
+    </select>
+    by
+    <select name="by" [(ngModel)]="form.by">
+        <option value="DESC">DESC</option>
+        <option value="ASC">ASC</option>
+    </select>
+    <hr> Display: ID:
+    <input type="checkbox" name="display_ID" [(ngModel)]="form.display.ID"> Phone Number:
+    <input type="checkbox" name="phone_number" [(ngModel)]="form.display.phone_number"> Grade:
+    <input type="checkbox" name="display_grade" [(ngModel)]="form.display.grade"> Bookable Time:
+    <input type="checkbox" name="display_bookable_time" [(ngModel)]="form.display.bookable_time"> List Order:
+    <input type="checkbox" name="display_list_order" [(ngModel)]="form.display.list_order"> Timezone:
+    <input type="checkbox" name="display_timezone" [(ngModel)]="form.display.timezone"> Domain:
+    <input type="checkbox" name="display_domain" [(ngModel)]="form.display.domain"> Manager:
+    <input type="checkbox" name="display_manager" [(ngModel)]="form.display.manager">
+    
+    Stat:
+    Count of Result: <input type="checkbox" name="count_result" [(ngModel)]="form.display.stat.count_result">
+    Daily count of Registration: <input type="checkbox" name="count_daily_registration" [(ngModel)]="form.display.stat.count_daily_registration">
+    Monthly count of Registration: <input type="checkbox" name="count_monthly_registration" [(ngModel)]="form.display.stat.count_monthly_registration">
+    Count of domain: <input type="checkbox" name="count_domain" [(ngModel)]="form.display.stat.count_domain">
+    Count of Timezone: <input type="checkbox" name="count_timezone" [(ngModel)]="form.display.stat.count_timezone">
+
+    <hr>
+    <button type="submit">Search</button>
+</form>
+

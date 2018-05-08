@@ -177,6 +177,14 @@ npm run serve:local                 ; Run with local backend server.
 npm run serve:remote                ; Run on production server.
 ````
 
+## How to create Category
+
+https://www.katalkenglish.com/category
+
+## How to install a branch site
+
+https://abc.katalkenglish.com/install
+
 ## Documentation
 
 * [Ionic v4 Development Theory (Korean)](https://docs.google.com/document/d/12HPnIawKRAEKwZ6hftPtKNsUmhU5ENNu_WJZZuASsKE/edit#heading=h.dkfde9dlhii9)

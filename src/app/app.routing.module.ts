@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { RedirectPage } from './app.redirect';
 
 const routes: Routes = [
-
   /**
    * KatalkEnglish.com student site.
    */
@@ -31,8 +30,6 @@ const routes: Routes = [
     path: 'payment-history',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-history/katalkenglish-payment-history.page.module#KatalkEnglishPaymentHistoryPageModule'
   },
-
-
   {
     path: 'welcome',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-welcome/katalkenglish-welcome.page.module#KatalkEnglishWelcomePageModule'
