@@ -88,7 +88,50 @@
         Teacher must see this page in wide screen since the content in this page is wide.
     </div>
 
-    <div class="container-fluid" *ngIf=" re && books.length ">
+    <div class="stats container-fluid" *ngIf=" re && books.length ">
+        <div class="row">
+            <div class="col-md-4">{{ 'SEARCHED SESSIONS' | t }}</div>
+            <div class="col-md-8">
+                <span>{{ books.length }} ( {{ 'TOTAL' | t }} : {{ re.total_sessions }} )</span>
+            </div>
+        </div>
+        <div class="row"  *ngIf=" a.isTeacher ">
+            <div class="col-md-4">{{ 'SEARCHED POINT' | t }}</div>
+            <div class="col-md-8">
+                <span>{{ re.total_points | number }}</span>
+            </div>
+        </div>
+        <div class="row" *ngIf=" past ">
+            <div class="col-md-4">{{ 'REFUNDED SESSIONS' | t}}</div>
+            <div class="col-md-8">
+                <span>{{re.total_session_refunded}}</span>
+            </div>
+        </div>
+        <div class="row"  *ngIf=" re.total_session_refund_in_progress ">
+            <div class="col-md-4">{{ 'SESSIONS IN REFUND PROGRESS' | t}}</div>
+            <div class="col-md-8">
+                <span> {{re.total_session_refund_in_progress}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">{{ 'SEARCH PERIOD' | t}}</div>
+            <div class="col-md-8">
+                <span> {{ date_begin }} ~  {{ date_end }} </span>
+            </div>
+        </div>
+        <div class="row" *ngIf="a.userTime" routerLink="/settings">
+            <div class="col-md-4">{{ 'TIMEZONE NOW' | t}}</div>
+            <div class="col-md-4">
+                <span> {{ a.userTime }}</span>
+            </div>
+            <div class="change-timezone col-md-4">
+                 <span> {{ 'CHANGE TIMEZONE' | t }}</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="container-fluid" *ngIf=" re && books.length ">
         <div class="row">
             <div class="col-md-2 col-12">
                 <i class=" d-md-inline d-none fal fa-list fa-4x  mb-3 orange"></i>
@@ -149,7 +192,7 @@
         </div>
 
 
-    </div>
+    </div> -->
 
     <div *ngIf=" re && books.length == 0 ">
         <ng-container *ngIf=" future ">{{ 'NO MORE RESERVATIONS' | t}}</ng-container>
@@ -164,7 +207,7 @@
     <div *ngIf=" books.length ">
         <div class="container-fluid">
 
-            <div class="row">
+            <div class="header row">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <div>{{ 'TEACHER' | t}}</div>
                 </div>
@@ -197,21 +240,20 @@
                     </ng-container>
                 </div>
             </div>
-            <div class="row" *ngFor="let book of books; let i = index; let o = odd; let e = even"
-                 [ngClass]=" { 'odd': o, 'even': e } ">
+            <div class="data row" *ngFor="let book of books; let i = index; let o = odd; let e = even">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <section class="teacher-photo">
-                        <div class="pointer mx-auto size-40 rounded-50 of-hidden"
+                        <div class="photo"
                              (click)=" a.open('schedule-table', { ID: book.idx_teacher })">
-                            <img class="d-block w-100" src="{{ photoURL( book )  }}">
+                            <img src="{{ photoURL( book )  }}">
                         </div>
-                        <div class="mt-2  fs-90 text-uppercase" *ngIf="displayTeacherName">{{
+                        <div class="photo-name" *ngIf="displayTeacherName">{{
                             a.preTeacherName(my_teachers[book.idx_teacher].name) }}
                         </div>
                     </section>
                 </div>
                 <div class="col-3 col-md-2" *ngIf="a.isTeacher">
-                    <div class="fw-bold fs-90"> {{ a.preTeacherName(book.student_name) }}</div>
+                    <div> {{ a.preTeacherName(book.student_name) }}</div>
                 </div>
                 <div class="col-2 col-md-1" *ngIf=" a.isTeacher ">
                     <div>{{book.idx}}</div>
@@ -239,10 +281,10 @@
                     </div>
                 </div>
                 <div class="col-2 col-md-1" *ngIf="displayPoint">
-                    <div class="blue"> {{ point(book) }}</div>
+                    <div class="point"> {{ point(book) }}</div>
                 </div>
                 <div class="col-12 col-md-3">
-                    <div class="container-fluid">
+                    <div class="buttons-wrapper container-fluid">
                         <div class="row">
                             <ng-container *ngIf=" book.past ">
                                 <ng-container *ngIf=" a.isTeacher ">
@@ -256,10 +298,10 @@
                                         <button (click)=" onClickRefund( book ) ">Refund</button>
                                     </div>
                                     <div class="col-6" *ngIf=" paid(book) ">
-                                        <div>Paid</div>
+                                        <span>Paid</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded( book ) ">
-                                        <div>Refunded</div>
+                                        <span>Refunded</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refund_in_progress(book) ">
                                         <div>
@@ -275,16 +317,16 @@
                                 </ng-container>
                                 <ng-container *ngIf=" a.isStudent ">
                                     <div class="col-6" *ngIf=" !refunded(book) ">
-                                        <button (click)=" onClickEvaluateView(book.idx)">강의평가</button>
+                                        <button class="evaluate-view" (click)=" onClickEvaluateView(book.idx)">강의평가</button>
                                     </div>
                                     <div class="col-6" *ngIf=" !refund_in_progress(book) ">
-                                        <button (click)=" onClickCommentCreate( book.idx_teacher ) ">후기작성</button>
+                                        <button class="comment-create" (click)=" onClickCommentCreate( book.idx_teacher ) ">후기작성</button>
                                     </div>
                                     <div class="col-6" *ngIf=" rejected( book ) ">
-                                        <span class="py-2 darkred">포인트 복구 거절 됨</span>
+                                        <span class="rejected">포인트 복구 거절 됨</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded(book) ">
-                                        <span class="py-2 darkred">복구됨</span>
+                                        <span class="refunded">복구됨</span>
                                     </div>
                                     <div class="col-6" *ngIf=" !book.refund_timeover && ! rejected( book ) ">
                                         <ng-container *ngIf=" ! refunded( book ) ">
@@ -307,12 +349,11 @@
 
                         <div class="row" *ngIf=" future ">
                             <div class="col-6">
-                                <button class="hover-effect border border-dark-06 rounded-2 lightgrey"
-                                        *ngIf=" ! book.process " (click)="onClickCancel( book )">
+                                <button *ngIf=" ! book.process " (click)="onClickCancel( book )">
                                     <i class="fal fa-times"></i>
                                     <span>{{ 'CANCEL' | t}}</span>
                                 </button>
-                                <span class="pl-5" *ngIf=" book.process ">
+                                <span *ngIf=" book.process ">
                                     <i class="fal fa-spinner fa-spin"></i>
                                 </span>
                             </div>

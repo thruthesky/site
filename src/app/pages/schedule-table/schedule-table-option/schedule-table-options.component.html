@@ -1,16 +1,25 @@
 <div class="search-chip-list">
-    <div class="chip" [class.chip-selected]=" chip.show == 'hours' "  (click)=" chip.show = 'hours' ">{{ form.class_begin_hour }}~{{ form.class_end_hour }}시</div>
-    <div class="chip" [class.chip-selected]=" chip.show == 'minutes' "  (click)=" chip.show = 'minutes' ">{{ form.min_duration }}분 이상</div>
-    <div class="chip" [class.chip-selected]=" chip.show == 'points' "  (click)=" chip.show = 'points' ">{{ form.min_point }}포인트 이상</div>
-    <div class="chip" [class.chip-selected]=" chip.show == 'weekends' "  (click)=" chip.show = 'weekends' ">{{ form.display_weekends == 'Y' ? '주말표시' : '주말제외' }}</div>
-    <div class="chip" [class.chip-selected]=" chip.show == 'days' "  (click)=" chip.show = 'days' ">{{ form.days }}일표시</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'hours' "  (click)=" chip.show = 'hours' ">{{ 'SEARCH_HOURS' | t:{'BEGIN': form.class_begin_hour ,'END': form.class_end_hour} }}</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'minutes' "  (click)=" chip.show = 'minutes' ">{{ 'SEARCH_MINUTES' | t:{'DURATION':form.min_duration } }}</div>
+    <div class="chip" [class.chip-selected]=" chip.show == 'points' "  (click)=" chip.show = 'points' ">{{ 'SEARCH_POINTS' | t:{'POINTS':form.min_point } }}</div>
+    
+    <div class="chip" [class.chip-selected]=" chip.show == 'weekends' "  (click)=" chip.show = 'weekends' ">
+        <ng-container *ngIf="form.display_weekends == 'Y'">
+        {{ 'SEARCH_WEEKENDS_SHOW' | t }}
+        </ng-container>
+        <ng-container *ngIf="form.display_weekends != 'Y'">
+        {{ 'SEARCH_WEEKENDS_EXCLUDE' | t}}
+        </ng-container>
+    </div>
+
+    <div class="chip" [class.chip-selected]=" chip.show == 'days' "  (click)=" chip.show = 'days' ">{{ 'SEARCH_DAYS' | t:{'DAYS':form.days } }}</div>
 </div>
 <div class="search-chip-options" *ngIf="chip.show">
     <div class="hours" *ngIf="chip.show == 'hours'">
 
-            <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">{{ 'MORNING' | t }}</div>
-            <div (click)=" form.class_begin_hour = 12; form.class_end_hour = 24; onSearchSubmit() ">{{'AFTERNOON' | t }}</div>
-            <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 24; onSearchSubmit() ">{{'FULL DAY' | t }}</div>
+        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">{{ 'MORNING' | t }}</div>
+        <div (click)=" form.class_begin_hour = 12; form.class_end_hour = 24; onSearchSubmit() ">{{'AFTERNOON' | t }}</div>
+        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 24; onSearchSubmit() ">{{'FULL DAY' | t }}</div>
 
         <div class="select">
             <span>{{ 'DIRECT-TIME' | t}}</span>
@@ -26,36 +35,36 @@
     <div class="minutes" *ngIf=" chip.show == 'minutes' ">
         <mat-form-field>
                 <mat-select name="duaration" [(ngModel)]="form.max_duration" (selectionChange)="onSearchSubmit()">
-                    <mat-option value="4">4분 이하</mat-option>
-                    <mat-option value="9">9분 이하</mat-option>
-                    <mat-option value="14">14분 이하</mat-option>
-                    <mat-option value="19">19분 이하</mat-option>
-                    <mat-option value="24">24분 이하</mat-option>
-                    <mat-option value="29">29분 이하</mat-option>
-                    <mat-option value="39">39분 이하</mat-option>
-                    <mat-option value="49">49분 이하</mat-option>
-                    <mat-option value="59">59분 이하</mat-option>
-                    <mat-option value="120">120분 이하</mat-option>
+                    <mat-option value="4">{{ 'LESS_THAN' | t:{'MIN':4} }}</mat-option>
+                    <mat-option value="9">{{ 'LESS_THAN' | t:{'MIN':9} }}</mat-option>
+                    <mat-option value="14">{{ 'LESS_THAN' | t:{'MIN':14} }}</mat-option>
+                    <mat-option value="19">{{ 'LESS_THAN' | t:{'MIN':19} }}</mat-option>
+                    <mat-option value="24">{{ 'LESS_THAN' | t:{'MIN':24} }}</mat-option>
+                    <mat-option value="29">{{ 'LESS_THAN' | t:{'MIN':29} }}</mat-option>
+                    <mat-option value="39">{{ 'LESS_THAN' | t:{'MIN':39} }}</mat-option>
+                    <mat-option value="49">{{ 'LESS_THAN' | t:{'MIN':49} }}</mat-option>
+                    <mat-option value="59">{{ 'LESS_THAN' | t:{'MIN':59} }}</mat-option>
+                    <mat-option value="120">{{ 'LESS_THAN' | t:{'MIN':120} }}</mat-option>
                 </mat-select>
         </mat-form-field>
         <mat-form-field>
                 <mat-select name="duaration" [(ngModel)]="form.min_duration" (selectionChange)="onSearchSubmit()">
-                    <mat-option value="0">0분 이상</mat-option>
-                    <mat-option value="5">5분 이상</mat-option>
-                    <mat-option value="10">10분 이상</mat-option>
-                    <mat-option value="15">15분 이상</mat-option>
-                    <mat-option value="20">20분 이상</mat-option>
-                    <mat-option value="25">25분 이상</mat-option>
-                    <mat-option value="30">30분 이상</mat-option>
-                    <mat-option value="40">40분 이상</mat-option>
-                    <mat-option value="50">50분 이상</mat-option>
-                    <mat-option value="60">60분 이상</mat-option>
+                    <mat-option value="0">{{ 'MORE_THAN' | t:{'MIN':0} }}</mat-option>
+                    <mat-option value="5">{{ 'MORE_THAN' | t:{'MIN':5} }}</mat-option>
+                    <mat-option value="10">{{ 'MORE_THAN' | t:{'MIN':10} }}</mat-option>
+                    <mat-option value="15">{{ 'MORE_THAN' | t:{'MIN':15} }}</mat-option>
+                    <mat-option value="20">{{ 'MORE_THAN' | t:{'MIN':20} }}</mat-option>
+                    <mat-option value="25">{{ 'MORE_THAN' | t:{'MIN':25} }}</mat-option>
+                    <mat-option value="30">{{ 'MORE_THAN' | t:{'MIN':30} }}</mat-option>
+                    <mat-option value="40">{{ 'MORE_THAN' | t:{'MIN':40} }}</mat-option>
+                    <mat-option value="50">{{ 'MORE_THAN' | t:{'MIN':50} }}</mat-option>
+                    <mat-option value="60">{{ 'MORE_THAN' | t:{'MIN':60} }}</mat-option>
                 </mat-select>
         </mat-form-field>
     </div>
     <div class="points" *ngIf=" chip.show == 'points' ">
     <mat-form-field>
-        <mat-select placeholder="포인트 이상" name="point" [(ngModel)]="form.min_point" (selectionChange)="onSearchSubmit()">
+        <mat-select placeholder="{{'ABOVE_POINT' | t }}" name="point" [(ngModel)]="form.min_point" (selectionChange)="onSearchSubmit()">
             <mat-option value="0">0</mat-option>
             <mat-option value="500">500</mat-option>
             <mat-option value="1000">1000</mat-option>
@@ -66,7 +75,7 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-select placeholder="포인트 이하" name="point" [(ngModel)]="form.max_point" (selectionChange)="onSearchSubmit()">
+        <mat-select placeholder="{{'BELOW_POINT' | t }}" name="point" [(ngModel)]="form.max_point" (selectionChange)="onSearchSubmit()">
             <mat-option value="499">499</mat-option>
             <mat-option value="999">999</mat-option>
             <mat-option value="1999">1999</mat-option>
@@ -80,27 +89,31 @@
     </div>
 
     <div class="weekends" *ngIf=" chip.show == 'weekends' ">
-        주말
-        <select name="weekend" [(ngModel)]="form.display_weekends" (change)="onSearchSubmit()">
-            <option value="Y">표시</option>
-            <option value="N">숨기기</option>
-        </select>
+        <span>{{'WEEKEND' | t }}</span>
+        <mat-form-field>
+            <mat-select name="weekend" [(ngModel)]="form.display_weekends" (selectionChange)="onSearchSubmit()">
+                <mat-option value="499">{{'DISPLAY' | t }}</mat-option>
+                <mat-option value="999">{{'HIDE' | t }}</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 
     <div class="days" *ngIf=" chip.show == 'days' ">
-        시간표 표시 일 수:
-        <select name="days" [(ngModel)]="form.days" (change)="onSearchSubmit()">
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="10">10</option>
-            <option value="12">12</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-        </select>
+        <span>{{ 'NO_OF_DAYS' |t}}</span>
+        <mat-form-field>
+            <mat-select  name="days" [(ngModel)]="form.days"  (selectionChange)="onSearchSubmit()">
+                <mat-option value="5">5</mat-option>
+                <mat-option value="6">6</mat-option>
+                <mat-option value="7">7</mat-option>
+                <mat-option value="10">10</mat-option>
+                <mat-option value="12">12</mat-option>
+                <mat-option value="15">15</mat-option>
+                <mat-option value="20">20</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 
     <div class="close" (click)=" chip.show = '' ">
-        <button>[X] CLOSE</button>
+        <button>[X] {{ 'CLOSE' | t}}</button>
     </div>
 </div>

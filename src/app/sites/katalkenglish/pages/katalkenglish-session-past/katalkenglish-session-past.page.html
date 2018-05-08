@@ -1,7 +1,5 @@
 <header>
     <h1>{{ 'SESSION PAST' | t }}</h1>
-</header>
-<main>
     <section>
         <div>
             <ng-container *ngIf=" a.isStudent ">
@@ -11,11 +9,13 @@
             </ng-container>
         </div>
 
-        <div (click)=" share.options = ! share.options ">
+        <div class="option" (click)=" share.options = ! share.options ">
             <ion-icon name="options"></ion-icon>
             {{ "OPTIONS" | t }}
         </div>
     </section>
+</header>
+<main>
     <section *ngIf="showLevel">
         <div>Level {{ myLevel }}</div>
         <div>회원님의 영어 레벨</div>

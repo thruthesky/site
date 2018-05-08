@@ -7,12 +7,8 @@
 
 <!--/single-teacher-->
 <div class="multiple-teachers" *ngIf=" isAllTeacher ">
-    <section class="page-header d-flex justify-content-between">
+    <section class="page-header">
         <h2 class="title">{{ "ALL SCHEDULE" | t }}</h2>
-        <div (click)=" display_options = !display_options " *ngIf=" ! display_options ">
-            <ion-icon name="options"></ion-icon>
-            {{ 'SCHEDULE TABLE SEARCH OPTIONS SHORT' | t }}
-        </div>
     </section>
 </div>
 <!--/multiple-teachers-->
@@ -85,46 +81,46 @@
 <div class="icon-desc resize-on-break-point my-4">
     <ul>
       <li>
-        <ion-icon name="radio-button-off" icon-name="radio-button-off"></ion-icon> - 예약 가능(아무도 예약하지 않았음)
+        <ion-icon name="radio-button-off" icon-name="radio-button-off"></ion-icon> - {{'DESC_RADIO_OFF'| t}} 
       </li>
       <li>
-        <ion-icon name="radio-button-on" owner="me"></ion-icon> - 내가 예약한 수업. 취소 가능.
+        <ion-icon name="radio-button-on" owner="me"></ion-icon> - {{'DESC_RADIO_ON'| t}} 
       </li>
 
       <ng-container *ngIf=" show.more_icon_description ">
 
         <li>
-          <ion-icon name="heart" icon-name="heart"></ion-icon> - 선예약 된 수업. 해당 학생에게만 예약이 가능한 수업.
+          <ion-icon name="heart" icon-name="heart"></ion-icon> - {{'DESC_HEART'| t}} 
         </li>
 
         <li>
-          <ion-icon name="checkmark" icon-name="checkmark"></ion-icon> - 다른 학생에 의해 예약된 수업.
+          <ion-icon name="checkmark" icon-name="checkmark"></ion-icon> - {{'DESC_CHECKMARK'| t}} 
         </li>
         <li>
-          <ion-icon name="lock" icon-name="lock"></ion-icon> - 지난 수업 (예약됨).
-        </li>
-
-        <li>
-          <ion-icon name="square" icon-name="square"></ion-icon> - 지난 수업 (예약안됨).
-        </li>
-        <li>
-          <ion-icon name="qr-scanner" icon-name="qr-scanner"></ion-icon> - 수업이 없는 날.
+          <ion-icon name="lock" icon-name="lock"></ion-icon> - {{'DESC_LOCK'| t}} 
         </li>
 
         <li>
-          <ion-icon name="cloud-circle"></ion-icon> - 강사 쉬는 날.
+          <ion-icon name="square" icon-name="square"></ion-icon> - {{'DESC_SQUARE'| t}} 
         </li>
         <li>
-          <ion-icon name="cloud-done"></ion-icon> - 강사 쉬는 날(예약이 있음).
+          <ion-icon name="qr-scanner" icon-name="qr-scanner"></ion-icon> - {{'DESC_QR_SCANNER'| t}} 
         </li>
 
         <li>
-          강사의 사진을 클릭하면 해당 강사의 수업 시간표만 볼 수 있습니다.
+          <ion-icon name="cloud-circle"></ion-icon> - {{'DESC_CLOUD_CIRCLE'| t}} 
+        </li>
+        <li>
+          <ion-icon name="cloud-done"></ion-icon> - {{'DESC_CLOUD_DONE'| t}} 
+        </li>
+
+        <li>
+                {{'DESC_REMINDER'| t}} 
         </li>
       </ng-container>
     </ul>
     <div class="more-button" (click)=" show.more_icon_description = true " *ngIf=" ! show.more_icon_description ">
-      자세히
+            {{'DESC_MORE'| t}}
       <i class="fal fa-ellipsis-h"></i>
     </div>
   </div>
