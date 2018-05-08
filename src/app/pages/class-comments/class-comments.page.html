@@ -1,7 +1,69 @@
-<section class="page-wrapper">
-    <div class="page">
-        <h1>Student class comments.</h1>
-        @todo : complete functionality
-        and design.
-    </div>
-</section>
+<header>
+    <h1>{{ 'CLASS COMMENTS' | t }}</h1>
+    <div class="desc">{{ 'CLASS COMMENTS DESC' | t }}</div>
+</header>
+<main>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6" *ngFor="let comment of comments" (click)="onClickShowMore(comment)">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4 col-md-3">
+                                <div>
+                                    <img src="{{comment?.teacher_photoURL ? comment.teacher_photoURL : a.anonymousPhotoURL }}">
+                                </div>
+                            </div>
+                            <div class="col-8 col-md-6">
+                                <div>
+                                    <div>
+                                        <div>
+                                            <i class="fa fa-users"></i>
+                                            <span>{{ a.preTeacherName(comment.teacher_name)}}</span>
+                                        </div>
+                                        <div>
+                                            <span>{{ 'RATING' | t }}</span>
+                                            <span *ngIf="comment.rate < 1"><i class="fal fa-star"></i></span>
+                                            <span *ngIf="comment.rate >= 1"><i class="fas fa-star"></i></span>
+                                            <span *ngIf="comment.rate < 2"><i class="fal fa-star"></i></span>
+                                            <span *ngIf="comment.rate >= 2"><i class="fas fa-star"></i></span>
+                                            <span *ngIf="comment.rate < 3"><i class="fal fa-star"></i></span>
+                                            <span *ngIf="comment.rate >= 3"><i class="fas fa-star"></i></span>
+                                            <span *ngIf="comment.rate < 4"><i class="fal fa-star"></i></span>
+                                            <span *ngIf="comment.rate >= 4"><i class="fas fa-star"></i></span>
+                                            <span *ngIf="comment.rate < 5"><i class="fal fa-star"></i></span>
+                                            <span *ngIf="comment.rate >= 5"><i class="fas fa-star"></i></span>
+                                        </div>
+                                    </div>
+                                    <div>{{ 'DATE' | t }} : {{
+                                        a.shortDate(comment.stamp) }}
+                                    </div>
+                                </div>
+                                <div>
+                                    {{comment.comment.slice(0,55)}}
+                                    <span *ngIf="comment.comment.length>55">...</span>
+                                </div>
+                                <button>{{ 'MORE' | t }}</button>
+                            </div>
+                            <div class="col-md-3">
+                                <div>
+                                    <img src="{{comment?.student_photoURL ? comment.student_photoURL : a.anonymousPhotoURL }}">
+                                    <div><i class="fa fa-graduation-cap"></i>{{ comment.student_name }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-3 d-flex justify-content-center">
+            <page-navigator-component [no_of_total_items]=" pageOption['totalRecord']"
+                                      [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
+                                      [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
+                                      [no_of_current_page]=" pageOption['currentPage'] "
+                                      [show_prev_next]=" true " (pageClick)="onPostPageClick($event)">
+            </page-navigator-component>
+        </div>
+    </section>
+</main>
