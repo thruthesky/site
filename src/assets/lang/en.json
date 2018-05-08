@@ -83,7 +83,7 @@
     "LOGIN_INVALID": "Please, login",
     "REMINDER": "Reminders",
     "QNA": "QnA",
-    "POLICY": "Policies",
+    "POLICY": "Terms and Policies",
     "SESSION_FUTURE": "Reservations",
     "SESSION_PAST": "Past Classes",
     "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered.",
@@ -231,5 +231,6 @@
 
 
     "REPLY": "Reply"
+
 
 }

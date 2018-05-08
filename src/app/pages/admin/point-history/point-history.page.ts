@@ -38,6 +38,7 @@ interface POINT_HISTORY {
 export class PointHistoryPage {
     re: Array<POINT_HISTORY> = [];
     uid: any = '';
+    limit = 100;
     constructor(
         public a: AppService
     ) {
@@ -50,7 +51,7 @@ export class PointHistoryPage {
             if ( ! isNaN(this.uid) ) {
                 q_user = ' AND wp_users.ID = ' + this.uid;
             } else {
-                q_user = ` AND ( wp_users.name='${this.uid}' OR wp_users.display_name='${this.uid}' ) `;
+                q_user = ` AND ( wp_users.user_email='${this.uid}' ) `;
             }
         }
         /**
@@ -60,7 +61,7 @@ export class PointHistoryPage {
             sql: `SELECT p.*
 					FROM lms_point_log as p, wp_users
 					WHERE BRANCH ${q_user} AND wp_users.ID=p.idx_student
-					ORDER BY idx DESC LIMIT 100`,
+					ORDER BY idx DESC LIMIT ${this.limit}`,
             student_info: true,
             teacher_info: true
         })

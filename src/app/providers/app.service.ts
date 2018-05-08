@@ -13,7 +13,7 @@ import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 import { firestore } from 'firebase';
-import env from '../../environment';
+import { environment } from './../../environments/environment';
 import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
 /**
  * Material SnackBar is included in AppService since it is being used everywhere.
@@ -21,7 +21,7 @@ import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
  */
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
-firebase.initializeApp(env['firebaseConfig']);
+firebase.initializeApp(environment['firebaseConfig']);
 
 
 export const SITE_KATALKENGLISH = 'katalkenglish';
@@ -189,7 +189,7 @@ export class AppService {
         Base.collectionDomain = 'database';
         this.site[this.getSite()] = true;
 
-        this.urlBackend = env['urlBackend'];
+        this.urlBackend = environment['urlBackend'];
         console.log('urlBackend: ', this.urlBackend);
         xapi.setServerUrl(this.urlBackend);
 
@@ -222,6 +222,8 @@ export class AppService {
 
 
         this._firebase.db = firebase.firestore();
+        const settings = {/* your settings... */ timestampsInSnapshots: true }; // 2018-05-07 backward compatibilities for firebase firestore new version.
+        this._firebase.db.settings(settings);
         this._firebase.messaging = firebase.messaging();
         // this.language.setUserLanguage();
 
@@ -281,7 +283,18 @@ export class AppService {
      * @param ID User ID of WordPress Backend
      */
     getFirebaseLoginEmail(ID): string {
-        return 'user' + ID + '@wordpress.com';
+        return 'user' + ID + '@php-wordpress-backend-server.com';
+    }
+    /**
+     * It returns simple password.
+     *
+     * It does not care the security.
+     * @see README ## Registration and ## Login
+     *
+     * @param ID User UID of backend
+     */
+    getFirebaseLoginPassword(ID): string {
+        return 'password-' + ID;
     }
 
 
@@ -481,7 +494,7 @@ export class AppService {
              */
             if (code === CODE_WRONG_SESSION_ID || code === CODE_NO_USER_BY_THAT_SESSION_ID) {
                 this.user.logout();
-                // console.log( this.fire.getText() );
+                console.log( '==> login session invalid. login again' );
                 o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
             } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
                 o['message'] = this.fire.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
@@ -524,7 +537,7 @@ export class AppService {
         // }
     }
 
-    alert( msg: string ) {
+    alert(msg: string) {
         alert(msg);
     }
 
@@ -1097,7 +1110,7 @@ export class AppService {
      * @param token push token string
      */
     updatePushToken() {
-        if (env['disableLog']) { return; } // development only
+        if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         const platform = 'web';
         if (!this.pushToken) {
             console.log('updatePushToken(): token is empty. It will not update. just return.');
@@ -1176,7 +1189,7 @@ export class AppService {
 
 
     log(data) {
-        if (env['disableLog']) { return; } // development only
+        if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         // data['name'] = 'test' + (new Date).getTime();
         data['stamp'] = firestore.FieldValue.serverTimestamp();
         // console.log(data);
@@ -1443,7 +1456,7 @@ export class AppService {
      */
     toInt(n: any) {
         try {
-            return parseInt(n);
+            return parseInt(n, 10);
         } catch (e) {
             return 0;
         }

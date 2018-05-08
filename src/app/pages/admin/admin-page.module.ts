@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { PointHistoryPage } from './point-history/point-history.page';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { AdminPaymentPage } from './payment/admin-payment.page';
+import { UserInfoComponentModule } from '../../components/user-info/user-info.component.module';
 
 
 const appRoutes: Array<Route> = [
@@ -31,7 +32,8 @@ const appRoutes: Array<Route> = [
         FormsModule,
         IonicModule,
         RouterModule.forChild( appRoutes ),
-        TranslatePipeModule
+        TranslatePipeModule,
+        UserInfoComponentModule
     ],
     entryComponents: [
         AdminHomePage,

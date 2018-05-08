@@ -1,5 +1,9 @@
 <admin-header-component></admin-header-component>
 <h1>Admin Dashboard</h1>
+
+<user-info-component></user-info-component>
+<div class="box warning" *ngIf=" a.user.isLogin && ! a.isManager ">You are not admin</div>
+
 <h2>Admin List</h2>
 <div class="box notice">
     To add admin, please read <a href="https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd" target="_blank">LMS Management - Admin</a>

@@ -2,17 +2,9 @@
 
 ## TODO
 
-* 질문 게시판을 오픈하되, 수업 진행 관련 질문 답변은 최대한 빠르고 실시간으로 채팅 상담을 위해서, 카톡으로만 받음.
-  * 그 외의 질문만 질문 게시판에 할 것.
-  * 기본적으로 비 공개. 관리자가 확인하면 공개 될 것.
-    기본적으로 제목만 보임.
-    관리자 옵션. 제목, 내용 숨기기. 제목만 숨기기. 모두 보이기.
-* @done 관리자 페이지. 관리자 목록. 수정은 워드프레스에서.
-* @done 게시판 기능. 답변. 관리자만 할 수 있도록 변경. 또는 확인.
-* 질문 답변. 공개 비공개 옵션.
-  * 기본적으로 모두 비공개이고, 운영자가 답변을 할 때, 공개 할 수 있음.
-* 운영자만 답변하는 옵션.
-
+* Do admin page.
+  * user profile search/edit. point update.
+  * first page real time update.
 * witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
   * Since it is completely separated service.
   * Make the workserver as real server.
@@ -91,7 +83,6 @@
 * Make the app `main.xxx...xxx.js` with `bundling` file size less than 1.5MB ( 400 gzipped ).
   * if needed, remove ionic component, angular material from header, and front page.
 
-
 * Paypal payment test on real server.
 
 * Once student is logged in, chage the domain from `*.katalkenglish.com` to `www.katalkenglish.com`
@@ -164,15 +155,26 @@ sudo npm i -g ionic@rc
 git clone https://github.com/thruthesky/site
 cd site
 npm i
+npm i rxjs-compat
 git submodule update --init
 npm run s
+````
+
+## Update
+
+```` bash
+rm -rf node_modules
+rm package-lock.json
+npm i
 ````
 
 ## Run
 
 ```` bash
-npm run s
+npm run s                           ; Run with workserver.
 ng s --disable-host-check
+npm run serve:local                 ; Run with local backend server.
+npm run serve:remote                ; Run on production server.
 ````
 
 ## Documentation
@@ -194,7 +196,6 @@ When source code is changed, we need only one time compilation and publishment. 
 ## Setting an admin
 
 Please see [LMS Management - Admin](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd)
-
 
 ## Folder structure
 
@@ -255,9 +256,7 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
     * `AppService.user` is the XapiUserService
     * and so on.
 
-
 ## Developer's Guide Line
-
 
 * Use Angular Material.
   * Do not use Ionic Component.
@@ -339,6 +338,10 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 * Security does not matter on Firebase since Firebaes only holds not important data.
  The point is secured on `PHP backend`.
 
+## Login
+
+* Security does not matter on Firebase. Read ##Registration.
+
 ### Flowchart
 
 1. It will register at `PHP backend`.
@@ -381,8 +384,6 @@ constructor( public loader: LoaderService ) {
 
 Use `modal` service to do 'alert' or 'confirm'.
 
-
-
 ## Firebase
 
 ### Firebase User Login and Session
@@ -391,12 +392,10 @@ Use `modal` service to do 'alert' or 'confirm'.
 * `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
   * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.
 
-
 ## Cache
 
 * `Teacher list` is cached and show when the user access. and it caches again in background.
   Meaning, the user will always see the latest updated list since it caches every time the user access teacher list page.
-
 
 ## Reload version tag
 
