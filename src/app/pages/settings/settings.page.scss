@@ -1,15 +1,18 @@
-header, .desc{
-    padding:1em 2em;
+header{
+    h1{
+        margin: 0;
+        padding:1em 1.7em;
+        background-color: #e91e63!important;
+    }
+
+    .desc {
+        padding:1em 2em;
+        background-color: #e1e6e7;
+    }
 }
 
-header{
-    background-color: #e91e63!important;
-    font-weight: bolder
-}
     
-.desc {
-    background-color: #e1e6e7;
-}
+
 
 .header-li,.list{
     display: flex;

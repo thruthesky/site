@@ -1,0 +1,130 @@
+
+.stats{
+    margin: 1.5em 0;
+    border-top: 1px solid #e9ecef;
+    background: #fff;
+    .row{
+        padding: 1em;
+        border-bottom: 1px solid #e9ecef;
+
+        &>div:first-child{
+            font-weight: bold;
+            color: gray;
+
+            @media screen and (max-width:768px) {
+                line-height: 2em;
+            }
+        }
+
+        .change-timezone{
+
+            span{
+                margin-left: 1em;
+                padding: .3em 1em;
+                border-radius: 2px;
+                background: gray;
+                color: white;
+                cursor: pointer;
+            }
+
+            @media screen and (max-width:768px) {
+                margin: 1em 0!important;
+
+                span{
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.header{
+    position: sticky!important;
+    top:63px;
+    @media screen and (max-width:768px) {
+        top:105px;
+    }
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    justify-content: space-around;
+    padding: .9em;
+    background-color: #66a2fb;
+    color: white;
+    text-align: center;
+
+    &>div{
+        padding: 0;
+    }
+
+}
+
+.data{
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    min-height: 90px;
+    border-bottom: 1px solid #e9ecef;
+    background: #fff;
+    font-size: 90%;
+
+    &>div{
+        padding: 0;
+    }
+
+    .point{
+        color:blue;
+    }
+
+    .rejected,.refunded{
+        color:darkred;
+    }
+
+    button{
+        margin-top: 1em;
+        padding: .75em 1.25em;
+        font-size: 90%;
+        border-radius: 2px;
+        border: 1px solid rgba(0,0,0,.06)!important;
+        cursor: pointer;
+    }
+
+    .evaluate-view{
+        background-color: #eee!important;
+        color: #4b4b4b!important;
+    }
+    
+
+    .comment-create{
+        background-color: #888;
+        color: #fff;
+    }
+
+    .buttons-wrapper{
+        margin-bottom: 1em;
+        .row{
+            align-items: center;
+        }
+    }
+}
+
+.teacher-photo{
+    .photo{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+
+        img{
+            width: 100%;
+        }
+
+        &-name{
+            margin-top:.3em;
+            font-size: 80%;
+            text-transform: uppercase;
+        }
+    }
+    
+}
