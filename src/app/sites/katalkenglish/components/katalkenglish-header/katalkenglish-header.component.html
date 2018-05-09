@@ -1,7 +1,7 @@
 <header id="katalkenglish-header">
 
     <div id="mobile-header" class="inner">
-        <nav *ngIf=" a.showHeader ">
+        <nav>
             <button routerLink="/menu">
                 <img src="../../../assets/img/menu-icon.png" alt="">
             </button>
@@ -54,7 +54,7 @@
     </div>
 
     <div id="desktop-header" class="inner">
-        <nav *ngIf=" a.showHeader ">
+        <nav>
             <button routerLink="{{ a.homeUrl }}">
                 <img src="../../../assets/logo/withcenter-icon.png" alt="">
                 <span>{{ f.ln.HOME }}</span>

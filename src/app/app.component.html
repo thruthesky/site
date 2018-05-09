@@ -1,14 +1,26 @@
-<section id="ontue" *ngIf=" a.site.ontue ">
-  <ontue-header></ontue-header>
-  <section class="page"><div class="page-inner"><router-outlet></router-outlet></div></section>
-  <ontue-footer></ontue-footer>
-</section>
-<section id="katalkenglish" *ngIf=" a.site.katalkenglish ">
-  <katalkenglish-header></katalkenglish-header>
-  <section class="page"><div class="page-inner"><router-outlet></router-outlet></div></section>
-  <katalkenglish-footer></katalkenglish-footer>
-</section>
-<section id="withcenter" *ngIf=" a.site.withcenter ">
-  Withcenter layout
-  <router-outlet></router-outlet>
-</section>
+<div class="layout" [attr.path]=" a.routeUrl ">
+
+  <section id="ontue" *ngIf=" a.site.ontue ">
+    <ontue-header></ontue-header>
+    <section class="page">
+      <div class="page-inner">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+    <ontue-footer></ontue-footer>
+  </section>
+  <section id="katalkenglish" *ngIf=" a.site.katalkenglish ">
+    <katalkenglish-header></katalkenglish-header>
+    <section class="page">
+      <div class="page-inner">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+    <katalkenglish-footer></katalkenglish-footer>
+  </section>
+  <section id="withcenter" *ngIf=" a.site.withcenter ">
+    Withcenter layout
+    <router-outlet></router-outlet>
+  </section>
+
+</div>

@@ -29,10 +29,22 @@ $katalkenglish-padding: 8px;
     #katalkenglish-footer {
         width: 100%;
     }
-
-    @media all and (max-width:820px){
-        .page{
+    @media all and (max-width:820px) {
+        .page {
             margin-top: $katalkenglish-header-height+42;
+        }
+    }
+}
+
+
+[path*='/admin'] {
+    background-color: blue;
+    #katalkenglish {
+        #katalkenglish-header {
+            display: none;
+        }
+        .page {
+            margin-top: 0!important;
         }
     }
 }

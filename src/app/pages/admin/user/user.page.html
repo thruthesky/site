@@ -4,7 +4,7 @@
 
 <form (ngSubmit)="onSubmit()">
     User
-    <input type="text" name="name" [(ngModel)]="form.name" placeholder="uid, email, kakaotalk id, display name"> Type
+    <input class="wide" type="text" name="name" [(ngModel)]="form.name" placeholder="uid, email, kakaotalk id, display name"> Type
 
     <input type="checkbox" name="type_male" [(ngModel)]="form.student"> Student,
     <input type="checkbox" name="type_male" [(ngModel)]="form.teacher"> Teacher
@@ -12,20 +12,20 @@
     <input type="checkbox" name="type_male" [(ngModel)]="form.male"> Male,
     <input type="checkbox" name="type_male" [(ngModel)]="form.female"> Female Point:
     <input type="text" name="point_begin" [(ngModel)]="form.point_begin"> ~
-    <input type="text" name="point_end" [(ngModel)]="form.point_end"> Reg Date.:
-    <input type="text" name="date_begin" [(ngModel)]="form.date_begin"> ~
-    <input type="text" name="date_end" [(ngModel)]="form.date_end"> Domain:
-    <input type="text" name="domain" [(ngModel)]="form.domain"> Manager:
+    <input class="wide" type="text" name="point_end" [(ngModel)]="form.point_end"> Reg Date.:
+    <input class="wide" type="text" name="date_begin" [(ngModel)]="form.date_begin"> ~
+    <input class="wide" type="text" name="date_end" [(ngModel)]="form.date_end"> Domain:
+    <input class="wide" type="text" name="domain" [(ngModel)]="form.domain"> Manager:
     <input type="checkbox" name="manager" [(ngModel)]="form.manager"> Grade:
-    <input type="text" name="grade_begin" [(ngModel)]="form.grade_begin"> ~
-    <input type="text" name="grade_end" [(ngModel)]="form.grade_end"> List Order:
-    <input type="text" name="list_order_begin" [(ngModel)]="form.list_order_begin"> ~
-    <input type="text" name="list_order_end" [(ngModel)]="form.list_order_end"> Bookable Time:
-    <input type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
+    <input class="narrow" type="text" name="grade_begin" [(ngModel)]="form.grade_begin"> ~
+    <input class="narrow" type="text" name="grade_end" [(ngModel)]="form.grade_end"> List Order:
+    <input class="narrow" type="text" name="list_order_begin" [(ngModel)]="form.list_order_begin"> ~
+    <input class="narrow" type="text" name="list_order_end" [(ngModel)]="form.list_order_end"> Bookable Time:
+    <input class="narrow" type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
     <input type="text" name="bookable_time_end" [(ngModel)]="form.bookable_time_end"> Timezone:
     <input type="text" name="timezone" [(ngModel)]="form.timezone"> Limit
     <input type="text" name="limit" [(ngModel)]="form.limit"> Order
-    <select name="order" [(ngModel)]="form.order">
+    <select name="order" [(ngModel)]="form.order" (change)="onChangeSelectOrder($event)">
         <option value="regdate">Reg. Date</option>
         <option value="ID">User ID</option>
         <option value="point">Point</option>
@@ -35,8 +35,8 @@
     </select>
     by
     <select name="by" [(ngModel)]="form.by">
-        <option value="DESC">DESC</option>
         <option value="ASC">ASC</option>
+        <option value="DESC">DESC</option>
     </select>
     <hr> Display: ID:
     <input type="checkbox" name="display_ID" [(ngModel)]="form.display.ID"> Phone Number:

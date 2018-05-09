@@ -5,6 +5,13 @@
 
     <ul class="pointers">
 
+        <li class="menu-admin" routerLink="/admin" *ngIf="a.isManager">
+            <div>
+                <ion-icon name="help-circle" item-start></ion-icon>
+                <div>{{ 'ADMIN' | t }}</div>
+            </div>
+        </li>
+
         <li class="menu-help" routerLink="/help" *ngIf="a.studentTheme">
             <div>
                 <ion-icon name="help-circle" item-start></ion-icon>

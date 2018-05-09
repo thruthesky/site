@@ -1,0 +1,9 @@
+input[type='text'] {
+    width: 4em;
+    &.wide {
+        width: 7em;
+    }
+    &.narrow {
+        width: 2em;
+    }
+}

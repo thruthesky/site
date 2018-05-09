@@ -84,8 +84,9 @@ export class AppService {
 
     /**
      * If true app should show header. if false, app should hide header.
+     * @since 2018-05-09 no more 'showHeader'
      */
-    showHeader = true;
+    // showHeader = true;
 
     /**
      * It prepares site code on booting. So, it won't be computed again on run time.
@@ -102,6 +103,17 @@ export class AppService {
         katalkenglish: false,
         withcenter: false
     };
+
+    /**
+     * It holds the url path of the current page.
+     *
+     * @example
+     *      '/',
+     *      '',
+     *      '/admin',
+     *      '/admin/user'
+     */
+    routeUrl = '';
 
     urlBackend: string;
     /**
@@ -200,6 +212,8 @@ export class AppService {
                     console.log('same url');
                     this.router.navigate(['/redirect'], { queryParams: { url: e.url } });
                 }
+            } else if (e instanceof NavigationEnd) {
+                this.routeUrl = this.router.url;
             }
 
             /**
@@ -494,7 +508,7 @@ export class AppService {
              */
             if (code === CODE_WRONG_SESSION_ID || code === CODE_NO_USER_BY_THAT_SESSION_ID) {
                 this.user.logout();
-                console.log( '==> login session invalid. login again' );
+                console.log('==> login session invalid. login again');
                 o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
             } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
                 o['message'] = this.fire.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
