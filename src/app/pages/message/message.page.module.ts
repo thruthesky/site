@@ -4,34 +4,31 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
-import { PageNavigatorComponentModule } from '../../components/page-navigator/page-navigator.component.module';
-import { SessionCommentsPage } from './session-comments.page';
+import { MessagePage } from './message.page';
 
 
 const routes: Routes = [
-    {path: '', component: SessionCommentsPage}
+    {path: '', component: MessagePage}
 ];
 @NgModule({
     imports: [
         CommonModule,
-        IonicModule,
         FormsModule,
+        IonicModule,
         RouterModule.forChild(routes),
-        TranslatePipeModule,
-        PageNavigatorComponentModule
+        TranslatePipeModule
     ],
     exports: [
         RouterModule
     ],
     declarations: [
-        SessionCommentsPage
+        MessagePage
     ],
     entryComponents: [
-        SessionCommentsPage
+        MessagePage
     ],
-    bootstrap: [SessionCommentsPage],
+    bootstrap: [MessagePage],
     schemas: []
 })
-export class SessionCommentsPageModule {
+export class MessagePageModule {
 }
-

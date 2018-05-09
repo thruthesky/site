@@ -118,14 +118,8 @@ const routes: Routes = [
   },
 
   {
-    path: 'session-comments',
-    loadChildren: './pages/session-comments/session-comments.page.module#SessionCommentsPageModule'
-  },
-
-
-  {
-    path: 'session-comments-list',
-    loadChildren: './pages/session-comments-list/session-comments-list.page.module#SessionCommentsListPageModule'
+    path: 'teacher-reviews',
+    loadChildren: './pages/teacher-reviews/teacher-reviews.page.module#TeacherReviewsPageModule'
   },
 
   {
@@ -140,6 +134,12 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: './pages/register/register.page.module#RegisterPageModule'
+  },
+
+
+  {
+    path: 'message',
+    loadChildren: './pages/message/message.page.module#MessagePageModule'
   },
 
   {

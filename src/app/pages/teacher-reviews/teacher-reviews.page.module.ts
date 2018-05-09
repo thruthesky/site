@@ -5,11 +5,11 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { PageNavigatorComponentModule } from '../../components/page-navigator/page-navigator.component.module';
-import { SessionCommentsListPage } from './session-comments-list.page';
+import { TeacherReviewsPage } from './teacher-reviews.page';
 
 
 const routes: Routes = [
-    {path: '', component: SessionCommentsListPage}
+    {path: '', component: TeacherReviewsPage}
 ];
 @NgModule({
     imports: [
@@ -24,14 +24,14 @@ const routes: Routes = [
         RouterModule
     ],
     declarations: [
-        SessionCommentsListPage
+        TeacherReviewsPage
     ],
     entryComponents: [
-        SessionCommentsListPage
+        TeacherReviewsPage
     ],
-    bootstrap: [SessionCommentsListPage],
+    bootstrap: [TeacherReviewsPage],
     schemas: []
 })
-export class SessionCommentsListPageModule {
+export class TeacherReviewsPageModule {
 }
 

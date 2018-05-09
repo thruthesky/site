@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-    selector: 'session-comments-page',
-    templateUrl: 'session-comments.page.html',
-    styleUrls: ['session-comments.page.scss'],
+    selector: 'teacher-reviews-page',
+    templateUrl: 'teacher-reviews.page.html',
+    styleUrls: ['teacher-reviews.page.scss'],
 })
-export class SessionCommentsPage implements OnInit {
+export class TeacherReviewsPage implements OnInit {
 
     comments = [];
 
@@ -94,30 +94,9 @@ export class SessionCommentsPage implements OnInit {
     }
 
 
-    onClickCommentEdit(comment) {
-        // const createCommentModal = this.modalCtrl.create(StudentCommentEdit, {comment: comment}, {cssClass: 'student-comment-edit'}
-        // );
-        // createCommentModal.onDidDismiss(res => {
-        //     if (res === 'success') {
-        //         this.loadClassComment();
-        //     }
-        // });
-        // createCommentModal.present();
-    }
-
-
     onClickShowMore(comment) {
         console.log('onClickShowMore::', comment);
-        this.router.navigate(['session-comments-list'], {queryParams: {idx_teacher: comment['idx_teacher']}});
-    }
-
-    onClickCommentCreate() {
-        // const createCommentModal = this.modalCtrl.create(StudentCommentEdit, {idx_teacher: this.idx_teacher}, {cssClass: 'student-comment-create'}
-        // );
-        // createCommentModal.onDidDismiss(res => {
-        //     if (res === 'success') this.onClickShowMore({idx_teacher: this.idx_teacher});
-        // });
-        // createCommentModal.present();
+        this.router.navigate(['teacher-review-list'], {queryParams: {idx_teacher: comment['idx_teacher']}});
     }
 
 
