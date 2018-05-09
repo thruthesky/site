@@ -118,7 +118,13 @@ const routes: Routes = [
   },
 
   {
-    path: 'class-comments',
+    path: 'session-comments',
+    loadChildren: './pages/session-comments/session-comments.page.module#SessionCommentsPageModule'
+  },
+
+
+  {
+    path: 'session-comments-list',
     loadChildren: './pages/session-comments-list/session-comments-list.page.module#SessionCommentsListPageModule'
   },
 

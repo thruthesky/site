@@ -1,25 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { AlertController } from '@ionic/angular';
-import { STUDENT_COMMENTS_TO_TEACHER } from '../../modules/xapi/interfaces';
 
 
 @Component({
-    selector: 'session-comments-list-page',
-    templateUrl: 'session-comments-list.page.html',
-    styleUrls: ['session-comments-list.page.scss'],
+    selector: 'session-comments-page',
+    templateUrl: 'session-comments.page.html',
+    styleUrls: ['session-comments.page.scss'],
 })
-export class SessionCommentsListPage implements OnInit {
+export class SessionCommentsPage implements OnInit {
 
-    params;
-    idx_teacher;
-    comments: STUDENT_COMMENTS_TO_TEACHER = <STUDENT_COMMENTS_TO_TEACHER>[];
-    limit = 10;
-    teacher_photoURL;
-    teacher_name;
-
-
-    error = null;
+    comments = [];
 
     pageOption = {
         limitPerPage: 10,
@@ -28,43 +19,37 @@ export class SessionCommentsListPage implements OnInit {
         totalRecord: 0
     };
 
-    loading = true;
+    idx_teacher = null;
+
     showloader = false;
 
-    constructor(public a: AppService,
-                public alertCtrl: AlertController) {
-
-        this.loadCommentList();
-
+    constructor(
+        public a: AppService,
+        public alertCtrl: AlertController
+    ) {
+        this.loadClassComment();
     }
 
     ngOnInit() {
 
     }
 
-    loadCommentList() {
-        const  data = {
-            idx_teacher: this.idx_teacher,
-            limit: this.pageOption.limitPerPage,
-            page: this.pageOption.currentPage
-        };
-        this.showloader = true;
-        this.a.lms.get_student_comments_to_teacher(data).subscribe((res: STUDENT_COMMENTS_TO_TEACHER) => {
-            // console.log("get_comment_from_student_to_teaceher:: ", res);
-            if (res && res['comments'] && res['comments'].length) {
-                this.comments = res['comments'];
-            } else {
-                this.error = 'No available review yet for this teacher.';
-            }
+    loadClassComment() {
+        this.a.lms.get_latest_student_comment_to_teachers({
+            limit: this.pageOption['limitPerPage'],
+            page: this.pageOption['currentPage']
+        }).subscribe(res => {
+            // console.log("loadClassComment:: ", res);
+            this.comments = res['comments'];
             this.pageOption.currentPage = res['page'];
             this.pageOption.limitPerPage = res['limit'];
             this.pageOption.totalRecord = res['total'];
-            this.showloader = false;
         }, e => {
-            this.a.t(e);
-            this.showloader = false;
+            this.a.toast(e);
         });
+
     }
+
 
     async onClickDelete(comment) {
         // console.log('user.id', this.a.user.id);
@@ -72,7 +57,7 @@ export class SessionCommentsListPage implements OnInit {
 
         const confirm = await this.alertCtrl.create({
             header: this.a.t('DELETE COMMENT'),
-            subHeader: this.a.t('CONFIRM DELETE COMMENT'),
+            subHeader: this.a.t('CONFIRM DELETE'),
             buttons: [
                 {
                     text: this.a.t('YES'),
@@ -86,7 +71,7 @@ export class SessionCommentsListPage implements OnInit {
                             // console.log("student_comment_to_teacher_delete:: ", res);
                             if (res['idx'] === comment.idx) {
                                 comment.idx = '';
-                                this.a.t('Comment Deleted...');
+                                this.a.toast(this.a.t('COMMENT DELETED'));
                             }
                             this.showloader = false;
                         }, e => {
@@ -111,33 +96,42 @@ export class SessionCommentsListPage implements OnInit {
         // const createCommentModal = this.modalCtrl.create(StudentCommentEdit, {comment: comment}, {cssClass: 'student-comment-edit'}
         // );
         // createCommentModal.onDidDismiss(res => {
-        //     // if(res && res['comment']) {
-        //     //   console.log("comment", res['comment']);
-        //     //   console.log("onClickCommentEdit::comment", comment);
-        //     //   comment['comment'] = res.comment.comment;
-        //     //   comment['rate'] = res.comment.rate;
-        //     //   comment['rate'] = res.comment.rate;
-        //     // }
-        //
-        //     if ( res === 'success') {
-        //         this.loadCommentList();
+        //     if (res === 'success') {
+        //         this.loadClassComment();
         //     }
         // });
         // createCommentModal.present();
     }
 
 
-    onClickCancel() {
-        // this.viewCtrl.dismiss();
-    }
-
-    onPostPageClick($event) {
-        this.pageOption['currentPage'] = $event;
-        this.loadCommentList();
+    onClickShowMore(comment) {
+        // this.idx_teacher = comment.idx_teacher;
+        // const createCommentModal = this.modalCtrl.create(StudentCommentList, {
+        //         idx_teacher: comment.idx_teacher,
+        //         teacher_photoURL: comment.teacher_photoURL,
+        //         teacher_name: comment.teacher_name
+        //     }, {cssClass: 'student-comment-list'}
+        // );
+        // createCommentModal.onDidDismiss(reason => {
+        //     if (reason === 'commentCreate') this.onClickCommentCreate();
+        // });
+        // createCommentModal.present();
     }
 
     onClickCommentCreate() {
-        // this.viewCtrl.dismiss('commentCreate');
+        // const createCommentModal = this.modalCtrl.create(StudentCommentEdit, {idx_teacher: this.idx_teacher}, {cssClass: 'student-comment-create'}
+        // );
+        // createCommentModal.onDidDismiss(res => {
+        //     if (res === 'success') this.onClickShowMore({idx_teacher: this.idx_teacher});
+        // });
+        // createCommentModal.present();
     }
+
+
+    onPostPageClick($event) {
+        this.pageOption['currentPage'] = $event;
+        this.loadClassComment();
+    }
+
 }
 
