@@ -119,7 +119,7 @@ const routes: Routes = [
 
   {
     path: 'class-comments',
-    loadChildren: './pages/class-comments/class-comments.page.module#ClassCommentsPageModule'
+    loadChildren: './pages/session-comments-list/session-comments-list.page.module#SessionCommentsListPageModule'
   },
 
   {

@@ -4,11 +4,11 @@ import { AlertController } from '@ionic/angular';
 
 
 @Component({
-    selector: 'class-comments-page',
-    templateUrl: 'class-comments.page.html',
-    styleUrls: ['class-comments.page.scss'],
+    selector: 'session-comments-list-page',
+    templateUrl: 'session-comments-list.page.html',
+    styleUrls: ['session-comments-list.page.scss'],
 })
-export class ClassComponentsPage implements OnInit {
+export class SessionCommentsListPage implements OnInit {
 
     comments = [];
 
