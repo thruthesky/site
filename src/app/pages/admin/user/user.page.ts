@@ -31,8 +31,8 @@ export class UserPage implements OnInit {
         bookable_time_begin: 0,
         bookable_time_end: 99999,
         timezone: '',
-        order: '',
-        by: '',
+        order: 'ID',
+        by: 'DESC',
         display: {
             ID: false,
             phone_number: false,
@@ -43,8 +43,8 @@ export class UserPage implements OnInit {
             domain: false,
             manager: false,
             stat: {
-                count_result: false,
-                count_daily_registration: false,
+                count_result: true,
+                count_daily_registration: true,
                 count_monthly_registration: false,
                 count_domain: false,
                 count_timezone: false
@@ -55,6 +55,7 @@ export class UserPage implements OnInit {
         public router: Router,
         public a: AppService
     ) {
+        // a.showHeader = false;
 
         // a.lms.admin_query({
         //     sql: `SELECT p.idx, p.currency, p.amount, p.idx_student, p.payment_method, p.point, p.state
@@ -83,9 +84,15 @@ export class UserPage implements OnInit {
             sql: `SELECT ID, user_email, display_name
 					FROM wp_users
 					WHERE BRANCH LIMIT ${this.form.limit}`,
-        }).subscribe( re => console.log(re), e => this.a.toast(e) );
+        }).subscribe(re => console.log(re), e => this.a.toast(e));
         return false;
     }
 
+
+    onChangeSelectOrder(event) {
+        const value = event.target.value;
+        console.log('onChangeSelectorOrder: ', value);
+        this.form.order = value;
+    }
 
 }
