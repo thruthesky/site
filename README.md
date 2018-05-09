@@ -2,12 +2,19 @@
 
 ## TODO
 
-* Do admin page.
-  * user profile search/edit. point update.
-  * first page real time update.
+### URGENT WORK
+
 * witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
-  * Since it is completely separated service.
+  * Since it is completely separated service and it uses InnoDB which is not source of the problem.
   * Make the workserver as real server.
+  * Do it Immediately !!
+
+### NOT URGENT
+
+* Do admin page.
+  * user search/edit. point update.
+  * first page real time update.
+  * session list / earch / stat
 
 * put `countries` somewhere else. so it will not increase main.js bundle size.
 * Suggestion: Move comment component under forum page module since it is a dependant of forum.
