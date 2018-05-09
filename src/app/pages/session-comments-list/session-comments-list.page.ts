@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { AlertController } from '@ionic/angular';
 import { STUDENT_COMMENTS_TO_TEACHER } from '../../modules/xapi/interfaces';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -28,13 +29,23 @@ export class SessionCommentsListPage implements OnInit {
         totalRecord: 0
     };
 
-    loading = true;
     showloader = false;
 
     constructor(public a: AppService,
-                public alertCtrl: AlertController) {
+                public active: ActivatedRoute,
+                public alertCtrl: AlertController
+    ) {
+        this.active.queryParams.subscribe(params => {
 
-        this.loadCommentList();
+            /**
+             * @Note for create idx_teacher is required.
+             */
+            if ( params['idx_teacher'] ) {
+                this.idx_teacher = params['idx_teacher'];
+                this.loadCommentList();
+            }
+        });
+
 
     }
 
@@ -50,7 +61,7 @@ export class SessionCommentsListPage implements OnInit {
         };
         this.showloader = true;
         this.a.lms.get_student_comments_to_teacher(data).subscribe((res: STUDENT_COMMENTS_TO_TEACHER) => {
-            // console.log("get_comment_from_student_to_teaceher:: ", res);
+            console.log('get_comment_from_student_to_teaceher:: ', res);
             if (res && res['comments'] && res['comments'].length) {
                 this.comments = res['comments'];
             } else {
