@@ -239,5 +239,15 @@
     "SEARCHED_POINT":"검색 지점",
     "REFUNDED_SESSIONS":"환불 된 세션",
     "SESSIONS_IN_REFUND_PROGRESS":"환불 세션",
-    "SEARCHED_PERIOD":"검색 기간"
+    "SEARCH_PERIOD":"수색 기간",
+    "TOTAL":"합계",
+    "DATE_BEGIN":"데이트 시작",
+    "DATE_END":"데이트 엔드",
+    "SELECT_TEACHER":"교사를 선택하십시오.",
+    "ALL_TEACHER":"모든 교사",
+    "DISPLAY_SESSION_IN_PROGRESS":"진행중인 세션 표시",
+    "DISPLAY_REFUNDED_SESSION":"환불 된 세션 표시",
+    "SHOW_TEACHER_NAME":"선생님 이름 표시",
+    "DISPLAY_DATE":"날짜 표시",
+    "POINT_MARK":"포인트 표시"
 }

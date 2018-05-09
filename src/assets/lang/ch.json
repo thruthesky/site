@@ -233,8 +233,18 @@
 
     "USER_POINT":"#username，点",
     "SEARCHED_SESSIONS":"搜索会话",
-    "SEARCHED_POINT":"SEARCHED POINT",
-    "REFUNDED_SESSIONS":"REFUNDED SESSIONS",
-    "SESSIONS_IN_REFUND_PROGRESS":"SESSIONS IN REFUND PROGRESS",
-    "SEARCHED_PERIOD":"SEARCHED PERIOD"
+    "SEARCHED_POINT":"搜索点",
+    "REFUNDED_SESSIONS":"退款的会议",
+    "SESSIONS_IN_REFUND_PROGRESS":"退款进展中的会议",
+    "SEARCH_PERIOD":"搜索周期",
+    "TOTAL":"总",
+    "DATE_BEGIN":"日期开始",
+    "DATE_END":"日期结束",
+    "SELECT_TEACHER":"选择教师",
+    "ALL_TEACHER":"所有的老师",
+    "DISPLAY_SESSION_IN_PROGRESS":"正在进行显示会话",
+    "DISPLAY_REFUNDED_SESSION":"显示退款会话",
+    "SHOW_TEACHER_NAME":"显示教师姓名",
+    "DISPLAY_DATE":"显示日期",
+    "POINT_MARK":"点标记"
 }
