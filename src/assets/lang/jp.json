@@ -229,5 +229,19 @@
 
     "OPTIONS":"オプション",
     "USER_POINT":"##username様、ポイント:",
-    "SEARCHED_SESSIONS":"検索セッション"
+    "SEARCHED_SESSIONS":"検索セッション",
+    "SEARCHED_POINT":"検索ポイント",
+    "REFUNDED_SESSIONS":"払い戻されたセッション",
+    "SESSIONS_IN_REFUND_PROGRESS":"払い戻しのセッション",
+    "SEARCH_PERIOD":"検索期間",
+    "TOTAL":"合計",
+    "DATE_BEGIN":"開始日",
+    "DATE_END":"終了日",
+    "SELECT_TEACHER":"先生を選ぶ",
+    "ALL_TEACHER":"すべての先生",
+    "DISPLAY_SESSION_IN_PROGRESS":"進行中のセッションを表示する",
+    "DISPLAY_REFUNDED_SESSION":"払い戻されたセッションの表示",
+    "SHOW_TEACHER_NAME":"教師の名前を表示",
+    "DISPLAY_DATE":"表示日付",
+    "POINT_MARK":"ポイントマーク"
 }

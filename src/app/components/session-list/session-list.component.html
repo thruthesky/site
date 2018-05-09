@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col">
                     <label class="begin">
-                        <span>{{ 'DATE BEGIN' | t}}</span>
+                        <span>{{ 'DATE_BEGIN' | t}}</span>
                         <ion-datetime name="date_begin" displayFormat="MM/DD/YYYY" pickerFormat="YYYYMMDD"
                                     [(ngModel)]="date_begin"
                                     (ngModelChange)="onChangeSearchOption()"></ion-datetime>
@@ -16,7 +16,7 @@
 
                 <div class="col">
                     <label class="end">
-                        <span>{{ 'DATE END' | t}}</span>
+                        <span>{{ 'DATE_END' | t}}</span>
                         <ion-datetime name="date_end" displayFormat="MM/DD/YYYY" pickerFormat="YYYYMMDD"
                                     [(ngModel)]="date_end"
                                     (ngModelChange)="onChangeSearchOption()"></ion-datetime>
@@ -29,11 +29,11 @@
         <div class="teachers container-fluid" *ngIf=" my_teachers ">
             <div class="row">
                 <div class="col">
-                    <label>{{ 'SELECT TEACHER'| t }}</label>
+                    <label>{{ 'SELECT_TEACHER'| t }}</label>
                     <select [(ngModel)]="show_teacher" (change)="onChangeSearchOption()">
                         <option *ngFor="let teacher of teachers_keys" [value]="teacher">{{ my_teachers[teacher].name }}
                         </option>
-                        <option [value]="0">{{ "ALL TEACHER" | t}}</option>
+                        <option [value]="0">{{ "ALL_TEACHER" | t}}</option>
                     </select>
                 </div>
             </div>
@@ -43,29 +43,29 @@
             <label>
                 <ion-checkbox [(ngModel)]="show_refund_in_progress" color="vibrant"
                               (ionChange)="onChangeSearchOption()"></ion-checkbox>
-                <span>{{ 'DISPLAY SESSION IN PROGRESS' | t}}</span>
+                <span>{{ 'DISPLAY_SESSION_IN_PROGRESS' | t}}</span>
             </label>
 
             <label>
                 <ion-checkbox [(ngModel)]="show_refunded" color="vibrant"
                               (ionChange)="onChangeSearchOption()"></ion-checkbox>
-                <span>{{ 'DISPLAY REFUNDED SESSION' | t}}</span>
+                <span>{{ 'DISPLAY_REFUNDED_SESSION' | t}}</span>
             </label>
 
             <ng-container *ngIf="a.isStudent">
                 <label>
                     <ion-checkbox [(ngModel)]="displayTeacherName" color="vibrant"></ion-checkbox>
-                    <span>선생님 이름 표시</span>
+                    <span>{{ 'SHOW_TEACHER_NAME'| t }}</span>
                 </label>
 
                 <label>
                     <ion-checkbox [(ngModel)]="displayDate" color="vibrant"></ion-checkbox>
-                    <span>날짜 표시</span>
+                    <span>{{ 'DISPLAY_DATE' | t }}</span>
                 </label>
                 
                 <label>
                     <ion-checkbox [(ngModel)]="displayPoint" color="vibrant"></ion-checkbox>
-                    <span>포인트 표시</span>
+                    <span>{{ 'POINT_MARK' | t}}</span>
                 </label>
             </ng-container>
         </div>
