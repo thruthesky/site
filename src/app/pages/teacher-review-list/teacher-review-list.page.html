@@ -1,23 +1,27 @@
 <header>
     <h1>{{ 'REVIEW LIST TITLE' | t}}</h1>
-    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
-        {{ 'TEACHER SCHEDULE' | t }}
-    </button>
-    <button *ngIf="a.user.isLogin && a.studentTheme" routerLink="/teacher-review-create" [queryParams]="{idx_teacher:idx_teacher}">
-        <span>{{ 'WRITE REVIEW' | t }}</span>
-        <i class="fas fa-edit ml-2"></i>
-    </button>
+
+    <div>
+        <span class="menu" *ngIf="a.user.isLogin && a.studentTheme" routerLink="/teacher-review-create" [queryParams]="{idx_teacher:idx_teacher}">
+            <svg class="icon" aria-hidden="true" data-icon="edit" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"></path></svg>
+            {{ 'WRITE REVIEW' | t }}
+        </span>
+        <span class="menu" *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M193.456 357.573L127.882 292H424c13.255 0 24-10.745 24-24v-24c0-13.255-10.745-24-24-24H127.882l65.574-65.573c9.373-9.373 9.373-24.569 0-33.941l-16.971-16.971c-9.373-9.373-24.569-9.373-33.941 0L7.029 239.029c-9.373 9.373-9.373 24.568 0 33.941l135.515 135.515c9.373 9.373 24.569 9.373 33.941 0l16.971-16.971c9.373-9.372 9.373-24.568 0-33.941z"/></svg>
+            {{ 'TEACHER SCHEDULE' | t }}
+        </span>
+    </div>
 </header>
 <main>
 
     <section *ngIf="idx_teacher">
 
-        <div>
-            <div>
+        <div class="teacher-avatar">
+            <div class="teacher-photo">
                 <img src="{{teacher_photoURL}}">
             </div>
-            <div>
-                <i class="fas fa-users mr-1"></i>
+            <div class="teacher-name">
+                <svg class="icon" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M320 64c57.99 0 105 47.01 105 105s-47.01 105-105 105-105-47.01-105-105S262.01 64 320 64zm113.463 217.366l-39.982-9.996c-49.168 35.365-108.766 27.473-146.961 0l-39.982 9.996C174.485 289.379 152 318.177 152 351.216V412c0 19.882 16.118 36 36 36h264c19.882 0 36-16.118 36-36v-60.784c0-33.039-22.485-61.837-54.537-69.85zM528 300c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm-416 0c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm24 112v-60.784c0-16.551 4.593-32.204 12.703-45.599-29.988 14.72-63.336 8.708-85.69-7.37l-26.655 6.664C14.99 310.252 0 329.452 0 351.477V392c0 13.255 10.745 24 24 24h112.169a52.417 52.417 0 0 1-.169-4zm467.642-107.09l-26.655-6.664c-27.925 20.086-60.89 19.233-85.786 7.218C499.369 318.893 504 334.601 504 351.216V412c0 1.347-.068 2.678-.169 4H616c13.255 0 24-10.745 24-24v-40.523c0-22.025-14.99-41.225-36.358-46.567z"></path></svg>
                 {{a.preTeacherName(teacher_name)}}
             </div>
         </div>
@@ -25,56 +29,59 @@
         <hr>
 
         <ng-container *ngFor="let comment of comments">
-            <div class="comment" *ngIf="comment.idx">
-                <div class="container-fluid">
+            <div class="comment container-fluid" *ngIf="comment.idx">
                     <div class="row">
-                        <div class="col-3">
-                            <div>
+                        <div class="hide-sm col-2">
+                            <div class="student-photo">
                                 <img src="{{comment?.photoURL ? comment.photoURL : a.anonymousPhotoURL }}">
                             </div>
                         </div>
-                        <div class="col-9">
-                            <div>
-                                <div>
-                                    <div>
-                                        <i class="fas fa-graduation-cap mr-1"></i>
-                                        {{ comment.student_name }}
+                        <div class="col-md-8 col-12">
+                            <div class="info-wrapper">
+                                <div class="student-photo-sm">
+                                        <img src="{{comment?.photoURL ? comment.photoURL : a.anonymousPhotoURL }}">
                                     </div>
-                                    <div>{{ 'DATE' | t }}: {{ a.shortDate(comment.stamp) }}</div>
-                                    <div>
-                                        {{ 'RATING' | t }}:
-                                        <span *ngIf="comment.rate < 1"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 1"><i class="fas fa-star"></i>*</span>
-
-                                        <span *ngIf="comment.rate < 2"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 2"><i class="fas fa-star"></i>*</span>
-
-                                        <span *ngIf="comment.rate < 3"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 3"><i class="fas fa-star"></i>*</span>
-
-                                        <span *ngIf="comment.rate < 4"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 4"><i class="fas fa-star"></i>*</span>
-
-                                        <span *ngIf="comment.rate < 5"><i class="fal fa-star"></i></span>
-                                        <span *ngIf="comment.rate >= 5"><i class="fas fa-star"></i>*</span>
+                                    <div class="student-info">
+                                            <div class="student-name">
+                                                <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="graduation-cap" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M622.884 199.005l-275.817 85.1a96 96 0 0 1-54.134 0L92.398 222.232c-8.564 11.438-11.018 23.05-11.918 38.335C89.778 266.165 96 276.355 96 288c0 11.952-6.557 22.366-16.265 27.861l16.197 123.096c.63 4.786-3.1 9.043-7.932 9.043H40c-4.828 0-8.562-4.253-7.932-9.044L48.265 315.86C38.557 310.366 32 299.952 32 288c0-12.034 6.646-22.511 16.465-27.976.947-17.951 3.974-33.231 12.152-47.597l-43.502-13.422c-22.876-6.801-22.766-39.241 0-46.01l275.817-85.1a96 96 0 0 1 54.134 0l275.817 85.1c22.877 6.801 22.767 39.241.001 46.01zM356.503 314.682l-.207.064-.207.061a127.998 127.998 0 0 1-72.177 0l-.207-.061-.207-.064-150.914-46.57L120 352c0 35.346 89.543 64 200 64s200-28.654 200-64l-12.583-83.888-150.914 46.57z"></path></svg>
+                                                {{ comment.student_name }}
+                                            </div>
+                                            <div>{{ 'DATE' | t }}: {{ a.shortDate(comment.stamp) }}</div>
+                                            <div class="rating">
+                                                {{ 'RATING' | t }}:
+                                                <span *ngIf="comment.rate < 1"><svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg></span>
+                                                <span *ngIf="comment.rate >= 1"><svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+        
+                                                <span *ngIf="comment.rate < 2"><svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg></span>
+                                                <span *ngIf="comment.rate >= 2"><svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+        
+                                                <span *ngIf="comment.rate < 3"><svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg></span>
+                                                <span *ngIf="comment.rate >= 3"><svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+        
+                                                <span *ngIf="comment.rate < 4"><svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg></span>
+                                                <span *ngIf="comment.rate >= 4"><svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+        
+                                                <span *ngIf="comment.rate < 5"><svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg></span>
+                                                <span *ngIf="comment.rate >= 5"><svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+                                            </div>
                                     </div>
-                                </div>
                             </div>
                             <div class="description">
                                 <div>
-                                    <button *ngIf="comment.idx_student == a.user.id" (click)="onClickDelete(comment)">
-                                        <i class="fa fa-trash"></i> {{ 'DELETE' | t }}
-                                    </button>
-                                    <button *ngIf="comment.idx_student == a.user.id"
+                                    <span *ngIf="comment.idx_student == a.user.id" (click)="onClickDelete(comment)">
+                                        <svg class="icon" aria-hidden="true" data-prefix="fa" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm415.2 56.7L394.8 467c-1.6 25.3-22.6 45-47.9 45H101.1c-25.3 0-46.3-19.7-47.9-45L32.8 140.7c-.4-6.9 5.1-12.7 12-12.7h358.5c6.8 0 12.3 5.8 11.9 12.7z"></path></svg>
+                                        {{ 'DELETE' | t }}
+                                    </span>
+                                    <span *ngIf="comment.idx_student == a.user.id"
                                           (click)="onClickCommentEdit(comment)">
-                                        <i class="fa fa-pencil"></i> {{ 'EDIT' | t }}
-                                    </button>
+                                        <svg class="icon" aria-hidden="true" data-prefix="fa" data-icon="pencil" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path></svg>
+                                        {{ 'EDIT' | t }}
+                                    </span>
                                 </div>
                                 {{comment.comment}}
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </ng-container>
         <div *ngIf="error">
@@ -97,9 +104,12 @@
         </page-navigator-component>
     </div>
 
-    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
-        {{ 'TEACHER SCHEDULE' | t }}
-    </button>
+    <div  class="bottom-back-button">
+        <span *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M193.456 357.573L127.882 292H424c13.255 0 24-10.745 24-24v-24c0-13.255-10.745-24-24-24H127.882l65.574-65.573c9.373-9.373 9.373-24.569 0-33.941l-16.971-16.971c-9.373-9.373-24.569-9.373-33.941 0L7.029 239.029c-9.373 9.373-9.373 24.568 0 33.941l135.515 135.515c9.373 9.373 24.569 9.373 33.941 0l16.971-16.971c9.373-9.372 9.373-24.568 0-33.941z"/></svg>
+            {{ 'TEACHER SCHEDULE' | t }}
+        </span>
+    </div>
 
 
 </main>

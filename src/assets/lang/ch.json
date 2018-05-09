@@ -227,5 +227,14 @@
 
     "REPLY": "回复",
 
-    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info"
+    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info",
+
+    "OPTIONS":"选项",
+
+    "USER_POINT":"#username，点",
+    "SEARCHED_SESSIONS":"搜索会话",
+    "SEARCHED_POINT":"SEARCHED POINT",
+    "REFUNDED_SESSIONS":"REFUNDED SESSIONS",
+    "SESSIONS_IN_REFUND_PROGRESS":"SESSIONS IN REFUND PROGRESS",
+    "SEARCHED_PERIOD":"SEARCHED PERIOD"
 }

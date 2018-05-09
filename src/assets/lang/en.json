@@ -30,7 +30,7 @@
     "TEACHER": "Teacher",
     "TIME": "Time",
     "Minute": "Minute",
-    "minute short": "min",
+    "minute short": "Min",
     "DATE": "Date",
     "User": "User",
     "SUNDAY": "Sun",
@@ -263,7 +263,14 @@
     "MANAGER_PERMISSION_REQUIRED": "Please login as manager or administrator.",
 
 
-    "REPLY": "Reply"
+    "REPLY": "Reply",
+
+    "USER_POINT":"#username, point",
+    "SEARCHED_SESSIONS":"SEARCHED SESSIONS",
+    "SEARCHED_POINT":"SEARCHED POINT",
+    "REFUNDED_SESSIONS":"REFUNDED SESSIONS",
+    "SESSIONS_IN_REFUND_PROGRESS":"SESSIONS IN REFUND PROGRESS",
+    "SEARCHED_PERIOD":"SEARCHED PERIOD"
 
 
 }
