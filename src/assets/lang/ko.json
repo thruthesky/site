@@ -231,5 +231,13 @@
 
     "REPLY": "답변",
 
-    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info"
+    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info",
+
+    "OPTIONS":"옵션",
+    "USER_POINT":"#username 님, 포인트:",
+    "SEARCHED_SESSIONS":"검색 세션",
+    "SEARCHED_POINT":"검색 지점",
+    "REFUNDED_SESSIONS":"환불 된 세션",
+    "SESSIONS_IN_REFUND_PROGRESS":"환불 세션",
+    "SEARCHED_PERIOD":"검색 기간"
 }

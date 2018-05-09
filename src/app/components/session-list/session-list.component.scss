@@ -1,3 +1,87 @@
+.options{
+    .date{
+        label{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: .5em;
+            padding: 0 1em;
+            background:#fff;
+            border: 1px  solid  rgb(233, 236, 239);
+            cursor: pointer;
+
+            span{
+                color:grey;
+            }
+        }
+
+        @media screen and (min-width:768px){
+            .begin{
+                margin-right: .25em;
+            }
+    
+            .end{
+                margin-left:.25em;
+            }
+        }
+
+        .col{
+            padding: 0;
+        }
+    }
+
+    .teachers{
+
+        label{
+            color:blue
+        }
+        .col{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: .5em 0;
+            padding: 1em;
+            border: 1px  solid  rgb(233, 236, 239);
+            background:#fff;
+        }
+    }
+
+    .checkbox-list{
+        border: 1px  solid  rgb(233, 236, 239);
+
+        label{
+            display: flex;
+            align-items: center;
+            padding: 1em;
+            border-bottom: 1px  solid  rgb(233, 236, 239);
+            background: #fff;
+            cursor: pointer;
+
+            span{
+                margin-left:1em
+            }
+
+            &:last-child{
+                border: none!important;
+            }
+        }
+    }
+
+    .close{
+        margin: 1em;
+        text-align: center;
+
+        button{
+            padding: .5em 2em;
+            border:none;
+            background-color: rgb(0, 126, 243);
+            color: white;
+            font-size: 100%;
+            cursor: pointer;
+        }
+    }
+}
+
 
 .stats{
     margin: 1.5em 0;
@@ -43,11 +127,16 @@
     top:63px;
     @media screen and (max-width:768px) {
         top:105px;
+
+        .sm-hide{
+            display: none;
+        }
     }
     left: 0;
     right: 0;
     z-index: 1000;
     justify-content: space-around;
+    align-items: center;
     padding: .9em;
     background-color: #66a2fb;
     color: white;
@@ -68,6 +157,10 @@
     background: #fff;
     font-size: 90%;
 
+    @media screen and (max-width:768px) {
+        padding-top:1em;
+    }
+
     &>div{
         padding: 0;
     }
@@ -77,10 +170,14 @@
     }
 
     .rejected,.refunded{
+        display: inline-block;
+        margin-top: 1em;
         color:darkred;
     }
 
     button{
+        display: flex;
+        align-items: center;
         margin-top: 1em;
         padding: .75em 1.25em;
         font-size: 90%;
@@ -89,7 +186,7 @@
         cursor: pointer;
     }
 
-    .evaluate-view{
+    .evaluate-view,.cancel{
         background-color: #eee!important;
         color: #4b4b4b!important;
     }
@@ -104,6 +201,52 @@
         margin-bottom: 1em;
         .row{
             align-items: center;
+            justify-content: center;
+        }
+
+        .col-6{
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .bg-red,.bg-green,.request-refund{
+        display: flex;
+        align-items: center;
+        color: white
+    }
+
+    .bg-red{
+        background: red
+    }
+
+    .bg-green{
+        background: green;
+    }
+
+    .request-refund{
+        background-color: rgb(255, 123, 0);
+    }
+
+    .button-icon{
+        height: 1em;
+        margin-right: .4em;
+    }
+
+    .spin {
+        -webkit-animation: fa-spin 2s infinite linear;
+        animation: spin 2s infinite linear;
+    }
+
+    @keyframes spin {
+        0% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
         }
     }
 }
@@ -126,5 +269,10 @@
             text-transform: uppercase;
         }
     }
-    
+}
+
+.teacher-warning{
+    padding:1.25em;
+    padding-bottom: 0;
+    color:blue;
 }

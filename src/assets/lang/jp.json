@@ -225,5 +225,9 @@
 
     "REPLY": "応答",
 
-    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info"
+    "AUTH/WRONG-PASSWORD": "Password was incorrect, #info",
+
+    "OPTIONS":"オプション",
+    "USER_POINT":"##username様、ポイント:",
+    "SEARCHED_SESSIONS":"検索セッション"
 }

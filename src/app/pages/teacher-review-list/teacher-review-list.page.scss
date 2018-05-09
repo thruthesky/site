@@ -1,0 +1,173 @@
+main,header{
+    background: #fff;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: skyblue;
+    color: white;
+
+    @media screen and (max-width:768px){
+        flex-direction:column;
+        align-items: flex-start;
+        font-size: 80%;
+    }
+
+    &>div{
+        display: flex;
+        align-items: center;
+    }
+    span{
+        display: flex;
+        align-items: center;
+        padding: 1em;
+        cursor: pointer;
+
+        &:first-child{
+            margin-right: 2em;
+        }
+
+        &:last-child{
+            @media screen and (min-width:768px){
+                padding-right: 3em;
+            }
+        }
+    }
+
+    h1{
+        margin: 0;
+        margin-left: 2em;
+        margin-top:.5em;
+        @media screen and (max-width:768px){
+            margin-left: 1em;
+        }
+    }
+
+}
+
+.teacher-avatar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+    .teacher-photo{
+        width: 100px!important;
+        height: 120px!important;
+        border-radius: 2px;
+        overflow: hidden;
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .teacher-name{
+        display: flex;
+        margin: 1em 0;
+        color: dodgerblue;
+        font-size: 110%;
+        text-transform: uppercase;
+    }
+
+}
+
+.icon{
+    height: 1em;
+    margin-right: .3em;
+}
+
+
+.hide-sm{
+    @media screen and (max-width:768px){
+        display: none;
+    }
+}
+
+.comment{
+    margin-top: 5em;
+    @media screen and (max-width:768px){
+        margin-top: 3em;
+    }
+
+    .row{
+        justify-content: center;
+    }
+
+    .student-photo,.student-photo-sm{
+        width: 100px!important;
+        height: 100px!important;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .student-photo-sm{
+        margin-bottom: 1em;
+        @media screen and (min-width:768px){
+            display: none;
+        }
+    }
+
+    .info-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @media screen and (max-width:768px){
+            align-items: center;
+        }
+    }
+
+    .student-info{
+        display: flex;
+        align-items: center;
+        line-height: 1.6em;
+
+        @media screen and (max-width:768px) {
+            flex-direction: column;
+
+            &>div{
+                margin: 0!important;
+            }
+        }
+
+        &>div{
+            margin-right: 2em;
+        }
+
+        .student-name{
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        .rating{
+            color:darkorange;
+        }
+    }
+
+    .description{
+        margin-top: 1.5em;
+        padding: 1em;
+        line-height: 180%;
+        background-color: #f3f3f3;
+
+        span{
+            margin-right: 2em;
+            cursor: pointer;
+        }
+    }
+}
+
+.bottom-back-button{
+    text-align: center;
+
+    span{
+        display: inline-block;
+        padding: 2em 4em;
+        cursor: pointer;
+    }
+}
