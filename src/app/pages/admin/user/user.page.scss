@@ -7,3 +7,21 @@ input[type='text'] {
         width: 2em;
     }
 }
+
+.point {
+    color: blue;
+}
+
+.daily_registration {
+    .day {
+        .bar {
+            display: inline-block;
+            overflow: hidden;
+            width: 14px;
+        }
+        .day, .date {
+            padding: 0 .1em;
+            font-size: .75em;
+        }
+    }
+}

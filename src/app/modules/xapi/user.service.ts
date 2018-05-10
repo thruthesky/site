@@ -201,7 +201,7 @@ export class XapiUserService extends Base {
      * Use this method to see if the user is a manager.
      */
     get manager() {
-        return this.profile.manager;
+        return this.profile && this.profile.manager;
     }
 
 
