@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import {AppService} from '../../../../providers/app.service';
 
 @Component({
-    selector: 'ontue-dayoff-page',
-    templateUrl: 'ontue-dayoff.page.html',
-    styleUrls: ['ontue-dayoff.page.scss']
+    selector: 'ontue-my-dayoff-page',
+    templateUrl: 'ontue-my-dayoff.page.html',
+    styleUrls: ['ontue-my-dayoff.page.scss']
 })
-export class OntueDayoffPage {
+export class OntueMyDayoffPage {
 
 
     dayoffs = [];

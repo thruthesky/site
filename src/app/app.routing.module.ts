@@ -78,12 +78,24 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-menu/ontue-menu.page.module#OntueMenuPageModule'
   },
   {
+    path: 'teacher-faq',
+    loadChildren: './sites/ontue/pages/ontue-faq/ontue-faq.page.module#OntueFAQPageModule'
+  },
+  {
+    path: 'teacher-policy',
+    loadChildren: './sites/ontue/pages/ontue-policy/ontue-policy.page.module#OntuePolicyPageModule'
+  },
+  {
     path: 'payment-information',
     loadChildren: './sites/ontue/pages/ontue-payment-information/ontue-payment-information.page.module#OntuePaymentInformationPageModule'
   },
   {
     path: 'my-schedule',
     loadChildren: './sites/ontue/pages/ontue-my-schedule/ontue-my-schedule.page.module#OntueMySchedulePageModule'
+  },
+  {
+    path: 'my-dayoff',
+    loadChildren: './sites/ontue/pages/ontue-my-dayoff/ontue-my-dayoff.page.module#OntueMyDayoffPageModule'
   },
   {
     path: 'schedule-edit',

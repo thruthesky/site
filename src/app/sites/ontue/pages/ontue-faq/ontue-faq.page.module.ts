@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { OntueDayoffPage } from './ontue-dayoff.page';
 import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
-import { MaterialModule } from '../../../../app.material.module';
+import { OntueFAQPage } from './ontue-faq.page';
+
 
 
 const routes: Routes = [
-    { path: '', component: OntueDayoffPage }
+    { path: '', component: OntueFAQPage }
 ];
 @NgModule({
     imports: [
@@ -18,18 +18,17 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
-        MaterialModule
     ],
     exports: [
         RouterModule
     ],
     declarations: [
-        OntueDayoffPage
+        OntueFAQPage
     ],
     entryComponents: [
-        OntueDayoffPage
+        OntueFAQPage
     ],
-    bootstrap: [OntueDayoffPage],
+    bootstrap: [OntueFAQPage],
     schemas: []
 })
-export class OntueDayoffPageModule { }
+export class OntueFAQPageModule { }
