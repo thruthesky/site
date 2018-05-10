@@ -100,7 +100,9 @@ export interface USER_REGISTER extends REQUEST {
 }
 
 export type USER_UPDATE = USER_REGISTER;
-export type USER_DATA_RESPONSE = USER_REGISTER;
+export interface USER_DATA_RESPONSE extends USER_REGISTER {
+    age?: string;
+}
 
 
 
