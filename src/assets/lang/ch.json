@@ -246,5 +246,32 @@
     "DISPLAY_REFUNDED_SESSION":"显示退款会话",
     "SHOW_TEACHER_NAME":"显示教师姓名",
     "DISPLAY_DATE":"显示日期",
-    "POINT_MARK":"点标记"
+    "POINT_MARK":"点标记",
+
+    "READY":"准备",
+    "REQUEST_REFUND":"申请退款",
+    "CANCEL_REFUND_REQUEST":"取消请求退款",
+    "REFUNDED":"退款",
+    "POINT_REFUND_REJECTED":"点退款被拒绝",
+    "WRITE_A_REVIEW":"写评论",
+    "LECTURE_EVALUATION":"讲座评估",
+    "REFUND_REQUESTED":"退款要求",
+    "REJECTED":"拒绝",
+    "PAID":"付费",
+    "REFUND":"退",
+    "EVALUATE":"评估",
+    "RESULT":"结果",
+
+    "WRITE_REVIEW":"写评论",
+    "TEACHER_SCHEDULE":"教师日程安排",
+    "CURRICULUM_VITAE_VIEW":"恢复",
+    "NATIONALITY":"国籍",
+    "COURSE":"课程",
+    "BIRTHDAY":"生日",
+    "TEACHING_ENGLISH_SINCE":"自从教师英语",
+    "AGE":"年龄",
+    "HOBBIES":"嗜好",
+    "SCHOOL":"学校",
+    "PHONE_NO":"电话号码",
+    "EMAIL":"电子邮件"
 }

@@ -249,5 +249,32 @@
     "DISPLAY_REFUNDED_SESSION":"환불 된 세션 표시",
     "SHOW_TEACHER_NAME":"선생님 이름 표시",
     "DISPLAY_DATE":"날짜 표시",
-    "POINT_MARK":"포인트 표시"
+    "POINT_MARK":"포인트 표시",
+
+    "READY":"준비된",
+    "REQUEST_REFUND":"환불 요청",
+    "CANCEL_REFUND_REQUEST":"환불 요청 취소",
+    "REFUNDED":"복구됨",
+    "POINT_REFUND_REJECTED":"포인트 복구 거절 됨",
+    "WRITE_A_REVIEW":"후기작성 ",
+    "LECTURE_EVALUATION":"강의평가 ",
+    "REFUND_REQUESTED":"환불 요청 됨",
+    "REJECTED":"거부 됨",
+    "PAID":"유료",
+    "REFUND":"환불금",
+    "EVALUATE":"평가하다",
+    "RESULT":"결과",
+
+    "WRITE_REVIEW":"写评论",
+    "TEACHER_SCHEDULE":"教师日程安排",
+    "CURRICULUM_VITAE_VIEW":"이력서",
+    "NATIONALITY":"국적",
+    "COURSE":"코스",
+    "BIRTHDAY":"생일",
+    "TEACHING_ENGLISH_SINCE":"년부터 영어 교사",
+    "AGE":"나이",
+    "HOBBIES":"취미",
+    "SCHOOL":"학교",
+    "PHONE_NO":"전화 번호",
+    "EMAIL":"이메일"
 }

@@ -232,7 +232,7 @@
                 </div>
                 <div class="sm-hide col-2 col-md-3">
                     <ng-container *ngIf=" a.isStudent && past ">
-                        <div> 결과</div>
+                        <div> {{ 'RESULT' | t}}</div>
                     </ng-container>
                 </div>
             </div>
@@ -287,25 +287,25 @@
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
                                         <button [class.warning]=" ! evaluated(book) "
                                                 (click)=" a.open('evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
-                                            Eval
+                                            {{ 'EVALUATE' | t}}
                                         </button>
                                     </div>
                                     <div class="col-6" *ngIf=" refundable(book) ">
-                                        <button (click)=" onClickRefund( book ) ">Refund</button>
+                                        <button (click)=" onClickRefund( book ) ">{{ 'REFUND' | t}}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" paid(book) ">
-                                        <span>Paid</span>
+                                        <span>{{ 'PAID' | t}}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded( book ) ">
-                                        <span>Refunded</span>
+                                        <span>{{ 'REFUNDED' | t}}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refund_in_progress(book) ">
                                         <div>
-                                            <span *ngIf=" rejected(book); else Requested ">Rejected</span>
+                                            <span *ngIf=" rejected(book); else Requested ">{{ 'REJECTED' | t }}</span>
                                             <ng-template #Requested>
                                                 <button (click)=" onClickShowRequest( book ) ">
                                                     <ion-icon name="mail"></ion-icon>
-                                                    Refund Requested
+                                                    {{ 'REFUND_REQUESTED' }}
                                                 </button>
                                             </ng-template>
                                         </div>
@@ -313,21 +313,21 @@
                                 </ng-container>
                                 <ng-container *ngIf=" a.isStudent ">
                                     <div class="col-6" *ngIf=" !refunded(book) ">
-                                        <button class="evaluate-view" (click)=" onClickEvaluateView(book.idx)">강의평가</button>
+                                        <button class="evaluate-view" (click)=" onClickEvaluateView(book.idx)">{{ 'LECTURE_EVALUATION' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" !refund_in_progress(book) ">
-                                        <button class="comment-create" (click)=" onClickCommentCreate( book.idx_teacher ) ">후기작성</button>
+                                        <button class="comment-create" (click)=" onClickCommentCreate( book.idx_teacher ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" rejected( book ) ">
-                                        <span class="rejected">포인트 복구 거절 됨</span>
+                                        <span class="rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded(book) ">
-                                        <span class="refunded">복구됨</span>
+                                        <span class="refunded"> {{ 'REFUNDED' | t }}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" !book.refund_timeover && ! rejected( book )">
                                         <ng-container *ngIf=" ! refunded( book ) ">
                                             <button (click)=" onClickCancelRefundRequest( book )"
-                                                    *ngIf="book.refund_request_at > 0 ">{{ "CANCEL REFUND REQUEST" | t
+                                                    *ngIf="book.refund_request_at > 0 ">{{ "CANCEL_REFUND_REQUEST" | t
                                                 }}
                                             </button>
                                             <button class="request-refund" (click)=" onClickRefundRequest( book )"
@@ -335,7 +335,7 @@
                                                 <span *ngIf="loadingRefundRequest">
                                                     <svg class="button-icon spin" aria-hidden="true" data-prefix="fal" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M288 32c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-32 416c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm256-192c0-17.673-14.327-32-32-32s-32 14.327-32 32 14.327 32 32 32 32-14.327 32-32zm-448 0c0-17.673-14.327-32-32-32S0 238.327 0 256s14.327 32 32 32 32-14.327 32-32zm33.608 126.392c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm316.784 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM97.608 65.608c-17.673 0-32 14.327-32 32 0 17.673 14.327 32 32 32s32-14.327 32-32c0-17.673-14.327-32-32-32z"></path></svg>
                                                 </span>
-                                                {{ "REQUEST REFUND" | t}}
+                                                {{ "REQUEST_REFUND" | t}}
                                             </button>
                                         </ng-container>
                                     </div>

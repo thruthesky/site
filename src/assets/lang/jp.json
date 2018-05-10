@@ -243,5 +243,34 @@
     "DISPLAY_REFUNDED_SESSION":"払い戻されたセッションの表示",
     "SHOW_TEACHER_NAME":"教師の名前を表示",
     "DISPLAY_DATE":"表示日付",
-    "POINT_MARK":"ポイントマーク"
+    "POINT_MARK":"ポイントマーク",
+
+
+    "READY":"準備完了",
+    "REQUEST_REFUND":"払い戻しのリクエスト",
+    "CANCEL_REFUND_REQUEST":"リクエスト払い戻しをキャンセルする",
+    "REFUNDED":"払い戻された",
+    "POINT_REFUND_REJECTED":"ポイント払い戻しが拒否されました",
+    "WRITE_A_REVIEW":"レビューを書く",
+    "LECTURE_EVALUATION":"講義の評価",
+    "REFUND_REQUESTED":"払い戻しが要求された",
+    "REJECTED":"拒否された",
+    "PAID":"支払った",
+    "REFUND":"払い戻し",
+    "EVALUATE":"評価する",
+    "RESULT":"結果",
+
+    "WRITE_REVIEW":"レビューを書く",
+    "TEACHER_SCHEDULE":"教師のスケジュール",
+
+    "CURRICULUM_VITAE_VIEW":"履歴書",
+    "NATIONALITY":"国籍",
+    "COURSE":"コース",
+    "BIRTHDAY":"お誕生日",
+    "TEACHING_ENGLISH_SINCE":"先生の英語",
+    "AGE":"年齢",
+    "HOBBIES":"趣味",
+    "SCHOOL":"学校",
+    "PHONE_NO":"電話番号",
+    "EMAIL":"Eメール"
 }

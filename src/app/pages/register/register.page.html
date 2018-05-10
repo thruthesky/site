@@ -234,12 +234,10 @@
 
             <div class="row">
                 <div class="col-md-2 col-3"></div>
-                <div class="col-md-10 col-9">
-                    <div class="app-button">
-                        <button type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</button>
-                        <button type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</button>
-                        <button [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
-                    </div>
+                <div class="buttons col-md-10 col-9">
+                    <button class="app-button" type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER BUTTON' | t }}</button>
+                    <button class="app-button" type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE PROFILE BUTTON' | t }}</button>
+                    <button class="app-button" [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
                 </div>
             </div>
 

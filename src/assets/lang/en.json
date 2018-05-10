@@ -279,7 +279,45 @@
     "DISPLAY_REFUNDED_SESSION":"Display Refunded Session",
     "SHOW_TEACHER_NAME":"Show Teacher Name",
     "DISPLAY_DATE":"Display Date",
-    "POINT_MARK":"Point Mark"
+    "POINT_MARK":"Point Mark",
+
+
+    "READY":"Ready",
+    "REQUEST_REFUND":"Request Refund",
+    "CANCEL_REFUND_REQUEST":"Cancel Request Refund",
+    "REFUNDED":"Refunded",
+    "POINT_REFUND_REJECTED":"Point Refund Rejected",
+    "WRITE_A_REVIEW":"Write a Review",
+    "LECTURE_EVALUATION":"Lecture Evaluation",
+    "REFUND_REQUESTED":"Refund Requested",
+    "REJECTED":"Rejected",
+    "PAID":"Paid",
+    "REFUND":"Refund",
+    "EVALUATE":"Evaluate",
+    "RESULT":"Result",
+
+    "WRITE_REVIEW":"WRITE REVIEW",
+    "TEACHER_SCHEDULE":"TEACHER SCHEDULE",
+    "CURRICULUM_VITAE_VIEW":"RESUME",
+    "NATIONALITY":"Nationality",
+    "COURSE":"Course",
+    "BIRTHDAY":"Birthday",
+    "TEACHING_ENGLISH_SINCE":"Teacher english since",
+    "AGE":"Age",
+    "HOBBIES":"Hobbies",
+    "SCHOOL":"School",
+    "PHONE_NO":"Phone No",
+    "EMAIL":"Email",
+
+    "MESSAGE_TITLE":"MESSAGE",
+    "INBOX":"Inbox",
+    "SENT":"Sent",
+    "SENDER":"Sender",
+    "TITLE":"Title",
+    "PREVIOUS":"Previous",
+    "NEXT":"next",
+    "NO_MORE_MESSAGES":"NO MORE MESSAGES"
+
 
 
 }

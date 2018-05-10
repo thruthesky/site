@@ -1,0 +1,104 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: dimgray;
+    color: white;
+
+    @media screen and (max-width:768px){
+        font-size: 80%;
+    }
+
+    span{
+        display: flex;
+        align-items: center;
+        padding: 1em;
+        cursor: pointer;
+    }
+
+
+    h1{
+        margin-left: 1em;
+    }
+
+}
+
+.header-padding-on{
+    padding: .1em 1.5em;
+}
+
+.icon{
+    height: 1em;
+    margin-right: .3em
+}
+
+.star{
+    height: 1em;
+    margin-right: .3em;
+
+    &:last-of-type{
+        margin: 0;
+    }
+}
+
+main{
+    padding-top: 4em;
+    background: #fff;
+    
+    .teacher-photo{
+        width: 120px!important;
+        height: 120px!important;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+
+
+    .custom-list{
+        border-top: 1px solid rgba(128, 128, 128, 0.2);
+        div{
+            padding: 1.5em 5em;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+
+            @media screen and (max-width:768px){
+                padding: 1.5em 2em;
+            }
+        }
+
+        b{
+            margin-right: .7em;
+            text-transform: uppercase;
+        }
+    }
+
+    .teacher-intro{
+        margin:2em 5em;
+        @media screen and (max-width:768px){
+            margin: 2em;
+        }
+        padding: 1.5rem !important;
+        border: 1px solid #dee2e6 !important;
+        background-color: #f8f9fa !important;
+    }
+
+    .avatar-intro{
+        text-align: center;
+        margin-top: 1em;
+        .teacher-name{
+            font-weight: bolder;
+            font-size: 1.4em;
+            margin-top: .3em;
+        }
+    }
+
+    .bottom-button{
+        padding: 4em;
+        text-align: center;
+        cursor: pointer;
+    }
+
+}
+
