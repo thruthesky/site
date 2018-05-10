@@ -103,7 +103,7 @@
 
 
 
-        <li class="menu-teacher-list" (click)="a.open('student-curriculumn')" *ngIf=" a.studentTheme ">
+        <li class="menu-teacher-list" routerLink="/student-curriculum" *ngIf=" a.studentTheme ">
             <div>
                 <ion-icon name="bookmarks" item-start></ion-icon>
                 <div>{{ 'TEACHING_MATERIALS' | t}}</div>

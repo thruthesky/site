@@ -43,6 +43,10 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-adv/katalkenglish-adv.page.module#KatalkEnglishAdvPageModule'
   },
   {
+    path: 'student-curriculum',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-curriculum/katalkenglish-curriculum.page.module#KatalkEnglishCurriculumPageModule'
+  },
+  {
     path: 'menu',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-menu/katalkenglish-menu.page.module#KatalkEnglishMenuPageModule'
   },

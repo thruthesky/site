@@ -1,0 +1,220 @@
+<section class="position-relative of-hidden" style="height: 120px;">
+
+    <nav class="position-absolute left-0 right-0 bottom-0 white d-flex fs-3rem pointers" style="margin-right: 4.4rem; z-index: 987654321; justify-content:flex-end;">
+        <div [class.selected]="on == 0">•</div>
+        <div [class.selected]="on == 1">•</div>
+        <div [class.selected]="on == 2">•</div>
+    </nav>
+
+
+    <div class="slides">
+
+        <div class="nav-arrow left" (click)="slides.slidePrev()">
+            <i class="fal fa-angle-left fs-3rem white"></i>
+        </div>
+
+
+        <div class="nav-arrow right" (click)="slides.slideNext()">
+            <i class="fal fa-angle-right fs-3rem white"></i>
+        </div>
+
+
+        <!--<ion-slides [autoplay]="10000" [loop]="true" (ionSlideDidChange)="slideChanged()">-->
+
+            <!--<ion-slide class="" style="background-color: rgb(245, 218, 0);">-->
+                <!--<section class="back">-->
+                    <!--<div class="p-4">-->
+                        <!--<div class="size-90 of-hidden bg-white rounded-50">-->
+                            <!--<img src="assets/img/front/slide1.jpg">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</section>-->
+                <!--<div class="text position-absolute mt-4 mr-5 top-0 right-0 white">-->
+                    <!--<div text-right>-->
+                        <!--<div class="fs-90" style="color: #363667;">어줍짢은 인강, 거품뿐인 화상영어</div>-->
+                        <!--<div class="fs-110 red">가라</div>-->
+                        <!--<div class="fs-90 black">일대일 화상영어 월 20회 1만원!</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</ion-slide>-->
+
+
+
+            <!--<ion-slide class="bg-lightslategrey">-->
+                <!--<section class="back">-->
+
+                    <!--<div class="ml-1 ">-->
+                        <!--<div class="p-4">-->
+                            <!--<div class="size-90 of-hidden bg-white rounded-50">-->
+                                <!--<img src="assets/img/front/slide2.jpg">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</section>-->
+                <!--<div class="text position-absolute mt-4 mr-5 top-0 right-0 d-flex white">-->
+                    <!--<div text-right>-->
+                        <!--<div class="fs-90">영어 능력 향상을 극대화</div>-->
+                        <!--<div class="fs-110 orange">무한경쟁</div>-->
+                        <!--<div class="fs-90 yellow">카카오톡으로 수업</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</ion-slide>-->
+
+
+            <!--<ion-slide class="bg-indigo">-->
+                <!--<section class="back">-->
+                    <!--<div class="ml-1 ">-->
+                        <!--<div class="p-4">-->
+                            <!--<div class="size-90 of-hidden bg-white rounded-50">-->
+                                <!--<img src="assets/img/front/slide3.jpg">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</section>-->
+                <!--<div class="text position-absolute mt-4 mr-5 top-0 right-0 white">-->
+                    <!--<div text-right>-->
+                        <!--<div class="fs-90">나만의 1:1 영어 강사</div>-->
+                        <!--<div class="fs-110 orange">카톡으로</div>-->
+                        <!--<div class="fs-90 yellow">거침없는 소통</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+            <!--</ion-slide>-->
+
+        <!--</ion-slides>-->
+
+    </div>
+
+
+
+</section>
+
+<section class="">
+
+
+    <div padding *ngIf="on == 0">
+
+        <h1>절대만족</h1>
+        <ul>
+            <li>최저가 최고품격 화상영어 서비스</li>
+            <li>직거래 시스템</li>
+            <li class="indigo fw-bold">회원 가입 후 즉시 무료 체험!!</li>
+            <li>언제 어디서나 수업/예약/취소</li>
+        </ul>
+
+
+        <p>
+            학생과 강사가 직접 거래하는 방식으로 중간 마진이 없어 학생은 매우 낮은 수업료를 내며 강사는 매우 높은 강사료를 받습니다.
+        </p>
+
+
+        <!-- <div class="intro-buttons d-flex justify-content-between">
+            <button class="link" (click)="show_detail = !show_detail">
+                자세히 보기
+                <i class="fal fa-ellipsis-h"></i>
+              </button>
+              <div>
+                <button class="btn" (click)="slides.slideTo(1)">
+                  카톡영어 무한경쟁
+                  <i class="fal fa-angle-right"></i>
+                </button>
+                <button class="btn" (click)="slides.slideTo(2)">
+                    나만의 1:1 강사
+                    <i class="fal fa-angle-right"></i>
+                </button>
+              </div>
+        </div> -->
+
+        <div class="mt-3 alert alert-info rounded-0 border-0" *ngIf="show_detail">
+            <div>직거래 시스템을 통해 높은 강사료를 받으므로 수 만명의 화상영어 교육 전문 콜센터 및 재택 강사가 신청을 하며 그 중 최고의 강사만 선별합니다.</div>
+            <div>강사들은 학생에게 선택받기 위해 또 다시 최고의 경쟁을 하는데, 이것이 바로 최저가 최고품격 화상영어가 만들어지는 비결입니다.</div>
+        </div>
+
+
+
+
+    </div>
+
+    <div padding *ngIf="on == 1">
+        <h1>카카오톡을 선택했습니다</h1>
+        <ul>
+            <li>타 업체는 강사와 학생의 소통을 차단하지만</li>
+            <li>카톡영어는 카톡으로</li>
+            <li>소통하며 수업 참여도를 극강으로 높임</li>
+        </ul>
+
+        <p>
+            카톡으로 수업하면 학생과 강사가 매우 쉽게 소통하여 수업료를 직접 주고 받을 수 있기 때문에
+            타 업체에서는 학생과 강사의 소통을 차단하기 위해 카톡을 사용하지 않지만
+            저희는 수업 참여도를 높이기 위해 카톡을 사용합니다.
+        </p>
+
+
+
+        <!-- <div class="intro-buttons d-flex justify-content-between">
+            <button class="link" (click)="show_detail = !show_detail">
+                자세히 보기
+                <i class="fal fa-ellipsis-h"></i>
+              </button>
+              <div>
+                <button class="btn" (click)="slides.slideTo(0)">
+                    <i class="fal fa-angle-left"></i>
+                  카톡영어 절대만족
+                </button>
+                <button class="btn" (click)="slides.slideTo(2)">
+                    나만의 1:1 강사
+                    <i class="fal fa-angle-right"></i>
+                </button>
+              </div>
+        </div> -->
+
+        <div class="mt-3 alert alert-info rounded-0 border-0" *ngIf="show_detail">
+
+            <p>카카오톡은 마이크, 스피커, 웹캠 등의 고장 염려가 없으며 1:1 화상영어 수업과 질문, 첨삭, 과제 등을 편리하게 진행할 뿐만아니라 선생님과 실시간으로 수다를 떨 수 있기 때문에 학생의 참여도를 극강으로 높일
+                수 있습니다.
+            </p>
+
+
+            카톡영어는 무한 경쟁 시대에 과감하게 카카오톡으로 바꾸어 학생과
+            강사의 수업 참여도를 최대로 끌어 올리고자 합니다.
+        </div>
+
+
+
+    </div>
+
+    <div padding *ngIf="on == 2">
+
+        <h1>나만의 1:1 강사</h1>
+
+        <ul>
+            <li>영어는 말로 하는 것으로</li>
+            <li>1:1 대화를 통해 완벽해 집니다.</li>
+            <li>어줍짢은 인강, 어플, 그룹 수업은 한계가 있어</li>
+            <li>영어를 마스터하는데 상당한 시간이 걸립니다.</li>
+            <li>카톡영어에서 언제 어디서나 나만의 1:1 강사를 만나세요.</li>
+        </ul>
+
+
+        <!--
+            <div class="intro-buttons d-flex justify-content-end">
+
+                  <div>
+                    <button class="btn" (click)="slides.slideTo(0)">
+                        <i class="fal fa-angle-left"></i>
+                      카톡영어 절대만족
+                    </button>
+                    <button class="btn" (click)="slides.slideTo(1)">
+                        <i class="fal fa-angle-left"></i>
+                        무한 경쟁
+                    </button>
+                  </div>
+            </div> -->
+
+
+    </div>
+
+
+
+</section>

@@ -703,6 +703,13 @@ export class AppService {
         return re;
     }
 
+    countEmptyStar(grade) {
+        grade = parseInt(grade);
+        if (grade >= 5) grade = 5;
+        let re = Array(5 - grade).fill(true);
+        return re;
+    }
+
     getUnixTimestamp() {
         return Math.round((new Date()).getTime() / 1000);
     }
@@ -1491,6 +1498,14 @@ export class AppService {
         } catch (e) {
             return 0;
         }
+    }
+
+    lmsInfoBook() {
+        this.info = this.get(KEY_LMS_INFO);
+        if (this.info && this.info['user'] && this.info['user']['book_next']) {
+            return this.info['user']['book_next'];
+        }
+        else return '';
     }
 
 }
