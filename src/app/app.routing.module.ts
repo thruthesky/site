@@ -78,12 +78,24 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-menu/ontue-menu.page.module#OntueMenuPageModule'
   },
   {
+    path: 'teacher-faq',
+    loadChildren: './sites/ontue/pages/ontue-faq/ontue-faq.page.module#OntueFAQPageModule'
+  },
+  {
+    path: 'teacher-policy',
+    loadChildren: './sites/ontue/pages/ontue-policy/ontue-policy.page.module#OntuePolicyPageModule'
+  },
+  {
     path: 'payment-information',
     loadChildren: './sites/ontue/pages/ontue-payment-information/ontue-payment-information.page.module#OntuePaymentInformationPageModule'
   },
   {
     path: 'my-schedule',
     loadChildren: './sites/ontue/pages/ontue-my-schedule/ontue-my-schedule.page.module#OntueMySchedulePageModule'
+  },
+  {
+    path: 'my-dayoff',
+    loadChildren: './sites/ontue/pages/ontue-my-dayoff/ontue-my-dayoff.page.module#OntueMyDayoffPageModule'
   },
   {
     path: 'schedule-edit',
@@ -200,6 +212,19 @@ const routes: Routes = [
     path: 'reminder',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
     data: { category: 'reminder' }
+  },
+
+  {
+    path: 'how-to-get-qrmark',
+    loadChildren: './pages/how-to-get-qrmark/how-to-get-qrmark.page.module#HowToGetQRMARKPageModule',
+  },
+  {
+    path: 'how-to-get-kakaotalk-id',
+    loadChildren: './pages/how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.page.module#HowToGetKakaotalkIdPageModule',
+  },
+  {
+    path: 'how-to-install-kakaotalk',
+    loadChildren: './pages/how-to-install-kakaotalk/how-to-install-kakaotalk.page.module#HowToInstallKakaotalkPageModule',
   },
 
   {
