@@ -249,6 +249,7 @@
     "POINT_MARK":"点标记",
 
 
+
   "STUDENT COMMENTS": [{
     "name": "유진형",
     "date": "2018년 1월 24일",
@@ -297,18 +298,31 @@
       "title": "❝ 미국 유학 준비중에 만난 카톡영어 ❞",
       "description": "시작한지는 두달정도 되었고 처음에는 월~금 하루 25분씩 했는데 지금은 매일 25분씩 하루 두번씩 하고 있네요.<br> 첨에는 어색하기도 하고 과연 도움이 될까하고 시작했는데 저렴한 수업료 한번 놀라고 매우 편리함에 다시 놀라고 선생님들의 정성에 완전 반하게 되었네요.<br> 미국에 가서도 계속 할 생각인데 이번에는 꼭 영어를 마스터 할 수 있다는 자신감이 듭니다.<br> 모두들 화이팅하세요."
     }
-  ]
+  ],
+    "READY":"准备",
+    "REQUEST_REFUND":"申请退款",
+    "CANCEL_REFUND_REQUEST":"取消请求退款",
+    "REFUNDED":"退款",
+    "POINT_REFUND_REJECTED":"点退款被拒绝",
+    "WRITE_A_REVIEW":"写评论",
+    "LECTURE_EVALUATION":"讲座评估",
+    "REFUND_REQUESTED":"退款要求",
+    "REJECTED":"拒绝",
+    "PAID":"付费",
+    "REFUND":"退",
+    "EVALUATE":"评估",
+    "RESULT":"结果",
 
-
-
-
-
-
-
-
-
-
-
-
-
+    "WRITE_REVIEW":"写评论",
+    "TEACHER_SCHEDULE":"教师日程安排",
+    "CURRICULUM_VITAE_VIEW":"恢复",
+    "NATIONALITY":"国籍",
+    "COURSE":"课程",
+    "BIRTHDAY":"生日",
+    "TEACHING_ENGLISH_SINCE":"自从教师英语",
+    "AGE":"年龄",
+    "HOBBIES":"嗜好",
+    "SCHOOL":"学校",
+    "PHONE_NO":"电话号码",
+    "EMAIL":"电子邮件"
 }

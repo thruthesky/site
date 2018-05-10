@@ -39,13 +39,15 @@ header{
     h1{
         margin: 0;
         margin-left: 2em;
-        margin-top:.5em;
+
         @media screen and (max-width:768px){
             margin-left: 1em;
+            margin-top:.5em;
         }
     }
 
 }
+
 
 .teacher-avatar{
     display: flex;
@@ -59,7 +61,7 @@ header{
         border-radius: 2px;
         overflow: hidden;
         img{
-            max-width: 100%;
+            width: 100%;
         }
     }
 
@@ -163,11 +165,9 @@ header{
 }
 
 .bottom-back-button{
+    padding: 5em;
+    padding-bottom: 6em;
     text-align: center;
+    cursor: pointer;
 
-    span{
-        display: inline-block;
-        padding: 2em 4em;
-        cursor: pointer;
-    }
 }

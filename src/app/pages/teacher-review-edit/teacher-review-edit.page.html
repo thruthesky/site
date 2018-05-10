@@ -1,47 +1,58 @@
-<header>
-    <h1>{{ 'WRITE REVIEW' | t }}</h1>
-    <button *ngIf="idx_teacher" routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
-        {{ 'SCHEDULE PAGE' | t }}
-    </button>
-    <button *ngIf="idx_teacher" routerLink="/teacher-review-list" [queryParams]="{idx_teacher: idx_teacher}">
-        {{ 'REVIEWS PAGE' | t }}
-    </button>
+<header [class.header-padding-on]="!idx_teacher">
+    <h1>{{ 'WRITE_REVIEW' | t }}</h1>
+
+    <div *ngIf="idx_teacher">
+
+        <span  routerLink="/schedule-table" [queryParams]="{idx_teacher: idx_teacher}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M436 160H12c-6.6 0-12-5.4-12-12v-36c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48v36c0 6.6-5.4 12-12 12zM12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm116 204c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12H76c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm128 128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40zm0-128c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12v-40z"/></svg>
+             {{ 'SCHEDULE PAGE' | t }}
+        </span>
+
+        <span routerLink="/teacher-review-list" [queryParams]="{idx_teacher: idx_teacher}">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zM128 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+            {{ 'REVIEWS PAGE' | t }}
+        </span>
+    </div>
+
 </header>
 <main>
-    <div>
-        <div>
-            <div>{{ 'RATING' | t }} : {{rate}}
+
+        <div class="rating">
+            <div>
                 <span *ngFor="let i of [1,2,3,4,5];" class="{{ i <= rate ? '': 'd-none'}}">
-                <svg style="height: 1em" aria-hidden="true" data-prefix="fas" data-icon="star" role="img"
-                     xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 576 512" data-fa-i2svg="">
-                    <path fill="currentColor"
-                          d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                </svg>
-            </span>
+                    <svg class="star" aria-hidden="true" data-prefix="fas" data-icon="star" role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="rate">{{ 'RATING' | t }} :             
+                <mat-form-field>
+                    <mat-select [(ngModel)]="rate">
+                            <mat-option [value]="1">1</mat-option>
+                            <mat-option [value]="2">2</mat-option>
+                            <mat-option [value]="3">3</mat-option>
+                            <mat-option [value]="4">4</mat-option>
+                            <mat-option [value]="5">5</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
         </div>
-        <div>
-            <select [(ngModel)]="rate">
-                <option [value]="1">1</option>
-                <option [value]="2">2</option>
-                <option [value]="3">3</option>
-                <option [value]="4">4</option>
-                <option [value]="5">5</option>
-            </select>
-        </div>
-        <div>
+        <div class="text">
             <textarea rows="10" [(ngModel)]="comment" placeholder="{{ 'RATE COMMENT' | t }}"></textarea>
             <div>{{ 'STUDENT RATE COMMENT' | t }}</div>
         </div>
-        <div>
-            <button type="button" (click)="onClickSubmit()">
+        <div class="buttons">
+            <button class="submit" type="button" (click)="onClickSubmit()">
                 <span *ngIf="showLoader"><i class="fa fa-spinner fa-spin mr-2"></i>{{ 'IN LOADING' | t }}</span>
                 <span *ngIf="!showLoader">{{ 'SUBMIT' | t }}</span>
             </button>
-            <button type="button" (click)="onClickCancel()">{{ 'CANCEL' | t }}</button>
+            <button class="cancel" type="button" (click)="onClickCancel()">{{ 'CANCEL' | t }}</button>
         </div>
-    </div>
+
+
     <div class="loader" *ngIf=" showLoader ">
         <ion-spinner></ion-spinner>
         <div>{{ 'IN LOADING' | t }}</div>

@@ -1,45 +1,49 @@
 <header>
-    <h2>{{ 'MESSAGE TITLE' | t }}</h2>
+    <h2>{{ 'MESSAGE_TITLE' | t }}</h2>
 </header>
 <main>
-    <section class="content">
-        <div>
-            <div>
-                <button [class.primary]=" box == 'inbox' " (click)="onClickBox( 'inbox' )">
-                    {{ 'INBOX' | t }}
-                </button>
-                <button [class.primary]=" box == 'sent' " (click)="onClickBox( 'sent' )">
-                    {{ 'SENT' | t }}
-                </button>
-            </div>
 
-        </div>
+<div class="buttons-top">
+    <button [class.active]=" box == 'inbox' " (click)="onClickBox( 'inbox' )">
+        {{ 'INBOX' | t }}
+    </button>
+    <button [class.active]=" box == 'sent' " (click)="onClickBox( 'sent' )">
+        {{ 'SENT' | t }}
+    </button>
+</div>
 
-        <div>
+<div *ngIf=" loading ">
+    <ion-spinner></ion-spinner>
+    <div>{{ 'IN LOADING' | t }}</div>
+</div>
 
-            <div *ngIf=" loading ">
-                <ion-spinner></ion-spinner>
-                <div class="p-2">{{ 'IN LOADING' | t }}</div>
-            </div>
+<div class="message-list" *ngIf=" data ">
 
-            <div class="container-fluid" *ngIf=" data ">
-                <div class="row" *ngFor=" let message of data.messages " (click)="onClickMessage(message)">
-                    <div>
-                        <img src="{{ message?.sender_photoURL? message.sender_photoURL: a.anonymousPhotoURL}}">
-                    </div>
-                    <h2>Sender: {{message.sender_name}}</h2>
+    <div class="message container-fluid" *ngFor=" let message of data.messages " (click)="onClickMessage(message)">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-auto">
+                <div class="photo">
+                    <img src="{{ message?.sender_photoURL? message.sender_photoURL: a.anonymousPhotoURL}}">
+                </div>
+                <div class="sender">
+                    <div>{{'SENDER' | t}}: {{message.sender_name}}</div>
                     <div>{{ message.stamp * 1000 | date:'medium'}}</div>
-                    <h3 class="{{message.open == 0 ? 'fw-bold': ''}}" text-wrap>Title: {{message.title}}</h3>
-                    <p text-wrap *ngIf="message.view">{{message.content}}</p>
-                </div>
-                <div class="row">
-                    <button *ngIf="page_no > 1" (click)="onClickPrevious()">Previous</button>
-                    <button *ngIf="message_count == limit" (click)="onClickNext()">Next</button>
                 </div>
             </div>
-
-            <div *ngIf="message_count < limit">{{ 'NO MORE MESSAGES' | t }}</div>
-
+            <div class="title col-lg-8 col-md-6 col-auto" [class.new]="message.open == 0">{{'TITLE' | t}}: {{message.title}}</div>
+            <div class="content col-12 col-auto" *ngIf="message.view">{{message.content}}</div>
         </div>
-    </section>
+    </div>
+
+    <div class="buttons-bottom">
+        <button *ngIf="page_no > 1" (click)="onClickPrevious()">{{ 'PREVIOUS' | t }}</button>
+        <button *ngIf="message_count == limit" (click)="onClickNext()"> {{ 'NEXT' | t }}</button>
+        <div *ngIf="message_count < limit">{{ 'NO_MORE_MESSAGES' | t }}</div>
+    </div>
+
+</div>
+
+
+
+
 </main>
