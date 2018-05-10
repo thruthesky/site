@@ -218,6 +218,14 @@ const routes: Routes = [
     path: 'how-to-get-qrmark',
     loadChildren: './pages/how-to-get-qrmark/how-to-get-qrmark.page.module#HowToGetQRMARKPageModule',
   },
+  {
+    path: 'how-to-get-kakaotalk-id',
+    loadChildren: './pages/how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.page.module#HowToGetKakaotalkIdPageModule',
+  },
+  {
+    path: 'how-to-install-kakaotalk',
+    loadChildren: './pages/how-to-install-kakaotalk/how-to-install-kakaotalk.page.module#HowToInstallKakaotalkPageModule',
+  },
 
   {
     path: 'settings',
