@@ -215,6 +215,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'how-to-get-qrmark',
+    loadChildren: './pages/how-to-get-qrmark/how-to-get-qrmark.page.module#HowToGetQRMARKPageModule',
+  },
+
+  {
     path: 'settings',
     loadChildren: './pages/settings/settings.page.module#SettingsPageModule'
   },
