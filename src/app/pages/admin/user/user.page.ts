@@ -11,6 +11,7 @@ import { AppService } from '../../../providers/app.service';
 })
 export class UserPage implements OnInit {
 
+    re = null;
     form = {
         name: '',
         male: '',
@@ -84,7 +85,10 @@ export class UserPage implements OnInit {
             sql: `SELECT ID, user_email, display_name
 					FROM wp_users
 					WHERE BRANCH LIMIT ${this.form.limit}`,
-        }).subscribe(re => console.log(re), e => this.a.toast(e));
+        }).subscribe(re => {
+            this.re = re;
+            console.log(re);
+        }, e => this.a.toast(e));
         return false;
     }
 

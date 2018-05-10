@@ -46,16 +46,27 @@
     <input type="checkbox" name="display_list_order" [(ngModel)]="form.display.list_order"> Timezone:
     <input type="checkbox" name="display_timezone" [(ngModel)]="form.display.timezone"> Domain:
     <input type="checkbox" name="display_domain" [(ngModel)]="form.display.domain"> Manager:
-    <input type="checkbox" name="display_manager" [(ngModel)]="form.display.manager">
-    
-    Stat:
-    Count of Result: <input type="checkbox" name="count_result" [(ngModel)]="form.display.stat.count_result">
-    Daily count of Registration: <input type="checkbox" name="count_daily_registration" [(ngModel)]="form.display.stat.count_daily_registration">
-    Monthly count of Registration: <input type="checkbox" name="count_monthly_registration" [(ngModel)]="form.display.stat.count_monthly_registration">
-    Count of domain: <input type="checkbox" name="count_domain" [(ngModel)]="form.display.stat.count_domain">
-    Count of Timezone: <input type="checkbox" name="count_timezone" [(ngModel)]="form.display.stat.count_timezone">
+    <input type="checkbox" name="display_manager" [(ngModel)]="form.display.manager"> Stat:
+
+    <input id="count_result" type="checkbox" name="count_result" [(ngModel)]="form.display.stat.count_result">
+    <label for="count_result">Count of Result</label>
+    <input id="count_daily_registration" type="checkbox" name="count_daily_registration" [(ngModel)]="form.display.stat.count_daily_registration">
+    <label for="count_daily_registration">Daily count of Registration</label>
+
+    Monthly count of Registration:
+    <input type="checkbox" name="count_monthly_registration" [(ngModel)]="form.display.stat.count_monthly_registration"> Count of domain:
+    <input type="checkbox" name="count_domain" [(ngModel)]="form.display.stat.count_domain"> Count of Timezone:
+    <input type="checkbox" name="count_timezone" [(ngModel)]="form.display.stat.count_timezone">
 
     <hr>
     <button type="submit">Search</button>
 </form>
-
+<hr>
+<section class="result" *ngIf=" re ">
+    <div *ngIf=" form.display.stat.count_result">
+        result: {{ this.re.length }}
+    </div>
+    <div *ngIf=" form.display.stat.count_daily_registration ">
+        
+    </div>
+</section>
