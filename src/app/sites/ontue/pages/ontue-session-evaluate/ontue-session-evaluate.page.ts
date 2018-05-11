@@ -36,11 +36,11 @@ export class OntueSessionEvaluatePage {
 
     constructor(
         public a: AppService,
-        private route: ActivatedRoute,
+        private route: ActivatedRoute
     ) {
         this.route.queryParams.subscribe(params => {
             if (params && params.idx) {
-                this.a.lms.get_session_evaluation(this.idx).subscribe(res => {
+                this.a.lms.get_session_evaluation(params.idx).subscribe(res => {
                     // console.log("get_session_evaluation");
                     const session = res.session;
                     this.point = session.point;

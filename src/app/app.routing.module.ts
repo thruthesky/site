@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'session-past',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-session-past/katalkenglish-session-past.page.module#KatalkEnglishSessionPastPageModule'
   },
+  {
+    path: 'session-evaluation',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-session-evaluation/katalkenglish-session-evaluation.page.module#KatalkEnglishSessionEvaluationPageModule'
+  },
 
   {
     path: 'instance-schedule',
