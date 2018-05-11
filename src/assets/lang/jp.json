@@ -245,6 +245,52 @@
     "DISPLAY_DATE":"表示日付",
     "POINT_MARK":"ポイントマーク",
 
+    "MESSAGE_TITLE":"メッセージ",
+    "INBOX":"受信トレイ",
+    "SENT":"送信済み",
+    "SENDER":"送信者",
+    "SUBJECT":"件名",
+    "PREVIOUS":"前",
+    "NEXT":"次",
+    "NO_MORE_MESSAGES":"その他のメッセージはありません",
+
+    "SCHEDULE_TABLE_LOADING":"スケジュール表の読み込み",
+    "NO_SCHEUDLE_TRY_SEARCH":"スケジュールは検索しないでください",
+    "NO_MORE_RESERVATIONS":"その他の予約",
+    "NO_MORE_PASTS":"もうパスタはない",
+    "KAKAOTALK":"カカオトーク",
+    "ADD_FRIEND":"友人を追加する",
+
+    "LEVEL":"レベル",
+    "YOUR_ENGLISH_LEVEL":"あなたの英語レベル",
+    "LEVELS_ARE_FROM_1_9":"レベルは1から9までです",
+    "LEVEL_1_TO_LEVEL_3":"レベル1〜レベル3",
+    "BEGINNER":"初心者",
+    "LEVEL_4_TO_LEVEL_6":"レベル4からレベル6",
+    "MIDDLE_CLASS":"中流階級",
+    "LEVEL_7_TO_LEVEL_9":"レベル7からレベル9",
+    "ADVANCED":"上級",
+    "BOTTOM_DESC_1":"過去20回のレッスンに基づいて、各クラスの評価を平均してレベルを決定します。",
+    "BOTTOM_DESC_2":"講義の評価をクリックすると、各クラスの詳細を確認できます。",
+
+    "ADMIN":"管理者",
+    "REGISTER_BUTTON":"登録",
+    "UPDATE_PROFILE_BUTTON":"プロフィールを更新",
+
+    "LEVELTEST_PAGE_TITLE":"レベルテスト",
+    "SELECT_TEACHER_TO_RESERVE":"予約する教師を選択",
+    "TEACHER_LIST_OPTIONS":"教師リストのオプション",
+    "FEMALE":"女性",
+    "MALE":"男性",
+    "ALL":"すべて",
+    "RECOMMENDED_TEACHER":"おすすめの教師",
+
+    "TEACHER_LIST_REMINDER":"このページには、主に学生から見える推奨教師が表示されます。 他の教師のプロフィールは検索で入手できます。",
+    "RECOMMENDATION":"評価",
+    "PARTICIPATED":"参加した人々",
+    "INSTRUCTOR_MORE":"もっとインストラクター",
+
+
   "STUDENT COMMENTS": [{
     "name": "유진형",
     "date": "2018년 1월 24일",

@@ -7,7 +7,7 @@
 
         <li class="menu-admin" routerLink="/admin" *ngIf="a.isManager">
             <div>
-                <ion-icon name="help-circle" item-start></ion-icon>
+                <ion-icon name="laptop"></ion-icon>
                 <div>{{ 'ADMIN' | t }}</div>
             </div>
         </li>
@@ -21,7 +21,7 @@
 
         <li class="menu-help" routerLink="/story" *ngIf="a.studentTheme">
             <div>
-                <ion-icon name="help-circle" item-start></ion-icon>
+                <ion-icon name="paw"></ion-icon>
                 <div>{{ 'KATALK_STORY' | t }}</div>
             </div>
         </li>
@@ -35,14 +35,14 @@
         </li>
         <li class="menu-registration" *ngIf=" a.user.isLogout " (click)=" a.open('register') ">
             <div>
-                <ion-icon name="person-add" item-start></ion-icon>
+                <ion-icon name="person-add"></ion-icon>
                 <div>{{ "REGISTER" | t}}</div>
             </div>
         </li>
 
         <li class="menu-profile" *ngIf=" a.user.isLogin " (click)=" a.open('register')">
             <div>
-                <ion-icon name="person-add" item-start></ion-icon>
+                <ion-icon name="happy"></ion-icon>
                 <div>{{ 'PROFILE' | t }}</div>
             </div>
         </li>
@@ -64,8 +64,6 @@
         </li>
 
 
-
-
         <!-- <li class="menu-qna" routerLink="/qna">
             <div>
                 <ion-icon name="help-circle" color="primary" item-start></ion-icon>
@@ -73,19 +71,6 @@
             </div>
         </li> -->
 
-        <li class="menu-policy" routerLink="/policy">
-            <div>
-                <ion-icon name="help-circle" color="primary" item-start></ion-icon>
-                <div>{{ 'POLICY' | t }}</div>
-            </div>
-        </li>
-
-        <li class="menu-rules" routerLink="/rules">
-            <div>
-                <ion-icon name="help-circle" color="primary" item-start></ion-icon>
-                <div>{{ 'RULES' | t }}</div>
-            </div>
-        </li>
 
         <li class="menu-future-sessions" routerLink="/session-future">
             <div>
@@ -106,14 +91,14 @@
         <li class="menu-teacher-list" routerLink="/student-curriculum" *ngIf=" a.studentTheme ">
             <div>
                 <ion-icon name="bookmarks" item-start></ion-icon>
-                <div>{{ 'TEACHING_MATERIALS' | t}}</div>
+                <div>{{ 'TEACHING_MATERIALS' | t }}</div>
             </div>
         </li>
 
 
         <li class="menu-teacher-list" (click)="a.open('teacher-list')">
             <div>
-                <ion-icon name="people" item-start></ion-icon>
+                <ion-icon name="add"></ion-icon>
                 <div>{{ 'RESERVE_SESSION' | t }}</div>
             </div>
         </li>
@@ -128,6 +113,20 @@
         </li>
 
 
+        <li class="menu-today-sessions" (click)="a.open('schedule-available')" *ngIf="a.studentTheme">
+            <div>
+                 <ion-icon name="flash"></ion-icon>
+                <div>{{ 'AVAILABLE_SESSIONS_LONG' | t }}</div>
+            </div>
+        </li>
+
+
+        <li class="menu-message" (click)="a.open('message')" *ngIf=" a.user.isLogin ">
+            <div>
+                <ion-icon name="chatboxes" item-start></ion-icon>
+                <div>{{ 'MESSAGE' | t }}</div>
+            </div>
+        </li>
 
         <li class="menu-teacher-reviews" (click)="a.open('session-comment')">
             <div>
@@ -145,25 +144,12 @@
         </li>
 
 
-
-
         <li class="menu-payment-history" (click)="a.open('payment-history')" *ngIf="a.studentTheme">
             <div>
-                <ion-icon name="list-box" item-start></ion-icon>
+                <ion-icon name="cash"></ion-icon>
                 <div>{{ 'PAYMENT_HISTORY' | t }}</div>
             </div>
         </li>
-
-
-
-
-        <li class="menu-today-sessions" (click)="a.open('schedule-available')" *ngIf="a.studentTheme">
-            <div>
-                <ion-icon name="apps" item-start></ion-icon>
-                <div>{{ 'AVAILABLE_SESSIONS_LONG' | t }}</div>
-            </div>
-        </li>
-
 
 
         <li class="menu-password-change" *ngIf=" a.user.isLogin " routerLink="/password-change">
@@ -172,15 +158,6 @@
                 <div>{{ 'CHANGE_PASSWORD' | t }}</div>
             </div>
         </li>
-
-
-        <li class="menu-message" (click)="a.open('message')" *ngIf=" a.user.isLogin ">
-            <div>
-                <ion-icon name="chatboxes" item-start></ion-icon>
-                <div>{{ 'MESSAGE' | t }}</div>
-            </div>
-        </li>
-
 
         <li class="menu-settings" (click)="a.open('settings')">
             <div>
@@ -198,7 +175,7 @@
 
         <li routerLink="/reminder">
             <div>
-                <ion-icon name="log-out" item-start></ion-icon>
+                <ion-icon name="alert"></ion-icon>
                 <div>{{ 'REMINDER' | t }}</div>
             </div>
         </li>

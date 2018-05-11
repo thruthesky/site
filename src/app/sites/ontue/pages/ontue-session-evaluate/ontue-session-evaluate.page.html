@@ -1,0 +1,181 @@
+<header>
+    <h1>{{ 'EVALUATE' | t }}</h1>
+</header>
+<main>
+    <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <span>Name:</span>
+                            {{student_name}}
+                            <i class="fal fa-user-circle ml-2 fs-110"></i>
+                        </div>
+                        <div>
+                            <span>Session No:</span>
+                            {{ idx }}
+                            <i class="fal fa-hashtag ml-2 brown fs-110"></i>
+                        </div>
+                        <div>
+                            <span>Point:</span>
+                            {{point}}
+                            <i class="fal fa-check-circle green ml-2 fs-110"></i>
+                        </div>
+                        <div>
+                            <span>Level of the session:</span>
+                            {{level}}
+                            <i class="fal fa-chart-line ml-2 indigo fs-110"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div *ngIf=" student_absent ">
+                            <b>Warning:</b> when you check on 'student was absent' box,
+                            You must input some comment on comment box or else the session may not be paid.
+                            If you have nothing to commment, then just type "Student was absent at hour:time on Month/Day".
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <input type="text" [(ngModel)]="book_used">
+                        <label>
+                            <div>
+                                <span>Book(Page) used in the session:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>book used for today session</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <select [(ngModel)]="grammar" (ngModelChange)="onChangeChecklevel()">
+                            <option [value]="0">Select...</option>
+                            <option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
+                            </option>
+                        </select>
+                        <label>
+                            <div>
+                                <span>Grammar:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>Rate on student grammar</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div  class="col-md-4 col-12">
+                        <select [(ngModel)]="expression" (ngModelChange)="onChangeChecklevel()">
+                            <option [value]="0">Select...</option>
+                            <option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
+                            </option>
+                        </select>
+                        <label>
+                            <div>
+                                <span>Expression:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>Rate how well the student can express</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <input type="text" [(ngModel)]="book_next">
+                        <label>
+                            <div>
+                                <span>Book(Page) for the next session:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>book you will use for the next session</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <select [(ngModel)]="vocabulary" (ngModelChange)="onChangeChecklevel()">
+                            <option [value]="0">Select...</option>
+                            <option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
+                            </option>
+                        </select>
+                        <label>
+                            <div>
+                                <span>Vocabulary:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>Rate if the student use proper words, cluases</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <label>
+                            <div>
+                                <span>Class was unsuccessful:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>Any problem in the class?</span>
+                            </div>
+                            <input type="checkbox"  [(ngModel)]="unsuccessful">
+                            <div>
+                                <span>UNSUCCESFUL</span>
+                                <i class="fal fa-times-square ml-1 fs-110 text"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <select [(ngModel)]="pronunciation" (ngModelChange)="onChangeChecklevel()">
+                            <option [value]="0">Select...</option>
+                            <option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
+                            </option>
+                        </select>
+                        <label>
+                            <div>
+                                <span>Pronunciation: </span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>Rate on student accent and intonation</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <select [(ngModel)]="speed" (ngModelChange)="onChangeChecklevel()">
+                            <option [value]="0">Select...</option>
+                            <option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
+                            </option>
+                        </select>
+                        <label>
+                            <div>
+                                <span>Speed of Speach:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>Rate on how fast and fluently the student speaks</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <label>
+                            <div>
+                                <span>Student was absent:</span>
+                                <i class="fal fa-question-circle pop-over-trigger dodgerblue"></i>
+                                <span>click the box if the student is absent</span>
+                            </div>
+                            <input type="checkbox" [(ngModel)]="student_absent">
+                            <div>
+                                <span class="text">ABSENT</span>
+                                <i class="fal fa-user-times ml-2 fs-110 text"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <textarea rows="10" [(ngModel)]="comment"></textarea>
+                        <label>
+                            <div>
+                                <b>Comment</b>: Leave comment of the session. Or Leave any message if the class was unsuccessful.
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <span *ngIf="loading"><i class="fa fa-spinner fa-spin"></i> </span>
+                            <input type="submit" (click)="onClickSubmitEvaluation()" value="SUBMIT">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+</main>

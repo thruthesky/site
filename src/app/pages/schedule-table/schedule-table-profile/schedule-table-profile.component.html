@@ -75,20 +75,19 @@
             </div>
         </div>
     </div>
+    
     <ng-template #singleTeacherLoader>
-        <div class="row">
-            <div class="col">
-                <div class="alert">
-                    <div>선생님 정보와 수업 시간표 정보를 로드중입니다.</div>
-                    <div>잠시만 기다려주세요.</div>
-                </div>
-            </div>
+
+        <div class="alert">
+            <div>선생님 정보와 수업 시간표 정보를 로드중입니다.</div>
+            <div>잠시만 기다려주세요.</div>
         </div>
+
     </ng-template>
 
 </ng-container>
-<div class="single-teacher" *ngIf=" isSingleTeacher && urlYoutube  ">
-    <div class="video-container">
+<div class="single-teacher">
+    <div class="video-container"  *ngIf=" isSingleTeacher && urlYoutube  ">
         <iframe class="youtube-video" [src]=" urlYoutube "></iframe>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<section>
+<main>
 
     <div class="options" *ngIf=" share.options ">
 
@@ -190,12 +190,12 @@
 
     </div> -->
 
-    <div *ngIf=" re && books.length == 0 ">
-        <ng-container *ngIf=" future ">{{ 'NO MORE RESERVATIONS' | t}}</ng-container>
-        <ng-container *ngIf=" past ">{{ 'NO MORE PASTS' | t}}</ng-container>
+    <div class="no-more" *ngIf=" re && books.length == 0 ">
+        <ng-container *ngIf=" future ">{{ 'NO_MORE_RESERVATIONS' | t}}</ng-container>
+        <ng-container *ngIf=" past ">{{ 'NO_MORE_PASTS' | t}}</ng-container>
     </div>
 
-    <div *ngIf=" re == null ">
+    <div class="loader" *ngIf=" re == null ">
         <ion-spinner></ion-spinner>
         <span>{{ 'IN LOADING' | t}}</span>
     </div>
@@ -224,7 +224,7 @@
                 </div>
                 <div class="col-2 col-md-2" *ngIf=" future ">
                     <div> {{ 'KAKAOTALK' | t}}
-                        <br> {{ 'ADD FRIEND' | t}}
+                        <br> {{ 'ADD_FRIEND' | t}}
                     </div>
                 </div>
                 <div class="col-2 col-md-1" *ngIf="displayPoint">
@@ -286,7 +286,7 @@
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
                                         <button [class.warning]=" ! evaluated(book) "
-                                                (click)=" a.open('evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
+                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
                                             {{ 'EVALUATE' | t}}
                                         </button>
                                     </div>
@@ -313,10 +313,10 @@
                                 </ng-container>
                                 <ng-container *ngIf=" a.isStudent ">
                                     <div class="col-6" *ngIf=" !refunded(book) ">
-                                        <button class="evaluate-view" (click)=" onClickEvaluateView(book.idx)">{{ 'LECTURE_EVALUATION' | t }}</button>
+                                        <button class="evaluate-view" (click)=" a.open('session-evaluation', {idx: book.idx} ) ">{{ 'LECTURE_EVALUATION' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" !refund_in_progress(book) ">
-                                        <button class="comment-create" (click)=" onClickCommentCreate( book.idx_teacher ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
+                                        <button class="comment-create" (click)=" a.open('teacher-review-create', {idx_teacher: book.idx_teacher} ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" rejected( book ) ">
                                         <span class="rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</span>
@@ -453,4 +453,4 @@
         </div>
     </div>
 
-</section>
+</main>

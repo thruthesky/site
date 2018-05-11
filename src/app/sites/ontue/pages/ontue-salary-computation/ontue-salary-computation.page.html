@@ -1,0 +1,105 @@
+<header>
+    <h1>Salary Computation</h1>
+</header>
+<main>
+    <section class="content">
+        <div *ngIf=" loading ">
+            <ion-spinner class="size-3"></ion-spinner>
+            {{ 'IN LOADING' | t }}
+        </div>
+        <div  *ngIf=" ! loading " text-center>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-auto">
+                        <label>
+                            <input type="radio" name="payment_method"
+                                   [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="gcash">
+                            <div>
+                                <i class="fal fa-tablet-alt d-inline-block mx-auto fs-4rem icon-effect" ion-text color="green"></i>
+                                <span>GCAsh</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-3 col-auto">
+                        <label>
+                            <input type="radio" name="payment_method"
+                                   [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="western-union">
+                            <div>
+                                <i class="fal fa-barcode d-inline-block fs-4rem mx-auto icon-effect" ion-text color="yellow"></i>
+                                <span>Western Union</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="col-md-3 col-auto">
+                        <label>
+                            <input type="radio" name="payment_method"
+                                   [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="paypal">
+                            <div>
+                                <i class="fal fa-credit-card d-inline-block fs-4rem mx-auto icon-effect" ion-text color="blue"></i>
+                                <span>Paypal</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-information container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div>Total Points</div>
+                    </div>
+                    <div class="col">
+                        <input id="total_points" type="text" [(ngModel)]="total_points" (keyup)="recompute()" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>Teacher Share Points (88%)</div>
+                    </div>
+                    <div class="col">
+                        <div>{{ teacher_share }}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>Transaction Fee(4.2%)</div>
+                    </div>
+                    <div class="col">
+                        <div>{{ paypal_charges }}</div>
+                    </div>
+                </div>
+                <div class="row"  *ngIf="payment_information['payment_method'] !== 'paypal' ">
+                    <div class="col">
+                        <div>Buying Rate to PHP(3.1%):</div>
+                    </div>
+                    <div class="col">
+                        <div>{{ buying_rate }}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>Earnings</div>
+                    </div>
+                    <div class="col">
+                        <div>{{ earnings }}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>Salary</div>
+                    </div>
+                    <div class="col">
+                        <div>{{ salary }}</div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div>*Note: Additional charges will be applied to GCash and Western Union base on the total salary earned.</div>
+                <div>*Note: Paypal service charges will be deduct to teacher upon receiving the salary..</div>
+            </div>
+
+
+        </div>
+    </section>
+</main>

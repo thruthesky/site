@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'session-past',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-session-past/katalkenglish-session-past.page.module#KatalkEnglishSessionPastPageModule'
   },
+  {
+    path: 'session-evaluation',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-session-evaluation/katalkenglish-session-evaluation.page.module#KatalkEnglishSessionEvaluationPageModule'
+  },
 
   {
     path: 'instance-schedule',
@@ -78,12 +82,24 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-menu/ontue-menu.page.module#OntueMenuPageModule'
   },
   {
+    path: 'teacher-faq',
+    loadChildren: './sites/ontue/pages/ontue-faq/ontue-faq.page.module#OntueFAQPageModule'
+  },
+  {
+    path: 'teacher-policy',
+    loadChildren: './sites/ontue/pages/ontue-policy/ontue-policy.page.module#OntuePolicyPageModule'
+  },
+  {
     path: 'payment-information',
     loadChildren: './sites/ontue/pages/ontue-payment-information/ontue-payment-information.page.module#OntuePaymentInformationPageModule'
   },
   {
     path: 'my-schedule',
     loadChildren: './sites/ontue/pages/ontue-my-schedule/ontue-my-schedule.page.module#OntueMySchedulePageModule'
+  },
+  {
+    path: 'my-dayoff',
+    loadChildren: './sites/ontue/pages/ontue-my-dayoff/ontue-my-dayoff.page.module#OntueMyDayoffPageModule'
   },
   {
     path: 'schedule-edit',
@@ -98,10 +114,18 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-session-past/ontue-session-past.page.module#OntueSessionPastPageModule'
   },
   {
+    path: 'teacher-session-evaluate',
+    loadChildren: './sites/ontue/pages/ontue-session-evaluate/ontue-session-evaluate.page.module#OntueSessionEvaluatePageModule'
+  },
+  {
     path: 'teacher-my-curriculum-vitae',
     loadChildren: './sites/ontue/pages/ontue-my-curriculum-vitae/ontue-my-curriculum-vitae.page.module#OntueMyCurriculumVitaePageModule'
   },
 
+  {
+    path: 'teacher-salary-computation',
+    loadChildren: './sites/ontue/pages/ontue-salary-computation/ontue-salary-computation.page.module#OntueSalaryComputationPageModule',
+  },
 
 
   /**
@@ -200,6 +224,19 @@ const routes: Routes = [
     path: 'reminder',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
     data: { category: 'reminder' }
+  },
+
+  {
+    path: 'how-to-get-qrmark',
+    loadChildren: './pages/how-to-get-qrmark/how-to-get-qrmark.page.module#HowToGetQRMARKPageModule',
+  },
+  {
+    path: 'how-to-get-kakaotalk-id',
+    loadChildren: './pages/how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.page.module#HowToGetKakaotalkIdPageModule',
+  },
+  {
+    path: 'how-to-install-kakaotalk',
+    loadChildren: './pages/how-to-install-kakaotalk/how-to-install-kakaotalk.page.module#HowToInstallKakaotalkPageModule',
   },
 
   {

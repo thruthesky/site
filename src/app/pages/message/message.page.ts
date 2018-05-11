@@ -52,8 +52,9 @@ export class MessagePage {
 
 
     onClickMessage(message) {
+        // console.log(message);
         message['view'] = !message['view'];
-        if (message.open === 0) {
+        if (message.open === '0') {
             // console.log("not open");
             this.a.lms.message_opened(message.idx).subscribe(res => {
                 // console.log(res);

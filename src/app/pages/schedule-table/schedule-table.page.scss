@@ -63,6 +63,25 @@
     font-size: 90%
 }
 
+.schedule-loader,.schedule-table-empty{
+    text-align: center;
+    padding: 3em;
+
+}
+
+
+.schedule-loader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    ion-spinner{
+        margin-bottom: .5em;
+    }
+
+}
+
 /**
  * Icon colors
  */

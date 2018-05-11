@@ -2,34 +2,30 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
-import { OntueDayoffPage } from './ontue-dayoff.page';
 import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
-import { MaterialModule } from '../../../../app.material.module';
-
+import { KatalkEnglishSessionEvaluationPage } from './katalkenglish-session-evaluation.page';
 
 const routes: Routes = [
-    { path: '', component: OntueDayoffPage }
+    { path: '', component: KatalkEnglishSessionEvaluationPage }
 ];
+
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        TranslatePipeModule,
-        MaterialModule
+        TranslatePipeModule
     ],
     exports: [
         RouterModule
     ],
     declarations: [
-        OntueDayoffPage
+        KatalkEnglishSessionEvaluationPage
     ],
     entryComponents: [
-        OntueDayoffPage
+        KatalkEnglishSessionEvaluationPage
     ],
-    bootstrap: [OntueDayoffPage],
+    bootstrap: [KatalkEnglishSessionEvaluationPage],
     schemas: []
 })
-export class OntueDayoffPageModule { }
+export class KatalkEnglishSessionEvaluationPageModule { }
