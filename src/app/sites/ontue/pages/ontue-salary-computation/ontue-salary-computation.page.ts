@@ -39,7 +39,7 @@ export class OntueSalaryComputationPage {
 
   constructor(
     public a: AppService,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {
       this.route.queryParams.subscribe(params => {
 

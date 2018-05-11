@@ -286,7 +286,7 @@
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
                                         <button [class.warning]=" ! evaluated(book) "
-                                                (click)=" a.open('evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
+                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
                                             {{ 'EVALUATE' | t}}
                                         </button>
                                     </div>
@@ -316,7 +316,7 @@
                                         <button class="evaluate-view" (click)=" onClickEvaluateView(book.idx)">{{ 'LECTURE_EVALUATION' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" !refund_in_progress(book) ">
-                                        <button class="comment-create" (click)=" onClickCommentCreate( book.idx_teacher ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
+                                        <button class="comment-create" (click)=" a.open('teacher-review-create', {idx_teacher: book.idx_teacher} ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" rejected( book ) ">
                                         <span class="rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</span>
