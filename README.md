@@ -11,10 +11,15 @@
 
 ### NOT URGENT
 
-* Do admin page.
-  * user search/edit. point update.
-  * first page real time update.
-  * session list / earch / stat
+* User can cancel reserved class regardless of any rules if it is less than 1 mimute passed from the time of reservation.
+
+* Admin page user profile update.
+* Admin page session list search. session edit by manually.
+  * Admin can reduce point and give it back to student.
+* Admin page user payment list & search. stat by day, month.
+  * Make a refund option so, it will be added onto statistics.
+* Admin Notification. Make it as component and put it on header. so, all the admin page has it.
+
 
 * put `countries` somewhere else. so it will not increase main.js bundle size.
 * Suggestion: Move comment component under forum page module since it is a dependant of forum.

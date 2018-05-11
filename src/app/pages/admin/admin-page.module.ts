@@ -11,16 +11,17 @@ import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/t
 import { AdminPaymentPage } from './payment/admin-payment.page';
 import { UserInfoComponentModule } from '../../components/user-info/user-info.component.module';
 import { UserPage } from './user/user.page';
+import { SessionPage } from './session/session.page';
 
 
 const appRoutes: Array<Route> = [
     { path: 'point-refund', pathMatch: 'full', component: PointRefundPage },
     { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
     { path: 'payment', pathMatch: 'full', component: AdminPaymentPage },
+    { path: 'session', pathMatch: 'full', component: SessionPage },
     { path: 'user', pathMatch: 'full', component: UserPage },
     { path: '', pathMatch: 'full', component: AdminHomePage }
 ];
-
 @NgModule({
     declarations: [
         AdminHomePage,
@@ -28,7 +29,8 @@ const appRoutes: Array<Route> = [
         AdminHeaderComponent,
         PointHistoryPage,
         AdminPaymentPage,
-        UserPage
+        UserPage,
+        SessionPage
     ],
     imports: [
         CommonModule,
@@ -43,7 +45,8 @@ const appRoutes: Array<Route> = [
         PointRefundPage,
         PointHistoryPage,
         AdminPaymentPage,
-        UserPage
+        UserPage,
+        SessionPage
     ],
     bootstrap: [
         AdminHomePage

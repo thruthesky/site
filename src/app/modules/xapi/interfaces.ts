@@ -431,3 +431,38 @@ export const N = {
     'session_reserved': 'R'
 };
 
+
+export interface BOOK {
+    idx: number;
+    date: number;
+    class_begin: string;
+    class_end: string;
+    point: number;
+    idx_teacher: number;
+    idx_student: number;
+    idx_schedule: number;
+    stamp_reserve: number;
+    stamp_checked: number;
+    paid: number;
+    refund_request_at: number;
+    refund_request_message: number;
+    refund_reject_at: number;
+    refund_reject_message: number;
+    refund_done_point: number;
+    refund_done_at: number;
+    refund_done_by: number;
+    refund_settle_at: number;
+    refund_settle_message: number;
+    teacher_absent: string;
+    student_absent: string;
+    successful: string;
+    experession: number;
+    vocabulary: number;
+    grammar: string;
+    pronunciation: number;
+    speed: number;
+    comment: string;
+    book_used: string;
+    book_next: string;
+}
+

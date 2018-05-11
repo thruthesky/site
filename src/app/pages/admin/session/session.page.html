@@ -1,0 +1,21 @@
+<admin-header-component></admin-header-component>
+<h1>Session List &amp; Search</h1>
+<div>User Time: {{ a.userTime }}</div>
+<form (ngSubmit)="onSubmit( $event )">
+    <input class="narrow" type="text" name="idx" [(ngModel)]="form.idx" placeholder="idx">
+    
+    <input id="future" type="checkbox" name="future" [(ngModel)]="form.future">
+    <label for="future">Future</label>
+    <input id="past" type="checkbox" name="past" [(ngModel)]="form.past">
+    <label for="past">Past</label>
+    
+    Date:
+    <input class="normal" type="text" name="date_begin" [(ngModel)]="form.date_begin">
+    ~
+    <input class="normal" type="text" name="date_end" [(ngModel)]="form.date_end">
+    Time: <input class="narrow" type="text" name="class_begin" [(ngModel)]="form.class_begin">
+    <input class="narrow" type="text" name="class_end" [(ngModel)]="form.class_end">
+    <button type="submit">SEARCH</button>
+</form>
+
+

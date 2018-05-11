@@ -164,6 +164,7 @@ export class AppService {
      */
     userTime = '';
 
+
     /**
      * User's point is updated in this variable. Use this variable whereever.
      *
@@ -244,6 +245,9 @@ export class AppService {
         setTimeout(() => {
             this.updateUserPoint();
         }, 1000);
+        /**
+         * Update user time
+         */
         setInterval(() => {
             this.updateUserTimezone();
         }, 10000);
@@ -619,8 +623,8 @@ export class AppService {
      *      - output: 01
      */
     add0(n: number): string {
-        if (!n) {
-            return;
+        if (isNaN(n)) {
+            return '00';
         }
         return n < 10 ? '0' + n : n.toString();
     }
@@ -704,9 +708,11 @@ export class AppService {
     }
 
     countEmptyStar(grade) {
-        grade = parseInt(grade);
-        if (grade >= 5) grade = 5;
-        let re = Array(5 - grade).fill(true);
+        grade = parseInt(grade, 10);
+        if (grade >= 5) {
+            grade = 5;
+        }
+        const re = Array(5 - grade).fill(true);
         return re;
     }
 
@@ -1406,6 +1412,22 @@ export class AppService {
             });
         }
     }
+    getUserTimezone() {
+
+        const info = this.get(KEY_LMS_INFO);
+        if (!info || !info['user']) {
+            return;
+        }
+        // console.log(info);
+        const user = info['user'];
+        // console.log(`updateUserTimezone: `, user);
+
+        if (user && user['timezone']) {
+            return user['timezone'];
+        } else {
+            return 0;
+        }
+    }
     updateUserTimezone() {
         const info = this.get(KEY_LMS_INFO);
         if (!info || !info['user']) {
@@ -1504,8 +1526,55 @@ export class AppService {
         this.info = this.get(KEY_LMS_INFO);
         if (this.info && this.info['user'] && this.info['user']['book_next']) {
             return this.info['user']['book_next'];
+        } else {
+            return '';
         }
-        else return '';
     }
 
+
+    /**
+     * Returns UTC Date
+     * @param YmdHi YmdHi
+     */
+    getUTCYmdHisFromUserYmdHi(YmdHi: string) {
+        // console.log('YmdHis: ', YmdHi);
+        const Y = parseInt(YmdHi.substr(0, 4), 10);
+        const m = parseInt(YmdHi.substr(4, 2), 10) - 1;
+        const d = parseInt(YmdHi.substr(6, 2), 10);
+        const H = parseInt(YmdHi.substr(8, 2), 10);
+        const i = parseInt(YmdHi.substr(10, 2), 10);
+        const date = new Date(Y, m, d, H, i);
+        // console.log('ymdhis local: ', date);
+        const userStamp = this.getStamp(date);
+        const utcStamp = userStamp - this.getUserTimezone() * 60 * 60;
+        // console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
+        return new Date(utcStamp * 1000);
+    }
+    getStamp(d: Date) {
+        return Math.round(d.getTime() / 1000);
+    }
+    getYmdHis(d: Date) {
+        // console.log('minutes:', d.getMinutes());
+        return d.getFullYear() +
+            this.add0(d.getMonth() + 1) +
+            this.add0(d.getDate()) +
+            this.add0(d.getHours()) +
+            this.add0(d.getMinutes());
+    }
+
+    // getDateOfTimezone(d: Date, tz: number) {
+    //     const stamp = Math.round(d.getMilliseconds() / 1000);
+    //     const newStamp = stamp - tz * 60 * 60;
+    // }
+
+    // getUTCDateFromLocalDate() {
+    //     const d = new Date();
+    //     return this.getUTCDateFromYmdHi(
+    //         d.getFullYear() +
+    //         this.add0( d.getMonth() + 1 ) +
+    //         this.add0( d.getDate() ) +
+    //         this.add0( d.getHours() ) +
+    //         this.add0( d.getMinutes() )
+    //     );
+    // }
 }
