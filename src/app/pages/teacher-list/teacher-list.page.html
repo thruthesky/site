@@ -1,9 +1,9 @@
 <section class="teacher-list">
     <section class="page-header">
-        <h2 *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST PAGE TITLE' | t }}</h2>
-        <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT TEACHER TO RESERVE" | t }}</h2>
+        <h2 *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST_PAGE_TITLE' | t }}</h2>
+        <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</h2>
         <button (click)=" display_options = !display_options " *ngIf=" ! display_options ">
-            {{ 'OPTIONS' | t }}
+                {{ "OPTIONS" | t }}
             <ion-icon name="options"></ion-icon>
         </button>
     </section>
@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row divide">
                 <div class="col-8">
-                    <div>{{ "TEACHER LIST OPTIONS" | t }}</div>
+                    <div>{{ "TEACHER_LIST_OPTIONS" | t }}</div>
                 </div>
                 <div class="col-4">
                     <button (click)=" display_options = false ">
@@ -38,8 +38,8 @@
 
                     <mat-form-field>
                         <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() " placeholder="{{ 'TEACHER GRADE' | t }}">
-                            <mat-option value="Y">{{"RECOMMENDED TEACHER" | t}}</mat-option>
-                            <mat-option value="M">{{"ALL TEACHER" | t}}</mat-option>
+                            <mat-option value="Y">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
+                            <mat-option value="M">{{"ALL_TEACHER" | t}}</mat-option>
                         </mat-select>
                     </mat-form-field>
 
@@ -74,8 +74,7 @@
 
 
         <div *ngIf=" a.teacherTheme ">
-            In this page, you will see recommended teachers who are mostly visible to students. Other teachers' profile will be available
-            by search.
+            {{ 'TEACHER_LIST_REMINDER' | t}}
         </div>
 
 
@@ -101,7 +100,7 @@
                             </div>
                             <div class="name">{{ a.shortName( teacher.display_name )}}</div>
                             <div class="grade" [attr.grade]=" teacher.grade ">
-                                <span *ngIf="teacher.grade!=0">추천:</span>
+                                <span *ngIf="teacher.grade!=0">{{ 'RECOMMENDATION' | t}}:</span>
                                 <span>
                                     <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 576 512" data-fa-i2svg="">
@@ -110,7 +109,7 @@
                                 </span>
                             </div>
                             <div class="reservation">
-                                ({{ teacher.total_reservation }} 명 참여)
+                                ({{ teacher.total_reservation }}  {{ 'PARTICIPATED' | t}})
                             </div>
                         </div>
                     </div>
@@ -130,7 +129,7 @@
 
         <div class="showmoreteacher-wrapper" *ngIf=" ! noMoreTeachers && ! show.loadTeacher">
             <button (click)=" onClickShowMoreTeacher()">
-                <span>강사 더보기</span>
+                <span> {{ 'INSTRUCTOR_MORE' | t}}</span>
                 <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M348.5 264l-148 148.5c-4.7 4.7-12.3 4.7-17 0L35.5 264c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l115.4 116V44c0-6.6 5.4-12 12-12h10c6.6 0 12 5.4 12 12v311.9L324.4 240c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.6 4.7 12.2 0 16.9zM384 468v-8c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h360c6.6 0 12-5.4 12-12z"></path></svg>
             </button>
         </div>

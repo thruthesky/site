@@ -1,5 +1,5 @@
 .loader {
-    padding: 1em;
+    padding: 3em;
     text-align: center;
 }
 
@@ -50,16 +50,25 @@ header {
 
 
 .message-list{
+
     .message{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding:.5em 2em;
+        @media screen and (min-width:992px) {
+            padding-right: 0;
+        }
         border-bottom: 1px solid rgba(128, 128, 128, 0.2);
         background: #fff;
         cursor: pointer;
         transition:  all .2s ease-in-out;
 
         .photo{
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
+            min-height: 40px;
+            min-width: 40px;
             border-radius: 50%;
             overflow: hidden;
         
@@ -68,19 +77,46 @@ header {
             }
         }
 
-        .sender{
-            margin: 0 2em;
 
-            div:last-child{
+        .message-info{
+            display: flex;
+            align-items: center;
+            font-size: 1em;
+
+            .sender,.title{
+                span{
+                    text-transform: uppercase;
+                }
+            }
+
+            .date{
                 font-size: 80%;
-                line-height: 1.5em;
+                @media screen and (min-width:992px) {
+                    text-align: right;
+                    padding: 0;
+                }
+            }
+
+            .title{
+                font-size: 95%;
+                white-space: nowrap;
+                overflow: hidden;
+                line-height: 1.4em;
+
+                @media screen and (min-width:992px) {
+
+                    padding: 0;
+                }
+            }
+
+            .row{
+                align-items: center;
+                width: 100%;
+                height: 100%;
             }
         }
 
-        .col-auto{
-            display: flex;
-            align-items: center;
-        }
+
 
         &:hover{
             background: rgba(128, 128, 128, 0.05);
@@ -90,18 +126,12 @@ header {
             font-weight: bolder;
         }
 
-        .title{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 1em 0;
-            width: 100%;
-        }
+    }
 
-        .content{
-            justify-content: center;
-            padding: 2em;
-        }
+    .content{
+        padding: 2em;
+        background:rgba(128, 128, 128, 0.12); 
+        text-align: center;
     }
 
 

@@ -1,4 +1,4 @@
-<section>
+<main>
 
     <div class="options" *ngIf=" share.options ">
 
@@ -190,12 +190,12 @@
 
     </div> -->
 
-    <div *ngIf=" re && books.length == 0 ">
-        <ng-container *ngIf=" future ">{{ 'NO MORE RESERVATIONS' | t}}</ng-container>
-        <ng-container *ngIf=" past ">{{ 'NO MORE PASTS' | t}}</ng-container>
+    <div class="no-more" *ngIf=" re && books.length == 0 ">
+        <ng-container *ngIf=" future ">{{ 'NO_MORE_RESERVATIONS' | t}}</ng-container>
+        <ng-container *ngIf=" past ">{{ 'NO_MORE_PASTS' | t}}</ng-container>
     </div>
 
-    <div *ngIf=" re == null ">
+    <div class="loader" *ngIf=" re == null ">
         <ion-spinner></ion-spinner>
         <span>{{ 'IN LOADING' | t}}</span>
     </div>
@@ -224,7 +224,7 @@
                 </div>
                 <div class="col-2 col-md-2" *ngIf=" future ">
                     <div> {{ 'KAKAOTALK' | t}}
-                        <br> {{ 'ADD FRIEND' | t}}
+                        <br> {{ 'ADD_FRIEND' | t}}
                     </div>
                 </div>
                 <div class="col-2 col-md-1" *ngIf="displayPoint">
@@ -453,4 +453,4 @@
         </div>
     </div>
 
-</section>
+</main>

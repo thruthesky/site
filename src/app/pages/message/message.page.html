@@ -12,28 +12,30 @@
     </button>
 </div>
 
-<div *ngIf=" loading ">
+<div class="loader" *ngIf=" loading ">
     <ion-spinner></ion-spinner>
     <div>{{ 'IN LOADING' | t }}</div>
 </div>
 
 <div class="message-list" *ngIf=" data ">
+    <ng-container  *ngFor=" let message of data.messages ">
 
-    <div class="message container-fluid" *ngFor=" let message of data.messages " (click)="onClickMessage(message)">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-auto">
-                <div class="photo">
-                    <img src="{{ message?.sender_photoURL? message.sender_photoURL: a.anonymousPhotoURL}}">
-                </div>
-                <div class="sender">
-                    <div>{{'SENDER' | t}}: {{message.sender_name}}</div>
-                    <div>{{ message.stamp * 1000 | date:'medium'}}</div>
+        <div class="message" (click)="onClickMessage(message)">
+            <div class="photo">
+                <img src="{{ message?.sender_photoURL? message.sender_photoURL: a.anonymousPhotoURL}}">
+            </div>
+            <div class="message-info container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-12 sender"><span>{{'SENDER' | t}}</span>: {{message.sender_name}}</div>
+                    <div class="col-lg-6 col-12 title" [class.new]="message.open == 0"><span>{{'SUBJECT' | t}}</span>: {{message.title}}</div>
+                    <div class="col-lg-3 col-12 date">{{ message.stamp * 1000 | date:'medium'}}</div>
                 </div>
             </div>
-            <div class="title col-lg-8 col-md-6 col-auto" [class.new]="message.open == 0">{{'TITLE' | t}}: {{message.title}}</div>
-            <div class="content col-12 col-auto" *ngIf="message.view">{{message.content}}</div>
         </div>
-    </div>
+
+        <div class="content" *ngIf="message.view" (click)="onClickMessage(message)">{{message.content}}</div>   
+    </ng-container>
+
 
     <div class="buttons-bottom">
         <button *ngIf="page_no > 1" (click)="onClickPrevious()">{{ 'PREVIOUS' | t }}</button>

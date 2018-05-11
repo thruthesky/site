@@ -7,7 +7,7 @@
 
         <li class="menu-admin" routerLink="/admin" *ngIf="a.isManager">
             <div>
-                <ion-icon name="help-circle" item-start></ion-icon>
+                <ion-icon name="laptop"></ion-icon>
                 <div>{{ 'ADMIN' | t }}</div>
             </div>
         </li>
@@ -21,7 +21,7 @@
 
         <li class="menu-help" routerLink="/story" *ngIf="a.studentTheme">
             <div>
-                <ion-icon name="help-circle" item-start></ion-icon>
+                <ion-icon name="paw"></ion-icon>
                 <div>{{ 'KATALK_STORY' | t }}</div>
             </div>
         </li>
@@ -35,14 +35,14 @@
         </li>
         <li class="menu-registration" *ngIf=" a.user.isLogout " (click)=" a.open('register') ">
             <div>
-                <ion-icon name="person-add" item-start></ion-icon>
+                <ion-icon name="person-add"></ion-icon>
                 <div>{{ "REGISTER" | t}}</div>
             </div>
         </li>
 
         <li class="menu-profile" *ngIf=" a.user.isLogin " (click)=" a.open('register')">
             <div>
-                <ion-icon name="person-add" item-start></ion-icon>
+                <ion-icon name="happy"></ion-icon>
                 <div>{{ 'PROFILE' | t }}</div>
             </div>
         </li>
@@ -98,7 +98,7 @@
 
         <li class="menu-teacher-list" (click)="a.open('teacher-list')">
             <div>
-                <ion-icon name="people" item-start></ion-icon>
+                <ion-icon name="add"></ion-icon>
                 <div>{{ 'RESERVE_SESSION' | t }}</div>
             </div>
         </li>
@@ -115,7 +115,7 @@
 
         <li class="menu-today-sessions" (click)="a.open('schedule-available')" *ngIf="a.studentTheme">
             <div>
-                <ion-icon name="apps" item-start></ion-icon>
+                 <ion-icon name="flash"></ion-icon>
                 <div>{{ 'AVAILABLE_SESSIONS_LONG' | t }}</div>
             </div>
         </li>
@@ -146,7 +146,7 @@
 
         <li class="menu-payment-history" (click)="a.open('payment-history')" *ngIf="a.studentTheme">
             <div>
-                <ion-icon name="list-box" item-start></ion-icon>
+                <ion-icon name="cash"></ion-icon>
                 <div>{{ 'PAYMENT_HISTORY' | t }}</div>
             </div>
         </li>
@@ -175,7 +175,7 @@
 
         <li routerLink="/reminder">
             <div>
-                <ion-icon name="log-out" item-start></ion-icon>
+                <ion-icon name="alert"></ion-icon>
                 <div>{{ 'REMINDER' | t }}</div>
             </div>
         </li>

@@ -248,6 +248,50 @@
     "DISPLAY_DATE":"显示日期",
     "POINT_MARK":"点标记",
 
+    "MESSAGE_TITLE":"留言",
+    "INBOX":"收件箱",
+    "SENT":"发送",
+    "SENDER":"寄件人",
+    "SUBJECT":"学科",
+    "PREVIOUS":"以前",
+    "NEXT":"下一个",
+    "NO_MORE_MESSAGES":"没有更多的消息",
+
+    "SCHEDULE_TABLE_LOADING":"スケジュール表の読み込み",
+    "NO_SCHEUDLE_TRY_SEARCH":"スケジュールは検索しないでください",
+    "NO_MORE_RESERVATIONS":"没有更多的预订",
+    "NO_MORE_PASTS":"没有更多的意大利面",
+    "KAKAOTALK":"KakaoTalk",
+    "ADD_FRIEND":"添加好友",
+
+    "LEVEL":"水平",
+    "YOUR_ENGLISH_LEVEL":"你的英语水平",
+    "LEVELS_ARE_FROM_1_9":"级别从1到9",
+    "LEVEL_1_TO_LEVEL_3":"等级1到等级3",
+    "BEGINNER":"初学者",
+    "LEVEL_4_TO_LEVEL_6":"4级到6级",
+    "MIDDLE_CLASS":"中产阶级",
+    "LEVEL_7_TO_LEVEL_9":"7级到9级",
+    "ADVANCED":"高级",
+    "BOTTOM_DESC_1":"根据最近的20节课，平均每班评估以确定水平。",
+    "BOTTOM_DESC_2":"点击课堂评估，您可以查看每个课程的详细信息。",
+
+    "ADMIN":"管理员",
+    "REGISTER_BUTTON":"寄存器",
+    "UPDATE_PROFILE_BUTTON":"更新个人信息",
+
+    "LEVELTEST_PAGE_TITLE":"水平测试",
+    "SELECT_TEACHER_TO_RESERVE":"选择要保留的教师",
+    "TEACHER_LIST_OPTIONS":"教师名单选项",
+    "FEMALE":"女",
+    "MALE":"男",
+    "ALL":"所有",
+    "RECOMMENDED_TEACHER":"推荐老师",
+    "TEACHER_LIST_REMINDER":"このページには、主に学生から見える推奨教師が表示されます。 他の教師のプロフィールは検索で入手できます。",
+    "RECOMMENDATION":"评分",
+    "PARTICIPATED":"人们参加了",
+    "INSTRUCTOR_MORE":"更多教练",
+  
 
 
   "STUDENT COMMENTS": [{
