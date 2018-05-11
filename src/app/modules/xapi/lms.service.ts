@@ -560,4 +560,10 @@ export class XapiLMSService extends Base {
         });
     }
     //
+
+    get_payment_computation_info() {
+        return this.x.post({
+            route: 'lms.get_payment_computation_info',
+        });
+    }
 }
