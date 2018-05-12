@@ -435,36 +435,52 @@ export const N = {
 
 
 export interface BOOK {
-    idx: number;
-    date: number;
+    idx: string;
+    date: string;
     class_begin: string;
     class_end: string;
-    point: number;
-    idx_teacher: number;
-    idx_student: number;
-    idx_schedule: number;
-    stamp_reserve: number;
-    stamp_checked: number;
-    paid: number;
-    refund_request_at: number;
-    refund_request_message: number;
-    refund_reject_at: number;
-    refund_reject_message: number;
-    refund_done_point: number;
-    refund_done_at: number;
-    refund_done_by: number;
-    refund_settle_at: number;
-    refund_settle_message: number;
+    point: string;
+    idx_teacher: string;
+    idx_student: string;
+    idx_schedule: string;
+    stamp_reserve: string;
+    stamp_checked: string;
+    paid: string;
+    refund_request_at: string;
+    refund_request_message: string;
+    refund_reject_at: string;
+    refund_reject_message: string;
+    refund_done_point: string;
+    refund_done_at: string;
+    refund_done_by: string;
+    refund_settle_at: string;
+    refund_settle_message: string;
     teacher_absent: string;
     student_absent: string;
     successful: string;
-    experession: number;
-    vocabulary: number;
+    expression: string;
+    vocabulary: string;
     grammar: string;
-    pronunciation: number;
-    speed: number;
+    pronunciation: string;
+    speed: string;
     comment: string;
     book_used: string;
     book_next: string;
+    student: {
+        email: string;
+        phone_number: string;
+        name: string;
+        display_name: string;
+        point: string;
+        kakaotalk_id: string;
+    };
+    teacher: {
+        email: string;
+        name: string;
+        display_name: string;
+        kakaotalk_id: string;
+        grade: string;
+    };
 }
+
 

@@ -1354,10 +1354,8 @@ export class AppService {
      * @param stamp unix timestamp
      */
     shortDate(stamp) {
-
         const d = new Date(stamp * 1000);
         const today = new Date();
-
         let dt;
         if (d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()) {
             dt = d.toLocaleString();
@@ -1367,6 +1365,14 @@ export class AppService {
             dt = d.getFullYear().toString().substr(2, 2) + '-' + d.getMonth() + '-' + d.getDate();
         }
         return dt;
+    }
+    shortDateTime(stamp: any): string {
+        const d = new Date(stamp * 1000);
+        return d.getFullYear().toString().substr(2, 2) +
+            '-' + this.add0(d.getMonth() + 1) +
+            '-' + this.add0(d.getDate()) +
+            ' ' + this.add0(d.getHours()) +
+            ':' + this.add0(d.getMinutes());
     }
 
 
@@ -1545,7 +1551,7 @@ export class AppService {
      *  If 'd' is falsy, then it will use current time.
      */
     getYmdHi(d?: Date): string {
-        if ( ! d ) {
+        if (!d) {
             d = new Date();
         }
         // console.log('minutes:', d.getMinutes());
@@ -1586,9 +1592,17 @@ export class AppService {
         // console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
         return this.getYmdHi(new Date(utcStamp * 1000));
     }
+    /**
+     * Returns UTC Ymd from User Time's YmdHi
+     * @param YmdHi User Time's YmdHis
+     */
     getUTCYmd(YmdHi: string): string {
         return this.getUTCYmdHisFromUserYmdHi(YmdHi).substr(0, 8);
     }
+    /**
+     * Returns UTC Hi from User Time's YmdHi
+     * @param YmdHi User Time's YmdHis
+     */
     getUTCHi(YmdHi: string): string {
         return this.getUTCYmdHisFromUserYmdHi(YmdHi).substr(8, 4);
     }

@@ -25,7 +25,7 @@
 
     
     <input id="paid" type="checkbox" name="paid" [(ngModel)]="form.paid">
-    <label for="future">Paid</label>
+    <label for="paid">Paid</label>
     <input id="refund_done_at" type="checkbox" name="refund_done_at" [(ngModel)]="form.refund_done_at">
     <label for="refund_done_at">Refunded</label>
 
@@ -42,6 +42,9 @@
     
     <input id="teacher_absent" type="checkbox" name="teacher_absent" [(ngModel)]="form.teacher_absent">
     <label for="teacher_absent">Teacher Absent</label>
+
+    <input id="student_absent" type="checkbox" name="student_absent" [(ngModel)]="form.student_absent">
+    <label for="student_absent">Student Absent</label>
 
     <input id="successful" type="checkbox" name="successful" [(ngModel)]="form.successful">
     <label for="successful">Successful</label>
@@ -64,8 +67,98 @@
         <option value="ASC">ASC</option>
         <option value="DESC">DESC</option>
     </select>
+    <hr>
 
+
+Display
+<input type="checkbox" id="reserved_at" name="reserved_at" [(ngModel)]="form.display.reserved_at"><label for="reserved_at">Reserved At</label>
+<input type="checkbox" id="paid" name="paid" [(ngModel)]="form.display.paid"><label for="paid">Paid</label>
+<input type="checkbox" id="refund_request_at" name="refund_request_at" [(ngModel)]="form.display.refund_request_at"><label for="refund_request_at">Refund Request At</label>
+<input type="checkbox" id="refund_request_message" name="refund_request_message" [(ngModel)]="form.display.refund_request_message"><label for="refund_request_message">Request Message</label>
+<input type="checkbox" id="refund_reject_at" name="refund_reject_at" [(ngModel)]="form.display.refund_reject_at"><label for="refund_reject_at">Reject At</label>
+<input type="checkbox" id="refund_reject_message" name="refund_reject_message" [(ngModel)]="form.display.refund_reject_message"><label for="refund_reject_message">Reject Message</label>
+<input type="checkbox" id="refund_done_at" name="refund_done_at" [(ngModel)]="form.display.refund_done_at"><label for="refund_done_at">Refund Done At</label>
+<input type="checkbox" id="refund_done_point" name="refund_done_point" [(ngModel)]="form.display.refund_done_point"><label for="refund_done_point">Done Point</label>
+<input type="checkbox" id="refund_done_by" name="refund_done_by" [(ngModel)]="form.display.refund_done_by"><label for="refund_done_by">Done By</label>
+<input type="checkbox" id="refund_settle_at" name="refund_settle_at" [(ngModel)]="form.display.refund_settle_at"><label for="refund_settle_at">Settled At</label>
+<input type="checkbox" id="refund_settle_message" name="refund_settle_message" [(ngModel)]="form.display.refund_settle_message"><label for="refund_settle_message">Settled Message</label>
+<input type="checkbox" id="teacher_absent" name="teacher_absent" [(ngModel)]="form.display.teacher_absent"><label for="teacher_absent">Teacher Absent</label>
+<input type="checkbox" id="student_absent" name="student_absent" [(ngModel)]="form.display.student_absent"><label for="student_absent">Student Absent</label>
+<input type="checkbox" id="successful" name="successful" [(ngModel)]="form.display.successful"><label for="successful">Successful</label>
+<input type="checkbox" id="expression" name="expression" [(ngModel)]="form.display.expression"><label for="expression">Expression</label>
+<input type="checkbox" id="vocabulary" name="vocabulary" [(ngModel)]="form.display.vocabulary"><label for="vocabulary">Vocabulary</label>
+<input type="checkbox" id="grammar" name="grammar" [(ngModel)]="form.display.grammar"><label for="grammar">Grammar</label>
+<input type="checkbox" id="pronunciation" name="pronunciation" [(ngModel)]="form.display.pronunciation"><label for="pronunciation">Pronunciation</label>
+<input type="checkbox" id="speed" name="speed" [(ngModel)]="form.display.speed"><label for="speed">Speed</label>
+<input type="checkbox" id="comment" name="comment" [(ngModel)]="form.display.comment"><label for="comment">Comment</label>
+<input type="checkbox" id="book_used" name="book_used" [(ngModel)]="form.display.book_used"><label for="book_used">Book Used</label>
+<input type="checkbox" id="book_next" name="book_next" [(ngModel)]="form.display.book_next"><label for="book_next">Book Next</label>
     <button type="submit">SEARCH</button>
 </form>
 
 
+<div *ngIf=" show.loader ">Loading...</div>
+<table class="sessions" *ngIf=" re.length ">
+    <tr>
+            <th>idx</th>
+            <th>Teacher</th>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Begin</th>
+            <th>End</th>
+            <th>Point</th>
+            <th *ngIf=" form.display.reserved_at ">Reserved At</th>
+            <th *ngIf=" form.display.paid ">Paid</th>
+            <th *ngIf=" form.display.refund_request_at ">Refund Request At</th>
+            <th *ngIf=" form.display.refund_request_message ">Request Message</th>
+            <th *ngIf=" form.display.refund_reject_at ">Reject At</th>
+            <th *ngIf=" form.display.refund_reject_message ">Reject Message</th>
+            <th *ngIf=" form.display.refund_done_at ">Done At</th>
+            <th *ngIf=" form.display.refund_done_point ">Done Point</th>
+            <th *ngIf=" form.display.refund_done_by ">Done By</th>
+            <th *ngIf=" form.display.refund_settle_at ">Settled At</th>
+            <th *ngIf=" form.display.refund_settle_message ">Settled Message</th>
+            <th *ngIf=" form.display.teacher_absent ">Teacher Absent</th>
+            <th *ngIf=" form.display.student_absent ">Student Absent</th>
+            <th *ngIf=" form.display.successful ">Successful</th>
+            <th *ngIf=" form.display.expression ">Expression</th>
+            <th *ngIf=" form.display.vocabulary ">Vocabulary</th>
+            <th *ngIf=" form.display.grammar ">Grammar</th>
+            <th *ngIf=" form.display.pronunciation ">Pronuncitation</th>
+            <th *ngIf=" form.display.speed ">Speed</th>
+            <th *ngIf=" form.display.comment ">Comment</th>
+            <th *ngIf=" form.display.book_used ">Book Used</th>
+            <th *ngIf=" form.display.book_next ">Book Next</th>
+    </tr>
+    <tr *ngFor="let session of re">
+            <td>{{ session.idx }}</td>
+            <td>{{ session.teacher?.name }}</td>
+            <td>{{ session.student?.name }}</td>
+            <td>{{ session.date }}</td>
+            <td>{{ session.class_begin }}</td>
+            <td>{{ session.class_end }}</td>
+            <td>{{ session.point }}</td>
+            <td *ngIf=" form.display.reserved_at ">{{ session.stamp_reserve }}</td>
+            <td *ngIf=" form.display.paid ">{{ session.paid }}</td>
+            <td *ngIf=" form.display.refund_request_at ">{{ session.refund_request_at }}</td>
+            <td *ngIf=" form.display.refund_request_message ">{{ session.refund_request_message }}</td>
+            <td *ngIf=" form.display.refund_reject_at ">{{ session.refund_reject_at }}</td>
+            <td *ngIf=" form.display.refund_reject_message ">{{ session.refund_reject_message }}</td>
+            <td *ngIf=" form.display.refund_done_at ">{{ session.refund_done_at }}</td>
+            <td *ngIf=" form.display.refund_done_point ">{{ session.refund_done_point }}</td>
+            <td *ngIf=" form.display.refund_done_by ">{{ session.refund_done_by }}</td>
+            <td *ngIf=" form.display.refund_settle_at ">{{ session.refund_settle_at }}</td>
+            <td *ngIf=" form.display.refund_settle_message ">{{ session.refund_settle_message }}</td>
+            <td *ngIf=" form.display.teacher_absent ">{{ session.teacher_absent }}</td>
+            <td *ngIf=" form.display.student_absent ">{{ session.student_absent }}</td>
+            <td *ngIf=" form.display.successful ">{{ session.successful }}</td>
+            <td *ngIf=" form.display.expression ">{{ session.expression }}</td>
+            <td *ngIf=" form.display.vocabulary ">{{ session.vocabulary }}</td>
+            <td *ngIf=" form.display.grammar ">{{ session.grammar }}</td>
+            <td *ngIf=" form.display.pronunciation ">{{ session.pronunciation }}</td>
+            <td *ngIf=" form.display.speed ">{{ session.speed }}</td>
+            <td *ngIf=" form.display.comment ">{{ session.comment }}</td>
+            <td *ngIf=" form.display.book_used ">{{ session.book_used }}</td>
+            <td *ngIf=" form.display.book_next ">{{ session.book_next }}</td>
+    </tr>
+</table>
