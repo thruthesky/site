@@ -1533,10 +1533,46 @@ export class AppService {
 
 
     /**
-     * Returns UTC Date
+     * Returns Unix timestamp.
+     * @param d Date
+     */
+    getStamp(d: Date): number {
+        return Math.round(d.getTime() / 1000);
+    }
+    /**
+     * Return 'YmdHis' time format of the input parameter.
+     * @param d Date
+     *  If 'd' is falsy, then it will use current time.
+     */
+    getYmdHi(d?: Date): string {
+        if ( ! d ) {
+            d = new Date();
+        }
+        // console.log('minutes:', d.getMinutes());
+        return d.getFullYear() +
+            this.add0(d.getMonth() + 1) +
+            this.add0(d.getDate()) +
+            this.add0(d.getHours()) +
+            this.add0(d.getMinutes());
+    }
+    /**
+     * Returns 'YYYYMMDD' of user time.
+     */
+    getYmd() {
+        return this.getYmdHi().substr(0, 8);
+    }
+    /**
+     * Returns 'HHii' of user time.
+     */
+    getHi() {
+        return this.getYmdHi().substr(8, 4);
+    }
+
+    /**
+     * Returns UTC Date after converting from User Time's YmdHis
      * @param YmdHi YmdHi
      */
-    getUTCYmdHisFromUserYmdHi(YmdHi: string) {
+    getUTCYmdHisFromUserYmdHi(YmdHi: string): string {
         // console.log('YmdHis: ', YmdHi);
         const Y = parseInt(YmdHi.substr(0, 4), 10);
         const m = parseInt(YmdHi.substr(4, 2), 10) - 1;
@@ -1548,18 +1584,13 @@ export class AppService {
         const userStamp = this.getStamp(date);
         const utcStamp = userStamp - this.getUserTimezone() * 60 * 60;
         // console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
-        return new Date(utcStamp * 1000);
+        return this.getYmdHi(new Date(utcStamp * 1000));
     }
-    getStamp(d: Date) {
-        return Math.round(d.getTime() / 1000);
+    getUTCYmd(YmdHi: string): string {
+        return this.getUTCYmdHisFromUserYmdHi(YmdHi).substr(0, 8);
     }
-    getYmdHis(d: Date) {
-        // console.log('minutes:', d.getMinutes());
-        return d.getFullYear() +
-            this.add0(d.getMonth() + 1) +
-            this.add0(d.getDate()) +
-            this.add0(d.getHours()) +
-            this.add0(d.getMinutes());
+    getUTCHi(YmdHi: string): string {
+        return this.getUTCYmdHisFromUserYmdHi(YmdHi).substr(8, 4);
     }
 
     // getDateOfTimezone(d: Date, tz: number) {

@@ -11,10 +11,13 @@ import { BOOK } from './../../../modules/xapi/interfaces';
 })
 export class SessionPage implements OnInit {
     re: Array<BOOK> = [];
+    show = {
+        loader: false
+    };
     form = {
         idx: '',
-        future: false,
-        past: false,
+        // future: false,
+        // past: false,
         date_begin: '20180101',
         date_end: '',
         class_begin: '0000',
@@ -63,16 +66,16 @@ export class SessionPage implements OnInit {
         sql += this.getOrderBy();
         sql += ` LIMIT ${this.form.limit}`;
         console.log(sql);
-        // this.show.loader = true;
-        // this.a.lms.admin_query({
-        //     sql: sql,
-        // }).subscribe(re => {
-        //     this.show.loader = false;
-        //     this.re = re;
-        //     this.sanitize();
-        //     this.statistics();
-        //     console.log(re);
-        // }, e => this.a.toast(e));
+        this.show.loader = true;
+        this.a.lms.admin_query({
+            sql: sql,
+        }).subscribe(re => {
+            this.show.loader = false;
+            this.re = re;
+            // this.sanitize();
+            // this.statistics();
+            console.log(re);
+        }, e => this.a.toast(e));
         return false;
     }
 
@@ -83,11 +86,63 @@ export class SessionPage implements OnInit {
             where.push(`idx=${this.form.idx}`);
         }
 
+        if (this.form.idx_teacher) {
+            where.push(`idx_teacher=${this.form.idx_teacher}`);
+        }
+
+        if (this.form.idx_student) {
+            where.push(`idx_student=${this.form.idx_student}`);
+        }
+
+        if (this.form.idx_schedule) {
+            where.push(`idx_schedule=${this.form.idx_schedule}`);
+        }
+
+
+        if (this.form.point_begin) {
+            where.push(`point>=${this.form.point_begin}`);
+        }
+        if (this.form.point_end) {
+            where.push(`point<=${this.form.point_end}`);
+        }
+
+        if ( this.form.paid ) {
+            where.push(`paid > 0`);
+        }
+
+        if ( this.form.refund_done_at ) {
+            where.push(`refund_done_at>0`);
+        }
+        if ( this.form.refund_done_point ) {
+            where.push(`refund_done_point>0`);
+        }
+        if ( this.form.refund_request_at ) {
+            where.push(`refund_request_at>0`);
+        }
+        if ( this.form.refund_reject_at ) {
+            where.push(`refund_reject_at>0`);
+        }
+        if ( this.form.refund_settle_at ) {
+            where.push(`refund_settle_at>0`);
+        }
+        if ( this.form.teacher_absent ) {
+            where.push(`teacher_absent='Y'`);
+        }
+        if ( this.form.student_absent ) {
+            where.push(`student_absent='Y'`);
+        }
+        if ( this.form.successful ) {
+            where.push(`successful='Y'`);
+        }
+        if ( this.form.comment ) {
+            where.push(`comment<>''`);
+        }
+
         const b = this.a.getUTCYmdHisFromUserYmdHi(this.form.date_begin + this.form.class_begin);
-        console.log('begin: ', b, this.a.getYmdHis(b));
+        // console.log('begin: ', b);
 
         const e = this.a.getUTCYmdHisFromUserYmdHi(this.form.date_end + this.form.class_end);
-        console.log('end: ', e, this.a.getYmdHis(e));
+        // console.log('end: ', e);
 
 
         // this.a.getDateOfTimezone( d, this.a.getUserTimezone());
@@ -108,6 +163,21 @@ export class SessionPage implements OnInit {
         } else {
             return `ORDER BY ${this.form.order} ${this.form.by}`;
         }
+    }
+    onClickFuture() {
+        this.form.date_end = '';
+        this.form.class_end = '';
+        this.form.date_begin = this.a.getYmd();
+        this.form.class_begin = this.a.getHi();
+        // const YmdHi = this.form.date_begin + this.form.class_begin;
+        // this.form.date_begin = this.a.getUTCYmd( YmdHi );
+        // this.form.class_begin = this.a.getUTCHi( YmdHi );
+    }
+    onClickPast() {
+        this.form.date_end = this.a.getYmd();
+        this.form.class_end = this.a.getHi();
+        this.form.date_begin = '';
+        this.form.class_begin = '';
     }
 }
 

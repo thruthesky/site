@@ -1,20 +1,70 @@
 <admin-header-component></admin-header-component>
 <h1>Session List &amp; Search</h1>
-<div>User Time: {{ a.userTime }}</div>
+<div>Timezone: {{ a.userTime }} The time of input and display is based on your timezone settings.</div>
 <form (ngSubmit)="onSubmit( $event )">
     <input class="narrow" type="text" name="idx" [(ngModel)]="form.idx" placeholder="idx">
-    
-    <input id="future" type="checkbox" name="future" [(ngModel)]="form.future">
-    <label for="future">Future</label>
-    <input id="past" type="checkbox" name="past" [(ngModel)]="form.past">
-    <label for="past">Past</label>
+    <input class="narrow" type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" placeholder="idx_teacher">
+    <input class="narrow" type="text" name="idx_student" [(ngModel)]="form.idx_student" placeholder="idx_student">
+    <input class="narrow" type="text" name="idx_schedule" [(ngModel)]="form.idx_schedule" placeholder="idx_schedule">
+
+    <span class="app-button" (click)="onClickFuture()">Future</span>
+    <span class="app-button" (click)="onClickPast()">Past</span>
     
     Date:
     <input class="normal" type="text" name="date_begin" [(ngModel)]="form.date_begin">
     ~
     <input class="normal" type="text" name="date_end" [(ngModel)]="form.date_end">
+
     Time: <input class="narrow" type="text" name="class_begin" [(ngModel)]="form.class_begin">
     <input class="narrow" type="text" name="class_end" [(ngModel)]="form.class_end">
+
+
+    Point:
+    <input class="narrow" type="text" name="point_begin" [(ngModel)]="form.point_begin"> ~
+    <input class="narrow" type="text" name="point_end" [(ngModel)]="form.point_end">
+
+    
+    <input id="paid" type="checkbox" name="paid" [(ngModel)]="form.paid">
+    <label for="future">Paid</label>
+    <input id="refund_done_at" type="checkbox" name="refund_done_at" [(ngModel)]="form.refund_done_at">
+    <label for="refund_done_at">Refunded</label>
+
+    <input id="refund_done_point" type="checkbox" name="refund_done_point" [(ngModel)]="form.refund_done_point">
+    <label for="refund_done_point">Refunded with Point</label>
+
+    <input id="refund_request_at" type="checkbox" name="refund_request_at" [(ngModel)]="form.refund_request_at">
+    <label for="refund_request_at">Requested</label>
+    <input id="refund_reject_at" type="checkbox" name="refund_reject_at" [(ngModel)]="form.refund_reject_at">
+    <label for="refund_reject_at">Rejected</label>
+    <input id="refund_settle_at" type="checkbox" name="refund_settle_at" [(ngModel)]="form.refund_settle_at">
+    <label for="refund_settle_at">Settled</label>
+
+    
+    <input id="teacher_absent" type="checkbox" name="teacher_absent" [(ngModel)]="form.teacher_absent">
+    <label for="teacher_absent">Teacher Absent</label>
+
+    <input id="successful" type="checkbox" name="successful" [(ngModel)]="form.successful">
+    <label for="successful">Successful</label>
+    <input id="comment" type="checkbox" name="comment" [(ngModel)]="form.comment">
+    <label for="comment">Has Comment</label>
+
+
+    Limit
+    <input class="narrow" type="text" name="limit" [(ngModel)]="form.limit">
+    Order
+    <select name="order" [(ngModel)]="form.order">
+        <option value="DATETIME">DATETIME</option>
+        <option value="idx">idx</option>
+        <option value="point">Point</option>
+        <option value="paid">Paid</option>
+        <option value="stamp_reserve">Reserved At</option>
+    </select>
+    by
+    <select name="by" [(ngModel)]="form.by">
+        <option value="ASC">ASC</option>
+        <option value="DESC">DESC</option>
+    </select>
+
     <button type="submit">SEARCH</button>
 </form>
 
