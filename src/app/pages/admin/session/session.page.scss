@@ -9,3 +9,134 @@ form {
         width: 15em;
     }
 }
+
+.stat {
+    font-size: .85em;
+    b {
+        padding-right: 1em;
+        font-size: 1.25em;
+    }
+}
+.daily-reservations {
+    .daily-reservation {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: darkblue;
+        color: white;
+    }
+}
+
+.daily-freeclasses {
+    .daily-freeclass {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(0, 100, 139);
+        color: white;
+    }
+}
+.daily-points {
+    .daily-point {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(91, 91, 92);
+        color: white;
+    }
+}
+
+.teacher-reservations {
+    .teacher-reservation {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(52, 52, 97);
+        color: white;
+    }
+}
+.student-reservations {
+    .student-reservation {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(124, 124, 175);
+        color: white;
+    }
+}
+.teacher-refund-requests {
+    .teacher-refund-request {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(110, 96, 48);
+        color: white;
+    }
+}
+.student-refund-requests {
+    .student-refund-request {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(78, 51, 0);
+        color: white;
+    }
+}
+.student-refund-requests {
+    .student-refund-request {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(78, 51, 0);
+        color: white;
+    }
+}
+
+.teacher-refund-rejects {
+    .teacher-refund-reject {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(43, 52, 102);
+        color: white;
+    }
+}
+.teacher-refund-dones {
+    .teacher-refund-done {
+        margin-right: 1em;
+    }
+    .no {
+        display: inline-block;
+        margin: .1em;
+        padding: .2em;
+        background-color: rgb(88, 43, 102);
+        color: white;
+    }
+}

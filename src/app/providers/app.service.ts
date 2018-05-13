@@ -1579,17 +1579,22 @@ export class AppService {
      * @param YmdHi YmdHi
      */
     getUTCYmdHisFromUserYmdHi(YmdHi: string): string {
-        // console.log('YmdHis: ', YmdHi);
+        if ( ! YmdHi ) {
+            return '';
+        }
+        console.log('YmdHis: ', YmdHi);
         const Y = parseInt(YmdHi.substr(0, 4), 10);
         const m = parseInt(YmdHi.substr(4, 2), 10) - 1;
         const d = parseInt(YmdHi.substr(6, 2), 10);
         const H = parseInt(YmdHi.substr(8, 2), 10);
         const i = parseInt(YmdHi.substr(10, 2), 10);
+
+        console.log(Y, m, d, H, i);
         const date = new Date(Y, m, d, H, i);
         // console.log('ymdhis local: ', date);
         const userStamp = this.getStamp(date);
         const utcStamp = userStamp - this.getUserTimezone() * 60 * 60;
-        // console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
+        console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
         return this.getYmdHi(new Date(utcStamp * 1000));
     }
     /**
@@ -1597,14 +1602,22 @@ export class AppService {
      * @param YmdHi User Time's YmdHis
      */
     getUTCYmd(YmdHi: string): string {
-        return this.getUTCYmdHisFromUserYmdHi(YmdHi).substr(0, 8);
+        const re = this.getUTCYmdHisFromUserYmdHi(YmdHi);
+        if ( re ) {
+            return re.substr(0, 8);
+        }
+        return '';
     }
     /**
      * Returns UTC Hi from User Time's YmdHi
      * @param YmdHi User Time's YmdHis
      */
     getUTCHi(YmdHi: string): string {
-        return this.getUTCYmdHisFromUserYmdHi(YmdHi).substr(8, 4);
+        const re = this.getUTCYmdHisFromUserYmdHi(YmdHi);
+        if ( re ) {
+            return re.substr(8, 4);
+        }
+        return '';
     }
 
     // getDateOfTimezone(d: Date, tz: number) {
