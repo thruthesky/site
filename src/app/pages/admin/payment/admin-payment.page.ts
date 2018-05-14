@@ -4,6 +4,27 @@ import { Router } from '@angular/router';
 import { AppService } from '../../../providers/app.service';
 
 
+interface STAT {
+    studentName: string[];
+    student: {
+        [name: string]: {
+            count: number;
+            point: number;
+            idx: number;
+        };
+    };
+    point: number;
+    kwr: number;
+    usd: number;
+    success: number;
+    fail: number;
+    dailyDates: string[];
+    daily: {
+        [date: string]: number;
+    };
+}
+
+
 @Component({
     selector: 'admin-payment-page',
     templateUrl: 'admin-payment.page.html',
@@ -11,25 +32,187 @@ import { AppService } from '../../../providers/app.service';
 })
 export class AdminPaymentPage implements OnInit {
 
+    re = [];
+    form = {
+        date_begin: '',
+        date_end: '',
+        success: true,
+        fail: false,
+        idx_student: '',
+        payment_method: '',
+        order: 'stamp_begin',
+        by: 'DESC',
+        limit: 500
+    };
+    show = {
+        loader: false
+    };
+    stat: STAT;
     constructor(
         public router: Router,
         public a: AppService
     ) {
-
-        a.lms.admin_query({
-            sql: `SELECT p.idx, p.currency, p.amount, p.idx_student, p.payment_method, p.point, p.state
-					FROM lms_payment as p, wp_users
-					WHERE BRANCH AND wp_users.ID=p.idx_student
-					ORDER BY idx DESC LIMIT 100`,
-            student_info: true
-        }).subscribe( re => {
-            console.log(re);
-        }, e => this.a.toast(e));
+        const d = new Date();
+        this.form.date_begin = d.getFullYear() + '-' + a.add0(d.getMonth() + 1) + '-' + '01';
+        this.form.date_end = d.getFullYear() + '-' + a.add0(d.getMonth() + 1) + '-' + a.add0(d.getDate());
+        this.onSubmit();
     }
 
     ngOnInit() {
     }
 
+
+    init() {
+        this.re = [];
+        this.stat = {
+            studentName: [],
+            student: {},
+            point: 0,
+            kwr: 0,
+            usd: 0,
+            success: 0,
+            fail: 0,
+            daily: {},
+            dailyDates: []
+        };
+    }
+
+    onSubmit(event?: Event) {
+        this.init();
+        if (event) {
+            event.preventDefault();
+        }
+        console.log('form:', this.form);
+
+        let sql = `SELECT p.idx, p.amount, p.currency, p.idx_student, p.payment_method, p.point, p.stamp_begin, p.state FROM lms_payment as p, wp_users WHERE BRANCH AND wp_users.ID = p.idx_student`;
+        const where = this.getWhere();
+        if (where) {
+            sql += ` AND ${where}`;
+        }
+        sql += this.getOrderBy();
+        sql += ` LIMIT ${this.form.limit}`;
+        console.log(sql);
+        this.show.loader = true;
+        this.a.lms.admin_query({
+            sql: sql,
+            student_info: true,
+            teacher_info: true
+        }).subscribe(re => {
+            console.log('re: ', re);
+            this.show.loader = false;
+            this.re = re;
+            this.statistics();
+            this.sanitize();
+            console.log(re);
+        }, e => this.a.toast(e));
+        return false;
+    }
+
+    getWhere(): string {
+        const where: Array<string> = [];
+
+        if (this.form.idx_student) {
+            where.push(`p.idx_student=${this.form.idx_student}`);
+        }
+        if (this.form.payment_method) {
+            where.push(`p.payment_method='${this.form.payment_method}'`);
+        }
+        if (this.form.date_begin) {
+            console.log('date_begin: ', this.form.date_begin);
+            // console.log('ymdhi: ', this.a.getYmdHi( new Date(this.form.date_begin) ));
+            const begin_stamp = new Date(this.form.date_begin).getTime() / 1000;
+            where.push(`p.stamp_begin>=${begin_stamp}`);
+        }
+        if (this.form.date_end) {
+            const stamp = new Date(this.form.date_end).getTime() / 1000;
+            where.push(`p.stamp_begin<=${stamp}`);
+        }
+
+        if (this.form.success) {
+            where.push(`p.state='approved'`);
+        }
+        if (this.form.fail) {
+            where.push(`p.state<>'approved'`);
+        }
+
+        if (where.length) {
+            return '( ' + where.join(') AND ( ') + ')';
+        } else {
+            return '';
+        }
+    }
+
+
+    getOrderBy(): string {
+        return `ORDER BY ${this.form.order} ${this.form.by}`;
+    }
+
+    statistics() {
+        if (!this.re.length) {
+            return;
+        }
+        for (const pay of this.re) {
+            if (pay.student) {
+                if (pay.state === 'approved') {
+                    this.stat.success ++;
+                    this.stat.point += parseInt(pay.point, 10);
+                    if ( (<string>pay.currency).toLowerCase() === 'usd' ) {
+                        this.stat.usd += parseFloat(pay.amount);
+                    } else if ( (<string>pay.currency).toLowerCase() === 'kwr' ) {
+                        this.stat.kwr += parseInt(pay.amount, 10);
+                    }
+                    const n = `${pay.student.display_name}(${pay.student.name})`;
+                    if (this.stat.student[n]) {
+                        this.stat.student[n].count++;
+                        this.stat.student[n].point += parseInt(pay.point, 10);
+                    } else {
+                        this.stat.student[n] = {
+                            count: 1,
+                            point: parseInt(pay.point, 10),
+                            idx: pay.student.idx
+                        };
+                    }
+                    const date = this.a.shortDate( pay.stamp_begin );
+                    if (this.stat.daily[ date ]) {
+                        this.stat.daily[date] += parseInt( pay.point, 10 );
+                    } else {
+                        this.stat.daily[date] = parseInt( pay.point, 10 );
+                    }
+                } else {
+                    this.stat.fail ++;
+                }
+            }
+        }
+        this.stat.dailyDates = Object.keys( this.stat.daily ).sort();
+        this.stat.studentName = Object.keys( this.stat.student );
+        if ( this.stat.usd ) {
+            this.stat.usd = Math.round(this.stat.usd);
+        }
+
+    }
+
+    sanitize() {
+
+    }
+
+    color(point) {
+        const a = Math.round( point / 100000 );
+        if ( a < 3 ) {
+            return 'grey';
+        } else if ( a < 5 ) {
+            return 'blue';
+        } else if ( a < 7 ) {
+            return 'orange';
+        }
+        return 'red';
+    }
+
+    onClickStudent(idx) {
+        this.form.idx_student = idx;
+        this.form.date_begin = '';
+        this.form.date_end = '';
+        this.onSubmit();
+    }
 
 }
 

@@ -1,0 +1,50 @@
+form {
+    .narrow {
+        width: 3em;
+    }
+    .normal {
+        width: 10em;
+    }
+}
+.statNo {
+    display: inline-block;
+    margin: 0 1em 0 0;
+    padding: .25em;
+    background-color: antiquewhite;
+}
+.students {
+    .student {
+        display: inline-block;
+        margin-right: 1em;
+        cursor: pointer;
+        .count {
+            display: inline-block;
+            margin: .5em;
+            padding: .25em;
+            border-radius: 3px;
+            background-color: grey;
+            color: white;
+            font-size: .85em;
+
+            &[count='2'] {
+                background-color: rgb(47, 60, 119);
+            }
+            &[count='3'] {
+                background-color: rgb(110, 61, 61);
+            }
+            &[count='4'],&[count='5'],&[count='6'], {
+                background-color: rgb(151, 22, 22);
+            }
+            &[count='7'],&[count='8'],&[count='9'], {
+                background-color: rgb(255, 0, 0);
+            }
+        }
+    }
+}
+
+.daily {
+    .bar {
+        display: inline-block;
+        background-color: blue;
+    }
+}

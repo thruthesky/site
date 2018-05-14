@@ -1362,7 +1362,7 @@ export class AppService {
             dt = dt.substring(dt.indexOf(',') + 2).toLowerCase();
             dt = dt.replace(/\:\d\d /, ' ');
         } else {
-            dt = d.getFullYear().toString().substr(2, 2) + '-' + d.getMonth() + '-' + d.getDate();
+            dt = d.getFullYear().toString().substr(2, 2) + '-' + this.add0(d.getMonth() + 1) + '-' + this.add0(d.getDate());
         }
         return dt;
     }
@@ -1579,7 +1579,7 @@ export class AppService {
      * @param YmdHi YmdHi
      */
     getUTCYmdHisFromUserYmdHi(YmdHi: string): string {
-        if ( ! YmdHi ) {
+        if (!YmdHi) {
             return '';
         }
         console.log('YmdHis: ', YmdHi);
@@ -1603,7 +1603,7 @@ export class AppService {
      */
     getUTCYmd(YmdHi: string): string {
         const re = this.getUTCYmdHisFromUserYmdHi(YmdHi);
-        if ( re ) {
+        if (re) {
             return re.substr(0, 8);
         }
         return '';
@@ -1614,7 +1614,7 @@ export class AppService {
      */
     getUTCHi(YmdHi: string): string {
         const re = this.getUTCYmdHisFromUserYmdHi(YmdHi);
-        if ( re ) {
+        if (re) {
             return re.substr(8, 4);
         }
         return '';
