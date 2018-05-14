@@ -1,0 +1,114 @@
+header{
+    padding: .5em 2em;
+    background-color: #ffc107;
+    color: #000;
+
+    h2{
+        font-size: 90%;
+    }
+}
+
+main{
+    padding-bottom:5em;
+    background: #fff;
+}
+
+.loader{
+    padding: 3em;
+    text-align: center;
+}
+
+.select-amount{
+    padding:2em;
+    padding-top: 5em ;
+    .header{
+        color:blue;
+    }
+
+
+    @media screen and (max-width:544px){
+        padding-top: 2.5em;
+
+    }
+
+}
+
+.amounts{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2em;
+    background-color: #1862c5;
+    color:white;
+    font-size: 85%;
+
+    &>div{
+        display: flex;
+        align-items: center;
+        margin: 0 .2em;
+    }
+
+    label{
+        padding-left: .3em;
+    }
+
+    @media screen and (max-width:544px){
+        padding: 2em .5em;
+        .hidden{
+            display: none;
+        }
+    }
+
+}
+
+.manual-amount-input{
+    text-align: center;
+    cursor: pointer;
+
+    .header{
+        margin-top:4em;
+    }
+
+    .header,.cancel-button{
+        color: #8b0000!important;
+    }
+
+    .input-amount{
+
+    }
+
+    input{
+        padding:.7em 1em;
+        margin: 0 .5em;
+    }
+}
+
+.login-first{
+    margin-top:4em;
+    text-align: center;
+}
+
+.paypal-ready{
+    text-align: center;
+    padding: 4em;
+}
+
+.paypal-button{
+    margin:2em 1em;
+}
+
+.app-button{
+    padding: .3em 1em;
+}
+
+.desc{
+    padding: 1em;
+    background-color: #d9dde8;
+    font-size: 85%;
+
+    &>div{
+        padding: 0 1em;
+        padding-top: 1em;
+        padding-bottom: .5em;
+    }
+}

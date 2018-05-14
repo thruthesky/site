@@ -1,6 +1,108 @@
-.reserve-button {
-    padding-top: 1em;
-    cursor: pointer;
-    background-color: orange;
-    color: white;
+@import '../../../../../theme/vars.scss';
+header{
+    h1{
+        margin: 0;
+        padding: 1em;
+        background-color: #ff9800;
+    }
+
+    div{
+        padding: 1em;
+        background-color: #e1e6e7;
+    }
+}
+
+.loader{
+    padding: 3em;
+    text-align: center;
+}
+
+main{
+    min-height: 540px;
+    font-size: 90%;
+
+    .container-fluid{
+        @media screen and (min-width:$md){
+            padding-top: 3em;
+        }
+
+        .row{
+            padding: .5em 0;
+            justify-content: space-around;
+        }
+
+        .col{
+            padding: 0;
+            margin: .5em 0;
+        }
+    }
+
+    .teacher{
+        margin: auto;
+        width: 100px;
+        text-align: center;
+
+        .teacher-profile-photo{
+            height: 120px;
+            width: 100px;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+            }
+        }
+
+
+        .teacher-info{
+            padding: 0 .3em;
+            background: #fff;
+        }
+
+        .teacher-name{
+            padding: .2em 0;
+            padding-top: .6em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .reservations,
+        .class-duration,
+        .point{
+            font-weight: 200;
+            font-size: 90%;
+            padding: .1em 0;
+        }
+
+        .grade{
+            span{
+                display: inline-block;
+            }
+        }
+
+        .reservations{
+            padding-top: .5em;
+        }
+
+        .point{
+            padding-bottom: .6em;
+        }
+    
+        .star{
+            height: 1em;
+        }
+
+        .reserve-button {
+            padding: .8em;
+            background-color: orange;
+            color: white;
+            cursor: pointer;
+            font-size: 90%;
+        }
+        
+        .reserve-loader{
+            padding: .3em;
+            font-size: 90%;
+        }
+    }
+
 }

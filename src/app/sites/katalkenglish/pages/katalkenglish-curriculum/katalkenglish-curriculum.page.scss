@@ -1,12 +1,29 @@
-katalkenglish-curriculum-page {
-  .page-body {
-    .text {
-      padding: 1em;
-      line-height: 4rem!important;
-      font-size: 2rem!important;
-      & > div {
-        margin: 1em 0;
-      }
-    }
+header{
+  h1{
+    margin: 0;
+    padding: 1em;
+    background-color: #ececec;
+    color: #3a476b!important;
+  }
+
+  div{
+    background-color: #bababa;
+    padding: 1em;
+  }
+}
+
+main{
+  padding-bottom: 5em;
+  .status{
+    padding: 0;
+    padding-top: 1.5em!important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 110%;
+  }
+
+  div{
+    padding: 1.5em 0;
+    font-size: 120%;
   }
 }
