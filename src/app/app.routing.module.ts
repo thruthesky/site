@@ -173,6 +173,10 @@ const routes: Routes = [
     path: 'session-refund-request',
     loadChildren: './pages/session-refund-request/session-refund-request.page.module#SessionRefundRequestPageModule'
   },
+  {
+    path: 'session-refund-review',
+    loadChildren: './pages/session-refund-review/session-refund-review.page.module#SessionRefundReviewPageModule'
+  },
 
   {
     path: 'teacher-list',

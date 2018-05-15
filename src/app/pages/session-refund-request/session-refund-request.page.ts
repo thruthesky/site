@@ -37,7 +37,7 @@ export class SessionRefundRequestPage implements OnInit {
                 refund_request_message: this.message
             }).subscribe( () => {
                 this.loadingRefundRequest = false;
-                this.a.open('teacher-session-past');
+                this.a.open('session-past');
             }, e => {
                 this.a.toast(e);
                 this.loadingRefundRequest = false;

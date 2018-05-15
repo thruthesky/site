@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppService } from '../../../../providers/app.service';
+import { AppService, SHARE_SESSION_LIST } from '../../../../providers/app.service';
 
 
 @Component({
@@ -8,7 +8,11 @@ import { AppService } from '../../../../providers/app.service';
   styleUrls: ['ontue-session-future.page.scss'],
 })
 export class OntueSessionFuturePage {
-  constructor(
+
+    page = 'session-future';
+    share: SHARE_SESSION_LIST = <SHARE_SESSION_LIST> {options: false};
+
+    constructor(
     public a: AppService
   ) {
 

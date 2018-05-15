@@ -1,0 +1,30 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: 90%;
+  font-weight: 100;
+
+  h1{
+    margin: 0 1.3em;
+    font-weight: 500;
+  }
+
+  .option{
+    display: flex;
+    padding: 1.5em;
+    font-weight: 200;
+    cursor: pointer;
+
+    ion-icon{
+      margin-right: .2em;
+    }
+  }
+
+}
+
+main{
+  padding-bottom: 5em;
+}
