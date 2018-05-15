@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../providers/app.service';
-import { STUDENT_COMMENT_TO_TEACHER, STUDENT_COMMENTS_TO_TEACHER } from '../../modules/xapi/interfaces';
+import { STUDENT_COMMENT_TO_TEACHER } from '../../modules/xapi/interfaces';
 
 
 @Component({

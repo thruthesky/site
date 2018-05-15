@@ -169,6 +169,10 @@ const routes: Routes = [
     path: 'message',
     loadChildren: './pages/message/message.page.module#MessagePageModule'
   },
+  {
+    path: 'session-refund-request',
+    loadChildren: './pages/session-refund-request/session-refund-request.page.module#SessionRefundRequestPageModule'
+  },
 
   {
     path: 'teacher-list',
