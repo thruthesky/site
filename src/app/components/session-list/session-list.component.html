@@ -127,69 +127,6 @@
 
     </div>
 
-    <!-- <div class="container-fluid" *ngIf=" re && books.length ">
-        <div class="row">
-            <div class="col-md-2 col-12">
-                <i class=" d-md-inline d-none fal fa-list fa-4x  mb-3 orange"></i>
-                <div>
-                    <i class="d-inline d-md-none fal fs-2rem fa-list  mr-2 orange"></i>
-                    <div>{{ 'SEARCHED SESSIONS' | t }}</div>
-                    <div>{{ books.length }}</div>
-                    <div>( {{ 'TOTAL' | t }} : {{ re.total_sessions }} )</div>
-                </div>
-            </div>
-            <div class="col-md-2 col-12" *ngIf=" a.isTeacher ">
-                <i class="fal fa-check-circle fa-4x  d-none d-md-inline mb-3 green"></i>
-                <div>
-                    <i class="fal fa-check-circle d-inline d-md-none  mr-2 fs-2rem green"></i>
-                    <div>{{ 'SEARCHED POINT' | t }}</div>
-                    <div>{{ re.total_points | number }}</div>
-                </div>
-            </div>
-            <ng-container *ngIf=" past ">
-                <div class="col-md-2 col-12" *ngIf=" re.total_session_refunded ">
-                    <i class="fal d-none d-md-inline fa-retweet fa-4x mb-3 brown"></i>
-                    <div>
-                        <i class="fal fa-redo-alt  d-inline d-md-none mr-2  brown fs-2rem"></i>
-                        <div>{{ 'REFUNDED SESSIONS' | t}}</div>
-                        <div>{{re.total_session_refunded}}</div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-12" *ngIf=" re.total_session_refund_in_progress ">
-                    <i class="fal fa-sync d-none d-md-inline fa-4x mb-3 teal"></i>
-                    <div>
-                        <i class="fal fa-sync d-inline d-md-none mr-2 fs-2rem teal"></i>
-                        <div>{{ 'SESSIONS IN REFUND PROGRESS' | t}}</div>
-                        <div> {{re.total_session_refund_in_progress}}</div>
-                    </div>
-                </div>
-            </ng-container>
-            <div class="col-md-2 col-12">
-                <i class="fal fa-calendar-alt fa-4x d-none d-md-inline mb-3 indigo"></i>
-                <div>
-                    <i class="fal fa-calendar-alt d-inline d-md-none mr-2 fs-2rem indigo"></i>
-                    <div>{{ 'SEARCH PERIOD' | t}}</div>
-                    <div>
-                        <span>{{ date_begin }}</span>
-                        <span> ~ </span>
-                        <span> {{ date_end }} </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-12" routerLink="/settings">
-                <i class="fal fa-globe dodgerblue fa-4x d-none d-md-inline  mb-3"></i>
-                <div>
-                    <i class="fal fa-globe d-inline d-md-none mr-2 fs-2rem dodgerblue"></i>
-                    <div>{{ 'TIMEZONE NOW' | t}}</div>
-                    <div>{{ a.userTime }}</div>
-                </div>
-                <div>{{ 'CHANGE TIMEZONE' | t }}</div>
-            </div>
-        </div>
-
-
-    </div> -->
-
     <div class="no-more" *ngIf=" re && books.length == 0 ">
         <ng-container *ngIf=" future ">{{ 'NO_MORE_RESERVATIONS' | t}}</ng-container>
         <ng-container *ngIf=" past ">{{ 'NO_MORE_PASTS' | t}}</ng-container>
@@ -297,7 +234,7 @@
                                         <span>{{ 'PAID' | t}}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded( book ) ">
-                                        <span>{{ 'REFUNDED' | t}}</span>
+                                        <span>{{ 'REFUNDED' | t }}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refund_in_progress(book) ">
                                         <div>
@@ -324,18 +261,18 @@
                                     <div class="col-6" *ngIf=" refunded(book) ">
                                         <span class="refunded"> {{ 'REFUNDED' | t }}</span>
                                     </div>
-                                    <div class="col-6" *ngIf=" !book.refund_timeover && ! rejected( book )">
+                                    <div class="col-6" *ngIf=" ! book.refund_timeover && ! rejected( book )">
                                         <ng-container *ngIf=" ! refunded( book ) ">
                                             <button (click)=" onClickCancelRefundRequest( book )"
-                                                    *ngIf="book.refund_request_at > 0 ">{{ "CANCEL_REFUND_REQUEST" | t
-                                                }}
+                                                    *ngIf="book.refund_request_at > 0 ">
+                                                {{ "CANCEL_REFUND_REQUEST" | t }}
                                             </button>
                                             <button class="request-refund" (click)=" a.open( 'session-refund-request', {idx: book.idx} )"
                                                     *ngIf=" book.refund_request_at == 0">
                                                 <span *ngIf="loadingRefundRequest">
                                                     <svg class="button-icon spin" aria-hidden="true" data-prefix="fal" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M288 32c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-32 416c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm256-192c0-17.673-14.327-32-32-32s-32 14.327-32 32 14.327 32 32 32 32-14.327 32-32zm-448 0c0-17.673-14.327-32-32-32S0 238.327 0 256s14.327 32 32 32 32-14.327 32-32zm33.608 126.392c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm316.784 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM97.608 65.608c-17.673 0-32 14.327-32 32 0 17.673 14.327 32 32 32s32-14.327 32-32c0-17.673-14.327-32-32-32z"></path></svg>
                                                 </span>
-                                                {{ "REQUEST_REFUND" | t}}
+                                                {{ "REQUEST_REFUND" | t }}
                                             </button>
                                         </ng-container>
                                     </div>
@@ -358,7 +295,7 @@
                                     <span *ngIf=" book.ready ">
                                         <svg class="button-icon spin" aria-hidden="true" data-prefix="fal" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M288 32c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-32 416c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm256-192c0-17.673-14.327-32-32-32s-32 14.327-32 32 14.327 32 32 32 32-14.327 32-32zm-448 0c0-17.673-14.327-32-32-32S0 238.327 0 256s14.327 32 32 32 32-14.327 32-32zm33.608 126.392c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm316.784 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM97.608 65.608c-17.673 0-32 14.327-32 32 0 17.673 14.327 32 32 32s32-14.327 32-32c0-17.673-14.327-32-32-32z"></path></svg>
                                     </span>
-                                    <span>{{ 'READY' | t}}</span>
+                                    <span>{{ 'READY' | t }}</span>
                                 </button>
                             </div>
                         </div>

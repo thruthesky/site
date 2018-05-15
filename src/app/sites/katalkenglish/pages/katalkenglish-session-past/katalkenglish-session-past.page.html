@@ -21,7 +21,7 @@
             <div class="desc">{{ 'YOUR_ENGLISH_LEVEL' | t}}</div>
             <div> {{ 'LEVELS_ARE_FROM_1_9' | t}}:</div>
         </div>
-        <div class="level-body container-fluid">
+        <div class="level-body container-fluid" *ngIf="showLevel">
             <div class="row">
                 <div class="col-md-2 col-4">
                     <div class="bg-default" [class.bg-active]="myLevel<4">

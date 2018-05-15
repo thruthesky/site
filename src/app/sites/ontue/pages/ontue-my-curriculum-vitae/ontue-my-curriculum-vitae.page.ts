@@ -239,5 +239,15 @@ export class OntueMyCurriculumVitaePage {
         // console.log("Birthday:: ",this.account.birthday);
     }
 
+
+    set _birthday( date ) {
+        const d = new Date(date);
+        this.birthday = d.getFullYear() + '-' + this.a.add0((d.getMonth() + 1)) + '-' + this.a.add0(d.getDate());
+        this.onChangeBirthDate();
+    }
+    get _birthday() {
+        return this.birthday;
+    }
+
 }
 
