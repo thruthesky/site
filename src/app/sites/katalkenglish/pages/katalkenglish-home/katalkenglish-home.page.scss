@@ -1,0 +1,346 @@
+.left{
+    padding: 0;
+}
+
+#student-comments{
+
+    h2{
+        padding: .5em;
+        font-size: 1.1em;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .comment{
+        .title{
+            margin-top: .4em;
+            font-size: 1em;
+            font-weight: 300;
+            color: #0a0a63;
+        }
+    
+        .date{
+            margin-top: .4em;
+            font-size: .8em;
+            color: #6a9dcc;
+        }
+
+        .description{
+            margin: 1.5em 0;
+            margin-bottom: 4em;
+            line-height: 1.7em;
+            font-weight: 200;
+            font-size: 90%;
+        }
+
+        .row{
+            &>div{
+                padding: .1em;
+            }
+        }
+    }
+
+    .more{
+        padding: .6em;
+        font-size: .9em;
+        text-align: center;
+        color: #484848;
+        background-color: #b1b7c3;
+        cursor: pointer;
+    }
+
+    .student-photo{
+        width: 86px;
+        height: 86px;
+        overflow: hidden;
+        border-radius: 50%;
+    
+        img{
+            width: 100%;
+        }
+    }
+
+}
+
+.stats-wrapper{
+    .stats{
+        margin: 2.5em 0;
+
+        .col{
+            padding: 0;
+        }
+
+        .item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin:auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+
+
+            .text{
+                font-size: 90%;
+                font-weight: 100;
+            }
+            
+            .number{
+                margin-top: .1em;
+                font-size: 150%;
+                font-weight: 200;
+            }
+        }
+
+        .leveltest{
+            background-color: #cd5c5c;
+        }
+        .reservation{
+            background-color: #5c84cd;
+        }
+        .teacher{
+            background-color: #787951;
+        }
+
+    }
+}
+
+.teacher-list{
+    h2{
+        margin: 0;
+        margin-top: 2em;
+        font-size: 1.1em;
+        font-weight: normal;
+    }
+
+    .row{
+        justify-content: space-around;
+
+        &>div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+            font-size: 85%;
+        }
+
+        .teacher-info{
+            margin-top: .3em;
+            margin-bottom: 2em;
+        }
+    }
+
+    .total-teachers{
+        margin: .5em 0;
+        margin-bottom: 1.2em;
+        padding: .4em;
+        color: #0c5460;
+        font-size: 90%;
+        background-color: #d1ecf1;
+    }
+
+    .teacher-profile-photo{
+        width: 100px;
+        height: 120px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+
+    .teacher-list-button{
+        padding: .3em;
+        color: #464a4e;
+        background-color: #e7e8ea;
+        border: 1px solid #dddfe2;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    
+    
+    .grade{
+        svg{
+            height: .9em;
+        }
+    
+        &[grade="5"]{
+            color: #f06000;
+          }
+          
+          &[grade="4"] {
+            color: #ff9900;
+          }
+          
+          &[grade="3"] {
+            color: #4a8d23;
+          }
+          
+          &[grade="2"] {
+            color: #272775;
+          }
+          
+          &[grade="1"] {
+            color: #272727;
+          }
+    }
+}
+
+.alert-blue{
+    margin-bottom: 2em;
+    padding: .5em 1em;
+    color: #0c5460;
+    background-color: #d1ecf1;
+}
+
+
+.my-own-plan{
+    padding: 3em .3em;
+    background-color: #e6e6e6;
+
+    .container-fluid{
+        padding: 0 1em;
+
+        .col-6{
+            padding: 0;
+        }
+    }
+
+    h2{
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+
+    .text,.view-more{
+        font-size: .9em;
+    }
+
+    .calendar-img{
+        width: 100%;
+        padding: 0 1em;
+    }
+
+    .view-more{
+        margin: .5em 0;
+        cursor: pointer
+    }
+
+    .moreMyOwnPlan {
+        animation: a1234 .2s 1;
+        animation-timing-function: ease-in;
+        position: relative;
+        margin: .7em .1em 0 ;
+        padding: 1em;
+        font-size: 90%;
+        font-weight: 100;
+        color: #fff;
+
+        &.no1 {
+            background-color: #395b69;
+        }
+    
+        &.no2 {
+            background-color: #d8aa02;
+        }
+    
+        &.no3 {
+            background-color: #883f29;
+        }
+
+        @keyframes  a1234 {
+            0% {
+                opacity: 0;
+                left: 100%;
+            }
+            
+            100% {
+                opacity: 1;
+                left: 0;
+            }
+        }
+
+    }
+
+
+}
+
+
+.about-katalkenglish{
+    padding: 4em 1em;
+    background-color: #fff; 
+    font-size: 85%;
+    line-height: 1.7em;
+
+    img{
+        width:100%;
+    }
+
+    .col-3,.col-9{
+        padding: .3em;
+    }
+
+    h2{
+        margin: 0;
+        font-size: 1.3em;
+        font-weight: 400;
+    }
+
+    .show-more{
+        padding: .3em;
+    }
+}
+
+
+.more-about-katalkenglish{
+
+    .help{
+        font-size: 90%;
+        padding: .5em;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .inner{
+        padding: 1em;
+        background: #f5db00;
+    
+        .text {
+            margin: .7em 0;
+            font-weight: 200;
+            font-size: 90%;
+            animation: animoreabout 1s 1;
+        }
+    
+        @keyframes animoreabout {
+            0% {
+                opacity: .1;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    
+        .no1 {
+            color: #0068ca;
+        }
+    
+        .no2 {
+            color: #df6603;
+        }
+    
+        .no3 {
+            color: #075347;
+        }
+    
+        .no4 {
+            color: #494949;
+        }
+    }
+
+}
+

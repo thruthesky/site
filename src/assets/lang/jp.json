@@ -365,6 +365,19 @@
     "IN_RESERVING":"予約",
 
 
+    "PAYMENT_RESULT_PAGE_TITLE":"支払い結果",
+    "PAYMENT_SUCCES":"支払い完了",
+    "PAYMENT_FAILED":"まあ、支払いに失敗しました。",
+    "YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY":"支払い履歴は、[支払い履歴]メニューで確認できます。",
+
+    "TEACHER_GRADE":"教師のグレード",
+
+    "TEACHER_LIST_IS_LOGIN":"#USERNAME様、全体の先生の数は#TOTAL人であり、会員の予約された授業は#RESERVATIONS回で過去の授業は#PASTS回です。",
+    "TEACHER_LIST_IS_LOGOUT":"現在表示されている先生は#TOTAL人です。オプションにより、すべての先生を見ることができます。ログインをすると、会員様の授業情報が表示されます。",
+
+    "NO_MORE_TEACHERS":"もはや推奨講師がありません。オプションを使用して、より多くの講師を見ることができます。",
+    "GOTO_OPTIONS":"オプション",
+
   "STUDENT COMMENTS": [{
     "name": "유진형",
     "date": "2018년 1월 24일",

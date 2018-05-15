@@ -365,6 +365,17 @@
     "RESERVE_NOW":"立即预订",
     "IN_RESERVING":"预订",
 
+    "PAYMENT_RESULT_PAGE_TITLE":"付款结果",
+    "PAYMENT_SUCCES":"支付成功",
+    "PAYMENT_FAILED":"那么付款失败了。",
+    "YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY":"您可以在付款历史记录菜单中查看付款记录。",
+
+    "TEACHER_GRADE":"教师等级",
+    "TEACHER_LIST_IS_LOGIN":"亲爱的#USERNAME，#TOTAL老师总共#RESERVATIONS预订了课程，#PASTS最后一堂课",
+    "TEACHER_LIST_IS_LOGOUT":"目前#TOTAL教师可见。 您可以通过选项查看所有教师。 当你登录时，你的班级信息将被显示。",
+    "NO_MORE_TEACHERS":"没有更多的推荐导师。 通过选项可以看到更多的教练。",
+    "GOTO_OPTIONS":"打开选项窗口",
+
   "STUDENT COMMENTS": [{
     "name": "유진형",
     "date": "2018년 1월 24일",

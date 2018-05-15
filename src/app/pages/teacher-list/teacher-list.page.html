@@ -37,7 +37,7 @@
                 <div class="col">
 
                     <mat-form-field>
-                        <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() " placeholder="{{ 'TEACHER GRADE' | t }}">
+                        <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() " placeholder="{{ 'TEACHER_GRADE' | t }}">
                             <mat-option value="Y">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
                             <mat-option value="M">{{"ALL_TEACHER" | t}}</mat-option>
                         </mat-select>
@@ -53,20 +53,17 @@
 
         <div *ngIf=" re && a.studentTheme ">
             <div *ngIf="a.user.isLogin ">
-                <div>
-                    {{ a.user.name }}님, 전체 선생님 수는
-                    <b>{{ re.total }}</b> 명이며, 회원님의 예약된 수업은
-                    <b>{{ a.lmsInfoUserNoOfReservation }}</b>회이며 지난 수업은
-                    <span *ngIf=" a.lmsInfoUserNoOfPast ">
-                        <b>{{ a.lmsInfoUserNoOfPast }}</b>회입니다.</span>
-                    <span *ngIf=" a.lmsInfoUserNoOfPast == 0">없습니다.</span>
+                <div>{{'TEACHER_LIST_IS_LOGIN' | t : { 
+                    'USERNAME' : a.user.name, 
+                    'TOTAL' : re.total, 
+                    'RESERVATIONS' :a.lmsInfoUserNoOfReservation, 
+                    'PASTS' :a.lmsInfoUserNoOfPast 
+                } }}
                 </div>
             </div>
 
             <div *ngIf="a.user.isLogout ">
-                <div>
-                    현재 표시되는 선생님은 {{ re.total }} 명입니다. 옵션을 통해서 모든 선생님을 볼 수 있습니다. 로그인을 하시면 회원님의 수업 정보가 표시됩니다.
-                </div>
+                <div>{{'TEACHER_LIST_IS_LOGOUT' | t : { 'TOTAL' : re.total } }}</div>
             </div>
 
         </div>
@@ -140,9 +137,9 @@
 
         <div id="no-more-teachers" *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
 
-            <div>더 이상 추천 강사가 없습니다. 옵션을 통해 더 많은 강사를 볼 수 있습니다.</div>
+            <div>{{ 'NO_MORE_TEACHERS' | t }}</div>
             <button (click)="onClickShowAllTeachers() ">
-                <span>옵션 창 열기</span>
+                <span>{{ 'GOTO_OPTIONS' | t}}</span>
                 <ion-icon name="options"></ion-icon>
             </button>
         </div>

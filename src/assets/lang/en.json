@@ -427,6 +427,18 @@
     "RESERVE_NOW":"RESERVE NOW",
     "IN_RESERVING":"BOOKING",
 
+
+    "PAYMENT_RESULT_PAGE_TITLE":"PAYMENT RESULT",
+    "PAYMENT_SUCCES":"Payment Successful",
+    "PAYMENT_FAILED":"Well, the payment failed.",
+    "YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY":"You can check your payment history in the Payment History menu.",
+
+    "TEACHER_GRADE":"Teacher Grade",
+    "TEACHER_LIST_IS_LOGIN":"Dear #USERNAME, #TOTAL teachers are in total #RESERVATIONS booked class and #PASTS last class",
+    "TEACHER_LIST_IS_LOGOUT":"Currently #TOTAL teachers are visible. You can see all teachers through options. When you log in, your class information will be displayed.",
+    "NO_MORE_TEACHERS":"No more recommended tutors. You can see more instructors through the options.",
+    "GOTO_OPTIONS":"OPEN OPTIONS WINDOW",
+
   "STUDENT COMMENTS": [{
     "name": "유진형",
     "date": "2018년 1월 24일",

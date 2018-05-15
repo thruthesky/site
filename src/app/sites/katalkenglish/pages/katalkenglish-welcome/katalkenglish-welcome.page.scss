@@ -1,0 +1,48 @@
+@import '../../../../../theme/vars.scss';
+header{
+    h2{
+        margin: 0;
+        padding: 1em;
+        background: #cfd8dc;
+        font-size: 1em;
+    }
+}
+
+main{
+    padding-bottom: 5em;
+    min-height: 540px;
+    background: #fff;
+    text-align: center;
+
+    .icon{
+        margin-top: 7em;
+
+        @media screen and (max-width:$sm){
+            margin-top: 4em;
+        }
+        margin-bottom: 4em;
+        color: dodgerblue;
+        height: 10em;
+    }
+
+    .try{
+        padding: 3em;
+        color:blue;
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+
+    }
+
+    .message{
+        padding: 0 6em;
+        font-size: 1.5em;
+
+        @media screen and (max-width:$sm){
+            padding: 0 1em;
+            font-size: 1em;
+        }
+    }
+}
