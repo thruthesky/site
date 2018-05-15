@@ -45,7 +45,8 @@ export class AdminPaymentPage implements OnInit {
         limit: 500
     };
     show = {
-        loader: false
+        loader: false,
+        stat: false
     };
     stat: STAT;
     constructor(
@@ -110,7 +111,6 @@ export class AdminPaymentPage implements OnInit {
 
     getWhere(): string {
         const where: Array<string> = [];
-
         if (this.form.idx_student) {
             where.push(`p.idx_student=${this.form.idx_student}`);
         }
@@ -120,10 +120,12 @@ export class AdminPaymentPage implements OnInit {
         if (this.form.date_begin) {
             console.log('date_begin: ', this.form.date_begin);
             // console.log('ymdhi: ', this.a.getYmdHi( new Date(this.form.date_begin) ));
+            console.log(new Date(this.form.date_begin));
             const begin_stamp = new Date(this.form.date_begin).getTime() / 1000;
             where.push(`p.stamp_begin>=${begin_stamp}`);
         }
         if (this.form.date_end) {
+            console.log(new Date(this.form.date_end));
             const stamp = new Date(this.form.date_end).getTime() / 1000;
             where.push(`p.stamp_begin<=${stamp}`);
         }

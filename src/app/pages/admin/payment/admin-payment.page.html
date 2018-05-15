@@ -49,21 +49,27 @@
     Total (success) KWR: <span class="statNo">{{ stat.kwr | number }}</span>
     No of student who (successfully) paid: <span class="statNo">{{ stat.studentName.length }}</span>
 
-    <hr> Daily Successful Paymnet Point:
-    <div class="dailys">
-        <span class="daily" *ngFor="let date of stat.dailyDates">
-            {{ date }} {{ stat.daily[date] | number }}
-            <span class="bar" [style.width]=" stat.daily[date] / 10000 + 'px' " [style.backgroundColor]=" color(stat.daily[date]) ">.</span>
-        </span>
+    <hr>
+    <button class="app-button" (click)=" show.stat = true ">Show Daily Payment and Student Payment Statistics</button>
+   
+    <div *ngIf=" show.stat ">
+            Daily Successful Paymnet Point:
+            <div class="dailys">
+                <span class="daily" *ngFor="let date of stat.dailyDates">
+                    {{ date }} {{ stat.daily[date] | number }}
+                    <span class="bar" [style.width]=" stat.daily[date] / 10000 + 'px' " [style.backgroundColor]=" color(stat.daily[date]) ">.</span>
+                </span>
+            </div>
+            <hr> Successful Payment of Student: If you click on student, you will see the payments of the student.
+            <div class="students">
+                <span class="student" *ngFor="let student of stat.studentName" (click)="onClickStudent( stat.student[student].idx )">
+                    <span class="name">{{ student }}</span>
+                    <span class="count" [attr.count]=" stat.student[student].count ">{{ stat.student[student].count }}</span>
+                    <span class="point">{{ this.stat.student[student].point | number }}</span>
+                </span>
+            </div>
     </div>
-    <hr> Successful Payment of Student: If you click on student, you will see the payments of the student.
-    <div class="students">
-        <span class="student" *ngFor="let student of stat.studentName" (click)="onClickStudent( stat.student[student].idx )">
-            <span class="name">{{ student }}</span>
-            <span class="count" [attr.count]=" stat.student[student].count ">{{ stat.student[student].count }}</span>
-            <span class="point">{{ this.stat.student[student].point | number }}</span>
-        </span>
-    </div>
+
 
     <div *ngIf="show.loader"><h2>Loading...</h2></div>
     <table class="payments">

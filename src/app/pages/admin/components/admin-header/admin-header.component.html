@@ -7,14 +7,91 @@
 
         <button routerLink="/admin/user">User</button>
         <button routerLink="/admin/session">Session</button>
-        <button routerLink="payment">Payment</button>
+        <button routerLink="/admin/payment">Payment</button>
 
-        <!-- <button routerLink="/install">
-            <span>Install</span>
-        </button>
+        <a href="https://github.com/thruthesky/site#how-to-install-a-branch-site" target="_blank">
+            Create a branch
+        </a>
 
         <button routerLink="/category">
             <span>Category</span>
-        </button> -->
+        </button>
     </nav>
 </section>
+
+
+<aside>
+    <section class="payments">
+
+        <h2>Paymnet Information</h2>
+        <hr>
+        Today's Total Point: {{ pointToday | number }}
+        <table>
+            <tr class="payment" *ngFor="let payment of payments">
+                <td>
+                    {{ a.shortName( payment.student?.display_name ) }}
+                </td>
+                <td>
+                    {{ payment.point | number }}
+                </td>
+                <td>
+                    {{ a.shortDate( payment.stamp_begin ) }}
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <h2>Reservation Stat</h2>
+    <hr>
+    <section class="stat" *ngIf="stats">
+
+            No. of Reservation: {{ stats['no_of_reservation'] }} No. of Past: {{ stats['no_of_past'] }}
+            <hr>
+            No. of Sessions by Grade:
+            <span class='session'>
+                <span class='grade'>1</span>
+                <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
+                <span class='past'>{{ stats['stat']['past']['1'] }}</span>
+            </span>
+            <span class='session'>
+                <span class='grade'>2</span>
+                <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
+                <span class='past'>{{ stats['stat']['past']['2'] }}</span>
+            </span>
+            <span class='session'>
+                <span class='grade'>3</span>
+                <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
+                <span class='past'>{{ stats['stat']['past']['3'] }}</span>
+            </span>
+            <hr>
+            <div class="teacher-sessions">
+                <span class='teacher' *ngFor="let teacher of stats.teachers">
+                    <span class="name">{{ teacher.name }}</span>
+                    <span class="reserved">{{ teacher.reserved }}</span>
+                    <span class="past">{{ teacher.past }}</span>
+                </span>
+            </div>
+        
+    </section>
+
+    <h2>Sessions of on going. Timezone: {{ a.userTime }}</h2>
+    <hr>
+    <table class="sessions" *ngIf=" sessions.length ">
+        <tr>
+                <th>idx</th>
+                <th>Teacher</th>
+                <th>Student</th>
+                <th>Date</th>
+                <th>Begin</th>
+                <th>Check</th>
+        </tr>
+        <tr class="session" *ngFor="let session of sessions">
+            <td>{{ session.idx }}</td>
+            <td>{{ session.teacher?.display_name }}</td>
+            <td>{{ session.student?.display_name }}</td>
+            <td>{{ session.date }}</td>
+            <td>{{ session.class_begin }}</td>
+            <td>{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</td>
+        </tr>
+    </table>
+</aside>

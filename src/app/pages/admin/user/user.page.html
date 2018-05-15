@@ -1,7 +1,6 @@
 <admin-header-component></admin-header-component>
 <h1>User</h1>
 
-
 <form (ngSubmit)="onSubmit()">
     User
     <input class="wide" type="text" name="name" [(ngModel)]="form.name" placeholder="uid, email, kakaotalk id, display name"> Type
@@ -93,7 +92,7 @@
             <!-- {{ day | json }} -->
             <div class="bar" [style.height]=" stat.daily_registration.data[day] + 'px' " [style.backgroundColor]="dailyColor(stat.daily_registration.data[day])">.</div>
             <div class="day">{{ stat.daily_registration.data[day] }}</div>
-            <div class="date">{{ shortDate(day) }}</div>
+            <div class="date">{{ day }}</div>
             <!-- {{ stat.daily_registration.data[day] | json }} -->
         </div>
     </div>
@@ -101,6 +100,8 @@
     <table class="users">
         <tr>
                 <th *ngIf=" form.display.ID ">ID</th>
+                <th>Display Name</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Katalk ID</th>
                 <th>Point</th>
@@ -115,6 +116,8 @@
         </tr>
         <tr class="user" *ngFor=" let user of re ">
             <td class="id" *ngIf=" form.display.ID ">{{ user.ID }}</td>
+            <td class="display_name">{{ a.shortName( user.user_email ) }}</td>
+            <td class="name">{{ user.name }}</td>
             <td class="user_email">{{ user.user_email }}</td>
             <td class="kakaotalk_id">{{ user.kakaotalk_id }}</td>
             <td class="point">{{ user.point | number }}</td>

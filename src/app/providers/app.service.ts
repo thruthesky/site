@@ -1597,6 +1597,22 @@ export class AppService {
         console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
         return this.getYmdHi(new Date(utcStamp * 1000));
     }
+    getUserYmdHiFromUTCYmdHi(YmdHi: string): string {
+        if (!YmdHi) {
+            return '';
+        }
+
+        const Y = parseInt(YmdHi.substr(0, 4), 10);
+        const m = parseInt(YmdHi.substr(4, 2), 10) - 1;
+        const d = parseInt(YmdHi.substr(6, 2), 10);
+        const H = parseInt(YmdHi.substr(8, 2), 10);
+        const i = parseInt(YmdHi.substr(10, 2), 10);
+
+        const date = new Date(Y, m, d, H, i);
+        const utcStamp = this.getStamp(date);
+        const userStamp = utcStamp + this.getUserTimezone() * 60 * 60;
+        return this.getYmdHi(new Date(userStamp * 1000));
+    }
     /**
      * Returns UTC Ymd from User Time's YmdHi
      * @param YmdHi User Time's YmdHis
@@ -1618,6 +1634,11 @@ export class AppService {
             return re.substr(8, 4);
         }
         return '';
+    }
+    getStampOfToday(): number {
+        const d = new Date();
+        const n = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0, 0);
+        return Math.round(n.getTime() / 1000);
     }
 
     // getDateOfTimezone(d: Date, tz: number) {

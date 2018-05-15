@@ -61,6 +61,8 @@ export class SessionPage implements OnInit {
         student_absent: false,
         successful: false,
         comment: false,
+        stamp_checked: false,
+        stamp_unchecked: false,
         order: 'DATETIME',
         by: 'ASC',
         limit: 150,
@@ -86,7 +88,8 @@ export class SessionPage implements OnInit {
             speed: false,
             comment: false,
             book_used: false,
-            book_next: false
+            book_next: false,
+            stamp_checked: false
         }
     };
     constructor(
@@ -214,6 +217,15 @@ export class SessionPage implements OnInit {
             where.push(`r.comment<>''`);
         }
 
+        if (this.form.stamp_checked) {
+            where.push(`r.stamp_checked>0`);
+        }
+
+        if (this.form.stamp_unchecked) {
+            where.push(`r.stamp_checked=0`);
+        }
+
+
         if ( this.form.date_begin ) {
             let YmdHiBegin;
             if ( this.form.class_begin ) {
@@ -240,7 +252,7 @@ export class SessionPage implements OnInit {
             }
             const date = this.a.getUTCYmd(YmdHi);
             const time = this.a.getUTCHi(YmdHi);
-            where.push(` r.date>'${date}' OR ( r.date<='${date}' AND r.class_begin<='${time}') `);
+            where.push(` r.date<'${date}' OR ( r.date<='${date}' AND r.class_begin<='${time}') `);
         } else {
             if ( this.form.class_end ) {
                 const time = this.a.getUTCHi('21001230' + this.form.class_end);
@@ -489,6 +501,12 @@ export class SessionPage implements OnInit {
             } else {
                 session.refund_settle_at = this.a.shortDateTime(session.refund_settle_at);
             }
+            const b = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_begin);
+            session.date = b.substr(0, 8);
+            session.class_begin = b.substr(8, 4);
+
+            const e = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_end);
+            session.class_end = e.substr(8, 4);
         }
     }
 

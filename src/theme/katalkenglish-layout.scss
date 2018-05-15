@@ -45,6 +45,9 @@ $katalkenglish-padding: 8px;
         }
         .page {
             margin-top: 0!important;
+            .page-inner {
+                margin: 0 0 0 400px;
+            }
         }
     }
 }
