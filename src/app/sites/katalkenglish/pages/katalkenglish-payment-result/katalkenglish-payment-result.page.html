@@ -1,37 +1,33 @@
-<section class="page-wrapper">
-    <div class="page">
-        <section class="page-header">
-                {{ 'PAYMENT RESULT PAGE TITLE' | t }}
-            </section>
-            
-            <section class="page-body">
-            
-                
-                <div class="p-5">
-            
-                    <div *ngIf=" re ">
-                        <h2 class="blue">{{ 'PAYMENT SUCCESS' | t }}</h2>
-                    </div>
-                    <div *ngIf=" ! re ">
-                        <h2 class="red">앗, 결제에 실패하였습니다.</h2>
-                        <div>{{ message }}</div>
-                    </div>
-                </div>
-                <div class="pl-5" *ngIf=" ! a.inLoadingMyPoint ">
-                    <div>
-                        {{ 'YOUR POINT IS' | t:{point: point} }}
-                    </div>
-            
-                    <ion-button routerLink="/payment-history">
-                        수업료 결제 내역은 결제 내역 메뉴에서 확인 할 수 있습니다.
-                    </ion-button>
-            
-                    <div *ngIf=" a.inLoadingMyPoint ">
-                        <ion-spinner class="size-3"></ion-spinner>
-                        {{ 'IN LOADING' | t}}
-                    </div>
-                </div>
-            </section>
-                
+<header>
+    <h2>{{ 'PAYMENT_RESULT_PAGE_TITLE' | t }}</h2>
+</header>
+
+<main>
+
+    <div class="payment-success" *ngIf=" re ">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg>
+        <h2 class="blue">{{ 'PAYMENT_SUCCESS' | t }}</h2>
     </div>
-</section>
+    <div class="payment-failed" *ngIf=" ! re ">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 150.5c9 9 14.1 21.2 14.1 33.9v143.1c0 12.7-5.1 24.9-14.1 33.9L361.5 497.9c-9 9-21.2 14.1-33.9 14.1H184.5c-12.7 0-24.9-5.1-33.9-14.1L14.1 361.5c-9-9-14.1-21.2-14.1-33.9V184.5c0-12.7 5.1-24.9 14.1-33.9L150.5 14.1c9-9 21.2-14.1 33.9-14.1h143.1c12.7 0 24.9 5.1 33.9 14.1l136.5 136.4zM377.6 338c4.7-4.7 4.7-12.3 0-17l-65-65 65.1-65.1c4.7-4.7 4.7-12.3 0-17L338 134.4c-4.7-4.7-12.3-4.7-17 0l-65 65-65.1-65.1c-4.7-4.7-12.3-4.7-17 0L134.4 174c-4.7 4.7-4.7 12.3 0 17l65.1 65.1-65.1 65.1c-4.7 4.7-4.7 12.3 0 17l39.6 39.6c4.7 4.7 12.3 4.7 17 0l65.1-65.1 65.1 65.1c4.7 4.7 12.3 4.7 17 0l39.4-39.8z"/></svg>
+        <h2>{{ 'PAYMENT_FAILED' | t}}</h2>
+        <div>{{ message }}</div>
+    </div>
+
+    <div class="point" *ngIf=" ! a.inLoadingMyPoint ">
+        <div class="total-point">
+            {{ 'YOUR POINT IS' | t:{point: point} }}
+        </div>
+
+        <span routerLink="/payment-history">
+            {{ 'YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY' | t}}
+
+        </span>
+
+        <div class="loader" *ngIf=" a.inLoadingMyPoint ">
+            <ion-spinner class="size-3"></ion-spinner>
+            {{ 'IN LOADING' | t}}
+        </div>
+    </div>
+
+</main>

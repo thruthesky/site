@@ -3,7 +3,8 @@ import { AppService } from '../../../../providers/app.service';
 
 @Component({
     selector: 'katalkenglish-welcome-page',
-    templateUrl: 'katalkenglish-welcome.page.html'
+    templateUrl: 'katalkenglish-welcome.page.html',
+    styleUrls: ['katalkenglish-welcome.page.scss']
 })
 export class KatalkEnglishWelcomePage {
 
