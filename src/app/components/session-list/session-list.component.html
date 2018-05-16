@@ -222,7 +222,7 @@
                             <ng-container *ngIf=" book.past ">
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
-                                        <button [class.warning]=" ! evaluated(book) "
+                                        <button class="evaluate" [class.warning]=" ! evaluated(book) "
                                                 (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
                                             {{ 'EVALUATE' | t}}
                                         </button>
@@ -243,9 +243,9 @@
                                                 {{ 'REJECTED' | t }}
                                             </button>
                                             <ng-template #Requested>
-                                                <button (click)=" a.open('session-refund-review', {idx: book.idx}) ">
-                                                    <ion-icon name="mail"></ion-icon>
-                                                    {{ 'REFUND_REQUESTED' }}
+                                                <button class="refund-requested" (click)=" a.open('session-refund-review', {idx: book.idx}) ">
+                                                    <ion-icon class="button-icon" name="mail"></ion-icon>
+                                                    {{ 'REFUND_REQUESTED' | t }}
                                                 </button>
                                             </ng-template>
                                         </div>

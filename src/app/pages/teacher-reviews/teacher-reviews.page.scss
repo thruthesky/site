@@ -1,3 +1,4 @@
+@import '../../../theme/vars.scss';
 header{
     h1{
         margin: 0;
@@ -12,6 +13,60 @@ header{
 }
 
 main{
+    .card-wrapper{
+        padding: 0;
+        margin:0 -1.2em;
+
+        &>div{
+            padding: .3em ;
+        }
+    }
+
+    .card{
+        background: #fff;
+        padding: .5em;
+        &>div{
+            padding: 0;
+        }
+
+        &-text{
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: space-between;
+            padding: .25em!important;
+            padding-right: .6em!important;
+        }
+
+        .more-button{
+            width: 50%;
+            padding: .2em;
+            border:none;
+            border-radius: 2px;
+            background: #64b5f6;
+            color: #fff;
+
+            &:hover{
+                opacity: .7;
+                cursor: pointer;
+            }
+        }
+
+        .info-wrapper{
+            width:100%;
+        }
+
+    }
+
+    .student{
+        padding-left: .8em!important;
+        border-left: 1px solid #e9ecef!important;
+
+        @media screen and (max-width:$sm){
+            display: none;
+        }
+    }
+
     .student-photo,.teacher-photo{
         display: flex;
         align-items: center;
@@ -25,7 +80,47 @@ main{
     }
 
     .teacher-photo{
+        margin: 0 auto;
         height: 120px;
+    }
+
+    .teacher-info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .teacher-name{
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            color:dodgerblue;
+            font-size: 80%;
+
+            span{
+                margin-left: .2em;
+            }
+        }
+
+        .rating{
+            color: darkorange;
+            font-size: 80%;
+
+            span{
+                margin: 0 .1em;
+            }
+        }
+
+    }
+
+    .comment{
+        padding: .3em 0;
+        font-size: 80%;
+        line-height: 1.3em;
+    }
+
+    .date{
+        margin-top: .2em;
+        font-size: 80%;
     }
 
     .student-photo{
@@ -35,5 +130,11 @@ main{
 
     .icon{
         height: 1em;
+    }
+
+    .pagination{
+        display: flex;
+        justify-content: center;
+        padding: 4em 0;
     }
 }

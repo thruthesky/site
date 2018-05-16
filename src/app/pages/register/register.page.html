@@ -185,14 +185,14 @@
                 </div>
             </div>
 
-
-            <div class="row" *ngIf=" showFindKakaotalkIDBox ">
-                <div class="col">
-                    <div class="kakaotalk-id-find-box" (click)=" showFindKakaotalkIDBox = false ">
+            <div class="kakaotalk-id-find-box row"  *ngIf=" showFindKakaotalkIDBox ">
+                <div class="col-md-10 col-sm-12">
+                    <div (click)=" showFindKakaotalkIDBox = false ">
                         <img src="assets/img/find-kakaotalk-id.jpg">
                     </div>
                 </div>
             </div>
+
 
 
             <div class="row" *ngIf=" a.teacherTheme ">
