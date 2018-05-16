@@ -38,8 +38,8 @@
         </tr>
         <tr class="" valign='top' *ngFor=" let s of re ">
             <td class="item">{{ s.idx }}</td>
-            <td class="item">{{ s.teacherName }} ( {{ s.idx_teacher }} )</td>
-            <td class="item">{{ s.studentName }} ( {{ s.idx_student }} )</td>
+            <td class="item">{{ s.teacherName }} ( {{ s.idx_teacher }} )<button class="user-info-button" routerLink="/admin/user-info/{{ s.idx_teacher }}">ES</button></td>
+            <td class="item">{{ s.studentName }} ( {{ s.idx_student }} )<button class="user-info-button" routerLink="/admin/user-info/{{ s.idx_student }}">ES</button></td>
             <td>
                 <div>{{ s.date }}</div>
                 <div>{{ s.class_begin }}</div>

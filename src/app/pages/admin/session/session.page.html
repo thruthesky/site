@@ -235,8 +235,8 @@ The time of session list is in your timezone. {{ a.userTime }}
     </tr>
     <tr *ngFor="let session of re">
         <td>{{ session.idx }}</td>
-        <td>{{ session.teacher?.display_name }}</td>
-        <td>{{ session.student?.display_name }}</td>
+        <td>{{ session.teacher?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.teacher?.idx}}">ES</button></td>
+        <td>{{ session.student?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.student?.idx}}">ES</button></td>
         <td>{{ session.date }}</td>
         <td>{{ session.class_begin }}</td>
         <td>{{ session.class_end }}</td>

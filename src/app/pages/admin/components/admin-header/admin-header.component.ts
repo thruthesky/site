@@ -50,7 +50,7 @@ export class AdminHeaderComponent implements OnInit {
             sql: sql,
             student_info: true
         }).subscribe(re => {
-            console.log('payment: ', re);
+            // console.log('payment: ', re);
             this.payments = re;
         }, e => this.a.toast(e));
 
@@ -61,7 +61,7 @@ export class AdminHeaderComponent implements OnInit {
         WHERE BRANCH and wp_users.ID=p.idx_student AND p.state='approved' AND stamp_begin>=${stampToday}
         `;
         this.a.lms.admin_query({ sql: sqlToday }).subscribe(re => {
-            console.log('sum: ', re);
+            // console.log('sum: ', re);
             this.pointToday = re[0]['point'];
         }, e => this.a.toast(e));
     }
@@ -71,7 +71,7 @@ export class AdminHeaderComponent implements OnInit {
             route: 'lms.admin_stat',
             session_id: this.a.user.sessionId
         }).subscribe(re => {
-            console.log('stat: ', re);
+            // console.log('stat: ', re);
             this.stats = re;
             if (this.stats.stat.teachers) {
                 const teachers = this.stats.stat.teachers;
@@ -106,13 +106,13 @@ export class AdminHeaderComponent implements OnInit {
         sql += ` AND (r.date > '${date}' OR (r.date>='${date}' AND class_begin>='${Hi}'))`;
         sql += ` ORDER BY r.date ASC, r.class_begin ASC`;
         sql += ` LIMIT 100`;
-        console.log('sql: ', sql);
+        // console.log('sql: ', sql);
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('going re: ', re);
+            // console.log('going re: ', re);
             this.sessions = re;
             // this.re = re;
             // this.statistics();

@@ -1,0 +1,199 @@
+<admin-header-component></admin-header-component>
+<section class="user-info">
+
+    user edit form total payment and payment history past classes reserve clases session list piont refund request
+
+    <div *ngIf=" show.loader.profile_info ">Loading user profile...</div>
+    <form (ngSubmit)="onSubmitUserInfo( $event )" *ngIf=" ! show.loader.profile_info ">
+        <table>
+            <tr>
+                <th>Stat &amp; User Edit Form</th>
+                <th>Sessions</th>
+                <th>Payment</th>
+                <th>Refund Request</th>
+                <th>Point History</th>
+            </tr>
+            <tr>
+                <td>
+                    stat: reservation, past
+                    <table>
+                        <tr>
+                            <td>User ID</td>
+                            <td>{{ user.ID }}</td>
+                        </tr>
+                        <tr>
+                            <td>Login</td>
+                            <td>{{ user.user_login }}</td>
+                        </tr>
+                        <tr>
+                            <td>Point</td>
+                            <td>{{ user.point | number }}
+                                <button type='button' class="point-edit">Point Edit</button>
+                                <section class='point-edit'>
+                                    <b>Point Update</b>
+                                    <div>
+                                        Apply :
+                                        <input type='radio' id='apply_payment' name='apply' [(ngModel)]="pointForm.apply" [value]="'payment'">
+                                        <label for="apply_payment">Payment</label>
+                                        &nbsp;
+                                        <input type='radio' id='apply_add' name='apply' [(ngModel)]="pointForm.apply" [value]="'add'">
+                                        <label for="apply_add">Add</label>
+                                        &nbsp;
+                                        <input type='radio' id='apply_deduct' name='apply' [(ngModel)]="pointForm.apply" [value]="'deduct'">
+                                        <label for="apply_deduct">Deduct</label>
+                                        &nbsp;
+                                        <input type='radio' id='apply_refund' name='apply' [(ngModel)]="pointForm.apply" [value]="'refund'">
+                                        <label for="apply_refund">Refund</label>
+                                    </div>
+                                    <div>
+                                        Point: <input type="number" name="pointForm_point" [(ngModel)]="pointForm.point">
+                                    </div>
+                                    <div>
+                                        Reason: <input type="number" name="pointForm_reason" [(ngModel)]="pointForm.reason">
+                                    </div>
+                                    <div>
+                                            Payment Method:
+                                            <input type="radio" id="payment_method_paypal" name="payment_method" [(ngModel)]="pointForm.payment_method" [value]="'paypal'">
+                                            <label for="payment_method_paypal">Paypal</label>
+                                            <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" [(ngModel)]="pointForm.payment_method" [value]="'wooribank'">
+                                            <label for="payment_method_wooribank">Woori Bank</label>
+                                        
+                                    </div>
+                                    <div>
+                                            Amount: <input type="text" name="amount" [(ngModel)]="pointForm.amount"> How much was paid to buy the point?
+                                    </div>
+                                    <div>
+                                            Currency: 
+                                            <input type="radio" id="currency_usd" name="currency_usd" [(ngModel)]="pointForm.currency" [value]="'USD'">
+                                            <label for="currency_usd">Paypal</label>
+                                            <input type="radio" type="radio" id="currency_php" name="currency_php" [(ngModel)]="pointForm.currency" [value]="'KWR'">
+                                            <label for="payment_method_wooribank">Woori Bank</label>
+                                    </div>
+
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                {{ user.user_email }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Password</td>
+                            <td>
+                                <input type='text' name='password' [(ngModel)]=" user.user_pass ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User Type</td>
+                            <td>
+                                <input type='radio' id="user_type_student" name='user_type' [(ngModel)]=" user.user_type " [value]="'S'" [checked]=" user.user_type ">
+                                <label for="user_type_student">Student</label>,
+                                <input type='radio' id="user_type_teacher" name='user_type' [(ngModel)]=" user.user_type " [value]="'T'" [checked]=" user.user_type ">
+                                <label for="user_type_teacher">Teacher</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Display Name</td>
+                            <td>
+                                <input type='text' name='display_name' [(ngModel)]=" user.display_name ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>
+                                <input type='text' name='name' [(ngModel)]=" user.name ">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Gender</td>
+                            <td>
+                                <input type='radio' id="gender_male" name='gender' [(ngModel)]=" user.gender " [value]="'M'" [checked]=" user.gender ">
+                                <label for="gender_male">Male</label>,
+                                <input type='radio' id="gender_female" name='gender' [(ngModel)]=" user.gender " [value]="'F'" [checked]=" user.gender ">
+                                <label for="gender_female">Female</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td>
+                                <input type='text' name='phone_number' [(ngModel)]=" user.phone_number ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kakaotalk ID</td>
+                            <td>
+                                <input type='text' name='kakaotalk_id' [(ngModel)]=" user.kakaotalk_id ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Teacher Grade</td>
+                            <td>
+                                <input type='text' name='grade' [(ngModel)]=" user.grade ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>List Order</td>
+                            <td>
+                                <input type='text' name='list_order' [(ngModel)]=" user.list_order ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bookable Time</td>
+                            <td>
+                                <input type='text' name='bookable_time' [(ngModel)]=" user.bookable_time ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Block Freeclass Until</td>
+                            <td>
+                                <input type='text' name='block_free_class_until' [(ngModel)]=" user.block_free_class_until ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Timezone</td>
+                            <td>
+                                <input type='text' name='timezone' [(ngModel)]=" user.timezone ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Domain</td>
+                            <td>
+                                <input type='text' name='domain' [(ngModel)]=" user.domain ">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Manager</td>
+                            <td>
+                                <input type='text' name='manager' [(ngModel)]=" user.manager ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+
+                                <button type='submit' *ngIf=" ! show.loader.profile_update ">Update User Info</button>
+                                <div *ngIf=" show.loader.profile_update ">Saving ...</div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    Teachers: Session List: last 500.
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>

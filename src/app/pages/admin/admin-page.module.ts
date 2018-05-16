@@ -12,6 +12,8 @@ import { AdminPaymentPage } from './payment/admin-payment.page';
 import { UserInfoComponentModule } from '../../components/user-info/user-info.component.module';
 import { UserPage } from './user/user.page';
 import { SessionPage } from './session/session.page';
+import { UserInfoPage } from './user-info/user-info.page';
+
 
 
 const appRoutes: Array<Route> = [
@@ -20,6 +22,7 @@ const appRoutes: Array<Route> = [
     { path: 'payment', pathMatch: 'full', component: AdminPaymentPage },
     { path: 'session', pathMatch: 'full', component: SessionPage },
     { path: 'user', pathMatch: 'full', component: UserPage },
+    { path: 'user-info/:ID', pathMatch: 'full', component: UserInfoPage },
     { path: '', pathMatch: 'full', component: AdminHomePage }
 ];
 @NgModule({
@@ -30,7 +33,8 @@ const appRoutes: Array<Route> = [
         PointHistoryPage,
         AdminPaymentPage,
         UserPage,
-        SessionPage
+        SessionPage,
+        UserInfoPage
     ],
     imports: [
         CommonModule,
@@ -46,7 +50,8 @@ const appRoutes: Array<Route> = [
         PointHistoryPage,
         AdminPaymentPage,
         UserPage,
-        SessionPage
+        SessionPage,
+        UserInfoPage
     ],
     bootstrap: [
         AdminHomePage

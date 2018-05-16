@@ -21,7 +21,8 @@
 * Admin page user payment list & search. stat by day, month.
   * Make a refund option so, it will be added onto statistics.
 * Admin Notification. Make it as component and put it on header. so, all the admin page has it.
-
+* display photo, youtube on admin user list
+* Let admin edit user's profile photo.
 * put `countries` somewhere else. so it will not increase main.js bundle size.
 * Suggestion: Move comment component under forum page module since it is a dependant of forum.
 * Front page of katalk english, ontue
