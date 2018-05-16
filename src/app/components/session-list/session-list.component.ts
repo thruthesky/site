@@ -205,6 +205,7 @@ export class SessionListComponent implements OnInit {
         // console.log(book);
         this.a.lms.session_cancel_refund_request(book['idx']).subscribe(re => {
             book['refund_request_at'] = 0;
+            this.a.toast(this.a.t('CANCEL REFUND REQUEST SUCCESS'));
         }, e => this.a.toast(e));
     }
 
@@ -285,26 +286,6 @@ export class SessionListComponent implements OnInit {
 
     }
 
-    onClickRejectRefundRequest(book) {
-        // const modal = this.modalCtrl.create(MessageWrite, { title: this.a.i18n["WHY REJECT REFUND"] });
-        // modal.onDidDismiss(re => {
-        //     // console.log("onDidDismiss", re);
-        //     if (re) {
-        //         this.a.lms.session_refund_reject({ idx_reservation: book['idx'], refund_reject_message: re }).subscribe(re => {
-        //             // console.log(re);
-        //             book['refund_reject_at'] = 1;
-        //         }, e => this.a.toast(e));
-        //     }
-        // });
-        // modal.present();
-    }
-
-    onClickEvaluateView(idx) {
-        // const modal = this.modalCtrl.create(EvaluateView,
-        //     { idx: idx });
-        // modal.onDidDismiss(() => { });
-        // modal.present();
-    }
 
     date(d: string) {
         const new_date = d.split('-');
@@ -332,23 +313,6 @@ export class SessionListComponent implements OnInit {
         }
     }
 
-    onClickShowRequest(book) {
-        // console.log("onClickShowRequest:: ", book);
-        // const modal = this.modalCtrl.create(RefundRequestView, { book: book });
-        // modal.onDidDismiss(re => {
-        //     // console.log("onClickShowRequest::onDidDismiss:: ", re);
-        //     if (!re) return;
-        //     // console.log("onDidDismiss::", re);
-        //     if (re == 'accept') {
-        //         book['refund_done_at'] = 1;
-        //     } else if (re == 'reject') {
-        //         book['refund_reject_at'] = 1;
-        //     }
-        // });
-        // modal.present();
-
-    }
-
 
     /**
      * Returns teacher photo url.
@@ -360,15 +324,6 @@ export class SessionListComponent implements OnInit {
 
     onClickKakaoQRMarkString(url) {
         window.open(url, '_blank');
-    }
-
-    onClickCommentCreate(idx_teacher) {
-        // const createCommentModal = this.modalCtrl.create(StudentCommentEdit, { idx_teacher: idx_teacher }, { cssClass: 'student-comment-create' }
-        // );
-        // createCommentModal.onDidDismiss(res => {
-        //     // if (res == 'success') this.onClickCommentList();
-        // });
-        // createCommentModal.present();
     }
 
     onClickReady( book ) {

@@ -1,0 +1,22 @@
+<header>
+    <h1>{{ 'SESSION REFUND REJECT' | t }}</h1>
+</header>
+<main>
+    <section class="content">
+        <div class="loader" *ngIf=" !book?.idx ">
+            <ion-spinner></ion-spinner>
+            <span class="p-2">{{ 'IN LOADING' | t }}</span>
+        </div>
+
+
+        <div *ngIf="book?.idx">
+            <div>Student Message: {{book.refund_request_message}}</div>
+            <div>Teacher Message: {{book.refund_reject_message}}</div>
+            <div>*Note: if you are not satisfied with the teacher reason. you can contact admin to escalate the refund request.</div>
+
+            <div>
+                <button type="button" (click)="onClickClose()">{{ 'CLOSE' | t }}</button>
+            </div>
+        </div>
+    </section>
+</main>

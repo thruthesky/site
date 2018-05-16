@@ -177,6 +177,10 @@ const routes: Routes = [
     path: 'session-refund-review',
     loadChildren: './pages/session-refund-review/session-refund-review.page.module#SessionRefundReviewPageModule'
   },
+  {
+    path: 'session-refund-reject',
+    loadChildren: './pages/session-refund-reject/session-refund-reject.page.module#SessionRefundRejectPageModule'
+  },
 
   {
     path: 'teacher-list',

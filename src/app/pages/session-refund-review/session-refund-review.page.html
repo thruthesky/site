@@ -3,16 +3,28 @@
 </header>
 <main>
     <section class="content">
-        <div *ngIf="book?.refund_request_message">
-            Student Message: {{book.refund_request_message}}
+        <div class="loader" *ngIf=" !book?.refund_request_message ">
+            <ion-spinner></ion-spinner>
+            <span class="p-2">{{ 'IN LOADING' | t }}</span>
         </div>
-        <label>
-            <textarea class="container-fluid" rows="15" [(ngModel)]="message"></textarea>
-        </label>
-        <div>
-            <button type="button" (click)=" onClickRefund() ">{{ 'ACCEPT' | t }}</button>
-            <button type="button" (click)=" onClickRejectRefundRequest() ">{{ 'REJECT' | t }}</button>
-            <button type="button" routerLink="/teacher-session-past">{{ 'CLOSE' | t }}</button>
+
+
+        <div *ngIf="book?.refund_request_message">
+            <div>Student Message: {{book.refund_request_message}}</div>
+
+            <label *ngIf=" showConfirmReject ">
+                <textarea class="container-fluid" rows="15" [(ngModel)]="message"></textarea>
+            </label>
+            <div>
+                <button type="button" (click)=" onClickRefund() ">{{ 'REFUND ACCEPT' | t }}</button>
+                <button type="button" *ngIf=" !showConfirmReject " (click)=" showConfirmReject = true ">
+                    {{ 'REFUND REJECT' | t }}
+                </button>
+                <button type="button" *ngIf=" showConfirmReject " (click)=" onClickRejectRefundRequest() ">
+                    {{ 'REJECT CONFIRM' | t }}
+                </button>
+                <button type="button" routerLink="/teacher-session-past">{{ 'CLOSE' | t }}</button>
+            </div>
         </div>
     </section>
 </main>
