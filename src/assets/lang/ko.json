@@ -28,6 +28,7 @@
     "NAME": "이름",
     "GENDER": "성별",
     "NICKNAME": "닉네임",
+    "NICKNAME DESC": "영문 이름을 입력하십시오. 영어로만 제공됩니다.",
     "PHONE_NUMBER": "전화번호",
     "KAKAOTALK_ID_SHORT": "카카오톡 아이디",
     "IN_REGISTERING": "회원가입",

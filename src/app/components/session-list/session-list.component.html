@@ -223,7 +223,7 @@
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
                                         <button [class.warning]=" ! evaluated(book) "
-                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
+                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
                                             {{ 'EVALUATE' | t}}
                                         </button>
                                     </div>

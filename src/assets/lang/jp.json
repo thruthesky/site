@@ -24,6 +24,7 @@
     "NAME": "名前",
     "GENDER": "性別",
     "NICKNAME": "ニックネーム",
+    "NICKNAME DESC": "英語の名前を入力してください。 英語だけ。",
     "PHONE_NUMBER": "電話番号",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
     "IN_REGISTERING": "登録中",

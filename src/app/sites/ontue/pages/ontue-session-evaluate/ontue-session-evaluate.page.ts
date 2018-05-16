@@ -34,15 +34,15 @@ export class OntueSessionEvaluatePage {
 
     loading = false;
 
-    constructor(
-        public a: AppService,
-        private route: ActivatedRoute
-    ) {
+    constructor(public a: AppService,
+                private route: ActivatedRoute) {
         this.route.queryParams.subscribe(params => {
             if (params && params.idx) {
                 this.a.lms.get_session_evaluation(params.idx).subscribe(res => {
-                    // console.log("get_session_evaluation");
+                    console.log('get_session_evaluation', res);
                     const session = res.session;
+                    this.idx = session.idx;
+                    this.student_name = session.student_name;
                     this.point = session.point;
                     if (session.student_absent === 'y') {
                         this.student_absent = true;
@@ -124,7 +124,7 @@ export class OntueSessionEvaluatePage {
                 this.a.toast('Please select the speed score on the session with the student');
                 return;
             }
-            if (this.comment.length >= 50) {
+            if (this.comment && this.comment.length >= 50) {
                 data['comment'] = this.comment;
             } else {
                 this.a.toast('You must comment more than 50 characters.');
@@ -146,8 +146,6 @@ export class OntueSessionEvaluatePage {
 
         }
 
-
-        // console.log("onClickSubmitEvaluation", data);
         this.loading = true;
         this.a.lms.session_evaluate(data).subscribe(res => {
             // console.log(res);

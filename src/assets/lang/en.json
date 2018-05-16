@@ -95,6 +95,7 @@
     "NAME": "Name",
     "GENDER": "Gender",
     "NICKNAME": "Nickname",
+    "NICKNAME DESC": "Please input English name. English Only.",
     "PHONE_NUMBER": "Phone Number",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
     "IN_REGISTERING": "Registering",
