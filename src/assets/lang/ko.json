@@ -370,6 +370,16 @@
     "RESERVE_NOW":"지금 예약하기",
     "IN_RESERVING":"예약 중",
 
+    "PAYMENT_RESULT_PAGE_TITLE":"지불 결과",
+    "PAYMENT_SUCCES":"지불 성공",
+    "PAYMENT_FAILED":"앗, 결제에 실패하였습니다.",
+    "YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY":"수업료 결제 내역은 결제 내역 메뉴에서 확인 할 수 있습니다.",
+
+    "TEACHER_GRADE":"교사 학년",
+    "TEACHER_LIST_IS_LOGIN":"#USERNAME님, 전체 선생님 수는 #TOTAL 명이며, 회원님의 예약된 수업은 #RESERVATIONS회이며 지난 수업은 #PASTS회입니다.",
+    "TEACHER_LIST_IS_LOGOUT":"현재 표시되는 선생님은 #TOTAL 명입니다. 옵션을 통해서 모든 선생님을 볼 수 있습니다. 로그인을 하시면 회원님의 수업 정보가 표시됩니다.",
+    "NO_MORE_TEACHERS":"더 이상 추천 강사가 없습니다. 옵션을 통해 더 많은 강사를 볼 수 있습니다.",
+    "GOTO_OPTIONS":"옵션 창 열기 ",
 
   "STUDENT COMMENTS": [{
     "name": "유진형",

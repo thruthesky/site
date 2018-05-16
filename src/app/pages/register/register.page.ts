@@ -393,13 +393,15 @@ export class RegisterPage implements OnInit {
     }
 
     onClickKakaoIDHelp() {
+        this.showFindKakaotalkIDBox = true;
+        setTimeout(() => {
+                    document.querySelector('.kakaotalk-id-find-box').scrollIntoView();
+    }, 200);
         // if (this.a.isTeacher) {
         //     this.showModalFAQ('kakaoID');
         // } else {
         //     this.showFindKakaotalkIDBox = true;
-        //     setTimeout(() => {
-        //         document.querySelector('.kakaotalk-id-find-box').scrollIntoView();
-        //     }, 200);
+        //
         //     this.a.toast('프로필 관리 메뉴에서 카카오톡 아이디를 찾을 수 있습니다.');
         // }
     }

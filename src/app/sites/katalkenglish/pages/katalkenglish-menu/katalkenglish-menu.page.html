@@ -113,7 +113,7 @@
         </li>
 
 
-        <li class="menu-today-sessions" (click)="a.open('schedule-available')" *ngIf="a.studentTheme">
+        <li class="menu-today-sessions" routerLink="/instance-schedule" *ngIf="a.studentTheme">
             <div>
                  <ion-icon name="flash"></ion-icon>
                 <div>{{ 'AVAILABLE_SESSIONS_LONG' | t }}</div>

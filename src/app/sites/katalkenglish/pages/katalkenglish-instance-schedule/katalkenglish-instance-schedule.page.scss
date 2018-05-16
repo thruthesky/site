@@ -32,7 +32,9 @@ main{
         }
 
         .col{
-            padding: 0;
+            @media screen and (max-width:$sm) {
+                padding: 0;
+            }
             margin: .5em 0;
         }
     }

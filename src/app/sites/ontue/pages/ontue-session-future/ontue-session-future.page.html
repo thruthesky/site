@@ -1,4 +1,12 @@
-session future for teacher
-
-<session-list-component></session-list-component>
-
+<header>
+    <h1>{{ 'SESSION_FUTURE' | t }}</h1>
+    <!--<div class="option" (click)=" share.options = ! share.options ">-->
+        <!--<ion-icon name="options"></ion-icon>-->
+        <!--{{ "OPTIONS" | t }}-->
+    <!--</div>-->
+</header>
+<main>
+    <section>
+        <session-list-component [page]=" page " [share]=" share "></session-list-component>
+    </section>
+</main>

@@ -100,10 +100,20 @@
                         <label>{{ 'NATIONALITY' | t }}</label>
                     </div>
                     <div>
-                        <ion-datetime name="birthday" max="{{minYear}}" displayFormat="MM/DD/YYYY"
-                                      pickerFormat="MMDDYYYY"
-                                      [(ngModel)]="birthday" (ngModelChange)="onChangeBirthDate()"></ion-datetime>
-                        <label>{{ 'BIRTHDAY' | t }}</label>
+                        <!--<ion-datetime name="birthday" max="{{minYear}}" displayFormat="MM/DD/YYYY"-->
+                                      <!--pickerFormat="MMDDYYYY"-->
+                                      <!--[(ngModel)]="birthday" (ngModelChange)="onChangeBirthDate()"></ion-datetime>-->
+                        <!--<label>{{ 'BIRTHDAY' | t }}</label>-->
+
+                        <div class="" style="display: inline-block; border: 1px solid grey; padding: .5em;" (click)="dp.open()">
+                            {{ _birthday }}
+                        </div>
+                        <input name="date" [(ngModel)]="_birthday" matInput [matDatepicker]="dp" disabled style="display: none;">
+                        <button matSuffix type="button" (click)="dp.open()">{{ 'BIRTHDAY' | t }}</button>
+                        <mat-datepicker #dp disabled="false"></mat-datepicker>
+
+
+
                     </div>
                     <div>
                         <div>

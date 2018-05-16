@@ -4,7 +4,7 @@
 </header>
 <main>
     <div  class="status"  *ngIf=" a.isStudent ">
-            <div *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}}</div>
+            <div *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}</div>
             <div *ngIf=" ! a.lmsInfoBook()">{{ 'CURRICULUM_STAT_2' | t : {'USERNAME':a.user.name} }}</div>
     </div>
 

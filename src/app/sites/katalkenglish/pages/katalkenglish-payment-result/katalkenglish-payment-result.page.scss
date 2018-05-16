@@ -1,0 +1,66 @@
+@import '../../../../../theme/vars.scss';
+header{
+    h2{
+        margin: 0;
+        padding: 1em;
+        background: #c5e1a5;
+        font-size: 1em;
+    }
+}
+
+main{
+    min-height: 540px;
+    background: #fff;
+    text-align: center;
+
+    .payment-failed,.payment-success{
+        font-size: 120%;
+        padding-top: 6em;
+
+        @media screen and (max-width:$sm){
+            padding-top: 3em
+        }
+    }
+
+    .payment-failed{
+        .icon{
+            height: 8em;
+            color: rgba(darkred,0.9);
+        }
+    }
+
+    .payment-success{
+        .icon{
+            height: 8em;
+            color: darkgreen;
+        }
+    }
+
+    .point{
+        padding: 4em;
+        padding-bottom: 7em;
+
+        @media screen and (max-width:$sm){
+            padding: 3em;
+            padding-bottom: 4em;
+        }
+
+        .total-point{
+            padding: 1em;
+            text-transform: uppercase;
+        }
+
+        .loader{
+            padding: 3em;
+        }
+
+        span{
+            font-size: 90%;
+            color: blue;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline
+            }
+        }
+    }
+}
