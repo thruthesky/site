@@ -378,6 +378,10 @@
     "NO_MORE_TEACHERS":"もはや推奨講師がありません。オプションを使用して、より多くの講師を見ることができます。",
     "GOTO_OPTIONS":"オプション",
 
+    "LOGIN_HEADER_1":"ログインをします。",
+    "LOGIN_HEADER_2":"登録をしていない場合は、簡単に",
+    "LOGIN_HEADER_3":"をしてください！",  
+
   "STUDENT COMMENTS": [{
     "name": "유진형",
     "date": "2018년 1월 24일",

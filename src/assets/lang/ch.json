@@ -376,6 +376,10 @@
     "NO_MORE_TEACHERS":"没有更多的推荐导师。 通过选项可以看到更多的教练。",
     "GOTO_OPTIONS":"打开选项窗口",
 
+    "LOGIN_HEADER_1":"签到。",
+    "LOGIN_HEADER_2":"如果你没有加入，简单地说",
+    "LOGIN_HEADER_3":"请做吧！",  
+
   "STUDENT COMMENTS": [{
     "name": "유진형",
     "date": "2018년 1월 24일",

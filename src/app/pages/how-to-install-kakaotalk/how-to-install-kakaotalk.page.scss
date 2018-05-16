@@ -1,0 +1,44 @@
+@import '../../../theme/vars.scss';
+header{
+    h1{
+        margin: 0;
+        padding: 1em;
+        background: dodgerblue;
+        color:#fff
+    }
+}
+
+main{
+    padding: 2em 0;
+    padding-bottom: 5em;
+    background: #fff;
+    line-height: 1.6em;
+    font-size: 110%;
+
+    h2{
+        margin: 0;
+        padding: 1em 0;
+        padding-bottom: 0;
+    }
+
+    .content{
+        width: 70%;
+        margin: auto;
+
+        .links{
+            margin-bottom: 3em;
+        }
+    }
+
+    .image{
+        padding: 3em 0;
+        text-align: center;
+
+        @media screen and (max-width:$sm){
+            padding: 1em 0;
+            img{
+                width: 100%
+            }
+        }
+    }
+}
