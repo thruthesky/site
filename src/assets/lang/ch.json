@@ -27,6 +27,7 @@
     "NICKNAME DESC": "请输入英文名称。 仅限英语。",
     "PHONE_NUMBER": "电话号码",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
+    "FIND KAKAOTALK ID": "查找 Katalk ID",
     "IN_REGISTERING": "注册",
     "IN_REGISTERING_DESCRIPTION": "正在注册...请稍候...",
     "INSTALL": "安装",

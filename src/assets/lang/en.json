@@ -98,6 +98,7 @@
     "NICKNAME DESC": "Please input English name. English Only.",
     "PHONE_NUMBER": "Phone Number",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
+    "FIND KAKAOTALK ID": "Find Katalk ID",
     "IN_REGISTERING": "Registering",
     "IN_REGISTERING_DESCRIPTION": "Please wait while registering...",
     "INSTALL": "Install",

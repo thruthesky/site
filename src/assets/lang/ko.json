@@ -31,6 +31,7 @@
     "NICKNAME DESC": "영문 이름을 입력하십시오. 영어로만 제공됩니다.",
     "PHONE_NUMBER": "전화번호",
     "KAKAOTALK_ID_SHORT": "카카오톡 아이디",
+    "FIND KAKAOTALK ID": "카톡 ID 찾기",
     "IN_REGISTERING": "회원가입",
     "IN_REGISTERING_DESCRIPTION": "회원 가입 중입니다. 잠시만 기다려주세요.",
     "INSTALL": "설치하다",
