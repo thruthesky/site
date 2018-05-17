@@ -2,4 +2,34 @@
     font-size: 11pt;
 }
 
+.user-point {
+    padding: .5em;
+    background-color: maroon;
+    color: white;
+}
 
+.sessions {
+    .session {
+        font-size: 10pt;
+        &[time='future'] {
+            color: rgb(156, 156, 156);
+        }
+        &[time='past'] {
+            color: rgb(40, 83, 83);
+        }
+        &.top {
+            &[time='today'] {
+                color: rgb(0, 49, 141);
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.sessions-desc {
+    font-size: 8pt;
+}
+
+.payments {
+    font-size: 9pt;
+}

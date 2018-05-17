@@ -16,6 +16,7 @@ interface STAT {
     point: number;
     kwr: number;
     usd: number;
+    refund: number;
     success: number;
     fail: number;
     dailyDates: string[];
@@ -36,8 +37,7 @@ export class AdminPaymentPage implements OnInit {
     form = {
         date_begin: '',
         date_end: '',
-        success: true,
-        fail: false,
+        state: 'approved',
         idx_student: '',
         payment_method: '',
         order: 'stamp_begin',
@@ -71,6 +71,7 @@ export class AdminPaymentPage implements OnInit {
             point: 0,
             kwr: 0,
             usd: 0,
+            refund: 0,
             success: 0,
             fail: 0,
             daily: {},
@@ -126,16 +127,21 @@ export class AdminPaymentPage implements OnInit {
         }
         if (this.form.date_end) {
             console.log(new Date(this.form.date_end));
-            const stamp = new Date(this.form.date_end).getTime() / 1000;
+            const stamp = Math.round(new Date(this.form.date_end).getTime() / 1000) + 60 * 60 * 24;
             where.push(`p.stamp_begin<=${stamp}`);
         }
 
-        if (this.form.success) {
-            where.push(`p.state='approved'`);
-        }
-        if (this.form.fail) {
-            where.push(`p.state<>'approved'`);
-        }
+        // if (this.form.success) {
+        //     where.push(`p.state='approved'`);
+        // }
+        // if (this.form.fail) {
+        //     where.push(`p.state<>'approved'`);
+        // }
+
+        // if (this.form.refund) {
+        //     where.push(`p.state='refund'`);
+        // }
+        where.push(`p.state='${this.form.state}'`);
 
         if (where.length) {
             return '( ' + where.join(') AND ( ') + ')';
@@ -146,7 +152,7 @@ export class AdminPaymentPage implements OnInit {
 
 
     getOrderBy(): string {
-        return `ORDER BY ${this.form.order} ${this.form.by}`;
+        return ` ORDER BY ${this.form.order} ${this.form.by}`;
     }
 
     statistics() {
@@ -156,11 +162,11 @@ export class AdminPaymentPage implements OnInit {
         for (const pay of this.re) {
             if (pay.student) {
                 if (pay.state === 'approved') {
-                    this.stat.success ++;
+                    this.stat.success++;
                     this.stat.point += parseInt(pay.point, 10);
-                    if ( (<string>pay.currency).toLowerCase() === 'usd' ) {
+                    if ((<string>pay.currency).toLowerCase() === 'usd') {
                         this.stat.usd += parseFloat(pay.amount);
-                    } else if ( (<string>pay.currency).toLowerCase() === 'kwr' ) {
+                    } else if ((<string>pay.currency).toLowerCase() === 'kwr') {
                         this.stat.kwr += parseInt(pay.amount, 10);
                     }
                     const n = `${pay.student.display_name}(${pay.student.name})`;
@@ -174,20 +180,26 @@ export class AdminPaymentPage implements OnInit {
                             idx: pay.student.idx
                         };
                     }
-                    const date = this.a.shortDate( pay.stamp_begin );
-                    if (this.stat.daily[ date ]) {
-                        this.stat.daily[date] += parseInt( pay.point, 10 );
+                    const date = this.a.shortDate(pay.stamp_begin);
+                    if (this.stat.daily[date]) {
+                        this.stat.daily[date] += parseInt(pay.point, 10);
                     } else {
-                        this.stat.daily[date] = parseInt( pay.point, 10 );
+                        this.stat.daily[date] = parseInt(pay.point, 10);
+                    }
+                } else if (pay.state === 'refund') {
+                    if (this.stat.refund) {
+                        this.stat.refund += parseInt(pay.point, 10);
+                    } else {
+                        this.stat.refund = parseInt(pay.point, 10);
                     }
                 } else {
-                    this.stat.fail ++;
+                    this.stat.fail++;
                 }
             }
         }
-        this.stat.dailyDates = Object.keys( this.stat.daily ).sort();
-        this.stat.studentName = Object.keys( this.stat.student );
-        if ( this.stat.usd ) {
+        this.stat.dailyDates = Object.keys(this.stat.daily).sort();
+        this.stat.studentName = Object.keys(this.stat.student);
+        if (this.stat.usd) {
             this.stat.usd = Math.round(this.stat.usd);
         }
 
@@ -198,12 +210,12 @@ export class AdminPaymentPage implements OnInit {
     }
 
     color(point) {
-        const a = Math.round( point / 100000 );
-        if ( a < 3 ) {
+        const a = Math.round(point / 100000);
+        if (a < 3) {
             return 'grey';
-        } else if ( a < 5 ) {
+        } else if (a < 5) {
             return 'blue';
-        } else if ( a < 7 ) {
+        } else if (a < 7) {
             return 'orange';
         }
         return 'red';

@@ -493,7 +493,7 @@ export class AppService {
             o = { message: 'No toast message' };
         } else if (typeof o === 'string') { // Mostly a message to user
             o = { message: o };
-        } else if (o instanceof Error) { // Mostly an error code from backend.
+        } else if (o instanceof Error) { // Mostly an response error code from backend.
 
             console.log('error from server?', o);
             const code = this.xapi.getError(o).code;
@@ -1365,6 +1365,9 @@ export class AppService {
             dt = d.getFullYear().toString().substr(2, 2) + '-' + this.add0(d.getMonth() + 1) + '-' + this.add0(d.getDate());
         }
         return dt;
+    }
+    veryShortDate(stamp) {
+        return this.shortDate(stamp).substr(3);
     }
     shortDateTime(stamp: any): string {
         const d = new Date(stamp * 1000);

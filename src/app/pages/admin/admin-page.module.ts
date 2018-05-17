@@ -21,9 +21,11 @@ const appRoutes: Array<Route> = [
     { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
     { path: 'payment', pathMatch: 'full', component: AdminPaymentPage },
     { path: 'session', pathMatch: 'full', component: SessionPage },
+    { path: 'session/:type/:ID', component: SessionPage },
     { path: 'user', pathMatch: 'full', component: UserPage },
     { path: 'user-info/:ID', pathMatch: 'full', component: UserInfoPage },
-    { path: '', pathMatch: 'full', component: AdminHomePage }
+    { path: 'front', pathMatch: 'full', component: AdminHomePage },
+    { path: '', pathMatch: 'full', component: UserPage }
 ];
 @NgModule({
     declarations: [

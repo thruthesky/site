@@ -9,6 +9,8 @@
   * Make the workserver as real server.
   * Do it Immediately !!
 
+* Use `<a>` tag for page link. Not button tag. For SEO purpose.
+
 ### NOT URGENT
 
 * User can cancel reserved class regardless of any rules if it is less than 1 mimute passed from the time of reservation.

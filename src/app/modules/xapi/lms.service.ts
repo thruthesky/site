@@ -298,6 +298,11 @@ export class XapiLMSService extends Base {
         data['session_id'] = this.user.sessionId;
         return this.x.post(data);
     }
+    point_add(data) {
+        data['route'] = 'lms.point_add';
+        data['session_id'] = this.user.sessionId;
+        return this.x.post(data);
+    }
 
     get_dayoffs() {
         const data = {};
