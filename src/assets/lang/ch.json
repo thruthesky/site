@@ -281,6 +281,7 @@
     "ADMIN":"管理员",
     "REGISTER_BUTTON":"寄存器",
     "UPDATE_PROFILE_BUTTON":"更新个人信息",
+    "UPDATE_PROFILE":"更新个人信息",
 
     "LEVELTEST_PAGE_TITLE":"水平测试",
     "SELECT_TEACHER_TO_RESERVE":"选择要保留的教师",
@@ -456,5 +457,25 @@
     "HOBBIES":"嗜好",
     "SCHOOL":"学校",
     "PHONE_NO":"电话号码",
-    "EMAIL":"电子邮件"
+    "EMAIL":"电子邮件",
+
+    "SESSION_EVALUATION_PAGE_TITLE":"会议评估",
+    "SESSION_EVAL_IDX":"班号",
+    "SESSION_EVAL_BOOK_USED":"教科书",
+    "SESSION_EVAL_IDX_BOOK_NEXT":"下一堂课的教科书",
+    "SESSION_EVAL_POINT":"点",
+    "SESSION_EVAL_EXPRESSION":"表现",
+    "SESSION_EVAL_VOCABULARY":"词汇",
+    "SESSION_EVAL_GRAMMAR":"语法",
+    "SESSION_EVAL_PRONUNCIATION":"发音",
+    "SESSION_EVAL_EXPRESSION_SPEED":"流利",
+    "SESSION_EVAL_LEVEL":"结果（等级）",
+    "SESSION_EVAL_COMMENT":"评论",
+
+    "CLASS_COMMENTS_PAGE_TITLE":"课程评论",
+    "CLASS_COMMENTS_PAGE_DESC":"你可以看到学生写的课程。 如果你想上课，请留下评论。",
+    "MORE":"更",
+    "SESSION_REFUND_REQUEST_PAGE_TITLE":"会话退款请求",
+    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"如有可能，请用英文书写。"
+
 }

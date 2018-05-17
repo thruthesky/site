@@ -10,12 +10,17 @@
 
 
         <div *ngIf="book?.idx">
-            <div>Student Message: {{book.refund_request_message}}</div>
-            <div>Teacher Message: {{book.refund_reject_message}}</div>
-            <div>*Note: if you are not satisfied with the teacher reason. you can contact admin to escalate the refund request.</div>
+            <span class="student-header">Student Message</span>
+            <div class="message"> {{book.refund_request_message}}</div>
+            <span class="teacher-header">Teacher Message</span>
+            <div class="message"> {{book.refund_reject_message}}</div>
+            <div class="note">*Note: if you are not satisfied with the teacher reason. you can contact admin to escalate the refund request.</div>
 
-            <div>
-                <button type="button" (click)="onClickClose()">{{ 'CLOSE' | t }}</button>
+            <div class="buttons">
+                <button type="button" (click)="onClickClose()">
+                    <ion-icon name="close"></ion-icon>
+                    {{ 'CLOSE' | t }}
+                </button>
             </div>
         </div>
     </section>

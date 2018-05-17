@@ -3,6 +3,7 @@
     "LOGIN": "ログイン",
     "LOGOUT": "ログアウト",
     "UPDATE_PROFILE_MENU": "プロフィール",
+    "UPDATE_PROFILE":"プロフィールを更新する",
     "register": "登録",
     "FORUM": "フォーラム",
     "Email": "メール",
@@ -459,5 +460,24 @@
     "HOBBIES":"趣味",
     "SCHOOL":"学校",
     "PHONE_NO":"電話番号",
-    "EMAIL":"Eメール"
+    "EMAIL":"Eメール",
+
+    "SESSION_EVALUATION_PAGE_TITLE":"セッション評価",
+    "SESSION_EVAL_IDX":"クラス番号",
+    "SESSION_EVAL_BOOK_USED":"教科書",
+    "SESSION_EVAL_IDX_BOOK_NEXT":"次のクラスの教科書",
+    "SESSION_EVAL_POINT":"ポイント",
+    "SESSION_EVAL_EXPRESSION":"表現力",
+    "SESSION_EVAL_VOCABULARY":"単語",
+    "SESSION_EVAL_GRAMMAR":"文法",
+    "SESSION_EVAL_PRONUNCIATION":"発音",
+    "SESSION_EVAL_EXPRESSION_SPEED":"流暢",
+    "SESSION_EVAL_LEVEL":"結果（レベル）",
+    "SESSION_EVAL_COMMENT":"コメント",
+
+    "CLASS_COMMENTS_PAGE_TITLE":"授業のコメント",
+    "CLASS_COMMENTS_PAGE_DESC":"学生が作成したクラスの後期を見ることができます。皆さんも授業をすると、必ず声を残してください。",
+    "MORE":"より",
+    "SESSION_REFUND_REQUEST_PAGE_TITLE":"セッション払い戻しのリクエスト",
+    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"可能な場合は、英語で書いてください。"
 }

@@ -5,6 +5,7 @@
     "LOGIN": "로그인",
     "LOGOUT": "로그아웃",
     "UPDATE_PROFILE_MENU": "회원정보",
+    "UPDATE_PROFILE":"프로필 업데이트",
     "Email": "이메일",
     "register": "회원가입",
     "FORUM": "게시판",
@@ -462,5 +463,25 @@
     "HOBBIES":"취미",
     "SCHOOL":"학교",
     "PHONE_NO":"전화 번호",
-    "EMAIL":"이메일"
+    "EMAIL":"이메일",
+
+
+    "SESSION_EVALUATION_PAGE_TITLE":"세션 평가",
+    "SESSION_EVAL_IDX":"수업번호",
+    "SESSION_EVAL_BOOK_USED":"교재",
+    "SESSION_EVAL_IDX_BOOK_NEXT":"다음 수업 시간에 사용할 교재",
+    "SESSION_EVAL_POINT":"포인트",
+    "SESSION_EVAL_EXPRESSION":"표현력",
+    "SESSION_EVAL_VOCABULARY":"어휘력 ",
+    "SESSION_EVAL_GRAMMAR":"문법",
+    "SESSION_EVAL_PRONUNCIATION":"발음",
+    "SESSION_EVAL_EXPRESSION_SPEED":"유창함 ",
+    "SESSION_EVAL_LEVEL":"결과(레벨)",
+    "SESSION_EVAL_COMMENT":"코멘트",
+
+    "CLASS_COMMENTS_PAGE_TITLE":"수업 댓글",
+    "CLASS_COMMENTS_PAGE_DESC":"학생이 작성한 수업 후기를 볼 수 있습니다. 여러분들도 수업을 하시면 꼭 후기를 남겨주세요.",
+    "MORE":"더",
+    "SESSION_REFUND_REQUEST_PAGE_TITLE":"세션 환불 요청",
+    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"가능하면 영어로 적어주시기 바랍니다."
 }

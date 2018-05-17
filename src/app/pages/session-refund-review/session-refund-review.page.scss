@@ -1,0 +1,75 @@
+header{
+    h1{
+        margin: 0;
+        padding: 1em;
+        background: #004E8E;
+        color: #fff
+    }
+}
+
+main{
+    min-height: 540px;
+    padding:0 2em;
+    .loader{
+        padding: 3em;
+        text-align: center
+    }
+
+    .message{
+        padding: 3em;
+        border-radius: 2px;
+        background: #eeeeee;
+        word-wrap: break-word;
+    }
+
+    .student-header{
+        display: inline-block;
+        margin-top:2em;
+        padding: .7em 1em;
+        background: #DCA600;
+        font-size: 90%;
+        color: #fff;
+    }
+
+    .confirm-reject{
+        margin:2em 0;
+        textarea{
+            padding: 2em;
+            width: 100%;
+        }
+    }
+
+    .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2em;
+        button{
+            margin:.5em;
+            padding: 1em 3em;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .refund-accept{
+            background: dodgerblue
+        }
+
+        .refund-reject{
+            background: darkred
+        }
+
+        .reject-confirm{
+            background: darkgreen
+        }
+
+        .close{
+            display: flex;
+            align-items: center;
+            background: gray;
+            color:#fff;
+            text-transform: uppercase;
+        }
+    }
+}

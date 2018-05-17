@@ -75,6 +75,7 @@
     "LOGIN": "Login",
     "LOGOUT": "Logout",
     "UPDATE_PROFILE_MENU": "Profile",
+    "UPDATE_PROFILE":"Update Profile",
     "register": "Register",
     "FORUM": "Forum",
     "Help": "Help",
@@ -446,6 +447,25 @@
     "LOGIN_HEADER_2":"If you did not join, simply",
     "LOGIN_HEADER_3":"Please do it!",  
 
+    "SESSION_EVALUATION_PAGE_TITLE":"SESSION EVALUATION",
+    "SESSION_EVAL_IDX":"Class number",
+    "SESSION_EVAL_BOOK_USED":"Textbook",
+    "SESSION_EVAL_IDX_BOOK_NEXT":"Textbook for the next class",
+    "SESSION_EVAL_POINT":"Point",
+    "SESSION_EVAL_EXPRESSION":"Expressiveness",
+    "SESSION_EVAL_VOCABULARY":"Vocabulary",
+    "SESSION_EVAL_GRAMMAR":"Grammar",
+    "SESSION_EVAL_PRONUNCIATION":"Pronunciation",
+    "SESSION_EVAL_EXPRESSION_SPEED":"Fluency",
+    "SESSION_EVAL_LEVEL":"Results (Level)",
+    "SESSION_EVAL_COMMENT":"Comment",
+
+    "CLASS_COMMENTS_PAGE_TITLE":"CLASS COMMENTS",
+    "CLASS_COMMENTS_PAGE_DESC":"You can see the lesson written by the student. Please leave a comment if you do a class.",
+    "MORE":"MORE",
+    "SESSION_REFUND_REQUEST_PAGE_TITLE":"SESSION REFUND REQUEST",
+    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"If possible, please write in English.",
+
 
   "STUDENT COMMENTS": [{
     "name": "유진형",
@@ -496,4 +516,7 @@
       "description": "시작한지는 두달정도 되었고 처음에는 월~금 하루 25분씩 했는데 지금은 매일 25분씩 하루 두번씩 하고 있네요.<br> 첨에는 어색하기도 하고 과연 도움이 될까하고 시작했는데 저렴한 수업료 한번 놀라고 매우 편리함에 다시 놀라고 선생님들의 정성에 완전 반하게 되었네요.<br> 미국에 가서도 계속 할 생각인데 이번에는 꼭 영어를 마스터 할 수 있다는 자신감이 듭니다.<br> 모두들 화이팅하세요."
     }
   ]
+
+
+
 }

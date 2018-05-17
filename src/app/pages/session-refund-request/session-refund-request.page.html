@@ -1,17 +1,14 @@
 <header>
-    <h1>{{ 'SESSION REFUND REQUEST' | t }}</h1>
+    <h1>{{ 'SESSION_REFUND_REQUEST_PAGE_TITLE' | t }}</h1>
 </header>
 <main>
-    <section class="content">
-        <label>
-        <textarea class="container-fluid" rows="15" [(ngModel)]="message"></textarea>
-        </label>
-        <div>
-            <div *ngIf=" a.isStudent ">가능하면 영어로 적어주시기 바랍니다.</div>
-        </div>
-        <div>
-            <button type="button" (click)="onClickSubmit()">{{ 'SUBMIT' | t }}</button>
-            <button type="button" routerLink="/session-past">{{ 'CANCEL' | t }}</button>
-        </div>
-    </section>
+    <div class="text-area">
+        <textarea class="input" rows="15" [(ngModel)]="message"></textarea>
+        <div class="message" *ngIf=" a.isStudent ">{{ 'SESSION_REFUND_REQUEST_PAGE_REMINDER' | t }}</div>
+    </div>
+
+    <div class="buttons">
+        <button type="button" (click)="onClickSubmit()">{{ 'SUBMIT' | t }}</button>
+        <button type="button" routerLink="/session-past">{{ 'CANCEL' | t }}</button>
+    </div>
 </main>

@@ -1,0 +1,49 @@
+header{
+    h1{
+        margin:0;
+        padding: 1em;
+        background: darkred;
+        color: #fff
+    }
+}
+
+main{
+    min-height: 540px;
+
+    .text-area{
+        margin: 3em 2em;
+        margin-bottom: 2em;
+
+        .input{
+            width: 100%;
+            padding: 2em;
+            font-size: 1em;
+        }
+
+        .message{
+            margin-top: 1em;
+            color:darkred;
+        }
+    }
+    .buttons{
+        text-align: center;
+        button{
+            margin:.5em;
+            padding: 1em 3em;
+            border: none;
+            cursor: pointer;
+
+            &:first-child{
+                background: dodgerblue;
+                color: white
+            }
+
+            &:last-child{
+                background: #e0e0e0;
+                color:darkred;
+            }
+        }
+
+
+    }
+}

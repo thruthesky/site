@@ -5,25 +5,30 @@
     <section class="content">
         <div class="loader" *ngIf=" !book?.refund_request_message ">
             <ion-spinner></ion-spinner>
-            <span class="p-2">{{ 'IN LOADING' | t }}</span>
+            <span>{{ 'IN LOADING' | t }}</span>
         </div>
 
 
         <div *ngIf="book?.refund_request_message">
-            <div>Student Message: {{book.refund_request_message}}</div>
+            <div class="student-header">Student Message</div>
+            <div class="message">{{book.refund_request_message}}</div>
 
-            <label *ngIf=" showConfirmReject ">
-                <textarea class="container-fluid" rows="15" [(ngModel)]="message"></textarea>
-            </label>
-            <div>
-                <button type="button" (click)=" onClickRefund() ">{{ 'REFUND ACCEPT' | t }}</button>
-                <button type="button" *ngIf=" !showConfirmReject " (click)=" showConfirmReject = true ">
+            <div class="confirm-reject" *ngIf=" showConfirmReject ">
+                <textarea rows="15" [(ngModel)]="message"></textarea>
+            </div>
+
+            <div class="buttons">
+                <button class="refund-accept" type="button" (click)=" onClickRefund() ">{{ 'REFUND ACCEPT' | t }}</button>
+                <button class="refund-reject" type="button" *ngIf=" !showConfirmReject " (click)=" showConfirmReject = true ">
                     {{ 'REFUND REJECT' | t }}
                 </button>
-                <button type="button" *ngIf=" showConfirmReject " (click)=" onClickRejectRefundRequest() ">
+                <button class="reject-confirm" type="button" *ngIf=" showConfirmReject " (click)=" onClickRejectRefundRequest() ">
                     {{ 'REJECT CONFIRM' | t }}
                 </button>
-                <button type="button" routerLink="/teacher-session-past">{{ 'CLOSE' | t }}</button>
+                <button class="close" type="button" routerLink="/teacher-session-past">
+                    <ion-icon name="close"></ion-icon>
+                    {{ 'CLOSE' | t }}
+                </button>
             </div>
         </div>
     </section>

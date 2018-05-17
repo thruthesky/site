@@ -59,11 +59,19 @@ main{
     }
 
     .student{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding-left: .8em!important;
         border-left: 1px solid #e9ecef!important;
+        font-size: 80%;
 
         @media screen and (max-width:$sm){
             display: none;
+        }
+
+        .student-name{
+            margin-top:.4em;
         }
     }
 
