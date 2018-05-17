@@ -232,6 +232,21 @@ main{
         background-color: rgb(255, 123, 0);
     }
 
+    .evaluate{
+        border-color: rgba(black, 0.06)!important;
+        color:blue;
+    }
+
+    .warning {
+        background-color: rgb(255, 123, 0)!important;
+        color: white!important;
+    }
+
+    .refund-requested{
+        background: darkred;
+        color:white
+    }
+
     .button-icon{
         height: 1em;
         margin-right: .4em;
@@ -291,4 +306,5 @@ main{
 .no-more{
     padding-bottom: 12em;
 }
+
 

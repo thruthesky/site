@@ -24,8 +24,10 @@
     "NAME": "名称",
     "GENDER": "性别",
     "NICKNAME": "昵称",
+    "NICKNAME DESC": "请输入英文名称。 仅限英语。",
     "PHONE_NUMBER": "电话号码",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
+    "FIND KAKAOTALK ID": "查找 Katalk ID",
     "IN_REGISTERING": "注册",
     "IN_REGISTERING_DESCRIPTION": "正在注册...请稍候...",
     "INSTALL": "安装",
@@ -375,6 +377,10 @@
     "TEACHER_LIST_IS_LOGOUT":"目前#TOTAL教师可见。 您可以通过选项查看所有教师。 当你登录时，你的班级信息将被显示。",
     "NO_MORE_TEACHERS":"没有更多的推荐导师。 通过选项可以看到更多的教练。",
     "GOTO_OPTIONS":"打开选项窗口",
+
+    "LOGIN_HEADER_1":"签到。",
+    "LOGIN_HEADER_2":"如果你没有加入，简单地说",
+    "LOGIN_HEADER_3":"请做吧！",  
 
   "STUDENT COMMENTS": [{
     "name": "유진형",

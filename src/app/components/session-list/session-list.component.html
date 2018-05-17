@@ -222,8 +222,8 @@
                             <ng-container *ngIf=" book.past ">
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
-                                        <button [class.warning]=" ! evaluated(book) "
-                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx, student_name: a.preTeacherName(book.student_name)}) ">
+                                        <button class="evaluate" [class.warning]=" ! evaluated(book) "
+                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
                                             {{ 'EVALUATE' | t}}
                                         </button>
                                     </div>
@@ -238,11 +238,14 @@
                                     </div>
                                     <div class="col-6" *ngIf=" refund_in_progress(book) ">
                                         <div>
-                                            <span *ngIf=" rejected(book); else Requested ">{{ 'REJECTED' | t }}</span>
+                                            <button *ngIf=" rejected(book); else Requested "
+                                                  (click)=" a.open( 'session-refund-reject', {idx: book.idx} )">
+                                                {{ 'REJECTED' | t }}
+                                            </button>
                                             <ng-template #Requested>
-                                                <button (click)=" a.open('session-refund-review', {idx: book.idx}) ">
-                                                    <ion-icon name="mail"></ion-icon>
-                                                    {{ 'REFUND_REQUESTED' }}
+                                                <button class="refund-requested" (click)=" a.open('session-refund-review', {idx: book.idx}) ">
+                                                    <ion-icon class="button-icon" name="mail"></ion-icon>
+                                                    {{ 'REFUND_REQUESTED' | t }}
                                                 </button>
                                             </ng-template>
                                         </div>
@@ -255,8 +258,8 @@
                                     <div class="col-6" *ngIf=" !refund_in_progress(book) ">
                                         <button class="comment-create" (click)=" a.open('teacher-review-create', {idx_teacher: book.idx_teacher} ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
                                     </div>
-                                    <div class="col-6" *ngIf=" rejected( book ) ">
-                                        <span class="rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</span>
+                                    <div class="col-6" *ngIf=" rejected( book ) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
+                                        <button class="rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded(book) ">
                                         <span class="refunded"> {{ 'REFUNDED' | t }}</span>

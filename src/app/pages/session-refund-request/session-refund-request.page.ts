@@ -38,6 +38,7 @@ export class SessionRefundRequestPage implements OnInit {
             }).subscribe( () => {
                 this.loadingRefundRequest = false;
                 this.a.open('session-past');
+                this.a.toast( this.a.t('REFUND REQUEST SUCCESS') );
             }, e => {
                 this.a.toast(e);
                 this.loadingRefundRequest = false;

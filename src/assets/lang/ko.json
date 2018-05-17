@@ -28,8 +28,10 @@
     "NAME": "이름",
     "GENDER": "성별",
     "NICKNAME": "닉네임",
+    "NICKNAME DESC": "영문 이름을 입력하십시오. 영어로만 제공됩니다.",
     "PHONE_NUMBER": "전화번호",
     "KAKAOTALK_ID_SHORT": "카카오톡 아이디",
+    "FIND KAKAOTALK ID": "카톡 ID 찾기",
     "IN_REGISTERING": "회원가입",
     "IN_REGISTERING_DESCRIPTION": "회원 가입 중입니다. 잠시만 기다려주세요.",
     "INSTALL": "설치하다",
@@ -380,6 +382,11 @@
     "TEACHER_LIST_IS_LOGOUT":"현재 표시되는 선생님은 #TOTAL 명입니다. 옵션을 통해서 모든 선생님을 볼 수 있습니다. 로그인을 하시면 회원님의 수업 정보가 표시됩니다.",
     "NO_MORE_TEACHERS":"더 이상 추천 강사가 없습니다. 옵션을 통해 더 많은 강사를 볼 수 있습니다.",
     "GOTO_OPTIONS":"옵션 창 열기 ",
+
+
+    "LOGIN_HEADER_1":"로그인을 합니다.",
+    "LOGIN_HEADER_2":"가입을 하지 않았으면 간단하게",
+    "LOGIN_HEADER_3":"을 해 주세요!",  
 
   "STUDENT COMMENTS": [{
     "name": "유진형",

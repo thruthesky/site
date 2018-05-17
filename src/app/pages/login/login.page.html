@@ -1,35 +1,34 @@
-<section class="page-wrapper">
-    <div class="page">
 
-        <section class="page-header">
-                <div class="loggedin" *ngIf="a.isLogin">
-                    You cannot login because you are logged in already.<br>
-                    Your email: {{ a.user.email }}
-                </div>
-                <ng-container  *ngIf="a.isLogout">
-                    <div>로그인을 합니다.</div>
-                    <div>가입을 하지 않았으면 간단하게
-                    <span tappable routerLink="/register">회원가입</span>을 해 주세요!</div>
-                </ng-container>
-            </section>
-            
-            <div class="page-body" *ngIf="a.isLogout">
-                <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
-                    <div>
-                        <label>{{ 'EMAIL' | t }}:</label>
-                        <span>
-                            <input type="text" name="email" [(ngModel)]="form.user_email">
-                        </span>
-                    </div>
-                    <div>
-                        <label>{{ 'PASSWORD' | t }}:</label>
-                        <span>
-                            <input type="password" name="password" [(ngModel)]="form.user_pass">
-                        </span>
-                    </div>
-                    <button type="submit">{{ 'LOGIN' | t }}</button>
-                </form>
-            </div>     
-    
+<header>
+    <ng-container  *ngIf="a.isLogout">
+        <div>{{ 'LOGIN_HEADER_1' | t}}</div>
+        <div>
+            {{ 'LOGIN_HEADER_2' | t}}
+            <span routerLink="/register"> {{ 'SIGN_UP' | t }}</span>
+            {{ 'LOGIN_HEADER_3' | t}}
     </div>
-</section>
+    </ng-container>
+</header>
+<main> 
+    <div class="loggedin" *ngIf="a.isLogin">
+        You cannot login because you are logged in already.<br>
+        Your email: {{ a.user.email }}
+    </div>   
+    <div class="form" *ngIf="a.isLogout">
+        <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
+            <div>
+                <label>{{ 'EMAIL' | t }}:</label>
+                <span>
+                    <input type="text" name="email" [(ngModel)]="form.user_email">
+                </span>
+            </div>
+            <div>
+                <label>{{ 'PASSWORD' | t }}:</label>
+                <span>
+                    <input type="password" name="password" [(ngModel)]="form.user_pass">
+                </span>
+            </div>
+            <button type="submit">{{ 'LOGIN' | t }}</button>
+        </form>
+    </div>     
+</main>

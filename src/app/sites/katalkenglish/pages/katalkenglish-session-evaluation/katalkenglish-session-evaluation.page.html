@@ -2,68 +2,76 @@
     <h1>{{ 'SESSION EVALUATION' | t }}</h1>
 </header>
 <main>
-    <section class="content">
-        <div *ngIf="loading">
-            <div>
-                <i class="fa fa-spinner fa-spin  mb-3 fs-4rem"></i>
-                <div>{{ 'IN LOADING' | t }}</div>
-            </div>
-        </div>
+    <div class="loader" *ngIf="loading">
         <div>
-            <div>
-                <span>수업번호</span>
-                <span>{{ session?.idx }}</span>
-            </div>
+            <ion-spinner></ion-spinner>
+            <div>{{ 'IN LOADING' | t }}</div>
         </div>
-        <div>
-            <div>
-                <div>{{ session?.book_used }}</div>
-                <div>교재</div>
-            </div>
-            <div>
-                <div>{{ session?.book_next }}</div>
-                <div>다음 수업 시간에 사용할 교재</div>
-            </div>
-            <div>
-                <div>{{ session?.point }}</div>
-                <div>포인트</div>
-            </div>
-        </div>
-        <div>
-            <div>
-                <div>{{ session?.expression }}</div>
-                <div>표현력</div>
-            </div>
-            <div>
-                <div>{{ session?.vocabulary }}</div>
-                <div>어휘력</div>
-            </div>
-            <div>
-                <div> {{ session?.grammar }}</div>
-                <div>문법</div>
-            </div>
-        </div>
-        <div>
-            <div>
-                <div> {{ session?.pronunciation }}</div>
-                <div>발음</div>
-            </div>
-            <div>
-                <div> {{ session?.speed }}</div>
-                <div>유창함</div>
-            </div>
-            <div>
-                <div>{{level}}</div>
-                <div>결과(레벨)</div>
-            </div>
-        </div>
-        <div>
+    </div>
 
-            <div>
-                <div>코멘트</div>
-                <div> {{ session?.comment }}</div>
+    <div class="eval-wrapper" *ngIf="!loading">
+
+            <div class="left">
+                <div>
+                    <span>수업번호 :</span>
+                    <span>{{ session?.idx }}</span>
+                </div>
+            
+                <div>
+                    <span>교재 :</span>
+                    <span>{{ session?.book_used }}</span>
+                </div>
+            
+                <div>
+                    <span>다음 수업 시간에 사용할 교재 :</span>
+                    <span>{{ session?.book_next }}</span>
+                </div>
+            
+                <div>
+                    <span>포인트 :</span>
+                    <span>{{ session?.point }}</span>
+                </div>
+            
+                <div>
+                    <span>표현력 :</span>
+                    <span>{{ session?.expression }}</span>
+                </div>
             </div>
 
-        </div>
-    </section>
+
+            <div class="right">
+                <div>
+                    <span>어휘력 :</span>
+                    <span>{{ session?.vocabulary }}</span>
+                </div>
+            
+                <div>
+                    <span>문법 :</span>
+                    <span> {{ session?.grammar }}</span>
+                </div>
+            
+                <div>
+                    <span>발음 :</span>
+                    <span> {{ session?.pronunciation }}</span>
+                </div>
+            
+                <div>
+                    <span>유창함 :</span>
+                    <span> {{ session?.speed }}</span>
+                </div>
+            
+                <div>
+                    <span>결과(레벨) :</span>
+                    <span>{{level}}</span>
+                </div>
+             </div>
+    </div>
+
+
+    <div class="comment" *ngIf=" !loading">
+        <div class="title">코멘트</div>
+        <div class="content"> {{ session?.comment }}</div>
+    </div>
+
+
 </main>

@@ -566,4 +566,10 @@ export class XapiLMSService extends Base {
             route: 'lms.get_payment_computation_info',
         });
     }
+
+    get_session_refund_info(req) {
+        req['route'] = 'lms.get_session_refund_info';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
 }

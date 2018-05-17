@@ -24,8 +24,10 @@
     "NAME": "名前",
     "GENDER": "性別",
     "NICKNAME": "ニックネーム",
+    "NICKNAME DESC": "英語の名前を入力してください。 英語だけ。",
     "PHONE_NUMBER": "電話番号",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
+    "FIND KAKAOTALK ID": "Katalk ID を検索",
     "IN_REGISTERING": "登録中",
     "IN_REGISTERING_DESCRIPTION": "登録中にお待ちください...",
     "INSTALL": "インストール",
@@ -377,6 +379,10 @@
 
     "NO_MORE_TEACHERS":"もはや推奨講師がありません。オプションを使用して、より多くの講師を見ることができます。",
     "GOTO_OPTIONS":"オプション",
+
+    "LOGIN_HEADER_1":"ログインをします。",
+    "LOGIN_HEADER_2":"登録をしていない場合は、簡単に",
+    "LOGIN_HEADER_3":"をしてください！",  
 
   "STUDENT COMMENTS": [{
     "name": "유진형",

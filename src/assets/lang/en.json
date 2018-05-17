@@ -95,8 +95,10 @@
     "NAME": "Name",
     "GENDER": "Gender",
     "NICKNAME": "Nickname",
+    "NICKNAME DESC": "Please input English name. English Only.",
     "PHONE_NUMBER": "Phone Number",
     "KAKAOTALK_ID_SHORT": "Katalk ID",
+    "FIND KAKAOTALK ID": "Find Katalk ID",
     "IN_REGISTERING": "Registering",
     "IN_REGISTERING_DESCRIPTION": "Please wait while registering...",
     "INSTALL": "Install",
@@ -401,11 +403,11 @@
     "GOTO_PAYMENT_HISTORY":"Go To Payment History Page",
 
 
-    "ADV_CONTENT_1":"Numerous video English on the Internet",
+    "ADV_CONTENT_1":"Numerous English video chat tutorials on the Internet",
     "ADV_CONTENT_2":"It is a trap that you have to install programs on your computer and take classes at a set time.",
     "ADV_CONTENT_3":"Why do I have a cell phone and internet?",
     "ADV_CONTENT_4":"So I made it so that I can do it anytime and anywhere with KakaoTalk.",
-    "ADV_CONTENT_5":"In 2006, we established Wiseiner, a call center corporation specialized in video English education, in the Philippines.",
+    "ADV_CONTENT_5":"In 2006, we established WithCenter, a call center corporation specialized in video English education, in the Philippines.",
     "ADV_CONTENT_6":"We have been supplying teachers to hundreds of affiliated companies including English sites, academies, study rooms, Japan / China, and so on.",
     "ADV_CONTENT_7":"Average tuition is between 120,000 won and 160,000 won. But we could not deny the changing world forever.",
     "ADV_CONTENT_8":"Uber is very convenient, but the service is good and I swallowed the whole world at once.",
@@ -438,6 +440,12 @@
     "TEACHER_LIST_IS_LOGOUT":"Currently #TOTAL teachers are visible. You can see all teachers through options. When you log in, your class information will be displayed.",
     "NO_MORE_TEACHERS":"No more recommended tutors. You can see more instructors through the options.",
     "GOTO_OPTIONS":"OPEN OPTIONS WINDOW",
+
+
+    "LOGIN_HEADER_1":"Sign in.",
+    "LOGIN_HEADER_2":"If you did not join, simply",
+    "LOGIN_HEADER_3":"Please do it!",  
+
 
   "STUDENT COMMENTS": [{
     "name": "유진형",
