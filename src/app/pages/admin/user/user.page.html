@@ -117,7 +117,7 @@
         <tr class="user" *ngFor=" let user of re ">
             <td class="id" *ngIf=" form.display.ID ">{{ user.ID }}</td>
             <td class="display_name">{{ a.shortName( user.user_email ) }}</td>
-            <td class="name">{{ user.name }}<button class="user-info-button" routerLink="/admin/user-info/{{user.ID}}">ES</button></td>
+            <td class="name"><div class="link" routerLink="/admin/user-info/{{user.ID}}">{{ user.name }}<button class="user-info-button">e</button></div></td>
             <td class="user_email">{{ user.user_email }}</td>
             <td class="kakaotalk_id">{{ user.kakaotalk_id }}</td>
             <td class="point">{{ user.point | number }}</td>
