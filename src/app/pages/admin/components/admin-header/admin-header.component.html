@@ -83,14 +83,16 @@
                 <th>Student</th>
                 <th>Date</th>
                 <th>Begin</th>
+                <th>Point</th>
                 <th>Chk</th>
         </tr>
         <tr class="session" *ngFor="let session of sessions">
             <td>{{ session.idx }}</td>
-            <td>{{ session.teacher?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.teacher?.idx}}">ES</button></td>
-            <td>{{ session.student?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.student?.idx}}">ES</button></td>
+            <td><span class='link' routerLink="/admin/user-info/{{session.teacher?.idx}}">{{ session.teacher?.display_name }}</span><button class="user-info-button" routerLink="/admin/user-info/{{session.teacher?.idx}}">e</button></td>
+            <td><span class='link' routerLink="/admin/user-info/{{session.student?.idx}}">{{ session.student?.display_name }}</span><button class="user-info-button" routerLink="/admin/user-info/{{session.student?.idx}}">e</button></td>
             <td>{{ session.date }}</td>
             <td>{{ session.class_begin }}</td>
+            <td>{{ session.point }}</td>
             <td>{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</td>
         </tr>
     </table>

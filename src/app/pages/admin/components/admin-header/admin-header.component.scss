@@ -13,7 +13,6 @@ aside {
         font-size: .9rem;
         font-weight: bold;
     }
-
     .session {
         .grade {
             display: inline-block;
@@ -34,7 +33,6 @@ aside {
             background-color: #eee;
         }
     }
-
     .teacher-sessions {
         .teacher {
             display: inline-block;
@@ -53,5 +51,15 @@ aside {
             background-color: rgb(97, 65, 65);
             color: white;
         }
+    }
+    .user-info-button {
+        margin: 0;
+        padding: 2px;
+        border: 0;
+        border-radius: 50%;
+        background-color: rgb(236, 236, 236);
+        color: rgb(148, 148, 148);
+        font-size: 6pt;
+        cursor: pointer;
     }
 }

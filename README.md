@@ -13,6 +13,7 @@
 
 ### NOT URGENT
 
+* Display no of session on studnet search list and real time list on sidebar.
 * User can cancel reserved class regardless of any rules if it is less than 1 mimute passed from the time of reservation.
 
 * Admin page user profile update.

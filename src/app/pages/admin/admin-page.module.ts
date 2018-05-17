@@ -20,6 +20,7 @@ const appRoutes: Array<Route> = [
     { path: 'point-refund', pathMatch: 'full', component: PointRefundPage },
     { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
     { path: 'payment', pathMatch: 'full', component: AdminPaymentPage },
+    { path: 'payment/:ID', component: AdminPaymentPage },
     { path: 'session', pathMatch: 'full', component: SessionPage },
     { path: 'session/:type/:ID', component: SessionPage },
     { path: 'user', pathMatch: 'full', component: UserPage },

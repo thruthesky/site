@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../providers/app.service';
 
 
@@ -24,7 +24,6 @@ interface STAT {
         [date: string]: number;
     };
 }
-
 
 @Component({
     selector: 'admin-payment-page',
@@ -51,12 +50,19 @@ export class AdminPaymentPage implements OnInit {
     stat: STAT;
     constructor(
         public router: Router,
+        public activated: ActivatedRoute,
         public a: AppService
     ) {
-        const d = new Date();
-        this.form.date_begin = d.getFullYear() + '-' + a.add0(d.getMonth() + 1) + '-' + '01';
-        this.form.date_end = d.getFullYear() + '-' + a.add0(d.getMonth() + 1) + '-' + a.add0(d.getDate());
-        this.onSubmit();
+        activated.paramMap.subscribe(params => {
+            if (params.get('ID')) {
+                this.form.idx_student = params.get('ID');
+            } else {
+                const d = new Date();
+                this.form.date_begin = d.getFullYear() + '-' + a.add0(d.getMonth() + 1) + '-' + '01';
+                this.form.date_end = d.getFullYear() + '-' + a.add0(d.getMonth() + 1) + '-' + a.add0(d.getDate());
+            }
+            this.onSubmit();
+        });
     }
 
     ngOnInit() {

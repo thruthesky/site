@@ -13,8 +13,8 @@
         <tr valign='top'>
             <td>
                 
-                <button class="" routerLink="/admin/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
-                <button class="" routerLink="/admin/payment/">Payment Detail Page</button>
+                <button class="app-button" routerLink="/admin/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
+                <button class="app-button" routerLink="/admin/payment/{{ user.ID }}">Payment Detail Page</button>
 
                 <form *ngIf=" ! show.loader.loadProfile ">
                     <table>
@@ -230,8 +230,8 @@
 
                     <tr class="session top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
                         <td>{{ session.idx }}</td>
-                        <td *ngIf="user.user_type != 'T' ">{{ a.shortName ( session.teacher?.display_name ) }}</td>
-                        <td *ngIf="user.user_type == 'T' ">{{ a.shortName ( session.student?.display_name ) }}</td>
+                        <td *ngIf="user.user_type != 'T' "><div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}<button class="user-info-button">e</button></div></td>
+                        <td *ngIf="user.user_type == 'T' "><div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}<button class="user-info-button">e</button></div></td>
                         <td>
                             <div>{{ session.date }}</div>
                         </td>
@@ -240,8 +240,8 @@
                     </tr>
                     <tr class="session bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
                         <td>{{ session.idx }}</td>
-                        <td *ngIf="user.user_type != 'T' ">{{ a.shortName ( session.teacher?.display_name ) }}</td>
-                        <td *ngIf="user.user_type == 'T' ">{{ a.shortName ( session.student?.display_name ) }}</td>
+                        <td *ngIf="user.user_type != 'T' "><div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}<button class="user-info-button">e</button></div></td>
+                        <td *ngIf="user.user_type == 'T' "><div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}<button class="user-info-button">e</button></div></td>
                         <td>{{ session.date }}</td>
                         <td nowrap>{{ session.class_begin }}-{{ session.class_end }}</td>
                         <td>{{ session.point | number }}</td>
@@ -266,7 +266,7 @@
                     <tr *ngFor="let pay of payments">
                         <!-- <td>{{ pay.idx }}</td> -->
                         <!-- <td>{{ pay.student?.display_name }}({{ pay.student?.name}})</td> -->
-                        <td>{{ pay.point }}</td>
+                        <td>{{ pay.point | number }}</td>
                         <td>{{ pay.currency }}</td>
                         <td>{{ pay.payment_method }}</td>
                         <td>{{ pay.state }}</td>
