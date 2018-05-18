@@ -18,12 +18,15 @@
             </div>
 
             <div class="buttons">
-                <button class="refund-accept" type="button" (click)=" onClickRefund() ">{{ 'REFUND ACCEPT' | t }}</button>
+                <button class="refund-accept" type="button" *ngIf=" !showConfirmReject " (click)=" onClickRefund() ">{{ 'REFUND ACCEPT' | t }}</button>
                 <button class="refund-reject" type="button" *ngIf=" !showConfirmReject " (click)=" showConfirmReject = true ">
                     {{ 'REFUND REJECT' | t }}
                 </button>
                 <button class="reject-confirm" type="button" *ngIf=" showConfirmReject " (click)=" onClickRejectRefundRequest() ">
                     {{ 'REJECT CONFIRM' | t }}
+                </button>
+                <button class="refund-reject-cancel" type="button" *ngIf=" showConfirmReject " (click)=" showConfirmReject = false ">
+                    {{ 'CANCEL' | t }}
                 </button>
                 <button class="close" type="button" routerLink="/teacher-session-past">
                     <ion-icon name="close"></ion-icon>
