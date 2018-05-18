@@ -1,7 +1,7 @@
 <admin-header-component></admin-header-component>
 <h1>User</h1>
 
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="quickSearch = false; onSubmit()">
     User
     <input class="wider" type="text" name="name" [(ngModel)]="form.name" placeholder="uid, email, kakaotalk id, display name"> Type
 
@@ -44,13 +44,17 @@
     <label for="phone_number">Phone Number</label>
     <input type="checkbox" id="display_grade" name="display_grade" [(ngModel)]="form.display.grade">
     <label for="display_grade">Grade</label>
-    <input type="checkbox" id="display_bookable_time" name="display_bookable_time" [(ngModel)]="form.display.bookable_time"> <label for="display_bookable_time">Bookable Time:</label>
-    <input type="checkbox" id="display_list_order" name="display_list_order" [(ngModel)]="form.display.list_order"> <label for="display_list_order">List Order:</label>
-    <input type="checkbox" id="display_timezone" name="display_timezone" [(ngModel)]="form.display.timezone"> <label for="display_timezone">Timezone:</label>
-    <input type="checkbox" id="display_domain" name="display_domain" [(ngModel)]="form.display.domain"> <label for="display_domain">Domain:</label>
-    <input type="checkbox" id="display_manager" name="display_manager" [(ngModel)]="form.display.manager"> <label for="display_manager">Manager:</label>
-    <hr>
-     Stat:
+    <input type="checkbox" id="display_bookable_time" name="display_bookable_time" [(ngModel)]="form.display.bookable_time">
+    <label for="display_bookable_time">Bookable Time:</label>
+    <input type="checkbox" id="display_list_order" name="display_list_order" [(ngModel)]="form.display.list_order">
+    <label for="display_list_order">List Order:</label>
+    <input type="checkbox" id="display_timezone" name="display_timezone" [(ngModel)]="form.display.timezone">
+    <label for="display_timezone">Timezone:</label>
+    <input type="checkbox" id="display_domain" name="display_domain" [(ngModel)]="form.display.domain">
+    <label for="display_domain">Domain:</label>
+    <input type="checkbox" id="display_manager" name="display_manager" [(ngModel)]="form.display.manager">
+    <label for="display_manager">Manager:</label>
+    <hr> Stat:
 
     <input id="count_result" type="checkbox" name="count_result" [(ngModel)]="form.display.stat.count_result">
     <label for="count_result">Count of Result</label>
@@ -62,9 +66,11 @@
     <label for="count_user_type">Count of User Type</label>
 
     <!-- <input type="checkbox" id="count_monthly_registration" name="count_monthly_registration" [(ngModel)]="form.display.stat.count_monthly_registration"> <label for="count_daily_registration">Monthly count of Registration</label> -->
-    <input type="checkbox" name="count_domain" id="count_domain" [(ngModel)]="form.display.stat.count_domain"> <label for="count_domain">Count of domain</label>
-    <input type="checkbox" id="count_timezone" name="count_timezone" [(ngModel)]="form.display.stat.count_timezone"> <label for="count_timezone">Count of Timezone</label>
-    
+    <input type="checkbox" name="count_domain" id="count_domain" [(ngModel)]="form.display.stat.count_domain">
+    <label for="count_domain">Count of domain</label>
+    <input type="checkbox" id="count_timezone" name="count_timezone" [(ngModel)]="form.display.stat.count_timezone">
+    <label for="count_timezone">Count of Timezone</label>
+
 
     <hr>
     <button type="submit">Search</button>
@@ -77,8 +83,7 @@
         Search result: {{ this.re.length }}
     </div>
     <div *ngIf=" form.display.stat.count_user_type ">
-        Student: {{ this.stat.studnet }}
-        Teacher: {{ this.stat.teacher }}
+        Student: {{ this.stat.studnet }} Teacher: {{ this.stat.teacher }}
     </div>
     <div *ngIf=" form.display.stat.count_domain">
         Domain: {{ this.stat.domain | json }}
@@ -99,25 +104,29 @@
 
     <table class="users">
         <tr>
-                <th *ngIf=" form.display.ID ">ID</th>
-                <th>Display Name</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Katalk ID</th>
-                <th>Point</th>
-                <th *ngIf=" form.display.phone_number ">Phone Number</th>
-                <th *ngIf=" form.display.grade ">Gr</th>
-                <th *ngIf=" form.display.bookable_time ">Bt</th>
-                <th *ngIf=" form.display.list_order ">Lo</th>
-                <th *ngIf=" form.display.timezone ">Tz</th>
-                <th *ngIf=" form.display.domain ">Do</th>
-                <th *ngIf=" form.display.manager ">Manager</th>
-                <th>Date</th>
+            <th *ngIf=" form.display.ID ">ID</th>
+            <th>Display Name</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Katalk ID</th>
+            <th>Point</th>
+            <th *ngIf=" form.display.phone_number ">Phone Number</th>
+            <th *ngIf=" form.display.grade ">Gr</th>
+            <th *ngIf=" form.display.bookable_time ">Bt</th>
+            <th *ngIf=" form.display.list_order ">Lo</th>
+            <th *ngIf=" form.display.timezone ">Tz</th>
+            <th *ngIf=" form.display.domain ">Do</th>
+            <th *ngIf=" form.display.manager ">Manager</th>
+            <th>Date</th>
         </tr>
         <tr class="user" *ngFor=" let user of re ">
             <td class="id" *ngIf=" form.display.ID ">{{ user.ID }}</td>
-            <td class="display_name">{{ a.shortName( user.user_email ) }}</td>
-            <td class="name"><div class="link" routerLink="/admin/user-info/{{user.ID}}">{{ user.name }}<button class="user-info-button">e</button></div></td>
+            <td class="display_name">{{ a.shortName( user.display_name ) }}</td>
+            <td class="name">
+                <div class="link" routerLink="/admin/user-info/{{user.ID}}">{{ user.name }}
+                    <button class="user-info-button">e</button>
+                </div>
+            </td>
             <td class="user_email">{{ user.user_email }}</td>
             <td class="kakaotalk_id">{{ user.kakaotalk_id }}</td>
             <td class="point">{{ user.point | number }}</td>
@@ -133,5 +142,3 @@
         </tr>
     </table>
 </section>
-
-

@@ -15,14 +15,15 @@ import { SessionPage } from './session/session.page';
 import { UserInfoPage } from './user-info/user-info.page';
 
 
-
 const appRoutes: Array<Route> = [
+    { path: 'point-refund/:field/:value', component: PointRefundPage },
     { path: 'point-refund', pathMatch: 'full', component: PointRefundPage },
     { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
     { path: 'payment', pathMatch: 'full', component: AdminPaymentPage },
     { path: 'payment/:ID', component: AdminPaymentPage },
     { path: 'session', pathMatch: 'full', component: SessionPage },
     { path: 'session/:type/:ID', component: SessionPage },
+    { path: 'user/:field/:value', component: UserPage },
     { path: 'user', pathMatch: 'full', component: UserPage },
     { path: 'user-info/:ID', pathMatch: 'full', component: UserInfoPage },
     { path: 'front', pathMatch: 'full', component: AdminHomePage },

@@ -1,9 +1,17 @@
+.user-quick-search {
+    display: inline;
+    input {
+        padding: .35em;
+        width: 24em;
+    }
+}
+
 aside {
     position: absolute;
     display: block;
     top: 0;
     left: 0;
-    width: 390px;
+    width: 420px;
     padding: 1em;
     background-color: antiquewhite;
     font-size: .8rem;

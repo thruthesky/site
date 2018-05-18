@@ -54,8 +54,8 @@
                 <div *ngIf=" s.refund_reject_at ">At: {{ s.refund_reject_at }}</div>
                 {{ s.refund_reject_message }}
             </td>
-            <td class="item pointer"><div (click)="onAccept(s.idx)">Accept</div></td>
-            <td class="item pointer"><div (click)="onReject(s.idx)">Reject</div></td>
+            <td class="item pointer"><div class="app-button" (click)="onAccept(s.idx)">Accept</div></td>
+            <td class="item pointer"><div class="app-button" (click)="onReject(s.idx)">Reject</div></td>
         </tr>
     </table>
 </div>

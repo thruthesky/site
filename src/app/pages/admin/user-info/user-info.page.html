@@ -4,19 +4,18 @@
     <div class="loader" *ngIf=" show.loader.loadProfile ">Loading user profile...</div>
     <table>
         <tr>
-            <th>Stat &amp; User Edit Form</th>
-            <th>Sessions</th>
-            <th>Payment</th>
-            <th>Refund Request</th>
-            <th>Point History</th>
+            <th class="title">Stat &amp; User Edit Form</th>
+            <th class="title">Sessions</th>
+            <th class="title">Payment</th>
+            <th class="title">Point History</th>
         </tr>
         <tr valign='top'>
             <td>
-                
+
                 <button class="app-button" routerLink="/admin/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
                 <button class="app-button" routerLink="/admin/payment/{{ user.ID }}">Payment Detail Page</button>
 
-                <form *ngIf=" ! show.loader.loadProfile ">
+                <form class="user-profile-form" *ngIf=" ! show.loader.loadProfile ">
                     <table>
                         <tr>
                             <td>User ID</td>
@@ -168,7 +167,7 @@
 
 
                         <tr>
-                            <td>Block Freeclass Until</td>
+                            <td>Block<div>Freeclass</div>Until</td>
                             <td>
                                 <input type='text' name='block_free_class_until' [(ngModel)]=" user.block_free_class_until ">
                             </td>
@@ -209,15 +208,17 @@
                 </form>
             </td>
             <td>
-                The date and time is based on your timezone.
+
                 <ul class="sessions-desc">
-                    <li>Your timezone: {{ a.userTime }}</li>
+                    <li>
+                        Date and time is based on user timezone setting.
+                        <br> Your timezone: {{ a.userTime }}</li>
                     <li>Today's class is listed on top.</li>
-                    <li>Only {{ limit }} sessions are listed. Today might not be shown if there are too many reservations.</li>
+                    <li>Only {{ limit }} sessions are listed.
+                        <br>Today might not be shown if there are too many reservations.</li>
                 </ul>
                 <div class="loader" *ngIf=" show.loader.loadSchedule ">Loading schedule</div>
-                Reserved: {{ count.session.future | number }},
-                Past: {{ count.session.past | number }}
+                Reserved: {{ count.session.future | number }}, Past: {{ count.session.past | number }}
                 <table class="sessions" *ngIf=" sessions.length ">
                     <tr>
                         <th>No.</th>
@@ -230,8 +231,16 @@
 
                     <tr class="session top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
                         <td>{{ session.idx }}</td>
-                        <td *ngIf="user.user_type != 'T' "><div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}<button class="user-info-button">e</button></div></td>
-                        <td *ngIf="user.user_type == 'T' "><div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}<button class="user-info-button">e</button></div></td>
+                        <td *ngIf="user.user_type != 'T' ">
+                            <div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                                <button class="user-info-button">e</button>
+                            </div>
+                        </td>
+                        <td *ngIf="user.user_type == 'T' ">
+                            <div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                                <button class="user-info-button">e</button>
+                            </div>
+                        </td>
                         <td>
                             <div>{{ session.date }}</div>
                         </td>
@@ -240,8 +249,16 @@
                     </tr>
                     <tr class="session bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
                         <td>{{ session.idx }}</td>
-                        <td *ngIf="user.user_type != 'T' "><div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}<button class="user-info-button">e</button></div></td>
-                        <td *ngIf="user.user_type == 'T' "><div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}<button class="user-info-button">e</button></div></td>
+                        <td *ngIf="user.user_type != 'T' ">
+                            <div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                                <button class="user-info-button">e</button>
+                            </div>
+                        </td>
+                        <td *ngIf="user.user_type == 'T' ">
+                            <div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                                <button class="user-info-button">e</button>
+                            </div>
+                        </td>
                         <td>{{ session.date }}</td>
                         <td nowrap>{{ session.class_begin }}-{{ session.class_end }}</td>
                         <td>{{ session.point | number }}</td>
@@ -249,30 +266,109 @@
                 </table>
             </td>
             <td>
-                <div class="loader" *ngIf=" show.loader.loayPayment ">
-                    <h2>Loading Payment Info...</h2>
-                </div>
-                <table class="payments" *ngIf=" ! show.loader.loayPayment && payments.length ">
-                    <tr>
-                        <!-- <th>idx</th> -->
-                        <!-- <th>Student</th> -->
-                        <th>Point</th>
-                        <th>Currency</th>
-                        <!-- <th>Amount</th> -->
-                        <th>Method</th>
-                        <th>Status</th>
-                        <th>Date</th>
-                    </tr>
-                    <tr *ngFor="let pay of payments">
-                        <!-- <td>{{ pay.idx }}</td> -->
-                        <!-- <td>{{ pay.student?.display_name }}({{ pay.student?.name}})</td> -->
-                        <td>{{ pay.point | number }}</td>
-                        <td>{{ pay.currency }}</td>
-                        <td>{{ pay.payment_method }}</td>
-                        <td>{{ pay.state }}</td>
-                        <td nowrap>{{ a.veryShortDate(pay.stamp_begin) }}</td>
-                    </tr>
-                </table>
+                <section class="payments-wrapper">
+
+                    <div class="loader" *ngIf=" show.loader.loadPayment ">
+                        Loading Payment Info...
+                    </div>
+                    <table class="payments" *ngIf=" ! show.loader.loadPayment && payments.length ">
+                        <tr>
+                            <!-- <th>idx</th> -->
+                            <!-- <th>Student</th> -->
+                            <th>Point</th>
+                            <th>Currency</th>
+                            <!-- <th>Amount</th> -->
+                            <th>Method</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                        <tr *ngFor="let pay of payments">
+                            <!-- <td>{{ pay.idx }}</td> -->
+                            <!-- <td>{{ pay.student?.display_name }}({{ pay.student?.name}})</td> -->
+                            <td>{{ pay.point | number }}</td>
+                            <td>{{ pay.currency }}</td>
+                            <td>{{ pay.payment_method }}</td>
+                            <td>{{ pay.state }}</td>
+                            <td nowrap>{{ a.veryShortDate(pay.stamp_begin) }}</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section class="refund-request">
+                        <div class="title">Refund Request</div>
+                        <table>
+                            <tr>
+                                <th>Teacher</th>
+                                <th>Student</th>
+                                <th>Date Time</th>
+                                <th></th>
+                            </tr>
+                            <tr *ngFor=" let re of refundRequests ">
+                                <td><div class='link' routerLink="/admin/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}<button class='user-info-button'>e</button></div></td>
+                                <td><div class='link' routerLink="/admin/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}<button class='user-info-button'>e</button></div></td>
+                                <td>{{ re.date }} {{ re.class_begin }}</td>
+                                <td><button class='user-info-button' routerLink="/admin/point-refund/idx/{{re.idx}}">open</button></td>
+                            </tr>
+                        </table>
+                    </section>
+            </td>
+
+            <td>
+                <section class="point-history">
+
+                    <div class="loader" *ngIf=" show.loader.loadPointHistory ">
+                        Loading Payment Info...
+                    </div>
+                    <table *ngIf=" ! show.loader.loadPointHistory ">
+
+                        <tr>
+                            <th *ngIf=" user.user_type == 'S' ">
+                                Teacher
+                            </th>
+                            <th *ngIf=" user.user_type == 'T' ">
+                                Student
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                            <th>
+                                idx
+                                <br> reservation
+                            </th>
+                            <th>
+                                Action Time
+                            </th>
+                        </tr>
+
+                        <tr *ngFor=" let log of pointHistory ">
+                            <td *ngIf=" user.user_type == 'S' ">
+                                <div class="link" routerLink="/admin/user-info/{{ log.teacher?.idx }}">
+                                    {{ log.teacher?.display_name }}
+                                    <button class="user-info-button">e</button>
+                                </div>
+                            </td>
+                            <td *ngIf=" user.user_type == 'T' ">
+                                <div class="link" routerLink="/admin/user-info/{{ log.student?.idx }}">
+                                    {{ log.student?.display_name }}
+                                    <button class="user-info-button">e</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="reason">{{ log.reason }}</div>
+                            </td>
+                            <td>
+                                <div class='link' routerLink="/admin/session/idx/{{log.idx_reservation}}">
+                                    {{ log.idx_reservation }}
+                                    <button class="user-info-button">s</button>
+                                </div>
+                            </td>
+                            <td>
+                                {{ a.shortDateTime(log.stamp) }}
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
             </td>
         </tr>
     </table>

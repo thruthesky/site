@@ -1,3 +1,6 @@
+.user-profile-form {
+    font-size: .85rem;
+}
 .user-info {
     font-size: 11pt;
 }
@@ -43,4 +46,19 @@
     color: rgb(148, 148, 148);
     font-size: 6pt;
     cursor: pointer;
+}
+
+.point-history {
+    font-size: .8rem;
+    .reason {
+        max-width: 6em;
+    }
+}
+
+.title {
+    padding: .5em;
+    font-weight: 100;
+    font-size: 1rem;
+    background-color: rgb(37, 126, 161);
+    color: white;
 }

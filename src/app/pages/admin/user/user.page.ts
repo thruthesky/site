@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../providers/app.service';
 
 
@@ -73,8 +73,11 @@ export class UserPage implements OnInit {
         loader: false
     };
 
+
+    quickSearch = false;
     constructor(
         public router: Router,
+        public activated: ActivatedRoute,
         public a: AppService
     ) {
         // a.showHeader = false;
@@ -88,10 +91,18 @@ export class UserPage implements OnInit {
         // }).subscribe( re => {
         //     console.log(re);
         // }, e => this.a.toast(e));
-        const d = (new Date);
-        this.form.date_end = d.getFullYear() + '-' + a.add0((d.getMonth() + 1)) + '-' + a.add0(d.getDate());
 
-        this.onSubmit();
+        activated.paramMap.subscribe( params => {
+            if ( params.get('field') === 'uid' ) {
+                this.quickSearch = true;
+                this.form.name = params.get('value');
+                this.onSubmit();
+            } else {
+                const d = (new Date);
+                // this.form.date_end = d.getFullYear() + '-' + a.add0((d.getMonth() + 1)) + '-' + a.add0(d.getDate());
+                this.onSubmit();
+            }
+        });
     }
 
     ngOnInit() {
@@ -134,6 +145,9 @@ export class UserPage implements OnInit {
         }).subscribe(re => {
             this.show.loader = false;
             this.re = re;
+            if ( re.length && re.length === 1 && this.quickSearch ) {
+                this.router.navigateByUrl('/admin/user-info/' + this.re[0]['ID'] );
+            }
             this.sanitize();
             this.statistics();
             console.log(re);

@@ -11,7 +11,8 @@ interface SHOW {
         updatePoint: boolean;
         profileSaved: boolean;
         loadSchedule: boolean;
-        loayPayment: boolean;
+        loadPayment: boolean;
+        loadPointHistory: boolean;
     };
     pointUpdateForm: boolean;
 
@@ -25,6 +26,7 @@ export class UserInfoPage implements OnInit {
     user: USER_DATA_RESPONSE = {};
     sessions: Array<BOOK> = [];
     sessionsToday: Array<BOOK> = [];
+    refundRequests: Array<BOOK> = [];
     count = {
         session: {
             future: 0,
@@ -36,6 +38,8 @@ export class UserInfoPage implements OnInit {
     pointForm = null;
     limit = 500;
 
+    pointHistory = [];
+
     constructor(
         public active: ActivatedRoute,
         public router: Router,
@@ -43,7 +47,7 @@ export class UserInfoPage implements OnInit {
     ) {
         active.paramMap.subscribe(params => {
             const ID = params.get('ID');
-            console.log('params:', ID);
+            // console.log('params:', ID);
             this.init();
             this.loadInfo(ID);
             this.loadPayment(ID);
@@ -63,7 +67,8 @@ export class UserInfoPage implements OnInit {
                 updatePoint: false,
                 profileSaved: false,
                 loadSchedule: false,
-                loayPayment: false
+                loadPayment: false,
+                loadPointHistory: false
             },
             pointUpdateForm: false
         };
@@ -99,14 +104,17 @@ export class UserInfoPage implements OnInit {
                 }
 
                 /**
-                 * Schedule is loaded after user information.
-                 * It needs user type.
+                 * Some methods are invoked
+                 * after loading user information.
+                 * since it needs user type.
                  */
                 this.loadSchedule(ID);
+                this.loadPointHistory();
+                this.loadRefundRequest();
             } else {
                 this.a.toast('You are not Manager of this user.');
             }
-            console.log(re);
+            // console.log(re);
 
             // this.onClickPointUpdate();
         }, e => this.a.toast(e));
@@ -114,7 +122,7 @@ export class UserInfoPage implements OnInit {
     onSubmitUserInfo() {
         // event.preventDefault();
 
-        console.log(this.user);
+        // console.log(this.user);
         const u = this.user;
         const up = {
             route: 'lms.admin_user_update',
@@ -139,7 +147,7 @@ export class UserInfoPage implements OnInit {
         this.show.loader.updateProfile = true;
         this.a.xapi.post(up).subscribe(re => {
             this.show.loader.updateProfile = false;
-            console.log('admin_user_update', re);
+            // console.log('admin_user_update', re);
             this.show.loader.profileSaved = true;
             setTimeout(() => this.show.loader.profileSaved = false, 1000);
         }, e => this.a.toast(e));
@@ -149,7 +157,7 @@ export class UserInfoPage implements OnInit {
         this.pointForm.idx_student = this.user.ID;
         this.show.loader.updatePoint = true;
         this.a.lms.point_add(this.pointForm).subscribe(re => {
-            console.log('point_add: ', re);
+            // console.log('point_add: ', re);
             this.show.loader.updatePoint = false;
             /**
              * This should be javascript plain alert !
@@ -168,7 +176,7 @@ export class UserInfoPage implements OnInit {
         SELECT r.idx, r.idx_student, r.idx_teacher, r.date, r.class_begin, r.class_end, r.point
         FROM lms_reservation as r, wp_users
         WHERE BRANCH`;
-        if ( this.user.user_type === 'T' ) {
+        if (this.user.user_type === 'T') {
             sql += ` AND wp_users.ID = r.idx_teacher AND r.idx_teacher=${ID}`;
         } else {
             sql += ` AND wp_users.ID = r.idx_student AND r.idx_student=${ID}`;
@@ -177,19 +185,19 @@ export class UserInfoPage implements OnInit {
         ORDER BY date DESC, class_begin DESC
         LIMIT ${this.limit}
         `;
-        console.log(sql);
+        // console.log(sql);
         this.show.loader.loadSchedule = true;
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('schedule: ', re);
+            // console.log('schedule: ', re);
             this.show.loader.loadSchedule = false;
             this.sessions = re;
             // this.statistics();
             this.sanitizeSchedule();
-            console.log(re);
+            // console.log(re);
         }, e => this.a.toast(e));
     }
     sanitizeSchedule() {
@@ -243,10 +251,10 @@ export class UserInfoPage implements OnInit {
             } else {
                 session['time'] = 'past';
             }
-            if ( currentDateTime < beginDateTime ) {
-                this.count.session.future ++;
+            if (currentDateTime < beginDateTime) {
+                this.count.session.future++;
             } else {
-                this.count.session.past ++;
+                this.count.session.past++;
             }
         }
     }
@@ -258,17 +266,77 @@ export class UserInfoPage implements OnInit {
         sql += ` AND (state='approved' OR state='refund') `;
         sql += ` ORDER BY stamp_begin DESC`;
         sql += ` LIMIT 100`;
-        console.log(sql);
-        this.show.loader.loayPayment = true;
+        // console.log(sql);
+        this.show.loader.loadPayment = true;
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('payments: ', re);
-            this.show.loader.loayPayment = false;
+            // console.log('payments: ', re);
+            this.show.loader.loadPayment = false;
             this.payments = re;
         }, e => this.a.toast(e));
     }
+    loadPointHistory() {
+
+        const ID = this.user.ID;
+        const type = this.user.user_type;
+
+
+        let sql = `SELECT p.*
+            FROM lms_point_log as p, wp_users
+            WHERE BRANCH AND wp_users.ID=${ID}`;
+        if (type === 'T') {
+            sql += ` AND p.idx_teacher=${ID}`;
+        } else {
+            sql += ` AND p.idx_student=${ID}`;
+        }
+        sql += ` ORDER BY stamp DESC`;
+        sql += ` LIMIT 300`;
+        // console.log('loadPointHistory()', sql);
+        this.show.loader.loadPointHistory = true;
+        this.a.lms.admin_query({
+            sql: sql,
+            student_info: true,
+            teacher_info: true
+        }).subscribe(re => {
+            // console.log('pointHistory: ', re);
+            this.show.loader.loadPointHistory = false;
+            this.pointHistory = re;
+        }, e => this.a.toast(e));
+    }
+    loadRefundRequest() {
+        let sql = `SELECT r.* FROM lms_reservation as r, wp_users WHERE BRANCH`;
+        sql += ` AND wp_users.ID = r.idx_student `;
+        if (this.user.user_type === 'T') {
+            sql += ` AND r.idx_teacher=${this.user.ID}`;
+        } else {
+            sql += ` AND r.idx_student=${this.user.ID}`;
+        }
+
+        sql += ` AND ( (r.refund_request_at > 0) OR (r.refund_reject_at > 0) )
+                    AND refund_done_at = 0
+                    AND refund_settle_at = 0
+                    AND paid=0 `;
+        sql += ` ORDER BY r.date DESC, r.class_begin DESC`;
+        sql += ` LIMIT 5`;
+        // console.log('sql: ', sql);
+        this.a.lms.admin_query({
+            sql: sql,
+            student_info: true,
+            teacher_info: true
+        }).subscribe(re => {
+            console.log('refund request: ', re);
+            this.refundRequests = re;
+            if (this.refundRequests && this.refundRequests.length) {
+                for (const s of this.refundRequests) {
+                    this.a.convertSessionIntoUserTime(s);
+                    s.date = s.date.substr(4);
+                }
+            }
+        }, e => this.a.toast(e));
+    }
+
 }
 
