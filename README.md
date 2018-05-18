@@ -9,18 +9,22 @@
   * Make the workserver as real server.
   * Do it Immediately !!
 
+* Use `<a>` tag for page link. Not button tag. For SEO purpose.
+
 ### NOT URGENT
 
 * User can cancel reserved class regardless of any rules if it is less than 1 mimute passed from the time of reservation.
 
 * Admin page user profile update.
-* Admin page session list search. session edit by manually.
-  * Admin can reduce point and give it back to student.
+* Admin page all the links of schedule edit, point, reservation, etc.
+* @done Admin page session list search. session edit by manually.
+* Admin can reduce point and give it back to student.
+* Admin can edit the reservation of all fields.
 * Admin page user payment list & search. stat by day, month.
   * Make a refund option so, it will be added onto statistics.
 * Admin Notification. Make it as component and put it on header. so, all the admin page has it.
-
-
+* display photo, youtube on admin user list
+* Let admin edit user's profile photo.
 * put `countries` somewhere else. so it will not increase main.js bundle size.
 * Suggestion: Move comment component under forum page module since it is a dependant of forum.
 * Front page of katalk english, ontue
@@ -195,7 +199,10 @@ https://www.katalkenglish.com/category
 
 ## How to install a branch site
 
-https://abc.katalkenglish.com/install
+* To create a branch site
+  * first, you will need to choose a sub domain of `katalkengilsh.com`. For instance `abc.katalkenglish.com`
+  * second, you will need to login as the owner of the subsite.
+  * thrid, access `install` route of the domain of the subsite. Ex) `https://abc.katalkenglish.com/install`
 
 ## Documentation
 

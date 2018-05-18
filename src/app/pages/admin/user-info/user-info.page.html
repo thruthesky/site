@@ -1,0 +1,279 @@
+<admin-header-component></admin-header-component>
+<section class="user-info">
+
+    <div class="loader" *ngIf=" show.loader.loadProfile ">Loading user profile...</div>
+    <table>
+        <tr>
+            <th>Stat &amp; User Edit Form</th>
+            <th>Sessions</th>
+            <th>Payment</th>
+            <th>Refund Request</th>
+            <th>Point History</th>
+        </tr>
+        <tr valign='top'>
+            <td>
+                
+                <button class="" routerLink="/admin/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
+                <button class="" routerLink="/admin/payment/">Payment Detail Page</button>
+
+                <form *ngIf=" ! show.loader.loadProfile ">
+                    <table>
+                        <tr>
+                            <td>User ID</td>
+                            <td>{{ user.ID }}</td>
+                        </tr>
+                        <tr>
+                            <td>Login</td>
+                            <td>
+                                <b class="user-login">{{ user.user_login }}</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Point</td>
+                            <td>
+                                <div class="point">
+                                    <div class='user-point'>User Point: {{ user.point | number }}</div>
+                                    <button type='button' class="app-button point-edit" (click)="show.pointUpdateForm = true" *ngIf=" ! show.pointUpdateForm ">Point Edit</button>
+                                </div>
+                                <section class='point-edit' *ngIf=" show.pointUpdateForm ">
+                                    <b>Point Update</b>
+                                    <div>
+                                        Apply :
+                                        <input type='radio' id='apply_payment' name='apply' [(ngModel)]="pointForm.apply" [value]="'payment'">
+                                        <label for="apply_payment">Payment</label>
+                                        &nbsp;
+                                        <input type='radio' id='apply_add' name='apply' [(ngModel)]="pointForm.apply" [value]="'add'">
+                                        <label for="apply_add">Add</label>
+                                        &nbsp;
+                                        <input type='radio' id='apply_deduct' name='apply' [(ngModel)]="pointForm.apply" [value]="'deduct'">
+                                        <label for="apply_deduct">Deduct</label>
+                                        &nbsp;
+                                        <input type='radio' id='apply_refund' name='apply' [(ngModel)]="pointForm.apply" [value]="'refund'">
+                                        <label for="apply_refund">Refund</label>
+                                    </div>
+                                    <div>
+                                        Point:
+                                        <input type="number" name="pointForm_point" [(ngModel)]="pointForm.point">
+                                    </div>
+                                    <div>
+                                        Reason:
+                                        <input type="text" name="pointForm_reason" [(ngModel)]="pointForm.reason">
+                                    </div>
+                                    <div *ngIf=" pointForm.apply == 'payment' || pointForm.apply == 'refund' ">
+                                        <div>
+                                            Payment Method:
+                                            <input type="radio" id="payment_method_paypal" name="payment_method" [(ngModel)]="pointForm.payment_method" [value]="'paypal'">
+                                            <label for="payment_method_paypal">Paypal</label>
+                                            <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" [(ngModel)]="pointForm.payment_method"
+                                                [value]="'wooribank'">
+                                            <label for="payment_method_wooribank">Woori Bank</label>
+
+                                        </div>
+                                        <div>
+                                            Amount:
+                                            <input type="text" name="amount" [(ngModel)]="pointForm.amount"> How much was paid to buy the point?
+                                        </div>
+                                        <div>
+                                            Currency:
+                                            <input type="radio" id="currency_usd" name="currency_usd" [(ngModel)]="pointForm.currency" [value]="'USD'">
+                                            <label for="currency_usd">USD</label>
+                                            <input type="radio" type="radio" id="currency_kwr" name="currency_kwr" [(ngModel)]="pointForm.currency" [value]="'KWR'">
+                                            <label for="currency_kwr">KWR</label>
+                                        </div>
+                                    </div>
+                                    <button class="app-button" type="button" (click)="onClickPointUpdate()" *ngIf=" ! show.loader.updatePoint ">Update Point</button>
+                                    <button class="app-button" type="button" (click)=" show.pointUpdateForm = false">Cancel</button>
+                                    <div class="loader" *ngIf=" show.loader.updatePoint ">Updating point...</div>
+
+
+                                </section>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                {{ user.user_email }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Password</td>
+                            <td>
+                                <input type='text' name='password' [(ngModel)]=" user.user_pass ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User Type</td>
+                            <td>
+                                <input type='radio' id="user_type_student" name='user_type' [(ngModel)]=" user.user_type " [value]="'S'" [checked]=" user.user_type ">
+                                <label for="user_type_student">Student</label>,
+                                <input type='radio' id="user_type_teacher" name='user_type' [(ngModel)]=" user.user_type " [value]="'T'" [checked]=" user.user_type ">
+                                <label for="user_type_teacher">Teacher</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Display Name</td>
+                            <td>
+                                <input type='text' name='display_name' [(ngModel)]=" user.display_name ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>
+                                <input type='text' name='name' [(ngModel)]=" user.name ">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Gender</td>
+                            <td>
+                                <input type='radio' id="gender_male" name='gender' [(ngModel)]=" user.gender " [value]="'M'" [checked]=" user.gender ">
+                                <label for="gender_male">Male</label>,
+                                <input type='radio' id="gender_female" name='gender' [(ngModel)]=" user.gender " [value]="'F'" [checked]=" user.gender ">
+                                <label for="gender_female">Female</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td>
+                                <input type='text' name='phone_number' [(ngModel)]=" user.phone_number ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kakaotalk ID</td>
+                            <td>
+                                <input type='text' name='kakaotalk_id' [(ngModel)]=" user.kakaotalk_id ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Teacher Grade</td>
+                            <td>
+                                <input type='text' name='grade' [(ngModel)]=" user.grade ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>List Order</td>
+                            <td>
+                                <input type='text' name='list_order' [(ngModel)]=" user.list_order ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bookable Time</td>
+                            <td>
+                                <input type='text' name='bookable_time' [(ngModel)]=" user.bookable_time ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Block Freeclass Until</td>
+                            <td>
+                                <input type='text' name='block_free_class_until' [(ngModel)]=" user.block_free_class_until ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Timezone</td>
+                            <td>
+                                <input type='text' name='timezone' [(ngModel)]=" user.timezone ">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Domain</td>
+                            <td>
+                                <input type='text' name='domain' [(ngModel)]=" user.domain ">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Manager</td>
+                            <td>
+                                <input type='text' name='manager' [(ngModel)]=" user.manager ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+
+                                <button class="app-button" type='button' (click)="onSubmitUserInfo()" *ngIf=" ! show.loader.updateProfile ">Update User Profile</button>
+                                <div class="loader" *ngIf=" show.loader.updateProfile ">Saving ...</div>
+                                <div class="loader" *ngIf=" show.loader.profileSaved ">Saved...</div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+            <td>
+                The date and time is based on your timezone.
+                <ul class="sessions-desc">
+                    <li>Your timezone: {{ a.userTime }}</li>
+                    <li>Today's class is listed on top.</li>
+                    <li>Only {{ limit }} sessions are listed. Today might not be shown if there are too many reservations.</li>
+                </ul>
+                <div class="loader" *ngIf=" show.loader.loadSchedule ">Loading schedule</div>
+                Reserved: {{ count.session.future | number }},
+                Past: {{ count.session.past | number }}
+                <table class="sessions" *ngIf=" sessions.length ">
+                    <tr>
+                        <th>No.</th>
+                        <th *ngIf="user.user_type != 'T' ">Teacher</th>
+                        <th *ngIf="user.user_type == 'T' ">Student</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Point</th>
+                    </tr>
+
+                    <tr class="session top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
+                        <td>{{ session.idx }}</td>
+                        <td *ngIf="user.user_type != 'T' ">{{ a.shortName ( session.teacher?.display_name ) }}</td>
+                        <td *ngIf="user.user_type == 'T' ">{{ a.shortName ( session.student?.display_name ) }}</td>
+                        <td>
+                            <div>{{ session.date }}</div>
+                        </td>
+                        <td nowrap>{{ session.class_begin }}-{{ session.class_end }}</td>
+                        <td>{{ session.point | number }}</td>
+                    </tr>
+                    <tr class="session bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
+                        <td>{{ session.idx }}</td>
+                        <td *ngIf="user.user_type != 'T' ">{{ a.shortName ( session.teacher?.display_name ) }}</td>
+                        <td *ngIf="user.user_type == 'T' ">{{ a.shortName ( session.student?.display_name ) }}</td>
+                        <td>{{ session.date }}</td>
+                        <td nowrap>{{ session.class_begin }}-{{ session.class_end }}</td>
+                        <td>{{ session.point | number }}</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <div class="loader" *ngIf=" show.loader.loayPayment ">
+                    <h2>Loading Payment Info...</h2>
+                </div>
+                <table class="payments" *ngIf=" ! show.loader.loayPayment && payments.length ">
+                    <tr>
+                        <!-- <th>idx</th> -->
+                        <!-- <th>Student</th> -->
+                        <th>Point</th>
+                        <th>Currency</th>
+                        <!-- <th>Amount</th> -->
+                        <th>Method</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr *ngFor="let pay of payments">
+                        <!-- <td>{{ pay.idx }}</td> -->
+                        <!-- <td>{{ pay.student?.display_name }}({{ pay.student?.name}})</td> -->
+                        <td>{{ pay.point }}</td>
+                        <td>{{ pay.currency }}</td>
+                        <td>{{ pay.payment_method }}</td>
+                        <td>{{ pay.state }}</td>
+                        <td nowrap>{{ a.veryShortDate(pay.stamp_begin) }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</section>

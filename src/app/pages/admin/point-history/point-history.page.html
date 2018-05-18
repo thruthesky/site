@@ -8,7 +8,10 @@
     <ion-button type="submit">Search</ion-button>
 </form>
 
-
+<hr>
+<section class="result" *ngIf=" re.length ">
+    No of Searched Record: {{ re.length }}
+</section>
 <table *ngIf=" re.length ">
     <tr>
         <td>Action</td>

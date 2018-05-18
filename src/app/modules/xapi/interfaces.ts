@@ -97,6 +97,12 @@ export interface USER_REGISTER extends REQUEST {
     hobby?: string;
     youtube_video_url?: string;
     bookable_time?: number;
+    block_free_class_until?: string;
+    grade?: string;
+    list_order?: string;
+    timezone?: string;
+    manager?: string;
+    point?: string;
 }
 
 export type USER_UPDATE = USER_REGISTER;
@@ -467,6 +473,7 @@ export interface BOOK {
     book_used: string;
     book_next: string;
     student: {
+        idx: string;
         email: string;
         phone_number: string;
         name: string;
@@ -475,6 +482,7 @@ export interface BOOK {
         kakaotalk_id: string;
     };
     teacher: {
+        idx: string;
         email: string;
         name: string;
         display_name: string;

@@ -493,7 +493,7 @@ export class AppService {
             o = { message: 'No toast message' };
         } else if (typeof o === 'string') { // Mostly a message to user
             o = { message: o };
-        } else if (o instanceof Error) { // Mostly an error code from backend.
+        } else if (o instanceof Error) { // Mostly an response error code from backend.
 
             console.log('error from server?', o);
             const code = this.xapi.getError(o).code;
@@ -1366,6 +1366,9 @@ export class AppService {
         }
         return dt;
     }
+    veryShortDate(stamp) {
+        return this.shortDate(stamp).substr(3);
+    }
     shortDateTime(stamp: any): string {
         const d = new Date(stamp * 1000);
         return d.getFullYear().toString().substr(2, 2) +
@@ -1597,6 +1600,22 @@ export class AppService {
         console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
         return this.getYmdHi(new Date(utcStamp * 1000));
     }
+    getUserYmdHiFromUTCYmdHi(YmdHi: string): string {
+        if (!YmdHi) {
+            return '';
+        }
+
+        const Y = parseInt(YmdHi.substr(0, 4), 10);
+        const m = parseInt(YmdHi.substr(4, 2), 10) - 1;
+        const d = parseInt(YmdHi.substr(6, 2), 10);
+        const H = parseInt(YmdHi.substr(8, 2), 10);
+        const i = parseInt(YmdHi.substr(10, 2), 10);
+
+        const date = new Date(Y, m, d, H, i);
+        const utcStamp = this.getStamp(date);
+        const userStamp = utcStamp + this.getUserTimezone() * 60 * 60;
+        return this.getYmdHi(new Date(userStamp * 1000));
+    }
     /**
      * Returns UTC Ymd from User Time's YmdHi
      * @param YmdHi User Time's YmdHis
@@ -1618,6 +1637,11 @@ export class AppService {
             return re.substr(8, 4);
         }
         return '';
+    }
+    getStampOfToday(): number {
+        const d = new Date();
+        const n = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0, 0);
+        return Math.round(n.getTime() / 1000);
     }
 
     // getDateOfTimezone(d: Date, tz: number) {
