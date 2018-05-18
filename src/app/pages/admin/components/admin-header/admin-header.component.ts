@@ -19,6 +19,13 @@ export class AdminHeaderComponent implements OnInit {
     stats = null;
 
     sessions: Array<BOOK> = [];
+    refundRequests: Array<BOOK> = [];
+
+
+    /**
+     * quick search
+     */
+    uid = '';
     constructor(
         public router: Router,
         public fire: FireService,
@@ -33,6 +40,8 @@ export class AdminHeaderComponent implements OnInit {
 
         this.loadSessionOnGoing();
         setInterval(() => this.loadSessionOnGoing(), 60 * 1000); /// every minutes.
+
+        this.loadRefundRequest();
     }
 
     ngOnInit() {
@@ -99,7 +108,7 @@ export class AdminHeaderComponent implements OnInit {
     loadSessionOnGoing() {
 
         let sql = `SELECT r.* FROM lms_reservation as r, wp_users WHERE BRANCH AND wp_users.ID = r.idx_student`;
-        const u = this.a.getUTCYmdHisFromUserYmdHi( this.a.getYmdHi() );
+        const u = this.a.getUTCYmdHisFromUserYmdHi(this.a.getYmdHi());
         const date = u.substr(0, 8);
         const Hi = u.substr(8, 4);
 
@@ -120,13 +129,44 @@ export class AdminHeaderComponent implements OnInit {
             // console.log(re);
             if (this.sessions.length) {
                 for (const session of this.sessions) {
-                    const b = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_begin);
-                    session.date = b.substr(0, 8);
-                    session.class_begin = b.substr(8, 4);
+                    this.a.convertSessionIntoUserTime(session);
+                    // const b = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_begin);
+                    // session.date = b.substr(0, 8);
+                    // session.class_begin = b.substr(8, 4);
                 }
             }
         }, e => this.a.toast(e));
         return false;
+    }
+    onSubmitUserQuickSearch(event: Event) {
+        event.preventDefault();
+        this.router.navigateByUrl('/admin/user/uid/' + this.uid);
+        return false;
+    }
+    loadRefundRequest() {
+        let sql = `SELECT r.* FROM lms_reservation as r, wp_users WHERE BRANCH AND wp_users.ID = r.idx_student`;
+
+        sql += ` AND ( (r.refund_request_at > 0) OR (r.refund_reject_at > 0) )
+                    AND refund_done_at = 0
+                    AND refund_settle_at = 0
+                    AND paid=0 `;
+        sql += ` ORDER BY r.date DESC, r.class_begin DESC`;
+        sql += ` LIMIT 5`;
+        // console.log('sql: ', sql);
+        this.a.lms.admin_query({
+            sql: sql,
+            student_info: true,
+            teacher_info: true
+        }).subscribe(re => {
+            // console.log('refund request: ', re);
+            this.refundRequests = re;
+            if (this.refundRequests && this.refundRequests.length) {
+                for (const s of this.refundRequests) {
+                    this.a.convertSessionIntoUserTime(s);
+                    s.date = s.date.substr(4);
+                }
+            }
+        }, e => this.a.toast(e));
     }
 }
 

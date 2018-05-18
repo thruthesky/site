@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FireService, USER, USER_NOT_FOUND } from './../../../modules/firelibrary/core';
 import { AppService } from '../../../providers/app.service';
 import { USER_LOGIN } from '../../../modules/xapi/interfaces';
@@ -15,7 +15,7 @@ import { SESSION } from '../../../modules/xapi/lms.service';
 export class PointRefundPage implements OnInit {
 
     form = {
-        idx: 0,
+        idx: '',
         date: '',
         teacher: '',
         student: '',
@@ -26,9 +26,15 @@ export class PointRefundPage implements OnInit {
     re: Array<SESSION> = [];
     constructor(
         public router: Router,
+        public activated: ActivatedRoute,
         public a: AppService
     ) {
-        this.loadSessions();
+        activated.paramMap.subscribe( params => {
+            if ( params.get('field') === 'idx' ) {
+                this.form.idx = params.get('value');
+            }
+            this.loadSessions();
+        });
     }
 
     loadSessions() {
