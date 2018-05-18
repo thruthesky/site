@@ -444,6 +444,7 @@
     "PAID":"付费",
     "REFUND":"退",
     "EVALUATE":"评估",
+    "EVALUATED":"评估",
     "RESULT":"结果",
 
     "WRITE_REVIEW":"写评论",

@@ -189,7 +189,7 @@
     .rejected,.refunded{
         display: inline-block;
         margin-top: 1em;
-        color:darkred;
+        color:darkred!important;
     }
 
     .rejected{
@@ -266,12 +266,12 @@
         background-color: rgb(255, 123, 0);
     }
 
-    .evaluate{
+    .evaluated{
         border-color: rgba(black, 0.06)!important;
         color:blue;
     }
 
-    .warning {
+    .evaluate {
         background-color: rgb(255, 123, 0)!important;
         color: white!important;
     }
@@ -337,9 +337,13 @@
     color:blue;
 }
 
-.no-more,.loader{
+.no-more{
     text-align: center;
     padding: 5em;
+}
+
+.loader{
+    text-align: center;
 }
 
 .no-more{
