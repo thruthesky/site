@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../providers/app.service';
 import { BOOK } from './../../../modules/xapi/interfaces';
 
@@ -61,6 +61,8 @@ export class SessionPage implements OnInit {
         student_absent: false,
         successful: false,
         comment: false,
+        stamp_checked: false,
+        stamp_unchecked: false,
         order: 'DATETIME',
         by: 'ASC',
         limit: 150,
@@ -86,16 +88,29 @@ export class SessionPage implements OnInit {
             speed: false,
             comment: false,
             book_used: false,
-            book_next: false
+            book_next: false,
+            stamp_checked: false
         }
     };
     constructor(
-        public a: AppService
+        public a: AppService,
+        public activated: ActivatedRoute
     ) {
         const d = (new Date);
         this.form.date_end = d.getFullYear() + a.add0((d.getMonth() + 1)) + a.add0(d.getDate());
         // this.onSubmit();
-        this.onClickFuture();
+        // this.onClickFuture();
+
+        activated.paramMap.subscribe(params => {
+            console.log('params: ', params);
+
+            if (params.get('type') === 'student') {
+                this.form.idx_student = params.get('ID');
+            } else if (params.get('type') === 'teacher') {
+                this.form.idx_teacher = params.get('ID');
+            }
+            this.onClickFuture();
+        });
     }
     ngOnInit() {
 
@@ -214,9 +229,18 @@ export class SessionPage implements OnInit {
             where.push(`r.comment<>''`);
         }
 
-        if ( this.form.date_begin ) {
+        if (this.form.stamp_checked) {
+            where.push(`r.stamp_checked>0`);
+        }
+
+        if (this.form.stamp_unchecked) {
+            where.push(`r.stamp_checked=0`);
+        }
+
+
+        if (this.form.date_begin) {
             let YmdHiBegin;
-            if ( this.form.class_begin ) {
+            if (this.form.class_begin) {
                 YmdHiBegin = this.form.date_begin + this.form.class_begin;
             } else {
                 YmdHiBegin = this.form.date_begin + '0000';
@@ -225,24 +249,24 @@ export class SessionPage implements OnInit {
             const class_begin = this.a.getUTCHi(YmdHiBegin);
             where.push(` r.date>'${date_begin}' OR ( r.date>='${date_begin}' AND r.class_begin>='${class_begin}') `);
         } else {
-            if ( this.form.class_begin ) {
+            if (this.form.class_begin) {
                 const class_begin = this.a.getUTCHi('20180101' + this.form.class_begin);
                 where.push(` r.class_begin>=${class_begin}`);
             }
         }
 
-        if ( this.form.date_end ) {
+        if (this.form.date_end) {
             let YmdHi;
-            if ( this.form.class_end ) {
+            if (this.form.class_end) {
                 YmdHi = this.form.date_end + this.form.class_end;
             } else {
                 YmdHi = this.form.date_end + '0000';
             }
             const date = this.a.getUTCYmd(YmdHi);
             const time = this.a.getUTCHi(YmdHi);
-            where.push(` r.date>'${date}' OR ( r.date<='${date}' AND r.class_begin<='${time}') `);
+            where.push(` r.date<'${date}' OR ( r.date<='${date}' AND r.class_begin<='${time}') `);
         } else {
-            if ( this.form.class_end ) {
+            if (this.form.class_end) {
                 const time = this.a.getUTCHi('21001230' + this.form.class_end);
                 where.push(` r.class_end<=${time}`);
             }
@@ -489,6 +513,12 @@ export class SessionPage implements OnInit {
             } else {
                 session.refund_settle_at = this.a.shortDateTime(session.refund_settle_at);
             }
+            const b = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_begin);
+            session.date = b.substr(0, 8);
+            session.class_begin = b.substr(8, 4);
+
+            const e = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_end);
+            session.class_end = e.substr(8, 4);
         }
     }
 

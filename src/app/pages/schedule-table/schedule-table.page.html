@@ -70,6 +70,7 @@
                     <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
                 </div>
                 <div>{{ session[N.point] }}</div>
+                <div class="name" *ngIf=" session[ N.student_name ] ">{{ session[ N.student_name ] }}
             </div>
         </div>
 

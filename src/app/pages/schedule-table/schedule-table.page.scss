@@ -2,11 +2,10 @@
     font-size: 10pt;
     text-align: center;
     background: #fff;
-
     .schedule-header {
         position: sticky;
-        top:63px;
-        @media screen and (max-width:768px) {
+        top: 63px;
+        @media screen and (max-width: 768px) {
             top:105px;
         }
         left: 0;
@@ -20,7 +19,7 @@
     .schedule-row {
         display: flex;
         justify-content: space-around;
-        border-bottom:1px solid #e9ecef;
+        border-bottom: 1px solid #e9ecef;
     }
     .td {
         display: flex;
@@ -34,8 +33,10 @@
         ion-icon {
             font-size: 20pt;
         }
+        .name {
+            font-size: .7em;
+        }
     }
-
     .profile {
         .photo {
             width: 32px;
@@ -45,15 +46,14 @@
                 width: 100%;
             }
         }
-
-        &-header,&{
+        &-header,
+        & {
             width: 58px;
         }
     }
-
 }
 
-.page-header{
+.page-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,29 +63,25 @@
     font-size: 90%
 }
 
-.schedule-loader,.schedule-table-empty{
+.schedule-loader,
+.schedule-table-empty {
     text-align: center;
     padding: 3em;
-
 }
 
-
-.schedule-loader{
+.schedule-loader {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    ion-spinner{
+    ion-spinner {
         margin-bottom: .5em;
     }
-
 }
 
 /**
  * Icon colors
  */
-
 
 [icon-name="lock"] {
     color: #ccc;
@@ -117,4 +113,3 @@
     color: #d00 !important;
     cursor: pointer;
 }
-

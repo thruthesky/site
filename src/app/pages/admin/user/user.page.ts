@@ -119,7 +119,7 @@ export class UserPage implements OnInit {
             event.preventDefault();
         }
         console.log(this.form);
-        const select = 'ID, user_email, display_name, user_registered, phone_number, kakaotalk_id, grade, bookable_time, list_order, timezone, domain, manager, point, gender, user_type';
+        const select = 'ID, user_email, display_name, name, user_registered, phone_number, kakaotalk_id, grade, bookable_time, list_order, timezone, domain, manager, point, gender, user_type';
         const where = this.getWhere();
         let sql = `SELECT ${select} FROM wp_users WHERE BRANCH`;
         if (where) {
@@ -220,6 +220,7 @@ export class UserPage implements OnInit {
         }
         for (const user of this.re) {
             user.date = user.user_registered.substr(0, user.user_registered.indexOf(' '));
+            user.date = user.date.substr(5);
         }
     }
 

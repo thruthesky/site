@@ -1,6 +1,6 @@
 <admin-header-component></admin-header-component>
 <h1>Session List &amp; Search</h1>
-<div>Timezone: {{ a.userTime }} The time of input and display is based on your timezone settings.</div>
+<div>Timezone: {{ a.userTime }} (The time of input and display is based on your timezone settings.)</div>
 <form (ngSubmit)="onSubmit( $event )">
     <input class="narrow" type="text" name="idx" [(ngModel)]="form.idx" placeholder="idx">
     <input class="narrow" type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" placeholder="idx_teacher">
@@ -33,7 +33,6 @@
     <input id="refund_settle_at" type="checkbox" name="refund_settle_at" [(ngModel)]="form.refund_settle_at">
     <label for="refund_settle_at">Settled</label>
 
-
     <input id="teacher_absent" type="checkbox" name="teacher_absent" [(ngModel)]="form.teacher_absent">
     <label for="teacher_absent">Teacher Absent</label>
 
@@ -45,6 +44,12 @@
     <input id="comment" type="checkbox" name="comment" [(ngModel)]="form.comment">
     <label for="comment">Has Comment</label>
 
+
+
+    <input id="stamp_checked" type="checkbox" name="stamp_checked" [(ngModel)]="form.stamp_checked">
+    <label for="stamp_checked">Checked</label>
+    <input id="stamp_unchecked" type="checkbox" name="stamp_unchecked" [(ngModel)]="form.stamp_unchecked">
+    <label for="stamp_unchecked">Unchecked</label>
 
     Limit
     <input class="narrow" type="text" name="limit" [(ngModel)]="form.limit"> Order
@@ -65,30 +70,30 @@
     <label for="reserved_at">Reserved At</label>
     <input type="checkbox" id="paid" name="display_paid" [(ngModel)]="form.display.paid">
     <label for="paid">Paid</label>
-    <input type="checkbox" id="refund_request_at" name="display_refund_request_at" [(ngModel)]="form.display.refund_request_at">
-    <label for="refund_request_at">Refund Request At</label>
+    <input type="checkbox" id="display_refund_request_at" name="display_refund_request_at" [(ngModel)]="form.display.refund_request_at">
+    <label for="display_refund_request_at">Refund Request At</label>
     <input type="checkbox" id="refund_request_message" name="display_refund_request_message" [(ngModel)]="form.display.refund_request_message">
     <label for="refund_request_message">Request Message</label>
-    <input type="checkbox" id="refund_reject_at" name="display_refund_reject_at" [(ngModel)]="form.display.refund_reject_at">
-    <label for="refund_reject_at">Reject At</label>
+    <input type="checkbox" id="display_refund_reject_at" name="display_refund_reject_at" [(ngModel)]="form.display.refund_reject_at">
+    <label for="display_refund_reject_at">Reject At</label>
     <input type="checkbox" id="refund_reject_message" name="display_refund_reject_message" [(ngModel)]="form.display.refund_reject_message">
     <label for="refund_reject_message">Reject Message</label>
-    <input type="checkbox" id="refund_done_at" name="display_refund_done_at" [(ngModel)]="form.display.refund_done_at">
-    <label for="refund_done_at">Refund Done At</label>
-    <input type="checkbox" id="refund_done_point" name="display_refund_done_point" [(ngModel)]="form.display.refund_done_point">
-    <label for="refund_done_point">Done Point</label>
+    <input type="checkbox" id="display_refund_done_at" name="display_refund_done_at" [(ngModel)]="form.display.refund_done_at">
+    <label for="display_refund_done_at">Refund Done At</label>
+    <input type="checkbox" id="display_refund_done_point" name="display_refund_done_point" [(ngModel)]="form.display.refund_done_point">
+    <label for="display_refund_done_point">Done Point</label>
     <input type="checkbox" id="refund_done_by" name="display_refund_done_by" [(ngModel)]="form.display.refund_done_by">
     <label for="refund_done_by">Done By</label>
-    <input type="checkbox" id="refund_settle_at" name="display_refund_settle_at" [(ngModel)]="form.display.refund_settle_at">
-    <label for="refund_settle_at">Settled At</label>
+    <input type="checkbox" id="display_refund_settle_at" name="display_refund_settle_at" [(ngModel)]="form.display.refund_settle_at">
+    <label for="display_refund_settle_at">Settled At</label>
     <input type="checkbox" id="refund_settle_message" name="display_refund_settle_message" [(ngModel)]="form.display.refund_settle_message">
     <label for="refund_settle_message">Settled Message</label>
-    <input type="checkbox" id="teacher_absent" name="display_teacher_absent" [(ngModel)]="form.display.teacher_absent">
-    <label for="teacher_absent">Teacher Absent</label>
-    <input type="checkbox" id="student_absent" name="display_student_absent" [(ngModel)]="form.display.student_absent">
-    <label for="student_absent">Student Absent</label>
-    <input type="checkbox" id="successful" name="display_successful" [(ngModel)]="form.display.successful">
-    <label for="successful">Successful</label>
+    <input type="checkbox" id="display_teacher_absent" name="display_teacher_absent" [(ngModel)]="form.display.teacher_absent">
+    <label for="display_teacher_absent">Teacher Absent</label>
+    <input type="checkbox" id="display_student_absent" name="display_student_absent" [(ngModel)]="form.display.student_absent">
+    <label for="display_student_absent">Student Absent</label>
+    <input type="checkbox" id="display_successful" name="display_successful" [(ngModel)]="form.display.successful">
+    <label for="display_successful">Successful</label>
     <input type="checkbox" id="expression" name="display_expression" [(ngModel)]="form.display.expression">
     <label for="expression">Expression</label>
     <input type="checkbox" id="vocabulary" name="display_vocabulary" [(ngModel)]="form.display.vocabulary">
@@ -101,6 +106,8 @@
     <label for="speed">Speed</label>
     <input type="checkbox" id="display_comment" name="display_comment" [(ngModel)]="form.display.comment">
     <label for="display_comment">Comment</label>
+    <input type="checkbox" id="display_checked" name="display_checked" [(ngModel)]="form.display.stamp_checked">
+    <label for="display_checked">Checked</label>
     <input type="checkbox" id="book_used" name="display_book_used" [(ngModel)]="form.display.book_used">
     <label for="book_used">Book Used</label>
     <input type="checkbox" id="book_next" name="display_book_next" [(ngModel)]="form.display.book_next">
@@ -115,8 +122,9 @@
     <b>No of searched Sessions: {{ re.length }}</b>
     <span class="app-button" (click)="show.stat=true" *ngIf="!show.stat">Show Stats</span>
     <span class="app-button" (click)="show.stat=false" *ngIf="show.stat">Hide Stats</span>
-    <div class="details" *ngIf="1 || show.stat">
-        <div class="daily-reservations">Daily Reservations:
+    <div class="details" *ngIf=" show.stat ">
+        <div class="daily-reservations">
+            <b>Daily Reservations(UTC+0):</b>
             <span class="daily-reservation" *ngFor="let date of stat.dateOfDailyReservation">
                 <span class="date">{{ date }}</span>
                 <span class="no" [style.min-width]=" stat.dailyReservation[date] + 'px' ">{{ stat.dailyReservation[date] }}</span>
@@ -125,14 +133,14 @@
 
 
         <div class="daily-freeclasses">
-            <b>Daily Freeclass</b>
+            <b>Daily Freeclass(UTC+0):</b>
             <span class="daily-freeclass" *ngFor="let date of stat.dateOfDailyFreeclass">
                 <span class="date">{{ date }}</span>
                 <span class="no">{{ stat.dailyFreeclass[date] }}</span>
             </span>
         </div>
         <div class="daily-points">
-            <b>Daily Point</b>
+            <b>Daily Point(UTC+0):</b>
             <span class="daily-point" *ngFor="let date of stat.dateOfDailyPoint">
                 <span class="date">{{ date }}</span>
                 <span class="no">{{ stat.dailyPoint[date] | number }}</span>
@@ -191,6 +199,7 @@
 
     </div>
 </section>
+The time of session list is in your timezone. {{ a.userTime }}
 <table class="sessions" *ngIf=" re.length ">
     <tr>
         <th>idx</th>
@@ -222,11 +231,12 @@
         <th *ngIf=" form.display.comment ">Comment</th>
         <th *ngIf=" form.display.book_used ">Book Used</th>
         <th *ngIf=" form.display.book_next ">Book Next</th>
+        <th *ngIf=" form.display.stamp_checked ">Checked</th>
     </tr>
     <tr *ngFor="let session of re">
         <td>{{ session.idx }}</td>
-        <td>{{ session.teacher?.display_name }}</td>
-        <td>{{ session.student?.display_name }}</td>
+        <td>{{ session.teacher?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.teacher?.idx}}">ES</button></td>
+        <td>{{ session.student?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.student?.idx}}">ES</button></td>
         <td>{{ session.date }}</td>
         <td>{{ session.class_begin }}</td>
         <td>{{ session.class_end }}</td>
@@ -253,5 +263,6 @@
         <td *ngIf=" form.display.comment ">{{ session.comment }}</td>
         <td *ngIf=" form.display.book_used ">{{ session.book_used }}</td>
         <td *ngIf=" form.display.book_next ">{{ session.book_next }}</td>
+        <td *ngIf=" form.display.stamp_checked ">{{ session.stamp_checked  != '0' ? 'Y' : 'N' }}</td>
     </tr>
 </table>

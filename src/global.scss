@@ -18,3 +18,19 @@
 *::after {
     box-sizing: border-box;
 }
+
+
+hr {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px;
+}
+
+
+.loader {
+    padding: 1em;
+    border-left: 4px solid rgb(168, 133, 91);
+    background-color: bisque;
+    font-size: 14pt;
+    font-weight: 100;
+}
