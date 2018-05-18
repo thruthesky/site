@@ -257,9 +257,13 @@
                             <ng-container *ngIf=" book.past ">
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
-                                        <button class="evaluate" [class.warning]=" ! evaluated(book) "
+                                        <button class="evaluate" *ngIf=" ! evaluated(book) "
                                                 (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
                                             {{ 'EVALUATE' | t}}
+                                        </button>
+                                        <button class="evaluated" *ngIf="  evaluated(book) "
+                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
+                                            {{ 'EVALUATED' | t}}
                                         </button>
                                     </div>
                                     <div class="col-6" *ngIf=" refundable(book) ">
@@ -269,7 +273,7 @@
                                         <span>{{ 'PAID' | t}}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded( book ) ">
-                                        <span>{{ 'REFUNDED' | t }}</span>
+                                        <span class="refunded">{{ 'REFUNDED' | t }}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refund_in_progress(book) ">
                                         <div>

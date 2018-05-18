@@ -1,0 +1,98 @@
+@import '../../../../../theme/vars.scss';
+header{
+    h1{
+        margin: 0;
+        padding: 1em;
+        background-color: #ececec;
+    }
+}
+
+
+main{
+    min-height: 540px;
+    padding: 3em 0;
+    background:#fff;
+    .payment-method{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 90%;
+
+        input{
+            position: absolute;
+            opacity: 0;
+
+            &:checked+div{
+                background: #fff;
+                border: 1px solid dodgerblue;
+                color:dodgerblue;
+
+            }
+
+        }
+
+
+        .gcash{
+
+            svg{
+                color:green!important
+            }
+        }
+
+        .western-union{
+
+            svg{
+                color: orange!important
+            }
+
+        }
+
+        div{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 2em;
+            padding: 1em 3em;
+            border-radius: 2px;
+            background: #eee;
+            cursor: pointer;
+        }
+
+        svg{
+            margin-bottom: .5em;
+            height: 3em ;
+        }
+    }
+
+    .payment-information{
+        padding: 3em 5em;
+        text-align: center;
+
+        .row{
+            .col:last-child{
+                padding: .5em 0;
+                &>div{
+                    width: 100%;
+                    padding: 1em;
+                    background: #eeeeee;
+                }
+
+                &>input{
+                    padding: .6em;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 110%;
+                }
+            }
+        }
+    }
+
+    .note{
+        padding: 3em 5em;
+        color:darkred;
+        font-size: 90%;
+        line-height: 1.5em;
+    }
+}
