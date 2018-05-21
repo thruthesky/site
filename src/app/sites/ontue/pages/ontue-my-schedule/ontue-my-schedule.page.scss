@@ -9,6 +9,7 @@ header{
 }
 
 main{
+    padding-bottom: 6em;
     min-width: 900px;
     background: white;
 
@@ -64,6 +65,7 @@ main{
 
     .buttons{
         display: flex;
+        justify-content: center;
         .add-schedule,.add-dayoff{
             display: flex;
             flex-direction: column;

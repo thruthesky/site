@@ -1,5 +1,5 @@
 <header>
-    <h1>{{ 'SESSION REFUND REVIEW' | t }}</h1>
+    <h1>{{ 'SESSION_REFUND_REVIEW_TITLE' | t }}</h1>
 </header>
 <main>
     <section class="content">
@@ -10,7 +10,7 @@
 
 
         <div *ngIf="book?.refund_request_message">
-            <div class="student-header">Student Message</div>
+            <div class="student-header">{{ 'STUDENT_MESSAGE' | t }}</div>
             <div class="message">{{book.refund_request_message}}</div>
 
             <div class="confirm-reject" *ngIf=" showConfirmReject ">
@@ -18,12 +18,12 @@
             </div>
 
             <div class="buttons">
-                <button class="refund-accept" type="button" (click)=" onClickRefund() ">{{ 'REFUND ACCEPT' | t }}</button>
+                <button class="refund-accept" type="button" (click)=" onClickRefund() ">{{ 'REFUND_ACCEPT' | t }}</button>
                 <button class="refund-reject" type="button" *ngIf=" !showConfirmReject " (click)=" showConfirmReject = true ">
-                    {{ 'REFUND REJECT' | t }}
+                    {{ 'REFUND_REJECT' | t }}
                 </button>
                 <button class="reject-confirm" type="button" *ngIf=" showConfirmReject " (click)=" onClickRejectRefundRequest() ">
-                    {{ 'REJECT CONFIRM' | t }}
+                    {{ 'REJECT_CONFIRM' | t }}
                 </button>
                 <button class="close" type="button" routerLink="/teacher-session-past">
                     <ion-icon name="close"></ion-icon>

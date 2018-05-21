@@ -1,0 +1,32 @@
+.links{
+    align-items: center;
+
+    .link-icon{
+        height: 4em;
+    }
+
+    .col-6{
+        padding: .5em;
+        height: 130px;
+
+        .container-fluid{
+            height: 100%;
+            background: #fff;
+            outline: 1px solid rgba(226,226,226,.5);
+
+            .row{
+                height: 100%;
+                align-items: center;
+                .col-4{
+                    text-align: center;
+                    padding: 0;
+                }
+
+                .col{
+                    padding: 0;
+                }
+
+            }
+        }
+    }
+}
