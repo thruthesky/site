@@ -49,6 +49,7 @@ export class OntueSalaryComputationPage {
       });
 
       this.a.lms.get_payment_computation_info().subscribe(re => {
+          // console.log('get_payment_computation_info', re);
           this.payment_computation = re;
           this.recompute();
       }, e => {
@@ -65,12 +66,11 @@ export class OntueSalaryComputationPage {
         }
         this.earnings = Math.round(this.teacher_share - this.paypal_charges - this.buying_rate);
         if (this.payment_information['payment_method'] === 'paypal') {
-            this.salary = Math.round(this.earnings / parseInt(this.payment_computation['usd'], 10)) + 'USD';
+            this.salary = Math.round(this.earnings / parseFloat(this.payment_computation['usd'], 10)) + 'USD';
         } else {
-            const converted =  Math.round(this.earnings / parseInt(this.payment_computation['php'], 10));
+            const converted =  Math.round(this.earnings / parseFloat(this.payment_computation['php'], 10));
             this.salary = converted + 'PHP';
         }
-
     }
 
 
