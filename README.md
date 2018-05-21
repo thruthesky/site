@@ -13,6 +13,9 @@
 
 ### NOT URGENT
 
+* Send PUSH to admin when teacher cancels the class.
+* Leave stat on cancellation made by teachers.
+* Display no of session on studnet search list and real time list on sidebar.
 * User can cancel reserved class regardless of any rules if it is less than 1 mimute passed from the time of reservation.
 
 * Admin page user profile update.

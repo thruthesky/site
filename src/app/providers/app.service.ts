@@ -1659,4 +1659,17 @@ export class AppService {
     //         this.add0( d.getMinutes() )
     //     );
     // }
+
+    /**
+     * Converts UTC+0 Date and class begin, class end to user time.
+     * @param session session passed by reference.
+     */
+    convertSessionIntoUserTime(session) {
+        const b = this.getUserYmdHiFromUTCYmdHi(session.date + session.class_begin);
+        session.date = b.substr(0, 8);
+        session.class_begin = b.substr(8, 4);
+
+        const e = this.getUserYmdHiFromUTCYmdHi(session.date + session.class_end);
+        session.class_end = e.substr(8, 4);
+    }
 }

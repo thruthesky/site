@@ -97,19 +97,25 @@ export class SessionPage implements OnInit {
         public activated: ActivatedRoute
     ) {
         const d = (new Date);
-        this.form.date_end = d.getFullYear() + a.add0((d.getMonth() + 1)) + a.add0(d.getDate());
-        // this.onSubmit();
-        // this.onClickFuture();
+
 
         activated.paramMap.subscribe(params => {
-            console.log('params: ', params);
+            // console.log('params: ', params);
 
             if (params.get('type') === 'student') {
                 this.form.idx_student = params.get('ID');
+                this.form.date_end = d.getFullYear() + a.add0((d.getMonth() + 1)) + a.add0(d.getDate());
+                this.onClickFuture();
             } else if (params.get('type') === 'teacher') {
                 this.form.idx_teacher = params.get('ID');
+                this.form.date_end = d.getFullYear() + a.add0((d.getMonth() + 1)) + a.add0(d.getDate());
+                this.onClickFuture();
+            } else if ( params.get('type') === 'idx' ) {
+                this.form.idx = params.get('ID');
+                this.onSubmit();
+            } else {
+                this.onClickFuture();
             }
-            this.onClickFuture();
         });
     }
     ngOnInit() {
@@ -144,7 +150,7 @@ export class SessionPage implements OnInit {
         if (event) {
             event.preventDefault();
         }
-        console.log('form:', this.form);
+        // console.log('form:', this.form);
 
         let sql = `SELECT r.* FROM lms_reservation as r, wp_users WHERE BRANCH AND wp_users.ID = r.idx_student`;
         const where = this.getWhere();
@@ -153,19 +159,19 @@ export class SessionPage implements OnInit {
         }
         sql += this.getOrderBy();
         sql += ` LIMIT ${this.form.limit}`;
-        console.log(sql);
+        // console.log(sql);
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.show.loader = false;
             this.re = re;
             this.statistics();
             this.sanitize();
-            console.log(re);
+            // console.log(re);
         }, e => this.a.toast(e));
         return false;
     }
@@ -479,7 +485,7 @@ export class SessionPage implements OnInit {
         this.stat.nameOfTeacherRefundReject = Object.keys(this.stat.teacherRefundReject);
         this.stat.nameOfTeacherRefundDone = Object.keys(this.stat.teacherRefundDone);
 
-        console.log('stat:', this.stat);
+        // console.log('stat:', this.stat);
     }
 
     sanitize() {

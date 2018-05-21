@@ -1,5 +1,8 @@
 <section>
     <nav class="app-buttons">
+        <form class="user-quick-search" (ngSubmit)="onSubmitUserQuickSearch( $event )">
+            <input type="text" name="quick_search" [(ngModel)]="uid" placeholder="User Search. ID(no), email, KatalkID, name, display_name">
+        </form>
         <a routerLink="/">Home</a>
         <a routerLink="/admin/front">Admin Page</a>
         <a routerLink="/admin/point-refund">Point Refund</a>
@@ -21,78 +24,116 @@
 
 
 <aside>
-    <section class="payments">
+    <table>
+        <tr valign="top">
+            <td>
+                <section class="payments">
+                    <h2>Paymnet Information</h2>
+                    Today's Total Point: {{ pointToday | number }}
+                    <table>
+                        <tr class="payment" *ngFor="let payment of payments">
+                            <td>
+                                    <div class='link' routerLink="/admin/user-info/{{payment.student?.idx}}">{{ a.shortName( payment.student?.display_name ) }}<button class='user-info-button'>e</button></div>
+                            </td>
+                            <td>
+                                {{ payment.point | number }}
+                            </td>
+                            <td>
+                                {{ a.veryShortDate( payment.stamp_begin ) }}
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </td>
+            <td>
 
-        <h2>Paymnet Information</h2>
-        <hr>
-        Today's Total Point: {{ pointToday | number }}
-        <table>
-            <tr class="payment" *ngFor="let payment of payments">
-                <td>
-                    {{ a.shortName( payment.student?.display_name ) }}
-                </td>
-                <td>
-                    {{ payment.point | number }}
-                </td>
-                <td>
-                    {{ a.shortDate( payment.stamp_begin ) }}
-                </td>
-            </tr>
-        </table>
-    </section>
+                <section class="refund-request">
+                    <h2>Refund Request. Your timezone.</h2>
+                    <table>
+                        <tr>
+                            <th>Teacher</th>
+                            <th>Student</th>
+                            <th>Date Time</th>
+                            <th></th>
+                        </tr>
+                        <tr *ngFor=" let re of refundRequests ">
+                            <td><div class='link' routerLink="/admin/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}<button class='user-info-button'>e</button></div></td>
+                            <td><div class='link' routerLink="/admin/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}<button class='user-info-button'>e</button></div></td>
+                            <td>{{ re.date }} {{ re.class_begin }}</td>
+                            <td><button class='user-info-button' routerLink="/admin/point-refund/idx/{{re.idx}}">open</button></td>
+                        </tr>
+                    </table>
+                </section>
+            </td>
+        </tr>
+    </table>
+
 
     <h2>Reservation Stat</h2>
     <hr>
     <section class="stat" *ngIf="stats">
 
-            No. of Reservation: {{ stats['no_of_reservation'] }} No. of Past: {{ stats['no_of_past'] }}
-            <hr>
-            No. of Sessions by Grade:
-            <span class='session'>
-                <span class='grade'>1</span>
-                <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
-                <span class='past'>{{ stats['stat']['past']['1'] }}</span>
+        No. of Reservation: {{ stats['no_of_reservation'] }} No. of Past: {{ stats['no_of_past'] }}
+        <hr> No. of Sessions by Grade:
+        <span class='session'>
+            <span class='grade'>1</span>
+            <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
+            <span class='past'>{{ stats['stat']['past']['1'] }}</span>
+        </span>
+        <span class='session'>
+            <span class='grade'>2</span>
+            <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
+            <span class='past'>{{ stats['stat']['past']['2'] }}</span>
+        </span>
+        <span class='session'>
+            <span class='grade'>3</span>
+            <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
+            <span class='past'>{{ stats['stat']['past']['3'] }}</span>
+        </span>
+        <hr>
+        <div class="teacher-sessions">
+            <span class='teacher' *ngFor="let teacher of stats.teachers">
+                <span class="name">{{ teacher.name }}</span>
+                <span class="reserved">{{ teacher.reserved }}</span>
+                <span class="past">{{ teacher.past }}</span>
             </span>
-            <span class='session'>
-                <span class='grade'>2</span>
-                <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
-                <span class='past'>{{ stats['stat']['past']['2'] }}</span>
-            </span>
-            <span class='session'>
-                <span class='grade'>3</span>
-                <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
-                <span class='past'>{{ stats['stat']['past']['3'] }}</span>
-            </span>
-            <hr>
-            <div class="teacher-sessions">
-                <span class='teacher' *ngFor="let teacher of stats.teachers">
-                    <span class="name">{{ teacher.name }}</span>
-                    <span class="reserved">{{ teacher.reserved }}</span>
-                    <span class="past">{{ teacher.past }}</span>
-                </span>
-            </div>
-        
+        </div>
+
     </section>
 
     <h2>Sessions of on going. Timezone: {{ a.userTime }}</h2>
     <hr>
     <table class="sessions" *ngIf=" sessions.length ">
         <tr>
-                <th>idx</th>
-                <th>Teacher</th>
-                <th>Student</th>
-                <th>Date</th>
-                <th>Begin</th>
-                <th>Chk</th>
+            <th>idx</th>
+            <th>Teacher</th>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Begin</th>
+            <th>Point</th>
+            <th>Chk</th>
         </tr>
         <tr class="session" *ngFor="let session of sessions">
             <td>{{ session.idx }}</td>
-            <td>{{ session.teacher?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.teacher?.idx}}">ES</button></td>
-            <td>{{ session.student?.display_name }}<button class="user-info-button" routerLink="/admin/user-info/{{session.student?.idx}}">ES</button></td>
+            <td>
+                <span class='link' routerLink="/admin/user-info/{{session.teacher?.idx}}">{{ session.teacher?.display_name }}</span>
+                <button class="user-info-button" routerLink="/admin/user-info/{{session.teacher?.idx}}">e</button>
+            </td>
+            <td>
+                <span class='link' routerLink="/admin/user-info/{{session.student?.idx}}">{{ session.student?.display_name }}</span>
+                <button class="user-info-button" routerLink="/admin/user-info/{{session.student?.idx}}">e</button>
+            </td>
             <td>{{ session.date }}</td>
             <td>{{ session.class_begin }}</td>
+            <td>{{ session.point }}</td>
             <td>{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</td>
         </tr>
     </table>
 
+    <ul>
+        <li>
+            When there is only one user found by `quick user search`, then it automatically transfers to '/admin/user-info'.
+
+        </li>
+    </ul>
 </aside>
