@@ -96,6 +96,7 @@ main{
             color:white;
             border:none;
             border-radius: 1px;
+            cursor: pointer;
 
             .small-icon{
                 margin:0;
@@ -116,4 +117,8 @@ main{
     }
 
 
+}
+
+.loader{
+    text-align: center;
 }

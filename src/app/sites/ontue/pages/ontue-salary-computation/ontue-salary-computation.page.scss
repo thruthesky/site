@@ -48,6 +48,12 @@ main{
 
         }
 
+        .paypal{
+            svg{
+                color: #253b80!important
+            }
+        }
+
         div{
             display: flex;
             align-items: center;
@@ -55,6 +61,12 @@ main{
             justify-content: center;
             margin: 0 2em;
             padding: 1em 3em;
+            text-align: center;
+
+            @media screen and (max-width:$sm) {
+                margin: 0 .5em;
+                padding: .5em 1.5em;
+            }
             border-radius: 2px;
             background: #eee;
             cursor: pointer;
@@ -68,9 +80,14 @@ main{
 
     .payment-information{
         padding: 3em 5em;
+        @media screen and (max-width:$sm) {
+            padding: .5em 1.5em;
+        }
         text-align: center;
 
         .row{
+            align-items: center;
+            justify-content: center;
             .col:last-child{
                 padding: .5em 0;
                 &>div{
@@ -91,6 +108,13 @@ main{
 
     .note{
         padding: 3em 5em;
+        @media screen and (max-width:$sm) {
+            padding: .5em 1.5em;
+
+            div{
+                margin: 1em;
+            }
+        }
         color:darkred;
         font-size: 90%;
         line-height: 1.5em;
