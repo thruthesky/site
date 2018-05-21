@@ -2,13 +2,6 @@
     <h1>Schedule Add</h1>
 </header>
 <main>
-    <div class="promo-schedule">
-        <span class="title">Promo Schedule Graded Teacher must have.</span>
-        <div class="body">
-            <div> 1 schedule with <b>10mins</b> duration for <b>500 points</b> and must be from <b>Mon-Fri</b></div>
-            <div> 1 schedule with <b>20mins</b> duration for <b>1000 points</b> and must be from <b>Mon-Fri</b></div>
-        </div>
-    </div>
 
     <div class="timezone">
             <div>
@@ -20,6 +13,14 @@
 
             <button (click)="dismiss(); a.open('settings')">Update Timezone</button>
 
+    </div> 
+
+    <div class="promo-schedule">
+        <span class="title">Promo Schedule Graded Teacher must have.</span>
+        <div class="body">
+            <div> 1 schedule with <b>10mins</b> duration for <b>500 points</b> and must be from <b>Mon-Fri</b></div>
+            <div> 1 schedule with <b>20mins</b> duration for <b>1000 points</b> and must be from <b>Mon-Fri</b></div>
+        </div>
     </div>
 
     <div class="container-fluid">
@@ -64,7 +65,7 @@
                     
                     <div class="entry">
                         <label>Min</label>
-                        <input autocomplete="on" type="text" name="duration" [(ngModel)]="data.duration">
+                        <input placeholder="1-120" autocomplete="on" type="text" name="duration" [(ngModel)]="data.duration">
                     </div>
             
                 </div>
@@ -78,14 +79,14 @@
 
                     <div class="example"> 
                         Example:<br>
-                        500 points<br>
-                        1000 points<br>
-                        2000 points<br>
+                        500 = 500 points<br>
+                        1000 = 1000 points<br>
+                        2000 = 2000 points<br>
                     </div>
 
                     <div class="entry">
                         <label>Points </label>
-                        <input  autocomplete="on" type="text"
+                        <input placeholder="0" autocomplete="on" type="text"
                         name="point" [(ngModel)]="data.point">
                     </div>
             
@@ -176,8 +177,8 @@
 
     <div class="pre-re">
         <div>
-            <label>Student Email</label>
-            <input autocomplete="on" type="text" name="prere" [(ngModel)]="data.prere">
+            <label>Pre-reserve</label>
+            <input placeholder="Student Email" autocomplete="on" type="text" name="prere" [(ngModel)]="data.prere">
         </div>
 
         <div>

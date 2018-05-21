@@ -477,6 +477,16 @@
     "CLASS_COMMENTS_PAGE_DESC":"你可以看到学生写的课程。 如果你想上课，请留下评论。",
     "MORE":"更",
     "SESSION_REFUND_REQUEST_PAGE_TITLE":"会话退款请求",
-    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"如有可能，请用英文书写。"
+    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"如有可能，请用英文书写。",
+
+    "SESSION_REFUND_REJECT_TITLE":"拒绝会话退款",
+    "STUDENT_MESSAGE":"学生信息",
+    "TEACHER_MESSAGE":"教师信息",
+    "SESSION_REFUND_REJECT_NOTE":"*注意：如果你对你的理由不满意。 您可以通过联系管理员来升级您的退款请求。",
+
+    "SESSION_REFUND_REVIEW_TITLE":"学生退款考虑",
+    "REFUND_ACCEPT":"验收退款",
+    "REFUND_REJECT":"拒绝拒绝",
+    "REJECT_CONFIRM":"退款确认"
 
 }

@@ -10,7 +10,8 @@ header{
 
 
 main{
-    padding: 3em;
+    padding:3em; 
+    padding-bottom: 5em;
     @media screen and(max-width:$sm){
         padding: 1em;
     }
@@ -26,7 +27,7 @@ main{
             &>div{
                 margin: 1em;
                 padding: 2em;
-                border: 1px solid grey;
+                border: 1px solid #e2e2e2;
                 border-radius: 2px;
 
                 .title{
@@ -83,11 +84,7 @@ main{
     }
 
     .pre-re{
-        margin: 3em 0;
-
-        @media screen and(max-width:$sm){
-            margin:2em 0;
-        }
+        margin: 2em 0;
         border: 1px solid rgba(darkorange,0.4);
         background: rgba(darkorange,0.1);
         color: darkorange;
@@ -115,6 +112,7 @@ main{
     }
 
     .promo-schedule{
+        margin-bottom: 1em;
 
         .title{
             display: inline-block;
@@ -150,10 +148,7 @@ main{
 
     .input-week{
 
-        margin-top: 2em;
-        @media screen and(max-width:$sm){
-            margin-top: 1em;
-        }
+        margin-top: 1em;
         .col{
             display: flex;
             justify-content: center;
@@ -166,9 +161,9 @@ main{
 
         input:checked{
                 &+span{
-                    border-color: #467fcf;
-                    background: #edf2fa;
-                    color: #467fcf;
+                    border-color: dodgerblue;
+                    background: rgba(dodgerblue,0.1);
+                    color: dodgerblue;
                 }
         }
 
@@ -178,8 +173,8 @@ main{
             justify-content: center;
             padding: 1em 2em;
             border-radius: 2px;
-            border: 1px solid rgba(0, 40, 100, 0.12);
-            color: #9aa0ac;
+            border: 1px solid #e2e2e2;
+            color: rgba(#000,0.8);
             font-size: 90%;
             cursor: pointer;
 
@@ -193,14 +188,12 @@ main{
     }
 
     .timezone{
-        margin-top: 1em;
-        padding: 1em;
-        text-align: center;
-        font-size: 90%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 1em;
         line-height: 1.8em;
         @media screen and(max-width:$sm){
-            padding: 0;
-            line-height: 1.6em;
             font-size: 80%;
         }
 

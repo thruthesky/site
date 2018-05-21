@@ -484,5 +484,15 @@
     "CLASS_COMMENTS_PAGE_DESC":"학생이 작성한 수업 후기를 볼 수 있습니다. 여러분들도 수업을 하시면 꼭 후기를 남겨주세요.",
     "MORE":"더",
     "SESSION_REFUND_REQUEST_PAGE_TITLE":"세션 환불 요청",
-    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"가능하면 영어로 적어주시기 바랍니다."
+    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"가능하면 영어로 적어주시기 바랍니다.",
+
+    "SESSION_REFUND_REJECT_TITLE":"세션 환불 거부",
+    "STUDENT_MESSAGE":"학생 메시지",
+    "TEACHER_MESSAGE":"교사 메시지",
+    "SESSION_REFUND_REJECT_NOTE":"* 참고 : 교사의 사유에 만족하지 않는 경우. admin에게 연락하여 환불 요청을 이관 할 수 있습니다.",
+
+    "SESSION_REFUND_REVIEW_TITLE":"학생 환급 검토",
+    "REFUND_ACCEPT":"수락 환불",
+    "REFUND_REJECT":"환불 거부",
+    "REJECT_CONFIRM":"환불 확인"
 }

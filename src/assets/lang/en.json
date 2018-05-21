@@ -467,6 +467,15 @@
     "SESSION_REFUND_REQUEST_PAGE_TITLE":"SESSION REFUND REQUEST",
     "SESSION_REFUND_REQUEST_PAGE_REMINDER":"If possible, please write in English.",
 
+    "SESSION_REFUND_REJECT_TITLE":"SESSION REFUND REJECT",
+    "STUDENT_MESSAGE":"Student Message",
+    "TEACHER_MESSAGE":"Teacher Message",
+    "SESSION_REFUND_REJECT_NOTE":"*Note: if you are not satisfied with the teacher reason. you can contact admin to escalate the refund request.",
+    "SESSION_REFUND_REVIEW_TITLE":"STUDENT REFUND REVIEW",
+    "REFUND_ACCEPT":"Refund Accept",
+    "REFUND_REJECT":"Refund Reject",
+    "REJECT_CONFIRM":"Refund Confirm",
+
 
   "STUDENT COMMENTS": [{
     "name": "유진형",
