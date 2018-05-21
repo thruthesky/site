@@ -1,3 +1,5 @@
+@import './../../../../../theme/vars';
+  
 header{
     h1{
         margin: 0;
@@ -11,7 +13,12 @@ header{
     }
 }
 main{
+    min-height: 540px;
     padding: 3em 0;
+
+    @media screen and (max-width: $sm){
+        padding: 1em 0;
+    }
 
     &>.container-fluid{
         padding: 0 5px;
