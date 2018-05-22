@@ -12,6 +12,8 @@ import { OntueActivityLogComponentModule } from '../../components/ontue-activity
 import { OntueHowToBeTeacherComponentModule } from '../../components/ontue-how-to-be-teacher/ontue-how-to-be-teacher.component.module';
 import { OntueLeveltestGuidelineComponentModule } from '../../components/ontue-leveltest-guideline/ontue-leveltest-guideline.component.module';
 import { OntueGuideAndTipsComponentModule } from '../../components/ontue-guide-and-tips/ontue-guide-and-tips.component.module';
+import { OntueGradingSystemComponentModule } from '../../components/ontue-grading-system/ontue-grading-system.component.module';
+import { OntueEvaluationLatestListComponentModule } from '../../components/ontue-evaluation-latest-list/ontue-evaluation-latest-list.component.module';
 
 const routes: Routes = [
     {path: '', component: OntueHomePage}
@@ -29,7 +31,9 @@ const routes: Routes = [
         OntueActivityLogComponentModule,
         OntueHowToBeTeacherComponentModule,
         OntueLeveltestGuidelineComponentModule,
-        OntueGuideAndTipsComponentModule
+        OntueGuideAndTipsComponentModule,
+        OntueGradingSystemComponentModule,
+        OntueEvaluationLatestListComponentModule
     ],
     exports: [
         RouterModule
