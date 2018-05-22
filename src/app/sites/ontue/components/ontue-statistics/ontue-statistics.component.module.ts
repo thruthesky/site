@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../../../../app.material.module';
 import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
-import { OntueReminderComponent } from './ontue-reminder.component';
+import { OntueStatisticsComponent } from './ontue-statistics.component';
 
 
 @NgModule({
@@ -16,13 +16,13 @@ import { OntueReminderComponent } from './ontue-reminder.component';
     TranslatePipeModule
   ],
   declarations: [
-      OntueReminderComponent
+      OntueStatisticsComponent
   ],
   exports: [
     RouterModule,
-    OntueReminderComponent
+      OntueStatisticsComponent
   ],
   schemas: []
 })
-export class OntueReminderComponentModule { }
+export class OntueStatisticsComponentModule { }
 
