@@ -1,0 +1,77 @@
+<section class="guidelines m-0 p-0 pb-5 h-100 bg-white outline-effect">
+    <div class="bg-blue-60 mb-1 mb-4 pl-md-5 white">
+        <h2  class="title-style d-md-inline-block m-0 ml-md-5 p-5  bg-blue fs-3rem fw-light text-center" ion-text color="white">Guidelines and Tips</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row pointer p-5" (click)="tipsAccordion=!tipsAccordion">
+            <div class="col-md-2 col-12 text-center text-md-left">
+                <i class="fal fa-info-circle fa-3x ml-md-5 ml-0 pl-md-2 pl-0 dodgerblue "></i>
+            </div>
+            <div class="col mt-4"
+                     [ngClass]="{'accordion-hide': !tipsAccordion, 'accordion-show': tipsAccordion}">
+                <h3 class="m-0 mb-4 dodgerblue fw-bold fs-110 text-center text-md-left">Important Tips</h3>
+                <div class="accordion-item">
+                    <p class="m-0 mt-3 black fw-light">Teacher must add student using smart phone.</p>
+                    <p class="m-0 mt-3 black fw-light">There is no way to add friend in kakao with desktop software.</p>
+                    <p class="m-0 mt-3 black fw-light">Teacher without grade will not be shown in the list of Recommended teacher.</p>
+                    <p class="m-0 mt-3 black fw-light">But they will be shown if the option "Show all teachers" is selected.</p>
+                </div>
+            </div>
+            <div class="accordion-icon  d-none d-md-block mt-3 col-md-2 col-12 text-right">
+                <i class="accordion-icon-toggle fal fa-chevron-right  fa-2x  mr-0 mr-md-5 dimgrey"></i>
+            </div>
+        </div>
+        <div class="row pointer p-5" (click)="gradedTeachersAccordion=!gradedTeachersAccordion">
+            <div class="col-md-2 col-12 text-center text-md-left">
+                <i class="fal fa-bullhorn fa-3x ml-md-5 ml-0 pl-md-2 pl-0 secondary-yellow"></i>
+            </div>
+            <div class="col mt-4"
+                     [ngClass]="{'accordion-hide': !gradedTeachersAccordion, 'accordion-show': gradedTeachersAccordion}">
+                <h3  class="m-0 mb-4 dodgerblue fw-bold fs-110" text-center text-md-left>Graded Teacher's must have <b>Promotion Schedule</b></h3>
+                <ul class="accordion-item  m-0 pl-5">
+                    <li><p class="m-0 mt-3 black fw-light"><b>1</b> schedule with <b>10mins</b> duration and <b>500points</b></p> </li>
+                    <li><p class="m-0 mt-3 black fw-light"><b>1</b> schedule with <b>20mins</b> duration and <b>1000points</b></p></li>
+                </ul>
+            </div>
+            <div class="accordion-icon d-none d-md-block mt-3 col-md-2 col-12 text-right">
+                <i class="accordion-icon-toggle fal fa-chevron-right fa-2x mr-0 mr-md-5 dimgrey"></i>
+            </div>
+        </div>
+        <div class="row pointer p-5" (click)="guidelinesAccordion=!guidelinesAccordion">
+            <div class="col-md-2 col-12 text-center text-md-left">
+                <i class="fal fa-anchor  fa-3x ml-md-5 ml-0 pl-md-2 pl-0  dimgrey"></i>
+            </div>
+            <div class="col mt-4"
+                     [ngClass]="{'accordion-hide': !guidelinesAccordion, 'accordion-show': guidelinesAccordion}" >
+                <h3 class="m-0  dodgerblue mb-4 fs-110" text-center text-md-left>Teacher's Guideline</h3>
+                <ul class="pl-5 m-0 mt-3 accordion-item">
+                    <li><p class="m-0 mt-3 black fw-light">Nickname should be less than or equal to 8 letters.</p></li>
+                    <li><p class="m-0 mt-3 black fw-light">Profile image is best fit on 100px of width and 120px of height.</p></li>
+                </ul>
+            </div>
+            <div class="accordion-icon d-none d-md-block mt-3 col-md-2 col-12 text-right">
+                <i class="accordion-icon-toggle fal fa-chevron-right  fa-2x  mr-0 mr-md-5 dimgrey"></i>
+            </div>
+        </div>
+        <div class="row pointer p-5" (click)="badStudentAccordion=!badStudentAccordion">
+            <div class="col-md-2 col-12 text-center text-md-left">
+                <i class="fal fa-danger  fa-3x ml-md-5 ml-0 pl-md-2 pl-0  dimgrey"></i>
+            </div>
+            <div class="col mt-4"
+                     [ngClass]="{'accordion-hide': !badStudentAccordion, 'accordion-show': badStudentAccordion}" >
+                <h3 class="m-0  dodgerblue mb-4 fs-110" text-center text-md-left>Bad Student's Guideline</h3>
+                <ul class="pl-5 m-0 mt-3 accordion-item">
+                    <li><p class="m-0 mt-3 black fw-light">If Student don't behave, talk to them in a nice way.</p></li>
+                    <li><p class="m-0 mt-3 black fw-light">If Student doing other things, tell them to focus on your class in a nice way</p></li>
+                    <li><p class="m-0 mt-3 black fw-light">If Student doing naughty things, tell them that we don't entertain those kind of activity.</p></li>
+                    <li><p class="m-0 mt-3 black fw-light">If Student doing that is not right, take a screen shot and end the class. Inform the admin immediately by providing proper evidence.</p></li>
+                </ul>
+            </div>
+            <div class="accordion-icon d-none d-md-block mt-3 col-md-2 col-12 text-right">
+                <i class="accordion-icon-toggle fal fa-chevron-right  fa-2x  mr-0 mr-md-5 dimgrey"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+
