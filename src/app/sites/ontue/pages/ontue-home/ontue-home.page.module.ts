@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { OntueHomePage } from './ontue-home.page';
 import { OntueReminderComponentModule } from '../../components/ontue-reminder/ontue-reminder.component.module';
+import { OntueStatisticsComponentModule } from '../../components/ontue-statistics/ontue-statistics.component.module';
+import { OntueGradedListComponentModule } from '../../components/ontue-graded-list/ontue-graded-list.component.module';
 
 const routes: Routes = [
     {path: '', component: OntueHomePage}
@@ -13,7 +15,9 @@ const routes: Routes = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(routes),
-        OntueReminderComponentModule
+        OntueReminderComponentModule,
+        OntueStatisticsComponentModule,
+        OntueGradedListComponentModule
     ],
     exports: [
         RouterModule

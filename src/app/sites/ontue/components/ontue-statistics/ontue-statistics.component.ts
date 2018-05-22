@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 
 @Component({
-    selector: 'teacher-statistics-component',
+    selector: 'ontue-statistics-component',
     templateUrl: 'ontue-statistics.component.html',
     styleUrls: ['ontue-statistics.component.scss'],
 })

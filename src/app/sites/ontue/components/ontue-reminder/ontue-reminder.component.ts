@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 
 @Component({
-    selector: 'teacher-reminders-component',
+    selector: 'ontue-reminders-component',
     templateUrl: 'ontue-reminder.component.html',
     styleUrls: ['ontue-reminder.component.scss'],
 })

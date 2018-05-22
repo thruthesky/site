@@ -2,23 +2,23 @@
     <div class="container-fluid">
         <div class="row mx-md-0 mt-md-3 mb-md-5 px-1px">
             <div class="col-md-3 col-12 m-md-0 p-md-0 pr-md-3">
-                <teacher-reminders-component></teacher-reminders-component>
+                <ontue-reminders-component></ontue-reminders-component>
             </div>
             <div class="col-md-6 col-12 cover m-md-0 p-md-0 px-5">
                 <div class="container-fluid m-md-0">
                     <div class="row m-md-0 pb-md-3">
                         <div class="col-md-6 col-12 m-0 px-md-3 p-0">
-                            <teacher-statistics-component
+                            <ontue-statistics-component
                                     [no_teachers]="site_info.no_of_teacher"
                                     [no_students]="site_info.no_of_student"
                                     [no_reservations]="site_info.no_of_reservations"
                                     [no_pasts]="site_info.no_of_past"
-                            ></teacher-statistics-component>
+                            ></ontue-statistics-component>
                         </div>
                         <div class="col-md-6 col-12 px-md-3">
-                            <graded-teachers-component *ngIf="site_info.recent_graded_teachers.length"
+                            <ontue-graded-list-component *ngIf="site_info.recent_graded_teachers.length"
                                                        [teachers]="site_info.recent_graded_teachers ">
-                            </graded-teachers-component>
+                            </ontue-graded-list-component>
                         </div>
                     </div>
                     <div class="student-feedback row m-md-0 pt-md-3">
