@@ -23,7 +23,7 @@
                     </div>
                     <div class="student-feedback row m-md-0 pt-md-3">
                         <div class="col-md-6 col-12 px-md-3" *ngIf="site_info.comment_from_student['total']">
-                            <teacher-student-comment-component [student_comments] = "site_info.comment_from_student.comments "></teacher-student-comment-component>
+                            <ontue-student-comment-list-component [student_comments] = "site_info.comment_from_student.comments "></ontue-student-comment-list-component>
                         </div>
                         <div class="col-md-6 col-12 px-md-3">
                             <teacher-reservations-component [reservations]="site_info.recent_reservations"></teacher-reservations-component>

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../../../../app.material.module';
 import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
-import { OntueGradedListComponent } from './ontue-graded-list.component';
+import { OntueReservationLatestListComponent } from './ontue-reservation-latest-list.component';
 
 
 @NgModule({
@@ -16,13 +16,13 @@ import { OntueGradedListComponent } from './ontue-graded-list.component';
     TranslatePipeModule
   ],
   declarations: [
-      OntueGradedListComponent
+      OntueReservationLatestListComponent
   ],
   exports: [
     RouterModule,
-      OntueGradedListComponent
+      OntueReservationLatestListComponent
   ],
   schemas: []
 })
-export class OntueGradedListComponentModule { }
+export class OntueReservationLatestListComponentModule { }
 
