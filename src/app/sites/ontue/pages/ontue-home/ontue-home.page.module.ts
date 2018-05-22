@@ -10,6 +10,7 @@ import { OntueReservationLatestListComponentModule } from '../../components/ontu
 import { OntueGradedLatestListComponentModule } from '../../components/ontue-graded-latest-list/ontue-graded-latest-list.component.module';
 import { OntueActivityLogComponentModule } from '../../components/ontue-activity-log/ontue-activity-log.component.module';
 import { OntueHowToBeTeacherComponentModule } from '../../components/ontue-how-to-be-teacher/ontue-how-to-be-teacher.component.module';
+import { OntueLeveltestGuidelineComponentModule } from '../../components/ontue-leveltest-guideline/ontue-leveltest-guideline.component.module';
 
 const routes: Routes = [
     {path: '', component: OntueHomePage}
@@ -25,7 +26,8 @@ const routes: Routes = [
         OntueStudentCommentListComponentModule,
         OntueReservationLatestListComponentModule,
         OntueActivityLogComponentModule,
-        OntueHowToBeTeacherComponentModule
+        OntueHowToBeTeacherComponentModule,
+        OntueLeveltestGuidelineComponentModule
     ],
     exports: [
         RouterModule
