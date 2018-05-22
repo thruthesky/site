@@ -17,7 +17,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         OntueReminderComponentModule,
         OntueStatisticsComponentModule,
-        OntueGradedListComponentModule
+        OntueGradedListComponentModule,
+        OntueStudentCommentListComponentModule
     ],
     exports: [
         RouterModule

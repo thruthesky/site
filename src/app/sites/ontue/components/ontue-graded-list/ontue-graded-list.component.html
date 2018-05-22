@@ -3,8 +3,8 @@
     <div class="list-hover-effect my-0-25em">
         <ng-container *ngFor="let teacher of teachers; let i=index">
             <div class="container-fluid pointer item" (click)="a.open('schedule-table', { idx_teacher: teacher.ID })"
-                 *ngIf="i<3" no-padding>
-                <div class="row py-3 px-4">
+                 *ngIf="i<3">
+                <div class="row py-3 px-4 align-items-center justify-content-center">
                     <div class="col-md-4 col-3 d-flex align-items-center">
                     <span class="size-40 rounded-circle of-hidden">
                        <img [src]="a.checkPhotoURL(teacher.photoURL)">
