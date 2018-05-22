@@ -8,6 +8,7 @@ import { OntueStatisticsComponentModule } from '../../components/ontue-statistic
 import { OntueStudentCommentListComponentModule } from '../../components/ontue-student-comment-list/ontue-student-comment-list.component.module';
 import { OntueReservationLatestListComponentModule } from '../../components/ontue-reservation-latest-list/ontue-reservation-latest-list.component.module';
 import { OntueGradedLatestListComponentModule } from '../../components/ontue-graded-latest-list/ontue-graded-latest-list.component.module';
+import { OntueActivityLogComponentModule } from '../../components/ontue-activity-log/ontue-activity-log.component.module';
 
 const routes: Routes = [
     {path: '', component: OntueHomePage}
@@ -21,7 +22,8 @@ const routes: Routes = [
         OntueStatisticsComponentModule,
         OntueGradedLatestListComponentModule,
         OntueStudentCommentListComponentModule,
-        OntueReservationLatestListComponentModule
+        OntueReservationLatestListComponentModule,
+        OntueActivityLogComponentModule
     ],
     exports: [
         RouterModule
