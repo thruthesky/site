@@ -121,6 +121,10 @@ const routes: Routes = [
     path: 'my-curriculum-vitae',
     loadChildren: './sites/ontue/pages/ontue-my-curriculum-vitae/ontue-my-curriculum-vitae.page.module#OntueMyCurriculumVitaePageModule'
   },
+  {
+    path: 'ontue-grade-condition',
+    loadChildren: './sites/ontue/pages/ontue-grade-condition/ontue-grade-condition.page.module#OntueGradeConditionPageModule'
+  },
 
   {
     path: 'teacher-salary-computation',
