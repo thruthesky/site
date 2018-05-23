@@ -6,40 +6,36 @@
     <form (submit)="onSubmitUpdate()">
         <div class="container-fluid">
             <div class="file-inputs row">
-                <div class="col">
-                    <label>
-                        <input type="file" (change)="fileUpload.onChangeFile($event)">
-                        <div class="profile-photo">
-                            <img src="{{ a.userProfilePhoto( files )}}">
-                        </div>
-                    </label>
+                <div class="profile col">
+                    <input type="file" (change)="fileUpload.onChangeFile($event)">
+                    <div class="profile-photo">
+                        <img src="{{ a.userProfilePhoto( files )}}">
+                    </div>
                     <xapi-file-upload-component #fileUploadWidget [title]="false" [fileSelectionButton]="false"
                                                 [files]="files"
                                                 [showUploadedFiles]="false"
                                                 (success)="onSuccessUploadPicture($event)">
                     </xapi-file-upload-component>
+                    <span class="button">
+                        <svg class="icon" aria-hidden="true" data-prefix="fa" data-icon="camera" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path></svg>
+                        Primary Photo
+                    </span>
                 </div>
-                <div class="col">
-                    <div>
-                        <input type="file" (change)="fileUploadQRMark.onChangeFile($event)">
-                        <div *ngIf="a.user.isLogin" (click)="fileUploadQRMark.onClickCamera()">
-                            <ng-container *ngIf="!showQRMark">
-                                <div>Upload QR Mark</div>
-                                <div><i class="fal fa-qrcode fa-5x my-3"></i></div>
-                            </ng-container>
-                            <ng-container *ngIf="showQRMark">
-                                <div>
-                                    <img src="{{qrmarks[0].url}}">
-                                </div>
-                            </ng-container>
-                            <div class="fs-lg text-center" text-wrap>
-                                QR Mark is required for teacher, open your mobile KakaoTalk > Edit Profile>
-                                My QR Code > Click Download.
+                <div class="qrmark col">
+                    <input type="file" (change)="fileUploadQRMark.onChangeFile($event)">
+                    <div *ngIf="a.user.isLogin" (click)="fileUploadQRMark.onClickCamera()">
+                        <ng-container *ngIf="!showQRMark">
+                            <div>Upload QR Mark</div>
+                            <svg class="qrmark-icon" viewBox="0 0 448 512"><path fill="currentColor" d="M0 224h192V32H0v192zM32 64h128v128H32V64zm224-32v192h192V32H256zm160 160H288V64h128v128zM0 480h192V288H0v192zm32-160h128v128H32V320zM64 96h64v64H64V96zm320 64h-64V96h64v64zM64 352h64v64H64v-64zm352-64h32v128H320v-32h-32v96h-32V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg>
+                        </ng-container>
+                        <ng-container *ngIf="showQRMark">
+                            <div class="qrmark-photo">
+                                <img src="{{qrmarks[0].url}}">
                             </div>
-                            <div>
-                                <i class="fal fa-qrcode mr-3"></i>
-                                {{qrmarks.length? 'UPDATE': 'UPLOAD'}} QR MARK
-                            </div>
+                        </ng-container>
+                        <div class="note">
+                            QR Mark is required for teacher, open your mobile KakaoTalk > Edit Profile>
+                            My QR Code > Click Download.
                         </div>
                     </div>
                     <xapi-file-upload-component #fileUploadWidgetQRMARK
@@ -49,6 +45,10 @@
                                                 [showUploadedFiles]="false"
                                                 (success)="onSuccessUploadQRMark( $event )">
                     </xapi-file-upload-component>
+                    <span class="button">
+                            <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="qrcode" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M0 224h192V32H0v192zM32 64h128v128H32V64zm224-32v192h192V32H256zm160 160H288V64h128v128zM0 480h192V288H0v192zm32-160h128v128H32V320zM64 96h64v64H64V96zm320 64h-64V96h64v64zM64 352h64v64H64v-64zm352-64h32v128H320v-32h-32v96h-32V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"></path></svg>
+                        {{qrmarks.length? 'UPDATE': 'UPLOAD'}} QR MARK
+                    </span>
                 </div>
             </div>
             <div class="row">
