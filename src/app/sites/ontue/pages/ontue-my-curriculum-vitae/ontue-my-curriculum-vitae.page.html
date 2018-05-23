@@ -1,21 +1,18 @@
 <header>
-    <h1>Curriculum Vitae</h1>
+    <h1>{{ "CURRICULUM VITAE" | t }}</h1>
+    <div>Please Fill Out the Appropriate Information</div>
 </header>
 <main>
-    <div class="m-5">
-        <h1>{{ "CURRICULUM VITAE" | t }}</h1>
-        <p>Please Fill Out the Appropriate Information</p>
-    </div>
     <form (submit)="onSubmitUpdate()">
         <div class="container-fluid">
-            <div class="row">
+            <div class="file-inputs row">
                 <div class="col">
-                    <div class="p-relative of-hidden pointer">
+                    <label>
                         <input type="file" (change)="fileUpload.onChangeFile($event)">
-                        <div>
+                        <div class="profile-photo">
                             <img src="{{ a.userProfilePhoto( files )}}">
                         </div>
-                    </div>
+                    </label>
                     <xapi-file-upload-component #fileUploadWidget [title]="false" [fileSelectionButton]="false"
                                                 [files]="files"
                                                 [showUploadedFiles]="false"

@@ -23,7 +23,7 @@
 </header>
 <main>
 
-    <div class="rating">
+    <div class="assesment">
         <div>
             <span *ngFor="let i of [1,2,3,4,5];" class="{{ i <= rate ? '': 'd-none'}}">
                 <svg class="star" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
@@ -43,10 +43,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-    </div>
 
-
-    <div class="rate-internet">
         <div class="internet">{{ 'HOW_WAS_TEACHER_INTERNET' | t }} :
             <mat-form-field>
                 <mat-select [(ngModel)]="rate">
@@ -56,9 +53,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-    </div>
 
-    <div class="rate-camera">
         <div class="camera">{{ 'WAS_TEACHER_USING_CAMERA' | t }} :
             <mat-form-field>
                 <mat-select [(ngModel)]="rate">
@@ -68,7 +63,6 @@
             </mat-form-field>
         </div>
     </div>
-
 
 
     <div class="text">
