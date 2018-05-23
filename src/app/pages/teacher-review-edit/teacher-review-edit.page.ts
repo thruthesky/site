@@ -18,6 +18,8 @@ export class TeacherReviewEditPage {
 
     comment = '';
     rate = 3;
+    internet = 2;
+    camera = 1;
 
     showLoader = false;
 

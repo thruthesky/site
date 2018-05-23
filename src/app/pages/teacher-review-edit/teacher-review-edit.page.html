@@ -49,7 +49,7 @@
     <div class="rate-internet">
         <div class="internet">{{ 'HOW_WAS_TEACHER_INTERNET' | t }} :
             <mat-form-field>
-                <mat-select [(ngModel)]="rate">
+                <mat-select [(ngModel)]="internet">
                     <mat-option [value]="3">{{ 'INTERNET_GOOD' | t }}</mat-option>
                     <mat-option [value]="2">{{ 'INTERNET_NORMAL' | t }}</mat-option>
                     <mat-option [value]="1">{{ 'INTERNET_BAD' | t }}</mat-option>
@@ -61,7 +61,7 @@
     <div class="rate-camera">
         <div class="camera">{{ 'WAS_TEACHER_USING_CAMERA' | t }} :
             <mat-form-field>
-                <mat-select [(ngModel)]="rate">
+                <mat-select [(ngModel)]="camera">
                     <mat-option [value]="1">{{ 'CAMERA_YES' | t }}</mat-option>
                     <mat-option [value]="0">{{ 'CAMERA_NO' | t }}</mat-option>
                 </mat-select>

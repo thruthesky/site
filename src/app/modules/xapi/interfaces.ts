@@ -348,6 +348,8 @@ export interface STUDENT_COMMENT_TO_TEACHER {
     idx_teacher?: number;
     photoURL?: string;
     rate?: number;
+    internet?: number;
+    camera?: number;
     stamp?: number;
     student_name?: string;
 }
