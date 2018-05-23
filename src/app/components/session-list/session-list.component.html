@@ -140,7 +140,7 @@
     <div *ngIf=" books.length ">
         <div class="container-fluid">
 
-            <div class="header row">
+            <div class="header-student row"  *ngIf="a.isStudent">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <div>{{ 'TEACHER' | t}}</div>
                 </div>
@@ -173,6 +173,41 @@
                     </ng-container>
                 </div>
             </div>
+
+            <div class="header-teacher row" *ngIf="a.isTeacher">
+                <div class="col-3 col-md-1" *ngIf="a.isStudent">
+                    <div>{{ 'TEACHER' | t}}</div>
+                </div>
+                <div class="col-3 col-md-2" *ngIf="a.isTeacher">
+                    <div>{{ 'STUDENT' | t}}</div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="a.isTeacher">
+                    <div>{{ 'CLASS NO' | t}}</div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="displayDate">
+                    <div>{{ 'DATE' | t}}</div>
+                </div>
+                <div class="col-2 col-md-1">
+                    <div>{{ 'TIME' | t}}</div>
+                </div>
+                <div class="col-1 col-md-1">
+                    <div>{{ 'minute short' | t}}</div>
+                </div>
+                <div class="col-2 col-md-2" *ngIf=" future ">
+                    <div> {{ 'KAKAOTALK' | t}}
+                        <br> {{ 'ADD_FRIEND' | t}}
+                    </div>
+                </div>
+                <div class="col-2 col-md-1" *ngIf="displayPoint">
+                    <div>{{ 'POINT' | t}}</div>
+                </div>
+                <div class="sm-hide col-2 col-md-3">
+                    <ng-container *ngIf=" a.isStudent && past ">
+                        <div> {{ 'RESULT' | t}}</div>
+                    </ng-container>
+                </div>
+            </div>
+
             <div class="data row" *ngFor="let book of books; let i = index; let o = odd; let e = even">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <section class="teacher-photo">
@@ -222,23 +257,27 @@
                             <ng-container *ngIf=" book.past ">
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
-                                        <button class="evaluate" [class.warning]=" ! evaluated(book) "
+                                        <button class="evaluate" *ngIf=" ! evaluated(book) "
                                                 (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
                                             {{ 'EVALUATE' | t}}
                                         </button>
+                                        <button class="evaluated" *ngIf="  evaluated(book) "
+                                                (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
+                                            {{ 'EVALUATED' | t}}
+                                        </button>
                                     </div>
                                     <div class="col-6" *ngIf=" refundable(book) ">
-                                        <button (click)=" onClickRefund( book ) ">{{ 'REFUND' | t}}</button>
+                                        <button class="refundable" (click)=" onClickRefund( book ) ">{{ 'REFUND' | t}}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" paid(book) ">
                                         <span>{{ 'PAID' | t}}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded( book ) ">
-                                        <span>{{ 'REFUNDED' | t }}</span>
+                                        <span class="refunded">{{ 'REFUNDED' | t }}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" refund_in_progress(book) ">
                                         <div>
-                                            <button *ngIf=" rejected(book); else Requested "
+                                            <button class="rejected" *ngIf=" rejected(book); else Requested "
                                                   (click)=" a.open( 'session-refund-reject', {idx: book.idx} )">
                                                 {{ 'REJECTED' | t }}
                                             </button>
@@ -259,14 +298,14 @@
                                         <button class="comment-create" (click)=" a.open('teacher-review-create', {idx_teacher: book.idx_teacher} ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" rejected( book ) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
-                                        <button class="rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</button>
+                                        <button class="point-refund-rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</button>
                                     </div>
                                     <div class="col-6" *ngIf=" refunded(book) ">
                                         <span class="refunded"> {{ 'REFUNDED' | t }}</span>
                                     </div>
                                     <div class="col-6" *ngIf=" ! book.refund_timeover && ! rejected( book )">
                                         <ng-container *ngIf=" ! refunded( book ) ">
-                                            <button (click)=" onClickCancelRefundRequest( book )"
+                                            <button class="cancel-refund-request" (click)=" onClickCancelRefundRequest( book )"
                                                     *ngIf="book.refund_request_at > 0 ">
                                                 {{ "CANCEL_REFUND_REQUEST" | t }}
                                             </button>
@@ -311,7 +350,7 @@
     <!--/books-->
 
 
-    <div class="container-fluid" *ngIf=" a.isTeacher ">
+    <div class="legends container-fluid" *ngIf=" a.isTeacher ">
         <div class="row">
             <div class="col">
                 <div>
@@ -340,16 +379,16 @@
                 </div>
                 <div>
                     <div>Session not evaluated. <span>*No pay</span>.</div>
-                    <div [class.warning]=" true ">Eval</div>
+                    <div class="eval">Eval</div>
                 </div>
 
                 <div>
                     <div>Session you confirmed.</div>
-                    <div>Ready</div>
+                    <div class="ready-confirmed">Ready</div>
                 </div>
                 <div>
                     <div>Session you must confirm.</div>
-                    <div>Ready</div>
+                    <div class="ready-not-confirmed">Ready</div>
                 </div>
             </div>
             <div class="col">
@@ -379,15 +418,15 @@
                 </div>
                 <div>
                     <div>Point Refund Request Rejected.</div>
-                    <div>Rejected</div>
+                    <div class="rejected">Rejected</div>
                 </div>
                 <div>
                     <div>Accept Refund Request</div>
-                    <div>Accept</div>
+                    <div class="accept">Accept</div>
                 </div>
                 <div>
                     <div>Reject Refund Request.</div>
-                    <div>Reject</div>
+                    <div class="reject">Reject</div>
                 </div>
             </div>
         </div>

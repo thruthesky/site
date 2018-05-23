@@ -1,0 +1,226 @@
+@import '../../../../../theme/vars.scss';
+header{
+    h1{
+        margin: 0;
+        padding: 1em;
+        background: #008000;
+        color: #fff
+    }
+}
+
+
+main{
+    padding:3em; 
+    padding-bottom: 5em;
+    @media screen and(max-width:$sm){
+        padding: 1em;
+    }
+    min-height: 540px;
+    background: #fff;
+
+    .inputs{
+        justify-content: space-around;
+        align-items: stretch;
+
+        .col-md-4{
+            padding: 0;
+            &>div{
+                margin: 1em;
+                padding: 2em;
+                border: 1px solid #e2e2e2;
+                border-radius: 2px;
+
+                .title{
+                    font-size: 110%;
+                    font-weight: bold;
+                }
+
+                .example{
+                    margin: .5em 0;
+                    padding: 1em;
+                    border-radius: 2px;
+                    background: #eeeeee;
+                    font-size: 80%
+                }
+
+                .entry{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top:.7em;
+                    input{
+                        padding: .4em;
+                    }
+                }
+
+                label{
+                    margin:0 .3em;
+                    font-size: 80%;
+                }
+            }
+        }
+    }
+
+    .popout-maxpoint,.popout-earn,.pre-re{
+
+        padding: 2em 1em;
+        border-radius: 2px;
+        text-align: center;
+    }
+
+    .popout-maxpoint{
+        margin: 1em 0;
+        border: 1px solid rgba(darkred,0.4);
+        background: rgba(darkred,0.1);
+        color: darkred;
+    }
+
+    .popout-earn{
+        margin: 1em 0;
+        border: 1px solid rgba(green,0.4);
+        background: rgba(green,0.1);
+        color: green;
+        font-size: 90%;
+    }
+
+    .pre-re{
+        margin: 2em 0;
+        border: 1px solid rgba(darkorange,0.4);
+        background: rgba(darkorange,0.1);
+        color: darkorange;
+
+        div:first-child{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div:last-child{
+            font-size: 90%;
+            margin-top: .6em;
+            font-weight: 200;
+            color:#000;
+        }
+
+        label{
+            margin: 0 1em;
+        }
+
+        input{
+            padding: .4em
+        }
+    }
+
+    .promo-schedule{
+        margin-bottom: 1em;
+
+        .title{
+            display: inline-block;
+            padding: .5em 1.5em;
+            background:#A00000;
+            color: #fff;
+            font-size: 90%;
+
+            @media screen and(max-width:$sm){
+                display: block;
+                font-size: 80%;
+            }
+        }
+
+        .body{
+            padding: 1.8em;
+            border-radius: 2px;
+            background: #eeeeee;
+            font-size: 90%;
+            word-wrap: break-word;
+
+            @media screen and(max-width:$sm){
+                padding: 1em;
+                font-size: 80%;
+            }
+
+            div{
+                margin: .7em;
+            }
+        }
+
+    }
+
+    .input-week{
+
+        margin-top: 1em;
+        .col{
+            display: flex;
+            justify-content: center;
+            padding: 0
+        }
+        input{
+            position: absolute;
+            opacity: 0;
+        }
+
+        input:checked{
+                &+span{
+                    border-color: dodgerblue;
+                    background: rgba(dodgerblue,0.1);
+                    color: dodgerblue;
+                }
+        }
+
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1em 2em;
+            border-radius: 2px;
+            border: 1px solid #e2e2e2;
+            color: rgba(#000,0.8);
+            font-size: 90%;
+            cursor: pointer;
+
+            @media screen and(max-width:$sm){
+                margin-top: .3em;
+                padding: .9em 1.4em;
+                font-size:80%;
+            }
+        }
+
+    }
+
+    .timezone{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 1em;
+        line-height: 1.8em;
+        @media screen and(max-width:$sm){
+            font-size: 80%;
+        }
+
+        button{
+            margin-top: .8em;
+            @media screen and(max-width:$sm){
+                margin-top: .3em;
+            }
+            padding: 1em 2em;
+            border: none;
+            border-radius: 2px;
+            background: #9aa0ac;
+            color:#fff;
+            cursor: pointer
+        }
+    }
+
+    .submit-button{
+        text-align: center;
+
+        button{
+            padding: 1em 3em;
+            background: dodgerblue;
+            color:#fff;
+            border:none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    }
+}

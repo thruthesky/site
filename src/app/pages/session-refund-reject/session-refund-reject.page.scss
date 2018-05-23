@@ -1,0 +1,60 @@
+header{
+    h1{
+        margin: 0;
+        padding: 1em;
+        background: #004E8E;
+        color: #fff
+    }
+}
+
+main{
+    min-height: 540px;
+    padding:0 2em;
+    padding-bottom: 5em;
+    .loader{
+        text-align: center
+    }
+
+    .message{
+        padding: 3em;
+        border-radius: 2px;
+        background: #eeeeee;
+        word-wrap: break-word;
+    }
+
+    .student-header,.teacher-header{
+        display: inline-block;
+        margin-top:2em;
+        padding: .7em 1em;
+        color: #fff;
+    }
+
+
+    .student-header{
+        background: #DCA600
+    }
+
+    .teacher-header{
+        background: #DC4200
+    }
+
+    .note{
+        margin-top: 1em;
+        color:darkred
+    }
+
+
+    .buttons{
+        margin-top:4em;
+        text-align: center;
+        button{
+            padding: 1em 3em;
+            border:1px solid grey; 
+            background: #e0e0e0;
+            text-transform: uppercase;
+            color: darkred;
+            cursor: pointer;
+        }
+    }
+
+}

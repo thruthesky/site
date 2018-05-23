@@ -118,8 +118,12 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-session-evaluate/ontue-session-evaluate.page.module#OntueSessionEvaluatePageModule'
   },
   {
-    path: 'teacher-my-curriculum-vitae',
+    path: 'my-curriculum-vitae',
     loadChildren: './sites/ontue/pages/ontue-my-curriculum-vitae/ontue-my-curriculum-vitae.page.module#OntueMyCurriculumVitaePageModule'
+  },
+  {
+    path: 'ontue-grade-condition',
+    loadChildren: './sites/ontue/pages/ontue-grade-condition/ontue-grade-condition.page.module#OntueGradeConditionPageModule'
   },
 
   {

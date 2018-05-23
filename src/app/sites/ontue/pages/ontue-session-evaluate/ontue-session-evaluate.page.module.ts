@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { OntueSessionEvaluatePage } from './ontue-session-evaluate.page';
+import { MaterialModule } from '../../../../app.material.module';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

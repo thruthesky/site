@@ -1,5 +1,5 @@
 <header>
-    <h1>{{ 'SESSION EVALUATION' | t }}</h1>
+    <h1>{{ 'SESSION_EVALUATION_PAGE_TITLE' | t }}</h1>
 </header>
 <main>
     <div class="loader" *ngIf="loading">
@@ -13,27 +13,27 @@
 
             <div class="left">
                 <div>
-                    <span>수업번호 :</span>
+                    <span> {{'SESSION_EVAL_IDX' | t}} :</span>
                     <span>{{ session?.idx }}</span>
                 </div>
             
                 <div>
-                    <span>교재 :</span>
+                    <span> {{'SESSION_EVAL_BOOK_USED' | t}} :</span>
                     <span>{{ session?.book_used }}</span>
                 </div>
             
                 <div>
-                    <span>다음 수업 시간에 사용할 교재 :</span>
+                    <span> {{'SESSION_EVAL_IDX_BOOK_NEXT' | t}} :</span>
                     <span>{{ session?.book_next }}</span>
                 </div>
             
                 <div>
-                    <span>포인트 :</span>
+                    <span> {{'SESSION_EVAL_POINT' | t}} :</span>
                     <span>{{ session?.point }}</span>
                 </div>
             
                 <div>
-                    <span>표현력 :</span>
+                    <span> {{'SESSION_EVAL_EXPRESSION' | t}} :</span>
                     <span>{{ session?.expression }}</span>
                 </div>
             </div>
@@ -41,27 +41,27 @@
 
             <div class="right">
                 <div>
-                    <span>어휘력 :</span>
+                    <span>{{'SESSION_EVAL_VOCABULARY' | t}}  :</span>
                     <span>{{ session?.vocabulary }}</span>
                 </div>
             
                 <div>
-                    <span>문법 :</span>
+                    <span> {{'SESSION_EVAL_GRAMMAR' | t}} :</span>
                     <span> {{ session?.grammar }}</span>
                 </div>
             
                 <div>
-                    <span>발음 :</span>
+                    <span> {{'SESSION_EVAL_PRONUNCIATION' | t}} :</span>
                     <span> {{ session?.pronunciation }}</span>
                 </div>
             
                 <div>
-                    <span>유창함 :</span>
+                    <span>{{'SESSION_EVAL_EXPRESSION_SPEED' | t}}  :</span>
                     <span> {{ session?.speed }}</span>
                 </div>
             
                 <div>
-                    <span>결과(레벨) :</span>
+                    <span> {{'SESSION_EVAL_LEVEL' | t}} :</span>
                     <span>{{level}}</span>
                 </div>
              </div>
@@ -69,7 +69,7 @@
 
 
     <div class="comment" *ngIf=" !loading">
-        <div class="title">코멘트</div>
+        <div class="title"> {{'SESSION_EVAL_COMMENT' | t}} </div>
         <div class="content"> {{ session?.comment }}</div>
     </div>
 

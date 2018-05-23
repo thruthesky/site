@@ -1,0 +1,24 @@
+<section class="of-hidden cover-by-2 bg-white outline-effect mb-5 mb-md-0">
+    <p  class="fs-90  m-0 py-3 text-center bg-blue-60 fw-bold white">Recent Reservations</p>
+    <div class="list-hover-effect my-0-25em">
+        <ng-container *ngFor="let reservation of reservations; let i=index">
+            <div class="container-fluid pointer item" *ngIf="i<3" (click)="a.open('schedule-table', { idx_teacher: reservation.idx_teacher })">
+                <ion-row class="px-4 py-3 align-items-center justify-content-center">
+                    <div class="col-md-4 col-3 d-flex align-items-center">
+                        <span class="size-40 rounded-circle of-hidden"><img  [src]="a.checkPhotoURL(reservation.teacher_photoURL)"/></span>
+                    </div>
+                    <div class="col-md-4 col-3">
+                        <h3 class="fs-90 m-0 p-0">{{ a.preTeacherName(reservation.teacher_name) }}</h3>
+                        <div  class="fs-lg m-0 p-0 mt-1 fw-light"
+                              [innerHtml]="getFirstTwo(reservation.class_begin)+':'
+                                +getLastTwo(reservation.class_begin)">
+                        </div>
+                    </div>
+                    <div class="text-right col-md-4 col-3">
+                        <span class="fs-lg m-0 p-0 fw-light">{{ reservation.display_date }}</span>
+                    </div>
+                </ion-row>
+            </div>
+        </ng-container>
+    </div>
+</section>

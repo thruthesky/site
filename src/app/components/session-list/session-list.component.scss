@@ -1,3 +1,4 @@
+@import '../../../theme/vars.scss';
 .options{
     .date{
         label{
@@ -15,7 +16,7 @@
             }
         }
 
-        @media screen and (min-width:768px){
+        @media screen and (min-width:$md){
             .begin{
                 margin-right: .25em;
             }
@@ -82,11 +83,6 @@
     }
 }
 
-main{
-    padding-bottom: 10em;
-}
-
-
 .stats{
     margin: 1.5em 0;
     border-top: 1px solid #e9ecef;
@@ -99,7 +95,7 @@ main{
             font-weight: bold;
             color: gray;
 
-            @media screen and (max-width:768px) {
+            @media screen and (max-width:$md) {
                 line-height: 2em;
             }
         }
@@ -115,7 +111,7 @@ main{
                 cursor: pointer;
             }
 
-            @media screen and (max-width:768px) {
+            @media screen and (max-width:$md) {
                 margin: 1em 0!important;
 
                 span{
@@ -126,31 +122,48 @@ main{
     }
 }
 
-.header{
-    position: sticky!important;
-    top:63px;
-    @media screen and (max-width:768px) {
-        top:105px;
 
-        .sm-hide{
-            display: none;
+
+    .header-student,.header-teacher{
+        position: sticky!important;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        justify-content: space-around;
+        align-items: center;
+        padding: .9em 0;
+        background-color: #66a2fb;
+        color: white;
+        text-align: center;
+    
+        &>div{
+            padding: 0;
         }
     }
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    justify-content: space-around;
-    align-items: center;
-    padding: .9em 0;
-    background-color: #66a2fb;
-    color: white;
-    text-align: center;
 
-    &>div{
-        padding: 0;
+    .header-student{
+
+        top:63px;
+        @media screen and (max-width:$md) {
+            top:105px;
+    
+            .sm-hide{
+                display: none;
+            }
+        }
     }
 
-}
+    .header-teacher{
+        top:56px;
+
+        @media screen and (max-width:$md) {
+            .sm-hide{
+                display: none;
+            }
+        }
+    }
+
+
 
 .data{
     justify-content: space-around;
@@ -176,7 +189,24 @@ main{
     .rejected,.refunded{
         display: inline-block;
         margin-top: 1em;
-        color:darkred;
+        color:darkred!important;
+    }
+
+    .rejected{
+        color: #856404;
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+    }
+
+    .point-refund-rejected{
+        border-color: darkslategrey!important;
+        background: ghostwhite;
+    }
+
+    .refundable{
+        border-color: darkred!important;
+        color: darkred!important;
+        background: ghostwhite;
     }
 
     button{
@@ -188,6 +218,10 @@ main{
         border-radius: 2px;
         border: 1px solid rgba(0,0,0,.06)!important;
         cursor: pointer;
+    }
+
+    span{
+        margin-top: 1em
     }
 
     .evaluate-view,.cancel{
@@ -232,12 +266,12 @@ main{
         background-color: rgb(255, 123, 0);
     }
 
-    .evaluate{
+    .evaluated{
         border-color: rgba(black, 0.06)!important;
         color:blue;
     }
 
-    .warning {
+    .evaluate {
         background-color: rgb(255, 123, 0)!important;
         color: white!important;
     }
@@ -245,6 +279,11 @@ main{
     .refund-requested{
         background: darkred;
         color:white
+    }
+
+    .cancel-refund-request{
+        border:1px solid darkorange!important;
+        color:darkorange;
     }
 
     .button-icon{
@@ -298,13 +337,78 @@ main{
     color:blue;
 }
 
-.no-more,.loader{
+.no-more{
     text-align: center;
     padding: 5em;
+}
+
+.loader{
+    text-align: center;
 }
 
 .no-more{
     padding-bottom: 12em;
 }
 
+
+.legends{
+    margin:5em 0;
+    padding: 0;
+    font-size: 90%;
+    .col{
+        &>div{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.2em;
+            padding-right: 0;
+            border:1px solid #e2e2e2;
+            border-bottom: none;
+            background: #fff;
+
+            &:last-child{
+                border:1px solid #e2e2e2;
+            }
+
+            &>div:last-child{
+                padding: 1.2em;
+                width: 90px;
+                background: grey;
+                color: #fff;
+                font-size: 90%;
+                text-align: center;
+            }
+        }
+
+        .eval{
+            background: darkorange!important;
+
+            span{
+                color:red!important
+            }
+        }
+
+        .ready-confirmed{
+            background: green!important
+        }
+
+        .ready-not-confirmed{
+            background: red!important
+        }
+
+        .rejected{
+            color: #856404!important;
+            background-color: #fff3cd!important;
+            border-color: #ffeeba!important;
+        }
+
+        .accept{
+            background:#007bff!important
+        }
+
+        .reject{
+            background: darkred!important
+        }
+    }
+}
 

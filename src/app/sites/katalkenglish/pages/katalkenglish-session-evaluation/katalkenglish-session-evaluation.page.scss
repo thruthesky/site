@@ -1,3 +1,4 @@
+@import '../../../../../theme/vars.scss';
 header{
    h1{
        margin:0;
@@ -7,7 +8,6 @@ header{
 }
 
 .loader{
-    padding: 6em 0;
     text-align: center;
 }
 
@@ -20,10 +20,17 @@ main{
         padding: .5em;
         border: 1px solid rgba(128, 128, 128, 0.2);
         background: #fff;
+
+        @media screen and (max-width:$sm){
+            flex-direction: column;
+        }
     }
 
     .left,.right{
         width: 50%;
+        @media screen and (max-width:$sm){
+            width: 100%;
+        }
         &>div{
             border: 1px solid rgba(128, 128, 128, 0.2);
             border-bottom: none;
@@ -41,7 +48,15 @@ main{
 
     .left{
         &>div{
-            border-right: none;
+            @media screen and (min-width:$md){
+                border-right: none;
+            }
+
+            &:last-child{
+                @media screen and (max-width:$sm){
+                    border-bottom: none;
+                }
+            }
         }
     }
 

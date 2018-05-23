@@ -1,0 +1,32 @@
+<section class="cover-by-2  mb-5 mb-md-0 bg-white outline-effect of-hidden">
+    <p class=" m-0 py-3 fs-90 white bg-blue-80 fw-bold text-center">Student Comments</p>
+    <div class="list-hover-effect my-0-25em" no-lines>
+        <ng-container *ngFor="let student_comment of student_comments; let i=index">
+            <div class="container-fluid pointer item" (click)="a.open('teacher-review-list', { idx_teacher: idx_teacher })" *ngIf="i<3">
+                <div class="row py-3 px-4 align-items-center justify-content-center">
+                    <div class="col-md-4 col-3 d-flex align-items-center">
+                    <span class="size-40 rounded-circle of-hidden">
+                        <img [src]="a.checkPhotoURL(student_comment.teacher_photoURL)"/>
+                    </span>
+                    </div>
+                    <div class="col-md col-6">
+                        <div class="d-flex align-items-center">
+                            <h3 class=" m-0 p-0 fs-90">{{a.preTeacherName(student_comment.teacher_name)}}</h3>
+                            <div class="ml-2 m-0 p-0 of-hidden text-nowrap">
+                                <span *ngIf="student_comment.rate >= 1"><i class="fs-md fas fa-star" color="yellow">*</i></span>
+                                <span *ngIf="student_comment.rate >= 2"><i class="fs-md fas fa-star" color="yellow">*</i></span>
+                                <span *ngIf="student_comment.rate >= 3"><i class="fs-md fas fa-star" color="yellow">*</i></span>
+                                <span *ngIf="student_comment.rate >= 4"><i class="fs-md fas fa-star" color="yellow">*</i></span>
+                                <span *ngIf="student_comment.rate >= 5"><i class="fs-md fas fa-star" color="yellow">*</i></span>
+                            </div>
+                        </div>
+                        <p class="m-0 p-0 fs-90 fw-light">
+                            {{student_comment.comment.slice(0,8)}}
+                            <span class="fw-bold" *ngIf="student_comment.comment.length>8">...</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</section>

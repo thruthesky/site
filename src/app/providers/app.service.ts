@@ -1499,6 +1499,13 @@ export class AppService {
         }
     }
 
+    checkPhotoURL(url) {
+        if (url) {
+            return url;
+        } else {
+            return this.anonymousPhotoURL;
+        }
+    }
 
     /**
      * Returns number from a string.

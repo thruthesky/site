@@ -3,6 +3,7 @@
     "LOGIN": "ログイン",
     "LOGOUT": "ログアウト",
     "UPDATE_PROFILE_MENU": "プロフィール",
+    "UPDATE_PROFILE":"プロフィールを更新する",
     "register": "登録",
     "FORUM": "フォーラム",
     "Email": "メール",
@@ -445,6 +446,7 @@
     "PAID":"支払った",
     "REFUND":"払い戻し",
     "EVALUATE":"評価する",
+    "EVALUATED":"評価された",
     "RESULT":"結果",
 
     "WRITE_REVIEW":"レビューを書く",
@@ -459,5 +461,34 @@
     "HOBBIES":"趣味",
     "SCHOOL":"学校",
     "PHONE_NO":"電話番号",
-    "EMAIL":"Eメール"
+    "EMAIL":"Eメール",
+
+    "SESSION_EVALUATION_PAGE_TITLE":"セッション評価",
+    "SESSION_EVAL_IDX":"クラス番号",
+    "SESSION_EVAL_BOOK_USED":"教科書",
+    "SESSION_EVAL_IDX_BOOK_NEXT":"次のクラスの教科書",
+    "SESSION_EVAL_POINT":"ポイント",
+    "SESSION_EVAL_EXPRESSION":"表現力",
+    "SESSION_EVAL_VOCABULARY":"単語",
+    "SESSION_EVAL_GRAMMAR":"文法",
+    "SESSION_EVAL_PRONUNCIATION":"発音",
+    "SESSION_EVAL_EXPRESSION_SPEED":"流暢",
+    "SESSION_EVAL_LEVEL":"結果（レベル）",
+    "SESSION_EVAL_COMMENT":"コメント",
+
+    "CLASS_COMMENTS_PAGE_TITLE":"授業のコメント",
+    "CLASS_COMMENTS_PAGE_DESC":"学生が作成したクラスの後期を見ることができます。皆さんも授業をすると、必ず声を残してください。",
+    "MORE":"より",
+    "SESSION_REFUND_REQUEST_PAGE_TITLE":"セッション払い戻しのリクエスト",
+    "SESSION_REFUND_REQUEST_PAGE_REMINDER":"可能な場合は、英語で書いてください。",
+
+    "SESSION_REFUND_REJECT_TITLE":"セッション払い戻しを拒否",
+    "STUDENT_MESSAGE":"学生メッセージ",
+    "TEACHER_MESSAGE":"教師メッセージ",
+    "SESSION_REFUND_REJECT_NOTE":"*注：教師の事由に満足していない場合。adminに連絡して返金要求を移管することができます。",
+
+    "SESSION_REFUND_REVIEW_TITLE":"学生還付検討",
+    "REFUND_ACCEPT":"受け入れ返金",
+    "REFUND_REJECT":"払い戻しを拒否",
+    "REJECT_CONFIRM":"払い戻し確認"
 }

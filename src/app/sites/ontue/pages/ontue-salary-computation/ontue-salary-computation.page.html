@@ -2,104 +2,123 @@
     <h1>Salary Computation</h1>
 </header>
 <main>
-    <section class="content">
-        <div *ngIf=" loading ">
-            <ion-spinner class="size-3"></ion-spinner>
-            {{ 'IN LOADING' | t }}
-        </div>
-        <div  *ngIf=" ! loading " text-center>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3 col-auto">
-                        <label>
-                            <input type="radio" name="payment_method"
-                                   [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="gcash">
-                            <div>
-                                <i class="fal fa-tablet-alt d-inline-block mx-auto fs-4rem icon-effect" ion-text color="green"></i>
-                                <span>GCAsh</span>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="col-md-3 col-auto">
-                        <label>
-                            <input type="radio" name="payment_method"
-                                   [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="western-union">
-                            <div>
-                                <i class="fal fa-barcode d-inline-block fs-4rem mx-auto icon-effect" ion-text color="yellow"></i>
-                                <span>Western Union</span>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="col-md-3 col-auto">
-                        <label>
-                            <input type="radio" name="payment_method"
-                                   [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="paypal">
-                            <div>
-                                <i class="fal fa-credit-card d-inline-block fs-4rem mx-auto icon-effect" ion-text color="blue"></i>
-                                <span>Paypal</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
+<div class="loader" *ngIf=" loading ">
+    <ion-spinner class="size-3"></ion-spinner>
+    {{ 'IN LOADING' | t }}
+</div>
 
-            <div class="payment-information container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <div>Total Points</div>
-                    </div>
-                    <div class="col">
-                        <input id="total_points" type="text" [(ngModel)]="total_points" (keyup)="recompute()" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div>Teacher Share Points (88%)</div>
-                    </div>
-                    <div class="col">
-                        <div>{{ teacher_share }}</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div>Transaction Fee(4.2%)</div>
-                    </div>
-                    <div class="col">
-                        <div>{{ paypal_charges }}</div>
-                    </div>
-                </div>
-                <div class="row"  *ngIf="payment_information['payment_method'] !== 'paypal' ">
-                    <div class="col">
-                        <div>Buying Rate to PHP(3.1%)</div>
-                    </div>
-                    <div class="col">
-                        <div>{{ buying_rate }}</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div>Earnings</div>
-                    </div>
-                    <div class="col">
-                        <div>{{ earnings }}</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div>Salary</div>
-                    </div>
-                    <div class="col">
-                        <div>{{ salary }}</div>
-                    </div>
-                </div>
+        <div class="payment-method"   *ngIf=" ! loading ">
 
-            </div>
-            <div>
-                <div>*Note: Additional charges will be applied to GCash and Western Union base on the total salary earned.</div>
-                <div>*Note: Paypal service charges will be deduct to teacher upon receiving the salary..</div>
-            </div>
+            <label>
+                <input type="radio" name="payment_method"
+                        [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="gcash">
+                <div class="gcash">
+                        <svg aria-hidden="true" data-prefix="fal" data-icon="tablet-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M352 96v256H96V96h256m20-32H76c-6.6 0-12 5.4-12 12v296c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12zm28-64H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm16 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V48c0-8.8 7.2-16 16-16h352c8.8 0 16 7.2 16 16v416zm-192-64c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"></path></svg>
+                        <span>GCAsh</span>
+                </div>
+            </label>
 
+            <label>
+                <input type="radio" name="payment_method"
+                        [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="western-union">
+                <div class="western-union">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 448V64h18v384H0zm26.857-.273V64H36v383.727h-9.143zm27.143 0V64h8.857v383.727H54zm44.857 0V64h8.857v383.727h-8.857zm36 0V64h17.714v383.727h-17.714zm44.857 0V64h8.857v383.727h-8.857zm18 0V64h8.857v383.727h-8.857zm18 0V64h8.857v383.727h-8.857zm35.715 0V64h18v383.727h-18zm44.857 0V64h18v383.727h-18zm35.999 0V64h18.001v383.727h-18.001zm36.001 0V64h18.001v383.727h-18.001zm26.857 0V64h18v383.727h-18zm45.143 0V64h26.857v383.727h-26.857zm35.714 0V64h9.143v383.727H476zm18 .273V64h18v384h-18z"/></svg>
+                    <span>Western Union</span>
+                </div>
+            </label>
+
+            <label>
+                <input type="radio" name="payment_method"
+                        [(ngModel)]="payment_information['payment_method']" (ngModelChange)="recompute()" value="paypal">
+                <div class="paypal">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"/></svg>
+                        <span>Paypal</span>
+                </div>
+            </label>
 
         </div>
-    </section>
+
+        <div class="payment-information container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div>Total Points</div>
+                </div>
+                <div class="col">
+                    <input id="total_points" type="text" [(ngModel)]="total_points" (keyup)="recompute()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>Teacher Share Points (88%)</div>
+                </div>
+                <div class="col">
+                    <div>{{ teacher_share }}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>Transaction Fee(4.2%)</div>
+                </div>
+                <div class="col">
+                    <div>{{ paypal_charges }}</div>
+                </div>
+            </div>
+            <div class="row"  *ngIf="payment_information['payment_method'] !== 'paypal' ">
+                <div class="col">
+                    <div>Buying Rate to PHP(3.1%)</div>
+                </div>
+                <div class="col">
+                    <div>{{ buying_rate }}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>Earnings</div>
+                </div>
+                <div class="col">
+                    <div>{{ earnings }}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>Salary</div>
+                </div>
+                <div class="col">
+                    <div>{{ salary }}</div>
+                </div>
+            </div>
+
+        </div>
+
+    <div class="note text-left">
+        <div class="mb-3">
+            <b>*Total Points:</b> This is the total accumulated points you earn every paid class for a certain cutoff.
+        </div>
+        <div class="mb-3">
+            <b>*Teacher Share Points:</b> Teacher share is 88% of the total accumulated points.
+        </div>
+        <div class="mb-3">
+            <b>*Paypal Charges:</b> When the student buy points, paypal charges a total of 4.7% from the total amount
+            they pay.
+            But we still give the full amount of points to student, thats why we deduct the 4.7% to the teacher and
+            company share.
+            Company and teacher will share with this deduction. Since teacher share is 88% then we deduct 4.2% to
+            teacher points.
+            And since the company share is 12% we deduct 0.5% to company points.
+        </div>
+        <div class="mb-3">
+            <b>*Buying Rate:</b> It is applied when we transfer the money from paypal to local banks.
+        </div>
+        <div class="mb-3">
+            <b>*Total Earnings:</b> This amount sum of all the share and deductions.
+        </div>
+        <div class="mb-3">
+            <b>*Average Salary:</b> This amount is may change depends on the current exchange rate.
+        </div>
+        <div class="mb-3">
+            <div><b>*Note:</b> Additional charges will be applied to GCash and Western Union base on the total salary earned.</div>
+            <div><b>*Note:</b> For paypal users, buying rate is not applied but paypal will charge a service fee upon
+                receiving your salary.</div>
+        </div>
+    </div>
 </main>

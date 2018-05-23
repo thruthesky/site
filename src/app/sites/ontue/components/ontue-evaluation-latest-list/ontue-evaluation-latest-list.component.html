@@ -1,0 +1,48 @@
+<div class="teacher-evaluation m-0 mt-5 rounded bg-white outline-effect">
+    <div class="px-md-5 bg-blue-60 white">
+        <h2  class="title-style d-md-inline-block ml-md-4 m-0 p-5 fs-3rem fw-light bg-blue"  color="white" text-center text-md-left>Recent Evaluation</h2>
+    </div>
+    <ul class="mx-0 my-5">
+        <li class="m-0 px-5 py-5 "
+             *ngFor="let teacher_comment of evaluations; let i=index">
+            <div class="container-fluid">
+                <div class="row mx-4 my-3 align-items-end">
+                    <div class="my-3 my-md-0 text-md-left text-center col-12 col-md-6" *ngIf="teacher_comment['teacher_photoURL'] || teacher_comment['student_photoURL']">
+                        <span class="d-inline-block mr-2 size-80 rounded-2 of-hidden" *ngIf="teacher_comment['teacher_photoURL']">
+                          <img src="{{teacher_comment['teacher_photoURL']}}">
+                        </span>
+                        <span class="d-inline-block mr-4 size-80 rounded-2 of-hidden ">
+                          <img src="{{a.checkPhotoURL(teacher_comment['student_photoURL'])}}">
+                        </span>
+                        <h2 class=" d-md-inline-block my-3 my-md-0 mx-0 fs-2rem fw-bold"  color="blue">
+                            {{ a.preTeacherName(teacher_comment.teacher_name) }}
+                            <span class="ml-3 fw-light fs-lg black">{{preDate(teacher_comment['date'])}}</span>
+                        </h2>
+                    </div>
+                    <div class="text-md-right text-center col-12 col-md-6">
+                        <span class="mr-3"  color="blue">#{{(i+1) + ((commentCount - 1) * pageOption['limitPerPage'])}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="m-0 my-3 mx-4 p-5 rounded bg-light outline-effect">
+                <div  class="my-3 m-0 p-0 line-h-1-8em fs-90"  color="dark">
+                    <span class="white-space-pre hide-effect" *ngIf="!teacher_comment['more']">{{teacher_comment.comment.slice(0,200)}}<span class="fs-xl" *ngIf="teacher_comment.comment.length>200"> ...</span></span>
+                    <span class="white-space-pre hide-effect" *ngIf="teacher_comment['more']">{{teacher_comment.comment}}</span>
+                </div>
+                <ng-container *ngIf="teacher_comment.comment.length>200">
+                    <span class="pointer text-nowrap"  color="blue" (click)="teacher_comment['more'] = !teacher_comment['more']"> {{teacher_comment['more']? 'View Less' : 'View More'}}</span>
+                </ng-container>
+            </div>
+        </li>
+    </ul>
+    <div class="pagination p-3 bg-blue" text-center>
+        <page-navigator-component class="evaluation mx-auto"
+                        [no_of_total_items]=" pageOption['totalRecord'] "
+                        [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
+                        [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
+                        [no_of_current_page]=" pageOption['currentPage'] "
+                        [show_prev_next]=" true "
+                        (pageClick)="onPostPageClick($event)">
+        </page-navigator-component>
+    </div>
+</div>

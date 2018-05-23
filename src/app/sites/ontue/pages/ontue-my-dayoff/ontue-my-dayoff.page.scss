@@ -1,0 +1,150 @@
+@import '../../../../../theme/vars.scss';
+header{
+    h2{
+        margin: 0;
+        padding: 1em;
+        background:orange;
+        font-size: 1em;
+        color:white;
+    }
+}
+
+main{
+    padding: 3em ;
+    min-height: 540px;
+
+    @media screen and(max-width:$sm){
+        padding: 1em;
+    }
+
+    .description{
+
+        .title{
+            display: inline-block;
+            padding: .5em 1.5em;
+            background:dodgerblue;
+            color: #fff;
+
+            @media screen and(max-width:$sm){
+                display: block;
+                font-size: 90%;
+            }
+        }
+
+        .body{
+            padding: 1.8em;
+            border-radius: 2px;
+            background: #eeeeee;
+            font-weight: 200;
+            line-height: 1.4em;
+            word-wrap: break-word;
+
+            @media screen and(max-width:$sm){
+                padding: 1em;
+                font-size: 90%;
+            }
+
+            div{
+                margin: .7em;
+            }
+        }
+
+    }
+
+    .delete-item{
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+        background: #fff;
+
+        &:first-child{
+            border-top: 1px solid rgba(128, 128, 128, 0.2);
+        }
+
+        .button{
+            display: flex;
+            align-items: center;
+            padding: 1em 3em;
+            @media screen and(max-width:$sm){
+                padding-right: 1em;
+            }
+            font-size: 90%;
+            color:darkred;
+            cursor: pointer;
+
+            svg{
+                height: 1em;
+                margin-right: .2em;
+            }
+        }
+
+        .date{
+            padding-left: 3em;
+
+
+            @media screen and(max-width:$sm){
+                padding-left: 1em;
+            }
+        }
+    }
+
+    .loader{
+        text-align: center;
+    }
+
+    .create-dayoff-button{
+        margin:1em 0;
+        text-align: center;
+        button{
+            padding: 1em 2em;
+            border: none;
+            background: green;
+            color:#fff;
+            cursor: pointer;
+        }
+
+    }
+
+    .calendar-input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1em;
+        @media screen and(max-width:$sm){
+            flex-direction: column;
+        }
+        input{
+            display: none;
+        }
+
+        div{
+            margin: 0 1em;
+            padding: .8em;
+            width: 100%;
+            border-radius: 2px;
+            border:1px solid rgba(128, 128, 128, 0.2);
+            background: #fff;
+            cursor: pointer;
+
+            @media screen and(max-width:$sm){
+               margin: .5em;
+            }
+        }
+        button{
+            padding: 1em 2em;
+            border: none;
+            border-radius: 2px;
+            color:#fff;
+            cursor: pointer; 
+
+            &:first-child{
+                background: dodgerblue;
+            }
+
+            &:last-child{
+                background: green;
+            }
+        }
+    }
+}
