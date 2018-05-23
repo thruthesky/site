@@ -35,10 +35,10 @@
                                     </div>
                                 </div>
                                 <div class="extra">
-                                    <!--<div>{{ 'INTERNET' | t}}: {{internet[comment.internet]}}</div>-->
-                                    <!--<div>{{ 'Camera' | t}}: {{camera[comment.camera]}}</div>-->
-                                    <div *ngIf="f.ln.INTERNET_STATUS">{{ 'INTERNET' | t}}: {{f.ln.INTERNET_STATUS[comment.internet]}}</div>
-                                    <div *ngIf="f.ln.CAMERA_STATUS">{{ 'Camera' | t}}: {{f.ln.CAMERA_STATUS[comment.internet]}}</div>
+                                    <div>{{ 'INTERNET' | t}}: {{internet[comment.internet]}}</div>
+                                    <div>{{ 'Camera' | t}}: {{camera[comment.camera]}}</div>
+                                    <!--<div *ngIf="f.ln.INTERNET_STATUS">{{ 'INTERNET' | t}}: {{f.ln.INTERNET_STATUS[comment.internet]}}</div>-->
+                                    <!--<div *ngIf="f.ln.CAMERA_STATUS">{{ 'Camera' | t}}: {{f.ln.CAMERA_STATUS[comment.internet]}}</div>-->
                                 </div>
                                 <div class="date">{{ 'DATE' | t }} : {{
                                     a.shortDate(comment.stamp) }}
