@@ -84,6 +84,9 @@ export class UserInfoPage implements OnInit {
 
         this.sessions = [];
         this.sessionsToday = [];
+
+        this.count.session.future = 0;
+        this.count.session.past = 0;
     }
 
     loadInfo(ID) {
