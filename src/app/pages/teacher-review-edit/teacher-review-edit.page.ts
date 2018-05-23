@@ -18,6 +18,8 @@ export class TeacherReviewEditPage {
 
     comment = '';
     rate = 3;
+    internet = 2;
+    camera = 1;
 
     showLoader = false;
 
@@ -38,7 +40,9 @@ export class TeacherReviewEditPage {
                 this.a.lms.student_comment_to_teacher_by_idx({idx: params['idx_comment']}).subscribe(re => {
                     console.log('student_comment_to_teacher_by_idx', re);
                     this.data = re;
-                    this.rate = re['rate'];
+                    this.rate = parseInt(re['rate'], 10);
+                    this.internet = parseInt(re['internet'], 10);
+                    this.camera = parseInt(re['camera'], 10);
                     this.comment = re['comment'];
                     this.showLoader = false;
                 }, e => {
@@ -51,13 +55,15 @@ export class TeacherReviewEditPage {
 
     onClickSubmit() {
 
-        if (this.comment.length < 10) {
+        if (!this.comment || this.comment.length < 10) {
             this.a.toast('코멘트가 너무 짧습니다.');
             return;
         }
 
         this.data['comment'] = this.comment;
         this.data['rate'] = this.rate;
+        this.data['internet'] = this.internet;
+        this.data['camera'] = this.camera;
 
         if (this.showLoader) {
             return;
