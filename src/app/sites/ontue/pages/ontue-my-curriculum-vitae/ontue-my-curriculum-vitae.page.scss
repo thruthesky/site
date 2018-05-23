@@ -16,12 +16,10 @@ header{
 
 main{
     padding: 0 5em;
-
+    background: #fff;
     @media screen and (max-width:$sm){
         padding: 0 1em;
     }
-
-    background: #fff;
 
     .file-inputs{
         align-items: stretch;
@@ -112,4 +110,8 @@ main{
             opacity: 0;
         }
     }
+
+    // .text-inputs{
+
+    // }
 }
