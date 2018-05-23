@@ -1,13 +1,13 @@
-<main id="home-teacher-content" class="mt-md-3 bg-light">
+<main>
     <div class="container-fluid">
-        <div class="row mx-md-0 mt-md-3 mb-md-5 px-1px">
-            <div class="col-md-3 col-12 m-md-0 p-md-0 pr-md-3">
+        <div class="landing row">
+            <div class="col-md-3">
                 <ontue-reminders-component></ontue-reminders-component>
             </div>
-            <div class="col-md-6 col-12 cover m-md-0 p-md-0 px-5">
-                <div class="container-fluid m-md-0">
-                    <div class="row m-md-0 pb-md-3">
-                        <div class="col-md-6 col-12 m-0 px-md-3 p-0">
+            <div class="boxes-wrapper col-md-6 col-12">
+                <div class="container-fluid">
+                    <div class="boxes row">
+                        <div class="col-md-6 col-12">
                             <ontue-statistics-component
                                     [no_teachers]="site_info.no_of_teacher"
                                     [no_students]="site_info.no_of_student"
@@ -15,23 +15,23 @@
                                     [no_pasts]="site_info.no_of_past"
                             ></ontue-statistics-component>
                         </div>
-                        <div class="col-md-6 col-12 px-md-3">
+                        <div class="col-md-6 col-12">
                             <ontue-graded-latest-list-component *ngIf="site_info.recent_graded_teachers.length"
                                                        [teachers]="site_info.recent_graded_teachers ">
                             </ontue-graded-latest-list-component>
                         </div>
                     </div>
-                    <div class="student-feedback row m-md-0 pt-md-3">
-                        <div class="col-md-6 col-12 px-md-3" *ngIf="site_info.comment_from_student['total']">
+                    <div class="boxes row">
+                        <div class="col-md-6 col-12" *ngIf="site_info.comment_from_student['total']">
                             <ontue-student-comment-list-component [student_comments] = "site_info.comment_from_student.comments "></ontue-student-comment-list-component>
                         </div>
-                        <div class="col-md-6 col-12 px-md-3">
+                        <div class="col-md-6 col-12">
                             <ontue-reservation-latest-list-component [reservations]="site_info.recent_reservations"></ontue-reservation-latest-list-component>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="cover col-md-3 col-12 m-md-0 p-md-0 pl-md-3 px-5">
+            <div class="col-md-3 col-12">
                 <ontue-activity-log-component></ontue-activity-log-component>
             </div>
         </div>

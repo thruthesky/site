@@ -1,48 +1,56 @@
-<section class="container-fluid mb-5 mb-md-0">
-    <div class="row cover-by-2 d-none d-md-flex mb-3">
-        <div class="col border border-top-0 border-bottom-0">
-            <ion-slides class="outline-effect" effect="fade" autoplay="10000" speed="1000" loop>
-                <ion-slide class="bg-white">
-                    <img class="w-100"  src="../assets/img/teacher/teacherslide1.jpg" alt="quote">
+<section class="container-fluid">
+    <div class="row desktop-slides">
+        <div class="col">
+            <ion-slides [options]="{pagination: false, effect: 'fade', autoplay: 10000, speed : 1000, loop: true }">
+                <ion-slide>
+                    <img src="../assets/img/teacher/teacherslide1.jpg" alt="image">
                 </ion-slide>
-                <ion-slide  class="bg-white">
-                    <img class="w-100"  src="../assets/img/teacher/teacherslide2.jpg" alt="quote">
+                <ion-slide>
+                    <img src="../assets/img/teacher/teacherslide2.jpg" alt="image">
                 </ion-slide>
-                <ion-slide class="bg-white" >
-                    <img class="w-100"  src="../assets/img/teacher/teacherslide3.jpg" alt="quote">
-                </ion-slide>
-            </ion-slides>
-        </div>
-    </div>
-    <div class="row cover-by-2 d-flex d-md-none mb-5">
-        <div class="col border border-top-0 border-bottom-0">
-            <ion-slides effect="fade" autoplay="10000" speed="1000" loop>
-                <ion-slide class="slide-bg-1 py-5 px-4 white">
-                    <div class=" mt-5 mb-3 fs-3rem fw-bold white font-arial">ONTUE</div>
-                    <div class="mb-4 fw-light line-height-1-8em fs-90">Earn Money While Teaching English Online. Work from The Comfort Of Your Home</div>
-                    <button ion-button color="blue" (click)=" onClickSteps() ">Apply Now</button>
-                </ion-slide>
-                <ion-slide  class="slide-bg-2 py-5 px-4 white">
-                    <div class=" mt-5 mb-3 fs-3rem fw-bold white font-arial">ONTUE</div>
-                    <div class="mb-4 fw-light line-height-1-8em fs-90">Earn Money While Teaching English Online. Work from The Comfort Of Your Home</div>
-                    <button ion-button color="blue" (click)=" onClickSteps() ">Apply Now</button>
-                </ion-slide>
-                <ion-slide  class="slide-bg-3 py-5 px-4 white">
-                    <div class=" mt-5 mb-3 fs-3rem fw-bold white font-arial">ONTUE</div>
-                    <div class="mb-4 fw-light line-height-1-8em fs-90">Earn Money While Teaching English Online. Work from The Comfort Of Your Home</div>
-                    <button ion-button color="blue" (click)=" onClickSteps() ">Apply Now</button>
+                <ion-slide>
+                    <img src="../assets/img/teacher/teacherslide3.jpg" alt="image">
                 </ion-slide>
             </ion-slides>
         </div>
     </div>
-    <div class="row cover-by-2 mt-md-3 mt-0 px-md-0 px-5 overflowhidden-y">
-        <div class="col d-flex-column align-items-center pb-2 h-100 border bg-white text-center"  (click)="a.open('register')">
-            <p class="m-0 mb-auto  py-3 fs-90 w-100 fw-bold bg-red-90 text-center white">Urgent Hiring </p>
-            <i class="fal fa-rocket color-animation fa-4x my-md-auto my-2"></i>
-            <div class="my-md-auto m-0 my-2 p-0 px-5 line-height-2rem fw-bold" text-wrap>English Teacher?
-                <div>Work Part/Full-time</div>  We need you!
+    <div class="row mobile-slides">
+        <div class="col">
+            <ion-slides [options]="{pagination: false, effect: 'fade', autoplay: 10000, speed : 1000, loop: true }">
+                <ion-slide class="slide-bg-1">
+                    <div class="slide-wrapper">
+                        <div class="title">ONTUE</div>
+                        <div class="body">Earn Money While Teaching English Online. Work from The Comfort Of Your Home</div>
+                        <button (click)=" onClickSteps() ">Apply Now</button>
+                    </div>
+                </ion-slide>
+                <ion-slide class="slide-bg-2">
+                    <div class="slide-wrapper">
+                        <div class="title">ONTUE</div>
+                        <div class="body">Earn Money While Teaching English Online. Work from The Comfort Of Your Home</div>
+                        <button (click)=" onClickSteps() ">Apply Now</button>
+                    </div>
+                </ion-slide>
+                <ion-slide class="slide-bg-3">
+                    <div class="slide-wrapper">
+                        <div class="title">ONTUE</div>
+                        <div class="body">Earn Money While Teaching English Online. Work from The Comfort Of Your Home</div>
+                        <button (click)=" onClickSteps() ">Apply Now</button>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+    <div class="row reminder">
+        <div class="col"  (click)="a.open('register')">
+            <p class="title">Urgent Hiring </p>
+            <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="rocket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511 512" data-fa-i2svg=""><path fill="currentColor" d="M501.8 19.1c-1.1-4.4-4.5-7.8-8.8-8.8C453.7.7 442.5 0 408 0c-68.6 0-128.1 44.9-173.8 96H106.7c-11.4 0-21.9 6-27.6 15.9l-74.7 128C-8 261.2 7.4 288 32 288h82.7c-8.6 19.1-14.3 33.5-18.6 44.6-1.7 4.4-.7 9.5 2.7 12.8l67.7 67.7c3.4 3.4 8.4 4.4 12.8 2.7 11.2-4.3 25.5-10 44.6-18.6V480c0 24.7 26.8 40.1 48.1 27.6l128-74.7c9.8-5.7 15.9-16.3 15.9-27.6V277.8c51.1-45.7 96-105.2 96-173.8.1-34.5-.6-45.8-10.1-84.9zM32 256l74.7-128h101.1c-32.5 42.6-58.6 88.3-78.1 128H32zm224 224v-97.7c39.7-19.5 85.4-45.5 128-78.1v101.1L256 480zm-76.1-98.7l-49.1-49.1C177.6 215.9 283.8 32 408.1 32c24.7 0 37.3 0 65.5 6.5C480 66.7 480 79.2 480 104c0 124.3-184.1 230.5-300.1 277.3zM368 88c-30.9 0-56 25.1-56 56s25.1 56 56 56 56-25.1 56-56-25.1-56-56-56zm0 80c-13.2 0-24-10.8-24-24s10.8-24 24-24 24 10.8 24 24-10.8 24-24 24z"></path></svg>
+            <div class="body">
+                <div>English Teacher?</div>
+                <div>Work Part/Full-time</div> 
+                <div>We need you!</div>
             </div>
-            <button class="hover-effect m-0 my-md-auto my-2 p-3  fw-bold rounded-2 bg-red-90 white">APPLY NOW</button>
+            <button>APPLY NOW</button>
         </div>
     </div>
 </section>

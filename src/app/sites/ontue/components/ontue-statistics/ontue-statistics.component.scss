@@ -1,0 +1,33 @@
+.row{
+    &>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: (225px/2);
+        color: #fff;
+        font-size: 95%;
+        font-weight: 200;
+
+        &>div:first-child{
+            font-weight: 400;
+            font-size: 180%;
+        }
+    }
+
+    .teachers{
+        background: #007bff
+    }
+
+    .students{
+        background: rgba(#007bff,0.8) 
+    }
+
+    .reservations{
+        background: #66a2fb
+    }
+
+    .past{
+        background: rgba(0,123,255,.45);
+    }
+}

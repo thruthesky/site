@@ -11,12 +11,12 @@ export class OntueReservationLatestListComponent {
     @Input() reservations = [];
     constructor(public a: AppService) {
     }
-    getLastTwo(text){
-        return text.slice(2,5);
+    getLastTwo(text) {
+        return text.slice(2, 5);
     }
 
-    getFirstTwo(text){
-        return text.slice(0,2);
+    getFirstTwo(text) {
+        return text.slice(0, 2);
     }
 }
 

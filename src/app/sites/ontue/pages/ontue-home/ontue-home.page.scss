@@ -1,0 +1,47 @@
+@import '../../../../../theme/vars.scss';
+.landing{
+    padding-top: 1.2em;
+
+    &>div{
+        padding: 0 .6em;
+    }
+
+    @media screen and (max-width:$sm) {
+        margin: 0;
+    }
+}
+
+.boxes{
+
+
+    &>div{
+        padding: 0;
+        @media screen and (min-width:$md) {
+            height: 225px;
+        }
+    }
+
+    &>div:first-child{
+        padding-right: .6em;
+        @media screen and (max-width:$sm) {
+            padding:0;
+            padding-top: 1.2em;
+        }
+    }
+
+
+    &>div:last-child{
+        padding-left: .6em;
+        @media screen and (max-width:$sm) {
+            padding:0;
+            padding-top: 1.2em;
+        }
+    }
+
+    &:last-child{
+        margin-top: 1.2em;
+        @media screen and (max-width:$sm) {
+            margin-top: 0;
+        }
+    }
+}
