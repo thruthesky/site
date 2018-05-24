@@ -5,11 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 import { ScheduleTablePage } from './schedule-table.page';
-import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+// import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
 import { ScheduleTableOptionsComponent } from './schedule-table-option/schedule-table-options.component';
 import { ScheduleTableProfileComponent } from './schedule-table-profile/schedule-table-profile.component';
 import { LmsInfoComponentModule } from '../../components/lms-info/lms-info.component.module';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 const routes: Routes = [
   { path: '', component: ScheduleTablePage }

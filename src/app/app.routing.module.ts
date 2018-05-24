@@ -14,10 +14,10 @@ const routes: Routes = [
     path: 'help',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-help/katalkenglish-help.page.module#KatalkEnglishHelpPageModule'
   },
-  {
-    path: 'install',
-    loadChildren: './sites/katalkenglish/pages/katalkenglish-install/katalkenglish-install.page.module#KatalkEnglishInstallPageModule'
-  },
+  // {
+  //   path: 'install',
+  //   loadChildren: './sites/katalkenglish/pages/katalkenglish-install/katalkenglish-install.page.module#KatalkEnglishInstallPageModule'
+  // },
   {
     path: 'payment',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment/katalkenglish-payment.page.module#KatalkEnglishPaymentPageModule'
@@ -214,33 +214,33 @@ const routes: Routes = [
     loadChildren: './pages/schedule-table/schedule-table.page.module#ScheduleTablePageModule'
   },
 
-  {
-    path: 'forum',
-    loadChildren: './pages/forum/forum.page.module#ForumPageModule'
-  },
+  // {
+  //   path: 'forum',
+  //   loadChildren: './pages/forum/forum.page.module#ForumPageModule'
+  // },
 
-  {
-    path: 'qna',
-    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { category: 'qna' }
-  },
+  // {
+  //   path: 'qna',
+  //   loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+  //   data: { category: 'qna' }
+  // },
 
-  {
-    path: 'policy',
-    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { category: 'policy' }
-  },
+  // {
+  //   path: 'policy',
+  //   loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+  //   data: { category: 'policy' }
+  // },
 
-  {
-    path: 'rules',
-    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { category: 'rules' }
-  },
-  {
-    path: 'reminder',
-    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { category: 'reminder' }
-  },
+  // {
+  //   path: 'rules',
+  //   loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+  //   data: { category: 'rules' }
+  // },
+  // {
+  //   path: 'reminder',
+  //   loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+  //   data: { category: 'reminder' }
+  // },
 
   {
     path: 'how-to-get-qrmark',
@@ -263,10 +263,10 @@ const routes: Routes = [
   /**
    * Admin Pages
    */
-  {
-    path: 'category',
-    loadChildren: './pages/category/category.page.module#CategoryPageModule'
-  },
+  // {
+  //   path: 'category',
+  //   loadChildren: './pages/category/category.page.module#CategoryPageModule'
+  // },
   {
     path: 'admin',
     loadChildren: './pages/admin/admin-page.module#AdminPageModule'

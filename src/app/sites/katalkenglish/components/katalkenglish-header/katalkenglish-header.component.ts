@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
-import { FireService } from '../../../../modules/firelibrary/core';
+// import { FireService } from '../../../../modules/firelibrary/core';
 import { XapiUserService } from '../../../../modules/xapi/xapi.module';
 
 @Component({
@@ -13,7 +13,7 @@ export class KatalkEnglishHeaderComponent {
   selectedLanguage = '';
   constructor(
     public a: AppService,
-    public f: FireService,
+    // public f: FireService,
     public user: XapiUserService
   ) {
     // console.log(`HeaderComponent:constructor()`);
@@ -22,9 +22,9 @@ export class KatalkEnglishHeaderComponent {
     this.selectedLanguage = this.a.language.getUserLanguage();
   }
   onClickLogout() {
-    this.a.fire.user.logout().then( () => {
+    // this.a.fire.user.logout().then( () => {
       this.user.logout();
-    });
+    // });
     this.a.openHome();
   }
   onChangeLanguage() {
