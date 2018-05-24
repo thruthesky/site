@@ -49,17 +49,16 @@
 
             <div class="row">
                 <div class="col-md-2 col-3">
-                    <label for="email">{{ f.ln.EMAIL }}</label>
+                    <label for="email">{{ a.ln.EMAIL }}</label>
                 </div>
                 <div class="col-md-10 col-9">
                     <input type="email" name="email" id="email" [(ngModel)]="form.user_email">
                 </div>
             </div>
 
-
             <div class="row" *ngIf="a.isLogout">
                 <div class="col-md-2 col-3">
-                    <label for="password">{{ f.ln.PASSWORD }}</label>
+                    <label for="password">{{ a.ln.PASSWORD }}</label>
                 </div>
                 <div class="col-md-10 col-9">
                     <input type="password" name="password" id="password" [(ngModel)]="form.user_pass">
@@ -69,7 +68,7 @@
 
             <div class="row">
                 <div class="col-md-2 col-3">
-                    <label for="name">{{ f.ln.NAME }}</label>
+                    <label for="name">{{ a.ln.NAME }}</label>
                 </div>
                 <div class="col-md-10 col-9">
                     <input id="name" type="text" name="name" [(ngModel)]="form.name">
@@ -79,7 +78,7 @@
 
             <div class="row" *ngIf=" a.teacherTheme ">
                 <div class="col-md-2 col-3">
-                    <label>{{ f.ln.GENDER }}</label>
+                    <label>{{ a.ln.GENDER }}</label>
                 </div>
                 <div class="col-md-10 col-9">
                     <div id="gender-group" class="input">
@@ -133,7 +132,7 @@
 
             <div class="row">
                 <div class="col-md-2 col-3">
-                    <label for="display_name">{{ f.ln.NICKNAME }}</label>
+                    <label for="display_name">{{ a.ln.NICKNAME }}</label>
                 </div>
                 <div class="col-md-10 col-9">
                     <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
@@ -146,7 +145,7 @@
 
             <div class="row">
                 <div class="col-md-2 col-3">
-                    <label for="phone_number">{{ f.ln.PHONE_NUMBER }}</label>
+                    <label for="phone_number">{{ a.ln.PHONE_NUMBER }}</label>
                 </div>
                 <div class="col-md-10 col-9">
                     <input id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
@@ -167,7 +166,7 @@
 
             <div class="row">
                 <div class="col-md-2 col-3">
-                    <label for="kakaotalk_id">{{ f.ln.KAKAOTALK_ID_SHORT }}</label>
+                    <label for="kakaotalk_id">{{ a.ln.KAKAOTALK_ID_SHORT }}</label>
                 </div>
                 <div class="col-md-10 col-9">
                     <div>

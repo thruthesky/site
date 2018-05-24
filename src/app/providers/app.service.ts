@@ -257,7 +257,7 @@ export class AppService {
         // fire.user.loginAnonymously();
     }
 
-    get ln(): { [code: string]: string } {
+    get ln(): any {
         return LanguageService.ln;
     }
 
