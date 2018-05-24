@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { SessionRefundRequestPage } from './session-refund-request.page';
-import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+// import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 
 
 const routes: Routes = [

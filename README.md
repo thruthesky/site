@@ -10,8 +10,13 @@
   * Do it Immediately !!
 
 * Use `<a>` tag for page link. Not button tag. For SEO purpose.
+* Forum with wordpress.
+* Creating Branch
+* 메인페이지 디자인. 선생님 사진을 메인 맨 위에 다 보여 줌. 2초 후에. 월 1만원 배너 보여 줌. 5초 후에 나머지 정보 다 보여 줌.
 
 ### NOT URGENT
+
+* Remove `firelibrary`. It's a failure. No longer used.
 
 * 강사 평가에서 인터넷 속도 항목을 넣을 것.
   * 선생님의 인터넷 속도가 어떤가요? 좋음, 보통, 나쁨.

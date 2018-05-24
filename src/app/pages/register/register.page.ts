@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FireService, USER } from './../../modules/firelibrary/core';
+// import { FireService, USER } from './../../modules/firelibrary/core';
 import { AppService } from '../../providers/app.service';
 import {
     USER_REGISTER, USER_REGISTER_RESPONSE, USER_DATA_RESPONSE, FILES, USER_UPDATE, USER_UPDATE_RESPONSE, FILE
 } from '../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
 import { LoaderService } from '../../providers/loader/loader.service';
+// import { LanguageService } from '../../providers/language.service';
 
 @Component({
     selector: 'app-component-register',
@@ -46,8 +47,9 @@ export class RegisterPage implements OnInit {
 
     constructor(
         public a: AppService,
-        public f: FireService,
-        public loader: LoaderService
+        // public f: FireService,
+        public loader: LoaderService,
+        // public lang: LanguageService
     ) {
 
         // setTimeout(() => this.test(), 1000);
@@ -240,8 +242,8 @@ export class RegisterPage implements OnInit {
     registerWordpressBackend() {
 
         this.loader.openLoader({
-            title: this.f.ln.IN_REGISTERING,
-            content: this.f.ln.IN_REGISTERING_DESCRIPTION
+            title: this.a.ln.IN_REGISTERING,
+            content: this.a.ln.IN_REGISTERING_DESCRIPTION
         });
 
         this.form.user_login = this.form.user_email;
@@ -252,58 +254,65 @@ export class RegisterPage implements OnInit {
                 this.a.onUserRegister();
                 this.form.user_pass = null;
                 this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {      // set timezone.
-                    this.registerFirebase(re, () => {           // register into firebase.
-                        // registration is complete by here.
+                    this.onRegisterSuccess();
+                    if (this.a.site.katalkenglish) {
+                        this.a.open('/welcome');
+                    } else {
 
-                        this.onRegisterSuccess();
-                        /**
-                         * If the user is a student, then show welcome page.
-                         */
-                        if (this.a.site.katalkenglish) {
-                            this.a.open('/welcome');
-                        } else {
+                    }
 
-                        }
-                    });
+                    // this.registerFirebase(re, () => {           // register into firebase.
+                    //     // registration is complete by here.
+
+                    //     this.onRegisterSuccess();
+                    //     /**
+                    //      * If the user is a student, then show welcome page.
+                    //      */
+                    //     if (this.a.site.katalkenglish) {
+                    //         this.a.open('/welcome');
+                    //     } else {
+
+                    //     }
+                    // });
                 }, () => { });
             }, e => {
                 this.onRegisterFailure(e);
             });
     }
 
-    registerFirebase(res: USER_REGISTER_RESPONSE, callback) {
-        console.log('registerFirebase(res): ', res);
-        const data: USER = {
-            email: this.a.getFirebaseLoginEmail(res.ID),
-            password: this.a.getFirebaseLoginPassword(res.ID)
-        };
-        this.a.fire.user.register(data).then(() => {
-            console.log('Firebase: user registered successfully: ');
-            this.a.fire.auth.onAuthStateChanged(user => {
-                if (user) {
-                    const profile: USER = {
-                        email: res.user_email,
-                        displayName: res.display_name,
-                        name: res.name
-                    };
-                    profile['ID'] = res.ID;
-                    this.a.fire.user.create(profile).then(re => {
-                        /**
-                         * Hereby, user registration has completed.
-                         */
-                        console.log('Firebase. user data document created successfully: ', re);
-                        // this.a.openProfile();
-                        callback();
-                    }).catch(e => {
-                        console.log('register.page .registerFirebase > onAuthState.Changed > fire.user.create() failed()', this.form);
-                        this.onRegisterFailure(e);
-                    });
-                }
-            });
-        })
-            .catch(e => this.onRegisterFailure(e));
+    // registerFirebase(res: USER_REGISTER_RESPONSE, callback) {
+    //     console.log('registerFirebase(res): ', res);
+    //     const data: USER = {
+    //         email: this.a.getFirebaseLoginEmail(res.ID),
+    //         password: this.a.getFirebaseLoginPassword(res.ID)
+    //     };
+    //     this.a.fire.user.register(data).then(() => {
+    //         console.log('Firebase: user registered successfully: ');
+    //         this.a.fire.auth.onAuthStateChanged(user => {
+    //             if (user) {
+    //                 const profile: USER = {
+    //                     email: res.user_email,
+    //                     displayName: res.display_name,
+    //                     name: res.name
+    //                 };
+    //                 profile['ID'] = res.ID;
+    //                 this.a.fire.user.create(profile).then(re => {
+    //                     /**
+    //                      * Hereby, user registration has completed.
+    //                      */
+    //                     console.log('Firebase. user data document created successfully: ', re);
+    //                     // this.a.openProfile();
+    //                     callback();
+    //                 }).catch(e => {
+    //                     console.log('register.page .registerFirebase > onAuthState.Changed > fire.user.create() failed()', this.form);
+    //                     this.onRegisterFailure(e);
+    //                 });
+    //             }
+    //         });
+    //     })
+    //         .catch(e => this.onRegisterFailure(e));
 
-    }
+    // }
 
 
     updateWordpressBackend() {

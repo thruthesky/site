@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AppService } from './providers/app.service';
-import { FireService, FirelibraryModule } from './modules/firelibrary/core';
+// import { FireService, FirelibraryModule } from './modules/firelibrary/core';
 
 import { OntueHeaderComponentModule } from './sites/ontue/components/ontue-header/ontue-header.component.module';
 import {
@@ -14,10 +14,12 @@ import {
 
 import { LanguageService } from './providers/language.service';
 import { XapiModule, XapiService, XapiUserService, XapiLMSService, XapiFileService } from './modules/xapi/xapi.module';
-import { TranslatePipeModule } from './modules/firelibrary/pipes/translate/translate.pipe.module';
+// import { TranslatePipeModule } from './modules/firelibrary/pipes/translate/translate.pipe.module';
 import { KatalkEnglishFooterComponentModule } from './sites/katalkenglish/components/katalkenglish-footer/katalkenglish-footer.component.module';
 import { OntueFooterComponentModule } from './sites/ontue/components/ontue-footer/ontue-footer.component.module';
 import { RedirectPage } from './app.redirect';
+// import { TranslatePipe } from './pipes/translate/translate.pipe';
+// import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
 
 @NgModule({
   declarations: [
@@ -31,18 +33,15 @@ import { RedirectPage } from './app.redirect';
     BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    FirelibraryModule.forRoot({ functions: true }),
+    // FirelibraryModule.forRoot({ functions: true }),
     OntueHeaderComponentModule,
     OntueFooterComponentModule,
     KatalkEnglishHeaderComponentModule,
     KatalkEnglishFooterComponentModule,
-    XapiModule,
-    TranslatePipeModule
-  ],
-  exports: [
+    XapiModule
   ],
   providers: [
-    FireService,
+    // FireService,
     AppService,
     LanguageService,
     XapiService, XapiUserService, XapiFileService, XapiLMSService

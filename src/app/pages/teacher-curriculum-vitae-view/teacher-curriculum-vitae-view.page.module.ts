@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { TeacherCurriculumVitaeViewPage } from './teacher-curriculum-vitae-view.page';
-import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+// import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 
 const routes: Routes = [

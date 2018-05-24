@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
+
 import { OntueSessionEvaluatePage } from './ontue-session-evaluate.page';
 import { MaterialModule } from '../../../../app.material.module';
+import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 
 
 

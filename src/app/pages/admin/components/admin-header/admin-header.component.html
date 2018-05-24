@@ -92,8 +92,9 @@
         </span>
         <hr>
         <div class="teacher-sessions">
+            <!-- {{ stats.teachers | json }} -->
             <span class='teacher' *ngFor="let teacher of stats.teachers">
-                <span class="name">{{ teacher.name }}</span>
+                <span class="link" routerLink="/admin/user-info/{{ teacher.idx }}" class="name">{{ teacher.name }}<button class="user-info-button">e</button></span>
                 <span class="reserved">{{ teacher.reserved }}</span>
                 <span class="past">{{ teacher.past }}</span>
             </span>
