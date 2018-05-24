@@ -1,7 +1,7 @@
-<div class="teacher-evaluation m-0 mt-5 rounded bg-white outline-effect">
-    <div class="px-md-5 bg-blue-60 white">
-        <h2  class="title-style d-md-inline-block ml-md-4 m-0 p-5 fs-3rem fw-light bg-blue"  color="white" text-center text-md-left>Recent Evaluation</h2>
-    </div>
+<section>
+    <header>
+        <h2>Recent Evaluation</h2>
+    </header>
     <ul class="mx-0 my-5">
         <li class="m-0 px-5 py-5 "
              *ngFor="let teacher_comment of evaluations; let i=index">
@@ -45,4 +45,4 @@
                         (pageClick)="onPostPageClick($event)">
         </page-navigator-component>
     </div>
-</div>
+</section>

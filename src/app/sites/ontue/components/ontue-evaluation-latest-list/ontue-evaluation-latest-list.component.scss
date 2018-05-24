@@ -1,0 +1,24 @@
+@import '../../../../../theme/vars.scss';
+section{
+    background: #fff;
+    outline: 1px solid #e9ecef;
+    header{
+        padding-left: 4em;
+        @media screen and (max-width:$sm){
+            padding: 0;
+            text-align: center;
+        }
+        margin: 0;
+        background-color: #66a2fb;
+        h2{
+            display: inline-block;
+            background-color: #007bff;
+            margin: 0;
+            padding: 1em;
+            color: #fff;
+            font-size: 2em;
+            font-weight: 100;
+        }
+    }
+
+}
