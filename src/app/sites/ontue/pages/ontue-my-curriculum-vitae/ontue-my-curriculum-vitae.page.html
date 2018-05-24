@@ -54,6 +54,9 @@
             <div class="text-inputs row">
                 <div class="col">
                     <div>
+                        <input type="text" readonly [(ngModel)]="account.name" name="name " disabled>
+                    </div>
+                    <div>
                         <input type="text" readonly [(ngModel)]="account.name"
                                name="name" disabled/>
                         <label>{{ 'TEACHER ID' | t }}</label>
