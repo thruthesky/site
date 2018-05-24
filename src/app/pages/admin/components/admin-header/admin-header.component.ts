@@ -90,6 +90,7 @@ export class AdminHeaderComponent implements OnInit {
                     for (const name of names) {
                         data.push({
                             name: name,
+                            idx: teachers[name].idx,
                             reserved: teachers[name].reserved,
                             past: teachers[name].past
                         });
