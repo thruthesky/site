@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule, Route } from '@angular/router';
-// import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
+
 import { KatalkEnglishWelcomePage } from './katalkenglish-welcome.page';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 

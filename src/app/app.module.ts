@@ -18,7 +18,8 @@ import { XapiModule, XapiService, XapiUserService, XapiLMSService, XapiFileServi
 import { KatalkEnglishFooterComponentModule } from './sites/katalkenglish/components/katalkenglish-footer/katalkenglish-footer.component.module';
 import { OntueFooterComponentModule } from './sites/ontue/components/ontue-footer/ontue-footer.component.module';
 import { RedirectPage } from './app.redirect';
-import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
+// import { TranslatePipe } from './pipes/translate/translate.pipe';
+// import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,7 @@ import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
     OntueFooterComponentModule,
     KatalkEnglishHeaderComponentModule,
     KatalkEnglishFooterComponentModule,
-    XapiModule,
-    TranslatePipeModule
-  ],
-  exports: [
+    XapiModule
   ],
   providers: [
     // FireService,

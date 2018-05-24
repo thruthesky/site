@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { KatalkEnglishFooterComponent } from './katalkenglish-footer.component';
 import { MaterialModule } from '../../../../app.material.module';
-// import { TranslatePipeModule } from '../../../../modules/firelibrary/pipes/translate/translate.pipe.module';
+
 import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 
