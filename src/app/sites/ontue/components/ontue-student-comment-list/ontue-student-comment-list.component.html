@@ -1,26 +1,51 @@
-<section class="cover-by-2  mb-5 mb-md-0 bg-white outline-effect of-hidden">
-    <p class=" m-0 py-3 fs-90 white bg-blue-80 fw-bold text-center">Student Comments</p>
-    <div class="list-hover-effect my-0-25em" no-lines>
+<section>
+    <div class="title">Student Comments</div>
+    <div class="body">
         <ng-container *ngFor="let student_comment of student_comments; let i=index">
-            <div class="container-fluid pointer item" (click)="a.open('teacher-review-list', { idx_teacher: idx_teacher })" *ngIf="i<3">
-                <div class="row py-3 px-4 align-items-center justify-content-center">
-                    <div class="col-md-4 col-3 d-flex align-items-center">
-                    <span class="size-40 rounded-circle of-hidden">
-                        <img [src]="a.checkPhotoURL(student_comment.teacher_photoURL)"/>
-                    </span>
+            <div class="container-fluid" (click)="a.open('teacher-review-list', { idx_teacher: idx_teacher })" *ngIf="i<3">
+                <div class="row">
+                    <div class="col-md-4 col-3">
+                        <span class="student-photo">
+                            <img [src]="a.checkPhotoURL(student_comment.teacher_photoURL)"/>
+                        </span>
                     </div>
                     <div class="col-md col-6">
-                        <div class="d-flex align-items-center">
-                            <h3 class=" m-0 p-0 fs-90">{{a.preTeacherName(student_comment.teacher_name)}}</h3>
-                            <div class="ml-2 m-0 p-0 of-hidden text-nowrap">
-                                <span *ngIf="student_comment.rate >= 1"><i class="fs-md fas fa-star" color="yellow">*</i></span>
-                                <span *ngIf="student_comment.rate >= 2"><i class="fs-md fas fa-star" color="yellow">*</i></span>
-                                <span *ngIf="student_comment.rate >= 3"><i class="fs-md fas fa-star" color="yellow">*</i></span>
-                                <span *ngIf="student_comment.rate >= 4"><i class="fs-md fas fa-star" color="yellow">*</i></span>
-                                <span *ngIf="student_comment.rate >= 5"><i class="fs-md fas fa-star" color="yellow">*</i></span>
+                        <div class="top-info">
+                            <div class="teacher-name">{{a.preTeacherName(student_comment.teacher_name)}}</div>
+                            <div class="stars">
+                                <span *ngIf="student_comment.rate < 1">
+                                    <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate >= 1">
+                                        <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate < 2">
+                                        <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate >= 2">
+                                    <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate < 3">
+                                    <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate >= 3">
+                                    <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate < 4">
+                                    <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate >= 4">
+                                    <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate < 5">
+                                    <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg>
+                                </span>
+                                <span *ngIf="student_comment.rate >= 5">
+                                        <svg color="yellow" ion-text="" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
+                                </span>
                             </div>
                         </div>
-                        <p class="m-0 p-0 fs-90 fw-light">
+                        <p class="comment">
                             {{student_comment.comment.slice(0,8)}}
                             <span class="fw-bold" *ngIf="student_comment.comment.length>8">...</span>
                         </p>

@@ -1,3 +1,4 @@
+@import '../../../theme/vars';
 .teacher-list{
 
     padding-bottom: 4em;
@@ -86,7 +87,7 @@
             justify-content: space-around;
             align-items: stretch;
 
-            @media screen and(max-width:544px) {
+            @media screen and(max-width:$sm) {
                 margin-right:0;
                 margin-left:0;
             }
@@ -208,7 +209,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin:4em 0;
+        margin:4em 1em;
+
+        @media screen and (max-width:$sm) {
+            margin:4em 2em;
+            flex-direction: column
+        }
 
         button{
             display: flex;
@@ -220,6 +226,9 @@
             background:dodgerblue;
             color:white;
             cursor: pointer;
+            @media screen and (max-width:$sm) {
+                margin-top:1em;
+            }
 
         }
     }

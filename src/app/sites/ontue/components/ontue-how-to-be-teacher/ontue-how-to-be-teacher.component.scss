@@ -1,0 +1,92 @@
+@import '../../../../../theme/vars.scss';
+section{
+    background: #fff;
+    outline: 1px solid #e9ecef;
+    .title{
+        padding-left: 4em;
+        @media screen and (max-width:$sm){
+            padding: 0;
+            text-align: center;
+        }
+        margin: 0;
+        background-color: #66a2fb;
+        h2{
+            display: inline-block;
+            background-color: #007bff;
+            margin: 0;
+            padding: 1em;
+            color: #fff;
+            font-size: 2em;
+            font-weight: 100;
+        }
+    }
+
+    .row{
+        padding: 3.3em;
+        @media screen and (max-width:$sm){
+            padding: 1em;
+        }
+
+        .kakao-icon,
+        .register-icon,
+        .complete-prof-icon,
+        .add-sched-icon,
+        .payment-info-icon,
+        .contact-icon,{
+            height: 7em;
+            transition: all .2s ease-in-out!important;
+        }
+
+        .register-icon{
+            color: brown
+        }
+
+        .add-sched-icon{
+            color: darkorange
+        }
+
+        .payment-info-icon{
+            color: green
+        }
+
+        .contact-icon{
+            color: dodgerblue
+        }
+
+        .col-md-4{
+            padding: .7em;
+            &>div{
+                padding: 1.5em;
+                height: 100%;
+                border-radius: 2px;
+                border: 1px solid #e9ecef;
+                text-align: center;
+                font-weight: 200;
+
+                div{
+                    padding: 1em;
+                    color:dodgerblue;
+                    font-size: 120%;
+                    font-weight: 500;
+                }
+
+                .warning{
+                    color:red;
+                    font-size: 70%;
+                }
+
+
+                &:hover{
+                    border: 1px solid dodgerblue;
+                    background: rgba(dodgerblue,0.05);
+                    cursor: pointer;
+
+                    img,svg{
+                        transform: scale(.9,.9)
+                    }
+                }
+            }
+
+        }
+    }
+}

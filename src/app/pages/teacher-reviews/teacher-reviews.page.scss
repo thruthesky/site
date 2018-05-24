@@ -23,8 +23,10 @@ main{
     }
 
     .card{
-        background: #fff;
+        height: 100%!important;
         padding: .5em;
+        background: #fff;
+
         &>div{
             padding: 0;
         }
@@ -36,6 +38,10 @@ main{
             justify-content: space-between;
             padding: .25em!important;
             padding-right: .6em!important;
+        }
+
+        &-inner{
+            height: 100%;
         }
 
         .more-button{

@@ -1,4 +1,97 @@
-teacher-reminders-component{
+@import '../../../../../theme/vars.scss';
+  section{
+
+      .mobile-slides{
+        @media screen and (min-width:$md) {
+          display: none;
+        }
+
+        .slide-wrapper{
+          padding: 1em;
+          color:#fff;
+          .title{
+            margin: .5em 0;
+            font-size: 1.8em;
+          }
+  
+          .body{
+            font-size: 90%;
+            font-weight: 100;
+            line-height: 1.6em;
+          }
+  
+          button{
+            margin: 1em 0;
+            padding: 1em 2em;
+            border-radius: 2px;
+            border: none;
+            background: dodgerblue;
+            color:#fff;
+            cursor: pointer;
+          }
+        }
+
+      }
+      .desktop-slides{
+        @media screen and (max-width:$sm) {
+          display: none;
+        }
+        height: 225px;
+        overflow: hidden;
+          
+        ion-slide{
+          background: #fff;
+    
+          img{
+            width: 100%;
+          }
+        }
+      }
+
+      .col{
+        padding: 0;
+      }
+
+      .reminder{
+        height: 225px;
+        margin-top: 1.2em;
+        outline: 1px solid #e9ecef;
+        background: #fff;
+        text-align: center;
+
+        .icon{
+          margin-top:.6em;
+          height: 4.5em;
+          animation: colorAnimate 7s ease-in-out infinite
+        }
+
+        .title{
+          margin: 0;
+          padding: .7em;
+          background: rgba(171,0,13,.8);
+          color: #fff;
+          text-align: center;
+          font-size: 90%;
+        }
+
+        .body{
+          margin: .5em 0;
+          font-size: 90%;
+          font-weight: bold;
+        }
+
+        button{
+          padding: .8em 1.8em;
+          border-radius: 2px;
+          border:none;
+          background: rgba(171,0,13,.8);
+          color:#fff;
+          cursor: pointer;
+        }
+      }
+  }
+  
+  
   .slide-bg-1{
     background:linear-gradient(to bottom, rgba(#494949,0.63),  rgba(#494949,0.63)),
     url('../../../../../assets/img/teacher/teacher-mobile-slide1.jpg');
@@ -18,26 +111,6 @@ teacher-reminders-component{
     url('../../../../../assets/img/teacher/teacherslide3.jpg');
     background-size: cover;
     background-position: top;
-  }
-
-  .line-height-2rem{
-    line-height: 2rem;
-  }
-
-  .color-animation{
-    animation: colorAnimate 7s ease-in-out infinite
-  }
-
-  .justify-self-start{
-    justify-self: start!important;
-  }
-
-  .bg-red-90{
-    background: rgba(#ab000d,0.8)!important;
-  }
-
-  .bg-redish{
-    background: rgba(#ab000d, 0.1);
   }
 
   @keyframes colorAnimate {
@@ -101,4 +174,3 @@ teacher-reminders-component{
     }
   }
 
-}
