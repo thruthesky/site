@@ -16,6 +16,8 @@
 
 ### NOT URGENT
 
+* Make the 'find katalk id' as a modal.
+
 * Remove `firelibrary`. It's a failure. No longer used.
 
 * 강사 평가에서 인터넷 속도 항목을 넣을 것.
