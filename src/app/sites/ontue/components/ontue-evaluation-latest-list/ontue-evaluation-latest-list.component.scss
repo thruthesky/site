@@ -21,4 +21,21 @@ section{
         }
     }
 
+    main{
+        padding: 3em 4em;
+
+
+        .teacher-photo,.student-photo{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius:2px;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+
 }
