@@ -39,7 +39,7 @@ nav {
     @media all and (min-width: 820px) {
         margin: 0 -.58em;
     }
-    button {
+    a {
         min-height: 64px;
         padding: 0 .7em;
         border: none;
@@ -56,8 +56,8 @@ nav {
             font-size: 9.5px;
         }
     }
-    button:focus,
-    select:focus {
+    a:focus,
+    a:focus {
         outline: 0 !important;
     }
 }

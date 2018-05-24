@@ -2,7 +2,12 @@
 
 ## TODO
 
+* Refer [OnTue issue tracker](https://github.com/thruthesky/ontue#issue-sh-boards)
+* Refer [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards)
+
 ### URGENT WORK
+
+* Update [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards) with todos below.
 
 * witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
   * Since it is completely separated service and it uses InnoDB which is not source of the problem.
@@ -15,6 +20,8 @@
 * 메인페이지 디자인. 선생님 사진을 메인 맨 위에 다 보여 줌. 2초 후에. 월 1만원 배너 보여 줌. 5초 후에 나머지 정보 다 보여 줌.
 
 ### NOT URGENT
+
+* Stop loader and display 'please login first' message (or redirect to login page) when anonymous clicks on `past`, `future` session page.
 
 * Make the 'find katalk id' as a modal.
 
