@@ -13,6 +13,8 @@
 
 ### NOT URGENT
 
+* Remove `firelibrary`. It's a failure. No longer used.
+
 * 강사 평가에서 인터넷 속도 항목을 넣을 것.
   * 선생님의 인터넷 속도가 어떤가요? 좋음, 보통, 나쁨.
 * Profile photo auto resize. Some teacher's photo are too big and it takes time to load.
