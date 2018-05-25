@@ -22,8 +22,12 @@
             }
         }
 
-        button{
+        a{  
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.1s ease-in-out;
+            text-decoration: none;
 
             &:hover{
                 opacity: 0.7;
@@ -31,7 +35,7 @@
         }
     }
 
-    button,.logo{
+    a,.logo{
         padding: 0 .8em;
         height: 56px;
         border:none;
@@ -53,7 +57,7 @@
             font-size: 2.25em;
         }
 
-        button{
+        a{
             padding: 0;
         }
     }
