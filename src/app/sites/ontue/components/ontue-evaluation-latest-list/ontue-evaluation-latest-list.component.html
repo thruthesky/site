@@ -7,7 +7,7 @@
         <div class="mx-0 my-5">
                 <div *ngFor="let teacher_comment of evaluations; let i=index">
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="info row">
                             <div class="col-12 col-md-6" *ngIf="teacher_comment['teacher_photoURL'] || teacher_comment['student_photoURL']">
                                 <span class="teacher-photo" *ngIf="teacher_comment['teacher_photoURL']">
                                     <img src="{{teacher_comment['teacher_photoURL']}}">
@@ -15,10 +15,10 @@
                                 <span class="student-photo">
                                     <img src="{{a.checkPhotoURL(teacher_comment['student_photoURL'])}}">
                                 </span>
-                                <h2>
-                                    {{ a.preTeacherName(teacher_comment.teacher_name) }}
-                                    <span class="ml-3 fw-light fs-lg black">{{preDate(teacher_comment['date'])}}</span>
-                                </h2>
+                                <span class="name">
+                                    <span>{{ a.preTeacherName(teacher_comment.teacher_name) }}</span>
+                                    <span>{{preDate(teacher_comment['date'])}}</span>
+                                </span>
                             </div>
                             <div class="col-12 col-md-6">
                                 <span>#{{(i+1) + ((commentCount - 1) * pageOption['limitPerPage'])}}</span>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div>
-                <page-navigator-component class="evaluation mx-auto"
+                <page-navigator-component
                                 [no_of_total_items]=" pageOption['totalRecord'] "
                                 [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
                                 [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "

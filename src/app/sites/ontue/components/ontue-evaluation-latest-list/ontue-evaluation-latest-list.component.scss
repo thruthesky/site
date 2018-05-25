@@ -29,6 +29,7 @@ section{
             display: inline-block;
             width: 80px;
             height: 80px;
+            margin-right: 1em;
             border-radius:2px;
             overflow: hidden;
 
@@ -36,6 +37,37 @@ section{
                 width: 100%;
             }
         }
+
+
+        
+        .info{
+            margin-bottom: .1em;
+
+            &>div{
+                display: flex;
+                align-items: flex-end;
+                padding: 0;
+            }
+
+            &>div:last-child{
+                justify-content: flex-end;
+                color:dodgerblue
+            }
+
+            .name{
+                font-weight: bold;
+
+                &>span{
+
+                }
+
+                span{
+                    margin-left: 1em;
+                }
+            }
+        }
+
+
     }
 
 }

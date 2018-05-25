@@ -40,11 +40,18 @@ nav {
         margin: 0 -.58em;
     }
     a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         min-height: 64px;
         padding: 0 .7em;
         border: none;
         background: none;
         cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif;
         img,
         svg {
             display: block;
@@ -53,12 +60,8 @@ nav {
             height: 24px;
         }
         span {
-            font-size: 9.5px;
+            font-size: 9px;
         }
-    }
-    a:focus,
-    a:focus {
-        outline: 0 !important;
     }
 }
 
@@ -87,6 +90,7 @@ nav {
             color: black !important;
         }
     }
+
     .custom-icon {
         position: absolute;
         top: 15px;
