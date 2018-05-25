@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import {
-  MatButtonModule, MatCheckboxModule, MatSelectModule, MatSnackBarModule, MatSpinner,
-  MatProgressSpinnerModule, MatDialogModule, MatDatepickerModule,
+  MatButtonModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSnackBarModule,
+  MatSpinner,
+  MatProgressSpinnerModule,
+  MatDialogModule,
+  MatDatepickerModule,
   MatInputModule,
   MatNativeDateModule
 } from '@angular/material';
@@ -11,6 +18,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatSelectModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
@@ -22,6 +30,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatSelectModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,

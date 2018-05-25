@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FireService, USER, USER_NOT_FOUND } from './../../../modules/firelibrary/core';
+// import { FireService, USER, USER_NOT_FOUND } from './../../../modules/firelibrary/core';
 import { AppService } from '../../../providers/app.service';
 import { USER_LOGIN } from '../../../modules/xapi/interfaces';
 import { SESSION } from '../../../modules/xapi/lms.service';

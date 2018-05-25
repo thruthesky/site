@@ -2,7 +2,12 @@
 
 ## TODO
 
+* Refer [OnTue issue tracker](https://github.com/thruthesky/ontue#issue-sh-boards)
+* Refer [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards)
+
 ### URGENT WORK
+
+* Update [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards) with todos below.
 
 * witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
   * Since it is completely separated service and it uses InnoDB which is not source of the problem.
@@ -10,8 +15,17 @@
   * Do it Immediately !!
 
 * Use `<a>` tag for page link. Not button tag. For SEO purpose.
+* Forum with wordpress.
+* Creating Branch
+* 메인페이지 디자인. 선생님 사진을 메인 맨 위에 다 보여 줌. 2초 후에. 월 1만원 배너 보여 줌. 5초 후에 나머지 정보 다 보여 줌.
 
 ### NOT URGENT
+
+* Stop loader and display 'please login first' message (or redirect to login page) when anonymous clicks on `past`, `future` session page.
+
+* Make the 'find katalk id' as a modal.
+
+* Remove `firelibrary`. It's a failure. No longer used.
 
 * 강사 평가에서 인터넷 속도 항목을 넣을 것.
   * 선생님의 인터넷 속도가 어떤가요? 좋음, 보통, 나쁨.

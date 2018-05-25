@@ -7,12 +7,13 @@ import { PointRefundPage } from './point-refund/point-refund.page';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { FormsModule } from '@angular/forms';
 import { PointHistoryPage } from './point-history/point-history.page';
-import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+// import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { AdminPaymentPage } from './payment/admin-payment.page';
-import { UserInfoComponentModule } from '../../components/user-info/user-info.component.module';
+// import { UserInfoComponentModule } from '../../components/user-info/user-info.component.module';
 import { UserPage } from './user/user.page';
 import { SessionPage } from './session/session.page';
 import { UserInfoPage } from './user-info/user-info.page';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 
 const appRoutes: Array<Route> = [
@@ -46,7 +47,7 @@ const appRoutes: Array<Route> = [
         IonicModule,
         RouterModule.forChild( appRoutes ),
         TranslatePipeModule,
-        UserInfoComponentModule
+        // UserInfoComponentModule
     ],
     entryComponents: [
         AdminHomePage,

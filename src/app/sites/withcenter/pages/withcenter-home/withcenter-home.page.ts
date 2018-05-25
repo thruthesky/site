@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
-import { FireService } from '../../../../modules/firelibrary/core';
+// import { FireService } from '../../../../modules/firelibrary/core';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { FireService } from '../../../../modules/firelibrary/core';
 export class WithcenterHomePage {
   constructor(
     public a: AppService,
-    public fire: FireService
+    // public fire: FireService
   ) {
 
   }

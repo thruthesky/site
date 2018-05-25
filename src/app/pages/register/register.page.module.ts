@@ -8,8 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { RegisterPage } from './register.page';
 
 import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload/xapi-file-upload.component.module';
-import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+// import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { LoaderSerivceModule } from '../../providers/loader/loader.service.module';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 
 

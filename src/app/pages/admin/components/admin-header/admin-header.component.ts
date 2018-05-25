@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FireService, USER, USER_NOT_FOUND } from './../../../../modules/firelibrary/core';
+// import { FireService, USER, USER_NOT_FOUND } from './../../../../modules/firelibrary/core';
 import { AppService } from '../../../../providers/app.service';
 import { USER_LOGIN, BOOK } from '../../../../modules/xapi/interfaces';
 import { stat } from 'fs';
@@ -28,7 +28,7 @@ export class AdminHeaderComponent implements OnInit {
     uid = '';
     constructor(
         public router: Router,
-        public fire: FireService,
+        // public fire: FireService,
         public a: AppService
     ) {
 
@@ -90,6 +90,7 @@ export class AdminHeaderComponent implements OnInit {
                     for (const name of names) {
                         data.push({
                             name: name,
+                            idx: teachers[name].idx,
                             reserved: teachers[name].reserved,
                             past: teachers[name].past
                         });

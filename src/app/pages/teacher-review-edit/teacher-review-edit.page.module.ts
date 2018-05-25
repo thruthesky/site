@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
+// import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
 import { TeacherReviewEditPage } from './teacher-review-edit.page';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 
 const routes: Routes = [

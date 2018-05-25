@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { LanguageService } from './language.service';
 import { Router, NavigationExtras, NavigationStart, NavigationEnd } from '@angular/router';
-import { Base, FireService } from '../modules/firelibrary/core';
+// import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
 import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID } from '../modules/xapi/error';
@@ -75,6 +75,7 @@ const firestoreLogCollection = 'user-activity-log';
 export class AppService {
     // color: string = null;
 
+    // ln;
 
     /**
      * List of Countries
@@ -189,7 +190,7 @@ export class AppService {
         public ngZone: NgZone,
         public router: Router,
         public snackBar: MatSnackBar,
-        public readonly fire: FireService,
+        // public readonly fire: FireService,
         public readonly language: LanguageService,
         public readonly xapi: XapiService,
         public readonly user: XapiUserService,
@@ -199,7 +200,8 @@ export class AppService {
         // this.setColor('white');
 
 
-        Base.collectionDomain = 'database';
+
+        // Base.collectionDomain = 'database';
         this.site[this.getSite()] = true;
 
         this.urlBackend = environment['urlBackend'];
@@ -252,9 +254,12 @@ export class AppService {
             this.updateUserTimezone();
         }, 10000);
 
-        fire.user.loginAnonymously();
+        // fire.user.loginAnonymously();
     }
 
+    get ln(): any {
+        return LanguageService.ln;
+    }
 
     /**
      * Short for `fire.t()`
@@ -262,7 +267,7 @@ export class AppService {
      * @param info info
      */
     t(code, info?) {
-        return this.fire.t(code, info);
+        return this.language.t(code, info);
     }
 
 
@@ -513,9 +518,9 @@ export class AppService {
             if (code === CODE_WRONG_SESSION_ID || code === CODE_NO_USER_BY_THAT_SESSION_ID) {
                 this.user.logout();
                 console.log('==> login session invalid. login again');
-                o['message'] = this.fire.t('LOGIN_INVALID'); // rewrite error message.
+                o['message'] = this.t('LOGIN_INVALID'); // rewrite error message.
             } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
-                o['message'] = this.fire.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
+                o['message'] = this.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
             }
 
         } else if (o instanceof HttpErrorResponse) { // PHP ERROR. backend wordpress response error. status may be 200.
@@ -526,9 +531,9 @@ export class AppService {
              * @todo Sometimes, somehow, the error disappears and cannot be reproduced.
              */
             if (o.status === 0) {
-                o = { message: this.fire.ln.NO_INTERNET };
+                o = { message: this.ln.NO_INTERNET };
             } else if (o.status === 200) {
-                o = { message: this.fire.ln.PHP_ERROR };
+                o = { message: this.ln.PHP_ERROR };
             } else {
                 o = { message: o.message };
             }
@@ -537,7 +542,7 @@ export class AppService {
         }
         const defaults = {
             duration: 8000,
-            action: this.fire.ln['CLOSE'],
+            action: this.ln['CLOSE'],
             panelClass: 'toast'
         };
         o = Object.assign(defaults, o);
@@ -574,12 +579,13 @@ export class AppService {
      */
     logout(options?) {
         console.log(`logout( options? ) `, options);
-        this.fire.user.logout().then(() => {
-            this.user.logout();
-            if (options['open']) {
-                this.open(options['open']);
-            }
-        });
+
+        this.user.logout();
+        if (options['open']) {
+            this.open(options['open']);
+        }
+        // this.fire.user.logout().then(() => {
+        // });
     }
 
     get isManager() {
@@ -1389,7 +1395,7 @@ export class AppService {
         if (this.isIeEdge()) {
             setTimeout(() => {
                 this.toast({
-                    message: this.fire.ln.IE_EDGE_WARNING,
+                    message: this.ln.IE_EDGE_WARNING,
                     panelClass: 'ie-version'
                 });
             }, 500);
