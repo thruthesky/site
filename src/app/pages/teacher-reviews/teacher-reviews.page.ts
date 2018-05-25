@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { FireService } from '../../modules/firelibrary/providers/fire.service';
 
 
 @Component({
@@ -31,7 +30,6 @@ export class TeacherReviewsPage implements OnInit {
     constructor(
         public a: AppService,
         public router: Router,
-        public f: FireService,
         public alertCtrl: AlertController
     ) {
         this.loadClassComment();
