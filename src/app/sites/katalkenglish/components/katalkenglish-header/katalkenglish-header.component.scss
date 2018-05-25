@@ -10,7 +10,7 @@
         padding: 0 .5em;
         height: auto !important;
         background: #e9ecf5;
-        button {
+        a {
             min-height: 42px !important;
         }
     }
@@ -45,7 +45,7 @@ nav {
         align-items: center;
         justify-content: center;
         min-height: 64px;
-        padding: 0 .7em;
+        padding: 0 .65em;
         border: none;
         background: none;
         cursor: pointer;
@@ -60,7 +60,7 @@ nav {
             height: 24px;
         }
         span {
-            font-size: 9px;
+            font-size: 9.5px;
         }
     }
 }
@@ -79,6 +79,7 @@ nav {
         border: none;
         background: rgba(#fff, 0);
         color: white;
+        font-size: .7em;
         text-align-last: center;
         -webkit-appearance: none;
         -moz-appearance: none;

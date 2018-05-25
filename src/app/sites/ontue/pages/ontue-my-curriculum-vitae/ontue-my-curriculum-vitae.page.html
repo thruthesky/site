@@ -104,16 +104,21 @@
                             <mat-datepicker #dp touchUi="true" disabled="false"></mat-datepicker>
                         </mat-form-field>
 
-                    <div class=" gender">
-                        <label><input type="radio" name="male" [(ngModel)]="account.gender" value="M">Male</label>
-                        <label><input type="radio" name="female" [(ngModel)]="account.gender" value="F">Female</label>
-                    </div>
-                    <div class="">
+                        <mat-form-field class="gender" appearance="outline">
+                                <mat-label>Gender</mat-label>
+                                <input class="removed" type="text" matInput value="dummy" disabled>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="male" [(ngModel)]="account.gender" value="M">Male</label>
+                                    <label><input type="radio" name="female" [(ngModel)]="account.gender" value="F">Female</label>   
+                                </div>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                                <mat-label>{{ 'Year you start teaching' | t }}</mat-label>
+                                <input class="removed" type="text" matInput disabled>
+                                <ion-datetime displayFormat="YYYY" [(ngModel)]="account.experience" name="experience"></ion-datetime>
+                        </mat-form-field>
                         
-                            <ion-datetime displayFormat="YYYY" [(ngModel)]="account.experience"
-                                        name="experience"></ion-datetime>
-                            <label>{{ 'Year you start teaching' | t }}</label>
-                    </div>
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'YOUTUBE VIDEO' | t }}</mat-label>
                             <input type="text" matInput  [(ngModel)]="account.youtube_video_url" name="youtube_video_url">

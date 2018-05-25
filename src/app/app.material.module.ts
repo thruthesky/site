@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatCheckboxModule,
-  MatRadioModule,
   MatSelectModule,
   MatSnackBarModule,
   MatSpinner,
@@ -18,7 +17,6 @@ import {
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatRadioModule,
     MatSelectModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
@@ -30,7 +28,6 @@ import {
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatRadioModule,
     MatSelectModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
