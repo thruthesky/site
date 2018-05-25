@@ -1,43 +1,56 @@
+
 header{
-    padding: 1.25em 2em;
-    background-color:#eee;
-    
-    span{
-        display: inline-block;
-        margin-top: .5em;
-        padding: .2em .5em;
-        border-radius: 2px;
-        background-color: #1515aa;
-        color: #fff;
-        cursor: pointer;
+    h1{
+        margin: 0;
+        padding:1em 1.7em;
+        background-color:#eee;
     }
 
+    .desc {
+        padding:1em 2em;
+        background-color: #e1e6e7;
+    }
+    span{
+        display: inline-block;
+        padding: .2em .5em;
+        border-radius: 2px;
+        color: darkred;
+        cursor: pointer;
+        font-weight: bold;
+    }
 }
+
+    
 main{
     min-height: 540px;
+    background: #fff;
     .form{
 
         padding: 2em;
 
         form {
-            label{
-                display: block;
-                margin: .4em 0;
-            }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-            input {
-                display: block;
-                margin-bottom: 1.7em;
-                padding: .5em;
+            mat-form-field{
                 width: 100%;
             }
 
-            button{
-                padding: .7rem 5rem;
-                border-radius: 3px;
-                background-color: #1515aa;
-                color: #fff;
-            }
+
+
+
+                button{
+                    padding: .8rem 2.8rem;
+                    border:none;
+                    border-radius: 3px;
+                    background-color: #1515aa;
+                    color: #fff;
+                    font-size: .8em;
+                    cursor: pointer;
+                }
+
         }
     }
 }

@@ -216,7 +216,7 @@
     "AFTERNOON": "Afternoon",
     "FULL DAY": "All Day",
     "DIRECT-TIME": "Select Time:",
-    "INSTANCE_SCHEDULE": "Instance Class",
+    "INSTANCE_SCHEDULE": "Instant Class",
     "INSTANCE_CLASS_RESERVED": "You reserved a class that starts soon. Moving to reserved session menu.",
     "LOGIN_FIRST": "Please login first.",
 
@@ -444,7 +444,7 @@
     "GOTO_OPTIONS":"OPEN OPTIONS WINDOW",
 
 
-    "LOGIN_HEADER_1":"Sign in.",
+    "LOGIN_HEADER_1":"SIGN IN",
     "LOGIN_HEADER_2":"If you did not join, simply",
     "LOGIN_HEADER_3":"Please do it!",  
 

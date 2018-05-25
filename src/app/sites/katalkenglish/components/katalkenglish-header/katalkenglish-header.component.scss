@@ -10,7 +10,7 @@
         padding: 0 .5em;
         height: auto !important;
         background: #e9ecf5;
-        button {
+        a {
             min-height: 42px !important;
         }
     }
@@ -40,11 +40,18 @@ nav {
         margin: 0 -.58em;
     }
     a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         min-height: 64px;
-        padding: 0 .7em;
+        padding: 0 .65em;
         border: none;
         background: none;
         cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif;
         img,
         svg {
             display: block;
@@ -55,10 +62,6 @@ nav {
         span {
             font-size: 9.5px;
         }
-    }
-    a:focus,
-    a:focus {
-        outline: 0 !important;
     }
 }
 
@@ -76,6 +79,7 @@ nav {
         border: none;
         background: rgba(#fff, 0);
         color: white;
+        font-size: .7em;
         text-align-last: center;
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -87,6 +91,7 @@ nav {
             color: black !important;
         }
     }
+
     .custom-icon {
         position: absolute;
         top: 15px;

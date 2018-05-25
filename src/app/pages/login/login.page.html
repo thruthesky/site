@@ -1,12 +1,12 @@
 
 <header>
     <ng-container  *ngIf="a.isLogout">
-        <div>{{ 'LOGIN_HEADER_1' | t}}</div>
-        <div>
+        <h1>{{ 'LOGIN_HEADER_1' | t}}</h1>
+        <div class="desc">
             {{ 'LOGIN_HEADER_2' | t}}
             <span routerLink="/register"> {{ 'SIGN_UP' | t }}</span>
             {{ 'LOGIN_HEADER_3' | t}}
-    </div>
+        </div>
     </ng-container>
 </header>
 <main> 
@@ -16,18 +16,16 @@
     </div>   
     <div class="form" *ngIf="a.isLogout">
         <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
-            <div>
-                <label>{{ 'EMAIL' | t }}:</label>
-                <span>
-                    <input type="text" name="email" [(ngModel)]="form.user_email">
-                </span>
-            </div>
-            <div>
-                <label>{{ 'PASSWORD' | t }}:</label>
-                <span>
-                    <input type="password" name="password" [(ngModel)]="form.user_pass">
-                </span>
-            </div>
+            <mat-form-field  appearance="outline">
+                <mat-label>{{ 'EMAIL' | t }}</mat-label>
+                <input matInput color="dodgerblue" type="email"  name="email" [(ngModel)]="form.user_email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'PASSWORD' | t }}</mat-label>
+                <input matInput color="dodgerblue" name="email" type="password" [(ngModel)]="form.user_pass">
+            </mat-form-field>
+            
             <button type="submit">{{ 'LOGIN' | t }}</button>
         </form>
     </div>     
