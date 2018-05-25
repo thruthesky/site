@@ -8,6 +8,7 @@ import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload
 import { LoaderSerivceModule } from '../../providers/loader/loader.service.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { HowToGetQRMARKModalModule } from '../how-to-get-qrmark/how-to-get-qrmark.modal.module';
+import { MaterialModule } from '../../app.material.module';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
         TranslatePipeModule,
         XapiFileUploadComponentModule,
         LoaderSerivceModule,
-        HowToGetQRMARKModalModule
+        HowToGetQRMARKModalModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

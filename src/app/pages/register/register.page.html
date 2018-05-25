@@ -28,78 +28,57 @@
 
 
     <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
-        <div class="container-fluid">
 
 
-            <div class="row" *ngIf=" a.teacherTheme ">
-                <div class="col-md-2 col-3">
-                    <label for="timezone">{{ 'TIMEZONE' | t }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <div>
-                        <select id="timezone" [(ngModel)]="timezoneOffset" name="timezone">
-                            <option *ngFor="let t of keysTimezone()" value="{{ t }}">{{ formatTimeCode(t) }} {{
-                                timezones[t].name }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <mat-form-field *ngIf=" a.teacherTheme " appearance="outline">
+                <mat-label>{{ 'TIMEZONE' | t }}</mat-label>
+                <mat-select  id="timezone" [(ngModel)]="timezoneOffset" name="timezone">
+                    <mat-option  *ngFor="let t of keysTimezone()" value="{{ t }}">
+                        {{ formatTimeCode(t) }} {{ timezones[t].name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
 
-            <div class="row">
-                <div class="col-md-2 col-3">
-                    <label for="email">{{ a.ln.EMAIL }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <input type="email" name="email" id="email" [(ngModel)]="form.user_email">
-                </div>
-            </div>
-
-            <div class="row" *ngIf="a.isLogout">
-                <div class="col-md-2 col-3">
-                    <label for="password">{{ a.ln.PASSWORD }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <input type="password" name="password" id="password" [(ngModel)]="form.user_pass">
-                </div>
-            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>{{ a.ln.EMAIL }}</mat-label>
+                <input matInput type="email" name="email" id="email" [(ngModel)]="form.user_email">
+            </mat-form-field>
 
 
-            <div class="row">
-                <div class="col-md-2 col-3">
-                    <label for="name">{{ a.ln.NAME }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <input id="name" type="text" name="name" [(ngModel)]="form.name">
-                </div>
-            </div>
+            <mat-form-field  *ngIf="a.isLogout" appearance="outline">
+                <mat-label>{{ a.ln.PASSWORD }}</mat-label>
+                <input matInput type="password" name="password" id="password" [(ngModel)]="form.user_pass">
+            </mat-form-field>
 
 
-            <div class="row" *ngIf=" a.teacherTheme ">
-                <div class="col-md-2 col-3">
-                    <label>{{ a.ln.GENDER }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <div id="gender-group" class="input">
-                        <label>
-                            <input type="radio" name="gender" value="M" [checked]=" form.gender == 'M' "
-                                   [(ngModel)]="form.gender"> Male
+            <mat-form-field  appearance="outline">
+                <mat-label>{{ a.ln.NAME }}</mat-label>
+                <input matInput  id="name" type="text" name="name" [(ngModel)]="form.name">
+            </mat-form-field>
+
+
+            <mat-form-field class="gender"   *ngIf=" a.teacherTheme " appearance="outline">
+                    <mat-label>{{ a.ln.GENDER }}</mat-label>
+                    <input class="removed" type="text" matInput value="dummy" disabled>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="M" 
+                                        [checked]=" form.gender == 'M' " [(ngModel)]="form.gender">Male
                         </label>
-                        <label>
-                            <input type="radio" name="gender" value="F" [checked]=" form.gender == 'F' "
-                                   [(ngModel)]="form.gender"> Female
-                        </label>
+                        <label><input type="radio" name="gender" value="F" 
+                                        [checked]=" form.gender == 'F' " [(ngModel)]="form.gender">Female
+                        </label>   
                     </div>
-                </div>
-            </div>
+            </mat-form-field>
 
 
-            <div class="row" *ngIf=" a.teacherTheme ">
-                <div class="col-md-2 col-3">
+
+
+            <div  *ngIf=" a.teacherTheme ">
+
                     <label>{{ 'BIRTHDAY' | t }}</label>
-                </div>
-                <div class="col-md-10 col-9">
+
+
                     <div>
                         <label>Month
                             <select class="select" [(ngModel)]="month" name="month">
@@ -126,49 +105,33 @@
                             </select>
                         </label>
                     </div>
-                </div>
             </div>
 
 
-            <div class="row">
-                <div class="col-md-2 col-3">
-                    <label for="display_name">{{ a.ln.NICKNAME }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <input id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
-                    <div class="small-text" text-wrap>
-                        {{ 'NICKNAME DESC' | t }}
-                    </div>
-                </div>
-            </div>
+            <mat-form-field  appearance="outline">
+                <mat-label>{{ a.ln.NICKNAME }}</mat-label>
+                <input matInput  id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
+                <mat-hint> {{ 'NICKNAME DESC' | t }}</mat-hint>
+            </mat-form-field>
 
 
-            <div class="row">
-                <div class="col-md-2 col-3">
-                    <label for="phone_number">{{ a.ln.PHONE_NUMBER }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <input id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
-                </div>
-            </div>
+            <mat-form-field  appearance="outline">
+                <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
+                <input matInput  id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
+            </mat-form-field>
 
 
-            <div class="row" *ngIf=" a.teacherTheme ">
-                <div class="col-md-2 col-3">
-                    <label for="bookable_time">{{ 'BOOKABLE TIME' | t }}</label>
-                </div>
-                <div class="col-md-10 col-9">
-                    <input id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
-                    <div class="small-text">Input minutes to prevent a sudden booking.</div>
-                </div>
-            </div>
+            <mat-form-field *ngIf=" a.teacherTheme " appearance="outline">
+                <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label>
+                <input matInput id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
+                <mat-hint> Input minutes to prevent a sudden booking.</mat-hint>
+            </mat-form-field>
 
 
-            <div class="row">
-                <div class="col-md-2 col-3">
+
+            <div>
                     <label for="kakaotalk_id">{{ a.ln.KAKAOTALK_ID_SHORT }}</label>
-                </div>
-                <div class="col-md-10 col-9">
+
                     <div>
                         <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
                         <div class="small-text" (click)=" onClickKakaoIDHelp() ">
@@ -181,7 +144,6 @@
                             </svg>
                         </div>
                     </div>
-                </div>
             </div>
 
             <div class="kakaotalk-id-find-box row"  *ngIf=" showFindKakaotalkIDBox ">
@@ -194,21 +156,17 @@
 
 
 
-            <div class="row" *ngIf=" a.teacherTheme ">
-                <div class="col-md-2 col-3">
+            <div  *ngIf=" a.teacherTheme ">
+                <div >
                     <div>Upload Kakaotalk QR Mark</div>
                 </div>
-                <div class="col-md-10 col-9">
+                <div >
                     <div class="qr-mark">
                         <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true"
                                                     [files]="qrmarks" [showUploadedFiles]="true"
                                                     (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
 
-<<<<<<< HEAD
-                        <div class="small-text" text-wrap (click)="showModalFAQ()">
-=======
                         <div class="small-text" text-wrap  routerLink="/how-to-get-qrmark">
->>>>>>> john
                             QR Mark is required for teacher. How to get QR MARK
                             <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa"
                                  data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -235,9 +193,8 @@
             </div>
 
 
-            <div class="row">
-                <div class="col-md-2 col-3"></div>
-                <div class="buttons col-md-10 col-9">
+            <div>
+                <div class="buttons">
                     <button class="app-button" type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER_BUTTON' | t }}</button>
                     <button class="app-button" type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE_PROFILE_BUTTON' | t }}</button>
                     <button class="app-button" [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
@@ -245,7 +202,6 @@
             </div>
 
 
-        </div>
 
     </form>
 </main>
