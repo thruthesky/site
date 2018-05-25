@@ -9,7 +9,7 @@
 
 * Update [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards) with todos below.
 
-* witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
+* @done witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
   * Since it is completely separated service and it uses InnoDB which is not source of the problem.
   * Make the workserver as real server.
   * Do it Immediately !!
