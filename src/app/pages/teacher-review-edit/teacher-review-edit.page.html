@@ -24,16 +24,16 @@
 <main>
 
     <div class="assesment">
-        <div>
+        <div class="star">
             <span *ngFor="let i of [1,2,3,4,5];" class="{{ i <= rate ? '': 'd-none'}}">
-                <svg class="star" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                <svg  aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                     data-fa-i2svg="">
                     <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
                 </svg>
             </span>
         </div>
-        <div class="rate">{{ 'RATING' | t }} :
-            <mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'RATING' | t }} </mat-label>
                 <mat-select [(ngModel)]="rate">
                     <mat-option [value]="1">1</mat-option>
                     <mat-option [value]="2">2</mat-option>
@@ -42,33 +42,31 @@
                     <mat-option [value]="5">5</mat-option>
                 </mat-select>
             </mat-form-field>
-        </div>
 
-        <div class="internet">{{ 'HOW_WAS_TEACHER_INTERNET' | t }} :
-            <mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'HOW_WAS_TEACHER_INTERNET' | t }} </mat-label>
                 <mat-select [(ngModel)]="internet">
                     <mat-option [value]="3">{{ 'INTERNET_GOOD' | t }}</mat-option>
                     <mat-option [value]="2">{{ 'INTERNET_NORMAL' | t }}</mat-option>
                     <mat-option [value]="1">{{ 'INTERNET_BAD' | t }}</mat-option>
                 </mat-select>
             </mat-form-field>
-        </div>
 
-        <div class="camera">{{ 'WAS_TEACHER_USING_CAMERA' | t }} :
-            <mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>{{ 'WAS_TEACHER_USING_CAMERA' | t }} </mat-label>
                 <mat-select [(ngModel)]="camera">
                     <mat-option [value]="1">{{ 'CAMERA_YES' | t }}</mat-option>
                     <mat-option [value]="0">{{ 'CAMERA_NO' | t }}</mat-option>
                 </mat-select>
             </mat-form-field>
-        </div>
+
+            <mat-form-field appearance="outline">
+                    <mat-label>{{ 'STUDENT RATE COMMENT' | t }}</mat-label>
+                    <textarea rows="8" matInput [(ngModel)]="comment" name="introduction" placeholder="{{ 'RATE COMMENT' | t }}"></textarea>
+            </mat-form-field>
     </div>
 
-
-    <div class="text">
-        <textarea rows="10" [(ngModel)]="comment" placeholder="{{ 'RATE COMMENT' | t }}"></textarea>
-        <div>{{ 'STUDENT RATE COMMENT' | t }}</div>
-    </div>
+    
     <div class="buttons">
         <button class="submit" type="button" (click)="onClickSubmit()">
             <span *ngIf="showLoader">

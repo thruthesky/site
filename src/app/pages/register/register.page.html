@@ -180,7 +180,7 @@
             </mat-form-field>
 
             <div class="qr-mark">
-                <div class="success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
+                <div class="success" *ngIf=" a.teacherTheme&&qrmarks.length && form.kakao_qrmark_string != '' ">
                     QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{
                     form.kakao_qrmark_URL }} )
                 </div>

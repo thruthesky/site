@@ -490,5 +490,13 @@
     "SESSION_REFUND_REVIEW_TITLE":"学生還付検討",
     "REFUND_ACCEPT":"受け入れ返金",
     "REFUND_REJECT":"払い戻しを拒否",
-    "REJECT_CONFIRM":"払い戻し確認"
+    "REJECT_CONFIRM":"払い戻し確認",
+
+    "HOW_WAS_TEACHER_INTERNET":"先生のインターネット接続はどうでしたか？",
+    "INTERNET_GOOD":"良い",
+    "INTERNET_NORMAL":"正常",
+    "INTERNET_BAD":"悪い",
+    "WAS_TEACHER_USING_CAMERA":"教師はカメラを使っていたのですか？",
+    "CAMERA_YES":"はい",
+    "CAMERA_NO":"いいえ"
 }

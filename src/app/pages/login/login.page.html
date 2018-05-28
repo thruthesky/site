@@ -18,12 +18,12 @@
         <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
             <mat-form-field  appearance="outline">
                 <mat-label>{{ 'EMAIL' | t }}</mat-label>
-                <input matInput color="dodgerblue" type="email"  name="email" [(ngModel)]="form.user_email">
+                <input matInput type="email"  name="email" [(ngModel)]="form.user_email">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>{{ 'PASSWORD' | t }}</mat-label>
-                <input matInput color="dodgerblue" name="email" type="password" [(ngModel)]="form.user_pass">
+                <input matInput name="email" type="password" [(ngModel)]="form.user_pass">
             </mat-form-field>
             
             <button type="submit">{{ 'LOGIN' | t }}</button>

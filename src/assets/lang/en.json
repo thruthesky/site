@@ -527,7 +527,15 @@
     }
   ],
   "INTERNET_STATUS": ["", "Bad", "Normal", "Good"],
-  "CAMERA_STATUS": ["No", "Yes"]
+  "CAMERA_STATUS": ["No", "Yes"],
+
+  "HOW_WAS_TEACHER_INTERNET":"How was the Teacher's Internet Connection",
+  "INTERNET_GOOD":"Good",
+  "INTERNET_NORMAL":"Normal",
+  "INTERNET_BAD":"Bad",
+  "WAS_TEACHER_USING_CAMERA":"Was the Teacher Using Camera",
+  "CAMERA_YES":"Yes",
+  "CAMERA_NO":"No"
 
 
 

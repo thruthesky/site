@@ -1,3 +1,4 @@
+@import '../../../theme/vars';
 header{
     display: flex;
     justify-content: space-between;
@@ -5,7 +6,7 @@ header{
     background: dodgerblue;
     color: white;
 
-    @media screen and (max-width:768px){
+    @media screen and (max-width:$md){
         flex-direction:column;
         align-items: flex-start;
         font-size: 80%;
@@ -26,7 +27,7 @@ header{
         }
 
         &:last-child{
-            @media screen and (min-width:768px){
+            @media screen and (min-width:$md){
                 padding-right: 3em;
             }
         }
@@ -36,7 +37,7 @@ header{
         margin: 0;
         margin-left: 2em;
 
-        @media screen and (max-width:768px){
+        @media screen and (max-width:$md){
             margin-left: 1em;
             margin-top:.5em;
         }
@@ -61,36 +62,29 @@ main{
     .assesment{
         padding: 3em;
 
-
-        .star{
-            height: 2em;
+        @media screen and (max-width:$sm){
+            padding:1em;
+            padding-top: 2em;
         }
 
-        .rate{
-            margin-top: 1em;
-            font-size: 130%;
-            mat-form-field{
-                width:40px;
+
+        .star{
+            margin: 1em;
+            margin-bottom: 2em;
+            svg{
+                height: 3em;
+                margin-right: .5em;
             }
+
+        }
+
+        mat-form-field{
+            width: 80%;
         }
 
  
     }
 
-
-    .text{
-        
-        textarea{
-            padding: 2em;
-            width: 70%;
-            border: 1px solid #d3d3d3;
-            font-size: .9em;
-        }
-
-        div{
-            margin:2em;
-        }
-    }
 
     .buttons{
         button{
