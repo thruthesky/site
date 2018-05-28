@@ -3,6 +3,8 @@ import {AppService} from '../../../../providers/app.service';
 import {SCHEDULE_EDIT_RESPONSE} from '../../../../modules/xapi/lms.service';
 import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router';
+import { ConfirmModal } from '../../../../components/modal/confirm/confirm.modal';
+import { MatDialog } from '@angular/material';
 
 @Component({
     selector: 'ontue-my-schedule-page',
@@ -24,7 +26,9 @@ export class OntueMySchedulePage {
 
     constructor(public a: AppService,
                 public alertCtrl: AlertController,
-                public router: Router) {
+                public router: Router,
+                public dialog: MatDialog
+    ) {
 
         if (a.isLogin && a.isTeacher) {
             this.a.lms.timezone().subscribe(re => {
@@ -87,31 +91,39 @@ export class OntueMySchedulePage {
 
     async onClickDelete(idx) {
         if (this.a.user.isLogin) {
-            const confirm = await this.alertCtrl.create({
-                header: this.a.t('DELETE SCHEDULE'),
-                subHeader: this.a.t('CONFIRM DELETE'),
-                buttons: [
-                    {
-                        text: this.a.t('YES'),
-                        handler: () => {
-                            this.loading = true;
-                            this.a.lms.schedule_delete(idx).subscribe(res => {
-                                this.getMySchedule();
-                                this.loading = false;
-                            }, e => {
-                                this.a.toast(e);
-                                this.loading = false;
-                            });
-                        }
-                    },
-                    {
-                        text: this.a.t('CANCEL'),
-                        handler: () => {
-                        }
-                    }
-                ]
+            // const confirm = await this.alertCtrl.create({
+            //     header: this.a.t('DELETE SCHEDULE'),
+            //     subHeader: this.a.t('CONFIRM DELETE'),
+            //     buttons: [
+            //         {
+            //             text: this.a.t('YES'),
+            //             handler: () => {
+            //                 this.loading = true;
+            //                 this.a.lms.schedule_delete(idx).subscribe(res => {
+            //                     this.getMySchedule();
+            //                     this.loading = false;
+            //                 }, e => {
+            //                     this.a.toast(e);
+            //                     this.loading = false;
+            //                 });
+            //             }
+            //         },
+            //         {
+            //             text: this.a.t('CANCEL'),
+            //             handler: () => {
+            //             }
+            //         }
+            //     ]
+            // });
+            // confirm.present();
+
+
+            const dialogRef = this.dialog.open(ConfirmModal, {
             });
-            confirm.present();
+
+            dialogRef.afterClosed().subscribe(result => {
+                console.log('The dialog was closed', result);
+            });
         }
     }
 

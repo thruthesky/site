@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { OntueMySchedulePage } from './ontue-my-schedule.page';
+import { ConfirmModalModule } from '../../../../components/modal/confirm/confirm.modal.module';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
+        ConfirmModalModule
     ],
     exports: [
         RouterModule
