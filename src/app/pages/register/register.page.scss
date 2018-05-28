@@ -211,6 +211,7 @@ main{
         mat-form-field{
             margin: 1em auto;
         }
+        
 
         @media screen and (max-width:$sm){
             flex-direction: column;
@@ -236,7 +237,9 @@ main{
         }
 
         .custom-mat{
-            width: 100%;
+            @media screen and (min-width:$md){
+                width: 100%;
+            }
             margin:0!important
         }
     }
