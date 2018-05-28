@@ -4,6 +4,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {FILE, FILES, USER_DATA_RESPONSE, USER_UPDATE, USER_UPDATE_RESPONSE} from '../../../../modules/xapi/interfaces';
 import {Router} from '@angular/router';
 import {XapiFileUploadComponent} from '../../../../components/xapi-file-upload/xapi-file-upload.component';
+import {MatDatepicker} from '@angular/material/datepicker';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class OntueMyCurriculumVitaePage {
     qrmarks: FILES = [];
     @ViewChild('fileUploadWidget') fileUpload: XapiFileUploadComponent;
     @ViewChild('fileUploadWidgetQRMARK') fileUploadQRMark: XapiFileUploadComponent;
+    @ViewChild('yeardp') yeardpHandler: string;
 
     showQRMark = false;
     birthday;
@@ -247,6 +249,14 @@ export class OntueMyCurriculumVitaePage {
     }
     get _birthday() {
         return this.birthday;
+    }
+
+    onYearSelected(event, yeardp) {
+        const d = new Date(event);
+        console.log(d.getFullYear());
+        this.account.experience = '' + d.getFullYear();
+        yeardp.close();
+
     }
 
 }

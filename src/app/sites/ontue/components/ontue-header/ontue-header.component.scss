@@ -1,3 +1,4 @@
+@import '../../../../../theme/vars.scss';
 #ontue-header{
     font-family: sans-serif!important;
 
@@ -9,7 +10,7 @@
         display: flex;
         justify-content: space-between;
 
-        @media screen and (max-width:992px){
+        @media screen and (max-width:$md){
             display: none;
         }
 
@@ -17,23 +18,29 @@
             display: none;
             text-align: center;
 
-            @media screen and (max-width:992px){
+            @media screen and (max-width:$md){
                 display: block;
             }
         }
 
-        button{
-            transition: all 0.1s ease-in-out;
+    }
 
-            &:hover{
-                opacity: 0.7;
-            }
+
+    a{  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.1s ease-in-out;
+        text-decoration: none;
+
+        &:hover{
+            opacity: 0.7;
         }
     }
 
-    button,.logo{
-        padding: 0 1em;
-        height: 56px;
+    a,.logo{
+        padding: 0 .8em;
+        height: 56px!important;
         border:none;
         background:none;
         color: #fff;
@@ -42,6 +49,7 @@
         cursor: pointer;
 
     }
+
 
     .menu{
         display: flex;
@@ -53,8 +61,8 @@
             font-size: 2.25em;
         }
 
-        button{
-            padding: 0;
+        a{
+            padding: 0!important;
         }
     }
 

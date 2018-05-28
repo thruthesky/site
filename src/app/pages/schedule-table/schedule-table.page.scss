@@ -51,6 +51,10 @@
             width: 58px;
         }
     }
+    .teacher-name{
+        font-size: 79%;
+        font-weight: bold;
+    }
 }
 
 .page-header {
@@ -76,6 +80,15 @@
     align-items: center;
     ion-spinner {
         margin-bottom: .5em;
+    }
+}
+
+.icon-desc{
+    padding: 3em 0;
+    text-align: left;
+
+    .more-button{
+        padding-left: 3em;
     }
 }
 

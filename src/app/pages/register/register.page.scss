@@ -1,8 +1,4 @@
-.loader {
-    padding: 1em;
-    text-align: center;
-}
-
+@import '../../../theme/vars';
 header {
     padding: 1em;
     background-color: #673ab7;
@@ -15,84 +11,22 @@ header {
     }
 }
 
-form{
-    margin-top: 3em;
-    padding-bottom: 5em;
+main{
+    padding: 3em 0;
+    background: #fff;
 
-    input, #timezone, .select{
-        padding: .5em;
+    .loader {
+        margin: 1em auto;
+        width: 80%;
+        padding: 1em;
+        text-align: center;
     }
 
-    input[type="text"],
-    input[type="number"],
-    input[type="password"],
-    input[type="email"]{
-        width:100%;
-    }
-
-    .small-text{
-        margin-top:.5em;
-        font-size: .8em;
-    }
-
-    .col-9, .col-md-10{
-        padding-right: 3em;
-    }
-
-    .col-3, .col-md-2{
-        padding-top: .5em;
-    }
-
-    .row{
-        margin-bottom: 1em;
-    }
-
-    .select{
-        margin: 0 .5em;
-    }
-
-    .buttons{
-        button{
-            display: inline-block;
-            margin-right: .5em;
-            margin-top:.5em;
-            padding: .5em .9em;
-            border:none;
-            cursor: pointer;
-        }
-    }
-
-
-    .qr-mark{
-
-        .success,.warning{
-            margin: 1em 0;
-            padding: 1em 3em;
-        }
-
-        .success{
-            border-radius:2px;
-            border:1px solid green;
-            background:rgba(green,0.1);
-        }
-
-        .warning{
-            border-radius:2px;
-            border:1px solid darkred;
-            background:rgba(darkred,0.1);
-        }
-    }
-
-    .question-circle-icon{
-        margin-left: .6em;
-        margin-top: .3em;
-        height: 1em;
-    }
-}
 
     .photo-upload {
         position: relative;
         margin: 3em auto;
+        margin-top: 0;
         width: 140px;
         overflow: hidden;
 
@@ -130,18 +64,230 @@ form{
         }
         
     }
+    
 
-    .kakaotalk-id-find-box{
-        justify-content: flex-end;
-        .col-md-10{
-            padding: 2em 1em!important;
+    form{
+
+        text-align: center;
+
+        mat-form-field{
+            width: 80%;
+
+            .removed{
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            mat-hint{
+                padding-bottom: 1em;
+            }
+
+
+            &.gender{
+
+                .radio-group{
+                    display: flex;
+                    align-items: center;
+
+                    label{
+                        display: flex;
+                        align-items: center;
+                        margin-right: 1.5em;
+                    }
+
+                    input{
+                        margin-right: .5em;
+                    }
+
+                }
+
+            }
+
+            .hint{
+                display: flex;
+                align-items: center;
+                color: dodgerblue;
+
+                svg{
+                    margin-left: .5em;
+                    height: 1.3em;
+                }
+            }
+
+            .birthday{
+                display: flex;
+                align-items: center;
+                @media screen and (max-width:$sm){
+                    font-size: 80%;
+                }
+
+                span{
+                    margin-right: 1em;
+                }
+                
+                select{
+                    margin-right: 2.5em;
+                    @media screen and (max-width:$sm){
+                        margin-right: 1em;
+                    }
+                }
+            }
+
+
         }
 
+
+        .buttons{
+            margin: 3em;
+            @media screen and (max-width:$sm){
+                margin-top: 2em;
+            }
+            button{
+                display: inline-block;
+                margin-right: .5em;
+                margin-top:.5em;
+                padding: 1em 2em;
+                border:none;
+                cursor: pointer;
+            }
+        }
+
+
+        .qr-mark{
+            margin: auto;
+            width: 80%;
+
+            .success,.warning{
+                margin: 1em 0;
+                padding: 1em 3em;
+                @media screen and (max-width:$sm){
+                    padding: 1em;
+                }
+        
+                word-wrap: break-word;
+            }
+
+            .success{
+                border-radius:2px;
+                border:1px solid green;
+                background:rgba(green,0.1);
+            }
+
+            .warning{
+                border-radius:2px;
+                border:1px solid darkred;
+                background:rgba(darkred,0.1);
+            }
+        }
+
+        .question-circle-icon{
+            margin-left: .6em;
+            margin-top: .3em;
+            height: 1em;
+        }
+    }
+
+
+    .kakaotalk-id-find-box{
+        padding: 1em;
         img{
             border: 1px solid #dfdfdf;
-            max-width: 100%;
+            width: 80%;
         }
 
     }
+
+    .with-hint{
+        margin-bottom:1em;
+    }
+
+    .two-col-input{
+        display: flex;
+        align-items: center;
+        margin: auto;
+        width:80%;
+
+        mat-form-field{
+            margin: 1em auto;
+        }
+
+        @media screen and (max-width:$sm){
+            flex-direction: column;
+            width: 100%;
+
+            mat-form-field{
+                margin: .5em auto;
+            }
+        }
+
+
+
+        mat-form-field:first-child{
+            @media screen and (min-width:$md){
+                margin-right: 1em;
+            }
+        }
+
+        mat-form-field:last-child{
+            @media screen and (min-width:$md){
+                margin-left: 1em;
+            }
+        }
+
+        .custom-mat{
+            width: 100%;
+            margin:0!important
+        }
+    }
+
+    .upload-qr{
+        .qr-image{
+            text-align: center;
+        }
+        .qrmark-icon,.qrmark-uploaded{
+            height: 10em!important;
+        }
+
+
+        xapi-file-upload-component{
+            position: absolute!important;
+            opacity: 0!important;
+        }
+
+        .progress{
+            margin: .5em;
+
+            .bar{
+                margin: auto;
+                margin-bottom: .5em;
+                height: 10px;
+                max-width: 300px;
+                border-radius: 2px;
+                background: dodgerblue;
+
+            }
+        }
+
+        label{
+            cursor: pointer;
+        }
+
+        .qr-button{
+            text-align: center;
+            padding: 1em;
+            span{
+                padding: 1em 2em;
+                border-radius: 2px;
+                background: dodgerblue;
+                color:#fff;
+                font-size: 70%;   
+            }
+        }
+    }
+}
+
+
+
 
  

@@ -1,0 +1,109 @@
+@import '../../../../../theme/vars.scss';
+section{
+    background: #fff;
+    outline: 1px solid #e9ecef;
+    header{
+        padding-left: 4em;
+        @media screen and (max-width:$sm){
+            padding: 0;
+            text-align: center;
+        }
+        margin: 0;
+        background-color: #66a2fb;
+        h2{
+            display: inline-block;
+            background-color: #007bff;
+            margin: 0;
+            padding: 1em 1.5em;
+            color: #fff;
+            font-size: 2em;
+            font-weight: 100;
+        }
+    }
+
+    main{
+        padding: 2em 0;
+
+        .row{
+            padding: 3em 4em;
+
+            @media screen and (max-width:$sm){
+                padding: 1.5em;
+            }
+
+            &>div{
+                padding: 0;
+
+                &:first-child{
+                    padding-right: 3em;
+                    @media screen and (max-width:$sm){
+                        padding: 0;
+                    }
+                }
+
+                &:last-child{
+                    padding-left: 3em;
+                    @media screen and (max-width:$sm){
+                        padding: 0;
+                    }
+                }
+
+            }
+
+            .reorder-sm{
+                @media screen and (max-width:$sm){
+                    order: -1
+                }
+            }
+
+            .text{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                height: 100%;
+                font-size: 1.2em;
+                font-weight: 200;
+                text-align: center;
+                line-height: 1.8em;
+                @media screen and (max-width:$sm){
+                    margin-top: .7em;
+                }
+
+                h3{
+                    margin: 0;
+                    font-size: 1.4em;
+                    color: #007bff;
+                }
+
+                p{
+                    @media screen and (min-width:$md){
+                        text-align: left;
+                    }
+                }
+
+                button{
+                    padding: 1em 2em;
+                    border-radius: 2px;
+                    border:none;
+                    background: #007bff;
+                    color:#fff;
+                    font-size: .6em;
+                    cursor: pointer;
+                }
+            }
+        }
+        .star{
+            height: 2em;
+            margin-right: .5em;
+            color: orange;
+        }
+
+        .photo{
+            img{
+                border-radius: 3px;
+                width: 100%;
+            }
+        }
+    }
+}

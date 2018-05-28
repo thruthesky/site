@@ -14,6 +14,15 @@ export class OntueGuideAndTipsComponent {
     constructor(public a: AppService) {
     }
 
+
+    accord = {
+        on1: true,
+        on2: true,
+        on3: true,
+        on4: true,
+
+    };
+
 }
 
 

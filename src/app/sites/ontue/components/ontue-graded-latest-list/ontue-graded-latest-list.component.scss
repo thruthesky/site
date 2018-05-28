@@ -1,0 +1,63 @@
+section{
+    height: 100%;
+    background: #fff;
+    outline: 1px solid #e9ecef;
+    font-size: 90%;
+    .title{
+        padding: .7em;
+        background: #007bff;
+        text-align: center;
+        color: #fff;
+    }
+
+    .body{
+        padding: .6em 0;
+        .row{
+            align-items: center;
+            justify-content: center;
+            padding: .6em 1.2em;
+
+            &>div{
+                padding: 0;
+            }
+
+            &:hover{
+                background: rgba(dodgerblue,0.2);
+                cursor: pointer;
+
+                color:rgba(dodgerblue,0.95);
+            }
+        }
+
+        .grade{
+            font-size: 85%;
+        }
+
+        .teacher-photo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        .teacher-name{
+            font-weight: bold;
+        }
+
+        .stars{
+            svg{
+                height: .8em;
+                color: orange;
+                margin-right: .1em;
+            }
+        }
+    }
+
+}

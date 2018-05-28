@@ -4,8 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 export const environment = {
     production: false,
-    urlBackend: 'http://workserver.ontue.com',
-    // urlBackend: 'https://www.ontue.com',
+    // urlBackend: 'http://workserver.ontue.com',
+    urlBackend: 'https://www.ontue.com',
     // urlBackend: 'https://sonub.com:8443',
     firebaseConfig: {
         apiKey: 'AIzaSyBEv8lzyUI6kB8RyxG8xKnzv4WA6KfS6e4',

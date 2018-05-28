@@ -494,5 +494,13 @@
     "SESSION_REFUND_REVIEW_TITLE":"학생 환급 검토",
     "REFUND_ACCEPT":"수락 환불",
     "REFUND_REJECT":"환불 거부",
-    "REJECT_CONFIRM":"환불 확인"
+    "REJECT_CONFIRM":"환불 확인",
+
+    "HOW_WAS_TEACHER_INTERNET":"교사의 인터넷 연결은 어땠습니까?",
+    "INTERNET_GOOD":"좋은",
+    "INTERNET_NORMAL":"표준",
+    "INTERNET_BAD":"불쾌한",
+    "WAS_TEACHER_USING_CAMERA":"교사가 카메라를 사용 했습니까?",
+    "CAMERA_YES":"예",
+    "CAMERA_NO":"아니"
 }

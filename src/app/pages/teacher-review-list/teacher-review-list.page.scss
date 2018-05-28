@@ -87,6 +87,15 @@ header{
     }
 }
 
+.extra{
+    margin: 1.5em 0;
+    font-size: 80%;
+
+    b{
+        color: dodgerblue;
+    }
+}
+
 .comment{
     margin-top: 5em;
     @media screen and (max-width:768px){
@@ -152,7 +161,6 @@ header{
     }
 
     .description{
-        margin-top: 1.5em;
         padding: 1em;
         line-height: 180%;
         background-color: #f3f3f3;

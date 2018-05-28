@@ -1,0 +1,189 @@
+@import './../../../../../theme/vars';
+  
+header{
+  h1{
+    margin: 0;
+    padding: 1em;
+    background: #fff;
+  }
+
+  div{
+    padding: .8em 1.3em;
+    background: #e2e2e2;
+    font-size: 90%;
+  }
+}
+
+main{
+    padding: 0 5em;
+    background: #fff;
+    @media screen and (max-width:$sm){
+        padding: 0 1em;
+    }
+
+    .file-inputs{
+        align-items: stretch;
+
+        .col{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2em 1em;
+            
+            @media screen and (max-width:$sm){
+                margin: 1em .5em;
+            }
+
+            padding: 1.4em 2em;
+        }
+
+        .profile{
+            border: 3px dashed #e2e2e2;
+        }
+
+
+        .qrmark{
+            border: 1px solid #e9ecef;
+
+            &>div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center
+            }
+
+            .note{
+                font-size: 80%;
+                text-align: center;
+            }
+
+            .qrmark-icon{
+                margin: 1em;
+                height: 5em;
+            }
+
+        }
+
+        .profile-photo,.qrmark-photo{
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            overflow: hidden;
+
+            img{
+                width: 100%
+            }
+
+        }
+
+        .profile-photo{
+            border-radius: 50%;
+        }
+
+        .qrmark-photo{
+            margin-bottom: 1em;
+        }
+        
+
+        .button{
+            display: flex;
+            align-items: center;
+            margin-top: 1em;
+            padding: .5em 1em;
+            border-radius: 2px;
+            background: dodgerblue;
+            color: #fff;
+            font-size: 90%;
+
+            .icon{
+                margin-right: .5em;
+                height: 1em;
+            }
+        }
+
+        input[type="file"]{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer
+        }
+    }
+
+    .text-inputs{
+        mat-form-field{
+            width: 100%;
+        }
+
+        .form-date{
+            cursor: pointer;
+
+            &>input{
+                display: none
+            }
+        }
+
+        .update-button{
+            text-align: center;
+            padding: 5em;
+            padding-top: 3em;
+
+            button{
+                padding: 1em 2em;
+                border-radius: 2px;
+                border:none;
+                background: dodgerblue;
+                color:white;
+                cursor: pointer;
+            }
+        }
+
+        // .mat-field-copy{
+        //     margin-top: .2em;
+        //     margin-bottom: 1.8em;
+        //     padding: 1.25em .7em;
+        //     border-radius: 4px;
+        //     border:.5px solid rgba(grey,0.3);
+        //     cursor: pointer;
+
+        //     ion-datetime{
+        //         position: absolute;
+        //         height: 100%;
+        //         width: 100%;
+        //     }
+            
+        // }
+
+        mat-form-field{
+            .removed{
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+
+
+            &.gender{
+
+                .radio-group{
+                    display: flex;
+                    align-items: center;
+
+                    label{
+                        display: flex;
+                        align-items: center;
+                        margin-right: 1.5em;
+                    }
+
+                    input{
+                        margin-right: .5em;
+                    }
+
+                }
+
+            }
+        }
+
+
+    }
+}

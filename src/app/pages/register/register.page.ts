@@ -6,6 +6,8 @@ import {
 } from '../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
 import { LoaderService } from '../../providers/loader/loader.service';
+import { MatDialog } from '@angular/material';
+import { HowToGetQRMARKModal } from '../how-to-get-qrmark/how-to-get-qrmark.modal';
 // import { LanguageService } from '../../providers/language.service';
 
 @Component({
@@ -49,7 +51,8 @@ export class RegisterPage implements OnInit {
         public a: AppService,
         // public f: FireService,
         public loader: LoaderService,
-        // public lang: LanguageService
+        // public lang: LanguageService,
+        public dialog: MatDialog
     ) {
 
         // setTimeout(() => this.test(), 1000);
@@ -415,11 +418,15 @@ export class RegisterPage implements OnInit {
         // }
     }
 
-    showModalFAQ(modal_name) {
-        // const modal = this.modalCtrl.create(this._modal[modal_name]);
-        // modal.onDidDismiss(() => { });
-        // modal.present();
+    showModalFAQ() {
+        const dialogRef = this.dialog.open(HowToGetQRMARKModal, {
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed', result);
+        });
     }
+
 
 
 }
