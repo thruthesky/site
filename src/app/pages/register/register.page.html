@@ -29,14 +29,25 @@
 
     <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
 
-
             <mat-form-field *ngIf=" a.teacherTheme " appearance="outline">
-                <mat-label>{{ 'TIMEZONE' | t }}</mat-label>
-                <mat-select  id="timezone" [(ngModel)]="timezoneOffset" name="timezone">
+                <!-- <mat-label>{{ 'TIMEZONE' | t }}</mat-label> -->
+                <mat-select  id="timezone" [(ngModel)]="timezoneOffset"  name="timezone" 
+                             placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset].name }}">
                     <mat-option  *ngFor="let t of keysTimezone()" value="{{ t }}">
                         {{ formatTimeCode(t) }} {{ timezones[t].name }}
                     </mat-option>
                 </mat-select>
+            </mat-form-field>
+
+            <mat-form-field  appearance="outline">
+                <mat-label>{{ a.ln.NAME }}</mat-label>
+                <input matInput  id="name" type="text" name="name" [(ngModel)]="form.name">
+            </mat-form-field>
+
+            <mat-form-field class="with-hint"  appearance="outline">
+                <mat-label>{{ a.ln.NICKNAME }}</mat-label>
+                <input matInput  id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
+                <mat-hint> {{ 'NICKNAME DESC' | t }}</mat-hint>
             </mat-form-field>
 
 
@@ -51,51 +62,77 @@
                 <input matInput type="password" name="password" id="password" [(ngModel)]="form.user_pass">
             </mat-form-field>
 
-
             <mat-form-field  appearance="outline">
-                <mat-label>{{ a.ln.NAME }}</mat-label>
-                <input matInput  id="name" type="text" name="name" [(ngModel)]="form.name">
+                <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
+                <input matInput  id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
             </mat-form-field>
 
 
-            <mat-form-field class="gender"   *ngIf=" a.teacherTheme " appearance="outline">
-                    <mat-label>{{ a.ln.GENDER }}</mat-label>
-                    <input class="removed" type="text" matInput value="dummy" disabled>
-                    <div class="radio-group">
-                        <label><input type="radio" name="gender" value="M" 
-                                        [checked]=" form.gender == 'M' " [(ngModel)]="form.gender">Male
-                        </label>
-                        <label><input type="radio" name="gender" value="F" 
-                                        [checked]=" form.gender == 'F' " [(ngModel)]="form.gender">Female
-                        </label>   
-                    </div>
-            </mat-form-field>
+            <div class="two-col-input">
+                <mat-form-field *ngIf=" a.teacherTheme " appearance="outline">
+                    <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label>
+                    <input matInput id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
+                    <mat-hint> Input minutes to prevent a sudden booking.</mat-hint>
+                </mat-form-field>
+    
+                <mat-form-field class="katalk-id" [class.custom-mat]="a.studentTheme"  appearance="outline">
+                    <mat-label>{{ a.ln.KAKAOTALK_ID_SHORT }}</mat-label>
+                    <input matInput  id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
+                    <mat-hint class="hint" (click)=" onClickKakaoIDHelp() ">  
+                        {{ 'FIND KAKAOTALK ID' | t }}
+                        <svg aria-hidden="true" data-prefix="fa"
+                            data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                    d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
+                        </svg>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
 
+            <div class="kakaotalk-id-find-box" *ngIf=" showFindKakaotalkIDBox ">
+                <div (click)=" showFindKakaotalkIDBox = false ">
+                    <img src="assets/img/find-kakaotalk-id.jpg">
+                </div>
+            </div>
 
-
-
-            <div  *ngIf=" a.teacherTheme ">
-
-                    <label>{{ 'BIRTHDAY' | t }}</label>
-
-
-                    <div>
-                        <label>Month
-                            <select class="select" [(ngModel)]="month" name="month">
-                                <option *ngFor="let m of [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{ a.add0(m) }}">{{
-                                    a.add0(m) }}
+            <div class="two-col-input">
+                    <mat-form-field class="gender"   *ngIf=" a.teacherTheme " appearance="outline">
+                            <mat-label>{{ a.ln.GENDER }}</mat-label>
+                            <input class="removed" type="text" matInput value="dummy">
+                            <div class="radio-group">
+                                <label><input type="radio" name="gender" value="M" 
+                                                [checked]=" form.gender == 'M' " [(ngModel)]="form.gender">Male
+                                </label>
+                                <label><input type="radio" name="gender" value="F" 
+                                                [checked]=" form.gender == 'F' " [(ngModel)]="form.gender">Female
+                                </label>   
+                            </div>
+                    </mat-form-field>
+        
+                    <mat-form-field *ngIf=" a.teacherTheme " appearance="outline">
+                        <mat-label>{{ 'BIRTHDAY' | t }}</mat-label>
+                        <input class="removed" type="text" matInput value="dummy" disabled>
+        
+                        <div class="birthday">
+                            <label>Month
+                            <select [(ngModel)]="month" name="month">
+                                <option *ngFor="let m of [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{ a.add0(m) }}">
+                                    {{ a.add0(m) }}
                                 </option>
                             </select>
-                        </label>
-                        <label>{{ 'Day' | t }}
-                            <select class="select" [(ngModel)]="day" name="day">
+                            </label>
+        
+                            <label>{{ 'Day' | t }}
+                            <select  [(ngModel)]="day" name="day">
                                 <option *ngFor="let d of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]"
                                         value="{{ a.add0(d) }}">{{ a.add0(d) }}
                                 </option>
                             </select>
-                        </label>
-                        <label>{{ 'Year' | t }}
-                            <select class="select" [(ngModel)]="year" name="year">
+                            </label>
+        
+                            <label>{{ 'Year' | t }}
+                            <select [(ngModel)]="year" name="year">
                                 <option *ngFor="let y of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                                                                     21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
                                                                     41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
@@ -103,92 +140,56 @@
                                         value="{{ year_now - y -17 }}">{{ year_now - y -17 }}
                                 </option>
                             </select>
-                        </label>
-                    </div>
+                            </label>
+                        </div>
+        
+                  </mat-form-field>
             </div>
-
-
-            <mat-form-field  appearance="outline">
-                <mat-label>{{ a.ln.NICKNAME }}</mat-label>
-                <input matInput  id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
-                <mat-hint> {{ 'NICKNAME DESC' | t }}</mat-hint>
-            </mat-form-field>
-
-
-            <mat-form-field  appearance="outline">
-                <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
-                <input matInput  id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
-            </mat-form-field>
-
-
-            <mat-form-field *ngIf=" a.teacherTheme " appearance="outline">
-                <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label>
-                <input matInput id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
-                <mat-hint> Input minutes to prevent a sudden booking.</mat-hint>
-            </mat-form-field>
-
-
-
-            <div>
-                    <label for="kakaotalk_id">{{ a.ln.KAKAOTALK_ID_SHORT }}</label>
-
-                    <div>
-                        <input id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
-                        <div class="small-text" (click)=" onClickKakaoIDHelp() ">
-                            {{ 'FIND KAKAOTALK ID' | t }}
-                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa"
-                                 data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 512 512" data-fa-i2svg="">
-                                <path fill="currentColor"
-                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
-                            </svg>
+            <mat-form-field class="upload-qr" *ngIf=" a.teacherTheme " appearance="outline">
+                <mat-label>{{qrmarks.length? 'UPDATE': 'UPLOAD'}} Kakaotalk QR MARK</mat-label>
+                
+                <label>
+                    <div class="qr-image">
+                        <svg *ngIf="!qrmarks.length" class="qrmark-icon" viewBox="0 0 448 512"><path fill="currentColor" d="M0 224h192V32H0v192zM32 64h128v128H32V64zm224-32v192h192V32H256zm160 160H288V64h128v128zM0 480h192V288H0v192zm32-160h128v128H32V320zM64 96h64v64H64V96zm320 64h-64V96h64v64zM64 352h64v64H64v-64zm352-64h32v128H320v-32h-32v96h-32V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg>
+                        <img class="qrmark-uploaded" *ngIf="qrmarks.length"  src="{{qrmarks[0].url}}">
+                        <xapi-file-upload-component #QRMARKFileUpload [title]="false" [fileSelectionButton]="true"
+                                                    [files]="qrmarks" [showUploadedFiles]="false"
+                                                    (success)="onSuccessUploadQRMark( $event )">
+                        </xapi-file-upload-component>
+                        <div class="progress" *ngIf="QRMARKFileUpload.progressPercentage">
+                            <div class="bar"></div>
+                            {{ QRMARKFileUpload.progressPercentage}}%
                         </div>
                     </div>
-            </div>
-
-            <div class="kakaotalk-id-find-box row"  *ngIf=" showFindKakaotalkIDBox ">
-                <div class="col-md-10 col-sm-12">
-                    <div (click)=" showFindKakaotalkIDBox = false ">
-                        <img src="assets/img/find-kakaotalk-id.jpg">
+                    <div class="qr-button">
+                        <span>Choose File </span>
                     </div>
+                </label>
+
+
+                <input class="removed" type="text" matInput value="dummy">
+                <mat-hint class="hint" (click)="showModalFAQ()">      
+                    QR Mark is required for teacher. How to get QR MARK
+                    <svg aria-hidden="true" data-prefix="fa"
+                            data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                                d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
+                    </svg>
+                </mat-hint>
+            </mat-form-field>
+
+            <div class="qr-mark">
+                <div class="success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
+                    QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{
+                    form.kakao_qrmark_URL }} )
                 </div>
-            </div>
-
-
-
-            <div  *ngIf=" a.teacherTheme ">
-                <div >
-                    <div>Upload Kakaotalk QR Mark</div>
-                </div>
-                <div >
-                    <div class="qr-mark">
-                        <xapi-file-upload-component #QRMARKFileUpload [title]="true" [fileSelectionButton]="true"
-                                                    [files]="qrmarks" [showUploadedFiles]="true"
-                                                    (success)="onSuccessUploadQRMark( $event )"></xapi-file-upload-component>
-
-                        <div class="small-text" text-wrap  routerLink="/how-to-get-qrmark">
-                            QR Mark is required for teacher. How to get QR MARK
-                            <svg class="question-circle-icon" aria-hidden="true" data-prefix="fa"
-                                 data-icon="question-circle" role="img" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 512 512" data-fa-i2svg="">
-                                <path fill="currentColor"
-                                      d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"></path>
-                            </svg>
-                        </div>
-
-                        <div class="success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
-                            QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{
-                            form.kakao_qrmark_URL }} )
-                        </div>
-
-                        <div class="warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">
-                            <i class="fas fa-spinner fa-spin"></i>
-                            There is something wrong in converting Kakao QR Mark into string. If this message does not
-                            appear within 10 seconds, please
-                            contact to admin.
-                        </div>
-
-                    </div>
+    
+                <div class="warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    There is something wrong in converting Kakao QR Mark into string. If this message does not
+                    appear within 10 seconds, please
+                    contact to admin.
                 </div>
             </div>
 

@@ -19,14 +19,16 @@
                     <a routerLink="/register" *ngIf=" a.isLogout ">Register</a>
                     <a routerLink="/login" *ngIf=" a.isLogout ">Login</a>
                 </div>
-                <div class="as-sm" (click)=" a.onClickContactAdmin() ">
+                <div class="contact-us" (click)=" a.onClickContactAdmin() ">
                     <a>Contact Us</a>
                 </div>
             </div>
-            <div class="menu col-3">
+            <div class="col-3">
+                <div class="menu ">
                     <a routerLink="/teacher-menu">
                         <ion-icon name="ios-menu"></ion-icon>
                     </a>
+                </div>
             </div>
         </div>
         <!-- <a routerLink="/teacher">Home</a> -->
