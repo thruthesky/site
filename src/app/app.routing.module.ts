@@ -239,7 +239,17 @@ const routes: Routes = [
   {
     path: 'reminder',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { category: 'reminder' }
+    data: { slug: 'reminder' }
+  },
+  {
+    path: 'termsAndConditions',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { slug: 'termsAndConditions' }
+  },
+  {
+    path: 'policy',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { slug: 'policy' }
   },
 
   {

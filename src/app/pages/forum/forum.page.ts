@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { AppService } from '../../providers/app.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 
 interface WP_POST {
@@ -28,11 +29,32 @@ interface WP_POST {
 export class ForumPage implements OnInit {
     posts: Array<WP_POST> = [];
     constructor(
+        activated: ActivatedRoute,
         public sanitizer: DomSanitizer,
         public http: HttpClient,
         public a: AppService
     ) {
-        http.get(a.urlBackend + '/wp-json/wp/v2/posts').subscribe((posts: Array<WP_POST>) => {
+        activated.data.subscribe(data => {
+            console.log('data: ', data);
+            this.loadPosts( data['slug'] );
+        });
+    }
+
+
+    ngOnInit() { }
+
+    loadPosts( slug: string ) {
+
+        const url = this.a.urlBackend + '/wp-json/wp/v2/posts';
+        console.log('api: ', url);
+
+        const params = new HttpParams();
+        params.set('slug', slug);
+        const options = {
+            params: params
+        };
+
+        this.http.get(url, options).subscribe((posts: Array<WP_POST>) => {
             console.log('posts: ', posts);
 
             if (posts && posts.length) {
@@ -45,8 +67,6 @@ export class ForumPage implements OnInit {
             }
         }, e => console.error(e));
     }
-
-    ngOnInit() { }
 }
 
 
