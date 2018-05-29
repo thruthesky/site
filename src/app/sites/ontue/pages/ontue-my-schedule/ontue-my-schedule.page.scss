@@ -10,6 +10,7 @@ header{
 
 main{
     padding-bottom: 6em;
+    min-height: 540px;
     min-width: 900px;
     background: white;
 
@@ -20,7 +21,6 @@ main{
     .sched{
         text-align: center;
         .header{
-
             position: sticky!important;
             top: 56px;
             left: 0;
