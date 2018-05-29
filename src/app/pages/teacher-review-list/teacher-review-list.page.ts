@@ -34,7 +34,7 @@ export class TeacherReviewListPage {
 
     showLoader = false;
 
-    internet = ['', 'Bad', 'Normal', 'Good']
+    internet = ['', 'Bad', 'Normal', 'Good'];
     camera = ['No', 'Yes'];
 
     constructor(public a: AppService,

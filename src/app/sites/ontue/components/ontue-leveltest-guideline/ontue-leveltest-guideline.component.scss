@@ -22,6 +22,9 @@ section{
     }
 
     .container-fluid{
+        .row{
+            padding: 0 1em
+        }
 
         padding:4em;
 
@@ -30,35 +33,54 @@ section{
         }
 
         .content{
-            padding-left: 5em;
+            padding:0;
+            padding-left: 4em;
 
             @media screen and (max-width:$sm){
-                padding:2em;
+                padding:2em 0;
+                text-align: center;
             }
         }
 
         .options{
+            padding: 0;
             &>div{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 padding: 1em;
+                border: 1px solid #e9ecef;
+                border-top: none;
                 cursor: pointer;
     
                 &:hover{
                     background: rgba(grey,0.1)
                 }
+
+                &:first-child{
+                    border-top: 1px solid #e9ecef;
+                }
             }
     
             .active{
                 background: rgba(dodgerblue,0.1)!important;
-                color: dodgerblue!important
+                color: dodgerblue!important;
+            }
+
+            .arrow-icon{
+                height: 1em;
             }
         }
 
 
         .read{
+            padding: 2em;
+            background: rgba(grey,0.1);
             &>div:first-child{
                 margin: 0!important;
                 font-size: 1.8em;
                 font-weight: 300;
+                font-family: 'Times New Roman', Times, serif;
 
                 @media screen and (max-width:$sm){
                     text-align: center;
