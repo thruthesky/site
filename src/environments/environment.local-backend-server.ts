@@ -12,5 +12,10 @@ export const environment = {
         messagingSenderId: '328021421807'
     },
     reloadTag: (new Date).getTime(), /// Warning this must be only in environment.
-    disableFirebaseUserActivityLog: true
+    disableFirebaseUserActivityLog: true,
+    categories: {
+        reminders: 2,
+        policy: 4,
+        termsandconditions: 3
+    }
   };

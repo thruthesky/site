@@ -236,11 +236,26 @@ const routes: Routes = [
   //   loadChildren: './pages/forum/forum.page.module#ForumPageModule',
   //   data: { category: 'rules' }
   // },
-  // {
-  //   path: 'reminder',
-  //   loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-  //   data: { category: 'reminder' }
-  // },
+  {
+    path: 'reminders',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { slug: 'reminders' }
+  },
+  {
+    path: 'termsAndConditions',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { slug: 'termsandconditions' }
+  },
+  {
+    path: 'policy',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { slug: 'policy' }
+  },
+
+  {
+    path: 'post/:ID',
+    loadChildren: './pages/post/post.page.module#PostPageModule'
+  },
 
   {
     path: 'how-to-get-qrmark',

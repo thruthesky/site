@@ -10,6 +10,7 @@ header{
 
 main{
     padding-bottom: 6em;
+    min-height: 540px;
     min-width: 900px;
     background: white;
 
@@ -20,7 +21,6 @@ main{
     .sched{
         text-align: center;
         .header{
-
             position: sticky!important;
             top: 56px;
             left: 0;
@@ -44,16 +44,33 @@ main{
     }
 
     .info{
-        padding:1em;
-        color:dodgerblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 .3em;
+
+        &-wrapper{
+            align-items: stretch;
+            padding-left:1em;
+        }
 
         div{
-            padding: 1em;
+            width: 100%;
+            text-align: center;
         }
 
-        span{
-            color:black;
+        div:first-child{
+            padding: .8em;
+            background:rgba(dodgerblue,0.6);
+            color:#fff;
         }
+
+        div:last-child{
+            padding: 2.5em .5em;
+            border:1px solid rgba(128, 128, 128, 0.2);
+        }
+
     }
 
     .alert{

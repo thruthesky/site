@@ -73,6 +73,9 @@ const firestoreLogCollection = 'user-activity-log';
 
 @Injectable()
 export class AppService {
+
+    environment = environment;
+
     // color: string = null;
 
     // ln;

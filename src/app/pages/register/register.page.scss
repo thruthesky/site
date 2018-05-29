@@ -203,45 +203,34 @@ main{
         margin-bottom:1em;
     }
 
-    .two-col-input{
-        display: flex;
-        align-items: center;
+    .container-fluid{
         margin: auto;
         width:80%;
 
         mat-form-field{
-            margin: 1em auto;
+            width: 100%!important;
         }
-        
 
-        @media screen and (max-width:$sm){
-            flex-direction: column;
-            width: 100%;
+        .col:first-child{
+            padding-left: 0;
 
-            mat-form-field{
-                margin: .5em auto;
+            @media screen and (max-width:$sm){
+                padding: .5em 0;
             }
         }
 
-
-
-        mat-form-field:first-child{
-            @media screen and (min-width:$md){
-                margin-right: 1em;
+        .col:last-child{
+            padding-right: 0;
+            @media screen and (max-width:$sm){
+                padding: .5em 0;
             }
         }
 
-        mat-form-field:last-child{
-            @media screen and (min-width:$md){
-                margin-left: 1em;
+        .row{
+            padding: .8em 0;
+            @media screen and (max-width:$sm){
+                padding:0;
             }
-        }
-
-        .custom-mat{
-            @media screen and (min-width:$md){
-                width: 100%;
-            }
-            margin:0!important
         }
     }
 
