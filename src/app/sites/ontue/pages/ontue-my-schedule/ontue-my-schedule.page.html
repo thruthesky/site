@@ -3,13 +3,20 @@
 </header>
 <main>
     <div class="container-fluid">
-        <div class="row">
-            <div class="info col-5">
-                <div>Your ID No: <span>{{ a.user.id }}</span></div>
-                <div>Your timezone: <span>{{ timezone_name }}</span></div>
-                <div>Your time is now: <span>{{ time }}</span></div>
+        <div class="info-wrapper row">
+            <div class="info col-2">
+                <div>Your ID No</div>
+                <div>{{ a.user.id }}</div>
             </div>
-            <div class="buttons col-7">
+            <div class="info col-2">
+                <div>Your timezone</div>
+                <div> {{ timezone_name }}</div>
+            </div>
+            <div class="info col-3">
+                <div>Your time is now</div>
+                <div>{{ time }}</div>
+            </div>
+            <div class="buttons col-5">
                 <button class="add-schedule" *ngIf="data" (click)="onClickScheduleAdd()">
                     <svg aria-hidden="true" data-prefix="fal" data-icon="calendar-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M320 332v8c0 6.6-5.4 12-12 12h-68v68c0 6.6-5.4 12-12 12h-8c-6.6 0-12-5.4-12-12v-68h-68c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h68v-68c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v68h68c6.6 0 12 5.4 12 12zm128-220v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v52h192V12c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-416 0v48h384v-48c0-8.8-7.2-16-16-16H48c-8.8 0-16 7.2-16 16zm384 352V192H32v272c0 8.8 7.2 16 16 16h352c8.8 0 16-7.2 16-16z"></path></svg>
                     Add Schedule
