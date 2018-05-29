@@ -237,19 +237,24 @@ const routes: Routes = [
   //   data: { category: 'rules' }
   // },
   {
-    path: 'reminder',
+    path: 'reminders',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { slug: 'reminder' }
+    data: { slug: 'reminders' }
   },
   {
     path: 'termsAndConditions',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { slug: 'termsAndConditions' }
+    data: { slug: 'termsandconditions' }
   },
   {
     path: 'policy',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
     data: { slug: 'policy' }
+  },
+
+  {
+    path: 'post/:ID',
+    loadChildren: './pages/post/post.page.module#PostPageModule'
   },
 
   {

@@ -45,16 +45,11 @@ export class ForumPage implements OnInit {
 
     loadPosts( slug: string ) {
 
-        const url = this.a.urlBackend + '/wp-json/wp/v2/posts';
+        const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment['categories'][slug];
         console.log('api: ', url);
 
-        const params = new HttpParams();
-        params.set('slug', slug);
-        const options = {
-            params: params
-        };
 
-        this.http.get(url, options).subscribe((posts: Array<WP_POST>) => {
+        this.http.get(url).subscribe((posts: Array<WP_POST>) => {
             console.log('posts: ', posts);
 
             if (posts && posts.length) {

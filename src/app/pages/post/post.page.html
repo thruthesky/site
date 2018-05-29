@@ -1,0 +1,5 @@
+
+<div class="post" *ngIf=" post ">
+    {{ post.title.rendered }}
+    <div class="content" [innerHTML]=" post.safe_content "></div>
+</div>
