@@ -28,7 +28,7 @@
 
 <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
 
-    <div class="tr schedule-header">
+    <div class="tr schedule-header" [class.teacher-schedule-header]="a.teacherTheme">
         <div class="td profile-header" *ngIf=" isAllTeacher ">
             {{ 'TEACHER' | t }}
         </div>
