@@ -113,16 +113,11 @@
                                 </div>
                         </mat-form-field>
 
-                        <!-- <mat-form-field appearance="outline">
-                                <mat-label>{{ 'Year you start teaching' | t }}</mat-label>
-                                <input class="removed" type="text" matInput disabled>
-                                <ion-datetime displayFormat="YYYY" [(ngModel)]="account.experience" name="experience"></ion-datetime>
-                        </mat-form-field> -->
-
                         <mat-form-field appearance="outline" (click)="yeardp.open()">
                                 <mat-label>{{ 'Year you start teaching' | t }}</mat-label>
                                 <input class="removed" type="text" matInput value="dummy" disabled>
                                 <div>{{ account.experience }}</div>
+                                <div *ngIf="!account.experience">Select Year</div>
                                 <input [(ngModel)]="account.experience" name="experience"
                                         matInput [matDatepicker]="yeardp" disabled style="display: none;">
                                 <mat-datepicker #yeardp startView="multi-year" 
