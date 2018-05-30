@@ -4,28 +4,29 @@ header{
     align-items: center;
     background-color: #795548;
     color: #fff;
-    font-size: 90%;
-    font-weight: 100;
 
     h1{
-        margin: 0 1.3em;
-        font-weight: 500;
+        margin: 0;
+        padding: .8em ;
+        padding-left: 2em;
+        font-size: 1.17em;
+        font-weight: bold;
+        text-transform: uppercase;
     }
-
-
 
     .option{
         display: flex;
         padding: 1.5em;
         font-weight: 200;
         cursor: pointer;
+        font-size: 80%;
 
         ion-icon{
-            margin-right: .2em;
+            margin-left: .3em;
         }
     }
-    
 }
+
 
 main{
     padding-bottom: 5em;

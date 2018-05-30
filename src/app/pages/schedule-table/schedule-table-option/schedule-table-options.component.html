@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="minutes" *ngIf=" chip.show == 'minutes' ">
-        <mat-form-field>
+        <mat-form-field >
                 <mat-select name="duaration" [(ngModel)]="form.max_duration" (selectionChange)="onSearchSubmit()">
                     <mat-option value="4">{{ 'LESS_THAN' | t:{'MIN':4} }}</mat-option>
                     <mat-option value="9">{{ 'LESS_THAN' | t:{'MIN':9} }}</mat-option>
@@ -47,7 +47,7 @@
                     <mat-option value="120">{{ 'LESS_THAN' | t:{'MIN':120} }}</mat-option>
                 </mat-select>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field >
                 <mat-select name="duaration" [(ngModel)]="form.min_duration" (selectionChange)="onSearchSubmit()">
                     <mat-option value="0">{{ 'MORE_THAN' | t:{'MIN':0} }}</mat-option>
                     <mat-option value="5">{{ 'MORE_THAN' | t:{'MIN':5} }}</mat-option>
@@ -63,7 +63,7 @@
         </mat-form-field>
     </div>
     <div class="points" *ngIf=" chip.show == 'points' ">
-    <mat-form-field>
+    <mat-form-field >
         <mat-select placeholder="{{'ABOVE_POINT' | t }}" name="point" [(ngModel)]="form.min_point" (selectionChange)="onSearchSubmit()">
             <mat-option value="0">0</mat-option>
             <mat-option value="500">500</mat-option>
@@ -74,7 +74,7 @@
             <mat-option value="5000">5000</mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field >
         <mat-select placeholder="{{'BELOW_POINT' | t }}" name="point" [(ngModel)]="form.max_point" (selectionChange)="onSearchSubmit()">
             <mat-option value="499">499</mat-option>
             <mat-option value="999">999</mat-option>
@@ -89,8 +89,8 @@
     </div>
 
     <div class="weekends" *ngIf=" chip.show == 'weekends' ">
-        <span>{{'WEEKEND' | t }}</span>
-        <mat-form-field>
+        <mat-form-field >
+            <mat-label>{{'WEEKEND' | t }}</mat-label>
             <mat-select name="weekend" [(ngModel)]="form.display_weekends" (selectionChange)="onSearchSubmit()">
                 <mat-option value="499">{{'DISPLAY' | t }}</mat-option>
                 <mat-option value="999">{{'HIDE' | t }}</mat-option>
@@ -99,8 +99,8 @@
     </div>
 
     <div class="days" *ngIf=" chip.show == 'days' ">
-        <span>{{ 'NO_OF_DAYS' |t}}</span>
-        <mat-form-field>
+        <mat-form-field >
+            <mat-label>{{ 'NO_OF_DAYS' |t}}</mat-label>
             <mat-select  name="days" [(ngModel)]="form.days"  (selectionChange)="onSearchSubmit()">
                 <mat-option value="5">5</mat-option>
                 <mat-option value="6">6</mat-option>
@@ -113,7 +113,11 @@
         </mat-form-field>
     </div>
 
-    <div class="close" (click)=" chip.show = '' ">
-        <button>[X] {{ 'CLOSE' | t}}</button>
+    <div class="close" (click)=" chip.show = '' "
+         [class.close-hours-margin]="chip.show == 'hours'">
+        <button>
+            <ion-icon name="close"></ion-icon>
+            {{ 'CLOSE' | t}}
+        </button>
     </div>
 </div>

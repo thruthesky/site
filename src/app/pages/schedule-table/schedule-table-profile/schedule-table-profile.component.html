@@ -86,8 +86,8 @@
     </ng-template>
 
 </ng-container>
-<div class="single-teacher">
-    <div class="video-container"  *ngIf=" isSingleTeacher && urlYoutube  ">
+<div class="single-teacher"  *ngIf=" isSingleTeacher && urlYoutube  ">
+    <div class="video-container" >
         <iframe class="youtube-video" [src]=" urlYoutube "></iframe>
     </div>
 </div>

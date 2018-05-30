@@ -80,7 +80,7 @@
     "FORUM": "Forum",
     "Help": "Help",
     "CLASS_COMMENTS": "Comments",
-    "TEACHER_LIST": "Teacher List",
+    "TEACHER_LIST": "Teachers",
     "ALL_SCHEDULE": "Schedules",
     "PAYMENT": "Payment",
     "PAYMENT_HISTORY": "Payment history",
@@ -354,7 +354,7 @@
     "RECOMMENDED_TEACHER":"Recommended Teacher",
     "TEACHER_LIST_REMINDER":"In this page, you will see recommended teachers who are mostly visible to students. Other teachers' profile will be available by search.",
     "RECOMMENDATION":"Rating",
-    "PARTICIPATED":"People Participated",
+    "PARTICIPATED":"Session",
     "INSTRUCTOR_MORE":"More Instructor",
 
     "PAYMENT_PAGE_TITLE": "Pay as much as you want and make as many classes as you want.",
