@@ -189,6 +189,13 @@ export class AppService {
      */
     DEFAULT_DAYS_TO_SHOW_ON_PAST_PAGE = 90; // 90 days.
 
+    kakaoUrls = {
+        student_kakaoplus_url: 'http://pf.kakao.com/_eIxgAC',
+        student_kakaoplus_deeplink: 'kakaoplus://plusfriend/home/@katalkenglish',
+        teacher_kakaoplus_url: 'http://pf.kakao.com/_RcxbRC',
+        teacher_kakaoplus_deeplink: 'kakaoplus://plusfriend/home/@ontue'
+    };
+
     constructor(
         public ngZone: NgZone,
         public router: Router,
@@ -1352,8 +1359,15 @@ export class AppService {
         return window['detect_ie_version']();
     }
 
-    onClickContactAdmin() {
+    onClickContactAdmin(event?: Event) {
         //
+        if (event) {
+            event.preventDefault();
+        }
+
+        window.open(this.kakaoUrls.student_kakaoplus_deeplink);
+
+        return false;
     }
 
 
