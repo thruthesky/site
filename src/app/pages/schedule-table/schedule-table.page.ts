@@ -137,6 +137,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             if (re.table.length) {
                 if (this.isSingleTeacher) {         // if single teacher.
                     this.re = re;
+                    this.a.onUserViewProfile( this.teacher_name( re.table[0] ) );
                 } else {
                     const table: TABLE = re.table;
                     re.table = [];

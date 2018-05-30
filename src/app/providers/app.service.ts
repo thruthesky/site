@@ -258,6 +258,9 @@ export class AppService {
         }, 10000);
 
         // fire.user.loginAnonymously();
+
+
+        this.listenActivityLog();
     }
 
     get ln(): any {
@@ -1208,6 +1211,7 @@ export class AppService {
         if (!teacher_name) {
             return;
         }
+        // console.log('onUserViewProfile', teacher_name);
         this.log({ idx_user: this.user.id, name: this.user.name, activity: 'view-profile', target: teacher_name });
     }
 
@@ -1311,12 +1315,12 @@ export class AppService {
      * @note inLoadingMyPoint will be set true on loading.
      * @param callback callback
      */
-    loadMyPoint(callback, loaderTmeout = 0) {
+    loadMyPoint(callback, loaderTimeout = 0) {
         this.inLoadingMyPoint = true;
         this.lms.my_point().subscribe(re => {
             let point = re['point'];
             point = this.number_format(point);
-            setTimeout(() => this.inLoadingMyPoint = false, loaderTmeout);
+            setTimeout(() => this.inLoadingMyPoint = false, loaderTimeout);
             callback(point);
             this.render();
         }, e => {
