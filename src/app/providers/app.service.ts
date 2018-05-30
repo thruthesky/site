@@ -1262,6 +1262,7 @@ export class AppService {
                     data['date'] = this.serverTime(data['stamp']);
                     this.activity_log.push(data);
                 });
+                console.log('activity log', this.activity_log);
             }).catch(error => {
                 console.log('Error getting document:', error);
             });
