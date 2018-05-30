@@ -7,6 +7,9 @@ header{
         font-size: 1.17em;
         font-weight: bold;
         text-transform: uppercase;
+        @media screen and (max-width:$sm){
+            font-size: 1em;
+        }
     }
 
     div{

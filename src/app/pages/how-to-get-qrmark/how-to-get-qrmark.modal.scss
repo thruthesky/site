@@ -3,10 +3,9 @@ header{
     margin: 0;
     h1{
         margin: 0;
-        padding: 1em;
-        background: dodgerblue;
-        color:#fff;
-        font-size: .8em
+        margin-top: -.5em;
+        padding-bottom: .5em;
+        font-size: 1em
     }
 }
 
@@ -17,6 +16,14 @@ main{
     background: #fff;
     line-height: 1.6em;
     font-family: Helvetica, arial, sans-serif;
+
+    @media screen and (max-width:$sm){
+       font-size: 80%;
+
+       .mat-dialog-container{
+           padding-top: 0;
+       }
+    }
 
 
     .content{
@@ -41,5 +48,9 @@ main{
                 width: 100%
             }
         }
+    }
+
+    .mat-dialog-actions{
+       justify-content: center;
     }
 }

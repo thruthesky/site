@@ -16,6 +16,11 @@ main{
     padding: 3em 0;
     background: #fff;
 
+
+    .removed-padding{
+        padding: 0!important;
+    }
+
     .loader {
         margin: 1em auto;
         width: 80%;
@@ -107,13 +112,10 @@ main{
             }
 
             .hint{
-                display: flex;
-                align-items: center;
                 text-transform: uppercase;
-                font-size: 1.1em;
-
                 svg{
-                    margin-left: .5em;
+                    margin-bottom: -.13em;
+                    margin-left: .3em;
                     height: 1em;
                 }
 
@@ -161,6 +163,7 @@ main{
                 cursor: pointer;
             }
         }
+
 
 
         .qr-mark{
