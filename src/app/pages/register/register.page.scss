@@ -108,11 +108,11 @@ main{
             .hint{
                 display: flex;
                 align-items: center;
-                color: dodgerblue;
-
+                text-transform: uppercase;
+                color: darkorange;
                 svg{
                     margin-left: .5em;
-                    height: 1.3em;
+                    height: 1em;
                 }
             }
 
@@ -136,6 +136,11 @@ main{
             }
 
 
+        }
+
+        .timezone{
+            width: 79%;
+            margin-bottom: .5em;
         }
 
 
