@@ -68,7 +68,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             } else {
                 this.form.teachers = [];
             }
-            this.loadScheduleaAndDisplay(this.form);
+            this.loadScheduleAndDisplay(this.form);
         });
 
 
@@ -114,7 +114,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         // }
         // console.log('onSearchSubmit(): ', this.form);
         this.form.useCache = false;
-        this.loadScheduleaAndDisplay(this.form);
+        this.loadScheduleAndDisplay(this.form);
         return false;
     }
 
@@ -126,7 +126,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
      *      - translate timezone into their country language.
      *      - log `activity log` into firebase.
      */
-    loadScheduleaAndDisplay(options) {
+    loadScheduleAndDisplay(options) {
         this.re = null;
         this.show.schedule_loader = true;
         this.a.loadSchedule(options, re => {
@@ -137,19 +137,20 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
             if (re.table.length) {
                 if (this.isSingleTeacher) {         // if single teacher.
                     this.re = re;
+                    this.a.onUserViewProfile( this.teacher_name( re.table[0] ) );
                 } else {
                     const table: TABLE = re.table;
                     re.table = [];
                     this.re = re;
                     this.re.table.push(table.shift());
-                    this.dispalyRows(table);
+                    this.displayRows(table);
                 }
             } else {            // if there is no schedule.
                 this.re = re;
             }
         });
     }
-    dispalyRows(table) {
+    displayRows(table) {
         if (table && table.length) {
             setTimeout(() => {
                 // console.log(this.re);
@@ -158,7 +159,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
                  */
                 if (this.re && this.re.table) {
                     this.re.table.push(table.shift());
-                    this.dispalyRows(table);
+                    this.displayRows(table);
                 }
                 // if (table && table.length) {
                 //     this.re.table.push(table.shift());
@@ -180,7 +181,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
     onClickNavigate(navigate) {
         this.form.navigate = navigate;
         this.form.useCache = false;
-        this.loadScheduleaAndDisplay(this.form);
+        this.loadScheduleAndDisplay(this.form);
     }
 
 
@@ -313,7 +314,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
 
     /**
      * Returns teacher name after sanitizing ( shorten )
-     * @param session a session
+     * @param sessions a session
      */
     teacher_name(sessions: Array<any> = null): string {
         let name = 'No Name';
