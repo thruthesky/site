@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import '../../../../../theme/vars.scss';
 section{
     @media screen and (max-width:$sm) {
@@ -83,23 +82,4 @@ section{
     .comment-alt{
         color: indigo
     }
-=======
-section {
-  height: 100%;
-  background: #fff;
-  outline: 1px solid #e9ecef;
-  font-size: 90%;
-  .title {
-    padding: .7em;
-    background: rgba(112, 112, 112, .6);
-    text-align: center;
-    color: #fff;
-  }
-
-  .icon {
-    svg {
-      height: 1em;
-    }
-  }
->>>>>>> 9336773889f3405d05fc0beba1a4bc78a40d070f
 }
