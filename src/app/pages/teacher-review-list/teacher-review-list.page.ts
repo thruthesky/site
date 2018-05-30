@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../providers/app.service';
 import { STUDENT_COMMENTS_TO_TEACHER } from '../../modules/xapi/interfaces';
 import { AlertController } from '@ionic/angular';
+import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../../components/modal/confirm/confirm.modal';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -40,6 +42,7 @@ export class TeacherReviewListPage {
     constructor(public a: AppService,
                 public router: Router,
                 public active: ActivatedRoute,
+                public dialog: MatDialog,
                 public alertCtrl: AlertController
     ) {
         this.active.queryParams.subscribe(params => {
@@ -90,40 +93,72 @@ export class TeacherReviewListPage {
 
     async onClickDelete(comment) {
 
-        const confirm = await this.alertCtrl.create({
-            header: this.a.t('DELETE COMMENT'),
-            subHeader: this.a.t('CONFIRM DELETE COMMENT'),
-            buttons: [
-                {
-                    text: this.a.t('YES'),
-                    handler: () => {
-                        // console.log('Yes');
-                        this.showLoader = true;
-                        const data = {
-                            idx: comment.idx
-                        };
-                        this.a.lms.student_comment_to_teacher_delete(data).subscribe(res => {
-                            // console.log("student_comment_to_teacher_delete:: ", res);
-                            if (res['idx'] === comment.idx) {
-                                comment.idx = '';
-                                this.a.toast('Comment Deleted...');
-                            }
-                            this.showLoader = false;
-                        }, e => {
-                            this.a.toast(e);
-                            this.showLoader = false;
-                        });
-                    }
-                },
-                {
-                    text: this.a.t('CANCEL'),
-                    handler: () => {
-                        // console.log('cancel');
-                    }
-                }
-            ]
+        // const confirm = await this.alertCtrl.create({
+        //     header: this.a.t('DELETE COMMENT'),
+        //     subHeader: this.a.t('CONFIRM DELETE COMMENT'),
+        //     buttons: [
+        //         {
+        //             text: this.a.t('YES'),
+        //             handler: () => {
+        //                 // console.log('Yes');
+        //                 this.showLoader = true;
+        //                 const data = {
+        //                     idx: comment.idx
+        //                 };
+        //                 this.a.lms.student_comment_to_teacher_delete(data).subscribe(res => {
+        //                     // console.log("student_comment_to_teacher_delete:: ", res);
+        //                     if (res['idx'] === comment.idx) {
+        //                         comment.idx = '';
+        //                         this.a.toast('Comment Deleted...');
+        //                     }
+        //                     this.showLoader = false;
+        //                 }, e => {
+        //                     this.a.toast(e);
+        //                     this.showLoader = false;
+        //                 });
+        //             }
+        //         },
+        //         {
+        //             text: this.a.t('CANCEL'),
+        //             handler: () => {
+        //                 // console.log('cancel');
+        //             }
+        //         }
+        //     ]
+        // });
+        // confirm.present();
+
+        const dialogRef = this.dialog.open(ConfirmModal, {
+            data: <_CONFIRM_DATA_OPTION>{
+                header: this.a.t('DELETE COMMENT'),
+                content: this.a.t('CONFIRM DELETE COMMENT'),
+                actionYes: this.a.t('YES'),
+                actionNo: this.a.t('CANCEL')
+            }
         });
-        confirm.present();
+
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed', result);
+            if ( result ) {
+                this.showLoader = true;
+                const data = {
+                    idx: comment.idx
+                };
+                this.a.lms.student_comment_to_teacher_delete(data).subscribe(res => {
+                    // console.log("student_comment_to_teacher_delete:: ", res);
+                    if (res['idx'] === comment.idx) {
+                        comment.idx = '';
+                        this.a.toast('Comment Deleted...');
+                    }
+                    this.showLoader = false;
+                }, e => {
+                    this.a.toast(e);
+                    this.showLoader = false;
+                });
+            }
+        });
+
     }
 
 
