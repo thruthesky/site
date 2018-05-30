@@ -2,27 +2,16 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1em 0;
   background-color: #2196f3;
   color: #fff;
-  font-size: 90%;
-  font-weight: 100;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
 
   h1{
-    display: flex;
-    padding: 1.3em 0;
-    margin: 0 1.3em;
+    margin: 0 2em;
     font-weight: 500;
-  }
-
-  .option{
-    display: flex;
-    padding: 1.5em;
-    font-weight: 200;
-    cursor: pointer;
-
-    ion-icon{
-      margin-right: .2em;
-    }
   }
 
 }

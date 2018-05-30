@@ -3,12 +3,12 @@ header {
     margin: 0;
     h2{
         margin: 0;
-        padding:.7em 1.5em;
+        padding:.7em 1.7em;
         background-color: #535bcb;
         color: #fff;
-        font-size: 1.3em;
-        font-weight: lighter;
-        font-family:   Helvetica, Arial, sans-serif;
+        font-size: 1.17em;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 
     @media screen and (max-width: $sm) {
@@ -22,7 +22,7 @@ header {
     text-align: center;
     background: #fff;
     @media screen and (max-width: $md) {
-        font-size: 11px;
+        font-size: 10.5px;
     }
     .schedule-header {
         position: sticky;
