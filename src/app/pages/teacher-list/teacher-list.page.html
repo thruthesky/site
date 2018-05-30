@@ -1,149 +1,151 @@
-<section class="teacher-list">
-    <section class="page-header">
-        <h2 *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST_PAGE_TITLE' | t }}</h2>
-        <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</h2>
-        <button (click)=" display_options = !display_options " *ngIf=" ! display_options ">
-                {{ "OPTIONS" | t }}
-            <ion-icon name="options"></ion-icon>
-        </button>
-    </section>
 
+<header>
+    <h2 *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST_PAGE_TITLE' | t }}</h2>
+    <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</h2>
+    <a (click)=" display_options = !display_options " *ngIf=" ! display_options ">
+            {{ "OPTIONS" | t }}
+        <ion-icon name="options"></ion-icon>
+    </a>
+</header>
+
+<main>
     <section class="page-options" *ngIf=" display_options ">
-        <div class="container-fluid">
-            <div class="row divide">
-                <div class="col-8">
-                    <div>{{ "TEACHER_LIST_OPTIONS" | t }}</div>
+            <div class="container-fluid">
+                <div class="row divide">
+                    <div class="col-8">
+                        <div>{{ "TEACHER_LIST_OPTIONS" | t }}</div>
+                    </div>
+                    <div class="col-4">
+                        <button (click)=" display_options = false ">
+                            <ion-icon name="ios-close"></ion-icon>
+                            <span>{{ 'CLOSE' | t }}</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <button (click)=" display_options = false ">
-                        <ion-icon name="ios-close"></ion-icon>
-                        <span>{{ 'CLOSE' | t }}</span>
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-
-                    <mat-form-field>
-                        <mat-select [(value)]="gender" (selectionChange)=" onChangeOption() " placeholder="{{ 'GENDER' | t }}">
-                            <mat-option value="F">{{"FEMALE" | t}}</mat-option>
-                            <mat-option value="M">{{"MALE" | t}}</mat-option>
-                            <mat-option value="">{{"ALL" | t}}</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-
-                </div>
-
-                <div class="col">
-
-                    <mat-form-field>
-                        <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() " placeholder="{{ 'TEACHER_GRADE' | t }}">
-                            <mat-option value="Y">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
-                            <mat-option value="M">{{"ALL_TEACHER" | t}}</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="page-desc">
-
-        <div *ngIf=" re && a.studentTheme ">
-            <div *ngIf="a.user.isLogin ">
-                <div>{{'TEACHER_LIST_IS_LOGIN' | t : { 
-                    'USERNAME' : a.user.name, 
-                    'TOTAL' : re.total, 
-                    'RESERVATIONS' :a.lmsInfoUserNoOfReservation, 
-                    'PASTS' :a.lmsInfoUserNoOfPast 
-                } }}
-                </div>
-            </div>
-
-            <div *ngIf="a.user.isLogout ">
-                <div>{{'TEACHER_LIST_IS_LOGOUT' | t : { 'TOTAL' : re.total } }}</div>
-            </div>
-
-        </div>
-
-
-
-        <div *ngIf=" a.teacherTheme ">
-            {{ 'TEACHER_LIST_REMINDER' | t}}
-        </div>
-
-
-    </section>
-
-    <section class="page-body">
-
-
-
-        <div class="teachers">
-            <div class="container-fluid" *ngIf=" re ">
                 <div class="row">
-                    <div class="col" *ngFor="let teacher of teachers" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
-                        <div class="profile-wrapper hover-img-effect">
-                            <div class="hover-cover">
-                                <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="external-link-square" role="img" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512" data-fa-i2svg="">
-                                    <path fill="currentColor" d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z"></path>
-                                </svg>
-                            </div>
-                            <div class="teacher-profile-photo">
-                                <img class="w-100" alt="profile photo" src="{{ teacher.photoURL }}">
-                            </div>
-                            <div class="name">{{ a.shortName( teacher.display_name )}}</div>
-                            <div class="grade" [attr.grade]=" teacher.grade ">
-                                <span *ngIf="teacher.grade!=0">{{ 'RECOMMENDATION' | t}}:</span>
-                                <span>
-                                    <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 576 512" data-fa-i2svg="">
-                                        <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                    <div class="col">
+    
+                        <mat-form-field>
+                            <mat-select [(value)]="gender" (selectionChange)=" onChangeOption() " placeholder="{{ 'GENDER' | t }}">
+                                <mat-option value="F">{{"FEMALE" | t}}</mat-option>
+                                <mat-option value="M">{{"MALE" | t}}</mat-option>
+                                <mat-option value="">{{"ALL" | t}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+    
+                    </div>
+    
+                    <div class="col">
+    
+                        <mat-form-field>
+                            <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() " placeholder="{{ 'TEACHER_GRADE' | t }}">
+                                <mat-option value="Y">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
+                                <mat-option value="M">{{"ALL_TEACHER" | t}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+    
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    
+        <section class="page-desc">
+    
+            <div *ngIf=" re && a.studentTheme ">
+                <div *ngIf="a.user.isLogin ">
+                    <div>{{'TEACHER_LIST_IS_LOGIN' | t : { 
+                        'USERNAME' : a.user.name, 
+                        'TOTAL' : re.total, 
+                        'RESERVATIONS' :a.lmsInfoUserNoOfReservation, 
+                        'PASTS' :a.lmsInfoUserNoOfPast 
+                    } }}
+                    </div>
+                </div>
+    
+                <div *ngIf="a.user.isLogout ">
+                    <div>{{'TEACHER_LIST_IS_LOGOUT' | t : { 'TOTAL' : re.total } }}</div>
+                </div>
+    
+            </div>
+    
+    
+    
+            <div *ngIf=" a.teacherTheme ">
+                {{ 'TEACHER_LIST_REMINDER' | t}}
+            </div>
+    
+    
+        </section>
+    
+        <section class="page-body">
+    
+    
+    
+            <div class="teachers">
+                <div class="container-fluid" *ngIf=" re ">
+                    <div class="row">
+                        <div class="col" *ngFor="let teacher of teachers" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
+                            <div class="profile-wrapper hover-img-effect">
+                                <div class="hover-cover">
+                                    <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="external-link-square" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 448 512" data-fa-i2svg="">
+                                        <path fill="currentColor" d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z"></path>
                                     </svg>
-                                </span>
-                            </div>
-                            <div class="reservation">
-                                ({{ teacher.total_reservation }}  {{ 'PARTICIPATED' | t}})
+                                </div>
+                                <div class="teacher-profile-photo">
+                                    <img class="w-100" alt="profile photo" src="{{ teacher.photoURL }}">
+                                </div>
+                                <div class="name">{{ a.shortName( teacher.display_name )}}</div>
+                                <div class="grade" [attr.grade]=" teacher.grade ">
+                                    <span class="title" *ngIf="teacher.grade!=0">{{ 'RECOMMENDATION' | t}} : </span>
+                                    <span class="star">
+                                        <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 576 512" data-fa-i2svg="">
+                                            <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="reservation">
+                                    ( {{ teacher.total_reservation }}  {{ 'PARTICIPATED' | t}} )
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <div class="loader" *ngIf=" show.loadTeacher ">
-            <div>
-                <ion-spinner></ion-spinner>
+    
+    
+            <div class="loader" *ngIf=" show.loadTeacher ">
                 <div>
-                    {{ 'IN LOADING' | t }}..
+                    <ion-spinner></ion-spinner>
+                    <div>
+                        {{ 'IN LOADING' | t }}..
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="showmoreteacher-wrapper" *ngIf=" ! noMoreTeachers && ! show.loadTeacher">
-            <button (click)=" onClickShowMoreTeacher()">
-                <span> {{ 'INSTRUCTOR_MORE' | t}}</span>
-                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M348.5 264l-148 148.5c-4.7 4.7-12.3 4.7-17 0L35.5 264c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l115.4 116V44c0-6.6 5.4-12 12-12h10c6.6 0 12 5.4 12 12v311.9L324.4 240c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.6 4.7 12.2 0 16.9zM384 468v-8c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h360c6.6 0 12-5.4 12-12z"></path></svg>
-            </button>
-        </div>
-
-        <div *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
-            <i class="middle-line fal fa-ellipsis-h fa-7x darkgrey"></i>
-        </div>
-
-        <div id="no-more-teachers" *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
-
-            <div>{{ 'NO_MORE_TEACHERS' | t }}</div>
-            <button (click)="onClickShowAllTeachers() ">
-                <span>{{ 'GOTO_OPTIONS' | t}}</span>
-                <ion-icon name="options"></ion-icon>
-            </button>
-        </div>
-
-    </section>
-
-</section>
+    
+            <div class="showmoreteacher-wrapper" *ngIf=" ! noMoreTeachers && ! show.loadTeacher">
+                <button (click)=" onClickShowMoreTeacher()">
+                    <span> {{ 'INSTRUCTOR_MORE' | t}}</span>
+                    <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M348.5 264l-148 148.5c-4.7 4.7-12.3 4.7-17 0L35.5 264c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l115.4 116V44c0-6.6 5.4-12 12-12h10c6.6 0 12 5.4 12 12v311.9L324.4 240c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.6 4.7 12.2 0 16.9zM384 468v-8c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h360c6.6 0 12-5.4 12-12z"></path></svg>
+                </button>
+            </div>
+    
+            <!-- <div *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
+                <i class="middle-line fal fa-ellipsis-h fa-7x darkgrey"></i>
+            </div> -->
+    
+            <div id="no-more-teachers" *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
+    
+                <div>{{ 'NO_MORE_TEACHERS' | t }}</div>
+                <button (click)="onClickShowAllTeachers() ">
+                    <span>{{ 'GOTO_OPTIONS' | t}}</span>
+                    <ion-icon name="options"></ion-icon>
+                </button>
+            </div>
+    
+        </section>
+        
+</main>
+    

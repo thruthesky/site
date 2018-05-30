@@ -1,17 +1,45 @@
+@import '../../../theme/vars.scss';
+header{
+    h1{
+        margin: 0;
+        padding: .8em 1.6em;
+        background: #ef6c00;
+        color:#fff;
+        font-size: 1.17em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
 main{
+    padding:2em 0;
+    @media screen and (max-width:$sm){
+        padding: 1em;
+    }
     min-height: 540px;
     .post{
         margin-bottom: 1.5em;
+        @media screen and (max-width:$sm){
+            margin-bottom: 1em;
+        }
         h2{
             margin: 0;
-            padding: 1em 2em;
+            padding: .7em 1.7em;
+            @media screen and (max-width:$sm){
+                padding: .7em;
+            }
             background: #e2e2e2;
+            font-size: 1.1em;
         }
 
         div{
-            padding: 2em 3em;
-            border: 1px solid rgba(128, 128, 128, 0.2);
+            padding: 1em 2.1em;
+            @media screen and (max-width:$sm){
+                padding: 1em;
+            }
+            border: 1px solid rgba(128, 128, 128, 0.1);
             background: #fff;
+            font-size: 90%;
+            font-weight: 300;
         }
     }
 

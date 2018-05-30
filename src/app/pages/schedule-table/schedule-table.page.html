@@ -6,11 +6,9 @@
     ></schedule-table-profile-component>
 
 <!--/single-teacher-->
-<div class="multiple-teachers" *ngIf=" isAllTeacher ">
-    <section class="page-header">
-        <h2 class="title">{{ "ALL SCHEDULE" | t }}</h2>
-    </section>
-</div>
+    <header *ngIf=" isAllTeacher ">
+        <h2>{{ "ALL SCHEDULE" | t }}</h2>
+    </header>
 <!--/multiple-teachers-->
 
 

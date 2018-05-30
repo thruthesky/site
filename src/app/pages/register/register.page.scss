@@ -1,19 +1,25 @@
 @import '../../../theme/vars';
 header {
-    padding: 1em;
+    padding: 1em 2em;
     background-color: #673ab7;
-    color: white;
+    color: #fff;
 
     h2 {
         margin: 0 !important;
-        font-weight: 300 !important;
-        font-size: 1.25em;
+        font-weight: 500 !important;
+        font-size: 1.17em;
+        text-transform: uppercase;
     }
 }
 
 main{
     padding: 3em 0;
     background: #fff;
+
+
+    .removed-padding{
+        padding: 0!important;
+    }
 
     .loader {
         margin: 1em auto;
@@ -106,14 +112,13 @@ main{
             }
 
             .hint{
-                display: flex;
-                align-items: center;
-                color: dodgerblue;
-
+                text-transform: uppercase;
                 svg{
-                    margin-left: .5em;
-                    height: 1.3em;
+                    margin-bottom: -.13em;
+                    margin-left: .3em;
+                    height: 1em;
                 }
+
             }
 
             .birthday{
@@ -138,6 +143,11 @@ main{
 
         }
 
+        .timezone{
+            width: 79%;
+            margin-bottom: .5em;
+        }
+
 
         .buttons{
             margin: 3em;
@@ -153,6 +163,7 @@ main{
                 cursor: pointer;
             }
         }
+
 
 
         .qr-mark{

@@ -2,19 +2,20 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2196f3;
+  background-color: #795548;
   color: #fff;
-  font-size: 90%;
-  font-weight: 100;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
 
   h1{
-    margin: 0 1.3em;
+    margin: 0 2em;
     font-weight: 500;
   }
 
   .option{
     display: flex;
-    padding: 1.5em;
+    padding: 1em;
     font-weight: 200;
     cursor: pointer;
 
