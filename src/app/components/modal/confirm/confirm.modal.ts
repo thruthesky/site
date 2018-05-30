@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { AppService } from '../../../providers/app.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 
 export interface _CONFIRM_DATA_OPTION {
@@ -17,15 +17,9 @@ export interface _CONFIRM_DATA_OPTION {
 })
 export class ConfirmModal {
 
-    @Inject(MAT_DIALOG_DATA) public data: _CONFIRM_DATA_OPTION = <_CONFIRM_DATA_OPTION>{};
-
     constructor(
         public a: AppService,
-        // public dialogRef: MatDialogRef<ConfirmModal>
+        @Inject(MAT_DIALOG_DATA) public data: _CONFIRM_DATA_OPTION
     ) { }
-
-    // onCloseClick(): void {
-    //     this.dialogRef.close();
-    // }
 
 }
