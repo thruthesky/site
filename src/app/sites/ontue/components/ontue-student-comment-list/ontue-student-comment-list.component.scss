@@ -2,7 +2,7 @@ section{
     height: 100%;
     background: #fff;
     outline: 1px solid #e9ecef;
-    font-size: 90%;
+    font-size: 85%;
 
     .title{
         padding: .7em;
@@ -12,12 +12,12 @@ section{
     }
 
     .body{
-        padding: .6em 0;
+        padding: .5em 0;
 
         .row{
             align-items: center;
             justify-content: center;
-            padding: .6em 1.2em;
+            padding: .7em 1.2em;
 
             &>div{
                 padding: 0;

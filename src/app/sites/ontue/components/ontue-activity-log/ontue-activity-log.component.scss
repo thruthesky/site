@@ -4,9 +4,9 @@ section{
         margin-top:1.4em; 
     }
     height: 469px;
-    background: rgba(255,255,255,.3);
+    outline: rgba(255,255,255,.3);
     outline: 1px solid #e9ecef;
-    font-size: 80%;
+    font-size: 85%;
     overflow: hidden;
     .title{
         padding: .7em;
@@ -17,6 +17,7 @@ section{
 
     .body{
         padding:.8em;
+        font-size: 95%;
         .row{
             align-items: center;
             padding:0;
