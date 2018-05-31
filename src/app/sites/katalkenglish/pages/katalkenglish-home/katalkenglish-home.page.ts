@@ -27,9 +27,7 @@ export class KatalkEnglishHomePage {
     show = {};
 
     constructor(public a: AppService) {
-
         a.warningIeEdge();
-
         this.loadTeachers();
     }
 
