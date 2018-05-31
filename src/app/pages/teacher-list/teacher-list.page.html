@@ -84,7 +84,7 @@
             <div class="teachers">
                 <div class="container-fluid" *ngIf=" re ">
                     <div class="row">
-                        <div class="col" *ngFor="let teacher of teachers" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
+                        <a class="col" *ngFor="let teacher of teachers" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
                             <div class="profile-wrapper hover-img-effect">
                                 <div class="hover-cover">
                                     <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="external-link-square" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@
                                     ( {{ teacher.total_reservation }}  {{ 'PARTICIPATED' | t}} )
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -2,25 +2,27 @@
     <div class="title">Recent Reservations</div>
     <div class="body">
         <ng-container *ngFor="let reservation of reservations; let i=index">
-            <div class="container-fluid" *ngIf="i<3" (click)="a.open('schedule-table', { idx_teacher: reservation.idx_teacher })">
-                <div class="row">
-                    <div class="col-md-4 col-3">
-                        <span class="teacher-photo">
-                            <img  [src]="a.checkPhotoURL(reservation.teacher_photoURL)"/>
-                        </span>
-                    </div>
-                    <div class="col-md-4 col-3">
-                        <div class="teacher-name">{{ a.preTeacherName(reservation.teacher_name) }}</div>
-                        <div  class="time"
-                              [innerHtml]="getFirstTwo(reservation.class_begin)+':'
-                                +getLastTwo(reservation.class_begin)">
+            <a (click)="a.open('schedule-table', { idx_teacher: reservation.idx_teacher })">
+                <div class="container-fluid" *ngIf="i<3">
+                    <div class="row">
+                        <div class="col-md-4 col-3">
+                            <span class="teacher-photo">
+                                <img  [src]="a.checkPhotoURL(reservation.teacher_photoURL)"/>
+                            </span>
+                        </div>
+                        <div class="col-md-4 col-3">
+                            <div class="teacher-name">{{ a.preTeacherName(reservation.teacher_name) }}</div>
+                            <div  class="time"
+                                    [innerHtml]="getFirstTwo(reservation.class_begin)+':'
+                                    +getLastTwo(reservation.class_begin)">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-3">
+                            <span class="date">{{ reservation.display_date }}</span>
                         </div>
                     </div>
-                    <div class="col-md-4 col-3">
-                        <span class="date">{{ reservation.display_date }}</span>
-                    </div>
                 </div>
-            </div>
+            </a>
         </ng-container>
     </div>
 </section>
