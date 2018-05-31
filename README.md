@@ -53,6 +53,7 @@ npm run s                           ; Run with workserver.
 ng s --disable-host-check
 npm run serve:local                 ; Run with local backend server.
 npm run serve:remote                ; Run on production server.
+npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
 ````
 
 ## How to create Category
