@@ -4,14 +4,14 @@
 <main>
 
     <div class="timezone">
-            <div>
-                ({{ timezone_offset > 0 ? "+" + timezone_offset : timezone_offset }})
-                {{ timezone_name }}
-            </div>
+        <div>
+            ({{ timezone_offset > 0 ? "+" + timezone_offset : timezone_offset }})
+            {{ timezone_name }}
+        </div>
 
-            <div> {{ time }}</div>
+        <div> {{ time }}</div>
 
-            <button (click)="dismiss(); a.open('settings')">Update Timezone</button>
+        <button (click)="dismiss(); a.open('settings')">Update Timezone</button>
 
     </div> 
 
@@ -35,16 +35,20 @@
                         Example:<br>
                         20:30 = 8:30pm<br>
                         11:30 = 11:30am<br>
-                        12:30 = 12:30pm<br>
                     </div>
                     
                     <div class="entry">
-                        <label>Hour</label>
-                        <input placeholder="0-23" type="number" min="0" max="23"
-                                name="class_begin_hour" [(ngModel)]="data.class_begin_hour">
-                        <label>: Min</label>
-                        <input autocomplete="on" placeholder="0-60" min="0" max="60"
-                                type="number" name="class_begin_minute" [(ngModel)]="data.class_begin_minute">
+                        <mat-form-field>
+                            <mat-label>Hour</mat-label>
+                            <input matInput placeholder="0-23" type="number" min="0" max="23"
+                            name="class_begin_hour" [(ngModel)]="data.class_begin_hour">
+                        </mat-form-field>
+                        <span>:</span>
+                        <mat-form-field>
+                            <mat-label>Min</mat-label>
+                            <input matInput autocomplete="on" placeholder="0-60" min="0" max="60"
+                            type="number" name="class_begin_minute" [(ngModel)]="data.class_begin_minute">
+                        </mat-form-field>
                     </div>
             
                 </div>
@@ -58,14 +62,15 @@
 
                     <div class="example"> 
                         Example:<br>
-                        120 = 120mins(2hrs)<br>
-                        60 = 60mins(1hr)<br>
-                        30 = 30mins<br>
+                        120 = 120mins ( 2 hours )<br>
+                        60 = 60mins ( 1 hour )<br>
                     </div>
                     
                     <div class="entry">
-                        <label>Min</label>
-                        <input placeholder="1-120" autocomplete="on" type="text" name="duration" [(ngModel)]="data.duration">
+                        <mat-form-field>
+                            <mat-label>Min</mat-label>
+                            <input matInput placeholder="1-120" autocomplete="on" type="text" name="duration" [(ngModel)]="data.duration">
+                        </mat-form-field>
                     </div>
             
                 </div>
@@ -79,15 +84,16 @@
 
                     <div class="example"> 
                         Example:<br>
-                        500 = 500 points<br>
                         1000 = 1000 points<br>
-                        2000 = 2000 points<br>
+                        2500 = 2500 points<br>
                     </div>
 
                     <div class="entry">
-                        <label>Points </label>
-                        <input placeholder="0" autocomplete="on" type="text"
-                        name="point" [(ngModel)]="data.point">
+                        <mat-form-field class="points">
+                            <mat-label>Points</mat-label>
+                            <input matInput placeholder="0" autocomplete="on" type="text"
+                                    name="point" [(ngModel)]="data.point">
+                        </mat-form-field>                        
                     </div>
             
                 </div>

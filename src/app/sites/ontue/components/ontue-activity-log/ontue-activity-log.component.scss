@@ -14,9 +14,11 @@ section {
         text-align: center;
         color: #fff;
     }
-    .body {
-        padding: .8em;
-        .row {
+
+    .body{
+        padding:.8em;
+        font-size: 95%;
+        .row{
             align-items: center;
             padding: 0;
             &>div {

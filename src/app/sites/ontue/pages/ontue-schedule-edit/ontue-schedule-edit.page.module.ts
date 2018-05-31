@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { OntueScheduleEditPage } from './ontue-schedule-edit.page';
+import { MaterialModule } from '../../../../app.material.module';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
         CommonModule,
         FormsModule,
         IonicModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        MaterialModule
     ],
     exports: [
         RouterModule
