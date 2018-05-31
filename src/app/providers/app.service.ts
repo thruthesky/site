@@ -13,15 +13,17 @@ import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 import { firestore } from 'firebase';
+firebase.initializeApp(environment['firebaseConfig']);
+
 import { environment } from './../../environments/environment';
 import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
+
 /**
  * Material SnackBar is included in AppService since it is being used everywhere.
  * It should be used in even app.component or home component page of each site.
  */
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
-firebase.initializeApp(environment['firebaseConfig']);
 
 
 export const SITE_KATALKENGLISH = 'katalkenglish';
@@ -144,7 +146,7 @@ export class AppService {
      *
      * @todo naming. `firebase` instead of `_firebase`.
      */
-    _firebase: {
+    firebase: {
         db: firebase.firestore.Firestore;
         messaging: firebase.messaging.Messaging;
     } = { db: null, messaging: null };
@@ -248,10 +250,10 @@ export class AppService {
         }, 500);
 
 
-        this._firebase.db = firebase.firestore();
+        this.firebase.db = firebase.firestore();
         const settings = {/* your settings... */ timestampsInSnapshots: true }; // 2018-05-07 backward compatibilities for firebase firestore new version.
-        this._firebase.db.settings(settings);
-        this._firebase.messaging = firebase.messaging();
+        this.firebase.db.settings(settings);
+        this.firebase.messaging = firebase.messaging();
         // this.language.setUserLanguage();
 
         setTimeout(() => {
@@ -1107,10 +1109,10 @@ export class AppService {
 
     initWebPushMessage() {
         if ('Notification' in window) {
-            console.log('initWebPushMessage', this._firebase);
-            this._firebase.messaging.requestPermission()
+            console.log('initWebPushMessage', this.firebase);
+            this.firebase.messaging.requestPermission()
                 .then(() => { /// User accepted 'push notification alert'
-                    this._firebase.messaging.getToken()
+                    this.firebase.messaging.getToken()
                         .then(currentToken => { /// Got token
                             this.pushToken = currentToken;
                             // console.log("Got token: ", this.pushToken);
@@ -1125,8 +1127,8 @@ export class AppService {
                     console.error('User rejected/blocked push notification. ', err);
                 });
             // Callback fired if Instance ID token is updated.
-            this._firebase.messaging.onTokenRefresh(() => {
-                this._firebase.messaging.getToken()
+            this.firebase.messaging.onTokenRefresh(() => {
+                this.firebase.messaging.getToken()
                     .then(refreshedToken => { // Token refreshed
                         this.pushToken = refreshedToken;
                         // console.log("Token Refreshed: ", this.pushToken);
@@ -1139,7 +1141,7 @@ export class AppService {
 
             // When the user is on the site(opened the site), the user will not get push notification.
             // Instead, you can do whatever in this handler.
-            this._firebase.messaging.onMessage(payload => {
+            this.firebase.messaging.onMessage(payload => {
                 // console.log("Message received. ", payload);
                 // ...
                 const notification = payload['notification'];
@@ -1240,7 +1242,7 @@ export class AppService {
         // data['name'] = 'test' + (new Date).getTime();
         data['stamp'] = firestore.FieldValue.serverTimestamp();
         // console.log(data);
-        const col = this._firebase.db.collection(firestoreLogCollection);
+        const col = this.firebase.db.collection(firestoreLogCollection);
         col.add(data)
             .then((docRef) => {
                 // console.log("Document written with ID: ", docRef.id);
@@ -1256,12 +1258,12 @@ export class AppService {
         if (!this.teacherTheme) {
             return;
         }
-        const db = this._firebase.db;
+        const db = this.firebase.db;
 
 
         db.collection(firestoreLogCollection)
             .orderBy('stamp', 'desc')
-            .limit(10)
+            .limit(20)
             .get().then(s => {
                 s.forEach(doc => {
                     const data = doc.data();
@@ -1287,7 +1289,7 @@ export class AppService {
                         this.activity_log[i] = data;
                     } else {
                         this.activity_log.unshift(data);
-                        this.activity_log.pop();
+                        // this.activity_log.pop();
                     }
                 });
             }, error => {
