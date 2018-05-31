@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../../components/modal/confirm/confirm.modal';
 import { MatDialog } from '@angular/material';
 
@@ -19,11 +18,11 @@ export class SessionRefundReviewPage implements OnInit {
     loadingRefundReject = false;
     showConfirmReject = false;
 
-    constructor(public router: Router,
+    constructor(
                 public active: ActivatedRoute,
                 public a: AppService,
-                public dialog: MatDialog,
-                public alertCtrl: AlertController) {
+                public dialog: MatDialog
+    ) {
     }
 
     ngOnInit() {

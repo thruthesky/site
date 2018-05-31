@@ -1,14 +1,13 @@
-
-<header>
-    <h2 *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST_PAGE_TITLE' | t }}</h2>
-    <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</h2>
-    <a (click)=" display_options = !display_options " *ngIf=" ! display_options ">
-            {{ "OPTIONS" | t }}
-        <ion-icon name="options"></ion-icon>
-    </a>
-</header>
-
 <main>
+
+    <header>
+        <h2 *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST_PAGE_TITLE' | t }}</h2>
+        <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</h2>
+        <a (click)=" display_options = !display_options " *ngIf=" ! display_options ">
+                {{ "OPTIONS" | t }}
+            <ion-icon name="options"></ion-icon>
+        </a>
+    </header>
     <section class="page-options" *ngIf=" display_options ">
             <div class="container-fluid">
                 <div class="row divide">

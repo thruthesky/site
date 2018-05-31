@@ -11,11 +11,14 @@ header{
     }
 }
 main{
-    padding:2em 0;
     @media screen and (max-width:$sm){
         padding: 1em;
     }
     min-height: 540px;
+
+    section{
+        padding:2em 0;
+    }
     .post{
         margin-bottom: 1.5em;
         @media screen and (max-width:$sm){

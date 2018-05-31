@@ -1,10 +1,9 @@
-
-<header>
-        <h2>{{ 'PAYMENT_PAGE_TITLE' | t }}</h2>
-</header>
     
 <main>
 
+    <header>
+            <h2>{{ 'PAYMENT_PAGE_TITLE' | t }}</h2>
+    </header>
     <div class="loader" *ngIf="inLoadingPaymentRate">
         <i class="fal fa-spinner fa-spin"></i> {{ 'LOADING_PAYMENT_INFORMATION' | t }}
     </div>

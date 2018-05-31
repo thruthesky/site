@@ -73,7 +73,6 @@ main{
     
 
     form{
-
         text-align: center;
 
         mat-form-field{
@@ -150,7 +149,7 @@ main{
 
 
         .buttons{
-            margin: 3em;
+            padding: 3em;
             @media screen and (max-width:$sm){
                 margin-top: 2em;
             }

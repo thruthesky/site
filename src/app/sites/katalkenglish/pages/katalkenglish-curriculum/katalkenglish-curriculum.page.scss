@@ -7,14 +7,16 @@ header{
   }
 
   div{
+    font-size:.9em!important;
+    padding: 1em 1.3em!important;
     background-color: #bababa;
-    padding: 1em 1.3em;
   }
 }
 
 main{
-  padding: 1em;
-  padding-bottom: 5em;
+  section{
+    padding: 1.5em;
+  }
   .status{
     padding: 0;
     padding-top: 1.5em!important;

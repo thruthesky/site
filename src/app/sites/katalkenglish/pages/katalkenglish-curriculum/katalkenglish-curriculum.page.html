@@ -1,37 +1,37 @@
-<header>
-    <h1>{{ 'CURRICULUM_PAGE_TITLE' | t}}</h1>
-    <div>{{ 'CURRICULUM_PAGE_DESC' | t}}</div>
-</header>
 <main>
-    <div  class="status"  *ngIf=" a.isStudent ">
-            <div *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}</div>
-            <div *ngIf=" ! a.lmsInfoBook()">{{ 'CURRICULUM_STAT_2' | t : {'USERNAME':a.user.name} }}</div>
-    </div>
-
-
-    <div>{{ "CURRICULUM_CONTENT_1" | t}}</div>
-
-    <div>{{ "CURRICULUM_CONTENT_2" | t}}</div>
-
-    <div>{{ "CURRICULUM_CONTENT_3" | t}}</div>
-
-    <hr>
-
-    <div>{{ "CURRICULUM_CONTENT_4" | t}}</div>
-
-    <hr>
-
-    <div>{{ "CURRICULUM_CONTENT_5" | t}}</div>
-
-    <div>{{ "CURRICULUM_CONTENT_6" | t}}</div>
-
-    <div>{{ "CURRICULUM_CONTENT_7" | t}}</div>
-
-    <div>{{ "CURRICULUM_CONTENT_8" | t}}</div>
-
-    <div>{{ "CURRICULUM_CONTENT_9" | t}}</div>
-
-    <div>{{ "CURRICULUM_CONTENT_10" | t}}</div>
-
-
+    <header>
+        <h1>{{ 'CURRICULUM_PAGE_TITLE' | t}}</h1>
+        <div>{{ 'CURRICULUM_PAGE_DESC' | t}}</div>
+    </header>
+    <section>
+            <div  class="status"  *ngIf=" a.isStudent ">
+                    <div *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}</div>
+                    <div *ngIf=" ! a.lmsInfoBook()">{{ 'CURRICULUM_STAT_2' | t : {'USERNAME':a.user.name} }}</div>
+            </div>
+        
+        
+            <div>{{ "CURRICULUM_CONTENT_1" | t}}</div>
+        
+            <div>{{ "CURRICULUM_CONTENT_2" | t}}</div>
+        
+            <div>{{ "CURRICULUM_CONTENT_3" | t}}</div>
+        
+            <hr>
+        
+            <div>{{ "CURRICULUM_CONTENT_4" | t}}</div>
+        
+            <hr>
+        
+            <div>{{ "CURRICULUM_CONTENT_5" | t}}</div>
+        
+            <div>{{ "CURRICULUM_CONTENT_6" | t}}</div>
+        
+            <div>{{ "CURRICULUM_CONTENT_7" | t}}</div>
+        
+            <div>{{ "CURRICULUM_CONTENT_8" | t}}</div>
+        
+            <div>{{ "CURRICULUM_CONTENT_9" | t}}</div>
+        
+            <div>{{ "CURRICULUM_CONTENT_10" | t}}</div>
+    </section>
 </main>

@@ -1,8 +1,8 @@
-<div class="page-header">
-    <span (click)=" a.onClickContactAdmin() ">{{ 'KATALKENGLISH_MENU_WELCOME_MESSAGE' | t}}</span> 
-</div>
-<section class="page-body">
 
+<main>
+    <header>
+        <div (click)=" a.onClickContactAdmin() ">{{ 'KATALKENGLISH_MENU_WELCOME_MESSAGE' | t}}</div> 
+    </header>
     <ul class="pointers">
 
         <li class="menu-admin" routerLink="/admin" *ngIf="a.isManager">
@@ -204,4 +204,4 @@
 
     </ul>
 
-</section>
+</main>
