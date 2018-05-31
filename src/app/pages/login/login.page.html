@@ -1,15 +1,16 @@
 
-<header>
-    <ng-container  *ngIf="a.isLogout">
-        <h1>{{ 'LOGIN_HEADER_1' | t}}</h1>
-        <div class="desc">
-            {{ 'LOGIN_HEADER_2' | t}}
-            <span routerLink="/register"> {{ 'SIGN_UP' | t }}</span>
-            {{ 'LOGIN_HEADER_3' | t}}
-        </div>
-    </ng-container>
-</header>
-<main> 
+<main>
+    
+    <header>
+        <ng-container  *ngIf="a.isLogout">
+            <h1>{{ 'LOGIN_HEADER_1' | t}}</h1>
+            <div class="desc">
+                {{ 'LOGIN_HEADER_2' | t}}
+                <a routerLink="/register"> {{ 'SIGN_UP' | t }}</a>
+                {{ 'LOGIN_HEADER_3' | t}}
+            </div>
+        </ng-container>
+    </header> 
     <div class="loggedin" *ngIf="a.isLogin">
         You cannot login because you are logged in already.<br>
         Your email: {{ a.user.email }}
