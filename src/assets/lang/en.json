@@ -536,7 +536,25 @@
   "INTERNET_BAD":"Bad",
   "WAS_TEACHER_USING_CAMERA":"Was the Teacher Using Camera",
   "CAMERA_YES":"Yes",
-  "CAMERA_NO":"No"
+  "CAMERA_NO":"No",
+
+
+  "CANCEL REFUND REQUEST SUCCESS":"Canceled Refund Request",
+  "SCHEDULE DELETE":"Schedule Delete",
+  "SCHEDULE DELETED":"Schedule Deleted.",
+  "SCHEDULE DELETE CONFIRM":"Are you sure, you want to delete this schedule?",
+  "COMMENT DELETE":"Comment Delete",
+  "COMMENT DELETED":"Comment Deleted.",
+  "COMMENT DELETE CONFIRM":"Are you sure, you want to delete this comment?",
+  "SESSION CANCEL":"Session Cancel",
+  "SESSION CANCELED":"Session Canceled.",
+  "SESSION CANCEL CONFIRM":"Are you sure, you want to cancel this session?",
+  "SESSION REFUND":"Session Refund",
+  "SESSION REFUNDED":"Session Refunded.",
+  "SESSION REFUND CONFIRM":"Are you sure, you want to refund this session?"
+
+
+
 
 
 

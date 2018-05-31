@@ -88,8 +88,8 @@ export class OntueMySchedulePage {
         if (this.a.user.isLogin) {
             const dialogRef = this.dialog.open(ConfirmModal, {
                 data: <_CONFIRM_DATA_OPTION>{
-                    header: this.a.t('DELETE SCHEDULE'),
-                    content: this.a.t('CONFIRM DELETE'),
+                    header: this.a.t('SCHEDULE DELETE'),
+                    content: this.a.t('SCHEDULE DELETE CONFIRM'),
                     actionYes: this.a.t('YES'),
                     actionNo: this.a.t('CANCEL')
                 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../providers/app.service';
 import { STUDENT_COMMENTS_TO_TEACHER } from '../../modules/xapi/interfaces';
 import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../../components/modal/confirm/confirm.modal';
@@ -38,16 +38,16 @@ export class TeacherReviewListPage {
     internet = ['', 'Bad', 'Normal', 'Good'];
     camera = ['No', 'Yes'];
 
-    constructor(public a: AppService,
-                public router: Router,
-                public active: ActivatedRoute,
-                public dialog: MatDialog
+    constructor(
+        public a: AppService,
+        public active: ActivatedRoute,
+        public dialog: MatDialog
     ) {
         this.active.queryParams.subscribe(params => {
             this.showLoader = true;
             if (params['idx_teacher']) {
                 this.a.lms.get_teacher_info_by_idx(params['idx_teacher'], false).subscribe(re => {
-                    console.log('get_teacher_info_by_idx', re);
+                    // console.log('get_teacher_info_by_idx', re);
 
                     this.idx_teacher = re['ID'];
                     this.teacher_name = re['display_name'];
@@ -83,7 +83,7 @@ export class TeacherReviewListPage {
             this.pageOption.totalRecord = res['total'];
             this.loading = false;
         }, e => {
-            console.log('get_student_comments_to_teacher::error');
+            // console.log('get_student_comments_to_teacher::error');
             this.a.toast(e);
             this.loading = false;
         });
@@ -93,8 +93,8 @@ export class TeacherReviewListPage {
 
         const dialogRef = this.dialog.open(ConfirmModal, {
             data: <_CONFIRM_DATA_OPTION>{
-                header: this.a.t('DELETE COMMENT'),
-                content: this.a.t('CONFIRM DELETE COMMENT'),
+                header: this.a.t('COMMENT DELETE'),
+                content: this.a.t('COMMENT DELETE CONFIRM'),
                 actionYes: this.a.t('YES'),
                 actionNo: this.a.t('CANCEL')
             }
@@ -110,7 +110,7 @@ export class TeacherReviewListPage {
                 this.a.lms.student_comment_to_teacher_delete(data).subscribe(res => {
                     if (res['idx'] === comment.idx) {
                         comment.idx = '';
-                        this.a.toast('Comment Deleted...');
+                        this.a.toast( this.a.t('COMMENT DELETED'));
                     }
                     this.showLoader = false;
                 }, e => {
@@ -125,22 +125,13 @@ export class TeacherReviewListPage {
 
     onClickCommentEdit(comment) {
         console.log('onClickCommentEdit', comment);
-        this.router.navigate(['teacher-review-edit'], {queryParams: {idx_comment: comment.idx}});
+        this.a.open('teacher-review-edit', { idx_comment: comment.idx });
     }
-
-
-    // onClickCancel() {
-    //     this.router.navigate(['schedule-table'], {queryParams: {idx_teacher: this.idx_teacher}});
-    // }
 
     onPostPageClick($event) {
         this.pageOption['currentPage'] = $event;
         this.loadCommentList();
     }
-
-    // onClickCommentCreate() {
-    //     this.router.navigate(['teacher-review-create'], {queryParams: {idx_teacher: this.idx_teacher}});
-    // }
 
 
 }
