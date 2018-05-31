@@ -1,8 +1,8 @@
-<header>
-    <h2>{{ 'MESSAGE_TITLE' | t }}</h2>
-</header>
-<main>
 
+<main>
+    <header>
+        <h2>{{ 'MESSAGE_TITLE' | t }}</h2>
+    </header>
 <div class="buttons-top">
     <button [class.active]=" box == 'inbox' " (click)="onClickBox( 'inbox' )">
         {{ 'INBOX' | t }}

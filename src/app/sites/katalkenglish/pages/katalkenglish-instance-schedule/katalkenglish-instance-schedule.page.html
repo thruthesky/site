@@ -1,10 +1,12 @@
-<header>
-    <h1>{{ "SCHEDULE_AVAILABLE_PAGE_TITLE" | t }}</h1>
-    <div *ngIf=" a.user.isLogin "> {{ 'SCHEDULE_AVAILABLE_PAGE_DESC_1' | t }}</div>
-    <div *ngIf=" a.user.isLogout ">{{ 'SCHEDULE_AVAILABLE_PAGE_DESC_2' | t }}</div>
-</header>
+
 
 <main>
+    <header>
+        <h1>{{ "SCHEDULE_AVAILABLE_PAGE_TITLE" | t }}</h1>
+        <div *ngIf=" a.user.isLogin "> {{ 'SCHEDULE_AVAILABLE_PAGE_DESC_1' | t }}</div>
+        <div *ngIf=" a.user.isLogout ">{{ 'SCHEDULE_AVAILABLE_PAGE_DESC_2' | t }}</div>
+    </header>
+    
     <div class="loader" *ngIf=" pageInLoading; else pageLoaded ">
         <ion-spinner></ion-spinner>
         <span class="p-2">{{ 'IN LOADING' | t }}</span>
