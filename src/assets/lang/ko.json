@@ -502,5 +502,20 @@
     "INTERNET_BAD":"불쾌한",
     "WAS_TEACHER_USING_CAMERA":"교사가 카메라를 사용 했습니까?",
     "CAMERA_YES":"예",
-    "CAMERA_NO":"아니"
+    "CAMERA_NO":"아니",
+
+    "CANCEL REFUND REQUEST SUCCESS":"취소 된 환불 요청",
+    "SCHEDULE DELETE":"예약 삭제",
+    "SCHEDULE DELETED":"삭제 된 일정",
+    "SCHEDULE DELETE CONFIRM":"이 일정을 삭제 하시겠습니까?",
+    "COMMENT DELETE":"댓글 삭제",
+    "COMMENT DELETED":"주석이 삭제되었습니다.",
+    "COMMENT DELETE CONFIRM":"정말로이 코멘트를 삭제 하시겠습니까?",
+    "SESSION CANCEL":"세션 취소",
+    "SESSION CANCELED":"세션이 취소되었습니다.",
+    "SESSION CANCEL CONFIRM":"정말이 세션을 취소 하시겠습니까?",
+    "SESSION REFUND":"세션 환불",
+    "SESSION REFUNDED":"세션 환불.",
+    "SESSION REFUND CONFIRM":"이 세션을 환불 받으시겠습니까?"
+
 }
