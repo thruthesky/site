@@ -12,7 +12,7 @@
     "e2e": "ng e2e",
     "s": "ng serve --disable-host-check",
     "serve:local": "ng serve --disable-host-check --configuration=local-backend-server",
-    "serve:remote": "ng serve --disable-host-check --configuration=remote-backend-server",
+    "serve:local:hmr": "ng serve --disable-host-check --configuration=local-hmr",
     "bt": "ng build --prod --named-chunks=true"
   },
   "private": true,

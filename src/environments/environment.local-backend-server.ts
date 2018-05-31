@@ -1,5 +1,6 @@
 export const environment = {
     production: false,
+    hmr: false,
     // urlBackend: 'http://workserver.ontue.com',
     // urlBackend: 'https://www.ontue.com',
     urlBackend: 'https://sonub.com:8443',
