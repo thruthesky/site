@@ -22,8 +22,10 @@ $katalkenglish-padding: 8px;
     .page {
         margin-top: $katalkenglish-header-height;
         .page-inner {
-            margin: 0 auto;
-            max-width: $katalkenglish-page-width;
+            main {
+                margin: 0 auto;
+                max-width: $katalkenglish-page-width;
+            }
         }
     }
     #katalkenglish-footer {
@@ -36,7 +38,6 @@ $katalkenglish-padding: 8px;
     }
 }
 
-
 [path*='/admin'] {
     // background-color: blue;
     #katalkenglish {
@@ -44,10 +45,10 @@ $katalkenglish-padding: 8px;
             display: none;
         }
         .page {
-            margin-top: 0!important;
+            margin-top: 0 !important;
             .page-inner {
                 margin: 0 0 0 430px;
-                max-width: 100%!important;
+                max-width: 100% !important;
             }
         }
         footer {

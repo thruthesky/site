@@ -173,7 +173,7 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
 
 ### Layout for header, page, footer
 
-* Basic structure of page must be the following.
+* Basic structure of each page must be the following.
 
 ```` html
 <header>
@@ -189,6 +189,25 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
   But no copyright since there is a footer for copyright in app.component.html.
 </footer>
 ````
+
+* In app.component.html, there is outter html layouts.
+
+```` html
+<div class="layout" [attr.path]=" a.routeUrl ">
+  <section id="katalkenglish" *ngIf=" a.site.katalkenglish ">
+    <katalkenglish-header></katalkenglish-header>
+    <section class="page">
+      <div class="page-inner">
+        <router-outlet>
+          <!-- here goes the page layout -->
+        </router-outlet>
+      </div>
+    </section>
+    <katalkenglish-footer></katalkenglish-footer>
+  </section>
+</div>
+````
+
 
 ## Naming Convention
 

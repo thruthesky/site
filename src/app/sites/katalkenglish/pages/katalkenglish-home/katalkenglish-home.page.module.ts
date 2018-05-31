@@ -7,6 +7,7 @@ import { KatalkEnglishHomePage } from './katalkenglish-home.page';
 
 import { KatalkEnglishIntroComponentModule } from '../../components/katalkenglish-intro/katalkenglish-intro.component.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { KatalkEnglishMainBannerComponentModule } from '../../components/katalkenglish-main-banner/katalkenglish-main-banner.component.module';
 
 const routes: Routes = [
     {path: '', component: KatalkEnglishHomePage}
@@ -18,7 +19,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         // UserInfoComponentModule,
         TranslatePipeModule,
-        KatalkEnglishIntroComponentModule
+        KatalkEnglishIntroComponentModule,
+        KatalkEnglishMainBannerComponentModule
     ],
     exports: [
         RouterModule
