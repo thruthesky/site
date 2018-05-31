@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService, KEY_SCHEDULES, SHARE_SESSION_LIST } from '../../providers/app.service';
-import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../modal/confirm/confirm.modal';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'session-list-component',
@@ -40,8 +40,7 @@ export class SessionListComponent implements OnInit {
     loadingRefundRequest = false;
 
     constructor(public a: AppService,
-                public alertCtrl: AlertController,
-                public router: Router
+                public dialog: MatDialog
     ) {
         this.updatePoint();
     }
@@ -98,49 +97,38 @@ export class SessionListComponent implements OnInit {
         return req;
     }
 
-    onClickCancelAll() {
-        this.books.map(book => this.onClickCancel(book));
-    }
+    // onClickCancelAll() {
+    //     this.books.map(book => this.onClickCancel(book));
+    // }
 
-    async onClickCancel(book) {
+    onClickCancel(book) {
 
-        const confirm = await this.alertCtrl.create({
-            header: this.a.t('CANCEL CLASS'),
-            subHeader: this.a.t('CONFIRM CANCEL SESSION'),
-            buttons: [
-                {
-                    text: this.a.t('YES'),
-                    handler: () => {
-                        // console.log('yes continue');
-                        book['process'] = true;
-                        this.a.lms.session_cancel(book.idx).subscribe(re => {
-                            // console.log(re);
-                            this.books = this.books.filter( b => b.idx !== re['idx_reservation']);
-
-                            this.a.updateLmsInfoUserNoOfTotalSessions(re['no_of_total_sessions']);
-                            this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
-                            this.updatePoint();
-
-                            this.a.set( KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
-
-
-
-                            this.a.onLmsCancel();
-                        }, e => {
-                            book['process'] = false;
-                            this.a.toast(e);
-                        });
-                    }
-                },
-                {
-                    text: this.a.t('CANCEL'),
-                    handler: () => {
-                        // console.log('Cancel');
-                    }
-                }
-            ]
+        const dialogRef = this.dialog.open(ConfirmModal, {
+            data: <_CONFIRM_DATA_OPTION>{
+                header: this.a.t('CANCEL CLASS'),
+                content: this.a.t('CONFIRM CANCEL SESSION'),
+                actionYes: this.a.t('YES'),
+                actionNo: this.a.t('CANCEL')
+            }
         });
-        confirm.present();
+
+        dialogRef.afterClosed().subscribe(result => {
+            if ( result ) {
+                book['process'] = true;
+                this.a.lms.session_cancel(book.idx).subscribe(re => {
+                    // console.log(re);
+                    this.books = this.books.filter( b => b.idx !== re['idx_reservation']);
+                    this.a.updateLmsInfoUserNoOfTotalSessions(re['no_of_total_sessions']);
+                    this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
+                    this.updatePoint();
+                    this.a.set( KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
+                    this.a.onLmsCancel();
+                }, e => {
+                    book['process'] = false;
+                    this.a.toast(e);
+                });
+            }
+        });
 
 
 
@@ -176,31 +164,6 @@ export class SessionListComponent implements OnInit {
     }
 
 
-    onClickRefundRequest(book) {
-
-        // if(this.loadingRefundRequest) return;
-        // // console.log(book);
-        // const modal = this.modalCtrl.create(MessageWrite, { title: "포인트 복구 사유를 적어주세요." });
-        // modal.onDidDismiss(msg => {
-        //     // console.log("onDidDismiss", re);
-        //     if (msg) {
-        //         this.loadingRefundRequest = true;
-        //         this.a.lms.session_refund_request({
-        //             idx_reservation: book['idx'],
-        //             refund_request_message: msg
-        //         }).subscribe(re => {
-        //             book['refund_request_at'] = 1;
-        //             this.loadingRefundRequest = false;
-        //         }, e => {
-        //             this.a.toast(e);
-        //             this.loadingRefundRequest = false;
-        //         });
-        //     }
-        // });
-        // modal.present();
-
-    }
-
     onClickCancelRefundRequest(book) {
         // console.log(book);
         this.a.lms.session_cancel_refund_request(book['idx']).subscribe(re => {
@@ -225,13 +188,6 @@ export class SessionListComponent implements OnInit {
         return false;
     }
 
-    refund_request(book) {
-        if (book['refund_reject_at'] === 0 && book['refund_request_at'] > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     paid(book) {
         return book['paid'] > 0;
@@ -260,29 +216,22 @@ export class SessionListComponent implements OnInit {
     }
     async onClickRefund(book) {
 
-        const confirm = await this.alertCtrl.create({
-            header: this.a.t('REFUND CLASS'),
-            subHeader: this.a.t('CONFIRM REFUND CLASS'),
-            buttons: [
-                {
-                    text: this.a.t('YES'),
-                    handler: () => {
-                        // console.log('yes continue');
-                        this.a.lms.session_refund(book['idx']).subscribe(re => {
-                            // console.log(re);
-                            book['refund_done_at'] = 1;
-                        }, e => this.a.toast(e));
-                    }
-                },
-                {
-                    text: this.a.t('CANCEL'),
-                    handler: () => {
-                        // console.log('Cancel');
-                    }
-                }
-            ]
+        const dialogRef = this.dialog.open(ConfirmModal, {
+            data: <_CONFIRM_DATA_OPTION>{
+                header: this.a.t('REFUND CLASS'),
+                content: this.a.t('CONFIRM REFUND CLASS'),
+                actionYes: this.a.t('YES'),
+                actionNo: this.a.t('CANCEL')
+            }
         });
-        confirm.present();
+
+        dialogRef.afterClosed().subscribe(result => {
+            if ( result ) {
+                this.a.lms.session_refund(book['idx']).subscribe(() => {
+                    book['refund_done_at'] = 1;
+                }, e => this.a.toast(e));
+            }
+        });
 
     }
 
@@ -320,10 +269,6 @@ export class SessionListComponent implements OnInit {
      */
     photoURL(book) {
         return this.my_teachers[book.idx_teacher].photoURL ? this.my_teachers[book.idx_teacher].photoURL : this.a.anonymousPhotoURL;
-    }
-
-    onClickKakaoQRMarkString(url) {
-        window.open(url, '_blank');
     }
 
     onClickReady( book ) {

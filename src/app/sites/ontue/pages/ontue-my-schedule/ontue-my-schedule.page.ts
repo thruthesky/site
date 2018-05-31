@@ -84,7 +84,7 @@ export class OntueMySchedulePage {
         }, e => this.a.toast(e));
     }
 
-    async onClickDelete(idx) {
+    onClickDelete(idx) {
         if (this.a.user.isLogin) {
             const dialogRef = this.dialog.open(ConfirmModal, {
                 data: <_CONFIRM_DATA_OPTION>{
@@ -95,9 +95,7 @@ export class OntueMySchedulePage {
                 }
             });
 
-
             dialogRef.afterClosed().subscribe(result => {
-                console.log('The dialog was closed', result);
                 if ( result ) {
                     this.loading = true;
                     this.a.lms.schedule_delete(idx).subscribe( () => {
