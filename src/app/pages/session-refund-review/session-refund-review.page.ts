@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../../components/modal/confirm/confirm.modal';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -20,6 +22,7 @@ export class SessionRefundReviewPage implements OnInit {
     constructor(public router: Router,
                 public active: ActivatedRoute,
                 public a: AppService,
+                public dialog: MatDialog,
                 public alertCtrl: AlertController) {
     }
 
@@ -46,71 +49,64 @@ export class SessionRefundReviewPage implements OnInit {
         });
     }
 
-    async onClickRefund() {
-        const confirm = await this.alertCtrl.create({
-            header: this.a.t('REFUND ACCEPT'),
-            subHeader: this.a.t('REFUND ACCEPT CONFIRM'),
-            buttons: [
-                {
-                    text: this.a.t('YES'),
-                    handler: () => {
-                        this.a.lms.session_refund(this.book['idx']).subscribe(re => {
-                            // console.log(re);
-                            this.a.open('teacher-session-past');
-                            this.a.toast( this.a.t('REFUND ACCEPT SUCCESS'));
-                        }, e => {
-                            this.a.toast(e);
-                        });
-                    }
-                },
-                {
-                    text: this.a.t('CANCEL'),
-                    handler: () => {
-                        // console.log('Cancel');
-                    }
-                }
-            ]
+    onClickRefund() {
+
+        const dialogRef = this.dialog.open(ConfirmModal, {
+            data: <_CONFIRM_DATA_OPTION>{
+                header: this.a.t('REFUND ACCEPT'),
+                content: this.a.t('REFUND ACCEPT CONFIRM'),
+                actionYes: this.a.t('YES'),
+                actionNo: this.a.t('CANCEL')
+            }
         });
-        confirm.present();
+
+        dialogRef.afterClosed().subscribe(result => {
+            if ( result ) {
+                this.a.lms.session_refund(this.book['idx']).subscribe(re => {
+                    // console.log(re);
+                    this.a.open('teacher-session-past');
+                    this.a.toast( this.a.t('REFUND ACCEPT SUCCESS'));
+                }, e => {
+                    this.a.toast(e);
+                });
+            }
+        });
     }
 
-    async onClickRejectRefundRequest() {
+    onClickRejectRefundRequest() {
         if ( this.loadingRefundReject ) {
             return;
         }
 
         if ( this.message ) {
-            const confirm = await this.alertCtrl.create({
-                header: this.a.t('REFUND REJECT'),
-                subHeader: this.a.t('REFUND REJECT CONFIRM'),
-                buttons: [
-                    {
-                        text: this.a.t('YES'),
-                        handler: () => {
-                            console.log('this.message', this.message);
-                            this.loadingRefundReject = true;
-                            this.a.lms.session_refund_reject({
-                                idx_reservation: this.book.idx,
-                                refund_reject_message: this.message
-                            }).subscribe(res => {
-                                this.loadingRefundReject = false;
-                                this.a.open('teacher-session-past');
-                                this.a.toast( this.a.t('REFUND REJECT SUCCESS'));
-                            }, e => {
-                                this.a.toast(e);
-                                this.loadingRefundReject = false;
-                            });
-                        }
-                    },
-                    {
-                        text: this.a.t('CANCEL'),
-                        handler: () => {
-                            // console.log('Cancel');
-                        }
-                    }
-                ]
+
+            const dialogRef = this.dialog.open(ConfirmModal, {
+                data: <_CONFIRM_DATA_OPTION>{
+                    header: this.a.t('REFUND REJECT'),
+                    content: this.a.t('REFUND REJECT CONFIRM'),
+                    actionYes: this.a.t('YES'),
+                    actionNo: this.a.t('CANCEL')
+                }
             });
-            confirm.present();
+
+            dialogRef.afterClosed().subscribe(result => {
+                if ( result ) {
+                    // console.log('this.message', this.message);
+                    this.loadingRefundReject = true;
+                    this.a.lms.session_refund_reject({
+                        idx_reservation: this.book.idx,
+                        refund_reject_message: this.message
+                    }).subscribe(res => {
+                        this.loadingRefundReject = false;
+                        this.a.open('teacher-session-past');
+                        this.a.toast( this.a.t('REFUND REJECT SUCCESS'));
+                    }, e => {
+                        this.a.toast(e);
+                        this.loadingRefundReject = false;
+                    });
+                }
+            });
+
         } else {
             this.a.toast( this.a.t('MESSAGE EMPTY'));
         }
