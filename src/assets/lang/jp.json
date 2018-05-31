@@ -498,5 +498,19 @@
     "INTERNET_BAD":"悪い",
     "WAS_TEACHER_USING_CAMERA":"教師はカメラを使っていたのですか？",
     "CAMERA_YES":"はい",
-    "CAMERA_NO":"いいえ"
+    "CAMERA_NO":"いいえ",
+
+    "CANCEL REFUND REQUEST SUCCESS":"払い戻しのキャンセル",
+    "SCHEDULE DELETE":"スケジュール削除",
+    "SCHEDULE DELETED":"スケジュールが削除されました。",
+    "SCHEDULE DELETE CONFIRM":"このスケジュールを削除してもよろしいですか？",
+    "COMMENT DELETE":"コメントの削除",
+    "COMMENT DELETED":"コメントが削除されました。",
+    "COMMENT DELETE CONFIRM":"あなたはこのコメントを削除しますか？",
+    "SESSION CANCEL":"セッションキャンセル",
+    "SESSION CANCELED":"セッションがキャンセルされました。",
+    "SESSION CANCEL CONFIRM":"本当ですか、このセッションをキャンセルしますか？",
+    "SESSION REFUND":"セッションの払い戻し",
+    "SESSION REFUNDED":"セッションは払い戻されました。",
+    "SESSION REFUND CONFIRM":"本当ですか、このセッションを返金しますか？"
 }
