@@ -43,9 +43,9 @@
 
     <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
         <div class="td profile" *ngIf=" isAllTeacher ">
-            <div class="photo">
+            <a class="photo" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher_idx( sessions ) }">
                 <img src="{{ teacher_photoURL( sessions ) }}">
-            </div>
+            </a>
         </div>
         <div class="td datetime">
             <div *ngIf=" a.user.isLogin ">

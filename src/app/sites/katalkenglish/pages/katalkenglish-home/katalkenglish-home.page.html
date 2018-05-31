@@ -1,6 +1,5 @@
-<!--<header>-->
-    <!--<h1>Page Title</h1>-->
-<!--</header>-->
+<katalkenglish-main-banner>
+</katalkenglish-main-banner>
 <main>
     <div class="container">
         <!-- Student RWD Grid -->
@@ -64,8 +63,7 @@
                                     <br> 완벽한 자유 예약 시스템
                                 </div>
 
-                                <div class="view-more" (click)=" showMoreMyOwnPlan() "
-                                        *ngIf=" ! showMoreMyOwnPlan_1 ">
+                                <div class="view-more" (click)=" showMoreMyOwnPlan() " *ngIf=" ! showMoreMyOwnPlan_1 ">
                                     더보기
                                 </div>
                             </div>
@@ -73,14 +71,11 @@
                     </div>
 
                     <div class="position-relative">
-                        <div class="moreMyOwnPlan no1" *ngIf=" showMoreMyOwnPlan_1 ">카톡영어에서는 학생이 직접 수업료와 선생님을
-                            정합니다.
+                        <div class="moreMyOwnPlan no1" *ngIf=" showMoreMyOwnPlan_1 ">카톡영어에서는 학생이 직접 수업료와 선생님을 정합니다.
                         </div>
-                        <div class="moreMyOwnPlan no2" *ngIf=" showMoreMyOwnPlan_2 ">카톡영어의 자유 예약 시스템은 매우 직관적이고
-                            편리합니다. 무료 체험 수업을 해 보면 쉽게 이해가 됩니다.
+                        <div class="moreMyOwnPlan no2" *ngIf=" showMoreMyOwnPlan_2 ">카톡영어의 자유 예약 시스템은 매우 직관적이고 편리합니다. 무료 체험 수업을 해 보면 쉽게 이해가 됩니다.
                         </div>
-                        <div class="moreMyOwnPlan no3" *ngIf=" showMoreMyOwnPlan_3 ">카카오톡을 이용해서 화상영어 수업을 하며 언제 어디서나
-                            선생님과 채팅을 할 수 있습니다.
+                        <div class="moreMyOwnPlan no3" *ngIf=" showMoreMyOwnPlan_3 ">카카오톡을 이용해서 화상영어 수업을 하며 언제 어디서나 선생님과 채팅을 할 수 있습니다.
                         </div>
                     </div>
                 </div>
@@ -167,8 +162,7 @@
                         </div>
                     </ng-container>
 
-                    <div class="more" (click)=" show['more-comment'] = true " *ngIf=" ! show['more-comment'] ">수강후기
-                        더 보기
+                    <div class="more" (click)=" show['more-comment'] = true " *ngIf=" ! show['more-comment'] ">수강후기 더 보기
                     </div>
                 </section>
 
@@ -184,11 +178,10 @@
                     <div class="total-teachers" *ngIf=" total_teachers ">
                         총 {{ total_teachers }} 명의 선생님이 있습니다.
                     </div>
-                    
+
                     <div class="container-fluid" *ngIf=" total_teachers ">
                         <div class="row">
-                            <div class="col-4 col-md-4 col-lg-3" *ngFor="let teacher of teachers"
-                                        (click)="a.open('schedule-table', teacher)">
+                            <div class="col-4 col-md-4 col-lg-3" *ngFor="let teacher of teachers" (click)="a.open('schedule-table', teacher)">
                                 <div>
                                     <div class="teacher-profile-photo">
                                         <img src="{{ teacher.photoURL }}">
@@ -198,8 +191,14 @@
                                     <div>{{ a.preTeacherName( teacher.display_name )}}</div>
                                     <div class="grade" [attr.grade]=" teacher.grade ">
                                         추천:
-                                        <svg  *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
-                                        <svg  *ngFor="let i of a.countEmptyStar(teacher.grade)" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path></svg>
+                                        <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 576 512" data-fa-i2svg="">
+                                            <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                        </svg>
+                                        <svg *ngFor="let i of a.countEmptyStar(teacher.grade)" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 576 512" data-fa-i2svg="">
+                                            <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
+                                        </svg>
                                     </div>
                                     <div>
                                         ({{ teacher.total_reservation }} 명 참여)

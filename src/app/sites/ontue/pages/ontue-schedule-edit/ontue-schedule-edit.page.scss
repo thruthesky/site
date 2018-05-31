@@ -11,7 +11,7 @@ header{
 
 main{
     padding:3em; 
-    padding-top: 2em;
+    padding-top: 1em;
     padding-bottom: 5em;
     @media screen and(max-width:$sm){
         padding: 1em;
@@ -26,37 +26,36 @@ main{
         .col-md-4{
             padding: 0;
             &>div{
-                margin: 1em;
-                padding: 2em;
-                border: 1px solid #e2e2e2;
+                margin: 1em .6em;
                 border-radius: 2px;
+                border: 1px solid rgba(128, 128, 128, 0.2);
+                text-align: center;
 
                 .title{
-                    font-size: 110%;
+                    margin: 0;
+                    padding: .5em;
+                    padding-top: 1em;
+                    font-size: 1rem;
                     font-weight: bold;
                 }
 
                 .example{
-                    margin: .5em 0;
-                    padding: 1em;
-                    border-radius: 2px;
-                    background: #eeeeee;
-                    font-size: 80%
+                    margin-bottom: .3em;
+                    font-size: 80%;
+                    line-height: 1.5em;
                 }
 
                 .entry{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-top:.7em;
-                    input{
-                        padding: .4em;
-                    }
-                }
-
-                label{
-                    margin:0 .3em;
                     font-size: 80%;
+                    mat-form-field{
+                        margin: 0 .5em;
+                        width: 50px;
+                        text-align: center;
+                    }
+
+                    .points{
+                        width:80px;
+                    }
                 }
             }
         }
@@ -85,7 +84,7 @@ main{
     }
 
     .pre-re{
-        margin: 2em 0;
+        margin: 1em 0;
         border: 1px solid rgba(darkorange,0.4);
         background: rgba(darkorange,0.1);
         color: darkorange;
@@ -113,8 +112,6 @@ main{
     }
 
     .promo-schedule{
-        margin-bottom: 1em;
-
         .title{
             display: inline-block;
             padding: .5em 1.5em;
@@ -129,10 +126,11 @@ main{
         }
 
         .body{
-            padding: 1.8em;
+            padding: 1em;
             border-radius: 2px;
             background: #eeeeee;
             font-size: 90%;
+            font-weight: 300;
             word-wrap: break-word;
 
             @media screen and(max-width:$sm){
@@ -148,8 +146,6 @@ main{
     }
 
     .input-week{
-
-        margin-top: 1em;
         .col{
             display: flex;
             justify-content: center;
@@ -192,8 +188,10 @@ main{
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 1em;
+        margin: 0;
+        margin-bottom: .5em;
         line-height: 1.8em;
+        font-weight: 300;
         @media screen and(max-width:$sm){
             font-size: 80%;
         }

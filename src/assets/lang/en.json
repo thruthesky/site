@@ -355,7 +355,7 @@
     "RECOMMENDED_TEACHER":"Recommended Teacher",
     "TEACHER_LIST_REMINDER":"In this page, you will see recommended teachers who are mostly visible to students. Other teachers' profile will be available by search.",
     "RECOMMENDATION":"Rating",
-    "PARTICIPATED":"Session",
+    "PARTICIPATED":"Sessions",
     "INSTRUCTOR_MORE":"More Instructor",
 
     "PAYMENT_PAGE_TITLE": "Pay as much as you want and make as many classes as you want.",
@@ -439,10 +439,10 @@
     "YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY":"You can check your payment history in the Payment History menu.",
 
     "TEACHER_GRADE":"Teacher Grade",
-    "TEACHER_LIST_IS_LOGIN":"Dear #USERNAME, #TOTAL teachers are in total #RESERVATIONS booked class and #PASTS last class",
+    "TEACHER_LIST_IS_LOGIN":"Welcome, #USERNAME. We have #TOTAL teachers and You have #RESERVATIONS reservations and #PASTS past classes.",
     "TEACHER_LIST_IS_LOGOUT":"Currently #TOTAL teachers are visible. You can see all teachers through options. When you log in, your class information will be displayed.",
     "NO_MORE_TEACHERS":"No more recommended tutors. You can see more instructors through the options.",
-    "GOTO_OPTIONS":"OPEN OPTIONS WINDOW",
+    "GOTO_OPTIONS":"Options",
 
 
     "LOGIN_HEADER_1":"SIGN IN",

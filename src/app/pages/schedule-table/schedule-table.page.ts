@@ -55,7 +55,7 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
         public a: AppService
     ) {
 
-        if ( a.isDesktopView() ) {
+        if (a.isDesktopView()) {
             this.form.days = 15;
         }
         this.defaultPhotoUrl = a.urlBackend + '/wp-content/plugins/xapi-2/lms/img/default-teacher-photo.jpg';
@@ -261,6 +261,10 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
              */
             return this.re.teacher.photoURL;
         }
+    }
+    teacher_idx(sessions: Array<SESSION>): string {
+        const teacher = this.teacher(sessions[0]);
+        return teacher.idx;
     }
 
 

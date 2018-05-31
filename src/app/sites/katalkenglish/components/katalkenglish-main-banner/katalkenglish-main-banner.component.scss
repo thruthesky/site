@@ -1,0 +1,290 @@
+@import './../../../../../theme/vars.scss';
+
+$mobile-height: 240px;
+$height: 440px;
+$padding-top: 20px;
+$bg-orange: rgb(253, 186, 1);
+$bg-yellow: rgb(255, 208, 0);
+@mixin default {
+  height: $mobile-height;
+  @media (min-width: $md) {
+    height: $height;
+  }
+  overflow: hidden;
+}
+
+#student-banner {
+  background-color: white;
+
+  @include default;
+  animation: slideDown .2s 1;
+  animation-timing-function: ease-in;
+  .ani-1 {
+    @include default;
+    color: black;
+    background-color: $bg-orange;
+    text-align: center;
+    font-size: 2.2em;
+    .text {
+      animation: delay2 1s 1;
+      margin-top: 96px;
+    }
+    .price { color: blue; }
+    @media (min-width: $md) {
+      padding-top: 20px;
+      // wide screen
+      font-size: 4em;
+      .text {
+        margin-top: 156px;
+      }
+    }
+  }
+  .ani-2 {
+    @include default;
+    animation: fadeIn .3s 1;
+    .content {
+      animation: bannerAni 1.5s 1;
+      padding-top: $padding-top;
+      background-color: white;
+      color: black;
+      display: flex;
+      justify-content: center;
+      img {
+        width: 200px;
+      }
+      .text {
+        margin-left: 1em;
+        .text-1 {
+          animation: delay1 .8s 1;
+          margin-top: .5em;
+          font-size: 2em;
+        }
+        .text-2 {
+          animation: delay2 1.8s 1;
+          margin-top: 1.5em;
+          font-size: 1em;
+        }
+      }
+      @media (min-width: $md) {
+
+        .image {
+          padding-top: 20px;
+        }
+        img {
+          width: auto;
+          height: 400px;
+        }
+        .text {
+          margin-left: 2em;
+          .text-1 {
+            margin-top: .6em;
+            font-size: 4em;
+          }
+          .text-2 {
+            margin-top: .5em;
+            font-size: 3.5em;
+          }
+        }
+      }
+    }
+  }
+  .ani-3 {
+    @include default; // animation: fadeIn 0.3s 1;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    .text-1 {
+      margin-top: 50px;
+      animation: delay1 1s 1;
+      font-size: 3em;
+    }
+    .text-2 {
+      animation: delay2 2s 1;
+      margin-top: 20px;
+      font-size: 1.5em;
+    }
+    .text-3 {
+      animation: delay3 2.6s 1;
+      margin-top: 20px;
+      font-size: 1.3em;
+    }
+    @media (min-width: $md) {
+      .text-1 {
+        margin-top: 80px;
+        font-size: 4.5em;
+      }
+      .text-2 {
+        margin-top: 30px;
+        font-size: 2.75em;
+      }
+      .text-3 {
+        margin-top: 30px;
+        font-size: 2.25em;
+      }
+    }
+  }
+  .ani-4 {
+    @include default;
+    animation: fadeIn .3s 1;
+    .content {
+      padding-top: $padding-top;
+      background-color: white;
+      color: black;
+      display: flex;
+      justify-content: center;
+      img {
+        margin-left: 20px;
+        width: 340px;
+      }
+      .text {
+        padding: 1em 1em 0 1em;
+        .text-1 {
+          animation: delay1 1s 1;
+          font-size: 2em;
+        }
+        .text-2 {
+          animation: delay2 2s 1;
+          margin-top: .5em;
+          padding-left: .75em;
+          font-size: 1.1em;
+        }
+        .text-3 {
+          animation: delay3 2.6s 1;
+          margin-top: .5em;
+          padding-left: .75em;
+          font-size: 1.1em;
+        }
+        .text-4 {
+          animation: delay3 3.6s 1;
+          margin-top: 3em;
+          padding-left: 1em;
+          font-size: .85em;
+          color: rgb(255, 81, 0);
+          .month {
+            display: none;
+          }
+        }
+      }
+      @media (min-width: $md) {
+        .image {
+          padding-top: 20px;
+        }
+        img {
+          margin-left: 0;
+          margin-right: 20px;
+          width: auto;
+          height: 400px;
+        }
+        .text {
+          .text-1 {
+            margin-top: .6em;
+            font-size: 3em;
+          }
+          .text-2 {
+            padding-left: 0;
+            font-size: 1.75em;
+          }
+          .text-3 {
+            padding-left: 0;
+            font-size: 1.75em;
+          }
+          .text-4 {
+            margin-top: 5em;
+            padding-left: 0;
+            font-size: 1.25em;
+            .month {
+              margin-top: 1em;
+              display: block;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: .01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: $height;
+  }
+}
+
+@keyframes delay1 {
+  0% {
+    opacity: .01;
+  }
+  50% {
+    opacity: .01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes delay2 {
+  0% {
+    opacity: .01;
+  }
+  75% {
+    opacity: .01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes delay3 {
+  0% {
+    opacity: .01;
+  }
+  88% {
+    opacity: .01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bannerAni {
+  0% {
+    background-color: white;
+    color: black;
+  }
+  50% {
+    background-color: white;
+    color: black;
+  }
+  60% {
+    background-color: black;
+    color: white;
+  }
+  70% {
+    background-color: white;
+    color: black;
+  }
+  80% {
+    background-color: black;
+    color: white;
+  }
+  90% {
+    background-color: white;
+    color: black;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}

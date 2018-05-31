@@ -1,85 +1,76 @@
 @import '../../../../../theme/vars.scss';
-section{
-    @media screen and (max-width:$sm) {
-        margin-top:1.4em; 
+section {
+    @media screen and (max-width: $sm) {
+        margin-top:1.4em;
     }
     height: 469px;
-    background: rgba(255,255,255,.3);
+    background: rgba(255, 255, 255, .3);
     outline: 1px solid #e9ecef;
     font-size: 80%;
-    overflow: hidden;
-    .title{
+    overflow: auto;
+    .title {
         padding: .7em;
-        background: rgba(112,112,112,.6);
+        background: rgba(112, 112, 112, .6);
         text-align: center;
         color: #fff;
     }
 
     .body{
         padding:.8em;
+        font-size: 95%;
         .row{
             align-items: center;
-            padding:0;
-    
-            &>div{
+            padding: 0;
+            &>div {
                 padding: 0;
             }
-
-            .entry{
+            .entry {
                 padding: .9em;
                 padding-right: 0;
                 word-wrap: break-word;
             }
-        
-            .fontawesome{
+            .fontawesome {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 height: 100%;
             }
         }
-    
     }
-    
-
-
-
-
-    svg{
+    svg {
         height: 1.4em;
     }
-
-    .sign-in-alt{
+    .sign-in-alt {
         color: dodgerblue
     }
-    .eye{
-        color: grey 
+    .eye {
+        color: grey
     }
-    .list-alt{
+    .list-alt {
         color: brown
     }
-    .registered{
-        color:  darkred
+    .registered {
+        color: darkred
     }
-    .eye-orange{
+    .eye-orange {
         color: orange
     }
-    .edit{
-        color:  amber
+    .edit {
+        color: amber
     }
-    .calendar-check{
+    .calendar-check {
         color: #ffd600
     }
-    .ban{
-        color: red 
+    .ban {
+        color: red
     }
-    .money-bill{
+    .money-bill {
         color: green
     }
-    .tasks{
+    .tasks {
         color: purple
     }
-    .comment-alt{
+    .comment-alt {
         color: indigo
     }
 }

@@ -5,167 +5,6 @@
 * Refer [OnTue issue tracker](https://github.com/thruthesky/ontue#issue-sh-boards)
 * Refer [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards)
 
-### URGENT WORK
-
-* Update [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards) with todos below.
-
-* @done witheng.withcenter.com server is keeping table crash with MyISAM tables. so, separate ontue server.
-  * Since it is completely separated service and it uses InnoDB which is not source of the problem.
-  * Make the workserver as real server.
-  * Do it Immediately !!
-
-* Use `<a>` tag for page link. Not button tag. For SEO purpose.
-* Forum with wordpress.
-  * use WP REST API
-  * /wp-json/wp/v2/posts
-
-* Creating Branch
-* 메인페이지 디자인. 선생님 사진을 메인 맨 위에 다 보여 줌. 2초 후에. 월 1만원 배너 보여 줌. 5초 후에 나머지 정보 다 보여 줌.
-
-### NOT URGENT
-
-* Stop loader and display 'please login first' message (or redirect to login page) when anonymous clicks on `past`, `future` session page.
-
-* Make the 'find katalk id' as a modal.
-
-* Remove `firelibrary`. It's a failure. No longer used.
-
-* 강사 평가에서 인터넷 속도 항목을 넣을 것.
-  * 선생님의 인터넷 속도가 어떤가요? 좋음, 보통, 나쁨.
-* Profile photo auto resize. Some teacher's photo are too big and it takes time to load.
-* Send PUSH to admin when teacher cancels the class.
-* Leave stat on cancellation made by teachers.
-* Display no of session on studnet search list and real time list on sidebar.
-* User can cancel reserved class regardless of any rules if it is less than 1 mimute passed from the time of reservation.
-
-* Admin page user profile update.
-* Admin page all the links of schedule edit, point, reservation, etc.
-* @done Admin page session list search. session edit by manually.
-* Admin can reduce point and give it back to student.
-* Admin can edit the reservation of all fields.
-* Admin page user payment list & search. stat by day, month.
-  * Make a refund option so, it will be added onto statistics.
-* Admin Notification. Make it as component and put it on header. so, all the admin page has it.
-* display photo, youtube on admin user list
-* Let admin edit user's profile photo.
-* put `countries` somewhere else. so it will not increase main.js bundle size.
-* Suggestion: Move comment component under forum page module since it is a dependant of forum.
-* Front page of katalk english, ontue
-
-* Forum
-  * Qna
-  * Policy
-  * Regulation
-  * No discussion.
-* Forum QnA. specify Live chat available time.
-  * 2pm to 11 pm in China, Korea, Japan time.
-
-* branch opton.
-  * branch admin page for student, reservation/cancellation, payment, share.
-
-* Forum functionality and live chat design.
-  * When a student leave a question/comment, we begin to chat.
-
-* schedule table
-  * add more design.
-  * show curriulumn vitae
-  * show comments
-  * play teacher youtube video on mobile.
-
-* @done Cache Teacher list page.
-  * Do not use localForage.
-
-* Check all page, link, menu with offline.
-
-* Reloading angular route if the user clicks the same route.
-  * without chaning anything from routerLink="..."
-  * Check if there is any route event happens when the route of the page is being clicked.
-    * if `navigate before event` happens on same route, then we can do something.
-* SSR Or. At least sitemap.
-  * put sitemap link in index.html and the sitemap will be like  a web of all pages.
-* update a.taost to logout when login session invalid.
-* add western union, Phil bdo, korean Bank.
-* Make responsive header menu based on break point.
-* Apply HMR for easy scss design.
-* for student, after register, it display proifile update content before it moves to welcome page since the registration page template reacts by user login.
-  * if the user is on student page, then do not show profile update on registration since the user will be redirected to welcome page immediately.
-
-* @done student register success(welcome) page after registration page so, student will be oriented and redirected to level test page.
-* Translate student adv.
-* Translate menu page.
-* @done add student advertisement page.
-* add share curriculumn page for both student and teacher. so, teacher's can also read and follow.
-* add teacher menu page.
-* @done add my point page
-* @done add password change page
-* add available schedule page.
-* add session future, past page.
-* @done add teacher schedule create/edit/list
-* @done add settings page.
-* @done add teacher's payment information page.
-* @done add teacher's curriculum vitae page.
-* @done add teacher's dashboard. ( menu )
-* @done add teacher's dayoff page.
-* schedule table navigation. No favicon anymore.
-* Complete translation for **Withcenter** and Katalk page. In en, korean, japanese, chinese.
-  * Ask Mr. Han for chinese translation.
-  * Ask Humie for japanese translation.
-* Complete class comments.
-  * comment create
-  * comment pagination.
-* Show menu of class comments on teacher page.
-
-* complete: katalk menu page
-
-* Use Ivy renderer.
-
-* Make the app `main.xxx...xxx.js` with `bundling` file size less than 1.5MB ( 400 gzipped ).
-  * if needed, remove ionic component, angular material from header, and front page.
-
-* Paypal payment test on real server.
-
-* Once student is logged in, chage the domain from `*.katalkenglish.com` to `www.katalkenglish.com`
-
-* Admin update user profile.
-  * Edit user profile.
-  * Edit user point.
-  * And launch the app as admin page first.
-
-* Point history page.
-  * limit option. 100 by defualt.
-  * dates selection option.
-  * pagination.
-
-* Branch site.
-  * Think about share:
-    Branch should not add premium on the price of point.
-    This means, admin and teacher will get less.
-    Branch gets minimum of 20% upto 30%.
-    Teacher share decreases from 90% to 70% ( or 60% ).
-  * If teacher gets less than 70%. There will be problem. Teachers will try to steal students.
-
-* Admin complete search and stats. of
-  * Sessions, Schedules
-  * Payments
-  * Point History
-* Teacher List.
-* Do all the [Ontue issues](https://github.com/thruthesky/ontue#issue-sh-boards) first.
-* move installation page to `src/app/sites/katalkenglish/installation`
-* 2 Layout for each domain. one for `desktop`, the other for `mobile`.
-* Save company information into firestore settings documents.
-  And display it in each sub domain.
-* Do registration and profile update. Student and Teachers are share this page.
-* Do LMS functionality.
-* Create forum with realtime chat functionality.
-* Do design.
-* Push notification.
-
-* Enhance. Language Translation for 4 languages. English, Korean, Japanese, Chinese.
-
-* SEO. Need SSR to properly translate text.
-  * index.html
-  * manifest.json
-
 ## References & Docuemnts
 
 * Xapi
@@ -334,7 +173,7 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
 
 ### Layout for header, page, footer
 
-* Basic structure of page must be the following.
+* Basic structure of each page must be the following.
 
 ```` html
 <header>
@@ -350,6 +189,25 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
   But no copyright since there is a footer for copyright in app.component.html.
 </footer>
 ````
+
+* In app.component.html, there is outter html layouts.
+
+```` html
+<div class="layout" [attr.path]=" a.routeUrl ">
+  <section id="katalkenglish" *ngIf=" a.site.katalkenglish ">
+    <katalkenglish-header></katalkenglish-header>
+    <section class="page">
+      <div class="page-inner">
+        <router-outlet>
+          <!-- here goes the page layout -->
+        </router-outlet>
+      </div>
+    </section>
+    <katalkenglish-footer></katalkenglish-footer>
+  </section>
+</div>
+````
+
 
 ## Naming Convention
 
