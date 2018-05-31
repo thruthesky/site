@@ -60,10 +60,10 @@
                 "with": "src/environments/environment.local-backend-server.ts"
               }]
             },
-            "remote-backend-server": {
+            "local-hmr": {
               "fileReplacements": [{
                 "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.remote-backend-server.ts"
+                "with": "src/environments/environment.local-hmr.ts"
               }]
             }
           }
@@ -80,8 +80,8 @@
             "local-backend-server": {
               "browserTarget": "app:build:local-backend-server"
             },
-            "remote-backend-server": {
-              "browserTarget": "app:build:remote-backend-server"
+            "local-hmr": {
+              "browserTarget": "app:build:local-hmr"
             }
           }
         },

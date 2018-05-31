@@ -1,51 +1,10 @@
-<katalkenglish-main-banner>
-</katalkenglish-main-banner>
+<katalkenglish-main-banner></katalkenglish-main-banner>
+
 <main>
     <div class="container">
         <!-- Student RWD Grid -->
         <div class="row">
             <div class="left col-12 col-sm-6">
-
-                <div>
-                    <katalkenglish-intro></katalkenglish-intro>
-                </div>
-
-                <hr>
-
-                <div class="stats-wrapper">
-                    <div class="stats container-fluid" *ngIf=" a.info ">
-                        <div class="row">
-                            <div class="col">
-                                <div class="item teacher">
-                                    <div class="text">강사수</div>
-                                    <div class="number">{{ a.info.teacher }}</div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="item reservation">
-                                    <div class="text">예약된수업</div>
-                                    <div class="number">{{ a.info.reservation }}</div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="item leveltest">
-                                    <div class="text">레벨테스트</div>
-                                    <div class="number">{{ a.info.leveltest }}</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <!--/stats-wrapper-->
-
-
-                <div class="alert-blue">
-                    카카오톡으로 수업! 회원 가입 후 5 회 무료 수업!
-                </div>
-
 
                 <div class="my-own-plan">
                     <div class="container-fluid">
@@ -139,46 +98,21 @@
             <!--/left-->
             <div class="right col-12 col-sm-6">
 
-                <section id="student-comments" *ngIf=" a.t('STUDENT COMMENTS') ">
-                    <h2>1만원. 월 20회. 카톡영어의 생생한 수업후기</h2>
-
-                    <ng-container *ngFor=" let comment of a.t('STUDENT COMMENTS'); let i = index ">
-                        <div class="comment" *ngIf=" i < 2 || show['more-comment']">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-4 col-sm-5 col-lg-3">
-                                        <div class="student-photo">
-                                            <img src="assets/img/student/{{ i + 1 }}.jpg">
-                                        </div>
-                                    </div>
-                                    <div class="col-8 col-sm-7 col-lg-9">
-                                        <div class="name">{{ comment.name }}</div>
-                                        <div class="title">{{ comment.title }}</div>
-                                        <div class="date">{{ comment.date }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="description" [innerHTML]="comment.description"></div>
-                        </div>
-                    </ng-container>
-
-                    <div class="more" (click)=" show['more-comment'] = true " *ngIf=" ! show['more-comment'] ">수강후기 더 보기
-                    </div>
-                </section>
-
-
                 <section class="teacher-list">
-                    <h2>카톡영어 선생님</h2>
+                    <div class="d-flex justify-content-between">
+                        <h2>카톡영어 선생님</h2>
+                        <div class="total-teachers" *ngIf=" total_teachers ">
+                            총 {{ total_teachers }} 명의 선생님이 있습니다.
+                        </div>
+                    </div>
 
                     <div class="total-teachers-loader" *ngIf=" ! total_teachers ">
                         <ion-spinner></ion-spinner>
                         <span>선생님 정보를 로딩중입니다. 시간이 너무 오래걸리면 인터넷 속도를 확인해주세요.</span>
                     </div>
 
-                    <div class="total-teachers" *ngIf=" total_teachers ">
-                        총 {{ total_teachers }} 명의 선생님이 있습니다.
-                    </div>
 
+                    
                     <div class="container-fluid" *ngIf=" total_teachers ">
                         <div class="row">
                             <div class="col-4 col-md-4 col-lg-3" *ngFor="let teacher of teachers" (click)="a.open('schedule-table', teacher)">
@@ -214,6 +148,58 @@
                     </div>
                 </section>
                 <!--/teacher-list-->
+
+                <div class="stats-wrapper">
+                    <div class="stats container-fluid" *ngIf=" a.info ">
+                        <div class="row">
+                            <div class="col">
+                                <div class="item teacher">
+                                    <div class="text">강사수</div>
+                                    <div class="number">{{ a.info.teacher }}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item reservation">
+                                    <div class="text">예약된수업</div>
+                                    <div class="number">{{ a.info.reservation }}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item leveltest">
+                                    <div class="text">레벨테스트</div>
+                                    <div class="number">{{ a.info.leveltest }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/stats-wrapper-->
+                <section id="student-comments" *ngIf=" a.t('STUDENT COMMENTS') ">
+                    <h2>1만원. 월 20회. 카톡영어의 생생한 수업후기</h2>
+
+                    <ng-container *ngFor=" let comment of a.t('STUDENT COMMENTS'); let i = index ">
+                        <div class="comment" *ngIf=" i < 2 || show['more-comment']">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-4 col-sm-5 col-lg-3">
+                                        <div class="student-photo">
+                                            <img src="assets/img/student/{{ i + 1 }}.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="col-8 col-sm-7 col-lg-9">
+                                        <div class="name">{{ comment.name }}</div>
+                                        <div class="title">{{ comment.title }}</div>
+                                        <div class="date">{{ comment.date }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="description" [innerHTML]="comment.description"></div>
+                        </div>
+                    </ng-container>
+
+                    <div class="more" (click)=" show['more-comment'] = true " *ngIf=" ! show['more-comment'] ">수강후기 더 보기
+                    </div>
+                </section>
 
             </div>
             <!--/right-->
