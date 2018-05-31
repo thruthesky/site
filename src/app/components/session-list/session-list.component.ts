@@ -105,8 +105,8 @@ export class SessionListComponent implements OnInit {
 
         const dialogRef = this.dialog.open(ConfirmModal, {
             data: <_CONFIRM_DATA_OPTION>{
-                header: this.a.t('CANCEL CLASS'),
-                content: this.a.t('CONFIRM CANCEL SESSION'),
+                header: this.a.t('SESSION CANCEL'),
+                content: this.a.t('SESSION CANCEL CONFIRM'),
                 actionYes: this.a.t('YES'),
                 actionNo: this.a.t('CANCEL')
             }
@@ -123,6 +123,7 @@ export class SessionListComponent implements OnInit {
                     this.updatePoint();
                     this.a.set( KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
                     this.a.onLmsCancel();
+                    this.a.toast( this.a.t('SESSION CANCELED'));
                 }, e => {
                     book['process'] = false;
                     this.a.toast(e);
@@ -214,12 +215,12 @@ export class SessionListComponent implements OnInit {
     rejected(book) {
         return book['refund_reject_at'] > 0;
     }
-    async onClickRefund(book) {
+    onClickRefund(book) {
 
         const dialogRef = this.dialog.open(ConfirmModal, {
             data: <_CONFIRM_DATA_OPTION>{
-                header: this.a.t('REFUND CLASS'),
-                content: this.a.t('CONFIRM REFUND CLASS'),
+                header: this.a.t('SESSION REFUND'),
+                content: this.a.t('SESSION REFUND CONFIRM'),
                 actionYes: this.a.t('YES'),
                 actionNo: this.a.t('CANCEL')
             }
