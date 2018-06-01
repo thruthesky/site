@@ -109,30 +109,43 @@ main{
 .icon-desc{
     margin-top: 1em;
     padding: 2em;
+    padding-bottom: 0;
     background: #fff;
     font-weight: 300;
 
-    ul{
-        list-style-type: none;
-        padding: 0;
+    .row{
+        margin: 0 .5em;
+        padding: 1em .8em;
+        border-bottom: 1px solid #e2e2e2;
 
-        li{
-            padding: .8em;
-            border-bottom: 1px solid #e2e2e2;
+        .col-1{
+            text-align: center;
         }
     }
 
-    .desc-reminder{
-        font-size: 90%;
-        color: red;
-        text-align: center;
+    .desc-reminder,.more-button{
         border-bottom: none!important;
+        text-align: center;
+    }
+
+    .desc-reminder{     
+        .reminder{
+            font-size: 90%;
+            color: red;
+            text-align: center;
+        }   
+
     }
 
     .more-button{
-        cursor: pointer;
-        font-size: 90%;
-        color: dodgerblue;
+
+        .button{
+            padding:1em;
+            cursor: pointer;
+            font-size: 90%;
+            color: dodgerblue;
+        }
+
     }
 }
 
