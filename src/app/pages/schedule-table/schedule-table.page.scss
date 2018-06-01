@@ -16,7 +16,8 @@ header {
     }
 }
 
-
+main{
+ padding-bottom: 1em;
 .schedule-table {
     font-size: 12px;
     text-align: center;
@@ -41,6 +42,7 @@ header {
         border-top:1px solid #e9ecef;
         background: #fff;
         font-weight: 600;
+        cursor: pointer
     }
     .teacher-schedule-header {
         top:55px!important;
@@ -105,11 +107,32 @@ header {
 }
 
 .icon-desc{
-    padding: 3em 0;
-    text-align: left;
+    margin-top: 1em;
+    padding: 2em;
+    background: #fff;
+    font-weight: 300;
+
+    ul{
+        list-style-type: none;
+        padding: 0;
+
+        li{
+            padding: .8em;
+            border-bottom: 1px solid #e2e2e2;
+        }
+    }
+
+    .desc-reminder{
+        font-size: 90%;
+        color: red;
+        text-align: center;
+        border-bottom: none!important;
+    }
 
     .more-button{
-        padding-left: 3em;
+        cursor: pointer;
+        font-size: 90%;
+        color: dodgerblue;
     }
 }
 
@@ -146,4 +169,5 @@ header {
 [icon-name="heart"] {
     color: #d00 !important;
     cursor: pointer;
+}
 }

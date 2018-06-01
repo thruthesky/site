@@ -61,10 +61,10 @@
         <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
             [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
             <div class="info">
-                <div class="loader" *ngIf=" session.in_progress ">
+                <div *ngIf=" session.in_progress ">
                     <ion-spinner name="circles"></ion-spinner>
                 </div>
-                <div class="status-icon" *ngIf=" ! session.in_progress ">
+            <div class="status-icon" *ngIf=" !session.in_progress ">
                     <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
                 </div>
                 <div>{{ session[N.point] }}</div>
@@ -114,7 +114,7 @@
           <ion-icon name="cloud-done"></ion-icon> - {{'DESC_CLOUD_DONE'| t}} 
         </li>
 
-        <li>
+        <li class="desc-reminder">
                 {{'DESC_REMINDER'| t}} 
         </li>
       </ng-container>

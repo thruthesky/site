@@ -2,8 +2,8 @@
     <div class="title">Recently Graded Teachers</div>
     <div class="body">
         <ng-container *ngFor="let teacher of teachers; let i=index">
-            <div class="container-fluid" (click)="a.open('schedule-table', { idx_teacher: teacher.ID })"
-                 *ngIf="i<3">
+            <div class="container-fluid" *ngIf="i<3">
+            <a (click)="a.open('schedule-table', { idx_teacher: teacher.ID })">
                 <div class="row">
                     <div class="col-md-4 col-3">
                         <span class="teacher-photo">
@@ -49,6 +49,7 @@
                         <p class="grade">{{teacher.grade}}/5</p>
                     </div>
                 </div>
+                </a>
             </div>
         </ng-container>
     </div>

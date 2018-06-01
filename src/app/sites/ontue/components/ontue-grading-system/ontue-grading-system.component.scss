@@ -82,8 +82,9 @@ section{
                     }
                 }
 
-                button{
-                    padding: 1em 2em;
+                a{
+                    display: inline-block;
+                    padding: 0 2em;
                     border-radius: 2px;
                     border:none;
                     background: #007bff;

@@ -34,7 +34,7 @@
                         <span *ngIf="teacher_comment['more']">{{teacher_comment.comment}}</span>
                     </div>
                     <ng-container *ngIf="teacher_comment.comment.length>200">
-                        <span class="view-more"  color="blue" (click)="teacher_comment['more'] = !teacher_comment['more']"> {{teacher_comment['more']? 'View Less' : 'View More'}}</span>
+                        <a class="view-more"  color="blue" (click)="teacher_comment['more'] = !teacher_comment['more']"> {{teacher_comment['more']? 'View Less' : 'View More'}}</a>
                     </ng-container>
                 </div>
             </div>

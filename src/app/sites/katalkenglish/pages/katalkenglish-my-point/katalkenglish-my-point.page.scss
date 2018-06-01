@@ -3,9 +3,10 @@ header{
     padding: 1.25em;
     background-color: #ececec;
     text-align: center;
-    span{
+    a{
         display: inline-block;
         padding: .4em;
+        cursor: pointer;
 
         .icon{
             height: 1em;
@@ -40,6 +41,7 @@ section{
 }
 
 .point-link{
+    display: block;
     padding: 5em;
     text-align: center;
     cursor: pointer;

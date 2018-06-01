@@ -496,6 +496,20 @@
     "WAS_TEACHER_USING_CAMERA":"老师是用相机吗？",
     "CAMERA_YES":"是",
     "CAMERA_NO":"没有",
-    "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "哦，請登錄查看時間表。"
+    "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "哦，請登錄查看時間表。",
+
+    "CANCEL REFUND REQUEST SUCCESS":"取消退款请求",
+    "SCHEDULE DELETE":"计划删除",
+    "SCHEDULE DELETED":"计划已删除。",
+    "SCHEDULE DELETE CONFIRM":"你确定，你想删除这个时间表吗？",
+    "COMMENT DELETE":"评论删除",
+    "COMMENT DELETED":"评论已删除。",
+    "COMMENT DELETE CONFIRM":"你确定要删除此评论吗？",
+    "SESSION CANCEL":"会话取消",
+    "SESSION CANCELED":"会议取消。",
+    "SESSION CANCEL CONFIRM":"你确定，你想取消这个会议吗？",
+    "SESSION REFUND":"会话退款",
+    "SESSION REFUNDED":"会议已退款。",
+    "SESSION REFUND CONFIRM":"你确定，你想退款吗？"
 
 }

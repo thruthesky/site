@@ -1,7 +1,7 @@
 @import '../../../../../theme/vars.scss';
 #katalkenglish-header {
     // border-bottom: 1px solid rgba(#b2b2b2, 0.6);
-    background: #e0dfdf
+    background: #e0dfdf;
 }
 
 @media all and (max-width:$md) {
@@ -18,6 +18,8 @@
         display: none;
     }
 }
+
+
 
 nav {
     display: flex;
@@ -48,6 +50,10 @@ nav {
             margin-bottom: .2em;
             height: 24px;
         }
+
+        img{
+            height: 20px;
+        }
         span {
             font-size: 9px;
 
@@ -61,7 +67,7 @@ nav {
 .select-wrapper {
     position: relative !important;
     padding-bottom: 7px; 
-    background: #8d8d8d;
+    background: #aeadad;
     select {
         position: relative;
         padding: 0 .6em;

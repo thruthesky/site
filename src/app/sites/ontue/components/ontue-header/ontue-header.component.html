@@ -2,20 +2,21 @@
 
     <nav class="inner container-fluid">
         <div class="row">
-            <div class="col-3" routerLink="/teacher">
+            <div class="col-2" routerLink="/teacher">
                 <div class="logo" >
                     <svg aria-hidden="true" data-prefix="fas" data-icon="video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M528 64h-12.118a48 48 0 0 0-33.941 14.059L384 176v-64c0-26.51-21.49-48-48-48H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48v-64l97.941 97.941A48 48 0 0 0 515.882 448H528c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48z"></path></svg>
                     <span>OnTue</span>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-9">
                 <div class="buttons">
                     <a routerLink="/teacher-list">Teacher</a>
                     <a routerLink="/teacher/help">Help</a>
                     <a routerLink="/teacher-session-future" *ngIf=" a.isLogin ">Reserved</a>
                     <a routerLink="/teacher-session-past" *ngIf=" a.isLogin ">Past</a>
-                    <!-- <a routerLink="/category">Category</a>  -->
-                    <a (click)=" a.onClickContactAdmin() " *ngIf=" a.isLogout ">Contact</a> 
+                    <a  routerLink="/teacher-reviews">Comments</a> 
+                    <a  routerLink="/teacher-reviews">QNA</a> 
+                    <a (click)=" a.onClickContactAdmin() ">Contact</a> 
                     <a routerLink="/my-schedule"  *ngIf=" a.isLogin ">Schedule</a>
                     <a routerLink="/register" *ngIf=" a.isLogout ">Register</a>
                     <a routerLink="/login" *ngIf=" a.isLogout ">Login</a>
@@ -24,7 +25,7 @@
                     <a>Contact Us</a>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-1">
                 <div class="menu ">
                     <a routerLink="/teacher-menu">
                         <ion-icon name="ios-menu"></ion-icon>
