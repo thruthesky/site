@@ -1440,6 +1440,12 @@ export class AppService {
     isDesktopView(): boolean {
         return !this.isMobileView();
     }
+    /**
+     * Returns a string of 'small' or 'big' depending on the width of the app/web.
+     */
+    size(): 'small' | 'big' {
+        return this.isMobileView() ? 'small' : 'big';
+    }
 
     /**
      * Updates user's point from the server.

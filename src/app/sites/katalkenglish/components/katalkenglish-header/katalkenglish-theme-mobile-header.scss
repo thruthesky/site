@@ -1,0 +1,37 @@
+#katalkenglish-header {
+    #mobile-header {
+        padding: 0 .5em;
+        background-color: white;
+        nav {
+            display: flex;
+        }
+        .flags {
+            position: relative;
+            // border: 1px solid rgb(202, 202, 202);
+            width: 34px;
+            height: 32px;
+            overflow: hidden;
+            img {
+                max-width: 32px;
+            }
+            select {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 36px;
+                height: 36px;
+                cursor: pointer;
+                opacity: .001;
+            }
+        }
+        .sub-nav {
+            margin: 0 -.5em;
+            padding: 0 .5em;
+            height: auto !important;
+            background: $background-color-submenu;
+            a {
+                min-height: 42px !important;
+            }
+        }
+    }
+}

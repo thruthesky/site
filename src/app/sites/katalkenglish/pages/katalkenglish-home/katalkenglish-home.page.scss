@@ -92,70 +92,6 @@
     }
 }
 
-.teacher-list {
-    margin-top: 1em;
-    h2 {
-        margin: 0;
-        font-size: 1.1em;
-        font-weight: normal;
-    }
-    .total-teachers {
-        font-size: 10pt;
-    }
-    .row {
-        justify-content: space-around;
-        &>div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0;
-            font-size: 85%;
-        }
-        .teacher-info {
-            margin-top: .3em;
-            margin-bottom: 2em;
-        }
-    }
-    .teacher-profile-photo {
-        width: 100px;
-        height: 120px;
-        overflow: hidden;
-        img {
-            width: 100%;
-        }
-    }
-    .teacher-list-button {
-        padding: .3em;
-        color: #464a4e;
-        background-color: #e7e8ea;
-        border: 1px solid #dddfe2;
-        text-align: center;
-        cursor: pointer;
-    }
-    .grade {
-        svg {
-            height: .9em;
-        }
-        &[grade="5"] {
-            color: #f06000;
-        }
-        &[grade="4"] {
-            color: #ff9900;
-        }
-        &[grade="3"] {
-            color: #4a8d23;
-        }
-        &[grade="2"] {
-            color: #272775;
-        }
-        &[grade="1"] {
-            color: #272727;
-        }
-    }
-}
-
 .my-own-plan {
     padding: 3em .3em;
     background-color: #e6e6e6;
@@ -166,7 +102,8 @@
         }
     }
     h2 {
-        font-size: 1.1em;
+        margin: .25em 0 1em 0;
+        font-size: 1.2em;
         font-weight: 500;
     }
     .text,

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { KatalkEnglishHomePage } from './katalkenglish-home.page';
 // import { UserInfoComponentModule } from '../../../../components/user-info/user-info.component.module';
 
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 import { KatalkEnglishMainBannerComponentModule } from '../../components/katalkenglish-main-banner/katalkenglish-main-banner.component.module';
+import { KatalkEnglishMaiTeacherListComponentModule } from '../../components/katalkenglish-main-teacher-list/katalkenglish-main-teacher-list.component.module';
 
 const routes: Routes = [
     {path: '', component: KatalkEnglishHomePage}
@@ -14,11 +14,11 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        IonicModule,
         RouterModule.forChild(routes),
         // UserInfoComponentModule,
         TranslatePipeModule,
-        KatalkEnglishMainBannerComponentModule
+        KatalkEnglishMainBannerComponentModule,
+        KatalkEnglishMaiTeacherListComponentModule
     ],
     exports: [
         RouterModule
