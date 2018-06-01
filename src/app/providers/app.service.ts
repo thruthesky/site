@@ -344,12 +344,27 @@ export class AppService {
         return this.getDomain().indexOf(SITE_WITHCENTER) !== -1;
     }
 
+    /**
+     * Returns true if the theme that the user is using is student's theme.
+     *
+     * @description student's theme may have more than one site/domain.
+     */
     get studentTheme() {
-        return this.site.katalkenglish;
+        if ( this.teacherTheme ) {
+            return false;
+        } else if ( this.withcenterTheme ) {
+            return false;
+        } else {
+            return true;
+        }
+        // return this.site.katalkenglish;
     }
 
     get teacherTheme() {
         return this.site.ontue;
+    }
+    get withcenterTheme() {
+        return this.site.withcenter;
     }
 
 

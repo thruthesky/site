@@ -500,11 +500,13 @@ export class XapiLMSService extends Base {
     }
 
     update_push_token(token: string, platform: string) {
+        const domain = window.location.hostname;
         return this.x.post({
             route: 'lms.update_push_token',
             session_id: this.user.sessionId,
             token: token,
-            platform: platform
+            platform: platform,
+            domain: domain
         });
     }
 
