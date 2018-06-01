@@ -23,7 +23,7 @@
             </a>
             <div class="flags">
                 <img class="custom-icon" *ngIf="selectedLanguage=='en'" src="../../../assets/img/language-flags/en.png" alt="">
-                <img class="custom-icon" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko.png" alt="">
+                <img class="custom-icon ko-flag" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko-copy.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='ch'" src="../../../assets/img/language-flags/ch.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='jp'" src="../../../assets/img/language-flags/jp.png" alt="">
 
@@ -192,13 +192,22 @@
                 </svg>
                 <span>{{ a.ln.PAYMENT_HISTORY }}</span>
             </a> -->
-
+            <!-- <mat-form-field class="select-language">
+                <mat-select [(ngModel)]="selectedLanguage" (selectionChange)=" onChangeLanguage() ">
+                        <mat-option value="en">
+                            <span>English</span>
+                        </mat-option>
+                        <mat-option value="ko">한국어</mat-option>
+                        <mat-option value="ch">香港 (繁體中文)</mat-option>
+                        <mat-option value="jp">日本語</mat-option>
+                </mat-select>
+            </mat-form-field> -->
             <label class="select-wrapper">
-                <img class="custom-icon" *ngIf="selectedLanguage=='en'" src="../../../assets/img/language-flags/en.png" alt="">
-                <img class="custom-icon" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko.png" alt="">
-                <img class="custom-icon" *ngIf="selectedLanguage=='ch'" src="../../../assets/img/language-flags/ch.png" alt="">
-                <img class="custom-icon" *ngIf="selectedLanguage=='jp'" src="../../../assets/img/language-flags/jp.png" alt="">
-                <select [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() ">
+                <img class="custom-icon" *ngIf="selectedLanguage=='en'" src="../../../assets/img/language-flags/en-desktop.png" alt="">
+                <img class="custom-icon" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko-desktop.png" alt="">
+                <img class="custom-icon" *ngIf="selectedLanguage=='ch'" src="../../../assets/img/language-flags/ch-desktop.png" alt="">
+                <img class="custom-icon" *ngIf="selectedLanguage=='jp'" src="../../../assets/img/language-flags/jp-desktop.png" alt="">
+                <select >
                     <option value="en">
                         <span>English</span>
                     </option>
