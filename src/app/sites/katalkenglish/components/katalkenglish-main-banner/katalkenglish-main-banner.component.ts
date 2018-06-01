@@ -7,8 +7,14 @@ import { Component, ViewChild, OnInit, AfterViewInit, OnDestroy } from '@angular
 })
 export class KatalkEnglishMainBannerComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    // if it is set to -1, it's not debugging.
-    debugging = -1;  // When you debug a page, set it to animation number from 0.
+    /**
+     * if it is set to -1, it's not debugging.
+     * -1 로 지정하면 디버깅 하지 않음.
+     * When you debug a page, set it to animation number from 0.
+     * 배너 애니메이션을 디버깅하고자 한다면 해당 배너 번호를 입력하면 그 배너만 표시 됨.
+     * 예) 3 을 지정하면 4번째 배너를 볼 수 있다.
+     */
+    debugging = 3;
 
     beginAni = false;
     no = 0;
@@ -20,7 +26,7 @@ export class KatalkEnglishMainBannerComponent implements OnInit, AfterViewInit, 
     ngOnInit() { }
 
     ngAfterViewInit() {
-        this.debug();
+        setTimeout(() => this.debug(), 100);
         setTimeout(() => this.begin(), 3000); // real
     }
     ngOnDestroy() {
