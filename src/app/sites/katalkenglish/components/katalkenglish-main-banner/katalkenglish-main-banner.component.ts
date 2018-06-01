@@ -14,7 +14,7 @@ export class KatalkEnglishMainBannerComponent implements OnInit, AfterViewInit, 
      * 배너 애니메이션을 디버깅하고자 한다면 해당 배너 번호를 입력하면 그 배너만 표시 됨.
      * 예) 3 을 지정하면 4번째 배너를 볼 수 있다.
      */
-    debugging = 3;
+    debugging = -1;
 
     beginAni = false;
     no = 0;
