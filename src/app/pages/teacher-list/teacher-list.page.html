@@ -1,6 +1,6 @@
 <main>
 
-    <header>
+    <header [class.display-option-true]="display_options">
         <h2 *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST_PAGE_TITLE' | t }}</h2>
         <h2 *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</h2>
         <a (click)=" display_options = !display_options " *ngIf=" ! display_options ">
@@ -10,8 +10,8 @@
     </header>
     <section class="page-options" *ngIf=" display_options ">
             <div class="container-fluid">
-                <div class="row divide">
-                    <div class="col-8">
+                <div class="row">
+                    <div class="title col-8">
                         <div>{{ "TEACHER_LIST_OPTIONS" | t }}</div>
                     </div>
                     <div class="col-4">
@@ -50,7 +50,7 @@
             </div>
         </section>
     
-        <!-- <section class="page-desc">
+        <section class="page-desc">
     
             <div *ngIf=" re && a.studentTheme ">
                 <div *ngIf="a.user.isLogin ">
@@ -76,7 +76,7 @@
             </div>
     
     
-        </section> -->
+        </section>
     
         <section class="page-body">
     

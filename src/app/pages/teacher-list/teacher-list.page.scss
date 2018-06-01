@@ -6,14 +6,18 @@ header{
     justify-content: space-between;
     align-items: center;
     padding-left: 2em;
-    background-color: #607d8b;
-    color: #fff;
+    background: #fff;
+    color:#607d8b;
+
+    @media screen and (max-width:$sm) {
+        padding-left: 1.3em;
+        font-size: 80%;
+    }
 
     h2{
         font-size: 1.17em;
-        font-weight: 300!important;
+        font-weight: 400!important;
         text-transform: uppercase;
-        letter-spacing: .08em;
     }
 
     a{
@@ -44,15 +48,25 @@ main{
         box-sizing: border-box;
     }
 
+    .display-option-true{
+        background: #607d8b;
+        color:#fff;
+    }
+
     .page-options{
-        padding: 1em 0;
+        padding: 1em;
         background: white;
 
 
         mat-form-field{
-            margin-top:1.2em;
-            padding: .8em .5em;
+            margin-top:.5em;
+            padding: .8em 0;
             width:100%;
+        }
+
+        .title{
+            font-size: 1.1em;
+            font-weight: bold;
         }
 
         button{
