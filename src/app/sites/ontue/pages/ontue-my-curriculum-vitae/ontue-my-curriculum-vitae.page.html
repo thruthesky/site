@@ -88,7 +88,7 @@
                         <mat-label>{{ 'NATIONALITY' | t }}</mat-label>
                         <mat-select  [(ngModel)]="account.nationality" name="nationality">
                             <mat-option [value]="0">Select...</mat-option>
-                            <mat-option *ngFor="let c of a.countries" value="{{c}}">{{c}}
+                            <mat-option *ngFor="let c of loc.countries" value="{{c}}">{{c}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>

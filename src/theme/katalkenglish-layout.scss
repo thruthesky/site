@@ -1,10 +1,9 @@
+@import './vars.scss';
+@import './variables-katalkenglish.scss';
 body {
     margin: 0;
 }
 
-$katalkenglish-page-width: 1024px;
-$katalkenglish-header-height: 64px;
-$katalkenglish-padding: 8px;
 #katalkenglish {
     #katalkenglish-header {
         position: fixed;
@@ -12,15 +11,30 @@ $katalkenglish-padding: 8px;
         top: 0;
         left: 0;
         right: 0;
-        height: $katalkenglish-header-height;
+        height: $katalkenglish-mobile-header-height;
         overflow: hidden;
-        .inner {
-            margin: 0 auto;
-            max-width: $katalkenglish-page-width;
+        #desktop-header {
+            display: none;
+        }
+        @media (min-width: $md) {
+            height: $katalkenglish-header-height;
+            #mobile-header {
+                display: none;
+            }
+            #desktop-header {
+                display: block;
+                nav {
+                    margin: 0 auto;
+                    max-width: $katalkenglish-page-width;
+                }
+            }
         }
     }
     .page {
-        margin-top: $katalkenglish-header-height;
+        margin-top: $katalkenglish-mobile-header-height;
+        @media (min-width: $md) {
+            margin-top: $katalkenglish-header-height;
+        }
         .page-inner {
             main {
                 margin: 0 auto;
@@ -30,11 +44,6 @@ $katalkenglish-padding: 8px;
     }
     #katalkenglish-footer {
         width: 100%;
-    }
-    @media all and (max-width:820px) {
-        .page {
-            margin-top: $katalkenglish-header-height+42;
-        }
     }
 }
 

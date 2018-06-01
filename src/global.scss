@@ -19,13 +19,16 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "맑은고딕", Malgun Gothic, -apple-system, AppleGothice, Arial, Helvetica, sans-serif;
+}
+
 
 hr {
     margin: 0;
     padding: 0;
     border-bottom: 1px;
 }
-
 
 .loader {
     padding: 1em;
@@ -35,13 +38,12 @@ hr {
     font-weight: 100;
 }
 
-
 .link {
     cursor: pointer;
 }
+
 .link:hover {
     color: rgb(0, 132, 255);
     font-weight: bold;
     text-decoration: underline;
 }
-

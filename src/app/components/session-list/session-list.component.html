@@ -132,7 +132,7 @@
         <ng-container *ngIf=" past ">{{ 'NO_MORE_PASTS' | t}}</ng-container>
     </div>
 
-    <div class="loader" *ngIf=" re == null ">
+    <div class="loader" *ngIf=" loadingOnSearch  ">
         <ion-spinner></ion-spinner>
         <span>{{ 'IN LOADING' | t}}</span>
     </div>
@@ -215,8 +215,8 @@
                              (click)=" a.open('schedule-table', { ID: book.idx_teacher })">
                             <img src="{{ photoURL( book )  }}">
                         </div>
-                        <div class="photo-name" *ngIf="displayTeacherName">{{
-                            a.preTeacherName(my_teachers[book.idx_teacher].name) }}
+                        <div class="photo-name" *ngIf="displayTeacherName">
+                            {{ a.preTeacherName(my_teachers[book.idx_teacher].name) }}
                         </div>
                     </section>
                 </div>

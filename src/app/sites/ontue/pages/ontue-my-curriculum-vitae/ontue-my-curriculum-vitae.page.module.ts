@@ -8,6 +8,7 @@ import { MaterialModule } from '../../../../app.material.module';
 import { OntueMyCurriculumVitaePage } from './ontue-my-curriculum-vitae.page';
 import { XapiFileUploadComponentModule } from '../../../../components/xapi-file-upload/xapi-file-upload.component.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { LocationService } from '../../../../providers/location.service';
 
 
 
@@ -32,6 +33,9 @@ const routes: Routes = [
     ],
     entryComponents: [
         OntueMyCurriculumVitaePage
+    ],
+    providers: [
+        LocationService
     ],
     bootstrap: [OntueMyCurriculumVitaePage],
     schemas: []

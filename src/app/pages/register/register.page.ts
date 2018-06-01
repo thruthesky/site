@@ -8,6 +8,7 @@ import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-
 import { LoaderService } from '../../providers/loader/loader.service';
 import { MatDialog } from '@angular/material';
 import { HowToGetQRMARKModal } from '../how-to-get-qrmark/how-to-get-qrmark.modal';
+import { HowToGetkakaotalkIDModal } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal';
 // import { LanguageService } from '../../providers/language.service';
 
 @Component({
@@ -405,10 +406,17 @@ export class RegisterPage implements OnInit {
     }
 
     onClickKakaoIDHelp() {
-        this.showFindKakaotalkIDBox = true;
-        setTimeout(() => {
-                    document.querySelector('.kakaotalk-id-find-box').scrollIntoView();
-    }, 200);
+        const dialogRef = this.dialog.open(HowToGetkakaotalkIDModal, {
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed', result);
+        });
+
+        // this.showFindKakaotalkIDBox = true;
+        // setTimeout(() => {
+        //             document.querySelector('.kakaotalk-id-find-box').scrollIntoView();
+        // }, 200);
         // if (this.a.isTeacher) {
         //     this.showModalFAQ('kakaoID');
         // } else {

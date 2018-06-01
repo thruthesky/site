@@ -5,6 +5,7 @@ import {FILE, FILES, USER_DATA_RESPONSE, USER_UPDATE, USER_UPDATE_RESPONSE} from
 import {Router} from '@angular/router';
 import {XapiFileUploadComponent} from '../../../../components/xapi-file-upload/xapi-file-upload.component';
 import {MatDatepicker} from '@angular/material/datepicker';
+import { LocationService } from '../../../../providers/location.service';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class OntueMyCurriculumVitaePage {
     showLoader = false;
 
     constructor(public a: AppService,
+                public loc: LocationService,
                 public sanitizer: DomSanitizer,
                 public router: Router) {
 
