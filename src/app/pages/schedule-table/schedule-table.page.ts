@@ -1,5 +1,5 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { AppService, KEY_SCHEDULES, KEY_LMS_INFO } from '../../providers/app.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SCHEDULE_TABLE, N, TEACHER, SCHEDULE_COMPRESSED, TABLE } from '../../modules/xapi/interfaces';
@@ -13,7 +13,7 @@ const MAX_DURATION = 120;
     templateUrl: 'schedule-table.page.html',
     styleUrls: ['schedule-table.page.scss'],
 })
-export class ScheduleTablePage implements OnInit, OnDestroy {
+export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
 
     N = N;
     /**
@@ -83,6 +83,11 @@ export class ScheduleTablePage implements OnInit, OnDestroy {
 
     ngOnInit() {
 
+    }
+    ngAfterViewInit() {
+        if ( this.a.isLogout ) {
+            this.a.toast( this.a.t('LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME') );
+        }
     }
     ngOnDestroy() {
         this.re = null;

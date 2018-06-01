@@ -1372,7 +1372,21 @@ export class AppService {
             event.preventDefault();
         }
 
-        window.open(this.kakaoUrls.student_kakaoplus_deeplink);
+        if (this.isTeacher) {
+            if (this.isMobileView()) {
+                window.open(this.kakaoUrls.teacher_kakaoplus_deeplink);
+            } else {
+                window.open(this.kakaoUrls.teacher_kakaoplus_url);
+            }
+        } else {
+            if (this.isMobileView()) {
+                window.open(this.kakaoUrls.student_kakaoplus_deeplink);
+            } else {
+                window.open(this.kakaoUrls.student_kakaoplus_url);
+            }
+        }
+
+
 
         return false;
     }

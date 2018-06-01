@@ -114,7 +114,7 @@
     "LOGIN_INVALID": "Please, login",
     "REMINDER": "Reminders",
     "QNA": "QnA",
-    "POLICY": "Terms and Policies",
+    "POLICY": "Policies",
     "TERMS_AND_CONDITIONS": "Terms and Condition",
     "SESSION_FUTURE": "Reservations",
     "SESSION_PAST": "Past Classes",
@@ -551,11 +551,7 @@
   "SESSION CANCEL CONFIRM":"Are you sure, you want to cancel this session?",
   "SESSION REFUND":"Session Refund",
   "SESSION REFUNDED":"Session Refunded.",
-  "SESSION REFUND CONFIRM":"Are you sure, you want to refund this session?"
-
-
-
-
-
+  "SESSION REFUND CONFIRM":"Are you sure, you want to refund this session?",
+  "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "Ooh, Please login to see the time of schedules."
 
 }

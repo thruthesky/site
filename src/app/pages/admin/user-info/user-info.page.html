@@ -332,6 +332,9 @@
                                 Action
                             </th>
                             <th>
+                                Point
+                            </th>
+                            <th>
                                 idx
                                 <br> reservation
                             </th>
@@ -355,6 +358,9 @@
                             </td>
                             <td>
                                 <div class="reason">{{ log.reason }}</div>
+                            </td>
+                            <td>
+                                <div class="reason">{{ log.apply_point | number }}</div>
                             </td>
                             <td>
                                 <div class='link' routerLink="/admin/session/idx/{{log.idx_reservation}}">

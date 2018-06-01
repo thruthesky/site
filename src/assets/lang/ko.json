@@ -48,7 +48,8 @@
     "LOGIN_FIRST": "로그인을 먼저하십시오.",
     "REMINDER": "공지사항",
     "QNA": "질문과답변",
-    "POLICY": "이용자 약관",
+    "POLICY": "수업 규정",
+    "TERMS_AND_CONDITIONS": "이용자 약관",
     "SESSION_FUTURE": "예약된 수업",
     "SESSION_PAST": "지난 수업",
     "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "입력하신 이메일로 사용자 정보를 찾을 수 없습니다. 가입된 이메일 주소인지 확인해 주세요.",
@@ -263,7 +264,7 @@
     "NEXT":"다음 것",
     "NO_MORE_MESSAGES":"더 이상 메시지 없음",
 
-    "SCHEDULE_TABLE_LOADING":"일정 테이블로드",
+    "SCHEDULE_TABLE_LOADING":"수업 시간표를 로딩중입니다.",
     "NO_SCHEUDLE_TRY_SEARCH":"일정 없음 검색 시도",
     "NO_MORE_RESERVATIONS":"추가 예약 불가",
     "NO_MORE_PASTS":"더 이상 파스타",
@@ -502,5 +503,6 @@
     "INTERNET_BAD":"불쾌한",
     "WAS_TEACHER_USING_CAMERA":"교사가 카메라를 사용 했습니까?",
     "CAMERA_YES":"예",
-    "CAMERA_NO":"아니"
+    "CAMERA_NO":"아니",
+    "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "앗! 로그인을 하셔야 수업 시간표의 시간을 확인 할 수 있습니다."
 }
