@@ -193,7 +193,7 @@
                 <span>{{ a.ln.PAYMENT_HISTORY }}</span>
             </a> -->
             <!-- <mat-form-field class="select-language">
-                <mat-select [(ngModel)]="selectedLanguage" (selectionChange)=" onChangeLanguage() ">
+                <mat-select>
                         <mat-option value="en">
                             <span>English</span>
                         </mat-option>
@@ -207,7 +207,7 @@
                 <img class="custom-icon" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko-desktop.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='ch'" src="../../../assets/img/language-flags/ch-desktop.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='jp'" src="../../../assets/img/language-flags/jp-desktop.png" alt="">
-                <select >
+                <select  [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() ">
                     <option value="en">
                         <span>English</span>
                     </option>
