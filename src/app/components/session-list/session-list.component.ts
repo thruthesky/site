@@ -38,10 +38,17 @@ export class SessionListComponent implements OnInit {
     displayPoint = true;
 
     loadingRefundRequest = false;
+    loadingOnSearch = true;
 
     constructor(public a: AppService,
                 public dialog: MatDialog
     ) {
+
+        if ( this.a.isLogout ) {
+            this.a.open('login');
+            this.a.toast( this.a.t('YOU ARE NOT LOGGED IN'));
+            return;
+        }
         this.updatePoint();
     }
 
@@ -148,6 +155,7 @@ export class SessionListComponent implements OnInit {
     }
 
     sessionSearch() {
+        this.loadingOnSearch = true;
         this.a.lms.session_search(this.request()).subscribe(re => {
             // console.log("Result of class_search(): ", re);
             this.re = re;
@@ -156,10 +164,11 @@ export class SessionListComponent implements OnInit {
             this.books = re['books'];
             this.my_teachers = re['my_teachers'];
             this.teacher_summary = re['teacher_summary'];
+            this.loadingOnSearch = false;
         }, e => {
-
             // console.log('sessionSearch::', e);
             this.a.toast(e);
+            this.loadingOnSearch = false;
         });
 
     }

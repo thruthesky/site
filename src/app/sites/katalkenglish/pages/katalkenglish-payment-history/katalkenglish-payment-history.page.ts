@@ -15,6 +15,12 @@ export class KatalkEnglishPaymentHistoryPage {
         public a: AppService
     ) {
 
+        if ( this.a.isLogout ) {
+            this.a.open('login');
+            this.a.toast( this.a.t('YOU ARE NOT LOGGED IN'));
+            return;
+        }
+
         this.a.lms.get_payment_history().subscribe( res => {
             console.log(`get_payment_history`, res['payments']);
             this.payments = res['payments'];

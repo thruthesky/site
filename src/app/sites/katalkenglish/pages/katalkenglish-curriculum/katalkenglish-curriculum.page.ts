@@ -13,11 +13,7 @@ export class KatalkEnglishCurriculumPage  {
         public a: AppService
     ) {
 
-        console.log('KatalkEnglishCurriculumPage');
-        this.a.loadMyPoint(p => {
-            this.point = p;
-        }, 200);
-     }
+    }
 
 }
 
