@@ -10,6 +10,7 @@ import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module
 import { HowToGetQRMARKModalModule } from '../how-to-get-qrmark/how-to-get-qrmark.modal.module';
 import { MaterialModule } from '../../app.material.module';
 import { ConfirmModalModule } from '../../components/modal/confirm/confirm.modal.module';
+import { HowToGetKakaotalkIDModalModule } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal.module';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
         XapiFileUploadComponentModule,
         LoaderSerivceModule,
         HowToGetQRMARKModalModule,
+        HowToGetKakaotalkIDModalModule,
         MaterialModule,
         ConfirmModalModule
     ],

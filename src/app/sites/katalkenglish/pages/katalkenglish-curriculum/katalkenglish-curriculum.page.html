@@ -8,8 +8,7 @@
                     <div *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}</div>
                     <div *ngIf=" ! a.lmsInfoBook()">{{ 'CURRICULUM_STAT_2' | t : {'USERNAME':a.user.name} }}</div>
             </div>
-        
-        
+
             <div>{{ "CURRICULUM_CONTENT_1" | t}}</div>
         
             <div>{{ "CURRICULUM_CONTENT_2" | t}}</div>

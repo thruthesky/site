@@ -1,0 +1,65 @@
+@import '../../../theme/vars.scss';
+header{
+    margin: 0;
+    h1{
+        margin: 0;
+        margin-top: -.5em;
+        padding-bottom: .5em;
+        font-size: 1em
+    }
+}
+
+
+main{
+    padding: 2em 0;
+    padding-bottom: 5em;
+    background: #fff;
+    line-height: 1.6em;
+    font-family: Helvetica, arial, sans-serif;
+
+    @media screen and (max-width:$sm){
+       font-size: 80%;
+
+       .mat-dialog-container{
+           padding-top: 0;
+       }
+    }
+
+
+    .content{
+        width: 90%;
+        margin: auto;
+
+        .links{
+            margin-bottom: 3em;
+        }
+    }
+
+
+    .kakaotalk-id-find-box{
+      img{
+        border: 1px solid #dfdfdf;
+        max-width: 100%;
+      }
+
+    }
+
+    .image{
+        padding: 3em 0;
+        text-align: center;
+
+        img{
+            border: 1px solid rgba(grey,.2);
+        }
+        @media screen and (max-width:$sm){
+            padding: 1em 0;
+            img{
+                width: 100%
+            }
+        }
+    }
+
+    .mat-dialog-actions{
+       justify-content: center;
+    }
+}
