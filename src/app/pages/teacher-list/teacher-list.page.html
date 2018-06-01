@@ -37,7 +37,8 @@
                     <div class="col">
     
                         <mat-form-field>
-                            <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() " placeholder="{{ 'TEACHER_GRADE' | t }}">
+                            <mat-label>{{ 'TEACHER_GRADE' | t }}</mat-label>
+                            <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() ">
                                 <mat-option value="Y">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
                                 <mat-option value="M">{{"ALL_TEACHER" | t}}</mat-option>
                             </mat-select>
@@ -49,7 +50,7 @@
             </div>
         </section>
     
-        <section class="page-desc">
+        <!-- <section class="page-desc">
     
             <div *ngIf=" re && a.studentTheme ">
                 <div *ngIf="a.user.isLogin ">
@@ -75,7 +76,7 @@
             </div>
     
     
-        </section>
+        </section> -->
     
         <section class="page-body">
     
