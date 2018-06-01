@@ -34,20 +34,6 @@
     </div>
     <div class="minutes" *ngIf=" chip.show == 'minutes' ">
         <mat-form-field >
-                <mat-select name="duaration" [(ngModel)]="form.max_duration" (selectionChange)="onSearchSubmit()">
-                    <mat-option value="4">{{ 'LESS_THAN' | t:{'MIN':4} }}</mat-option>
-                    <mat-option value="9">{{ 'LESS_THAN' | t:{'MIN':9} }}</mat-option>
-                    <mat-option value="14">{{ 'LESS_THAN' | t:{'MIN':14} }}</mat-option>
-                    <mat-option value="19">{{ 'LESS_THAN' | t:{'MIN':19} }}</mat-option>
-                    <mat-option value="24">{{ 'LESS_THAN' | t:{'MIN':24} }}</mat-option>
-                    <mat-option value="29">{{ 'LESS_THAN' | t:{'MIN':29} }}</mat-option>
-                    <mat-option value="39">{{ 'LESS_THAN' | t:{'MIN':39} }}</mat-option>
-                    <mat-option value="49">{{ 'LESS_THAN' | t:{'MIN':49} }}</mat-option>
-                    <mat-option value="59">{{ 'LESS_THAN' | t:{'MIN':59} }}</mat-option>
-                    <mat-option value="120">{{ 'LESS_THAN' | t:{'MIN':120} }}</mat-option>
-                </mat-select>
-        </mat-form-field>
-        <mat-form-field >
                 <mat-select name="duaration" [(ngModel)]="form.min_duration" (selectionChange)="onSearchSubmit()">
                     <mat-option value="0">{{ 'MORE_THAN' | t:{'MIN':0} }}</mat-option>
                     <mat-option value="5">{{ 'MORE_THAN' | t:{'MIN':5} }}</mat-option>
@@ -59,6 +45,20 @@
                     <mat-option value="40">{{ 'MORE_THAN' | t:{'MIN':40} }}</mat-option>
                     <mat-option value="50">{{ 'MORE_THAN' | t:{'MIN':50} }}</mat-option>
                     <mat-option value="60">{{ 'MORE_THAN' | t:{'MIN':60} }}</mat-option>
+                </mat-select>
+        </mat-form-field>
+        <mat-form-field >
+                <mat-select name="duaration" [(ngModel)]="form.max_duration" (selectionChange)="onSearchSubmit()">
+                    <mat-option value="4">{{ 'LESS_THAN' | t:{'MIN':4} }}</mat-option>
+                    <mat-option value="9">{{ 'LESS_THAN' | t:{'MIN':9} }}</mat-option>
+                    <mat-option value="14">{{ 'LESS_THAN' | t:{'MIN':14} }}</mat-option>
+                    <mat-option value="19">{{ 'LESS_THAN' | t:{'MIN':19} }}</mat-option>
+                    <mat-option value="24">{{ 'LESS_THAN' | t:{'MIN':24} }}</mat-option>
+                    <mat-option value="29">{{ 'LESS_THAN' | t:{'MIN':29} }}</mat-option>
+                    <mat-option value="39">{{ 'LESS_THAN' | t:{'MIN':39} }}</mat-option>
+                    <mat-option value="49">{{ 'LESS_THAN' | t:{'MIN':49} }}</mat-option>
+                    <mat-option value="59">{{ 'LESS_THAN' | t:{'MIN':59} }}</mat-option>
+                    <mat-option value="120">{{ 'LESS_THAN' | t:{'MIN':120} }}</mat-option>
                 </mat-select>
         </mat-form-field>
     </div>

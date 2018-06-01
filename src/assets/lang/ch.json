@@ -496,6 +496,7 @@
     "WAS_TEACHER_USING_CAMERA":"老师是用相机吗？",
     "CAMERA_YES":"是",
     "CAMERA_NO":"没有",
+    "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "哦，請登錄查看時間表。",
 
     "CANCEL REFUND REQUEST SUCCESS":"取消退款请求",
     "SCHEDULE DELETE":"计划删除",

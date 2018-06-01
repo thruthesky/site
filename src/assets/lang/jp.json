@@ -499,6 +499,7 @@
     "WAS_TEACHER_USING_CAMERA":"教師はカメラを使っていたのですか？",
     "CAMERA_YES":"はい",
     "CAMERA_NO":"いいえ",
+    "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "スケジュールの時刻を表示するには、ログインしてください。",
 
     "CANCEL REFUND REQUEST SUCCESS":"払い戻しのキャンセル",
     "SCHEDULE DELETE":"スケジュール削除",
