@@ -119,7 +119,7 @@
 
     <div class="submit">
         <button (click)="onClickSubmitEvaluation()">
-            <ion-spinner color="white" *ngIf="loading"></ion-spinner>
+            <mat-spinner class="mx-auto" [color]="white" [diameter]="40" *ngIf="loading"></mat-spinner>
             SUBMIT
         </button>
     </div>

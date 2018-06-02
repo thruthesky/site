@@ -4,7 +4,7 @@
 <main>
     <section class="content">
         <div class="loader" *ngIf=" !book?.idx ">
-            <ion-spinner></ion-spinner>
+            <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
             <span class="p-2">{{ 'IN LOADING' | t }}</span>
         </div>
 

@@ -4,7 +4,7 @@
         <h2 *ngIf="a.user.isLogin">{{ 'UPDATE_PROFILE' | t }}</h2>
     </header>
     <div class="loader" *ngIf=" show.dataLoader ">
-        <ion-spinner></ion-spinner>
+        <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
         {{ 'IN LOADING' | t }}
     </div>
 

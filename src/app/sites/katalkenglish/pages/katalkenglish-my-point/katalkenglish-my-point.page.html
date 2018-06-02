@@ -12,7 +12,7 @@
     <section>
 
         <div class="loader" *ngIf=" a.inLoadingMyPoint ">
-            <ion-spinner></ion-spinner>
+            <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
             {{ 'IN LOADING' | t}}
         </div>
 

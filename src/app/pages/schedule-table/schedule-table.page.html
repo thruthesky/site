@@ -16,7 +16,7 @@
 <schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
 
 <div class="schedule-loader" *ngIf=" show.schedule_loader ">
-    <ion-spinner name="circles"></ion-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
+    <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
 </div>
 
 <div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">
@@ -62,7 +62,7 @@
             [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
             <div class="info">
                 <div *ngIf=" session.in_progress ">
-                    <ion-spinner name="circles"></ion-spinner>
+                    <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
                 </div>
             <div class="status-icon" *ngIf=" !session.in_progress ">
                     <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>

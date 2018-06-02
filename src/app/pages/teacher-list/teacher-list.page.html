@@ -118,7 +118,7 @@
     
             <div class="loader" *ngIf=" show.loadTeacher ">
                 <div>
-                    <ion-spinner></ion-spinner>
+                    <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
                     <div>
                         {{ 'IN LOADING' | t }}..
                     </div>

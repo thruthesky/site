@@ -8,7 +8,7 @@
     </header>
     
     <div class="loader" *ngIf=" pageInLoading; else pageLoaded ">
-        <ion-spinner></ion-spinner>
+        <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
         <span class="p-2">{{ 'IN LOADING' | t }}</span>
     </div>
     <ng-template #pageLoaded>
@@ -49,7 +49,7 @@
 
                         <div class="reserve-loader" *ngIf=" loading[schedule.idx] ">
                             <div>{{ 'IN_RESERVING' | t }}</div>
-                            <ion-spinner></ion-spinner>
+                            <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
                         </div>
 
                     </div>

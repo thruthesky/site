@@ -72,7 +72,7 @@
 
 
     <div class="paypal-ready" *ngIf=" ! paypalReady ">
-        <div><ion-spinner></ion-spinner> {{ 'INITIALIZING_PAYPAL' | t}}</div>
+        <div><mat-spinner [diameter]="40"></mat-spinner> {{ 'INITIALIZING_PAYPAL' | t}}</div>
         <div> {{ 'PLEASE_WAIT' | t}}</div>
     </div>
 

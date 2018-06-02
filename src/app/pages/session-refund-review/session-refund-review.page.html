@@ -4,7 +4,7 @@
 <main>
     <section class="content">
         <div class="loader" *ngIf=" !book?.refund_request_message ">
-            <ion-spinner></ion-spinner>
+            <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
             <span>{{ 'IN LOADING' | t }}</span>
         </div>
 
