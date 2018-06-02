@@ -17,7 +17,8 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        TranslatePipeModule
+        TranslatePipeModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

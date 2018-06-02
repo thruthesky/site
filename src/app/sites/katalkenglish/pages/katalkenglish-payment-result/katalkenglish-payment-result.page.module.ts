@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule, Route } from '@angular/router';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../../../app.material.module';
 
 
 const appRoutes: Array<Route> = [
@@ -17,7 +18,8 @@ const appRoutes: Array<Route> = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(appRoutes),
-        TranslatePipeModule
+        TranslatePipeModule,
+        MaterialModule
     ],
     entryComponents: [
         KatalkEnglishPaymentResultPage

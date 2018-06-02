@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { OntueSalaryComputationPage } from './ontue-salary-computation.page';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../../../app.material.module';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

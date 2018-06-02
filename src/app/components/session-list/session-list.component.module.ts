@@ -6,6 +6,7 @@ import { SessionListComponent } from './session-list.component';
 // import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../app.material.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module
         FormsModule,
         IonicModule,
         RouterModule,
-        TranslatePipeModule
+        TranslatePipeModule,
+        MaterialModule
     ],
     declarations: [
         SessionListComponent
