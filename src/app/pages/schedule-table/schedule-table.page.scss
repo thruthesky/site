@@ -108,8 +108,13 @@ main{
 
 .icon-desc{
     margin-top: 1em;
-    padding: 2em;
-    padding-bottom: 0;
+    padding: 0;
+    padding-top:1em;
+    @media screen and (min-width:$md) {
+        padding: 2em;
+        padding-bottom: 0;
+    }
+
     background: #fff;
     font-weight: 300;
 
