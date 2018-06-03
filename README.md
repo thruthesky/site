@@ -1,12 +1,10 @@
 # Site
 
-## TODO
+## Reference
 
+* [OnTue 2018 LMS Build Guide](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.zfa2sr5gxz1q)
 * Refer [OnTue issue tracker](https://github.com/thruthesky/ontue#issue-sh-boards)
 * Refer [Site issue tracker](https://github.com/thruthesky/site#issue-sh-boards)
-
-## References & Docuemnts
-
 * Xapi
   * [Xapi](https://docs.google.com/document/d/1m3-wYZOaZQGbAzXeVlIpJNSdTIt3HCUiIt9UTmZUgXo/edit#heading=h.66hbi6holm5y) is a Wordpress Plugin primarily built for `Sonub.Com` and later LMS feature was added for `OnTue.COM`. It is the backend of `OnTue LMS` that the app is using.
   * [WordPress Xapi as PHP Restful API](https://docs.google.com/document/d/1w4QIQhkaGa55etiEiw1jsbfS_XhN8MQwFyex9l1BBeg/edit#heading=h.id4flcesu3j3)
@@ -17,6 +15,16 @@
 * [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)
 
 * [PHPJS library](http://locutus.io/php/) are saved under src/app/etc/php.
+
+### Seo
+
+* [SEO](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.k8dvb9rv31rl)
+
+### Branch managers
+
+
+
+
 
 ## Work Environment
 
