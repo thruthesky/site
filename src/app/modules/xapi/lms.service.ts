@@ -558,6 +558,16 @@ export class XapiLMSService extends Base {
         req['route'] = 'lms.admin_query';
         return this.x.post(req);
     }
+    admin_push_token_stat() {
+        const req = {};
+        req['route'] = 'lms.admin_push_token_stat';
+        return this.x.post(req);
+    }
+    admin_push_send(req) {
+        req['session_id'] = this.user.sessionId;
+        req['route'] = 'lms.admin_push_send';
+        return this.x.post(req);
+    }
 
     get_teacher_info_by_idx(idx_teacher, full = false) {
         return this.x.post({
@@ -576,6 +586,29 @@ export class XapiLMSService extends Base {
 
     get_session_refund_info(req) {
         req['route'] = 'lms.get_session_refund_info';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
+    admin_save_settings(req) {
+        req['route'] = 'lms.admin_save_settings';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+    admin_get_settings() {
+        const req = {};
+        req['route'] = 'lms.admin_get_settings';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+    admin_session_get(idx) {
+        const req = { idx: idx };
+        req['route'] = 'lms.admin_session_get';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+    admin_session_save(req) {
+        req['route'] = 'lms.admin_session_save';
         req['session_id'] = this.user.sessionId;
         return this.x.post(req);
     }

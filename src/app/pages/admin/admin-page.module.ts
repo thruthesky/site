@@ -14,9 +14,15 @@ import { UserPage } from './user/user.page';
 import { SessionPage } from './session/session.page';
 import { UserInfoPage } from './user-info/user-info.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { PushNotificationPage } from './push-notification/push-notification.page';
+import { SettingsPage } from './settings/settings.page';
+import { SessionEditPage } from './session-edit/session-edit.page';
 
 
 const appRoutes: Array<Route> = [
+    { path: 'session-edit/:idx', component: SessionEditPage },
+    { path: 'settings', component: SettingsPage },
+    { path: 'push-notification', component: PushNotificationPage },
     { path: 'point-refund/:field/:value', component: PointRefundPage },
     { path: 'point-refund', pathMatch: 'full', component: PointRefundPage },
     { path: 'point-history', pathMatch: 'full', component: PointHistoryPage },
@@ -39,7 +45,10 @@ const appRoutes: Array<Route> = [
         AdminPaymentPage,
         UserPage,
         SessionPage,
-        UserInfoPage
+        UserInfoPage,
+        PushNotificationPage,
+        SettingsPage,
+        SessionEditPage
     ],
     imports: [
         CommonModule,
@@ -56,7 +65,8 @@ const appRoutes: Array<Route> = [
         AdminPaymentPage,
         UserPage,
         SessionPage,
-        UserInfoPage
+        UserInfoPage,
+        PushNotificationPage
     ],
     bootstrap: [
         AdminHomePage

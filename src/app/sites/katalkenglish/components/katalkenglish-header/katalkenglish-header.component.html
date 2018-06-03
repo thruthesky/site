@@ -9,13 +9,16 @@
                 <img class="resized" src="../../../assets/logo/katalk-english.png" alt="">
             </a>
             <a routerLink="/login" *ngIf="a.isLogout">
-                <span>{{ a.ln.LOGIN }}</span>
+                {{ a.ln.LOGIN }}
             </a>
             <a routerLink="/register" *ngIf="a.isLogout">
-                <span>{{ a.ln.REGISTER }}</span>
+                {{ a.ln.REGISTER }}
             </a>
             <a routerLink="/policy" *ngIf="a.isLogin">
-                <span>{{ a.ln.POLICY }}</span>
+                {{ a.ln.QNA_TOP_MENU }}
+            </a>
+            <a routerLink="/policy" *ngIf="a.isLogin">
+                {{ a.ln.PAYMENT_TOP_MENU }}
             </a>
             <div class="flags">
                 <img class="custom-icon" *ngIf="selectedLanguage=='en'" src="../../../assets/img/language-flags/en.png" alt="">
