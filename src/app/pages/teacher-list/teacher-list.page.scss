@@ -76,8 +76,9 @@ main{
             background:none;
             cursor: pointer;
 
-            ion-icon{
-                font-size: 1.6em;
+            svg{
+               height: 1.2em;
+               margin-right: .3em;
             }
 
             &:focus{
@@ -274,7 +275,8 @@ main{
                 margin-top:1em;
             }
 
-            ion-icon{
+            svg{
+                height:1.2em;
                 margin-left: .4em;
             }
 
