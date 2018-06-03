@@ -141,6 +141,27 @@ main {
     [icon-name="lock"] {
         color: #ccc;
     }
+    [icon-name="square"] {
+        color: #ddd;
+    }
+    [icon-name="qr-scanner"] {
+        color: #ddd;
+    }
+    [icon-name="radio-button-off"] {
+        color: #88f;
+        cursor: pointer;
+    }
+    [icon-name="checkmark"] {
+        color: rgb(104, 104, 104);
+    }
+    [owner="me"] {
+        color: #d00 !important;
+        cursor: pointer;
+    }
+    [icon-name="heart"] {
+        color: #d00 !important;
+        cursor: pointer;
+    }
 }
 
 .schedule-loader,
