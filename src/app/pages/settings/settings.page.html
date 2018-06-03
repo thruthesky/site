@@ -39,10 +39,12 @@
 
 
     <div class="header-li">{{ 'SELECT YOUR TIMEZONE' | t }}</div>
+    <div class="timezone-wrapper">
+        <label class="list" *ngFor="let t of keysTimezone()">{{ tz[t].name }} ( UTC {{ format(t) }} )
+            <input type="radio" value="{{ t }}" (click)=' onClickTimezone( t ) ' [checked]="t == userTZ" name="timezone">
+        </label>
+    </div>
 
-    <label class="list" *ngFor="let t of keysTimezone()">{{ tz[t].name }} ( UTC {{ format(t) }} )
-        <input type="radio" value="{{ t }}" (click)=' onClickTimezone( t ) ' [checked]="t == userTZ" name="timezone">
-    </label>
 
 </main>
 

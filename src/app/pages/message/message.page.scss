@@ -1,7 +1,14 @@
 @import '../../../theme/vars.scss';
-.loader {
-    padding: 3em;
-    text-align: center;
+
+.loader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    mat-spinner{
+        margin: .5em;
+    }
 }
 
 header {

@@ -11,24 +11,26 @@ const routes: Routes = [
     {path: '', component: KatalkEnglishMyPointPage}
 ];
 @NgModule({
-    imports: [
-        CommonModule,
-        IonicModule,
-        RouterModule.forChild(routes),
-        TranslatePipeModule,
-        MaterialModule
-    ],
-    exports: [
-        RouterModule
-    ],
-    declarations: [
-        KatalkEnglishMyPointPage
-    ],
-    entryComponents: [
-        KatalkEnglishMyPointPage
-    ],
-    bootstrap: [KatalkEnglishMyPointPage],
-    schemas: []
+
+  imports: [
+    CommonModule,
+    IonicModule,
+    RouterModule.forChild(routes),
+    TranslatePipeModule,
+    MaterialModule
+  ],
+  exports: [
+    RouterModule
+  ],
+  declarations: [
+    KatalkEnglishMyPointPage
+  ],
+  entryComponents: [
+    KatalkEnglishMyPointPage
+  ],
+  bootstrap: [KatalkEnglishMyPointPage],
+  schemas: []
+
 })
 export class KatalkEnglishMyPointPageModule {
 }

@@ -19,6 +19,17 @@ main{
     min-height: 540px;
     background: #fff;
 
+    .loader{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        mat-spinner{
+        margin: .5em;
+        }
+    }
+
     .inputs{
         justify-content: space-around;
         align-items: stretch;

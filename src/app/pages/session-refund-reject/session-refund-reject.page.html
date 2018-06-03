@@ -3,10 +3,11 @@
 </header>
 <main>
     <section class="content">
-        <div class="loader" *ngIf=" !book?.idx ">
-            <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
-            <span class="p-2">{{ 'IN LOADING' | t }}</span>
+        <div class="loader" *ngIf="!book?.idx  ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
         </div>
+            
 
 
         <div *ngIf="book?.idx">

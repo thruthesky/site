@@ -1,211 +1,300 @@
-.left {
-    padding: 0;
-}
-
-#student-comments {
-    h2 {
-        padding: .5em;
-        font-size: 1.1em;
-        font-weight: normal;
-        text-align: center;
+@import '../../../../../theme/vars.scss';
+main{
+    padding-top:1em;
+    .left,.right {
+        padding: 0;
     }
-    .comment {
-        .title {
-            margin-top: .4em;
+    @media screen and (min-width:$md){
+        .left{
+            padding-right: .5em;
+        }
+        .right{
+            padding-left: .5em;
+        }   
+    }
+    #student-comments {
+        h2 {
+            margin-top: 1em;
+            padding: .5em;
             font-size: 1em;
-            font-weight: 300;
-            color: #0a0a63;
+            font-weight: 500;
+            text-align: center;
         }
-        .date {
-            margin-top: .4em;
+        .comment {
+            margin: 1em;
+            @media screen and (min-width:$md){
+                margin: 1em 0;
+            }
+            padding:1em 1.5em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.1);
+            background: #fff;
+            .title {
+                margin-top: .4em;
+                font-size: .78em;
+                font-weight: 300;
+                color: #0a0a63;
+            }
+            .date {
+                margin-top: .4em;
+                font-size: .8em;
+                color: #6a9dcc;
+            }
+            .description {
+                margin:0;
+                margin-top: 1em;
+                line-height: 1.7em;
+                font-weight: 200;
+                font-size: 80%;
+            }
+            .row {
+                align-items: center;
+                &>div{
+                    padding:0;
+                }
+    
+                &>div:last-child{
+                    padding-left: .7em;
+                }
+            }
+        }
+        .more {
+            margin: 1.3em;
+            @media screen and (min-width:$md) {
+                margin:1.3em 0;
+            }
+            padding: .6em;
             font-size: .8em;
-            color: #6a9dcc;
+            text-align: center;
+            color: #484848;
+            background-color: #b1b7c3;
+            cursor: pointer;
         }
-        .description {
-            margin: 1.5em 0;
-            margin-bottom: 4em;
-            line-height: 1.7em;
-            font-weight: 200;
-            font-size: 90%;
-        }
-        .row {
-            &>div {
-                padding: .1em;
+        .student-photo {
+            width: 70px;
+            height: 70px;
+            @media screen and (min-width:$md) {
+                width: 86px;
+                height: 86px;
+                margin:auto;
+            }
+            overflow: hidden;
+            border-radius: 50%;
+            img {
+                width: 100%;
             }
         }
     }
-    .more {
-        padding: .6em;
-        font-size: .9em;
-        text-align: center;
-        color: #484848;
-        background-color: #b1b7c3;
-        cursor: pointer;
+    
+    .stats-wrapper {
+        @media screen and (min-width:$md){
+            margin-top: 1em;
+        }
+        background: #e6e6e6;
+        .stats {
+            padding: 2.5em 1em;
+            .row{
+                justify-content: space-evenly;
+            }
+            .col {
+                padding: 0;
+            }
+            .item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                color: white;
+                text-align: center;
+                .text {
+                    font-size: 85%;
+                    font-weight: 200;
+                }
+                .number {
+                    margin-top: .1em;
+                    font-size: 150%;
+                    font-weight: 200;
+                }
+            }
+            .leveltest {
+                border: 4px solid #cd5c5c;
+                background-color: rgba(#cd5c5c,0.7);
+            }
+            .reservation {
+                border: 4px solid #5c84cd;
+                background-color: rgba(#5c84cd,0.7);
+            }
+            .teacher {
+                border: 4px solid #787951;
+                background-color: rgba(#787951,0.7);
+            }
+        }
     }
-    .student-photo {
-        width: 86px;
-        height: 86px;
-        overflow: hidden;
-        border-radius: 50%;
+    
+    .my-own-plan {
+        padding: 1.5em .5em;
+        line-height: 1.25em;
+        @media screen and (min-width:$md){
+            padding: 1.5em;
+        }
+        background-color: #FFD600;
+        .container-fluid {
+            .col-6 {
+                padding: 0 .5em;
+                @media screen and (min-width:$md){
+                    padding: 0 .7em;
+                }
+            }
+            .col-6:first-child{
+                display: flex;
+                align-items: center;
+            }
+        }
+        h2 {
+            margin: .5em 0;
+            font-size: 1em;
+            @media screen and (min-width:$md){
+                font-size: 1.3em;
+            }
+            font-weight: 500;
+        }
+        .text,
+        .view-more {
+            font-size: .8em;
+            @media screen and (min-width:$md){
+                font-size: 90%;
+            }
+        }
+        .calendar-img {
+            width: 100%;
+        }
+        .view-more {
+            margin: .5em 0;
+            cursor: pointer
+        }
+        .moreMyOwnPlan {
+            animation: a1234 .2s 1;
+            animation-timing-function: ease-in;
+            position: relative;
+            margin: .7em .1em 0;
+            padding: 1em;
+            border-radius: 2px;
+            background: #fff;
+            font-size: 80%;
+            font-weight: 200;
+            // &.no1 {
+            //     border: 2px solid #395b69;
+            // }
+            // &.no2 {
+            //     border: 2px solid #d8aa02;
+            // }
+            // &.no3 {
+            //     border: 2px solid #883f29;
+            // }
+            @keyframes a1234 {
+                0% {
+                    opacity: 0;
+                    left: 100%;
+                }
+                100% {
+                    opacity: 1;
+                    left: 0;
+                }
+            }
+        }
+    }
+    
+    .about-katalkenglish {
+        padding: 3em 2em;
+        line-height: 1.25em;
+        @media screen and (min-width:$md) {
+            padding: 2em;
+            margin: 0;
+            margin-top: 1em;
+            font-size: 90%;
+        }
+        background-color: #fff;
+        font-size: 80%;
+        line-height: 1.5em;
         img {
             width: 100%;
         }
-    }
-}
-
-.stats-wrapper {
-    .stats {
-        margin: 2.5em 0;
-        .col {
+        .col-9 {
+            padding: .3em;
+        }
+    
+        .col-4{
             padding: 0;
-        }
-        .item {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: auto;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            color: white;
-            text-align: center;
-            .text {
-                font-size: 90%;
-                font-weight: 100;
-            }
-            .number {
-                margin-top: .1em;
-                font-size: 150%;
-                font-weight: 200;
+            @media screen and (min-width:$md) {
+                padding-right: .5em;
             }
         }
-        .leveltest {
-            background-color: #cd5c5c;
-        }
-        .reservation {
-            background-color: #5c84cd;
-        }
-        .teacher {
-            background-color: #787951;
-        }
-    }
-}
-
-.my-own-plan {
-    padding: 3em .3em;
-    background-color: #e6e6e6;
-    .container-fluid {
-        padding: 0 1em;
-        .col-6 {
-            padding: 0;
-        }
-    }
-    h2 {
-        margin: .25em 0 1em 0;
-        font-size: 1.2em;
-        font-weight: 500;
-    }
-    .text,
-    .view-more {
-        font-size: .9em;
-    }
-    .calendar-img {
-        width: 100%;
-        padding: 0 1em;
-    }
-    .view-more {
-        margin: .5em 0;
-        cursor: pointer
-    }
-    .moreMyOwnPlan {
-        animation: a1234 .2s 1;
-        animation-timing-function: ease-in;
-        position: relative;
-        margin: .7em .1em 0;
-        padding: 1em;
-        font-size: 90%;
-        font-weight: 100;
-        color: #fff;
-        &.no1 {
-            background-color: #395b69;
-        }
-        &.no2 {
-            background-color: #d8aa02;
-        }
-        &.no3 {
-            background-color: #883f29;
-        }
-        @keyframes a1234 {
-            0% {
-                opacity: 0;
-                left: 100%;
+        .desc{
+            h2 {
+                margin: 0;
+                margin-bottom: .4em;
+                font-size: 1.5em;
+                font-weight: 400;
+                color: brown;
             }
-            100% {
-                opacity: 1;
-                left: 0;
+            div{
+                line-height: 1.5em;
+                color: #607d8b;
             }
         }
+        .show-more {
+            margin-top: .5em;
+            display: block;
+            cursor: pointer;
+        }
     }
-}
-
-.about-katalkenglish {
-    padding: 4em 1em;
-    background-color: #fff;
-    font-size: 85%;
-    line-height: 1.7em;
-    img {
-        width: 100%;
-    }
-    .col-3,
-    .col-9 {
-        padding: .3em;
-    }
-    h2 {
-        margin: 0;
-        font-size: 1.3em;
-        font-weight: 400;
-    }
-    .show-more {
-        padding: .3em;
-    }
-}
-
-.more-about-katalkenglish {
-    .help {
-        font-size: 90%;
-        padding: .5em;
-        text-align: center;
-        cursor: pointer;
-    }
-    .inner {
-        padding: 1em;
-        background: #f5db00;
-        .text {
-            margin: .7em 0;
-            font-weight: 200;
+    
+    .more-about-katalkenglish {
+        .help {
             font-size: 90%;
-            animation: animoreabout 1s 1;
+            padding: .5em;
+            text-align: center;
+            cursor: pointer;
         }
-        @keyframes animoreabout {
-            0% {
-                opacity: .1;
+        .inner {
+            padding: 1em;
+            background:#f5db00;
+            .text {
+                margin: .7em 0;
+                border-radius: 2px;
+                border: 1px solid #fff;
+                padding: .7em;
+                font-weight: 500;
+                font-size: 90%;
+                color: #fff;
+                animation: animoreabout 1s 1;
             }
-            100% {
-                opacity: 1;
+            @keyframes animoreabout {
+                0% {
+                    opacity: .1;
+                }
+                100% {
+                    opacity: 1;
+                }
             }
-        }
-        .no1 {
-            color: #0068ca;
-        }
-        .no2 {
-            color: #df6603;
-        }
-        .no3 {
-            color: #075347;
-        }
-        .no4 {
-            color: #494949;
+            .no1 {
+                background-color: #978700 ;
+            }
+            .no2 {
+                background-color: #978700 ;
+                color: #fff;
+            }
+            .no3 {
+                background-color: #978700 ;
+                color:#fff
+            }
+            .no4 {
+                background-color: #978700 ;
+            }
         }
     }
 }

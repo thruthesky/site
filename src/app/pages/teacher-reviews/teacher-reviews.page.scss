@@ -2,7 +2,10 @@
 header{
     h1{
         margin: 0;
-        padding: .8em 2em;
+        padding: .8em 1.2em;
+        @media screen and (min-width:$md){
+            padding: .8em 2em;
+        }
         background-color: skyblue;
         color:white;
         font-size: 1.17em
@@ -10,27 +13,29 @@ header{
 
     div{
         font-size: 90%;
-        padding: 1em 2.5em;
+        padding: 1em 1.5em;
+        @media screen and (min-width:$md){
+            padding: 1em 2.5em;
+        }
     }
 }
 
 main{
     .card-wrapper{
         padding: 0;
+        padding-top: 1em;
         margin:0 -1.2em;
 
         &>a{
-            padding: .3em ;
+            padding: .6em 
         }
     }
 
     .card{
         height: 100%!important;
-        padding: .5em;
         border-radius: 2px;
         border: 1px solid rgba(128, 128, 128, 0.1);
         background: #fff;
-
         &>div{
             padding: 0;
         }
@@ -40,12 +45,43 @@ main{
             flex-direction: column;
             align-items:center;
             justify-content: space-between;
-            padding: .25em!important;
-            padding-right: .6em!important;
+            padding: .8em!important;
+            padding-left: 0!important;
         }
 
         &-inner{
+            position: relative;
             height: 100%;
+            cursor: pointer;
+
+            .card-hover-effect{  
+                display: flex;
+                align-items: center;
+                justify-content: center;              
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 2px;
+                transition: all .2s ease-in-out;
+                opacity: 0;
+
+                .icon{
+                    color: #fff;
+                    margin: auto;
+                    height: 2em;
+                }
+            }
+
+            &:hover{
+                .card-hover-effect{
+                    background: rgba(96, 125, 139, 0.4);
+                    z-index: 1000;
+                    opacity: 1;
+                }
+            }
+        
         }
 
         .more-button{
@@ -69,15 +105,16 @@ main{
     }
 
     .student{
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding-left: .8em!important;
         border-left: 1px solid #e9ecef!important;
         font-size: 80%;
 
-        @media screen and (max-width:$sm){
-            display: none;
+        @media screen and (min-width:$md){
+            display: flex;
         }
 
         .student-name{
@@ -89,7 +126,6 @@ main{
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100px;
         overflow: hidden;
 
         img{
@@ -98,8 +134,15 @@ main{
     }
 
     .teacher-photo{
-        margin: 0 auto;
+        margin: 0;
+        width: 100px;
         height: 120px;
+
+        @media screen and (min-width:$md){
+            width: 110px;
+            height: 130px;
+        }
+
     }
 
     .teacher-info{
@@ -133,14 +176,17 @@ main{
     .extra {
       display: flex;
       justify-content: space-between;
-      margin: .2em 0;
-      font-size: 70%;
+      margin: .5em 0;
+      font-size: 80%;
+
+      b{
+          font-weight: 500;
+      }
     }
 
     .comment{
-        padding: .3em 0;
+        padding: .5em 0;
         font-size: 80%;
-        line-height: 1.3em;
     }
 
     .date{
@@ -149,7 +195,8 @@ main{
     }
 
     .student-photo{
-        height: 100px;
+        height: 80px;
+        width: 80px;
         border-radius: 50%;
     }
 

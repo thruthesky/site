@@ -43,6 +43,7 @@
     "LOGIN_INVALID": "ログインしてください",
     "REMINDER": "リマインダー",
     "QNA": "お問い合わせ",
+    "QNA_TOP_MENU": "質問",
     "POLICY": "ポリシー",
     "SESSION_FUTURE": "予約",
     "SESSION_PAST": "過去のクラス",
@@ -52,6 +53,7 @@
     "RESERVE_SESSION": "予約",
     "ALL_SCHEDULE_TABLE": "すべてのスケジュール",
     "PAYMENT_LONG_TEXT": "支払い",
+    "PAYMENT_TOP_MENU": "支払い",
     "AVAILABLE_SESSIONS_LONG": "即時予約",
     "CHANGE_PASSWORD": "パスワードを変更する",
     "MY_POINT": "私のポイント",
@@ -513,5 +515,7 @@
     "SESSION CANCEL CONFIRM":"本当ですか、このセッションをキャンセルしますか？",
     "SESSION REFUND":"セッションの払い戻し",
     "SESSION REFUNDED":"セッションは払い戻されました。",
-    "SESSION REFUND CONFIRM":"本当ですか、このセッションを返金しますか？"
+    "SESSION REFUND CONFIRM":"本当ですか、このセッションを返金しますか？",
+    "YOUR_TIME": "あなたの時間",
+    "UPDATE": "更新"
 }

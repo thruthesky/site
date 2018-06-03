@@ -12,6 +12,17 @@ main{
     min-height: 540px;
     padding: 3em 0;
     background:#fff;
+
+    .loader{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        mat-spinner{
+        margin: .5em;
+        }
+    }
     .payment-method{
         display: flex;
         align-items: center;

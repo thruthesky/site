@@ -9,7 +9,6 @@ import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.
 import { MaterialModule } from '../../../../app.material.module';
 
 
-
 const routes: Routes = [
     { path: '', component: OntueSalaryComputationPage }
 ];

@@ -3,23 +3,26 @@
     <div id="mobile-header">
         <nav class="top">
             <a routerLink="/menu">
-                <img src="../../../assets/img/menu-icon.png" alt="">
+                <img class="resized" src="../../../assets/img/menu-icon.png" alt="">
             </a>
             <a routerLink="/">
-                <img src="../../../assets/logo/katalk-english.png" alt="">
+                <img class="resized" src="../../../assets/logo/katalk-english.png" alt="">
             </a>
             <a routerLink="/login" *ngIf="a.isLogout">
-                <span>{{ a.ln.LOGIN }}</span>
+                {{ a.ln.LOGIN }}
             </a>
             <a routerLink="/register" *ngIf="a.isLogout">
-                <span>{{ a.ln.REGISTER }}</span>
+                {{ a.ln.REGISTER }}
             </a>
             <a routerLink="/policy" *ngIf="a.isLogin">
-                <span>{{ a.ln.POLICY }}</span>
+                {{ a.ln.QNA_TOP_MENU }}
+            </a>
+            <a routerLink="/policy" *ngIf="a.isLogin">
+                {{ a.ln.PAYMENT_TOP_MENU }}
             </a>
             <div class="flags">
                 <img class="custom-icon" *ngIf="selectedLanguage=='en'" src="../../../assets/img/language-flags/en.png" alt="">
-                <img class="custom-icon ko-flag" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko.png" alt="">
+                <img class="custom-icon" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='ch'" src="../../../assets/img/language-flags/ch.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='jp'" src="../../../assets/img/language-flags/jp.png" alt="">
 

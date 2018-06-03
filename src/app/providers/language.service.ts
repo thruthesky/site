@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Library as _ } from './../etc/library';
 
 import { environment } from './../../environments/environment';
@@ -34,6 +34,18 @@ export class LanguageService {
      * Sets language texts in `Base.texts` static object.
      */
     static texts: { [language: string]: any } = {};
+
+
+    /**
+     * Fires an event when language is loaded.
+     *
+     * @example
+        this.language.load.subscribe( ln => {
+            console.log('language load ln: ', ln);
+            this.languageLoaded(ln);
+        });
+     */
+    load: EventEmitter<any> = new EventEmitter();
     constructor(
         private http: HttpClient
     ) {
@@ -51,6 +63,7 @@ export class LanguageService {
         const ln = this.getUserLanguage();
         this.loadLanguage(ln, '/assets/lang/' + ln + '.json?reloadTag=' + environment['reloadTag'])
             .then(re => {
+                this.load.emit(re);
                 /// re draw?
                 if (callback) {
                     callback();

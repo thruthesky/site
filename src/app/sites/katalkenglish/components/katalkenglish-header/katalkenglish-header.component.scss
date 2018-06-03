@@ -7,19 +7,26 @@
 #mobile-header {
     height: $katalkenglish-mobile-header-height;
     background-color: white;
-    font-size: .85em;
+    font-size: .8em;
     nav.top {
+        display: -webkit-box; 
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex; 
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         padding: 0 .5em;
         height: $katalkenglish-mobile-header-top-height;
+
+        .resized{
+            height: 20px;
+        }
     }
     .flags {
         position: relative; // border: 1px solid rgb(202, 202, 202);
         width: 34px;
         height: 32px;
-        margin: 0 0.65em;
         overflow: hidden;
         .ko-flag {
             margin-top: .333em !important;
@@ -38,6 +45,7 @@
             opacity: .001;
         }
     }
+
     nav.bottom {
         display: flex;
         justify-content: space-around;
@@ -45,6 +53,7 @@
         background: $background-color-submenu;
         a {
             display: inline-block;
+            margin: auto;
             padding: .9em;
             color: black;
         }

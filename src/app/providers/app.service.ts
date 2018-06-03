@@ -207,6 +207,11 @@ export class AppService {
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
 
+        this.language.load.subscribe( ln => {
+            console.log('language load ln: ', ln);
+            this.languageLoaded(ln);
+        });
+
 
 
         // Base.collectionDomain = 'database';
@@ -258,6 +263,7 @@ export class AppService {
         /**
          * Update user time
          */
+        // this.updateUserTimezone(); // No need to do this. updateUserTimezone() will be fired right after language file is loaded.
         setInterval(() => {
             this.updateUserTimezone();
         }, 10000);
@@ -344,12 +350,27 @@ export class AppService {
         return this.getDomain().indexOf(SITE_WITHCENTER) !== -1;
     }
 
+    /**
+     * Returns true if the theme that the user is using is student's theme.
+     *
+     * @description student's theme may have more than one site/domain.
+     */
     get studentTheme() {
-        return this.site.katalkenglish;
+        if ( this.teacherTheme ) {
+            return false;
+        } else if ( this.withcenterTheme ) {
+            return false;
+        } else {
+            return true;
+        }
+        // return this.site.katalkenglish;
     }
 
     get teacherTheme() {
         return this.site.ontue;
+    }
+    get withcenterTheme() {
+        return this.site.withcenter;
     }
 
 
@@ -517,6 +538,7 @@ export class AppService {
                 message: this.xapi.getError(o).message,
                 panelClass: 'error' + code
             };
+            // console.log('o: ', o);
 
             /**
              * Login session invalid.
@@ -1483,8 +1505,17 @@ export class AppService {
             return 0;
         }
     }
+
+    /**
+     * @desc this.userTime holds user current time based on his timezone settings.
+     *      and it is must be translated with his local language.
+     *      But when it is being called for the first time by constructor, the language json file not loaded yet.
+     *      So, the text 'CURRENT TIME' is being display.
+     *      To prevent this, this method must be invoked right after the language file is loaded.
+     */
     updateUserTimezone() {
         const info = this.get(KEY_LMS_INFO);
+        // console.log('updateUserTimezone: ', info);
         if (!info || !info['user']) {
             return;
         }
@@ -1496,6 +1527,8 @@ export class AppService {
         } else {
             return;
         }
+
+        // console.log('user tz: ', user['timezone']);
 
         // this.time = this.a.lms.localeString(this.re['student']['timezone']);
         const date = this.lms.userDate(user['timezone']);
@@ -1529,7 +1562,7 @@ export class AppService {
         // }
 
         this.userTime = this.t('CURRENT_TIME', { ap: ap, hour: hour, minute: min, country: user['timezone_country'] });
-        // console.log(this.userTime);
+        console.log('userTime: ', this.userTime);
     }
 
 
@@ -1724,5 +1757,16 @@ export class AppService {
 
         const e = this.getUserYmdHiFromUTCYmdHi(session.date + session.class_end);
         session.class_end = e.substr(8, 4);
+    }
+
+
+    /**
+     * This method is being invokded right after user language file loaded.
+     * You can do whatever you want to do here if it is related in language.
+     *
+     * @param ln Language JOSN object data.
+     */
+    languageLoaded(ln) {
+        this.updateUserTimezone();
     }
 }

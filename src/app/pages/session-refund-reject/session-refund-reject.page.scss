@@ -11,8 +11,15 @@ main{
     min-height: 540px;
     padding:0 2em;
     padding-bottom: 5em;
+
     .loader{
-        text-align: center
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        mat-spinner{
+        margin: .5em;
+        }
     }
 
     .message{

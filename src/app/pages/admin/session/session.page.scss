@@ -17,6 +17,7 @@ form {
         font-size: 1.25em;
     }
 }
+
 .daily-reservations {
     .daily-reservation {
         margin-right: 1em;
@@ -42,6 +43,7 @@ form {
         color: white;
     }
 }
+
 .daily-points {
     .daily-point {
         margin-right: 1em;
@@ -67,6 +69,7 @@ form {
         color: white;
     }
 }
+
 .student-reservations {
     .student-reservation {
         margin-right: 1em;
@@ -79,6 +82,7 @@ form {
         color: white;
     }
 }
+
 .teacher-refund-requests {
     .teacher-refund-request {
         margin-right: 1em;
@@ -91,6 +95,7 @@ form {
         color: white;
     }
 }
+
 .student-refund-requests {
     .student-refund-request {
         margin-right: 1em;
@@ -103,6 +108,7 @@ form {
         color: white;
     }
 }
+
 .student-refund-requests {
     .student-refund-request {
         margin-right: 1em;
@@ -128,6 +134,7 @@ form {
         color: white;
     }
 }
+
 .teacher-refund-dones {
     .teacher-refund-done {
         margin-right: 1em;
@@ -143,4 +150,15 @@ form {
 
 .sessions {
     font-size: .9rem;
+}
+
+.user-info-button {
+    margin: 0;
+    padding: 2px;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgb(236, 236, 236);
+    color: rgb(148, 148, 148);
+    font-size: 6pt;
+    cursor: pointer;
 }

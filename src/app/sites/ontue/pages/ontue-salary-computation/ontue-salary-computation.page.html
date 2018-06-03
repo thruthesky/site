@@ -2,9 +2,10 @@
     <h1>Salary Computation</h1>
 </header>
 <main>
-<div class="loader" *ngIf=" loading ">
-    <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
-    {{ 'IN LOADING' | t }}
+
+<div class="loader"  *ngIf=" loading ">
+    <mat-spinner [diameter]="48"></mat-spinner>
+    <span>{{ 'IN LOADING' | t}}</span>
 </div>
 
         <div class="payment-method"   *ngIf=" ! loading ">

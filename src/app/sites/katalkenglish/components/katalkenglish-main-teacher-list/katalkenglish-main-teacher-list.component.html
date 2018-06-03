@@ -1,8 +1,8 @@
 <section class="teacher-list">
-    <div class="d-flex justify-content-between">
+    <div class="title">
         <h2>카톡영어 선생님</h2>
         <div class="total-teachers" *ngIf=" total_teachers ">
-            총 {{ total_teachers }} 명의 선생님이 있습니다.
+            총 <b>{{ total_teachers }}</b> 명의 선생님이 있습니다.
         </div>
     </div>
 
@@ -15,29 +15,30 @@
     <div class="container-fluid" *ngIf=" total_teachers ">
         <div class="row">
             <div class="col-4 col-md-4 col-lg-3" *ngFor="let teacher of teachers" (click)="a.open('schedule-table', teacher)">
-                <div>
-                    <div class="teacher-profile-photo">
-                        <img src="{{ teacher.photoURL }}">
-                    </div>
-                </div>
-                <div class="teacher-info">
-                    <div>{{ a.preTeacherName( teacher.display_name )}}</div>
-                    <div class="grade" [attr.grade]=" teacher.grade ">
-                        추천:
-                        <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                        </svg>
-                        <svg *ngFor="let i of a.countEmptyStar(teacher.grade)" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
-                        </svg>
-                    </div>
+                <div class="teacher-wrapper">
                     <div>
-                        ({{ teacher.total_reservation }} 명 참여)
+                        <div class="teacher-profile-photo">
+                            <img src="{{ teacher.photoURL }}">
+                        </div>
+                    </div>
+                    <div class="teacher-info">
+                        <div class="name">{{ a.preTeacherName( teacher.display_name )}}</div>
+                        <div class="grade" [attr.grade]=" teacher.grade ">
+                            추천:
+                            <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512" data-fa-i2svg="">
+                                <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                            </svg>
+                            <svg *ngFor="let i of a.countEmptyStar(teacher.grade)" aria-hidden="true" data-prefix="fal" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512" data-fa-i2svg="">
+                                <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
+                            </svg>
+                        </div>
+                        <div class="reservation">
+                            ({{ teacher.total_reservation }} 명 참여)
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

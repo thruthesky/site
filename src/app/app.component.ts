@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     // a.setColor('black');
 
     this.openHomePage();
-    // this.a.onetimeInitPushMessage();
+    this.a.onetimeInitPushMessage();
   }
 
 

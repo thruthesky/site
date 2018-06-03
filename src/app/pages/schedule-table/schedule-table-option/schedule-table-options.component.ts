@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AppService } from '../../../providers/app.service';
 
 
 @Component({
@@ -19,7 +20,9 @@ export class ScheduleTableOptionsComponent {
         end_hours: Array(24).fill(0).map((e, i) => i + 1)
     };
 
-    constructor() {
+    constructor(
+        public a: AppService
+    ) {
 
     }
     onSearchSubmit() {

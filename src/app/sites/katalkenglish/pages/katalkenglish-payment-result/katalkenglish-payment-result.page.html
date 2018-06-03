@@ -21,12 +21,11 @@
 
         <span routerLink="/payment-history">
             {{ 'YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY' | t}}
-
         </span>
 
         <div class="loader" *ngIf=" a.inLoadingMyPoint ">
-            <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
-            {{ 'IN LOADING' | t}}
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
         </div>
     </div>
 

@@ -7,7 +7,6 @@
             <div class="left col-12 col-sm-6">
                 
                 <katalkenglish-main-teacher-list *ngIf=" a.size() == 'small' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
-
                 <div class="my-own-plan">
                     <div class="container-fluid">
                         <div class="row">
@@ -25,7 +24,7 @@
                                 </div>
 
                                 <div class="view-more" (click)=" showMoreMyOwnPlan() " *ngIf=" ! showMoreMyOwnPlan_1 ">
-                                    더보기
+                                    더보기...
                                 </div>
                             </div>
                         </div>
@@ -47,27 +46,26 @@
                 <div class="about-katalkenglish">
                     <div class="container-fluid ">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-4">
                                 <img src="assets/img/kakao-chat.png">
                             </div>
-                            <div class="col-9">
+                            <div class="col-8">
                                 <div class="desc">
                                     <h2>카톡영어는</h2>
                                     <div>
                                         최고라고 자화자찬하지 않으며 타 업체와 비교하지 않습니다.
+                                            그 이유는 바로 카톡영어와 경쟁 할 수 있는 화상영어 교육 사이트가 존재하지 않기 때문입니다.
+                                        <span class="show-more"
+                                              (click)=" showMoreAboutKatalkEnglish() "
+                                              *ngIf=" ! moreAbout1 ">
+                                              더보기...
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="show-more" (click)=" showMoreAboutKatalkEnglish() ">
-                        그 이유는 바로 카톡영어와 경쟁 할 수 있는 화상영어 교육 사이트가 존재하지 않기 때문입니다.
-             
-
-                        <span *ngIf=" ! moreAbout1 ">더보기...
-                        </span>
-                    </div>
 
                 </div>
                 <!--/about-katalkenglish-->
@@ -95,22 +93,6 @@
                 </div>
                 <!--/more-about-katalkenglish-->
 
-
-                <div class="video-tutorial-reserve">
-                    <img (click)=" showVideoTutorialReserve = true " *ngIf=" ! showVideoTutorialReserve " src="/assets/img/video-tutorials/test-1.jpg">
-                    <img src="/assets/img/video-tutorials/video-reserve.gif" *ngIf=" showVideoTutorialReserve ">
-                </div>
-
-
-            </div>
-            <!--/left-->
-            <div class="right col-12 col-sm-6">
-
-
-                <katalkenglish-main-teacher-list *ngIf=" a.size() == 'big' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
-
-
-
                 <div class="stats-wrapper">
                     <div class="stats container-fluid" *ngIf=" a.info ">
                         <div class="row">
@@ -136,6 +118,13 @@
                     </div>
                 </div>
                 <!--/stats-wrapper-->
+            </div>
+            <!--/left-->
+            <div class="right col-12 col-sm-6">
+
+
+                <katalkenglish-main-teacher-list *ngIf=" a.size() == 'big' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
+
                 <section id="student-comments" *ngIf=" a.t('STUDENT COMMENTS') ">
                     <h2>1만원. 월 20회. 카톡영어의 생생한 수업후기</h2>
 
@@ -143,12 +132,12 @@
                         <div class="comment" *ngIf=" i < 2 || show['more-comment']">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-4 col-sm-5 col-lg-3">
+                                    <div class="col-3">
                                         <div class="student-photo">
                                             <img src="assets/img/student/{{ i + 1 }}.jpg">
                                         </div>
                                     </div>
-                                    <div class="col-8 col-sm-7 col-lg-9">
+                                    <div class="col-9">
                                         <div class="name">{{ comment.name }}</div>
                                         <div class="title">{{ comment.title }}</div>
                                         <div class="date">{{ comment.date }}</div>
@@ -162,6 +151,11 @@
                     <div class="more" (click)=" show['more-comment'] = true " *ngIf=" ! show['more-comment'] ">수강후기 더 보기
                     </div>
                 </section>
+
+                <div class="video-tutorial-reserve">
+                    <img (click)=" showVideoTutorialReserve = true " *ngIf=" ! showVideoTutorialReserve " src="/assets/img/video-tutorials/test-1.jpg">
+                    <img src="/assets/img/video-tutorials/video-reserve.gif" *ngIf=" showVideoTutorialReserve ">
+                </div>
 
             </div>
             <!--/right-->

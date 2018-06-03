@@ -1,0 +1,17 @@
+<admin-header-component></admin-header-component>
+
+<div class="loader" *ngIf=" loader.get ">Loading...</div>
+<form (ngSubmit)="onSubmit($event)">
+    <table>
+        <tr>
+            <td>Class push notification</td>
+            <td>
+                <input type="text" name="classPushNotification" [(ngModel)]="form.classPushNotification"> Unit: minutes. For example) 5 minutes.<br>
+                input number only. if empty or 0, then it will not send push notification. It must be less than or equal to 1439  ( which is 24 hours. )
+            </td>
+        </tr>
+    </table>
+    <button type="submit" *ngIf=" ! loader.save ">Submit</button>
+    <div class="loader" *ngIf=" loader.save ">Saving...</div>
+</form>
+

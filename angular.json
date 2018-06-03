@@ -27,6 +27,11 @@
                 "glob": "**/*",
                 "input": "node_modules/@ionic/angular/dist/ionic",
                 "output": "./ionic"
+              },
+              {
+                "glob": "firebase-messaging-sw.js",
+                "input": "src",
+                "output": ""
               }
             ],
             "styles": [{

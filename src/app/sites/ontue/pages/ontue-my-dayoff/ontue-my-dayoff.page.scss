@@ -90,7 +90,14 @@ main{
     }
 
     .loader{
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        mat-spinner{
+        margin: .5em;
+        }
     }
 
     .create-dayoff-button{

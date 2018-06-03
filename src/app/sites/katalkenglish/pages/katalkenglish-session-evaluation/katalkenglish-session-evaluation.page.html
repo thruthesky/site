@@ -2,11 +2,10 @@
     <h1>{{ 'SESSION_EVALUATION_PAGE_TITLE' | t }}</h1>
 </header>
 <main>
-    <div class="loader" *ngIf="loading">
-        <div>
-            <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
-            <div>{{ 'IN LOADING' | t }}</div>
-        </div>
+
+    <div class="loader" *ngIf="loading ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
     </div>
 
     <div class="eval-wrapper" *ngIf="!loading">

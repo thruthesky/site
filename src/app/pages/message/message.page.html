@@ -13,9 +13,10 @@
 </div>
 
 <div class="loader" *ngIf=" loading ">
-    <mat-spinner class="mx-auto" [diameter]="40"></mat-spinner>
-    <div>{{ 'IN LOADING' | t }}</div>
+    <mat-spinner [diameter]="48"></mat-spinner>
+    <span>{{ 'IN LOADING' | t}}</span>
 </div>
+
 
 <div class="message-list" *ngIf=" data ">
     <ng-container  *ngFor=" let message of data.messages ">

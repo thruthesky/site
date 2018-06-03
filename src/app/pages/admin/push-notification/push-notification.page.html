@@ -1,0 +1,41 @@
+<admin-header-component></admin-header-component>
+
+
+<main>
+
+
+    <form (ngSubmit)="onSubmit( $event )">
+        <div>
+            User type:
+            <select name="type" [(ngModel)]="form.type">
+                <option value="">All user(including un-registered)</option>
+                <option value="S">Students</option>
+                <option value="T">Teachers</option>
+            </select>
+        </div>
+        <div>
+            Domain:
+            <select name="domain" [(ngModel)]="form.domain">
+                <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
+                    {{ domain['domain'] ? domain['domain'] : 'No domain' }} : {{ domain['cnt'] }}
+                </option>
+            </select>
+        </div>
+        <div>
+            URL
+            <input type="text" name="postId" [(ngModel)]="form.url">
+        </div>
+        <div>
+            Title
+            <input type="text" name="postId" [(ngModel)]="form.title">
+        </div>
+        <div>
+            Body
+            <input type="text" name="postId" [(ngModel)]="form.body">
+        </div>
+        <div>
+            <button type="submit">Search User</button>
+        </div>
+    </form>
+
+</main>

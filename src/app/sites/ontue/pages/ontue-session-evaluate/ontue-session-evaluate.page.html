@@ -97,7 +97,7 @@
     <div class="warning" *ngIf=" student_absent ">
             <b>Warning:</b> when you check on 'student was absent' box,
             You must input some comment on comment box or else the session may not be paid.
-            If you have nothing to commment, then just type "Student was absent at hour:time on Month/Day".
+            If you have nothing to comment, then just type "Student was absent at hour:time on Month/Day".
         </div>
     
     <div class="checkboxes">
@@ -119,7 +119,7 @@
 
     <div class="submit">
         <button (click)="onClickSubmitEvaluation()">
-            <mat-spinner class="mx-auto" [color]="white" [diameter]="40" *ngIf="loading"></mat-spinner>
+            <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
             SUBMIT
         </button>
     </div>
