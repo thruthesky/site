@@ -1,186 +1,165 @@
 @import '../../../theme/vars';
 header {
     margin: 0;
-    h2{
+    h2 {
         margin: 0;
-        padding:.7em 1.7em;
+        padding: .7em 1.7em;
         background-color: #535bcb;
         color: #fff;
         font-size: 1.17em;
         font-weight: bold;
         text-transform: uppercase;
     }
-
     @media screen and (max-width: $sm) {
         display: none;
     }
 }
 
-main{
- padding-bottom: 1em;
-.schedule-table {
-    font-size: 12px;
-    text-align: center;
-    background: #fff;
-    @media screen and (max-width: $md) {
-        font-size: 10.5px;
-    }
-    .schedule-header {
-        position: sticky;
-        top: 63px;
-        @media screen and (max-width: $md) {
-            top:105px;
-        }
-
-        @media screen and (max-width: $sm) {
-            font-size: 11px;
-        }
-        left: 0;
-        display: flex;
-        justify-content: space-around;
-        border-bottom:1px solid #e9ecef;
-        border-top:1px solid #e9ecef;
+main {
+    padding-bottom: 1em;
+    .schedule-table {
+        font-size: 12px;
+        text-align: center;
         background: #fff;
-        font-weight: 600;
-        cursor: pointer
-    }
-    .teacher-schedule-header {
-        top:55px!important;
-
-    }
-    .schedule-row {
-        display: flex;
-        justify-content: space-around;
-        border-bottom: 1px solid #e9ecef;
-    }
-    .td {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2px;
-        width: 42px;
-        height: 72px;
-        overflow: hidden;
-        ion-icon {
-            font-size: 20pt;
+        @media screen and (max-width: $md) {
+            font-size: 10.5px;
         }
-        .name {
-            font-size: .7em;
+        .schedule-header {
+            position: sticky;
+            top: 63px;
+            @media screen and (max-width: $md) {
+                top:105px;
+            }
+            @media screen and (max-width: $sm) {
+                font-size: 11px;
+            }
+            left: 0;
+            display: flex;
+            justify-content: space-around;
+            border-bottom:1px solid #e9ecef;
+            border-top:1px solid #e9ecef;
+            background: #fff;
+            font-weight: 600;
+            cursor: pointer
         }
-    }
-    .profile {
-        .photo {
-            border-radius: 2px;
-            width: 41px;
-            height: 47.4px;
+        .teacher-schedule-header {
+            top: 55px !important;
+        }
+        .schedule-row {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .td {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            width: 42px;
+            height: 72px;
             overflow: hidden;
-            img {
-                width: 100%;
+            ion-icon {
+                font-size: 20pt;
+            }
+            .name {
+                font-size: .7em;
             }
         }
-        &-header,
-        & {
-            width: 58px;
+        .profile {
+            .photo {
+                border-radius: 2px;
+                width: 41px;
+                height: 47.4px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
+            }
+            &-header,
+            & {
+                width: 58px;
+            }
+        }
+        .teacher-name {
+            font-size: 79%;
+            font-weight: bold;
         }
     }
-    .teacher-name{
-        font-size: 79%;
-        font-weight: bold;
-    }
-}
-
-.schedule-loader,
-.schedule-table-empty {
-    text-align: center;
-    padding: 3em;
-}
-
-.schedule-loader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    ion-spinner {
-        margin-bottom: .5em;
-    }
-}
-
-.icon-desc{
-    margin-top: 1em;
-    padding: 2em;
-    padding-bottom: 0;
-    background: #fff;
-    font-weight: 300;
-
-    .row{
-        margin: 0 .5em;
-        padding: 1em .8em;
-        border-bottom: 1px solid #e2e2e2;
-
-        .col-1{
-            text-align: center;
-        }
-    }
-
-    .desc-reminder,.more-button{
-        border-bottom: none!important;
+    .schedule-loader,
+    .schedule-table-empty {
         text-align: center;
+        padding: 3em;
     }
-
-    .desc-reminder{     
-        .reminder{
-            font-size: 90%;
-            color: red;
-            text-align: center;
-        }   
-
-    }
-
-    .more-button{
-
-        .button{
-            padding:1em;
-            cursor: pointer;
-            font-size: 90%;
-            color: dodgerblue;
+    .schedule-loader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        ion-spinner {
+            margin-bottom: .5em;
         }
-
     }
-}
-
-/**
+    .icon-desc {
+        margin-top: 1em;
+        padding: 2em;
+        padding-bottom: 0;
+        background: #fff;
+        font-weight: 300;
+        .row {
+            margin: 0 .5em;
+            padding: 1em .8em;
+            border-bottom: 1px solid #e2e2e2;
+            .col-1 {
+                text-align: center;
+            }
+        }
+        .desc-reminder,
+        .more-button {
+            border-bottom: none !important;
+            text-align: center;
+        }
+        .desc-reminder {
+            .reminder {
+                font-size: 90%;
+                color: red;
+                text-align: center;
+            }
+        }
+        .more-button {
+            .button {
+                padding: 1em;
+                cursor: pointer;
+                font-size: 90%;
+                color: dodgerblue;
+            }
+        }
+    }
+    /**
  * Icon colors
  */
-
-[icon-name="lock"] {
-    color: #ccc;
-}
-
-[icon-name="square"] {
-    color: #ddd;
-}
-
-[icon-name="qr-scanner"] {
-    color: #ddd;
-}
-
-[icon-name="radio-button-off"] {
-    color: #88f;
-    cursor: pointer;
-}
-
-[icon-name="checkmark"] {
-    color: rgb(104, 104, 104);
-}
-
-[owner="me"] {
-    color: #d00 !important;
-    cursor: pointer;
-}
-
-[icon-name="heart"] {
-    color: #d00 !important;
-    cursor: pointer;
-}
+    [icon-name="lock"] {
+        color: #ccc;
+    }
+    [icon-name="square"] {
+        color: #ddd;
+    }
+    [icon-name="qr-scanner"] {
+        color: #ddd;
+    }
+    [icon-name="radio-button-off"] {
+        color: #88f;
+        cursor: pointer;
+    }
+    [icon-name="checkmark"] {
+        color: rgb(104, 104, 104);
+    }
+    [owner="me"] {
+        color: #d00 !important;
+        cursor: pointer;
+    }
+    [icon-name="heart"] {
+        color: #d00 !important;
+        cursor: pointer;
+    }
 }

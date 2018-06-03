@@ -512,6 +512,8 @@
     "SESSION CANCEL CONFIRM":"你确定，你想取消这个会议吗？",
     "SESSION REFUND":"会话退款",
     "SESSION REFUNDED":"会议已退款。",
-    "SESSION REFUND CONFIRM":"你确定，你想退款吗？"
+    "SESSION REFUND CONFIRM":"你确定，你想退款吗？",
+    "YOUR_TIME": "你的时间",
+    "UPDATE": "更新"
 
 }

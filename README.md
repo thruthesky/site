@@ -16,6 +16,16 @@
 
 * [PHPJS library](http://locutus.io/php/) are saved under src/app/etc/php.
 
+### Seo
+
+* [SEO](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.k8dvb9rv31rl)
+
+### Branch managers
+
+
+
+
+
 ## Work Environment
 
 Save these domains in `hosts` for test.

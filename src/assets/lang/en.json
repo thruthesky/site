@@ -553,6 +553,8 @@
   "SESSION REFUND":"Session Refund",
   "SESSION REFUNDED":"Session Refunded.",
   "SESSION REFUND CONFIRM":"Are you sure, you want to refund this session?",
-  "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "Ooh, Please login to see the time of schedules."
+  "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "Ooh, Please login to see the time of schedules.",
+  "YOUR_TIME": "Your Time",
+  "UPDATE": "Update"
 
 }

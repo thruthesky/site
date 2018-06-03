@@ -131,8 +131,8 @@
     "HAD SESSIONS": "",
     "ADD KAKAO": "카카오 친구 추가",
     "VIDEO": "비디오",
-    "OPEN REVIEW": "코멘트",
-    "CURRICULUM VITAE": "간행물",
+    "OPEN REVIEW": "수업후기",
+    "CURRICULUM VITAE": "이력서",
     "ALL SCHEDULE": "모든 일정",
     "SCHEDULE TABLE SEARCH OPTIONS SHORT": "Options",
     "TIMEZONE NOW": "옵션",
@@ -520,6 +520,8 @@
     "SESSION CANCEL CONFIRM":"정말이 세션을 취소 하시겠습니까?",
     "SESSION REFUND":"세션 환불",
     "SESSION REFUNDED":"세션 환불.",
-    "SESSION REFUND CONFIRM":"이 세션을 환불 받으시겠습니까?"
+    "SESSION REFUND CONFIRM":"이 세션을 환불 받으시겠습니까?",
+    "YOUR_TIME": "회원님의 시간",
+    "UPDATE": "변경"
 
 }

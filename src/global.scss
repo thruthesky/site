@@ -31,6 +31,10 @@ hr {
     border-bottom: 1px;
 }
 
+[routerLink] {
+    cursor: pointer;
+}
+
 .loader {
     padding: 1em;
     border-left: 4px solid rgb(168, 133, 91);
