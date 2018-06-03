@@ -2,6 +2,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 4em;
     background: dimgray;
     color: white;
 
@@ -42,7 +43,6 @@ header{
 }
 
 main{
-    padding-top: 4em;
     background: #fff;
     
     .teacher-photo{

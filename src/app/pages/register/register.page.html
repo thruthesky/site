@@ -3,9 +3,10 @@
         <h2 *ngIf="a.user.isLogout">{{ 'REGISTER' | t }}</h2>
         <h2 *ngIf="a.user.isLogin">{{ 'UPDATE_PROFILE' | t }}</h2>
     </header>
+
     <div class="loader" *ngIf=" show.dataLoader ">
-        <ion-spinner></ion-spinner>
-        {{ 'IN LOADING' | t }}
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
     </div>
 
     <div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
