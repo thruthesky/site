@@ -6,6 +6,7 @@ import { RouterModule, Route } from '@angular/router';
 
 import { KatalkEnglishInstanceSchedulePage } from './katalkenglish-instance-schedule.page';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../../../app.material.module';
 
 const appRoutes: Array<Route> = [
     { component: KatalkEnglishInstanceSchedulePage, path: '' }
@@ -18,7 +19,8 @@ const appRoutes: Array<Route> = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(appRoutes),
-        TranslatePipeModule
+        TranslatePipeModule,
+        MaterialModule
     ],
     entryComponents: [
         KatalkEnglishInstanceSchedulePage

@@ -101,9 +101,14 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    ion-spinner {
+    mat-spinner {
         margin-bottom: .5em;
     }
+}
+
+.progress-spinner{
+    display: inline-block;
+    margin: auto;
 }
 
 .icon-desc{

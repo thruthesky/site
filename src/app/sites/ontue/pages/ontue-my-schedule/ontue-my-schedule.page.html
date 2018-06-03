@@ -110,9 +110,9 @@
         </div>
     </div>
 
-    <div class="loader" *ngIf=" ! data || loading ">
-        <ion-spinner class="size-3"></ion-spinner>
-        Loading... Please wait...
+    <div class="loader"  *ngIf=" ! data || loading ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
     </div>
 </main>
 <footer>

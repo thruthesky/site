@@ -49,8 +49,7 @@ main{
     }
 
     .display-option-true{
-        background: #607d8b;
-        color:#fff;
+        border-bottom: 1px solid rgba(125,125,125,0.1)
     }
 
     .page-options{
@@ -283,7 +282,14 @@ main{
     }
 
     .loader{
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        mat-spinner{
+        margin: .5em;
+        }
     }
 
 }

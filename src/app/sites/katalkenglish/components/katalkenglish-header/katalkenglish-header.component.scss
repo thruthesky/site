@@ -9,6 +9,10 @@
     background-color: white;
     font-size: .8em;
     nav.top {
+        display: -webkit-box; 
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex; 
         display: flex;
         align-items: center;
         justify-content: space-around;

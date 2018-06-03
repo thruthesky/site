@@ -58,7 +58,16 @@ main{
     background: white;
     padding-bottom: 7em;
     text-align: center;
-
+    .loader{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        mat-spinner{
+        margin: .5em;
+        }
+    }
     .assesment{
         padding: 3em;
 

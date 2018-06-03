@@ -3,9 +3,10 @@
 </header>
 <main>
     <section class="content">
+
         <div class="loader" *ngIf=" !book?.refund_request_message ">
-            <ion-spinner></ion-spinner>
-            <span>{{ 'IN LOADING' | t }}</span>
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
         </div>
 
 

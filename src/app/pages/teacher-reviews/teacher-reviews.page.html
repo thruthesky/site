@@ -1,8 +1,8 @@
 <main>
-        <header>
-            <h1>{{ 'CLASS_COMMENTS_PAGE_TITLE' | t }}</h1>
-            <div> {{ 'CLASS_COMMENTS_PAGE_DESC' | t }}</div>
-        </header>
+    <header>
+        <h1>{{ 'CLASS_COMMENTS_PAGE_TITLE' | t }}</h1>
+        <div> {{ 'CLASS_COMMENTS_PAGE_DESC' | t }}</div>
+    </header>
     <div class="container-fluid">
         <div class="card-wrapper row">
             <a class="col-12 col-md-6" *ngFor="let comment of comments" (click)="onClickShowMore(comment)">

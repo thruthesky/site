@@ -12,8 +12,8 @@
     <section>
 
         <div class="loader" *ngIf=" a.inLoadingMyPoint ">
-            <ion-spinner></ion-spinner>
-            {{ 'IN LOADING' | t}}
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
         </div>
 
         <div *ngIf=" ! a.inLoadingMyPoint ">

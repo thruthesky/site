@@ -115,14 +115,9 @@
                 </div>
             </div>
     
-    
-            <div class="loader" *ngIf=" show.loadTeacher ">
-                <div>
-                    <ion-spinner></ion-spinner>
-                    <div>
-                        {{ 'IN LOADING' | t }}..
-                    </div>
-                </div>
+            <div class="loader" *ngIf=" show.loadTeacher  ">
+                <mat-spinner [diameter]="48"></mat-spinner>
+                <span>{{ 'IN LOADING' | t}}</span>
             </div>
     
             <div class="showmoreteacher-wrapper" *ngIf=" ! noMoreTeachers && ! show.loadTeacher">

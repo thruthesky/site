@@ -1,28 +1,19 @@
 @import '../../../theme/vars.scss';
 .options{
+    background: #fff;
+    padding: 1em;
     .date{
-        label{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: .5em;
-            padding: 0 1em;
-            background:#fff;
-            border: 1px  solid  rgb(233, 236, 239);
-            cursor: pointer;
-
-            span{
-                color:grey;
-            }
+        mat-form-field{
+            width: 100%;
         }
 
         @media screen and (min-width:$md){
             .begin{
-                margin-right: .25em;
+                margin-right: .5em;
             }
     
             .end{
-                margin-left:.25em;
+                margin-left:.5em;
             }
         }
 
@@ -32,18 +23,8 @@
     }
 
     .teachers{
-
-        label{
-            color:blue
-        }
-        .col{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: .5em 0;
-            padding: 1em;
-            border: 1px  solid  rgb(233, 236, 239);
-            background:#fff;
+        mat-form-field{
+            width: 100%;
         }
     }
 
@@ -344,7 +325,14 @@
 }
 
 .loader{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    mat-spinner{
+        margin: .5em;
+    }
 }
 
 .no-more{

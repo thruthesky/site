@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { KatalkEnglishSessionEvaluationPage } from './katalkenglish-session-evaluation.page';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../../../app.material.module';
 
 const routes: Routes = [
     { path: '', component: KatalkEnglishSessionEvaluationPage }
@@ -15,7 +16,8 @@ const routes: Routes = [
         CommonModule,
         IonicModule,
         RouterModule.forChild(routes),
-        TranslatePipeModule
+        TranslatePipeModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

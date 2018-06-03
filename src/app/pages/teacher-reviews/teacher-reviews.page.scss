@@ -17,20 +17,20 @@ header{
 main{
     .card-wrapper{
         padding: 0;
+        padding-top: 1em;
         margin:0 -1.2em;
 
         &>a{
-            padding: .3em ;
+            padding: .5em ;
         }
     }
 
     .card{
         height: 100%!important;
-        padding: .5em;
+        padding: 1em;
         border-radius: 2px;
         border: 1px solid rgba(128, 128, 128, 0.1);
         background: #fff;
-
         &>div{
             padding: 0;
         }
@@ -40,8 +40,7 @@ main{
             flex-direction: column;
             align-items:center;
             justify-content: space-between;
-            padding: .25em!important;
-            padding-right: .6em!important;
+            padding: .25em .6em!important;
         }
 
         &-inner{
@@ -99,7 +98,8 @@ main{
 
     .teacher-photo{
         margin: 0 auto;
-        height: 120px;
+        width: 110px;
+        height: 130px;
     }
 
     .teacher-info{
@@ -133,14 +133,13 @@ main{
     .extra {
       display: flex;
       justify-content: space-between;
-      margin: .2em 0;
-      font-size: 70%;
+      margin: .5em 0;
+      font-size: 80%;
     }
 
     .comment{
-        padding: .3em 0;
+        padding: .5em 0;
         font-size: 80%;
-        line-height: 1.3em;
     }
 
     .date{

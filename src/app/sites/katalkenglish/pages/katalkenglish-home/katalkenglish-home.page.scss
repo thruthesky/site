@@ -1,10 +1,20 @@
 @import '../../../../../theme/vars.scss';
 main{
+    padding-top:1em;
     .left,.right {
         padding: 0;
     }
+    @media screen and (min-width:$md){
+        .left{
+            padding-right: .5em;
+        }
+        .right{
+            padding-left: .5em;
+        }   
+    }
     #student-comments {
         h2 {
+            margin-top: 1em;
             padding: .5em;
             font-size: 1em;
             font-weight: 500;
@@ -12,7 +22,10 @@ main{
         }
         .comment {
             margin: 1em;
-            padding:1em;
+            @media screen and (min-width:$md){
+                margin: 1em 0;
+            }
+            padding:1em 1.5em;
             border-radius: 2px;
             border: 1px solid rgba(125,125,125,0.1);
             background: #fff;
@@ -47,6 +60,9 @@ main{
         }
         .more {
             margin: 1.3em;
+            @media screen and (min-width:$md) {
+                margin:1.3em 0;
+            }
             padding: .6em;
             font-size: .8em;
             text-align: center;
@@ -71,9 +87,15 @@ main{
     }
     
     .stats-wrapper {
+        @media screen and (min-width:$md){
+            margin-top: 1em;
+        }
         background: #e6e6e6;
         .stats {
             padding: 2.5em 1em;
+            .row{
+                justify-content: space-evenly;
+            }
             .col {
                 padding: 0;
             }
@@ -115,15 +137,16 @@ main{
     
     .my-own-plan {
         padding: 1.5em .5em;
+        line-height: 1.25em;
         @media screen and (min-width:$md){
             padding: 1.5em;
         }
-        background-color: #e6e6e6;
+        background-color: #FFD600;
         .container-fluid {
             .col-6 {
                 padding: 0 .5em;
                 @media screen and (min-width:$md){
-                    padding: 0 1em;
+                    padding: 0 .7em;
                 }
             }
             .col-6:first-child{
@@ -132,6 +155,7 @@ main{
             }
         }
         h2 {
+            margin: .5em 0;
             font-size: 1em;
             @media screen and (min-width:$md){
                 font-size: 1.3em;
@@ -142,7 +166,7 @@ main{
         .view-more {
             font-size: .8em;
             @media screen and (min-width:$md){
-                font-size: 100%;
+                font-size: 90%;
             }
         }
         .calendar-img {
@@ -150,7 +174,6 @@ main{
         }
         .view-more {
             margin: .5em 0;
-            color: dodgerblue;
             cursor: pointer
         }
         .moreMyOwnPlan {
@@ -163,15 +186,15 @@ main{
             background: #fff;
             font-size: 80%;
             font-weight: 200;
-            &.no1 {
-                border: 2px solid #395b69;
-            }
-            &.no2 {
-                border: 2px solid #d8aa02;
-            }
-            &.no3 {
-                border: 2px solid #883f29;
-            }
+            // &.no1 {
+            //     border: 2px solid #395b69;
+            // }
+            // &.no2 {
+            //     border: 2px solid #d8aa02;
+            // }
+            // &.no3 {
+            //     border: 2px solid #883f29;
+            // }
             @keyframes a1234 {
                 0% {
                     opacity: 0;
@@ -186,9 +209,16 @@ main{
     }
     
     .about-katalkenglish {
-        padding: 3em 1em;
+        padding: 3em 2em;
+        line-height: 1.25em;
+        @media screen and (min-width:$md) {
+            padding: 2em;
+            margin: 0;
+            margin-top: 1em;
+            font-size: 90%;
+        }
         background-color: #fff;
-        font-size: 85%;
+        font-size: 80%;
         line-height: 1.5em;
         img {
             width: 100%;
@@ -197,26 +227,29 @@ main{
             padding: .3em;
         }
     
-        .col-3{
+        .col-4{
             padding: 0;
-            padding-right: .4em;
+            @media screen and (min-width:$md) {
+                padding-right: .5em;
+            }
         }
         .desc{
             h2 {
                 margin: 0;
-                font-size: 1.3em;
+                margin-bottom: .4em;
+                font-size: 1.5em;
                 font-weight: 400;
                 color: brown;
             }
             div{
+                line-height: 1.5em;
                 color: #607d8b;
             }
         }
         .show-more {
-            span{
-                padding: .3em;
-                color: dodgerblue;
-            }
+            margin-top: .5em;
+            display: block;
+            cursor: pointer;
         }
     }
     

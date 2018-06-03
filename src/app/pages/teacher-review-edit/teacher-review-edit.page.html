@@ -76,10 +76,9 @@
         <button class="cancel" type="button" (click)="onClickCancel()">{{ 'CANCEL' | t }}</button>
     </div>
 
-
     <div class="loader" *ngIf=" showLoader ">
-        <ion-spinner></ion-spinner>
-        <div>{{ 'IN LOADING' | t }}</div>
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
     </div>
 
 

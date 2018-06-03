@@ -84,8 +84,17 @@ main{
 }
 
 .paypal-ready{
-    text-align: center;
     padding: 4em;
+    text-align: center;
+    .spinner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        mat-spinner{
+            margin-bottom: .5em;
+        }
+    }
 }
 
 .paypal-button{

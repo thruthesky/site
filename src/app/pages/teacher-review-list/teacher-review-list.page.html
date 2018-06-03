@@ -92,13 +92,12 @@
             <span>{{error}}</span>
         </div>
     </section>
-
-
-    <div class="loader" *ngIf=" showLoader ">
-        <ion-spinner></ion-spinner>
-        <div>{{ 'IN LOADING' | t }}</div>
-    </div>
     
+    <div class="loader" *ngIf=" showLoader ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
+    </div>
+
     <div class="page-nav">
         <page-navigator-component [no_of_total_items]=" pageOption['totalRecord'] "
                                   [no_of_items_in_one_page]=" pageOption['limitPerPage'] "

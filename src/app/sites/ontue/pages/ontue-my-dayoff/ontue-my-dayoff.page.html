@@ -56,10 +56,10 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="showLoader">
-            <div class="loader">
-                <ion-spinner></ion-spinner> Loading...
-            </div>
+
+        <div class="loader" *ngIf="showLoader ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
         </div>
     </div>
 </main>

@@ -5,22 +5,26 @@
         <div class="date container-fluid" *ngIf=" past ">
 
             <div class="row">
-                <div class="col">
-                    <label class="begin">
-                        <span>{{ 'DATE_BEGIN' | t}}</span>
-                        <ion-datetime name="date_begin" displayFormat="MM/DD/YYYY" pickerFormat="YYYYMMDD"
-                                    [(ngModel)]="date_begin"
-                                    (ngModelChange)="onChangeSearchOption()"></ion-datetime>
-                    </label>
+                <div class="begin col">
+                    <mat-form-field appearance="outline"  (click)="dpStart.open()">
+                        <mat-label>{{ 'DATE_BEGIN' | t}}</mat-label>
+                        <input name="date" [(ngModel)]="date_begin" matInput 
+                              [matDatepicker]="dpStart"
+                              (dateChange)="onChangeSearchOption()"
+                        >
+                        <mat-datepicker #dpStart touchUi="true" disabled="false"></mat-datepicker>
+                    </mat-form-field>
                 </div>
 
-                <div class="col">
-                    <label class="end">
-                        <span>{{ 'DATE_END' | t}}</span>
-                        <ion-datetime name="date_end" displayFormat="MM/DD/YYYY" pickerFormat="YYYYMMDD"
-                                    [(ngModel)]="date_end"
-                                    (ngModelChange)="onChangeSearchOption()"></ion-datetime>
-                    </label>
+                <div class="end col">
+                        <mat-form-field appearance="outline"  (click)="dpEnd.open()">
+                            <mat-label>{{ 'DATE_END' | t}}</mat-label>
+                            <input name="date" [(ngModel)]="date_end" matInput 
+                                    [matDatepicker]="dpEnd"
+                                    (dateChange)="onChangeSearchOption()"
+                            >
+                            <mat-datepicker #dpEnd touchUi="true" disabled="false"></mat-datepicker>
+                        </mat-form-field>
                 </div>
             </div>
 
@@ -29,42 +33,47 @@
         <div class="teachers container-fluid" *ngIf=" my_teachers ">
             <div class="row">
                 <div class="col">
-                    <label>{{ 'SELECT_TEACHER'| t }}</label>
-                    <select [(ngModel)]="show_teacher" (change)="onChangeSearchOption()">
-                        <option *ngFor="let teacher of teachers_keys" [value]="teacher">{{ my_teachers[teacher].name }}
-                        </option>
-                        <option [value]="0">{{ "ALL_TEACHER" | t}}</option>
-                    </select>
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ 'SELECT_TEACHER'| t }}</mat-label>
+                            <mat-select [(ngModel)]="show_teacher" (selectionChange)="onChangeSearchOption()">
+                                <mat-option *ngFor="let teacher of teachers_keys" [value]="teacher">
+                                        {{ my_teachers[teacher].name }}
+                                </mat-option>
+                                <mat-option [value]="0">
+                                        {{ "ALL_TEACHER" | t}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                 </div>
             </div>
         </div>
 
         <div class="checkbox-list" *ngIf=" past ">
             <label>
-                <ion-checkbox [(ngModel)]="show_refund_in_progress" color="vibrant"
-                              (ionChange)="onChangeSearchOption()"></ion-checkbox>
+                <input type="checkbox" [(ngModel)]="show_refund_in_progress" color="vibrant"
+                              (change)="onChangeSearchOption()"/>
                 <span>{{ 'DISPLAY_SESSION_IN_PROGRESS' | t}}</span>
             </label>
 
             <label>
-                <ion-checkbox [(ngModel)]="show_refunded" color="vibrant"
-                              (ionChange)="onChangeSearchOption()"></ion-checkbox>
+                <input type="checkbox" [(ngModel)]="show_refunded" color="vibrant"
+                              (change)="onChangeSearchOption()"/>
                 <span>{{ 'DISPLAY_REFUNDED_SESSION' | t}}</span>
             </label>
 
             <ng-container *ngIf="a.isStudent">
                 <label>
-                    <ion-checkbox [(ngModel)]="displayTeacherName" color="vibrant"></ion-checkbox>
+                    <input type="checkbox" [(ngModel)]="displayTeacherName" color="vibrant"/>
                     <span>{{ 'SHOW_TEACHER_NAME'| t }}</span>
                 </label>
 
                 <label>
-                    <ion-checkbox [(ngModel)]="displayDate" color="vibrant"></ion-checkbox>
+                    <input type="checkbox" [(ngModel)]="displayDate" color="vibrant"/>
                     <span>{{ 'DISPLAY_DATE' | t }}</span>
                 </label>
                 
                 <label>
-                    <ion-checkbox [(ngModel)]="displayPoint" color="vibrant"></ion-checkbox>
+                    <input type="checkbox" [(ngModel)]="displayPoint" color="vibrant"/>
                     <span>{{ 'POINT_MARK' | t}}</span>
                 </label>
             </ng-container>
@@ -133,7 +142,7 @@
     </div>
 
     <div class="loader" *ngIf=" loadingOnSearch  ">
-        <ion-spinner></ion-spinner>
+        <mat-spinner [diameter]="48"></mat-spinner>
         <span>{{ 'IN LOADING' | t}}</span>
     </div>
 

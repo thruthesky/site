@@ -170,9 +170,9 @@
     </form>
 
 
-    <div class="loader" *ngIf=" showLoader ">
-        <ion-spinner></ion-spinner>
-        Loading... Please Wait...
+    <div class="loader" *ngIf="showLoader ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
     </div>
 
 </main>

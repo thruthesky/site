@@ -6,11 +6,12 @@
         <div *ngIf=" a.user.isLogin "> {{ 'SCHEDULE_AVAILABLE_PAGE_DESC_1' | t }}</div>
         <div *ngIf=" a.user.isLogout ">{{ 'SCHEDULE_AVAILABLE_PAGE_DESC_2' | t }}</div>
     </header>
-    
+
     <div class="loader" *ngIf=" pageInLoading; else pageLoaded ">
-        <ion-spinner></ion-spinner>
-        <span class="p-2">{{ 'IN LOADING' | t }}</span>
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
     </div>
+    
     <ng-template #pageLoaded>
 
     <div class="container-fluid" *ngIf=" re && re?.available_schedules?.length; else NoSchedule">
@@ -47,9 +48,9 @@
                             {{ 'RESERVE_NOW' | t }}
                         </div>
 
-                        <div class="reserve-loader" *ngIf=" loading[schedule.idx] ">
+                        <div class="reserve-loader" *ngIf=" !loading[schedule.idx] ">
                             <div>{{ 'IN_RESERVING' | t }}</div>
-                            <ion-spinner></ion-spinner>
+                            <mat-spinner [diameter]="20"></mat-spinner>
                         </div>
 
                     </div>
