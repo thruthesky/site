@@ -5,22 +5,25 @@ import { LmsInfoComponent } from './lms-info.component';
 // import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 import { IonicModule } from '@ionic/angular';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../app.material.module';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    IonicModule,
-    TranslatePipeModule
-  ],
-  declarations: [
-    LmsInfoComponent
-  ],
-  exports: [
-    RouterModule,
-    LmsInfoComponent
-  ],
-  schemas: []
+    imports: [
+        CommonModule,
+        RouterModule,
+        IonicModule,
+        TranslatePipeModule,
+        MaterialModule
+    ],
+    declarations: [
+        LmsInfoComponent
+    ],
+    exports: [
+        RouterModule,
+        LmsInfoComponent
+    ],
+    schemas: []
 })
-export class LmsInfoComponentModule { }
+export class LmsInfoComponentModule {
+}

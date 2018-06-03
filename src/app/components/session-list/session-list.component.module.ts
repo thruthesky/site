@@ -17,6 +17,7 @@ import { MaterialModule } from '../../app.material.module';
         RouterModule,
         TranslatePipeModule,
         MaterialModule,
+
     ],
     declarations: [
         SessionListComponent

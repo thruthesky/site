@@ -9,7 +9,7 @@
             <button class="app-button secondary  mt-2 mt-md-0 mx-md-4 m-0 hover-effect py-2" (click)=" a.open('settings') ">{{ 'CHANGE TIMEZONE' | t }}</button>
             <span class="ml-3 ml-md-0">{{ 'POINT' | t }}:</span>
             <span *ngIf=" ! a.inLoadingMyPoint ">{{ a.userPoint }}</span>
-            <ion-spinner class="size-3" *ngIf=" a.inLoadingMyPoint "></ion-spinner>
+            <mat-spinner [diameter]="40" *ngIf=" a.inLoadingMyPoint "></mat-spinner>
         </div>
     </div>
 </div>
