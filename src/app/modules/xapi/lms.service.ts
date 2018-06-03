@@ -558,6 +558,16 @@ export class XapiLMSService extends Base {
         req['route'] = 'lms.admin_query';
         return this.x.post(req);
     }
+    admin_push_token_stat() {
+        const req = {};
+        req['route'] = 'lms.admin_push_token_stat';
+        return this.x.post(req);
+    }
+    admin_push_send(req) {
+        req['session_id'] = this.user.sessionId;
+        req['route'] = 'lms.admin_push_send';
+        return this.x.post(req);
+    }
 
     get_teacher_info_by_idx(idx_teacher, full = false) {
         return this.x.post({
