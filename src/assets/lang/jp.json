@@ -524,5 +524,6 @@
 
 
     "LOGIN_CONFIRMING": "あなたのログインを確認しています...",
-    "STUDENT_ADV_MENU_TEXT": "月額$ 10"
+    "STUDENT_ADV_MENU_TEXT": "月額$ 10",
+    "HOW_TO_RESERVE": "クラスを予約するには、丸のアイコンをクリックしてください。"
 }
