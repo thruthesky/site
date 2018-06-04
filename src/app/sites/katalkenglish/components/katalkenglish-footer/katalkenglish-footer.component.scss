@@ -1,5 +1,21 @@
-footer{
+@import './../../../../../theme/vars.scss';
+footer {
+    font-size: .85em;
+    line-height: 160%;
     text-align: center;
     background-color: #f3f5fa;
     color: #777;
+    @media (min-width: $md ) {
+        display: flex;
+        justify-content: space-around;
+        .copyright {
+            max-width: 260px;
+        }
+    }
+    .contact {
+        cursor: pointer;
+    }
+    & > div {
+        margin: 0 0 1em;
+    }
 }

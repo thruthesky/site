@@ -526,5 +526,9 @@
   "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "アカウントなし",
   "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
-  "WOORIBANK_NAME": "Wooribank"
+  "WOORIBANK_NAME": "Wooribank",
+
+
+  "TERMS_AND_CONDITIONS": "利用規約",
+  "CONTACT": "联系"
 }
