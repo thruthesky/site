@@ -561,6 +561,7 @@
 
 
   "LOGIN_CONFIRMING": "Confirming your login ...",
-  "STUDENT_ADV_MENU_TEXT": "$10 Monthly"
+  "STUDENT_ADV_MENU_TEXT": "$10 Monthly",
+    "HOW_TO_RESERVE": "Please click circle icon to reserve a class."
 
 }

@@ -528,6 +528,7 @@
 
 
     "LOGIN_CONFIRMING": "로그인을 확인중입니다.",
-    "STUDENT_ADV_MENU_TEXT": "월1만원"
+    "STUDENT_ADV_MENU_TEXT": "월1만원",
+    "HOW_TO_RESERVE": "예약을 하시려면 날짜와 시간을 잘 보시고, 동그라미 버튼을 클릭해주세요."
 
 }
