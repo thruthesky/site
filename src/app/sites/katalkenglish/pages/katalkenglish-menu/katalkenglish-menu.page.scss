@@ -1,17 +1,22 @@
 header{
-    h1{
-        text-align: center;
+    a{
+        display:block!important;
+        padding: 0!important;
+        text-align: center!important;
+    }
+    .icon{
+        height: 1em;
+        margin-left: .5em;
     }
 }
 
 main{
     padding-bottom: 3em;
-    background: #fff;
-
     a{  
         display: inline-block;
         padding: .8em 1em;
         border-bottom: 1px solid rgba(125,125,125,0.1);
+        background: #fff;
         cursor: pointer;
         transition: all .1s ease-in-out;
 
