@@ -612,4 +612,10 @@ export class XapiLMSService extends Base {
         req['session_id'] = this.user.sessionId;
         return this.x.post(req);
     }
+    updateLanguage(ln) {
+        const req = { language: ln };
+        req['route'] = 'lms.updateLanguage';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
 }

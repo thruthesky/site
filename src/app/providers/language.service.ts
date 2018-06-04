@@ -46,6 +46,14 @@ export class LanguageService {
         });
      */
     load: EventEmitter<any> = new EventEmitter();
+
+    /**
+     * Fires when user changes langauge.
+     *
+     * @description 'load' event is fired whenever a language file is loaded. It automatically fires by constructor.
+     * while 'change' is only fired when user is selecting a language.
+     */
+    change: EventEmitter<string> = new EventEmitter();
     constructor(
         private http: HttpClient
     ) {
@@ -93,7 +101,7 @@ export class LanguageService {
      * This sets user language on `localStorage` and loads language JSON file
      *  so, the user's language will be changed to it.
      *
-     * Use this to chagne language by user.
+     * @desc Use this to chagne language by user. Do not use loadUserLanguage() for language change.
      *
      * @param ln User language
      *
@@ -102,6 +110,7 @@ export class LanguageService {
      */
     setUserLanguage(ln, callback?) {
         _.set(LANGUAGE_CODE, ln);
+        this.change.emit(ln);
         this.loadUserLanguage(callback);
     }
 

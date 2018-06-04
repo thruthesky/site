@@ -211,7 +211,10 @@ export class AppService {
             console.log('language load ln: ', ln);
             this.languageLoaded(ln);
         });
-
+        this.language.change.subscribe( ln => {
+            console.log('user change language into: ', ln);
+            this.languageChanged(ln);
+        });
 
 
         // Base.collectionDomain = 'database';
@@ -322,9 +325,9 @@ export class AppService {
      * Returns an email address of the user ID.
      * @param ID User ID of WordPress Backend
      */
-    getFirebaseLoginEmail(ID): string {
-        return 'user' + ID + '@php-wordpress-backend-server.com';
-    }
+    // getFirebaseLoginEmail(ID): string {
+    //     return 'user' + ID + '@php-wordpress-backend-server.com';
+    // }
     /**
      * It returns simple password.
      *
@@ -333,9 +336,9 @@ export class AppService {
      *
      * @param ID User UID of backend
      */
-    getFirebaseLoginPassword(ID): string {
-        return 'password-' + ID;
-    }
+    // getFirebaseLoginPassword(ID): string {
+    //     return 'password-' + ID;
+    // }
 
 
     private isKatalkenglishDomain() {
@@ -1189,6 +1192,9 @@ export class AppService {
 
 
     /**
+     * This method is being invoked when the user is logged in.
+     * This method is called from login.page.ts ( NOT from register )
+     *
      * Log whenever user login
      */
     onUserLogin() {
@@ -1201,17 +1207,27 @@ export class AppService {
     /**
      * This method is being called when a user opens 'register' page.
      */
-    onUserRegisterPage() {
-        this.updatePushToken();
-        this.log({ activity: 'open-register' });
-    }
+    // onUserRegisterPage() {
+    //     this.updatePushToken();
+    //     this.log({ activity: 'open-register' });
+    // }
 
+    /**
+     * This method is being invoked only the user registers for the first time.
+     * It is not invoked twice.
+     */
     onUserRegister() {
         this.updateLMSInfo();
         this.updatePushToken();
+        this.lms.updateLanguage(this.language.getUserLanguage()).subscribe(re => {
+            console.log('updateLanguage: ', re);
+        });
         this.log({ idx_user: this.user.id, name: this.user.name, activity: 'register' });
     }
 
+    /**
+     * This method is being invoked every time user update his profile.
+     */
     onUserProfileUpdate() {
         this.updateLMSInfo();
         this.log({ idx_user: this.user.id, name: this.user.name, activity: 'update-profile' });
@@ -1768,5 +1784,11 @@ export class AppService {
      */
     languageLoaded(ln) {
         this.updateUserTimezone();
+    }
+
+    languageChanged(ln) {
+        this.lms.updateLanguage(ln).subscribe( re => {
+            console.log('lms.languageChanged: re', re);
+        });
     }
 }
