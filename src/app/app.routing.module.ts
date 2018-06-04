@@ -95,6 +95,10 @@ const routes: Routes = [
     data: { slug: 'teacher-policy' }
   },
   {
+    path: 'teacher-post/:id',
+    loadChildren: './sites/ontue/pages/ontue-post-view/ontue-post-view.page.module#OntuePostViewPageModule',
+  },
+  {
     path: 'payment-information',
     loadChildren: './sites/ontue/pages/ontue-payment-information/ontue-payment-information.page.module#OntuePaymentInformationPageModule'
   },

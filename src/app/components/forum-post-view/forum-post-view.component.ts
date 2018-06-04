@@ -10,7 +10,7 @@ import { WP_POST } from '../../providers/forum.service';
 })
 export class ForumPostViewComponent {
 
-    @Input() post: WP_POST = {};
+    @Input() post: WP_POST = null;
 
     constructor(public a: AppService) {
 

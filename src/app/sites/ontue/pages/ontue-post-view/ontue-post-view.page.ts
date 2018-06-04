@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { ForumService, WP_POST } from '../../../../providers/forum.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,22 +13,26 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class OntuePostViewPage {
 
-    posts: Array<WP_POST> = [];
+    post: WP_POST = <WP_POST>{};
 
     constructor(
         public a: AppService,
         public sanitizer: DomSanitizer,
-        public forum: ForumService
+        public forum: ForumService,
+        public activated: ActivatedRoute
     ) {
 
-
-        this.forum.getPost('teacher-policy').subscribe((post: WP_POST) => {
-            console.log('post: ', post);
-            if (post) {
-                this.post = post;
-                post.content.rendered = <any> this.sanitizer.bypassSecurityTrustHtml(post.content.rendered);
+        activated.paramMap.subscribe( params => {
+            if ( params.get('id') ) {
+                this.forum.getPost( params.get('id') ).subscribe((post: WP_POST) => {
+                    console.log('post: ', post);
+                    if (post) {
+                        this.post = post;
+                        post.content.rendered = <any> this.sanitizer.bypassSecurityTrustHtml(post.content.rendered);
+                    }
+                }, e => console.error(e));
             }
-        }, e => console.error(e));
+        });
     }
 
 

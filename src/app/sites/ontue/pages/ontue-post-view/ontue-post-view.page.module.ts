@@ -5,9 +5,9 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
-import { ForumPostsComponentModule } from '../../../../components/forum-posts/forum-posts.component.module';
 import { ForumService } from '../../../../providers/forum.service';
 import { OntuePostViewPage } from './ontue-post-view.page';
+import { ForumPostViewComponentModule } from '../../../../components/forum-post-view/forum-post-view.component.module';
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
-        ForumPostsComponentModule
+        ForumPostViewComponentModule
     ],
     exports: [
         RouterModule

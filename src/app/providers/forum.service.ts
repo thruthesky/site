@@ -41,7 +41,7 @@ export class ForumService {
 
 
     getPost(id): Observable<any> {
-        const url = environment['urlBackend'] + '/wp-json/wp/v2/posts' + id;
+        const url = environment['urlBackend'] + '/wp-json/wp/v2/posts/' + id;
         console.log('loadPosts', url);
         return this.http.get(url);
     }
