@@ -1,17 +1,8 @@
 @import '../../../theme/vars';
 header {
-    margin: 0;
-    h2 {
-        margin: 0;
-        padding: .7em 1.7em;
-        background-color: #535bcb;
-        color: #fff;
-        font-size: 1.17em;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    @media screen and (max-width: $sm) {
-        display: none;
+    display: none;
+    @media screen and (min-width: $md) {
+        display: block;
     }
 }
 
@@ -19,20 +10,19 @@ main {
     padding-bottom: 1em;
     .schedule-table {
         position: relative;
-        font-size: 12px;
+        font-size: 10.5px;
         text-align: center;
         background: #fff;
-        @media screen and (max-width: $md) {
-            font-size: 10.5px;
+        @media screen and (min-width: $md) {
+            font-size: 12px;
         }
         .schedule-header {
             position: sticky;
-            top: 63px;
-            @media screen and (max-width: $md) {
-                top:105px;
-            }
-            @media screen and (max-width: $sm) {
-                font-size: 11px;
+            top:105px;
+            font-size: 11px;
+            @media screen and (min-width: $md) {
+                top: 63px;
+                font-size: 12px;
             }
             left: 0;
             display: flex;

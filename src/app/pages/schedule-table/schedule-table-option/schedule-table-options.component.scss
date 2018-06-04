@@ -3,7 +3,7 @@
     @media (min-width: $md) {
         display: flex;
         justify-content: space-between;
-        background-color: #bdb8ff;
+        background-color: #90b0ff;
         .user-time {
             padding: 0;
             margin-top: .5em;
@@ -19,13 +19,13 @@
 }
 
 .search-chip-list {
-    padding: 1em;
-    padding-left: 1.5em;
-    background: #bdb8ff;
-    @media screen and (max-width: $sm) {
-        padding:0;
-        display: flex;
-        justify-content: space-evenly;
+    padding:0;
+    display: flex;
+    justify-content: space-evenly;
+    background: #90b0ff;
+    @media screen and (min-width: $md) {
+        padding: 1em;
+        padding-left: 1.5em;
     }
     .chip {
         display: inline-block;

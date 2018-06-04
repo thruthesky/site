@@ -1,15 +1,6 @@
 header{
-    padding: 1.25em;
-    background-color: #3f51b5!important;
-    text-align: center;
-    color: #fff;
-
-    div{
-        display: inline-block;
-        padding: .2em .5em;
-        border-radius: 2px;
-        background: #1515aa;
-        cursor: pointer;
+    h1{
+        text-align: center;
     }
 }
 
@@ -18,12 +9,22 @@ main{
     background: #fff;
 
     a{  
+        display: inline-block;
+        padding: .8em 1em;
+        border-bottom: 1px solid rgba(125,125,125,0.1);
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+
+        &:hover{
+            background: rgba(125,125,125,0.1)
+        }
         .row{
             align-items: center;
 
-            .col-1{
-                text-align: center;
+            .col-2{
+                text-align:center;
             }
+
         }
         .fontawesome{
             height: 1.4em;
