@@ -49,11 +49,20 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
 
 
     userTime = '';
+
+
+
+    /**
+     * Display 'reserve' help gif ani if the user has no reservation.
+     */
+    showHelpReserve = false;
     constructor(
         public router: Router,
         public active: ActivatedRoute,
         public a: AppService
     ) {
+
+        this.showHelpReserve = !a.lmsInfoUserNoOfTotalSessions;
 
         if (a.isDesktopView()) {
             this.form.days = 15;
@@ -85,8 +94,8 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
 
     }
     ngAfterViewInit() {
-        if ( this.a.isLogout ) {
-            this.a.toast( this.a.t('LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME') );
+        if (this.a.isLogout) {
+            this.a.toast(this.a.t('LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME'));
         }
     }
     ngOnDestroy() {
@@ -142,7 +151,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             if (re.table.length) {
                 if (this.isSingleTeacher) {         // if single teacher.
                     this.re = re;
-                    this.a.onUserViewProfile( this.teacher_name( re.table[0] ) );
+                    this.a.onUserViewProfile(this.teacher_name(re.table[0]));
                 } else {
                     const table: TABLE = re.table;
                     re.table = [];

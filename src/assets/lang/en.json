@@ -105,7 +105,6 @@
     "INSTALL": "Install",
     "CATEGORY": "Category",
     "IN LOADING": "Loading.. Please, wait.",
-    "KATALK_STORY": "Intro",
     "SETTINGS": "Settings",
     "SETTINGS PAGE TITLE": "Settings",
     "SETTINGS PAGE DESC": "You can change your language and timezone.",
@@ -555,6 +554,13 @@
   "SESSION REFUND CONFIRM":"Are you sure, you want to refund this session?",
   "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "Ooh, Please login to see the time of schedules.",
   "YOUR_TIME": "Your Time",
-  "UPDATE": "Update"
+  "UPDATE": "Update",
+
+
+
+
+
+  "LOGIN_CONFIRMING": "Confirming your login ...",
+  "STUDENT_ADV_MENU_TEXT": "$10 Monthly"
 
 }

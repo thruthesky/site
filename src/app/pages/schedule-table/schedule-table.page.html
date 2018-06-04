@@ -1,190 +1,198 @@
 <main>
-        <schedule-table-profile-component
-        [isSingleTeacher]="isSingleTeacher"
-        [isLoadComplete]="isLoadComplete"
-        [re] = " re "
-        [teacherName]=" teacher_name(re?.table[0]) "
-    ></schedule-table-profile-component>
+    <schedule-table-profile-component [isSingleTeacher]="isSingleTeacher" [isLoadComplete]="isLoadComplete" [re]=" re " [teacherName]=" teacher_name(re?.table[0]) "></schedule-table-profile-component>
 
 
-<!--/single-teacher-->
-        <header *ngIf=" isAllTeacher ">
-            <h2>{{ "ALL SCHEDULE" | t }}</h2>
-        </header>
-<!--/multiple-teachers-->
+    <!--/single-teacher-->
+    <header *ngIf=" isAllTeacher ">
+        <h2>{{ "ALL SCHEDULE" | t }}</h2>
+    </header>
+    <!--/multiple-teachers-->
 
-<schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
-
-<div class="schedule-loader" *ngIf=" show.schedule_loader ">
-    <mat-spinner [diameter]="48" name="circles"></mat-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
-</div>
-
-<div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">
-    {{ 'NO_SCHEUDLE_TRY_SEARCH' | t }}
-</div>
+    <schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
 
 
-<div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
-
-    <div class="tr schedule-header" [class.teacher-schedule-header]="a.teacherTheme">
-        <div class="td profile-header" *ngIf=" isAllTeacher ">
-            {{ 'TEACHER' | t }}
+    <div class="help-ani-reserve" (click)=" showHelpReserve = false " *ngIf=" showHelpReserve && re.table.length ">
+        <div class="gif">
+            <img src="assets/img/video-tutorials/reserve.gif">
         </div>
-        <div class="td time">
-            <div class="time">{{ 'TIME' | t }}</div>
-            <div class="minute">{{ 'MINUTE' | t }}</div>
-        </div>
-        <div class="td day" *ngFor="let header of re.header" (click)="onClickNavigate( header.date )">
-            <div>{{ header.display_date }}</div>
-            <div class="d-inline-block"> {{ header.user_time_day | t }}</div>
+        <div class="text">
+            예약을 하시려면 동그라미 버튼을 클릭해주세요.
+            [X] 닫기
         </div>
     </div>
 
-
-    <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
-        <div class="td profile" *ngIf=" isAllTeacher ">
-            <a class="photo" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher_idx( sessions ) }">
-                <img src="{{ teacher_photoURL( sessions ) }}">
-            </a>
-        </div>
-        <div class="td datetime">
-            <div *ngIf=" a.user.isLogin ">
-                {{ session_time( sessions ) }}
-            </div>
-            <div>
-                {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }}
-            </div>
-            <div class="teacher-name" *ngIf=" isAllTeacher ">
-                {{ teacher_name( sessions ) }}
-            </div>
-        </div>
-        <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
-            [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
-            <div class="info">
-                <div class="progress-spinner" *ngIf=" session.in_progress ">
-                    <mat-spinner [diameter]="20"></mat-spinner>
-                </div>
-            <div class="status-icon" *ngIf=" !session.in_progress ">
-                    <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
-                </div>
-                <div>{{ session[N.point] }}</div>
-                <div class="name" *ngIf=" session[ N.student_name ] ">{{ session[ N.student_name ] }}</div>
-            </div>
-        </div>
-
-        </div><!--/schedule-row-->
-
-
-
-</div><!--/schedule-table-->
-
-<div class="icon-desc container-fluid">
-    
-    <div class="row">
-      <div class="col-1">
-        <ion-icon name="radio-button-off" icon-name="radio-button-off"></ion-icon> 
-      </div>
-      <div class="col">
-            <span> {{'DESC_RADIO_OFF'| t}} </span>
-      </div>
+    <div class="schedule-loader" *ngIf=" show.schedule_loader ">
+        <mat-spinner [diameter]="48" name="circles"></mat-spinner> {{ 'SCHEDULE_TABLE_LOADING' | t }}
     </div>
 
-    <div class="row">
-        <div class="col-1">
-            <ion-icon name="radio-button-on" owner="me"></ion-icon> 
+    <div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">
+        {{ 'NO_SCHEUDLE_TRY_SEARCH' | t }}
+    </div>
+
+
+    <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
+
+        <div class="tr schedule-header" [class.teacher-schedule-header]="a.teacherTheme">
+            <div class="td profile-header" *ngIf=" isAllTeacher ">
+                {{ 'TEACHER' | t }}
+            </div>
+            <div class="td time">
+                <div class="time">{{ 'TIME' | t }}</div>
+                <div class="minute">{{ 'MINUTE' | t }}</div>
+            </div>
+            <div class="td day" *ngFor="let header of re.header" (click)="onClickNavigate( header.date )">
+                <div>{{ header.display_date }}</div>
+                <div class="d-inline-block"> {{ header.user_time_day | t }}</div>
+            </div>
         </div>
-        <div class="col">
+
+
+        <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
+            <div class="td profile" *ngIf=" isAllTeacher ">
+                <a class="photo" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher_idx( sessions ) }">
+                    <img src="{{ teacher_photoURL( sessions ) }}">
+                </a>
+            </div>
+            <div class="td datetime">
+                <div *ngIf=" a.user.isLogin ">
+                    {{ session_time( sessions ) }}
+                </div>
+                <div>
+                    {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }}
+                </div>
+                <div class="teacher-name" *ngIf=" isAllTeacher ">
+                    {{ teacher_name( sessions ) }}
+                </div>
+            </div>
+            <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
+                [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
+                <div class="info">
+                    <div class="progress-spinner" *ngIf=" session.in_progress ">
+                        <mat-spinner [diameter]="20"></mat-spinner>
+                    </div>
+                    <div class="status-icon" *ngIf=" !session.in_progress ">
+                        <ion-icon class="fs-3rem" name="{{ icon(session) }}" [attr.icon-name]=" icon(session) "></ion-icon>
+                    </div>
+                    <div>{{ session[N.point] }}</div>
+                    <div class="name" *ngIf=" session[ N.student_name ] ">{{ session[ N.student_name ] }}</div>
+                </div>
+            </div>
+
+        </div>
+        <!--/schedule-row-->
+
+
+
+    </div>
+    <!--/schedule-table-->
+
+    <div class="icon-desc container-fluid">
+
+        <div class="row">
+            <div class="col-1">
+                <ion-icon name="radio-button-off" icon-name="radio-button-off"></ion-icon>
+            </div>
+            <div class="col">
+                <span> {{'DESC_RADIO_OFF'| t}} </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1">
+                <ion-icon name="radio-button-on" owner="me"></ion-icon>
+            </div>
+            <div class="col">
                 <span> {{'DESC_RADIO_ON'| t}} </span>
+            </div>
         </div>
-    </div>
 
 
-      <ng-container *ngIf=" show.more_icon_description ">
-    
-        <div class="row">
-            <div class="col-1">
+        <ng-container *ngIf=" show.more_icon_description ">
+
+            <div class="row">
+                <div class="col-1">
                     <ion-icon name="heart" icon-name="heart"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_HEART'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                    <span>  {{'DESC_HEART'| t}} </span>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-1">
-                <ion-icon name="checkmark" icon-name="checkmark"></ion-icon> 
+            <div class="row">
+                <div class="col-1">
+                    <ion-icon name="checkmark" icon-name="checkmark"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_CHECKMARK'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                    <span>  {{'DESC_CHECKMARK'| t}}  </span>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-1">
-                <ion-icon name="lock" icon-name="lock"></ion-icon>
+            <div class="row">
+                <div class="col-1">
+                    <ion-icon name="lock" icon-name="lock"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_LOCK'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                <span>  {{'DESC_LOCK'| t}}   </span>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-1">
-                <ion-icon name="square" icon-name="square"></ion-icon>
+            <div class="row">
+                <div class="col-1">
+                    <ion-icon name="square" icon-name="square"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_SQUARE'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                <span>   {{'DESC_SQUARE'| t}}  </span>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-1">
-                <ion-icon name="qr-scanner" icon-name="qr-scanner"></ion-icon>
+            <div class="row">
+                <div class="col-1">
+                    <ion-icon name="qr-scanner" icon-name="qr-scanner"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_QR_SCANNER'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                <span>   {{'DESC_QR_SCANNER'| t}}  </span>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-1">
-                <ion-icon name="qr-scanner" icon-name="qr-scanner"></ion-icon>
+            <div class="row">
+                <div class="col-1">
+                    <ion-icon name="qr-scanner" icon-name="qr-scanner"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_QR_SCANNER'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                <span>   {{'DESC_QR_SCANNER'| t}}  </span>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-1">
-                <ion-icon name="cloud-circle"></ion-icon>
+            <div class="row">
+                <div class="col-1">
+                    <ion-icon name="cloud-circle"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_CLOUD_CIRCLE'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                <span>    {{'DESC_CLOUD_CIRCLE'| t}}   </span>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-1">
-                <ion-icon name="cloud-done"></ion-icon>
+            <div class="row">
+                <div class="col-1">
+                    <ion-icon name="cloud-done"></ion-icon>
+                </div>
+                <div class="col">
+                    <span> {{'DESC_CLOUD_DONE'| t}} </span>
+                </div>
             </div>
-            <div class="col">
-                <span>     {{'DESC_CLOUD_DONE'| t}}   </span>
-            </div>
-        </div>
 
-        <div class="desc-reminder row">
-            <div class="col">
-                <span class="reminder">  {{'DESC_REMINDER'| t}}   </span>
+            <div class="desc-reminder row">
+                <div class="col">
+                    <span class="reminder"> {{'DESC_REMINDER'| t}} </span>
+                </div>
             </div>
-        </div>
 
-      </ng-container>
+        </ng-container>
 
         <div class="more-button row">
             <div class="col">
                 <div class="button" (click)=" show.more_icon_description = true " *ngIf=" ! show.more_icon_description ">
-                        {{'DESC_MORE'| t}}...
+                    {{'DESC_MORE'| t}}...
                 </div>
             </div>
         </div>

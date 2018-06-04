@@ -229,3 +229,20 @@ main {
         }
     }
 }
+
+
+.help-ani-reserve {
+    margin: 8px;
+    border: 1px solid rgb(58, 58, 223);
+    padding: 4px;
+    .gif {
+        width: 240px;
+        height: auto;
+        img {
+            width: 100%;
+        }
+    }
+    .text {
+
+    }
+}

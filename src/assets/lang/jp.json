@@ -517,5 +517,12 @@
     "SESSION REFUNDED":"セッションは払い戻されました。",
     "SESSION REFUND CONFIRM":"本当ですか、このセッションを返金しますか？",
     "YOUR_TIME": "あなたの時間",
-    "UPDATE": "更新"
+    "UPDATE": "更新",
+
+
+
+
+
+    "LOGIN_CONFIRMING": "あなたのログインを確認しています...",
+    "STUDENT_ADV_MENU_TEXT": "月額$ 10"
 }
