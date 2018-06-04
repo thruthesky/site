@@ -25,7 +25,7 @@
     }
     .row {
         padding: 0 .5em;
-        &>div {
+        .teacher-list {
             display: flex;
             flex-direction: column;
             justify-content: center;

@@ -60,8 +60,8 @@ main {
             width: 42px;
             height: 72px;
             overflow: hidden;
-            ion-icon {
-                font-size: 20pt;
+            .fontawesome {
+                height: 1.8em;
             }
             .name {
                 font-size: .7em;
@@ -170,34 +170,12 @@ main {
         border-bottom: 1px solid #e2e2e2;
         .col-1 {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        [icon-name="square"] {
-            color: #ddd;
-        }
-        [icon-name="qr-scanner"] {
-            color: #ddd;
-        }
-        [icon-name="radio-button-off"] {
-            color: #88f;
-            cursor: pointer;
-        }
-        [icon-name="checkmark"] {
-            color: rgb(104, 104, 104);
-        }
-        [owner="me"] {
-            color: #d00 !important;
-            cursor: pointer;
-        }
-        [icon-name="heart"] {
-            color: #d00 !important;
-            cursor: pointer;
-        }
 
-        .test-svg{
-            path{
-                d:"M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200z"
+            @media screen and (min-width:$md){
+                flex-direction: row;
             }
         }
     }
@@ -226,7 +204,7 @@ main {
 
     .fontawesome{
         margin: auto;
-        height: 1.5em;
+        height: 1.2em;
     }
 }
 
