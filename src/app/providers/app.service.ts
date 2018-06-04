@@ -610,15 +610,15 @@ export class AppService {
 
 
     /**
-     * This let user log out from Firebase and Wordpress PHP Backend and moves to a page.
-     * @param options logout option
+     * This let user log out from Wordpress PHP Backend and moves to a page.
+     * @param home if set true, it move to home. by default it's false.
      */
-    logout(options?) {
-        console.log(`logout( options? ) `, options);
+    logout(home = false) {
+        console.log(`logout( home ) `, home);
 
         this.user.logout();
-        if (options['open']) {
-            this.open(options['open']);
+        if (home) {
+            this.openHome();
         }
         // this.fire.user.logout().then(() => {
         // });

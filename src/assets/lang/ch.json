@@ -33,7 +33,6 @@
     "INSTALL": "安装",
     "CATEGORY": "类别",
     "IN LOADING": "加载请稍候。",
-    "KATALK_STORY": "我们的故事",
     "SETTINGS": "设置",
     "SETTINGS PAGE TITLE": "设置",
     "SETTINGS PAGE DESC": "您可以更改您的语言和时区。",
@@ -514,6 +513,13 @@
     "SESSION REFUNDED":"会议已退款。",
     "SESSION REFUND CONFIRM":"你确定，你想退款吗？",
     "YOUR_TIME": "你的时间",
-    "UPDATE": "更新"
+    "UPDATE": "更新",
+
+
+
+
+
+    "LOGIN_CONFIRMING": "确认您的登录信息...",
+    "STUDENT_ADV_MENU_TEXT": "每月10美元"
 
 }

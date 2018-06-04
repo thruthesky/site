@@ -14,6 +14,9 @@ import { USER_LOGIN } from '../../modules/xapi/interfaces';
 export class LoginPage implements OnInit {
 
     form = <USER_LOGIN>{};
+    loader = {
+        submit: false
+    };
     constructor(
         public router: Router,
         // public fire: FireService,
@@ -34,17 +37,17 @@ export class LoginPage implements OnInit {
             event.preventDefault();
         }
 
+        this.loader.submit = true;
 
         this.a.user.login(this.form.user_email, this.form.user_pass).subscribe(re => {
             console.log('a.user.login() success: ');
 
             this.a.onUserLogin();
-
             // this.firebaseLogin(re);
-
-
-            // this.a.open('home');
+            this.a.openHome();
+            this.loader.submit = false;
         }, e => {
+            this.loader.submit = false;
             this.a.toast(e);
         });
 

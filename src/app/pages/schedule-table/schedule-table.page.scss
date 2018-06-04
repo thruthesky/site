@@ -18,6 +18,7 @@ header {
 main {
     padding-bottom: 1em;
     .schedule-table {
+        position: relative;
         font-size: 12px;
         text-align: center;
         background: #fff;
@@ -226,5 +227,47 @@ main {
     .fontawesome{
         margin: auto;
         height: 1.5em;
+    }
+}
+
+
+.help-ani-reserve {
+    display: flex;
+    margin: 8px;
+    border: 1px solid rgb(168, 168, 180);
+    padding: 4px;
+    max-width: 420px;
+    background-color: white;
+    font-size: .85rem;
+    cursor: pointer;
+    .gif {
+        img {
+            width: 192px;
+            height: auto;
+        }
+    }
+    .text {
+        padding: .5em 0 0 .5em;
+        color: rgb(57, 57, 126);
+        text-align: left;
+
+        .close {
+            margin: 1em .5em 0 0;
+            text-align: right;
+            color: rgb(230, 7, 7);
+        }
+    }
+    @media (min-width: $md) {
+        position: absolute;
+        z-index: 99;
+        top: -92px;
+        right: 0;
+        font-size: .9rem;
+        .gif img {
+            width: 240px;
+        }
+        .text .close {
+            margin-top: 2em;
+        }
     }
 }
