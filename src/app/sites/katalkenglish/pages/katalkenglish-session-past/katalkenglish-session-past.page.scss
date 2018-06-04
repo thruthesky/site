@@ -1,32 +1,29 @@
 header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #795548;
-    color: #fff;
-
     h1{
-        margin: 0;
-        padding: .8em ;
-        padding-left: 2em;
-        font-size: 1.17em;
-        font-weight: bold;
-        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
+
 
     .option{
         display: flex;
-        padding: 1.5em;
-        font-weight: 200;
-        cursor: pointer;
-        font-size: 80%;
-
-
+        align-items: center;
+        font-size: .8rem;
         .options-icon{
             height: 1em;
             margin-left:.5em;
         }
 
+    }
+
+    .point-loader{
+        display: flex;
+        align-items: center;
+
+        mat-spinner{
+            margin-left: .5em;
+        }
     }
 }
 

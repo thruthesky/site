@@ -1,7 +1,11 @@
 @import '../../../theme/vars.scss';
-
+@import '../../../theme/katalkenglish-layout';
     
 main{
+    .content{
+        min-height: 530px;
+        background: #fff;
+    }
     .form{
         padding: 5em;
 

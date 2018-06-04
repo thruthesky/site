@@ -2,9 +2,11 @@
 
 main{
     background: #fff;
-
-
-    .removed-padding{
+    .content{
+        padding-top: 3em;
+    }
+    
+    .removed-padding{//for the options
         padding: 0!important;
     }
 
