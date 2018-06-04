@@ -1,17 +1,31 @@
-main{
-  section{
-    padding: 1.5em;
-  }
-  .status{
-    padding: 0;
-    padding-top: 1.5em!important;
-    text-align: center;
-    font-weight: bold;
-    font-size: 110%;
-  }
+@import './../../../../../theme/vars.scss';
+.content {
+  padding: $padding;
+}
 
-  div{
-    padding: 1.5em 0;
-    font-size: 120%;
+.text {
+  line-height: 200%;
+}
+
+.letsgo,
+.sidebyside {
+  display: flex;
+  div {
+    width: 33.33%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .books {
+    display: flex;
+  }
+  .letsgo,
+  .sidebyside {
+    div {
+      width: 16.66%;
+    }
   }
 }
