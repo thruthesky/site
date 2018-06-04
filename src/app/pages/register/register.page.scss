@@ -196,6 +196,11 @@ main{
                 border-radius:2px;
                 border:1px solid darkred;
                 background:rgba(darkred,0.1);
+                .spin{
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: .5em;
+                }
             }
         }
 

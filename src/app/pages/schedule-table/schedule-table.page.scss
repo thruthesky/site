@@ -100,44 +100,6 @@ main {
             margin-bottom: .5em;
         }
     }
-    .icon-desc {
-        margin-top: 1em;
-        padding: 1em 0;
-        @media screen and (min-width:$md){
-            padding: 2em;
-        }
-        padding-bottom: 0;
-        background: #fff;
-        font-weight: 300;
-        .row {
-            margin: 0 .5em;
-            padding: 1em .8em;
-            border-bottom: 1px solid #e2e2e2;
-            .col-1 {
-                text-align: center;
-            }
-        }
-        .desc-reminder,
-        .more-button {
-            border-bottom: none !important;
-            text-align: center;
-        }
-        .desc-reminder {
-            .reminder {
-                font-size: 90%;
-                color: red;
-                text-align: center;
-            }
-        }
-        .more-button {
-            .button {
-                padding: 1em;
-                cursor: pointer;
-                font-size: 90%;
-                color: dodgerblue;
-            }
-        }
-    }
     /**
  * Icon colors
  */
@@ -190,6 +152,7 @@ main {
 }
 
 .icon-desc {
+
     margin-top: 1em;
     padding: 0;
     padding-top: 1em;
@@ -200,11 +163,14 @@ main {
     background: #fff;
     font-weight: 300;
     .row {
+        align-items: center;
         margin: 0 .5em;
         padding: 1em .8em;
         border-bottom: 1px solid #e2e2e2;
         .col-1 {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         [icon-name="square"] {
             color: #ddd;
@@ -227,5 +193,38 @@ main {
             color: #d00 !important;
             cursor: pointer;
         }
+
+        .test-svg{
+            path{
+                d:"M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200z"
+            }
+        }
+    }
+
+
+    .desc-reminder,
+    .more-button {
+        border-bottom: none !important;
+        text-align: center;
+    }
+    .desc-reminder {
+        .reminder {
+            font-size: 90%;
+            color: red;
+            text-align: center;
+        }
+    }
+    .more-button {
+        .button {
+            padding: 1em;
+            cursor: pointer;
+            font-size: 90%;
+            color: dodgerblue;
+        }
+    }
+
+    .fontawesome{
+        margin: auto;
+        height: 1.5em;
     }
 }

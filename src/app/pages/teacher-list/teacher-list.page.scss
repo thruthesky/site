@@ -35,12 +35,19 @@ header{
             margin-left: .3em;
         }
     }
+
 }
 
-main{
+main{    
+
     min-height: 540px;
     font-size: 14px;
     padding-bottom: 4em;
+    
+    .options-icon{
+        height: 1em;
+        margin-left:.5em;
+    }
 
     *,
     *::before,

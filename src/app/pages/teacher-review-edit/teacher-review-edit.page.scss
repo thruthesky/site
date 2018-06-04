@@ -94,8 +94,16 @@ main{
  
     }
 
-
+    .spin{
+        display: flex;
+        align-items: center;
+        mat-spinner{
+            margin-right: .5em;
+        }
+    }
     .buttons{
+        display: flex;
+        justify-content: center;
         button{
             padding: 1em 2em;
             border:none;

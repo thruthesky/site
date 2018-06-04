@@ -273,21 +273,13 @@
     }
 
     .spin {
-        -webkit-animation: fa-spin 2s infinite linear;
-        animation: spin 2s infinite linear;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        margin-right: .5em;
     }
 
-    @keyframes spin {
-        0% {
-            -webkit-transform: rotate(0);
-            transform: rotate(0);
-        }
-
-        100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
 }
 
 .teacher-photo{

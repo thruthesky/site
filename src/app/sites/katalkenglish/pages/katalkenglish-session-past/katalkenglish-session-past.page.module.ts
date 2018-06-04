@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { KatalkEnglishSessionPastPage } from './katalkenglish-session-past.page';
 import { SessionListComponentModule } from '../../../../components/session-list/session-list.component.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../../../app.material.module';
 
 const routes: Routes = [
   { path: '', component: KatalkEnglishSessionPastPage }
@@ -17,7 +18,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     TranslatePipeModule,
-    SessionListComponentModule
+    SessionListComponentModule,
+    MaterialModule
   ],
   exports: [
     RouterModule

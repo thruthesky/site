@@ -191,8 +191,10 @@
                     form.kakao_qrmark_URL }} )
                 </div> -->
 
-            <div class="warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == '' ">
-                <i class="fas fa-spinner fa-spin"></i>
+            <div class="warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == ''">
+                <div class="spin">
+                    <mat-spinner [diameter]="40"></mat-spinner>
+                </div>
                 There is something wrong in converting Kakao QR Mark into string. If this message does not appear within 10 seconds, please
                 contact to admin.
             </div>
