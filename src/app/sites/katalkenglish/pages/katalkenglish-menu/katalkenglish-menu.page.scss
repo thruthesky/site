@@ -16,45 +16,18 @@ header{
 main{
     padding-bottom: 3em;
     background: #fff;
-    
-     ul{
-         margin: 0;
-         padding: 0 1em;
-         list-style: none;
 
-         li{
-            cursor: pointer;
+    a{  
+        .row{
+            align-items: center;
 
-            div,a{
-                display: flex;
-                align-items:center;
-
-                div{
-                    width: 100%;
-                    padding: 13px 8px 13px 0;
-                    border-bottom: 1px solid #dedede;
-                }
-
-                ion-icon{
-                    margin-right: .8em;
-                    font-size: 1.8em;
-                }
-
-                .bullhorn,
-                .bullseye{
-                    height: 1.6em;
-                }
-
-                .bullhorn{
-                    margin-right: 1.5em;
-                }
-
-                .bullseye{
-                    margin-right: 1.7em;
-                }
+            .col-1{
+                text-align: center;
             }
+        }
+        .fontawesome{
+            height: 1.4em;
+        }
 
-         }
-
-     }
+    }
 }

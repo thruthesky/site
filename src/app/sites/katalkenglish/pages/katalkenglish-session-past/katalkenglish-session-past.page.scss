@@ -21,16 +21,19 @@ header{
         cursor: pointer;
         font-size: 80%;
 
-        ion-icon{
-            margin-left: .3em;
+
+        .options-icon{
+            height: 1em;
+            margin-left:.5em;
         }
+
     }
 }
 
 
 main{
     padding-bottom: 5em;
-   }
+
 
 .level{
     background: #fff;
@@ -107,3 +110,13 @@ main{
 
 }
 
+.point-loader{
+    display: flex;
+    align-items: center;
+
+    mat-spinner{
+        margin-left: .5em;
+    }
+}
+
+}

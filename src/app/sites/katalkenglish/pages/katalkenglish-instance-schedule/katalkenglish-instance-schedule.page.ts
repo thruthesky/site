@@ -14,11 +14,11 @@ export class KatalkEnglishInstanceSchedulePage {
         public a: AppService
     ) {
 
-        if ( this.a.isLogout ) {
-            this.a.open('login');
-            this.a.toast( this.a.t('YOU ARE NOT LOGGED IN'));
-            return;
-        }
+        // if ( this.a.isLogout ) {
+        //     this.a.open('login');
+        //     this.a.toast( this.a.t('YOU ARE NOT LOGGED IN'));
+        //     return;
+        // }
 
         a.lms.schedule_available().subscribe(re => {
             this.pageInLoading = false;

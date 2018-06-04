@@ -1,33 +1,34 @@
-
 <main>
-    
     <header>
-        <ng-container  *ngIf="a.isLogout">
-            <h1>{{ 'LOGIN_HEADER_1' | t}}</h1>
-            <div class="desc">
-                {{ 'LOGIN_HEADER_2' | t}}
-                <a routerLink="/register"> {{ 'SIGN_UP' | t }}</a>
-                {{ 'LOGIN_HEADER_3' | t}}
-            </div>
-        </ng-container>
-    </header> 
-    <div class="loggedin" *ngIf="a.isLogin">
+        <h1>{{ 'LOGIN_HEADER_1' | t}}</h1>
+        <p>
+            {{ 'LOGIN_HEADER_2' | t}}
+            <a class="app-button" routerLink="/register"> {{ 'SIGN_UP' | t }}</a>
+            {{ 'LOGIN_HEADER_3' | t}}
+        </p>
+    </header>
+    <section class="content">
+        <div class="form">
+            <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'EMAIL' | t }}</mat-label>
+                    <input matInput type="email" name="email" [(ngModel)]="form.user_email">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'PASSWORD' | t }}</mat-label>
+                    <input matInput name="email" type="password" [(ngModel)]="form.user_pass">
+                </mat-form-field>
+
+                <button type="submit" *ngIf=" ! loader.submit ">{{ 'LOGIN' | t }}</button>
+                <div class="loader" *ngIf=" loader.submit ">{{ 'LOGIN_CONFIRMING' | t }}</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- <div class="loggedin" *ngIf="a.isLogin">
         You cannot login because you are logged in already.<br>
         Your email: {{ a.user.email }}
-    </div>   
-    <div class="form" *ngIf="a.isLogout">
-        <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
-            <mat-form-field  appearance="outline">
-                <mat-label>{{ 'EMAIL' | t }}</mat-label>
-                <input matInput type="email"  name="email" [(ngModel)]="form.user_email">
-            </mat-form-field>
+    </div> -->
 
-            <mat-form-field appearance="outline">
-                <mat-label>{{ 'PASSWORD' | t }}</mat-label>
-                <input matInput name="email" type="password" [(ngModel)]="form.user_pass">
-            </mat-form-field>
-            
-            <button type="submit">{{ 'LOGIN' | t }}</button>
-        </form>
-    </div>     
 </main>

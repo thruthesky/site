@@ -23,13 +23,20 @@ main{
             background: transparent;
             cursor: pointer;
         }
-        ion-icon{
-            padding: .5em 1em;
-            font-size: 2.2em;
+        .arrow-icon{
+            height: 2em;
             color: dodgerblue;
+            margin: 0 .5em;
         }
         h3{
             margin: 0
+        }
+
+        button[disabled]{
+
+            .arrow-icon{
+                color: rgba(dodgerblue, .2)
+            }
         }
     }
 

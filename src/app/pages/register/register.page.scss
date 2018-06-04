@@ -1,17 +1,4 @@
 @import '../../../theme/vars';
-header {
-    margin-bottom: 3em;
-    padding: 1em 2em;
-    background-color: #673ab7;
-    color: #fff;
-
-    h2 {
-        margin: 0 !important;
-        font-weight: 500 !important;
-        font-size: 1.17em;
-        text-transform: uppercase;
-    }
-}
 
 main{
     background: #fff;
@@ -196,6 +183,11 @@ main{
                 border-radius:2px;
                 border:1px solid darkred;
                 background:rgba(darkred,0.1);
+                .spin{
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: .5em;
+                }
             }
         }
 

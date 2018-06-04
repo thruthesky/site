@@ -1,12 +1,4 @@
-header{
-    padding: .5em 2em;
-    background-color: #ffc107;
-    color: #000;
 
-    h2{
-        font-size: 90%;
-    }
-}
 
 main{
     padding-bottom:5em;
@@ -126,5 +118,21 @@ main{
 
     mat-spinner{
         margin: .5em;
+    }
+}
+
+
+.korean-bank {
+    line-height: 150%;
+    .korean-bank-title {
+        margin-bottom: 0.5em;
+        padding: .25em .5em;
+        border: 0;
+        border-radius: 3px;
+        background-color: #5a1616;
+        color: white;
+    }
+    .korean-bank-desc {
+        margin-left: 1em;
     }
 }

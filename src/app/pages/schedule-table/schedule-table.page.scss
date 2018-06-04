@@ -18,6 +18,7 @@ header {
 main {
     padding-bottom: 1em;
     .schedule-table {
+        position: relative;
         font-size: 12px;
         text-align: center;
         background: #fff;
@@ -59,8 +60,8 @@ main {
             width: 42px;
             height: 72px;
             overflow: hidden;
-            ion-icon {
-                font-size: 20pt;
+            .fontawesome {
+                height: 1.8em;
             }
             .name {
                 font-size: .7em;
@@ -98,44 +99,6 @@ main {
         align-items: center;
         ion-spinner {
             margin-bottom: .5em;
-        }
-    }
-    .icon-desc {
-        margin-top: 1em;
-        padding: 1em 0;
-        @media screen and (min-width:$md){
-            padding: 2em;
-        }
-        padding-bottom: 0;
-        background: #fff;
-        font-weight: 300;
-        .row {
-            margin: 0 .5em;
-            padding: 1em .8em;
-            border-bottom: 1px solid #e2e2e2;
-            .col-1 {
-                text-align: center;
-            }
-        }
-        .desc-reminder,
-        .more-button {
-            border-bottom: none !important;
-            text-align: center;
-        }
-        .desc-reminder {
-            .reminder {
-                font-size: 90%;
-                color: red;
-                text-align: center;
-            }
-        }
-        .more-button {
-            .button {
-                padding: 1em;
-                cursor: pointer;
-                font-size: 90%;
-                color: dodgerblue;
-            }
         }
     }
     /**
@@ -190,6 +153,7 @@ main {
 }
 
 .icon-desc {
+
     margin-top: 1em;
     padding: 0;
     padding-top: 1em;
@@ -200,32 +164,88 @@ main {
     background: #fff;
     font-weight: 300;
     .row {
+        align-items: center;
         margin: 0 .5em;
         padding: 1em .8em;
         border-bottom: 1px solid #e2e2e2;
         .col-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            @media screen and (min-width:$md){
+                flex-direction: row;
+            }
+        }
+    }
+
+
+    .desc-reminder,
+    .more-button {
+        border-bottom: none !important;
+        text-align: center;
+    }
+    .desc-reminder {
+        .reminder {
+            font-size: 90%;
+            color: red;
             text-align: center;
         }
-        [icon-name="square"] {
-            color: #ddd;
-        }
-        [icon-name="qr-scanner"] {
-            color: #ddd;
-        }
-        [icon-name="radio-button-off"] {
-            color: #88f;
+    }
+    .more-button {
+        .button {
+            padding: 1em;
             cursor: pointer;
+            font-size: 90%;
+            color: dodgerblue;
         }
-        [icon-name="checkmark"] {
-            color: rgb(104, 104, 104);
+    }
+
+    .fontawesome{
+        margin: auto;
+        height: 1.2em;
+    }
+}
+
+
+.help-ani-reserve {
+    display: flex;
+    margin: 8px;
+    border: 1px solid rgb(168, 168, 180);
+    padding: 4px;
+    max-width: 420px;
+    background-color: white;
+    font-size: .85rem;
+    cursor: pointer;
+    .gif {
+        img {
+            width: 192px;
+            height: auto;
         }
-        [owner="me"] {
-            color: #d00 !important;
-            cursor: pointer;
+    }
+    .text {
+        padding: .5em 0 0 .5em;
+        color: rgb(57, 57, 126);
+        text-align: left;
+
+        .close {
+            margin: 1em .5em 0 0;
+            text-align: right;
+            color: rgb(230, 7, 7);
         }
-        [icon-name="heart"] {
-            color: #d00 !important;
-            cursor: pointer;
+    }
+    @media (min-width: $md) {
+        position: absolute;
+        z-index: 99;
+        top: -92px;
+        right: 0;
+        font-size: .9rem;
+        .gif img {
+            width: 240px;
+        }
+        .text .close {
+            margin-top: 2em;
         }
     }
 }

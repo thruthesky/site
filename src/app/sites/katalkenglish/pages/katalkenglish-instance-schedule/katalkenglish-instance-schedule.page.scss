@@ -1,23 +1,4 @@
 @import '../../../../../theme/vars.scss';
-header{
-    h1{
-        margin: 0;
-        padding: .8em 1.5em;
-        background-color: #ff9800;
-        font-size: 1.17em;
-        font-weight: bold;
-        text-transform: uppercase;
-        @media screen and (max-width:$sm){
-            font-size: 1em;
-        }
-    }
-
-    div{
-        padding: 1em 1.9em;
-        background-color: #e1e6e7;
-        font-size: 85%;
-    }
-}
 
 .loader{
     display: flex;

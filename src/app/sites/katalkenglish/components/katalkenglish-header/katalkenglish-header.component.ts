@@ -23,9 +23,10 @@ export class KatalkEnglishHeaderComponent {
   }
   onClickLogout() {
     // this.a.fire.user.logout().then( () => {
-      this.user.logout();
-    // });
-    this.a.openHome();
+      // this.user.logout();
+    // // });
+    // this.a.openHome();
+    this.a.logout(true);
   }
   onChangeLanguage() {
     console.log( this.selectedLanguage );

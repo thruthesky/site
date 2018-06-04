@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { OntueSessionFuturePage } from './ontue-session-future.page';
 import { SessionListComponentModule } from '../../../../components/session-list/session-list.component.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+// import { MaterialModule } from '../../../../app.material.module';
 // import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     TranslatePipeModule,
-    SessionListComponentModule
+    SessionListComponentModule,
+    // MaterialModule
   ],
   exports: [
     RouterModule

@@ -65,3 +65,21 @@ body {
         }
     }
 }
+
+#katalkenglish main {
+    header {
+        h1 {
+            margin: 0;
+            padding: 1em 1.7em;
+            color: $katalkenglish-page-title-color;
+            background-color: $katalkenglish-page-title-background-color;
+            font-weight: 100;
+        }
+        p {
+            margin: 0;
+            padding: 1em 2em;
+            background-color: $katalkenglish-page-description-background-color;
+            font-size: .85rem;
+        }
+    }
+}

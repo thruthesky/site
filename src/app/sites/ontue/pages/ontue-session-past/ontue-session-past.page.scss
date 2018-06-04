@@ -12,15 +12,27 @@ header{
     margin: 0 2em;
     font-weight: 500;
   }
-
   .option{
     display: flex;
-    padding: 1em;
+    padding: 1.5em;
     font-weight: 200;
     cursor: pointer;
+    font-size: 80%;
 
-    ion-icon{
-      margin-right: .2em;
+
+    .options-icon{
+        height: 1em;
+        margin-left:.5em;
+    }
+
+}
+
+
+  .point-loader{
+    display: flex;
+    align-items: center;
+    mat-spinner{
+      margin-left: .5em;
     }
   }
 
