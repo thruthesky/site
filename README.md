@@ -185,18 +185,15 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
 * Basic structure of each page must be the following.
 
 ```` html
+<main>
 <header>
   <h1>Page Title</h1>
+  <p>Page description</p>
 </header>
-<main>
   <section class="content">
     ... page content ...
   </section>
 </main>
-<footer>
-  footer of the page.
-  But no copyright since there is a footer for copyright in app.component.html.
-</footer>
 ````
 
 * In app.component.html, there is outter html layouts.

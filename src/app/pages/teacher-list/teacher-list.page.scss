@@ -2,40 +2,18 @@
 
 
 header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 2em;
-    background: #fff;
-    color:#607d8b;
+    h1 {
+        display: flex;
+        justify-content: space-between;
 
-    @media screen and (max-width:$sm) {
-        padding-left: 1.3em;
-        font-size: 80%;
-    }
-
-    h2{
-        font-size: 1.17em;
-        font-weight: 400!important;
-        text-transform: uppercase;
-    }
-
-    a{
-        display:flex;
-        align-items: center;
-        padding: 1.7em 2em;
-        font-size: .9em;
-        border:none;
-        background:none;
-        font-weight: 200;
-        line-height: 0;
-        cursor: pointer;
-
-        ion-icon{
-            margin-left: .3em;
+        .option-icon {
+            font-size: .8rem;
+            display: flex;
+            svg {
+                margin-top: .1em;
+            }
         }
     }
-
 }
 
 main{    
