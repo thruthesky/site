@@ -16,36 +16,18 @@ header{
 main{
     padding-bottom: 3em;
     background: #fff;
-    
-     ul{
-         margin: 0;
-         padding: 0 1em;
-         list-style: none;
 
-         li{
-            cursor: pointer;
+    a{  
+        .row{
+            align-items: center;
 
-            div,a{
-                .fontawesome{
-                    margin-right: .8em;
-                    height: 1.4em;
-                }
-
-                .bullhorn,
-                .bullseye{
-                    height: 1.6em;
-                }
-
-                .bullhorn{
-                    margin-right: 1.5em;
-                }
-
-                .bullseye{
-                    margin-right: 1.7em;
-                }
+            .col-1{
+                text-align: center;
             }
+        }
+        .fontawesome{
+            height: 1.4em;
+        }
 
-         }
-
-     }
+    }
 }
