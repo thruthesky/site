@@ -21,7 +21,8 @@ export const environment = {
     categories: {
         reminders: 2,
         policy: 4,
-        termsandconditions: 3
+        termsandconditions: 3,
+        'teacher-policy': 5
     }
   };
 
