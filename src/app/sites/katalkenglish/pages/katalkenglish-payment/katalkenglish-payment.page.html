@@ -1,8 +1,7 @@
-    
 <main>
 
     <header>
-            <h2>{{ 'PAYMENT_PAGE_TITLE' | t }}</h2>
+        <h2>{{ 'PAYMENT_PAGE_TITLE' | t }}</h2>
     </header>
 
 
@@ -12,7 +11,7 @@
     </div>
 
     <section *ngIf=" errorOnExchangeRate ">
-         {{ 'ERROR_ON_EXCHANGE_RATE' | t}}
+        {{ 'ERROR_ON_EXCHANGE_RATE' | t}}
     </section>
 
     <div *ngIf=" a.user.isLogin; else loginFirst ">
@@ -57,7 +56,7 @@
         </div>
         <div class="manual-amount-input">
             <div class="header" (click)=" inputAmount = true " *ngIf=" ! inputAmount ">
-                 {{ 'ENTER_AMOUNT_MANUALLY' | t}}
+                {{ 'ENTER_AMOUNT_MANUALLY' | t}}
             </div>
             <div class="input-amount" *ngIf=" inputAmount ">
                 <span>{{ 'ENTER_PAYMENT_AMOUNT' | t }}</span>
@@ -76,7 +75,8 @@
 
     <div class="paypal-ready" *ngIf=" ! paypalReady ">
 
-        <div class="spinner"><mat-spinner [diameter]="30"></mat-spinner> {{ 'INITIALIZING_PAYPAL' | t}}</div>
+        <div class="spinner">
+            <mat-spinner [diameter]="30"></mat-spinner> {{ 'INITIALIZING_PAYPAL' | t}}</div>
         <div> {{ 'PLEASE_WAIT' | t}}</div>
     </div>
 
@@ -87,19 +87,36 @@
     <div class="desc" *ngIf=" amount_in_usd_with_tax() ">
 
         <div *ngIf=" a.user.isLogin ">
-            <div>{{ 'VAT_1'  | t:{ 'AMOUNT': amount | number , 'RATE': payment_rate.paypal_student_fee } }}</div>
+            <div>{{ 'VAT_1' | t:{ 'AMOUNT': amount | number , 'RATE': payment_rate.paypal_student_fee } }}</div>
             <div>
-                {{ 'VAT_2'  | t:{ 'AMOUNT':amount | number , 'USD': amount_in_usd_with_tax() } }}
+                {{ 'VAT_2' | t:{ 'AMOUNT':amount | number , 'USD': amount_in_usd_with_tax() } }}
             </div>
         </div>
 
         <div>{{ 'PAYPAL_DESC' | t }}</div>
+
+
+        <div class="korean-bank">
+            <div class="korean-bank-title">{{ 'WOORIBANK_PAYMENT_TITLE' | t }}</div>
+            <div class="korean-bank-desc">
+                <div>{{ 'WOORIBANK_PAYMENT_DESC_1' | t:{'VAT': payment_rate.paypal_student_fee} }}</div>
+                <div>
+                    <b>{{ 'WOORIBANK_NAME' | t }}</b> {{ 'ACCOUNT_HOLDER_NAME' | t }}
+                    <b>{{ 'WOORIBANK_ACCOUNT_HOLDER_NAME' | t }}</b> {{ 'ACCOUNT_NO' | t }}
+                    <b>{{ 'WOORIBANK_ACCOUNT_NO' | t }}</b>
+                </div>
+                <div>{{ 'WOORIBANK_PAYMENT_DESC_2' | t:{'VAT': payment_rate.paypal_student_fee} }}</div>
+            </div>
+        </div>
+
+
+
+        <div>{{ 'REFUND_POLICY' | t }}</div>
+
         <div>
             <a class="app-button" (click)=" a.onClickContactAdmin() ">{{ 'PAYMENT_DIFFICULT' | t}}</a>
         </div>
-
-        <div>{{ 'REFUND_POLICY' | t}}</div>
     </div>
 
-    
+
 </main>
