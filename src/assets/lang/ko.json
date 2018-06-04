@@ -497,7 +497,8 @@
     "REFUND_ACCEPT":"수락 환불",
     "REFUND_REJECT":"환불 거부",
     "REJECT_CONFIRM":"환불 확인",
-
+    "INTERNET_STATUS": ["", "불쾌한", "표준", "좋은"],
+    "CAMERA_STATUS": ["아니", "예"],
     "HOW_WAS_TEACHER_INTERNET":"교사의 인터넷 연결은 어땠습니까?",
     "INTERNET_GOOD":"좋은",
     "INTERNET_NORMAL":"표준",

@@ -489,7 +489,8 @@
     "REFUND_ACCEPT":"验收退款",
     "REFUND_REJECT":"拒绝拒绝",
     "REJECT_CONFIRM":"退款确认",
-
+    "INTERNET_STATUS": ["", "坏", "正常", "好"],
+    "CAMERA_STATUS": ["没有", "是"],
     "HOW_WAS_TEACHER_INTERNET":"教师的互联网连接如何？",
     "INTERNET_GOOD":"好",
     "INTERNET_NORMAL":"正常",
