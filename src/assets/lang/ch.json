@@ -323,16 +323,7 @@
     "PAYMENT_NO":"数",
     "AMOUNT":"量",
 
-    "CURRICULUM_CONTENT_1":"基本规则和水平测试进度，基础课程，但在Katok英语的情况下，每位教师的教材都是不同的。",
-    "CURRICULUM_CONTENT_2":"一般来说，请在第一课时设置课程资料。 教科书进度信息将针对每个班级评估进行更改。",
-    "CURRICULUM_CONTENT_3":"另外，我们可以为您提供您想要的课本和课程。",
-    "CURRICULUM_CONTENT_4":"教科书的选择很重要，因为它们根据您使用的材料分为基础英语，阅读和口语技能。",
-    "CURRICULUM_CONTENT_5":"请注意，学生在与KakaoTalk进行一对一视频通话时很难打开教科书。 （因为KakaoTalk占据整个屏幕）",
-    "CURRICULUM_CONTENT_6":"因此，学生应该在上课前一次准备课本。",
-    "CURRICULUM_CONTENT_7":"课堂资料将由老师在课前交付给学生。",
-    "CURRICULUM_CONTENT_8":"如果教师没有在上课前交付课本并在上课时间将其交付，则会影响课程进度。",
-    "CURRICULUM_CONTENT_9":"在这种情况下，请向我们报告。",
-    "CURRICULUM_CONTENT_10":"我们需要知道您是否可以向老师要求更正。",
+
     "CURRICULUM_PAGE_TITLE":"教材",
     "CURRICULUM_PAGE_DESC":"我们将引导您完成课程",
     "CURRICULUM_STAT_1":"#USERNAME的下一课是#BOOK。",
