@@ -1,0 +1,8 @@
+<section>
+    <div class="posts" *ngIf=" post.id ">
+        <h2>{{ post.title.rendered }}</h2>
+        <div class="content" [innerHTML]=" post.content.rendered "></div>
+    </div>
+</section>
+
+

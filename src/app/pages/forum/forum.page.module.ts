@@ -15,8 +15,13 @@ const routes: Routes = [
         RouterModule.forChild( routes ),
         HttpClientModule
     ],
-    exports: [],
+    exports: [
+        ForumPage
+    ],
     declarations: [
+        ForumPage
+    ],
+    entryComponents: [
         ForumPage
     ],
     providers: [],
