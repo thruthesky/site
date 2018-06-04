@@ -1,7 +1,7 @@
-<header>
-    <h2>{{ 'WELCOME_TITLE' | t:{name: a.user.name} }}</h2>
-</header>
 <main>
+    <header>
+        <h2>{{ 'WELCOME_TITLE' | t:{name: a.user.name} }}</h2>
+    </header>
     <div (click)=" a.open('teacher-list') ">
         <img class="icon" src="assets/img/student-adv/4.png">
 

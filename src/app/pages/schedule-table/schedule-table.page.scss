@@ -102,7 +102,10 @@ main {
     }
     .icon-desc {
         margin-top: 1em;
-        padding: 2em;
+        padding: 1em 0;
+        @media screen and (min-width:$md){
+            padding: 2em;
+        }
         padding-bottom: 0;
         background: #fff;
         font-weight: 300;
@@ -141,6 +144,27 @@ main {
     [icon-name="lock"] {
         color: #ccc;
     }
+    [icon-name="square"] {
+        color: #ddd;
+    }
+    [icon-name="qr-scanner"] {
+        color: #ddd;
+    }
+    [icon-name="radio-button-off"] {
+        color: #88f;
+        cursor: pointer;
+    }
+    [icon-name="checkmark"] {
+        color: rgb(104, 104, 104);
+    }
+    [owner="me"] {
+        color: #d00 !important;
+        cursor: pointer;
+    }
+    [icon-name="heart"] {
+        color: #d00 !important;
+        cursor: pointer;
+    }
 }
 
 .schedule-loader,
@@ -154,6 +178,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     mat-spinner {
         margin-bottom: .5em;
     }

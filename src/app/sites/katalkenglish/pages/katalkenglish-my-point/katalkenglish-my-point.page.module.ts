@@ -8,9 +8,10 @@ import { MaterialModule } from '../../../../app.material.module';
 
 
 const routes: Routes = [
-  { path: '', component: KatalkEnglishMyPointPage }
+    {path: '', component: KatalkEnglishMyPointPage}
 ];
 @NgModule({
+
   imports: [
     CommonModule,
     IonicModule,
@@ -29,5 +30,7 @@ const routes: Routes = [
   ],
   bootstrap: [KatalkEnglishMyPointPage],
   schemas: []
+
 })
-export class KatalkEnglishMyPointPageModule { }
+export class KatalkEnglishMyPointPageModule {
+}

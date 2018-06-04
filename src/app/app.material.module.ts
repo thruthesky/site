@@ -4,7 +4,6 @@ import {
   MatCheckboxModule,
   MatSelectModule,
   MatSnackBarModule,
-  MatSpinner,
   MatProgressSpinnerModule,
   MatDialogModule,
   MatDatepickerModule,

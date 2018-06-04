@@ -4,8 +4,11 @@
     <header>
             <h2>{{ 'PAYMENT_PAGE_TITLE' | t }}</h2>
     </header>
-    <div class="loader" *ngIf="inLoadingPaymentRate">
-        <i class="fal fa-spinner fa-spin"></i> {{ 'LOADING_PAYMENT_INFORMATION' | t }}
+
+
+    <div class="loader" *ngIf=" inLoadingPaymentRate  ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'LOADING_PAYMENT_INFORMATION' | t }}</span>
     </div>
 
     <section *ngIf=" errorOnExchangeRate ">
@@ -72,6 +75,7 @@
 
 
     <div class="paypal-ready" *ngIf=" ! paypalReady ">
+
         <div class="spinner"><mat-spinner [diameter]="30"></mat-spinner> {{ 'INITIALIZING_PAYPAL' | t}}</div>
         <div> {{ 'PLEASE_WAIT' | t}}</div>
     </div>

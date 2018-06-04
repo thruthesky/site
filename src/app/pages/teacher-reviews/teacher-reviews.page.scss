@@ -45,7 +45,7 @@ main{
             flex-direction: column;
             align-items:center;
             justify-content: space-between;
-            padding: .8em!important;
+            padding: .7em!important;
             padding-left: 0!important;
         }
 
@@ -132,7 +132,6 @@ main{
             width: 100%;
         }
     }
-
     .teacher-photo{
         margin: 0;
         width: 100px;
@@ -186,7 +185,8 @@ main{
 
     .comment{
         padding: .5em 0;
-        font-size: 80%;
+        font-size: 85%;
+        font-weight: 300;
     }
 
     .date{

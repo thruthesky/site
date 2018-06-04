@@ -8,6 +8,7 @@ import { ConfirmModalModule } from '../../../../components/modal/confirm/confirm
 import { MaterialModule } from '../../../../app.material.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 
+
 const routes: Routes = [
     { path: '', component: OntueMySchedulePage }
 ];
@@ -20,6 +21,7 @@ const routes: Routes = [
         ConfirmModalModule,
         MaterialModule,
         TranslatePipeModule
+
     ],
     exports: [
         RouterModule

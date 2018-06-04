@@ -48,7 +48,7 @@
                             {{ 'RESERVE_NOW' | t }}
                         </div>
 
-                        <div class="reserve-loader" *ngIf=" !loading[schedule.idx] ">
+                        <div class="reserve-loader" *ngIf=" loading[schedule.idx] ">
                             <div>{{ 'IN_RESERVING' | t }}</div>
                             <mat-spinner [diameter]="20"></mat-spinner>
                         </div>
