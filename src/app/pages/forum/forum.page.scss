@@ -1,15 +1,5 @@
 @import '../../../theme/vars.scss';
-header{
-    h1{
-        margin: 0;
-        padding: .8em 1.6em;
-        background: #ef6c00;
-        color:#fff;
-        font-size: 1.17em;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-}
+
 main{
     @media screen and (max-width:$sm){
         padding: 1em;
