@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogComponent } from './dialog/dialog.component';
 import { AppService } from '../app.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 export interface ModalData {
     title?: string;
@@ -16,6 +17,7 @@ export class ModalService {
 
 
     constructor(
+        public sanitizer: DomSanitizer,
         public dialog: MatDialog,
         public readonly a: AppService
     ) { }
@@ -25,13 +27,16 @@ export class ModalService {
      * @param data data to dsiplay on modal
      *
      */
-    alert( data: ModalData ): void {
-        if ( !data.ok ) {
+    alert(data: ModalData): void {
+        if (!data.ok) {
             data.ok = this.a.t('OK');
+        }
+        if (data.content) {
+            data.content = <any>this.sanitizer.bypassSecurityTrustHtml(data.content);
         }
         this.dialogRef = this.dialog.open(DialogComponent, {
             disableClose: true,
-            width: '320px',
+            maxWidth: '800px',
             data: data
         });
 
@@ -40,7 +45,7 @@ export class ModalService {
         });
     }
     close() {
-        if ( this.dialogRef ) {
+        if (this.dialogRef) {
             this.dialogRef.close();
         }
     }

@@ -11,7 +11,6 @@ import { HowToGetQRMARKModal } from '../how-to-get-qrmark/how-to-get-qrmark.moda
 import { HowToGetkakaotalkIDModal } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal';
 import { ModalService } from '../../providers/modal/modal.service';
 import { ForumService } from '../../providers/forum.service';
-import { DomSanitizer } from '@angular/platform-browser';
 // import { LanguageService } from '../../providers/language.service';
 
 @Component({
@@ -58,8 +57,7 @@ export class RegisterPage implements OnInit {
                 // public lang: LanguageService,
                 public dialog: MatDialog,
                 public modal: ModalService,
-                public forum: ForumService,
-                public sanitizer: DomSanitizer
+                public forum: ForumService
     ) {
 
         // setTimeout(() => this.test(), 1000);
@@ -448,7 +446,7 @@ export class RegisterPage implements OnInit {
     onClickTermsAndConditions() {
         this.forum.getLatestPost('termsandconditions').subscribe(posts => {
             if ( posts.length ) {
-                posts[0].content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(posts[0].content.rendered);
+                // posts[0].content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(posts[0].content.rendered);
                 this.modal.alert({content: posts[0].content.rendered});
             }
         });
