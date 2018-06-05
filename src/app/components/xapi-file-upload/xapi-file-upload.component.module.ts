@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { XapiFileUploadComponent } from './xapi-file-upload.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -11,8 +10,7 @@ import { IonicModule } from '@ionic/angular';
     ],
     imports: [
         CommonModule,
-        FormsModule,
-        IonicModule
+        FormsModule
     ],
     exports: [
         XapiFileUploadComponent
