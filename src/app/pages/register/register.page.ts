@@ -9,6 +9,8 @@ import { LoaderService } from '../../providers/loader/loader.service';
 import { MatDialog } from '@angular/material';
 import { HowToGetQRMARKModal } from '../how-to-get-qrmark/how-to-get-qrmark.modal';
 import { HowToGetkakaotalkIDModal } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal';
+import { ModalService } from '../../providers/modal/modal.service';
+import { ForumService } from '../../providers/forum.service';
 // import { LanguageService } from '../../providers/language.service';
 
 @Component({
@@ -23,6 +25,7 @@ export class RegisterPage implements OnInit {
      *
      */
     form = <USER_REGISTER>{};
+    agree = '';
     birthday;
     year: string;
     month: string;
@@ -53,7 +56,9 @@ export class RegisterPage implements OnInit {
         // public f: FireService,
         public loader: LoaderService,
         // public lang: LanguageService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        public modal: ModalService,
+        public forum: ForumService
     ) {
 
         // setTimeout(() => this.test(), 1000);
@@ -436,5 +441,13 @@ export class RegisterPage implements OnInit {
     }
 
 
+    /**
+     * show toc
+     */
+    onClickTermsAndConditions() {
+        this.forum.getLatestPost().subscribe( re => {
+            this.modal.alert({ content: re.content.rendered });
+        });
+    }
 
 }
