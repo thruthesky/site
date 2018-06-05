@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { KatalkEnglishPaymentHistoryPage } from './katalkenglish-payment-history.page';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { RouterModule, Route } from '@angular/router';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 
@@ -15,7 +14,6 @@ const appRoutes: Array<Route> = [
     ],
     imports: [
         CommonModule,
-        IonicModule,
         RouterModule.forChild(appRoutes),
         TranslatePipeModule
     ],
