@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-
-
 import { KatalkEnglishSessionPastPage } from './katalkenglish-session-past.page';
 import { SessionListComponentModule } from '../../../../components/session-list/session-list.component.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
@@ -15,7 +12,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule,
     RouterModule.forChild(routes),
     TranslatePipeModule,
     SessionListComponentModule,

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { KatalkEnglishFooterComponent } from './katalkenglish-footer.component';
 import { MaterialModule } from '../../../../app.material.module';
 
@@ -12,7 +11,6 @@ import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
     RouterModule,
     MaterialModule,
     TranslatePipeModule

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../../../../app.material.module';
 
 import { OntueEvaluationLatestListComponent } from './ontue-evaluation-latest-list.component';
@@ -12,7 +11,6 @@ import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.
 @NgModule({
     imports: [
         CommonModule,
-        IonicModule,
         RouterModule,
         MaterialModule,
         TranslatePipeModule,
