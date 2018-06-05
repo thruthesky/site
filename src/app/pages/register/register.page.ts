@@ -25,7 +25,7 @@ export class RegisterPage implements OnInit {
      *
      */
     form = <USER_REGISTER>{};
-    agree = '';
+    agree = false;
     birthday;
     year: string;
     month: string;
@@ -230,6 +230,10 @@ export class RegisterPage implements OnInit {
             this.updateWordpressBackend();
         } else { // REGISTER
             // console.log('GOING TO REGISTER');
+            if ( ! this.agree ) {
+                this.modal.alert({ content: this.a.ln.YOU_ARE_TO_AGREE });
+                return;
+            }
             this.registerWordpressBackend();
         }
     }
