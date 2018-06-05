@@ -33,9 +33,9 @@
 
         <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
 
-            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme ">
+            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme " >
                 <!-- <mat-label>{{ 'TIMEZONE' | t }}</mat-label> -->
-                <mat-select id="timezone" [(ngModel)]="timezoneOffset" name="timezone" placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset].name }}">
+                <mat-select id="timezone" [(ngModel)]="timezoneOffset" name="timezone" placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset]?.name }}">
                     <mat-option *ngFor="let t of keysTimezone()" value="{{ t }}">
                         {{ formatTimeCode(t) }} {{ timezones[t].name }}
                     </mat-option>
