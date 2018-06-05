@@ -36,7 +36,7 @@ export class ForumService {
     loadPosts(options?): Observable<any> {
         let slug = '';
         let per_page = '';
-        if ( typeof options === 'string' ) {
+        if (typeof options === 'string') {
             slug = options;
         } else {
             slug = options.slug;
