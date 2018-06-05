@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 import { OntuePaymentInformationPage } from './ontue-payment-information.page';
@@ -16,7 +15,6 @@ const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
-        IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
         MaterialModule,

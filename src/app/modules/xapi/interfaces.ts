@@ -349,7 +349,7 @@ export interface STUDENT_COMMENT_TO_TEACHER {
     photoURL?: string;
     rate?: number;
     internet?: number;
-    camera?: number;
+    camera?: string;
     stamp?: number;
     student_name?: string;
 }

@@ -19,7 +19,7 @@ export class TeacherReviewEditPage {
     comment = '';
     rate = 3;
     internet = 2;
-    camera = 1;
+    camera = '';
 
     showLoader = false;
 
@@ -42,7 +42,7 @@ export class TeacherReviewEditPage {
                     this.data = re;
                     this.rate = parseInt(re['rate'], 10);
                     this.internet = parseInt(re['internet'], 10);
-                    this.camera = parseInt(re['camera'], 10);
+                    this.camera = re['camera'];
                     this.comment = re['comment'];
                     this.showLoader = false;
                 }, e => {

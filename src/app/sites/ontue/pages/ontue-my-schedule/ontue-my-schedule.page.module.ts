@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { OntueMySchedulePage } from './ontue-my-schedule.page';
 import { ConfirmModalModule } from '../../../../components/modal/confirm/confirm.modal.module';
@@ -16,7 +15,6 @@ const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
-        IonicModule,
         RouterModule.forChild(routes),
         ConfirmModalModule,
         MaterialModule,
