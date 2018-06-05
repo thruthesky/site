@@ -11,6 +11,8 @@ import { HowToGetQRMARKModalModule } from '../how-to-get-qrmark/how-to-get-qrmar
 import { MaterialModule } from '../../app.material.module';
 import { ConfirmModalModule } from '../../components/modal/confirm/confirm.modal.module';
 import { HowToGetKakaotalkIDModalModule } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal.module';
+import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
+import { ForumService } from '../../providers/forum.service';
 
 
 const routes: Routes = [
@@ -28,7 +30,8 @@ const routes: Routes = [
         HowToGetQRMARKModalModule,
         HowToGetKakaotalkIDModalModule,
         MaterialModule,
-        ConfirmModalModule
+        ConfirmModalModule,
+        ModalSerivceModule
     ],
     exports: [
         RouterModule
@@ -39,6 +42,7 @@ const routes: Routes = [
     entryComponents: [
         RegisterPage
     ],
+    providers: [ ForumService ],
     bootstrap: [RegisterPage],
     schemas: []
 })
