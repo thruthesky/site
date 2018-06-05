@@ -11,6 +11,7 @@ import { HowToGetQRMARKModal } from '../how-to-get-qrmark/how-to-get-qrmark.moda
 import { HowToGetkakaotalkIDModal } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal';
 import { ModalService } from '../../providers/modal/modal.service';
 import { ForumService } from '../../providers/forum.service';
+import { DomSanitizer } from '@angular/platform-browser';
 // import { LanguageService } from '../../providers/language.service';
 
 @Component({
@@ -51,14 +52,14 @@ export class RegisterPage implements OnInit {
 
     year_now = new Date().getFullYear();
 
-    constructor(
-        public a: AppService,
-        // public f: FireService,
-        public loader: LoaderService,
-        // public lang: LanguageService,
-        public dialog: MatDialog,
-        public modal: ModalService,
-        public forum: ForumService
+    constructor(public a: AppService,
+                // public f: FireService,
+                public loader: LoaderService,
+                // public lang: LanguageService,
+                public dialog: MatDialog,
+                public modal: ModalService,
+                public forum: ForumService,
+                public sanitizer: DomSanitizer
     ) {
 
         // setTimeout(() => this.test(), 1000);
@@ -170,6 +171,7 @@ export class RegisterPage implements OnInit {
     onRegisterSuccess() {
         this.loader.closeLoader();
     }
+
     onRegisterFailure(e) {
         //
         console.log('Error on register: ', e);
@@ -223,7 +225,6 @@ export class RegisterPage implements OnInit {
         this.form.photoURL = this.files.length ? this.files[0].url : '';
         this.form.kakao_qrmark_URL = this.qrmarks.length ? this.qrmarks[0].url : '';
         this.form.user_type = this.user_type;
-
 
 
         if (this.a.user.isLogin) { // UPDATE
@@ -283,7 +284,8 @@ export class RegisterPage implements OnInit {
 
                     //     }
                     // });
-                }, () => { });
+                }, () => {
+                });
             }, e => {
                 this.onRegisterFailure(e);
             });
@@ -376,13 +378,14 @@ export class RegisterPage implements OnInit {
     }
 
 
-
     onSuccessUploadQRMark(file: FILE) {
         if (this.qrmarks.length > 1) {
             this.fileUploadQRMark.deleteFile(this.qrmarks[0], () => {
             }, e => this.a.toast(e));
         }
-        if (this.a.isLogout) { return; }
+        if (this.a.isLogout) {
+            return;
+        }
         const data: USER_UPDATE = {
             kakao_qrmark_URL: file.url,
             user_email: this.form.user_email
@@ -411,8 +414,7 @@ export class RegisterPage implements OnInit {
     }
 
     onClickKakaoIDHelp() {
-        const dialogRef = this.dialog.open(HowToGetkakaotalkIDModal, {
-        });
+        const dialogRef = this.dialog.open(HowToGetkakaotalkIDModal, {});
 
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed', result);
@@ -432,8 +434,7 @@ export class RegisterPage implements OnInit {
     }
 
     showModalFAQ() {
-        const dialogRef = this.dialog.open(HowToGetQRMARKModal, {
-        });
+        const dialogRef = this.dialog.open(HowToGetQRMARKModal, {});
 
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed', result);
@@ -445,8 +446,11 @@ export class RegisterPage implements OnInit {
      * show toc
      */
     onClickTermsAndConditions() {
-        this.forum.getLatestPost().subscribe( re => {
-            this.modal.alert({ content: re.content.rendered });
+        this.forum.getLatestPost('termsandconditions').subscribe(posts => {
+            if ( posts.length ) {
+                posts[0].content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(posts[0].content.rendered);
+                this.modal.alert({content: posts[0].content.rendered});
+            }
         });
     }
 

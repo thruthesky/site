@@ -6,7 +6,10 @@ main{
     .posts{
         padding: 1em;
         .spacer{
-            padding: 1em;
+            padding: .5em;
+            @media screen and(min-width:$md){
+                padding: 1em;
+            }
         }
     }
     .post{

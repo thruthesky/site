@@ -22,7 +22,6 @@ export const environment = {
         reminders: 2,
         policy: 4,
         termsandconditions: 3,
-        'teacher-policy': 5
     }
   };
 

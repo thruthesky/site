@@ -33,18 +33,61 @@
         }
 
       }
-      .desktop-slides{
+      .desktop-banner{
         @media screen and (max-width:$sm) {
           display: none;
         }
         height: 225px;
         overflow: hidden;
           
-        ion-slide{
+        .banner-container{
           background: #fff;
     
           img{
+            position: absolute;
             width: 100%;
+          }
+          .image1{
+            animation: banner1 9s infinite ease-in-out alternate;
+          }
+          .image2{
+            animation: banner2 9s infinite ease-in-out alternate;
+          }
+          .image3{
+            animation: banner3 9s infinite ease-in-out alternate;
+          }
+          @keyframes banner1 {
+            0%{
+              opacity: 1;
+            }
+            50%{
+              opacity: 0;
+            }
+            100%{
+              opacity: 0;
+            }
+          }
+          @keyframes banner2 {
+            0%{
+              opacity: 0;
+            }
+            50%{
+              opacity: 1;
+            }
+            100%{
+              opacity: 0;
+            }
+          }
+          @keyframes banner3 {
+            0%{
+              opacity: 0;
+            }
+            50%{
+              opacity: 0;
+            }
+            100%{
+              opacity: 1;
+            }
           }
         }
       }

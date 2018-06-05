@@ -33,9 +33,9 @@
 
         <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
 
-            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme ">
+            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme " >
                 <!-- <mat-label>{{ 'TIMEZONE' | t }}</mat-label> -->
-                <mat-select id="timezone" [(ngModel)]="timezoneOffset" name="timezone" placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset].name }}">
+                <mat-select id="timezone" [(ngModel)]="timezoneOffset" name="timezone" placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset]?.name }}">
                     <mat-option *ngFor="let t of keysTimezone()" value="{{ t }}">
                         {{ formatTimeCode(t) }} {{ timezones[t].name }}
                     </mat-option>
@@ -205,9 +205,10 @@
             </div>
 
             <div class="agree">
-                <input type="checkbox" id="agree" name="agree" [(ngModel)]="agree" value="Y">
-                <label for="agree">By registering, I agree</label>
-                 to 
+                    <label>
+                        <input type="checkbox" id="agree" name="agree" [(ngModel)]="agree" value="Y">
+                        <span>By registering, I agree to </span>
+                    </label>
                  <span class="toc" (click)="onClickTermsAndConditions()">the Terms and Conditions.</span>
             </div>
 
