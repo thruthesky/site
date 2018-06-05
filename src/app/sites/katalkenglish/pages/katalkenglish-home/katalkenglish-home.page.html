@@ -13,7 +13,7 @@
                             <div class="col-6">
                                 <img class="calendar-img" src="assets/img/my-own-calendar.png">
                             </div>
-                            <div class="col-6">
+                            <div class="col-6"  (click)=" showMoreMyOwnPlan() ">
                                 <h2>카톡만 되면
                                     <br>언제 어디서나 수업</h2>
                                 <div class="text">
@@ -23,7 +23,7 @@
                                     <br> 완벽한 자유 예약 시스템
                                 </div>
 
-                                <div class="view-more" (click)=" showMoreMyOwnPlan() " *ngIf=" ! showMoreMyOwnPlan_1 ">
+                                <div class="view-more" *ngIf=" ! showMoreMyOwnPlan_1 ">
                                     더보기...
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                     </div>
 
 
-                    <div class="position-relative">
+                    <div class="myOwnPlan-wrapper"  *ngIf=" showMoreMyOwnPlan_1 ">
                         <div class="moreMyOwnPlan no1" *ngIf=" showMoreMyOwnPlan_1 ">카톡영어에서는 학생이 직접 수업료와 선생님을 정합니다.
                         </div>
                         <div class="moreMyOwnPlan no2" *ngIf=" showMoreMyOwnPlan_2 ">카톡영어의 자유 예약 시스템은 매우 직관적이고 편리합니다. 무료 체험 수업을 해 보면 쉽게 이해가 됩니다.
@@ -49,15 +49,13 @@
                             <div class="col-4">
                                 <img src="assets/img/kakao-chat.png">
                             </div>
-                            <div class="col-8">
+                            <div class="col-8"  (click)=" showMoreAboutKatalkEnglish() ">
                                 <div class="desc">
                                     <h2>카톡영어는</h2>
                                     <div>
                                         최고라고 자화자찬하지 않으며 타 업체와 비교하지 않습니다.
                                             그 이유는 바로 카톡영어와 경쟁 할 수 있는 화상영어 교육 사이트가 존재하지 않기 때문입니다.
-                                        <span class="show-more"
-                                              (click)=" showMoreAboutKatalkEnglish() "
-                                              *ngIf=" ! moreAbout1 ">
+                                        <span class="show-more" *ngIf=" ! moreAbout1 ">
                                               더보기...
                                         </span>
                                     </div>
@@ -71,20 +69,20 @@
                 <!--/about-katalkenglish-->
                 <div class="more-about-katalkenglish" *ngIf=" moreAboutKatalkEnglish ">
                     <div class="inner">
-                        <div class="text no1" *ngIf=" moreAbout1 ">
+                        <div class="text" *ngIf=" moreAbout1 ">
                             최고의 강사들만 선정 하였으며
                             <br>또 다시 최고의 강사들 끼리 경쟁을 하는 시스템
                         </div>
-                        <div class="text no2" *ngIf=" moreAbout2 ">
+                        <div class="text" *ngIf=" moreAbout2 ">
                             강사와 학생이 직거래를 하여
                             <br>학생은 최저의 수업료내면 선생님은 최고의 임금!
                         </div>
-                        <div class="text no3" *ngIf=" moreAbout3 ">
+                        <div class="text" *ngIf=" moreAbout3 ">
                             카카오톡으로 수업을 하여
                             <br>강사와 학생이 하루 종일 채팅하는 시스템
                         </div>
 
-                        <div class="text no4" *ngIf=" moreAbout4 ">
+                        <div class="text" *ngIf=" moreAbout4 ">
                             무제한 예약, 취소 가능. 완벽한 학습 관리 시스템
                         </div>
                     </div>
