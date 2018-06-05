@@ -25,10 +25,7 @@ export interface WP_POST {
 export class ForumService {
 
 
-
-    constructor(
-        public http: HttpClient
-    ) {
+    constructor(public http: HttpClient) {
 
     }
 
@@ -36,19 +33,28 @@ export class ForumService {
     loadPosts(options?): Observable<any> {
         let slug = '';
         let per_page = '';
-        if ( typeof options === 'string' ) {
+        let page = '';
+        if (typeof options === 'string') {
             slug = options;
         } else {
             slug = options.slug;
-
+            per_page = '&per_page=' + options.per_page;
+            page = '&page=' + options.page;
         }
-        const url = environment['urlBackend'] + '/wp-json/wp/v2/posts?categories=' + environment['categories'][slug];
+        let url = environment['urlBackend'] + '/wp-json/wp/v2/posts?categories=' + environment['categories'][slug];
+        if (per_page) {
+            url += per_page;
+        }
+        if (page) {
+            url += page;
+        }
         console.log('loadPosts', url);
         return this.http.get(url);
     }
 
     getLatestPost(slug) {
-        return this.loadPosts({ slug: slug, per_page: 1, page_no: 1 });
+        return this.loadPosts({slug: slug, per_page: 1, page: 1});
+
     }
 
     getPost(id): Observable<any> {
@@ -56,7 +62,6 @@ export class ForumService {
         console.log('loadPosts', url);
         return this.http.get(url);
     }
-
 
 
 }
