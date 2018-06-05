@@ -20,8 +20,14 @@
                     <input matInput name="email" type="password" [(ngModel)]="form.user_pass">
                 </mat-form-field>
 
-                <button type="submit" *ngIf=" ! loader.submit ">{{ 'LOGIN' | t }}</button>
-                <div class="loader" *ngIf=" loader.submit ">{{ 'LOGIN_CONFIRMING' | t }}</div>
+                <button type="submit">
+                    <span *ngIf=" !loader.submit ">{{ 'LOGIN' | t }}</span>
+                    <div class="confirm-loader" *ngIf=" loader.submit ">
+                        <mat-spinner color="accent" [diameter]="20"></mat-spinner>
+                        {{ 'LOGIN_CONFIRMING' | t }}
+                    </div>
+                </button>
+                <!-- <div class="loader" *ngIf=" loader.submit "></div> -->
             </form>
         </div>
     </section>
