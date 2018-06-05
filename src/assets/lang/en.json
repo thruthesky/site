@@ -386,16 +386,7 @@
   "PAYMENT_NO": "NO",
   "AMOUNT": "Amount",
 
-  "CURRICULUM_CONTENT_1": "Basic rules and level test progress, basic curriculum, but in the case of Katok English, the teaching materials are different for each teacher.",
-  "CURRICULUM_CONTENT_2": "In general, please set the course materials in the first class time. Textbook progress information will be changed for each class evaluation.",
-  "CURRICULUM_CONTENT_3": "In addition, we can offer you the textbooks and classes you want.",
-  "CURRICULUM_CONTENT_4": "The selection of textbooks is important because they are divided into basic English, reading, and speaking skills depending on which materials you use.",
-  "CURRICULUM_CONTENT_5": "Please note that it is difficult for students to open textbooks while making one-to-one video calls to KakaoTalk. (Because KakaoTalk takes up the entire screen)",
-  "CURRICULUM_CONTENT_6": "Therefore, students should prepare the textbooks once before class time.",
-  "CURRICULUM_CONTENT_7": "The class materials will be delivered to the student by the teacher before class.",
-  "CURRICULUM_CONTENT_8": "If the teacher does not deliver the textbook before class time and delivers it during class time, it will interfere with the class progress.",
-  "CURRICULUM_CONTENT_9": "In this case, please report it to us.",
-  "CURRICULUM_CONTENT_10": "We need to know whether you can request a correction to the teacher.",
+
   "CURRICULUM_PAGE_TITLE": "Teaching materials",
   "CURRICULUM_PAGE_DESC": "We will guide you through the lesson ",
   "CURRICULUM_STAT_1": "#USERNAME's next lesson is #BOOK.",
@@ -570,5 +561,6 @@
   "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "Account No",
   "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
-  "WOORIBANK_NAME": "Wooribank"
+  "WOORIBANK_NAME": "Wooribank",
+  "CONTACT": "Contact"
 }

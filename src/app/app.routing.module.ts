@@ -90,13 +90,8 @@ const routes: Routes = [
     loadChildren: './sites/ontue/pages/ontue-policy/ontue-policy.page.module#OntuePolicyPageModule'
   },
   {
-    path: 'teacher-handbook',
-    loadChildren: './sites/ontue/pages/ontue-handbook/ontue-handbook.page.module#OntueHandbookPageModule',
-    data: { slug: 'teacher-policy' }
-  },
-  {
-    path: 'teacher-post/:id',
-    loadChildren: './sites/ontue/pages/ontue-post-view/ontue-post-view.page.module#OntuePostViewPageModule',
+    path: 'teacher-curriculum',
+    loadChildren: './sites/ontue/pages/ontue-curriculum/ontue-curriculum.page.module#OntueCurriculumPageModule'
   },
   {
     path: 'payment-information',

@@ -1,23 +1,14 @@
 @import '../../../../../theme/vars.scss';
 header{
-    padding: 1.25em;
-    background-color: #ececec;
-    text-align: center;
-    a{
-        display: inline-block;
-        padding: .4em;
-        cursor: pointer;
 
-        .icon{
-            height: 1em;
-        }
+    a{
+        display:block;
+        text-align: center;
     }
 
-    &:hover{
-        span{
-            text-decoration: underline;
-            cursor: pointer;
-        }
+    .icon{
+        height: 1em;
+        margin-left: .5em;
     }
 }
 

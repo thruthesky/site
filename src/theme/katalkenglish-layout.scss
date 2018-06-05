@@ -39,6 +39,9 @@ body {
             main {
                 margin: 0 auto;
                 max-width: $katalkenglish-page-width;
+                @media (min-width: $md) {
+                    min-height: 600px;
+                }
             }
         }
     }

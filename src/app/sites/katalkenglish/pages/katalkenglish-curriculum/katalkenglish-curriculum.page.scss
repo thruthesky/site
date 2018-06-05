@@ -1,32 +1,66 @@
-header{
-  h1{
-    margin: 0;
-    padding: 1em;
-    background-color: #ececec;
-    color: #3a476b!important;
+@import './../../../../../theme/vars.scss';
+.content {
+  padding: $padding;
+}
+
+.text {
+  padding: 2em 1em;
+  @media screen and (min-width:$md){
+    padding: 2em 0;
+  }
+  line-height: 200%;
+}
+
+.books{
+  &>div{
+    padding: 0;
   }
 
-  div{
-    font-size:.9em!important;
-    padding: 1em 1.3em!important;
-    background-color: #bababa;
+  @media screen and (min-width:$md){
+      &>div:first-child{
+        padding-right: 1em;
+      }
+      &>div:last-child{
+        padding-left: 1em;
+      }
   }
 }
 
-main{
-  section{
-    padding: 1.5em;
-  }
-  .status{
-    padding: 0;
-    padding-top: 1.5em!important;
+.letsgo,
+.sidebyside {
+  .title{
+    margin-top:2em;
+    margin-bottom: 1em;
     text-align: center;
-    font-weight: bold;
-    font-size: 110%;
   }
+  .images {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding:.5em;
+    border:1px solid rgba(125,125,125,0.1);
+    background: white;
+    &>div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 133px;
+      width: 103px;
+      @media screen and (min-width:$md){
+        height: 200px;
+        width: 165px;
+      }
+      overflow: hidden;
+      margin: 0 0.25em;
 
-  div{
-    padding: 1.5em 0;
-    font-size: 120%;
+      img{
+        width: 100%;
+
+        @media screen and (min-width:$md){
+         height: 100%;
+         width: auto;
+        }
+      }
+    }
   }
 }

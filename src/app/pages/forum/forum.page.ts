@@ -28,6 +28,8 @@ interface WP_POST {
 
 export class ForumPage implements OnInit {
     posts: Array<WP_POST> = [];
+    slug = '';
+    title = '';
     constructor(
         activated: ActivatedRoute,
         public sanitizer: DomSanitizer,
@@ -36,14 +38,22 @@ export class ForumPage implements OnInit {
     ) {
         activated.data.subscribe(data => {
             console.log('data: ', data);
-            this.loadPosts( data['slug'] );
+            this.slug = data['slug'];
+            if (this.slug === 'termsandconditions') {
+                this.title = this.a.ln.TERMS_AND_CONDITIONS;
+            } else if (this.slug === 'reminders') {
+                this.title = this.a.ln['REMINDER'];
+            } else if (this.slug === 'policy') {
+                this.title = this.a.ln.POLICY;
+            }
+            this.loadPosts(data['slug']);
         });
     }
 
 
     ngOnInit() { }
 
-    loadPosts( slug: string ) {
+    loadPosts(slug: string) {
 
         const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment['categories'][slug];
         console.log('api: ', url);
@@ -56,7 +66,7 @@ export class ForumPage implements OnInit {
 
                 this.posts = posts;
                 for (const post of posts) {
-                    post.content.rendered = <any> this.sanitizer.bypassSecurityTrustHtml( post.content.rendered );
+                    post.content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(post.content.rendered);
                 }
 
             }

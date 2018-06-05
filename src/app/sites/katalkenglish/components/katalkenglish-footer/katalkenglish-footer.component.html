@@ -1,15 +1,25 @@
 <footer id="katalkenglish-footer" class="p-5">
-
-    About
-    Terms Privacy Affiliate
-    2006-{{ year }} Withcenter, Inc. All Rights Reserved.
-    Contact
-    <select text-center [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() " placeholder="Select Your Language">
-        <option>None</option>
-        <option value="en">English</option>
-        <option value="ko">한국어</option>
-        <option value="ch">香港 (繁體中文)</option>
-        <option value="jp">日本語</option>
-    </select>
+    <div class="copyright">
+        © 2006-{{ year }} Withcenter, Inc., Pampanga Philippines.
+    </div>
+    <div class="menu">
+        <div>
+            <a routerLink="/termsAndConditions">{{ a.ln.TERMS_AND_CONDITIONS }}</a>
+        </div>
+        <div class="contact" (click)="a.onClickContactAdmin()">
+            {{ a.ln.QNA }}
+        </div>
+        <div>
+            <a routerLink="/help">{{ a.ln.HELP }}</a>
+        </div>
+    </div>
+    <div class="language">
+        <select text-center [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() " placeholder="Select Your Language">
+            <option>None</option>
+            <option value="en">English</option>
+            <option value="ko">한국어</option>
+            <option value="ch">香港 (繁體中文)</option>
+            <option value="jp">日本語</option>
+        </select>
+    </div>
 </footer>
-

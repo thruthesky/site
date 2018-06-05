@@ -1,36 +1,70 @@
 <main>
     <header>
         <h1>{{ 'CURRICULUM_PAGE_TITLE' | t}}</h1>
-        <div>{{ 'CURRICULUM_PAGE_DESC' | t}}</div>
+        <p>
+            {{ 'CURRICULUM_PAGE_DESC' | t}}
+
+            <span class="status" *ngIf=" a.isStudent ">
+                <span *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}</span>
+                <span *ngIf=" ! a.lmsInfoBook()">{{ 'CURRICULUM_STAT_2' | t : {'USERNAME':a.user.name} }}</span>
+            </span>
+        </p>
     </header>
-    <section>
-            <div  class="status"  *ngIf=" a.isStudent ">
-                    <div *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}</div>
-                    <div *ngIf=" ! a.lmsInfoBook()">{{ 'CURRICULUM_STAT_2' | t : {'USERNAME':a.user.name} }}</div>
+    <section class="content">
+
+        <div class="container-fluid">
+            <div class="books row">
+
+                    <div class="letsgo col-12 col-md-6">
+                        <div class="title">어린이를 위한 영어 교재</div>
+                        <div class="images">
+                            <div>
+                                <img src="assets/img/books/letsgo-1.jpg">
+                            </div>
+                            <div>
+                                <img src="assets/img/books/letsgo-2.jpg">
+                            </div>
+                            <div>
+                                <img src="assets/img/books/letsgo-3.jpg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebyside col-12 col-md-6">
+                        <div class="title">청소년 및 성인을 위한 영어 교재</div>
+                        <div class="images">
+                            <div>
+                                <img src="assets/img/books/sidebyside-1.jpg">
+                            </div>
+                            <div>
+                                <img src="assets/img/books/sidebyside-2.jpg">
+                            </div>
+                            <div>
+                                <img src="assets/img/books/sidebyside-3.jpg">
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+
+        <div class="text">
+
+            <div class="ko">
+                영어 수업 과정에서 가장 중요한 점은 수업 교재의 선택입니다.
+                <br> 기초영어, 영어회화, 비지니스 영어, 시험영어 등 다양한 과정이 있을 수 있는데 저희 카톡영어에서는 영어를 가리키고 배우는 영어 교육의 역사상 오래되고 (또한 업그레드된 최신 판이 계속
+                나오는) 믿을 수 있는 렛츠고(4판)와 사이드바이사이드(3판) 두 가지 교재를 정식 교재로 채택을 합니다.
+                <br> 위 두가지의 교재는 영어의 가장 기초적인 단어 부터, 어휘, 읽기, 쓰기, 듣기, 말하기 등 모든 부분을 골고루 갖추고 있으며 기초영어, 영어회화, 비지니스영어와 같은 과정을 골고루 포함하고
+                있습니다.
+                <br> 렛츠고는 14세 미만이 적당하며, 사이드바이사이드는 12세 이상부터 성인까지 적당합니다.
+                <br> 수업교재는 수업시간 전에 선생님이 학생에게 메일 또는 카톡으로 전달해드립니다.
+                <br> 하지만 원할하게 예습과 복습을 하기 위해서 서점에서 구매를 하시기 바랍니다.
+                <br> 저희는 일대일 맞춤 수업을 진행하므로 학생이 가지고 있는 교재로 수업을 할 수 있습니다. 학생의 교재를 핸드폰으로 찍어서 선생님 메일로 전송해 드리면 됩니다.
+                <br> 참고로 카카오톡으로 화상 수업을 하면 교재를 열기가 어렵습니다. (카카오톡에서 선생님 얼굴과 학생 얼굴이 전체 화면을 다 차지 하니까요) 따라서 학생이 수업 시간 전에 교재를 한번 예습을
+                해야합니다.
             </div>
 
-            <div>{{ "CURRICULUM_CONTENT_1" | t}}</div>
-        
-            <div>{{ "CURRICULUM_CONTENT_2" | t}}</div>
-        
-            <div>{{ "CURRICULUM_CONTENT_3" | t}}</div>
-        
-            <hr>
-        
-            <div>{{ "CURRICULUM_CONTENT_4" | t}}</div>
-        
-            <hr>
-        
-            <div>{{ "CURRICULUM_CONTENT_5" | t}}</div>
-        
-            <div>{{ "CURRICULUM_CONTENT_6" | t}}</div>
-        
-            <div>{{ "CURRICULUM_CONTENT_7" | t}}</div>
-        
-            <div>{{ "CURRICULUM_CONTENT_8" | t}}</div>
-        
-            <div>{{ "CURRICULUM_CONTENT_9" | t}}</div>
-        
-            <div>{{ "CURRICULUM_CONTENT_10" | t}}</div>
+        </div>
     </section>
 </main>

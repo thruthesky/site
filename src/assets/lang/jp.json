@@ -327,16 +327,7 @@
   "PAYMENT_NO": "数",
   "AMOUNT": "量",
 
-  "CURRICULUM_CONTENT_1": "基本規定とレベルテストの進行、基礎カリキュラムが、カトク英語は直接取引の特性上、先生に教材が違います。",
-  "CURRICULUM_CONTENT_2": "一般的に、最初の授業時間に教材を決めていただきます。そして教材進歩情報は毎授業評価に変更になります。",
-  "CURRICULUM_CONTENT_3": "また、学生が希望する教材、授業を先生に提案することもあります。",
-  "CURRICULUM_CONTENT_4": "いくつかの教材を使用するかに応じて基礎英語、読解、スピーキングなど授業に分けますので、教材の選定が重要です。",
-  "CURRICULUM_CONTENT_5": "注意すべき点は、学生がカカオトークに一対一のビデオ通話をしながら教材を展開が困難である。（カカオトークが画面全体を多占めますからね）",
-  "CURRICULUM_CONTENT_6": "したがって、学生が授業時間の前に教材を一度予習をしてください。",
-  "CURRICULUM_CONTENT_7": "教材は、先生が授業時間の前に生徒にカトクに転送いたします。",
-  "CURRICULUM_CONTENT_8": "もし、先生が教材を授業時間前渡さず授業時間中に渡されると、授業の進行の妨げになります。",
-  "CURRICULUM_CONTENT_9": "この場合、私たちに申告をしてください。",
-  "CURRICULUM_CONTENT_10": "私たちがアルアヤジ先生に是正要求をすることができます。",
+
   "CURRICULUM_PAGE_TITLE": "教材のご案内",
   "CURRICULUM_PAGE_DESC": "教材のご案内と授業を案内しています。",
   "CURRICULUM_STAT_1": "#USERNAMEさんの次の授業教材は「#BOOK」です。",
@@ -536,5 +527,9 @@
   "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "アカウントなし",
   "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
-  "WOORIBANK_NAME": "Wooribank"
+  "WOORIBANK_NAME": "Wooribank",
+
+
+  "TERMS_AND_CONDITIONS": "利用規約",
+  "CONTACT": "联系"
 }
