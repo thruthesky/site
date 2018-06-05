@@ -299,6 +299,14 @@ export class AppService {
         return this.user.isLogout;
     }
 
+    /**
+     * If the student has less than or equal to 4 sessions,
+     * then we consider the student is new to our site.
+     */
+    get isNewUser(): boolean {
+        return this.lmsInfoUserNoOfTotalSessions <= 4;
+    }
+
     // setColor(color) {
     //     // this.color = color;
     //     // console.log(`Color has been set to ${this.color}`);

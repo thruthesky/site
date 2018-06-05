@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RegisterPage } from './register.page';
 import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload/xapi-file-upload.component.module';
@@ -22,7 +21,6 @@ const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
-        IonicModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
         XapiFileUploadComponentModule,

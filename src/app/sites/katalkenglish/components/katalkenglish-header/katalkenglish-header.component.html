@@ -14,9 +14,9 @@
             <a routerLink="/register" *ngIf="a.isLogout">
                 {{ a.ln.REGISTER }}
             </a>
-            <a routerLink="/policy" *ngIf="a.isLogin">
+            <span (click)=" a.onClickContactAdmin() ">
                 {{ a.ln.QNA_TOP_MENU }}
-            </a>
+            </span>
             <a routerLink="/payment" *ngIf="a.isLogin">
                 {{ a.ln.PAYMENT_TOP_MENU }}
             </a>
@@ -40,11 +40,16 @@
             <a routerLink="/teacher-list">{{ a.ln.TEACHER_LIST }}</a>
             <a routerLink="/schedule-table">{{ a.ln.ALL_SCHEDULE }}</a>
             <a routerLink="/teacher-reviews">{{ a.ln.CLASS_COMMENTS }}</a>
-            <!-- <a routerLink="/qna">
-                <span>{{ a.ln.QNA }}</span>
-            </a> -->
-            <a routerLink="/story">{{ a.ln.STUDENT_ADV_MENU_TEXT }}</a>
-            <a routerLink="/help">{{ a.ln.HELP }}</a>
+
+
+            <ng-container *ngIf=" a.isNewUser ">
+                <a routerLink="/story">{{ a.ln.STUDENT_ADV_MENU_TEXT }}</a>
+                <a routerLink="/help">{{ a.ln.HELP }}</a>
+            </ng-container>
+            <ng-container *ngIf=" ! a.isNewUser ">
+                <a routerLink="/session-future">{{ a.ln.SESSION_FUTURE }}</a>
+                <a routerLink="/session-past">{{ a.ln.SESSION_PAST }}</a>
+            </ng-container>
         </nav>
     </div>
 

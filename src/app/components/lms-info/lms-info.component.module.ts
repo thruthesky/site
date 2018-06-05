@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LmsInfoComponent } from './lms-info.component';
-// import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
-import { IonicModule } from '@ionic/angular';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
 
@@ -12,7 +10,6 @@ import { MaterialModule } from '../../app.material.module';
     imports: [
         CommonModule,
         RouterModule,
-        IonicModule,
         TranslatePipeModule,
         MaterialModule
     ],
