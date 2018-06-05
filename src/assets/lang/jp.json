@@ -118,13 +118,10 @@
   "STUDENT_HELP_PAGE_HEADER_10": "質問と回答",
   "STUDENT_HELP_PAGE_SUB_HEADER_10": "私たちは、カカオトークを通じて多くのサービスをしており、質問と回答ヨクシカカオトークで行われます。",
   "STUDENT_HELP_PAGE_CONTENT_10_1": "カトク、英語をぜひ友達に追加してください。",
-
   "MY_POINT_PAGE_TITLE": "気になる点がございましたら、いつでもカトクで質問してください！",
   "MY_POINT_PAGE_USER_POINT": "#USER_NAME会員のポイントは#POINTです。",
   "MY_POINT_PAGE_REMINDER": "授業料の支払いの内訳は、決済内訳メニューから確認することができます。",
   "GOTO_PAYMENT_HISTORY": "お支払い履歴ページへ移動",
-
-
   "TAKEN": "セッション",
   "HAD SESSIONS": "",
   "ADD KAKAO": "カカオフレンドを追加",
@@ -139,7 +136,6 @@
   "AGE_GENDER": "#age/#gender",
   "TEACHER_DOES_NOT_HAVE_KAKAOTALK_ID": "カカオトークのIDはありません。",
   "CURRENT_TIME": "#country #hour:#minute #ap",
-
   "MORNING": "午前",
   "AFTERNOON": "午後",
   "FULL DAY": "全体（午前午後、一日中）",
@@ -170,7 +166,6 @@
   "WEEKEND": "週末",
   "HIDE": "隠す",
   "DISPLAY": "表示",
-
   "DESC_RADIO_OFF": "予約可能（誰も予約していないこと）",
   "DESC_RADIO_ON": "私の予約した授業。キャンセル可能。",
   "DESC_HEART": "先行予約されたクラスです。その学生のみ予約が可能なクラスです。",
@@ -182,7 +177,6 @@
   "DESC_CLOUD_DONE": "講師休みの日（予約があります）。",
   "DESC_REMINDER": "講師の写真をクリックすると、講師の授業時間割のみ見ることができます。",
   "DESC_MORE": "詳細",
-
   "NO_OF_DAYS": "時刻表を表示ことができ",
   "INSTANCE_SCHEDULE": "インスタンスクラス",
   "INSTANCE_CLASS_RESERVED": "あなたはすぐに始まるクラスを予約しました。 予約済みセッションメニューに移動します。",
@@ -211,7 +205,6 @@
   "DELETING": "削除",
   "LOAD_NEXT_PAGE": "次のページを読み込む",
   "LOADING_COMMENTS": "コメントを読み込んでいる間お待ちください。",
-
   "REVIEW LIST TITLE": "教師に対するレビュー",
   "WRITE REVIEW TITLE": "レビューを書く",
   "SCHEDULE PAGE": "スケジュールページ",
@@ -229,14 +222,10 @@
   "OLD PASSWORD": "旧パスワード",
   "NEW PASSWORD": "新しいパスワード",
   "CHANGE PASSWORD BUTTON": "新しいパスワードの送信",
-
   "ADMIN_PERMISSION_REQUIRED": "管理者としてログインしてください。",
   "MANAGER_PERMISSION_REQUIRED": "マネージャーまたは管理者としてログインしてください。",
-
   "REPLY": "応答",
-
   "AUTH/WRONG-PASSWORD": "Password was incorrect, #info",
-
   "OPTIONS": "オプション",
   "USER_POINT": "##username様、ポイント:",
   "SEARCHED_SESSIONS": "検索セッション",
@@ -254,7 +243,6 @@
   "SHOW_TEACHER_NAME": "教師の名前を表示",
   "DISPLAY_DATE": "表示日付",
   "POINT_MARK": "ポイントマーク",
-
   "MESSAGE_TITLE": "メッセージ",
   "INBOX": "受信トレイ",
   "SENT": "送信済み",
@@ -263,14 +251,12 @@
   "PREVIOUS": "前",
   "NEXT": "次",
   "NO_MORE_MESSAGES": "その他のメッセージはありません",
-
   "SCHEDULE_TABLE_LOADING": "スケジュール表の読み込み",
   "NO_SCHEDULE_TRY_SEARCH": "スケジュールは検索しないでください",
   "NO_MORE_RESERVATIONS": "その他の予約",
   "NO_MORE_PASTS": "もうパスタはない",
   "KAKAOTALK": "カカオトーク",
   "ADD_FRIEND": "友人を追加する",
-
   "LEVEL": "レベル",
   "YOUR_ENGLISH_LEVEL": "あなたの英語レベル",
   "LEVELS_ARE_FROM_1_9": "レベルは1から9までです",
@@ -282,11 +268,9 @@
   "ADVANCED": "上級",
   "BOTTOM_DESC_1": "過去20回のレッスンに基づいて、各クラスの評価を平均してレベルを決定します。",
   "BOTTOM_DESC_2": "講義の評価をクリックすると、各クラスの詳細を確認できます。",
-
   "ADMIN": "管理者",
   "REGISTER_BUTTON": "登録",
   "UPDATE_PROFILE_BUTTON": "プロフィールを更新",
-
   "LEVELTEST_PAGE_TITLE": "レベルテスト",
   "SELECT_TEACHER_TO_RESERVE": "予約する教師を選択",
   "TEACHER_LIST_OPTIONS": "教師リストのオプション",
@@ -294,12 +278,10 @@
   "MALE": "男性",
   "ALL": "すべて",
   "RECOMMENDED_TEACHER": "おすすめの教師",
-
   "TEACHER_LIST_REMINDER": "このページには、主に学生から見える推奨教師が表示されます。 他の教師のプロフィールは検索で入手できます。",
   "RECOMMENDATION": "評価",
   "PARTICIPATED": "参加した人々",
   "INSTRUCTOR_MORE": "もっとインストラクター",
-
   "PAYMENT_PAGE_TITLE": "あなたが望むだけの金額を支払って、あなたが望むだけ多くのクラスを作ってください。",
   "SELECT_AMOUNT": "金額を選択",
   "LOADING_PAYMENT_INFORMATION": "請求情報の読み込み。 お待ちください。",
@@ -326,13 +308,10 @@
   "PAYMENT_METHOD_SHORT": "支払う",
   "PAYMENT_NO": "数",
   "AMOUNT": "量",
-
-
   "CURRICULUM_PAGE_TITLE": "教材のご案内",
   "CURRICULUM_PAGE_DESC": "教材のご案内と授業を案内しています。",
   "CURRICULUM_STAT_1": "#USERNAMEさんの次の授業教材は「#BOOK」です。",
   "CURRICULUM_STAT_2": "#USERNAMEさんの教材がまだ決まっていません。",
-
   "ADV_CONTENT_1": "インターネットに多くの画像の英語",
   "ADV_CONTENT_2": "コンピュータにプログラムをインストールして、決められた時間に授業を聞かなければならないということが罠です。",
   "ADV_CONTENT_3": "携帯電話、インターネットされなぜ？",
@@ -351,34 +330,36 @@
   "ADV_CONTENT_14_3": "もし月20回1万円の予約が難しい場合には、カカオトークにお問い合わせいただければ、当社のが最良の教師で月に20回1万円で予約していただきます。",
   "ADV_CONTENT_15": "会員登録後、すぐに5回のレッスン予約が可能です。",
   "ADV_CONTENT_16": "今すぐ授業予約",
-
-
   "SCHEDULE_AVAILABLE_PAGE_TITLE": "現在利用可能な教師",
   "SCHEDULE_AVAILABLE_PAGE_DESC_1": "すぐ下のクラスが始まります。 下記のクラスを予約する場合は、数分以内にクラスに参加する必要があります。",
   "SCHEDULE_AVAILABLE_PAGE_DESC_2": "あっ！ログインをしなければならが、授業時間を確認して予約することができます。",
   "POINTS": "ポイント",
   "RESERVE_NOW": "今すぐ予約する",
   "IN_RESERVING": "予約",
-
-
   "PAYMENT_RESULT_PAGE_TITLE": "支払い結果",
   "PAYMENT_SUCCES": "支払い完了",
   "PAYMENT_FAILED": "まあ、支払いに失敗しました。",
   "YOU_CAN_CHECK_YOUR_PAYMENT_HISTORY": "支払い履歴は、[支払い履歴]メニューで確認できます。",
-
   "TEACHER_GRADE": "教師のグレード",
-
   "TEACHER_LIST_IS_LOGIN": "#USERNAME様、全体の先生の数は#TOTAL人であり、会員の予約された授業は#RESERVATIONS回で過去の授業は#PASTS回です。",
   "TEACHER_LIST_IS_LOGOUT": "現在表示されている先生は#TOTAL人です。オプションにより、すべての先生を見ることができます。ログインをすると、会員様の授業情報が表示されます。",
-
   "NO_MORE_TEACHERS": "もはや推奨講師がありません。オプションを使用して、より多くの講師を見ることができます。",
   "GOTO_OPTIONS": "オプション",
-
   "LOGIN_HEADER_1": "ログインをします。",
   "LOGIN_HEADER_2": "登録をしていない場合は、簡単に",
   "LOGIN_HEADER_3": "をしてください！",
-
-  "STUDENT COMMENTS": [{
+  "CURRICULUM_CONTENT_1": "基本規定とレベルテストの進行、基礎カリキュラムが、カトク英語は直接取引の特性上、先生に教材が違います。",
+  "CURRICULUM_CONTENT_2": "一般的に、最初の授業時間に教材を決めていただきます。そして教材進歩情報は毎授業評価に変更になります。",
+  "CURRICULUM_CONTENT_3": "また、学生が希望する教材、授業を先生に提案することもあります。",
+  "CURRICULUM_CONTENT_4": "いくつかの教材を使用するかに応じて基礎英語、読解、スピーキングなど授業に分けますので、教材の選定が重要です。",
+  "CURRICULUM_CONTENT_5": "注意すべき点は、学生がカカオトークに一対一のビデオ通話をしながら教材を展開が困難である。（カカオトークが画面全体を多占めますからね）",
+  "CURRICULUM_CONTENT_6": "したがって、学生が授業時間の前に教材を一度予習をしてください。",
+  "CURRICULUM_CONTENT_7": "教材は、先生が授業時間の前に生徒にカトクに転送いたします。",
+  "CURRICULUM_CONTENT_8": "もし、先生が教材を授業時間前渡さず授業時間中に渡されると、授業の進行の妨げになります。",
+  "CURRICULUM_CONTENT_9": "この場合、私たちに申告をしてください。",
+  "CURRICULUM_CONTENT_10": "私たちがアルアヤジ先生に是正要求をすることができます。",
+  "STUDENT COMMENTS": [
+    {
       "name": "유진형",
       "date": "2018년 1월 24일",
       "title": "❝ 우리 가족에게 꼭 맞는 최고의 선택 ❞",
@@ -441,10 +422,8 @@
   "EVALUATE": "評価する",
   "EVALUATED": "評価された",
   "RESULT": "結果",
-
   "WRITE_REVIEW": "レビューを書く",
   "TEACHER_SCHEDULE": "教師のスケジュール",
-
   "CURRICULUM_VITAE_VIEW": "履歴書",
   "NATIONALITY": "国籍",
   "COURSE": "コース",
@@ -455,7 +434,6 @@
   "SCHOOL": "学校",
   "PHONE_NO": "電話番号",
   "EMAIL": "Eメール",
-
   "SESSION_EVALUATION_PAGE_TITLE": "セッション評価",
   "SESSION_EVAL_IDX": "クラス番号",
   "SESSION_EVAL_BOOK_USED": "教科書",
@@ -468,24 +446,19 @@
   "SESSION_EVAL_EXPRESSION_SPEED": "流暢",
   "SESSION_EVAL_LEVEL": "結果（レベル）",
   "SESSION_EVAL_COMMENT": "コメント",
-
   "CLASS_COMMENTS_PAGE_TITLE": "授業のコメント",
   "CLASS_COMMENTS_PAGE_DESC": "学生が作成したクラスの後期を見ることができます。皆さんも授業をすると、必ず声を残してください。",
   "MORE": "より",
   "SESSION_REFUND_REQUEST_PAGE_TITLE": "セッション払い戻しのリクエスト",
   "SESSION_REFUND_REQUEST_PAGE_REMINDER": "可能な場合は、英語で書いてください。",
-
   "SESSION_REFUND_REJECT_TITLE": "セッション払い戻しを拒否",
   "STUDENT_MESSAGE": "学生メッセージ",
   "TEACHER_MESSAGE": "教師メッセージ",
   "SESSION_REFUND_REJECT_NOTE": "*注：教師の事由に満足していない場合。adminに連絡して返金要求を移管することができます。",
-
   "SESSION_REFUND_REVIEW_TITLE": "学生還付検討",
   "REFUND_ACCEPT": "受け入れ返金",
   "REFUND_REJECT": "払い戻しを拒否",
   "REJECT_CONFIRM": "払い戻し確認",
-  "INTERNET_STATUS": ["", "悪い", "正常", "良い"],
-  "CAMERA_STATUS": ["いいえ", "はい"],
   "HOW_WAS_TEACHER_INTERNET": "先生のインターネット接続はどうでしたか？",
   "INTERNET_GOOD": "良い",
   "INTERNET_NORMAL": "正常",
@@ -494,7 +467,6 @@
   "CAMERA_YES": "はい",
   "CAMERA_NO": "いいえ",
   "LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME": "スケジュールの時刻を表示するには、ログインしてください。",
-
   "CANCEL REFUND REQUEST SUCCESS": "払い戻しのキャンセル",
   "SCHEDULE DELETE": "スケジュール削除",
   "SCHEDULE DELETED": "スケジュールが削除されました。",
@@ -510,26 +482,17 @@
   "SESSION REFUND CONFIRM": "本当ですか、このセッションを返金しますか？",
   "YOUR_TIME": "あなたの時間",
   "UPDATE": "更新",
-
-
-
-
-
   "LOGIN_CONFIRMING": "あなたのログインを確認しています...",
   "STUDENT_ADV_MENU_TEXT": "月額$ 10",
   "HOW_TO_RESERVE": "クラスを予約するには、丸のアイコンをクリックしてください。",
-
-
-  "WOORIBANK_PAYMENT_TITLE": "韓国銀行取引",
-  "WOORIBANK_PAYMENT_DESC_1": "あなたが韓国人なら、ウリバンクの取引で支払うことができます。",
-  "WOORIBANK_PAYMENT_DESC_2": "付加価値税（VAT）のために追加のVAT％を支払う必要があります。",
-  "ACCOUNT_HOLDER_NAME": "口座名義",
-  "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
-  "ACCOUNT_NO": "アカウントなし",
-  "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
-  "WOORIBANK_NAME": "Wooribank",
-
-
-  "TERMS_AND_CONDITIONS": "利用規約",
-  "CONTACT": "联系"
+  "CURRICULUM_PAGE_BOOK_1": "子供のための英語教材",
+  "CURRICULUM_PAGE_TITLE_BOOK_2": "若者と大人のための英語教材",
+  "CURRICULUM_PAGE_TITLE_TEXT_1": "英語の授業の過程で最も重要な点は、教材の選択です。",
+  "CURRICULUM_PAGE_TITLE_TEXT_2": "基礎英語、英会話、ビジネス英語、試験英語など様々な過程があることがあり、私たちのカトク英語では、英語を指して学ぶ英語教育の歴史の中で古く（またアップグレードした最新の版が継続出る）信頼できるレッツゴー（第4版）とサイド・バイ・サイド（3版）二つの教材を正式教材として採択をします。",
+  "CURRICULUM_PAGE_TITLE_TEXT_3": "上記二つの教材は、英語の最も基礎的な単語から、語彙、リーディング、ライティング、リスニング、スピーキングなどすべての部分を取り揃えており基礎英語、英会話、ビジネス英語のような過程をまんべんなく含まれています。",
+  "CURRICULUM_PAGE_TITLE_TEXT_4": "レッツゴーは14歳未満が適当であり、サイド・バイ・サイドは、12歳以上から大人まで適しています。",
+  "CURRICULUM_PAGE_TITLE_TEXT_5": "教材は、授業時間の前に先生が生徒にメールまたはカトクに転送いたします。",
+  "CURRICULUM_PAGE_TITLE_TEXT_6": "しかし、必要に応じて予習と復習をするために書店で購入をしてください。",
+  "CURRICULUM_PAGE_TITLE_TEXT_7": "私たちは、一対一のカスタムクラスを進行するので、学生が持っている教材で授業を行うことができます。生徒の教材を携帯電話に撮っ先生メールで送信して触れるされます。",
+  "CURRICULUM_PAGE_TITLE_TEXT_8": " 参考にカカオトークで画像の授業をする教材を展開が困難である。（カカオトークで先生の顔と学生の顔が画面全体を多占めますからね）したがって、学生が授業時間の前に教材を一度予習をしてください。"
 }

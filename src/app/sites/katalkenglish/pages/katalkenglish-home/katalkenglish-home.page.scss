@@ -1,6 +1,6 @@
 @import '../../../../../theme/vars.scss';
 main{
-    padding-top:1em;
+    padding:1em 0;
     .left,.right {
         padding: 0;
     }
@@ -44,8 +44,8 @@ main{
                 margin:0;
                 margin-top: 1em;
                 line-height: 1.7em;
-                font-weight: 200;
-                font-size: 80%;
+                font-weight: 300;
+                font-size: 1em;
             }
             .row {
                 align-items: center;
@@ -176,16 +176,19 @@ main{
             margin: .5em 0;
             cursor: pointer
         }
+        .myOwnPlan-wrapper{
+            padding-top:.8em;
+        }
         .moreMyOwnPlan {
             animation: a1234 .2s 1;
             animation-timing-function: ease-in;
             position: relative;
-            margin: .7em .1em 0;
+            margin: 1em .1em 0;
             padding: 1em;
             border-radius: 2px;
             background: #fff;
-            font-size: 80%;
-            font-weight: 200;
+            font-size: 90%;
+            font-weight: 500;
             // &.no1 {
             //     border: 2px solid #395b69;
             // }
@@ -264,13 +267,12 @@ main{
             padding: 1em;
             background:#f5db00;
             .text {
-                margin: .7em 0;
+                margin: 1em 0;
                 border-radius: 2px;
-                border: 1px solid #fff;
                 padding: .7em;
                 font-weight: 500;
                 font-size: 90%;
-                color: #fff;
+                background: #fff;
                 animation: animoreabout 1s 1;
             }
             @keyframes animoreabout {
@@ -280,20 +282,6 @@ main{
                 100% {
                     opacity: 1;
                 }
-            }
-            .no1 {
-                background-color: #978700 ;
-            }
-            .no2 {
-                background-color: #978700 ;
-                color: #fff;
-            }
-            .no3 {
-                background-color: #978700 ;
-                color:#fff
-            }
-            .no4 {
-                background-color: #978700 ;
             }
         }
     }

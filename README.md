@@ -298,6 +298,19 @@ constructor( public loader: LoaderService ) {
 
 Use `modal` service to do 'alert' or 'confirm'.
 
+You should not inject it on App Service and make it as a member variable since App Service is loaded by default. If you load `modal` on boot, there is no benefit of Lazy loading.
+
+So, just inject and use it any where you want it.
+
+```` typescript
+modal.alert({ title: 'hi', content: 'oo'});
+````
+
+
+
+
+
+
 ## Firebase
 
 ### Firebase User Login and Session

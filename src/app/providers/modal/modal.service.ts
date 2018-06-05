@@ -4,7 +4,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { AppService } from '../app.service';
 
 export interface ModalData {
-    title: string;
+    title?: string;
     content: string;
     ok?: string;
 }
