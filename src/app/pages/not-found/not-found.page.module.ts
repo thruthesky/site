@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-
-
 import { NotFoundPage } from './not-found.page';
 
 const routes: Routes = [
@@ -12,7 +9,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule,
     RouterModule.forChild(routes)
   ],
   exports: [
