@@ -209,9 +209,9 @@
             <div class="agree">
                     <label>
                         <input type="checkbox" id="agree" name="agree" [(ngModel)]="agree">
-                        <span>By registering, I agree to </span>
+                        <span>{{ a.ln.TOC_AGREE }} </span>
                     </label>
-                 <span class="toc" (click)="onClickTermsAndConditions()">the Terms and Conditions.</span>
+                 <span class="toc" (click)="onClickTermsAndConditions()">{{ a.ln.TOC_TITLE }}</span>
             </div>
 
             <div>

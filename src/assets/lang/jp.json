@@ -497,6 +497,10 @@
   "YOU_ARE_TO_AGREE": "登録するには、利用規約の同意ボタンをクリックしてください。",
   "WITHCENTER_TEACHER_DESC_1": "この先生はしばしば彼女の予約をキャンセルすることを覚えておいてください。",
   "WITHCENTER_TEACHER_DESC_2": "キャンセルしないでこの教師と固定スケジュールを予約することができます。 1日25分1日。 75,000ウォン",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "この先生はしばしば予約をキャンセルすることを覚えておいてください。"
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "この先生はしばしば予約をキャンセルすることを覚えておいてください。",
+  "TOC_AGREE": "登録することで、私は同意する",
+  "TOC_TITLE": "利用規約",
+  "VIDEO_RESERVE_TITLE": "ビデオ）予約方法",
+  "REDIRECTING": "リダイレクト..."
 
 }

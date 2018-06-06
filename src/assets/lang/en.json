@@ -580,6 +580,10 @@
 "YOU_ARE_TO_AGREE": "Please, click the Agree button of Terms and Conditions to sign up.",
   "WITHCENTER_TEACHER_DESC_1": "Please be reminded that this teacher often cancels her reservations.",
   "WITHCENTER_TEACHER_DESC_2": "You can reserve fixed schedules with this teacher without cancellation. 25 minutes a day for 1 month. 75,000 KRW.",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher often cancels reservation."
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher often cancels reservation.",
+  "TOC_AGREE": "By registering, I agree to",
+  "TOC_TITLE": "the Terms and Conditions.",
+  "VIDEO_RESERVE_TITLE": "Video) How to reserve",
+  "REDIRECTING": "Redirecting..."
 
 }

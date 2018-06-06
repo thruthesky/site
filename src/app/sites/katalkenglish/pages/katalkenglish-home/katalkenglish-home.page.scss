@@ -12,15 +12,24 @@ main{
             padding-left: .5em;
         }   
     }
-    .video-tutorial-reserve{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 350px;
-        width: 450px;
-
-        img{
-            width: 100%;
+    .video-help {
+        margin: 1em;
+        @media (min-width: $md) {
+            margin: 1em 0;
+        }
+        h2 {
+            margin: 0;
+            padding: .6em 0 .5em 0;
+            font-weight: 100;
+            font-size: 1.2em;
+        }
+        cursor: pointer;
+        .video {
+            padding: 1em;
+            border: 1px solid #ccc;
+            img{
+                width: 100%;
+            }
         }
     }
     #student-comments {
