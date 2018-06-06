@@ -450,7 +450,6 @@ export class RegisterPage implements OnInit {
     }
 
     showModalFAQ() {
-        console.log(QRMARKHTML);
         const content = `
             <section class="content">
                 <p>1. Open the Kakaotalk app on your smart
@@ -470,7 +469,7 @@ export class RegisterPage implements OnInit {
                     you can update your Curriculum Vitae by uploading this image.</p>
             </section>
         `
-        this.modal.alert({ content: QRMARKHTML });
+        this.modal.alert({ content: content });
     }
 
 
