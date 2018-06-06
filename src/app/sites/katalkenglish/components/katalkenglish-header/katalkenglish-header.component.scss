@@ -112,6 +112,11 @@
                 }
             }
         }
+        .session-future, .session-past {
+            svg {
+            fill: #555;
+            }
+        }
     }
     .select-wrapper {
         position: relative !important;
