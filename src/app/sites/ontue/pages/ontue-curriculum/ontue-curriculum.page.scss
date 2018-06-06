@@ -1,4 +1,20 @@
 @import './../../../../../theme/vars';
+
+.content{
+  margin: auto;
+  width: 70%;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.4em;
+}
+.greetings{
+  margin-bottom: .8em;
+  font-size: 1.3em;
+  font-weight: 500;
+  text-align: center;
+}
+
+
 .books {
     display: flex;
     justify-content: space-evenly;
