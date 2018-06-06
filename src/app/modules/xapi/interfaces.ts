@@ -98,6 +98,7 @@ export interface USER_REGISTER extends REQUEST {
     youtube_video_url?: string;
     bookable_time?: number;
     block_free_class_until?: string;
+    user_group?: string;
     grade?: string;
     list_order?: string;
     timezone?: string;
@@ -400,6 +401,7 @@ export interface TEACHER {
     nationality?: string;
     total_reservation?: number;
     introduction?: string;
+    user_group?: string;
 }
 
 export type TABLE = Array<Array<{ [key: string]: SESSION }>>;

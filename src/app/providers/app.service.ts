@@ -31,7 +31,7 @@ export const SITE_ONTUE = 'ontue';
 export const SITE_WITHCENTER = 'withcenter';
 
 export const KEY_SCHEDULES = 'key-schedules';
-const SCHEDULE_CACHE_INTERVAL = 1800; // 1 for 1 second. 1800 for 30 min. 3600 for 1 hour.
+const SCHEDULE_CACHE_INTERVAL = 600; // 600 for 10 minutes. 1 for 1 second. 1800 for 30 min. 3600 for 1 hour.
 
 
 export const KEY_WEEKEND = 'key-weekend';
@@ -908,6 +908,7 @@ export class AppService {
 
         /**
          * Use cached data for all schedule table.
+         *
          */
         if (options.useCache) {
             const schedules = this.cacheGetSchedule(options);
@@ -916,6 +917,9 @@ export class AppService {
                 callback(schedules);
                 return;
             }
+        } else {
+            // if the user changes options on schedule tables search,
+            // then, it should delete it's cache.
         }
 
         this.lms.schedule_table_v4(options).subscribe(re => {
@@ -985,9 +989,12 @@ export class AppService {
         //     callback(re);
         // });
     }
-    deleteScheduleCache() {
-        this.set(KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
-    }
+    /**
+     * It deletes all schedules.
+     */
+    // deleteScheduleCache() {
+    //     this.set(KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
+    // }
 
     /**
      * Get the value of the key from localStorage
@@ -1496,6 +1503,7 @@ export class AppService {
     isDesktopView(): boolean {
         return !this.isMobileView();
     }
+
     /**
      * Returns a string of 'small' or 'big' depending on the width of the app/web.
      */

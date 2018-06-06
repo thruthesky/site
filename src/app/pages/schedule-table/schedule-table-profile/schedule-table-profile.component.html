@@ -74,6 +74,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="withcenter-teachers" *ngIf=" re.teacher.user_group == 'withcenter' ">
+            <div>{{ a.ln.WITHCENTER_TEACHER_DESC_1 }}</div>
+            <div>{{ a.ln.WITHCENTER_TEACHER_DESC_2 }}</div>
+        </div>
+
     </div>
     
     <ng-template #singleTeacherLoader>

@@ -25,7 +25,10 @@ export class ScheduleTableOptionsComponent {
     ) {
 
     }
-    onSearchSubmit() {
+    onSearchSubmit(close = false) {
         this.change.emit();
+        if ( close ) {
+            setTimeout(() => this.chip.show = '', 1000);
+        }
     }
 }

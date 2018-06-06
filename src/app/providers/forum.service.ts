@@ -54,7 +54,9 @@ export class ForumService {
 
     getLatestPost(slug) {
         return this.loadPosts({slug: slug, per_page: 1, page: 1});
-
+    }
+    getPostBySlug(slug: string, ln: string) {
+        slug = slug + '-' + ln;
     }
 
     getPost(id): Observable<any> {

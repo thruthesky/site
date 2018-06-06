@@ -204,7 +204,7 @@
                 </div>
             </div>
 
-            <div class="agree">
+            <div class="agree" *ngIf=" a.isLogout ">
                 <input type="checkbox" id="agree" name="agree" [(ngModel)]="agree">
                 <label for="agree">By registering, I agree</label>
                  to 

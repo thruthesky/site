@@ -334,6 +334,10 @@ env['reloadTag'] = (new Date).getTime();
 
 ## KNOWN-BUG
 
+* When user views on desktop, then, desktop probably '15 days' of schedule table has cached.
+  * Then, the even the user changes 'days' or even changes to mobile view, he will still see '15 days' and even he refreshes, he will still see '15 days' until the cache expires.
+  This is okay. Not a big problem. This won't happen to all users. Only to those of developers.
+
 * First list of schedule table is being cached.
   * And this leads a bug when the user access schedule table with 'mobile view' at first
     And it cached.
