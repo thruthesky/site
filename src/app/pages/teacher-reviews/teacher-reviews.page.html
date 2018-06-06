@@ -41,8 +41,8 @@
                                     </div>
                                 </div>
                                 <div class="extra">
-                                    <div><b>{{ 'INTERNET' | t}}</b>: {{internet[comment.internet]}}</div>
-                                    <div><b>{{ 'Camera' | t}}</b>: {{camera[comment.camera]}}</div>
+                                    <div *ngIf="comment.internet"><b>{{ 'INTERNET' | t}}</b>: {{a.ln.INTERNET_STATUS[comment.internet]}}</div>
+                                    <div *ngIf="comment.camera" ><b>{{ 'Camera' | t}}</b>: {{a.ln.CAMERA_STATUS[comment.camera]}}</div>
                                 </div>
                                 <div class="date">{{ 'DATE' | t }} : {{
                                     a.shortDate(comment.stamp) }}

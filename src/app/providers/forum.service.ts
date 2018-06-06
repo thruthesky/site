@@ -52,11 +52,11 @@ export class ForumService {
         return this.http.get(url);
     }
 
-    getLatestPost(slug) {
+    getLatestPost(slug): Observable<any> {
         return this.loadPosts({slug: slug, per_page: 1, page: 1});
     }
 
-    getPostBySlug(slug: string, ln: string) {
+    getPostBySlug(slug: string, ln: string): Observable<any> {
         const url = environment['urlBackend'] + '/wp-json/wp/v2/posts?slug=' + slug + '-' + ln;
         console.log('getPostBySlug', url);
         return this.http.get(url);

@@ -269,7 +269,7 @@
 
   "REPLY": "Reply",
 
-  "USER_POINT": "#username, point",
+  "USER_POINT": "#username, point:",
   "SEARCHED_SESSIONS": "SEARCHED SESSIONS",
   "SEARCHED_POINT": "SEARCHED POINT",
   "REFUNDED_SESSIONS": "REFUNDED SESSIONS",
@@ -518,7 +518,7 @@
     }
   ],
   "INTERNET_STATUS": ["", "Bad", "Normal", "Good"],
-  "CAMERA_STATUS": ["No", "Yes"],
+  "CAMERA_STATUS": { "N":"No", "Y":"Yes"},
 
   "HOW_WAS_TEACHER_INTERNET": "How was the Teacher's Internet Connection",
   "INTERNET_GOOD": "Good",
