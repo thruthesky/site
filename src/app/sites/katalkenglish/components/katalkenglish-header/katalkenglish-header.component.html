@@ -14,9 +14,9 @@
             <a routerLink="/register" *ngIf="a.isLogout">
                 {{ a.ln.REGISTER }}
             </a>
-            <span (click)=" a.onClickContactAdmin() ">
+            <a (click)=" a.onClickContactAdmin() ">
                 {{ a.ln.QNA_TOP_MENU }}
-            </span>
+            </a>
             <a routerLink="/payment" *ngIf="a.isLogin">
                 {{ a.ln.PAYMENT_TOP_MENU }}
             </a>
