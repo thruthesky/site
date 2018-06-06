@@ -6,10 +6,10 @@ import {
 } from '../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
 import { LoaderService } from '../../providers/loader/loader.service';
-import { MatDialog } from '@angular/material';
+// import { MatDialog } from '@angular/material';
 import { HowToGetQRMARKModal } from '../how-to-get-qrmark/how-to-get-qrmark.modal';
 import { HowToGetkakaotalkIDModal } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal';
-import { ModalService } from '../../providers/modal/modal.service';
+import { ModalService, ModalData } from '../../providers/modal/modal.service';
 import { ForumService } from '../../providers/forum.service';
 // import { LanguageService } from '../../providers/language.service';
 
@@ -52,12 +52,12 @@ export class RegisterPage implements OnInit {
     year_now = new Date().getFullYear();
 
     constructor(public a: AppService,
-                // public f: FireService,
-                public loader: LoaderService,
-                // public lang: LanguageService,
-                public dialog: MatDialog,
-                public modal: ModalService,
-                public forum: ForumService
+        // public f: FireService,
+        public loader: LoaderService,
+        // public lang: LanguageService,
+        // public dialog: MatDialog,
+        public modal: ModalService,
+        public forum: ForumService
     ) {
 
         // setTimeout(() => this.test(), 1000);
@@ -67,6 +67,8 @@ export class RegisterPage implements OnInit {
         if (a.user.isLogin) {
             this.loadData();
         }
+
+        // this.onClickKakaoIDHelp();
     }
 
     // test() {
@@ -230,7 +232,7 @@ export class RegisterPage implements OnInit {
             this.updateWordpressBackend();
         } else { // REGISTER
             // console.log('GOING TO REGISTER');
-            if ( ! this.agree ) {
+            if (!this.agree) {
                 this.modal.alert({ content: this.a.ln.YOU_ARE_TO_AGREE });
                 return;
             }
@@ -416,11 +418,46 @@ export class RegisterPage implements OnInit {
     }
 
     onClickKakaoIDHelp() {
-        const dialogRef = this.dialog.open(HowToGetkakaotalkIDModal, {});
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed', result);
-        });
+        let content = '';
+        if (this.a.studentTheme) {
+            content = `
+            <section class="content" *ngIf="a.studentTheme">
+                <div class="kakaotalk-id-find-box">
+                        <img src="assets/img/find-kakaotalk-id.jpg" style="width: 100%;">
+                </div>
+            </section>
+        `;
+        } else {
+            content = `
+            <section class="content">
+                <p>1. Open the Kakaotalk app on your smart phone. *(Login if you didn't login yet)</p>
+                <p>2. In your Kakaotalk app, press the <b>More Option Button</b>. ( 3 dot shown on the image below)</p>
+                <div class="image"><img src="assets/img/kakao/6.jpg"></div>
+                <p>3. Press <b>My Profile</b>. ( Primary Photo with your name shown on the image below )<p>
+                <div class="image"><img src="assets/img/kakao/7.jpg"></div>
+                <p>4. If you have set your Kakaotalk ID before you will see your Kakaotalk ID in the image below.
+                    Or else press the <b>KakaoTalk ID</b> to set your ID.
+                </p>
+                <div class="image"><img src="assets/img/kakao/10.jpg"></div>
+                <p>5. Enter the desired Kakaotalk ID, then press OK. ( Kakaotalk ID is unique to everyone )</p>
+                <div class="image"><img src="assets/img/kakao/11.jpg"></div>
+                <p>6. Good Job! You have properly set your kakaotalk ID.</p>
+            </section>
+            `;
+        }
+        const data: ModalData = {
+            title: this.a.ln['FIND KAKAOTALK ID'],
+            content: content,
+            maxWidth: '600px'
+        };
+        this.modal.alert(data);
+
+        // const dialogRef = this.dialog.open(HowToGetkakaotalkIDModal, {});
+
+        // dialogRef.afterClosed().subscribe(result => {
+        //     console.log('The dialog was closed', result);
+        // });
 
         // this.showFindKakaotalkIDBox = true;
         // setTimeout(() => {
@@ -436,11 +473,11 @@ export class RegisterPage implements OnInit {
     }
 
     showModalFAQ() {
-        const dialogRef = this.dialog.open(HowToGetQRMARKModal, {});
+        // const dialogRef = this.dialog.open(HowToGetQRMARKModal, {});
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed', result);
-        });
+        // dialogRef.afterClosed().subscribe(result => {
+        //     console.log('The dialog was closed', result);
+        // });
     }
 
 
@@ -449,9 +486,9 @@ export class RegisterPage implements OnInit {
      */
     onClickTermsAndConditions() {
         this.forum.getLatestPost('termsandconditions').subscribe(posts => {
-            if ( posts.length ) {
+            if (posts.length) {
                 // posts[0].content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(posts[0].content.rendered);
-                this.modal.alert({content: posts[0].content.rendered});
+                this.modal.alert({ content: posts[0].content.rendered });
             }
         });
     }
