@@ -263,8 +263,7 @@
   "NO_SCHEDULE_TRY_SEARCH": "スケジュールは検索しないでください",
   "NO_MORE_RESERVATIONS": "没有更多的预订",
   "NO_MORE_PASTS": "没有更多的意大利面",
-  "KAKAOTALK": "KakaoTalk",
-  "ADD_FRIEND": "添加好友",
+  
 
   "LEVEL": "水平",
   "YOUR_ENGLISH_LEVEL": "你的英语水平",
@@ -549,7 +548,8 @@
   "TOC_AGREE": "通过注册，我同意",
   "TOC_TITLE": "条款和条件",
   "VIDEO_RESERVE_TITLE": "视频）如何保留",
-  "REDIRECTING": "重定向..."
+  "REDIRECTING": "重定向...",
+  "ADD_KAKAOTALK": "添加好友"
 
 
 }

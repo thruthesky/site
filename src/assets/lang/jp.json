@@ -254,8 +254,7 @@
   "NO_SCHEDULE_TRY_SEARCH": "スケジュールは検索しないでください",
   "NO_MORE_RESERVATIONS": "その他の予約",
   "NO_MORE_PASTS": "もうパスタはない",
-  "KAKAOTALK": "カカオトーク",
-  "ADD_FRIEND": "友人を追加する",
+  
   "LEVEL": "レベル",
   "YOUR_ENGLISH_LEVEL": "あなたの英語レベル",
   "LEVELS_ARE_FROM_1_9": "レベルは1から9までです",
@@ -503,6 +502,7 @@
   "TOC_AGREE": "登録することで、私は同意する",
   "TOC_TITLE": "利用規約",
   "VIDEO_RESERVE_TITLE": "ビデオ）予約方法",
-  "REDIRECTING": "リダイレクト..."
+  "REDIRECTING": "リダイレクト...",
+  "ADD_KAKAOTALK": "友人を追加する "
 
 }

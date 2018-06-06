@@ -57,10 +57,12 @@ export class ScheduleTableProfileComponent {
 
 
     openModalPromo() {
-        this.forum.getPostBySlug('withcenter-teacher-75000-promo', this.a.language.getLanguage()).subscribe(posts => {
+        this.forum.getPostBySlug('withcenter-teacher-75000-promo', this.a.language.getLanguage()).subscribe((posts: any) => {
             console.log('posts', posts);
-            if (posts) {
+            if ( posts && posts.length) {
                 this.modal.alert({ content: posts[0].content.rendered });
+            } else {
+                this.modal.alert({ content: 'Ooh! No information about this promo. Please inform this to Admin immediately.' });
             }
         });
     }

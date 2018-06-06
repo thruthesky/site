@@ -269,8 +269,6 @@
   "NO_SCHEDULE_TRY_SEARCH": "일정 없음 검색 시도",
   "NO_MORE_RESERVATIONS": "예약된 수업이 없습니다.",
   "NO_MORE_PASTS": "더 이상 파스타",
-  "KAKAOTALK": "카카오 톡",
-  "ADD_FRIEND": "친구 추가",
 
   "LEVEL": "수평",
   "YOUR_ENGLISH_LEVEL": "회원님의 영어 레벨",
@@ -289,7 +287,7 @@
   "UPDATE_PROFILE_BUTTON": "프로필 업데이트",
 
   "LEVELTEST_PAGE_TITLE": "레벨 테스트",
-  "SELECT_TEACHER_TO_RESERVE": "예약 교사 선택",
+  "SELECT_TEACHER_TO_RESERVE": "선생님 목록",
   "TEACHER_LIST_OPTIONS": "교사 목록 옵션",
   "FEMALE": "여자",
   "MALE": "남성",
@@ -555,5 +553,6 @@
   "TOC_AGREE": "이용약관에 동의합니다.",
   "TOC_TITLE": "이용약관 보기",
   "VIDEO_RESERVE_TITLE": "수업 예약 동영상 설명",
-  "REDIRECTING": "이동중입니다."
+  "REDIRECTING": "이동중입니다.",
+  "ADD_KAKAOTALK": "카톡추가"
 }

@@ -326,8 +326,7 @@
   "NO_SCHEDULE_TRY_SEARCH": "No Schedule Try Search",
   "NO_MORE_RESERVATIONS": "NO MORE RESERVATIONS",
   "NO_MORE_PASTS": "NO MORE PASTS",
-  "KAKAOTALK": "KakaoTalk",
-  "ADD_FRIEND": "Add Friend",
+  
 
   "LEVEL": "Level",
   "YOUR_ENGLISH_LEVEL": "Your English Level",
@@ -586,5 +585,6 @@
   "VIDEO_RESERVE_TITLE": "Video) How to reserve",
   "REDIRECTING": "Redirecting...",
 
-  "KAKAOTALK_ID_IMPORTANT": "Please double check your Kakaotalk ID. There are many unsuccessful lessons due to wrong Kakaotalk ID."
+  "KAKAOTALK_ID_IMPORTANT": "Please double check your Kakaotalk ID. There are many unsuccessful lessons due to wrong Kakaotalk ID.",
+  "ADD_KAKAOTALK": "Add Friend"
 }
