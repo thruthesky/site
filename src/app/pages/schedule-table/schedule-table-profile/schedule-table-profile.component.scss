@@ -35,9 +35,10 @@
 
 .buttons{
     height: 100%;
+    margin-top: 1em;
 
-    @media screen and (max-width:768px) {
-        margin-top: 1em;
+    @media screen and (min-width:$md) {
+        margin-top:0;
     }
 
     div{
@@ -63,9 +64,9 @@
             svg{
                 height: 1.3em;
                 width: auto;
-                margin-left: .6em;
-                @media screen and (max-width:768px) {
-                    margin-left: .4em;
+                margin-left: .4em;
+                @media screen and (min-width:$md) {
+                    margin-left: .6em;
                 }
             }
         }
@@ -76,22 +77,24 @@
         button{
             background: #ff8c00
         }
-
-        @media screen and (max-width:768px) {
-            padding-right: .5em;
+        padding-right: .5em;
+        @media screen and (min-width:$md) {
+            padding: 0;
         }
     }
 
     .review-button{
-        @media screen and (max-width:768px) {
-            padding: 0 .5em;
+        padding: 0 .5em;
+        @media screen and (min-width:$md) {
+            padding: 0;
         }
 
     }
 
     .resume-button{
-        @media screen and (max-width:768px) {
-            padding-left:.5em;
+        padding-left:.5em;
+        @media screen and (min-width:$md) {
+            padding: 0;
         }
     }
 }
@@ -130,18 +133,19 @@
     
     .profile-row{
         justify-content: space-between;
-        padding: 1em;
-        @media screen and (max-width:768px) {
-            padding: 1em .1em;
+        padding: 1em .1em;
+
+        @media screen and (min-width:$md) {
+            padding: 1em;
         }
     }
 }
 
 .teacher-intro{
     text-align: justify;
-
-    @media screen and (max-width:768px) {
-        display: none;
+    display: none;
+    @media screen and (min-width:$md) {
+        display: block;
     }
 
     span{
