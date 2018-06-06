@@ -12,6 +12,17 @@ main{
             padding-left: .5em;
         }   
     }
+    .video-tutorial-reserve{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 350px;
+        width: 450px;
+
+        img{
+            width: 100%;
+        }
+    }
     #student-comments {
         h2 {
             margin-top: 1em;

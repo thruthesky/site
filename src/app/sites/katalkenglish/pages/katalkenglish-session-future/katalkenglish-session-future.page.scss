@@ -1,15 +1,19 @@
+@import '../../../../../theme/vars.scss';
 header{
     h1{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: .85em;
+        @media screen and (min-width:$md){
+            font-size:1.11em;
+        }
     }
-
 
     .option{
         display: flex;
         align-items: center;
-        font-size: .8rem;
+        font-size: 90%;
         .options-icon{
             height: 1em;
             margin-left:.5em;
