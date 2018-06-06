@@ -1,8 +1,8 @@
-<header>
-    <h1>{{ "PAYMENT SETTING" | t }}</h1>
-    <div>Please Choose a Payment Method and Fill Out the Appropriate Information</div>
-</header>
 <main>
+    <header class="global-header">
+        <h1>{{ "PAYMENT SETTING" | t }}</h1>
+        <p>Please Choose a Payment Method and Fill Out the Appropriate Information</p>
+    </header>       
     <h2>Payment Method</h2>
     <div class="payment-method"   *ngIf=" ! loading ">
         <label>

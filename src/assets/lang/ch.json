@@ -545,7 +545,11 @@
   "WITHCENTER_TEACHER_DESC_2": "您可以与这位老师保留固定的时间表而无需取消。 每天25分钟，1个月。 75,000韩元。",
   "WITHCENTER_TEACHER_RESERVE_REMINDER": "请注意，这位老师经常取消预约。",
 
-  "KAKAOTALK_ID_IMPORTANT": "请仔细检查您的Kakaotalk ID。 由于Kakaotalk ID错误，导致许多失败的教训。"
+  "KAKAOTALK_ID_IMPORTANT": "请仔细检查您的Kakaotalk ID。 由于Kakaotalk ID错误，导致许多失败的教训。",
+  "TOC_AGREE": "通过注册，我同意",
+  "TOC_TITLE": "条款和条件",
+  "VIDEO_RESERVE_TITLE": "视频）如何保留",
+  "REDIRECTING": "重定向..."
 
 
 }

@@ -499,6 +499,10 @@
   "WITHCENTER_TEACHER_DESC_2": "キャンセルしないでこの教師と固定スケジュールを予約することができます。 1日25分1日。 75,000ウォン",
   "WITHCENTER_TEACHER_RESERVE_REMINDER": "この先生はしばしば予約をキャンセルすることを覚えておいてください。",
 
-  "KAKAOTALK_ID_IMPORTANT": "カカオトークIDをもう一度確認してください。 間違ったカカオトークIDのために多くの失敗したレッスンがあります。"
+  "KAKAOTALK_ID_IMPORTANT": "カカオトークIDをもう一度確認してください。 間違ったカカオトークIDのために多くの失敗したレッスンがあります。",
+  "TOC_AGREE": "登録することで、私は同意する",
+  "TOC_TITLE": "利用規約",
+  "VIDEO_RESERVE_TITLE": "ビデオ）予約方法",
+  "REDIRECTING": "リダイレクト..."
 
 }

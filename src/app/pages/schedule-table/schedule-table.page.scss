@@ -94,6 +94,14 @@ main {
     /**
  * Icon colors
  */
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        height: 100%;
+    }
+
     [icon-name="lock"] {
         color: #ccc;
     }
@@ -116,6 +124,9 @@ main {
     }
     [icon-name="heart"] {
         color: #d00 !important;
+        cursor: pointer;
+    }
+    .pointer-on{
         cursor: pointer;
     }
 }
