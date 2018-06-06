@@ -8,6 +8,7 @@ export interface ModalData {
     title?: string;
     content: string;
     ok?: string;
+    maxWidth?: string;
 }
 
 @Injectable()
@@ -34,9 +35,13 @@ export class ModalService {
         if (data.content) {
             data.content = <any>this.sanitizer.bypassSecurityTrustHtml(data.content);
         }
+        let maxWidth = '800px';
+        if ( data.maxWidth ) {
+            maxWidth = data.maxWidth;
+        }
         this.dialogRef = this.dialog.open(DialogComponent, {
             disableClose: true,
-            maxWidth: '800px',
+            maxWidth: maxWidth,
             data: data
         });
 

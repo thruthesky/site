@@ -345,3 +345,8 @@ env['reloadTag'] = (new Date).getTime();
     Then, the user will see 'mobile view' of 'schedule table' since it is cached.
     This is a very rare case. and we just ignore this.
     If the user visits another teacher's schedule table, it may look okay as in 'desktop view'.
+
+
+## Known Problems
+
+* For student registration page, 'Finding Kakaotalk ID' image is not translated and will not be translated.
