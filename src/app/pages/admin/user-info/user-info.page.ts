@@ -140,6 +140,7 @@ export class UserInfoPage implements OnInit {
             phone_number: u.phone_number,
             kakaotalk_id: u.kakaotalk_id,
             grade: u.grade,
+            user_group: u.user_group,
             list_order: u.list_order,
             bookable_time: u.bookable_time,
             block_free_class_until: u.block_free_class_until,

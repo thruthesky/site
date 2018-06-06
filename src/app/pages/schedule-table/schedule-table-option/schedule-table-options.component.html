@@ -96,7 +96,7 @@
     <div class="weekends" *ngIf=" chip.show == 'weekends' ">
         <mat-form-field>
             <mat-label>{{'WEEKEND' | t }}</mat-label>
-            <mat-select name="weekend" [(ngModel)]="form.display_weekends" (selectionChange)="onSearchSubmit()">
+            <mat-select name="weekend" [(ngModel)]="form.display_weekends" (selectionChange)="onSearchSubmit(true)">
                 <mat-option value="499">{{'DISPLAY' | t }}</mat-option>
                 <mat-option value="999">{{'HIDE' | t }}</mat-option>
             </mat-select>
@@ -106,7 +106,7 @@
     <div class="days" *ngIf=" chip.show == 'days' ">
         <mat-form-field>
             <mat-label>{{ 'NO_OF_DAYS' |t}}</mat-label>
-            <mat-select name="days" [(ngModel)]="form.days" (selectionChange)="onSearchSubmit()">
+            <mat-select name="days" [(ngModel)]="form.days" (selectionChange)="onSearchSubmit(true)">
                 <mat-option value="5">5</mat-option>
                 <mat-option value="6">6</mat-option>
                 <mat-option value="7">7</mat-option>

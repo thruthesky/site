@@ -147,11 +147,19 @@
 
 
                         <tr>
+                            <td>Teacher Group</td>
+                            <td>
+                                <input type='text' name='user_group' [(ngModel)]=" user.user_group ">
+                            </td>
+                        </tr>
+                        
+                        <tr>
                             <td>Teacher Grade</td>
                             <td>
                                 <input type='text' name='grade' [(ngModel)]=" user.grade ">
                             </td>
                         </tr>
+                        
                         <tr>
                             <td>List Order</td>
                             <td>
@@ -208,7 +216,6 @@
                 </form>
             </td>
             <td>
-
                 <ul class="sessions-desc">
                     <li>
                         Date and time is based on user timezone setting.

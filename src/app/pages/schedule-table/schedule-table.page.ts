@@ -34,7 +34,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         point: '0',
         min_point: 0,
         max_point: MAX_POINT,
-        days: 6,
+        days: 7,
         display_weekends: 'Y',
         navigate: 'today',
         useCache: true          /// ** Only first schedule table list will be cached.
@@ -144,6 +144,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         this.re = null;
         this.show.schedule_loader = true;
         this.a.loadSchedule(options, re => {
+            console.log('a.loadSChedule: re: ', re);
             this.show.schedule_loader = false;
             /**
              * If there are schedules.
@@ -353,6 +354,15 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         return this.a.preTeacherName(name, 7, '...');
     }
 
+    teacher_group(session): string {
+        const teacher = this.teacher(session);
+        if (teacher) {
+            return teacher.user_group;
+        } else {
+            return this.re.teacher.user_group;
+        }
+    }
+
 
     onClickSession(session: SESSION) {
 
@@ -398,6 +408,9 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
             this.a.updateUserPoint();
             this.a.onLmsReserve(this.teacher_name([session]));
+            if ( this.teacher_group(session) === 'withcenter' ) {
+                this.a.toast( this.a.ln.WITHCENTER_TEACHER_RESERVE_REMINDER );
+            }
         }, e => {
             session['in_progress'] = false;
             this.a.toast(e);
