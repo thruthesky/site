@@ -6,21 +6,21 @@
                 <img class="resized" src="../../../assets/img/menu-icon.png" alt="">
             </a>
             <a routerLink="/">
-                <img class="resized" src="../../../assets/logo/katalk-english.png" alt="">
+                <img class="resized"  src="../../../assets/logo/katalk-english.png" alt="">
             </a>
-            <a routerLink="/login" *ngIf="a.isLogout">
+            <a routerLink="/login" *ngIf="a.isLogout" [class.adjusted]="selectedLanguage=='ko'">
                 {{ a.ln.LOGIN }}
             </a>
-            <a routerLink="/register" *ngIf="a.isLogout">
+            <a routerLink="/register" *ngIf="a.isLogout" [class.adjusted]="selectedLanguage=='ko'">
                 {{ a.ln.REGISTER }}
             </a>
-            <a (click)=" a.onClickContactAdmin() ">
+            <a (click)=" a.onClickContactAdmin() " [class.adjusted]="selectedLanguage=='ko'">
                 {{ a.ln.QNA_TOP_MENU }}
             </a>
-            <a routerLink="/payment" *ngIf="a.isLogin" >
+            <a routerLink="/payment" *ngIf="a.isLogin"  [class.adjusted]="selectedLanguage=='ko'">
                 {{ a.ln.PAYMENT_TOP_MENU }}
             </a>
-            <div class="flags"  [class.adjusted]="selectedLanguage=='ko'">
+            <div class="flags" >
                 <img class="custom-icon" *ngIf="selectedLanguage=='en'" src="../../../assets/img/language-flags/en.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='ko'" src="../../../assets/img/language-flags/ko.png" alt="">
                 <img class="custom-icon" *ngIf="selectedLanguage=='ch'" src="../../../assets/img/language-flags/ch.png" alt="">
