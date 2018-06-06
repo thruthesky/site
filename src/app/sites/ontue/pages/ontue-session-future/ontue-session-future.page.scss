@@ -1,21 +1,6 @@
-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 0;
-  background-color: #2196f3;
-  color: #fff;
-  font-size: 1em;
-  font-weight: bold;
-  text-transform: uppercase;
 
-  h1{
-    margin: 0 2em;
-    font-weight: 500;
-  }
-
-}
 
 main{
+  min-height: 540px;
   padding-bottom: 5em;
 }

@@ -1,22 +1,13 @@
 @import './../../../../../theme/vars';
-  
-header{
-  h1{
-    margin: 0;
-    padding: 1em;
-    background: #fff;
-  }
-
-  div{
-    padding: .8em 1em;
-    background: #e2e2e2;
-    font-size: 90%;
-  }
-}
 
 main{
   padding: 2em 0;
+  padding-top: 0;
   background: white;
+
+  header{
+      margin-bottom: 2em;
+  }
     .input-info{
       width: 80%;
       margin: 2em auto;

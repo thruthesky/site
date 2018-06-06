@@ -1,16 +1,12 @@
 @import '../../../../../theme/vars.scss';
-header{
-    h1{
-        margin: 0;
-        padding: 1em;
-        background-color: #ececec;
-    }
-}
-
 
 main{
+    header{
+        margin-bottom: 3em;
+    }
     min-height: 540px;
     padding: 3em 0;
+    padding-top: 0;
     background:#fff;
 
     .loader{

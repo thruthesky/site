@@ -117,10 +117,14 @@
                 </div>
                 <!--/stats-wrapper-->
 
-                <div class="video-tutorial-reserve">
-                    <img (click)=" showVideoTutorialReserve = true " *ngIf=" ! showVideoTutorialReserve " src="/assets/img/video-tutorials/test-1.jpg">
-                    <img src="/assets/img/video-tutorials/video-reserve.gif" *ngIf=" showVideoTutorialReserve ">
-                </div>
+
+                <div class="video-help">
+                    <h2>{{ a.ln.VIDEO_RESERVE_TITLE }}</h2>
+                    <div class="video">
+                       <img (click)=" showVideoTutorialReserve = true " *ngIf=" ! showVideoTutorialReserve " src="/assets/video/student-reserve-thumbnail.jpg">
+                        <img src="/assets/video/student-reserve.gif" *ngIf=" showVideoTutorialReserve ">        
+                    </div>
+            </div>
             </div>
             <!--/left-->
             <div class="right col-12 col-sm-6">
