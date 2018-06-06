@@ -1,3 +1,4 @@
+@import '../../../../theme/vars';
 .teacher-profile-photo {
     display: flex;
     align-items: center;
@@ -198,5 +199,17 @@
 
 
 .withcenter-teachers {
-    font-size: .85rem;
+    padding: .5em;
+    padding-right: 0;
+    &>div{
+        margin: .5em;
+    }
+    @media screen and (min-width:$md){
+        font-size: .85rem;
+        padding: .6em 1.8em;   
+    }
+    border: 1px solid darkorange;
+    background: rgba(darkorange,0.1);
+    font-size: .75rem;
+    color: darkorange;
 }
