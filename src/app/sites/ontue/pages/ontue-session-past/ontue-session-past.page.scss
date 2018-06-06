@@ -1,35 +1,27 @@
 @import '../../../../../theme/vars.scss';
 header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #795548;
-  color: #fff;
-  font-size: .7em;
-  font-weight: 200;
-  text-transform: uppercase;
-
+  font-size: .8em;
   @media screen and (min-width:$md) {
-      font-size: 1em;
+    font-size: inherit;
   }
-
   h1{
-    margin: 0 2em;
-    font-weight: 500;
-  }
-  .option{
+    margin: 0;
     display: flex;
-    padding: 1.5em;
-    font-weight: 200;
-    cursor: pointer;
-    font-size: 80%;
-
-
-    .options-icon{
-        height: 1em;
-        margin-left:.5em;
-    }
-
+    justify-content: space-between;
+    align-items: center;
+    .option{
+      display: flex;
+      height: 100%;
+      font-weight: 200;
+      font-size: 80%;
+      cursor: pointer;
+  
+  
+      .options-icon{
+          height: 1em;
+          margin-left:.5em;
+      }
+  }
 }
 
 
