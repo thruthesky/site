@@ -241,10 +241,10 @@
             <div class="data row" *ngFor="let book of books; let i = index; let o = odd; let e = even">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <section class="teacher-photo">
-                        <div class="photo"
-                             (click)=" a.open('schedule-table', { ID: book.idx_teacher })">
+                        <a class="photo"
+                             routerLink="/schedule-table" [queryParams]="{ idx_teacher: book.idx_teacher }">
                             <img src="{{ photoURL( book )  }}">
-                        </div>
+                        </a>
                         <div class="photo-name" *ngIf="displayTeacherName">
                             {{ a.preTeacherName(my_teachers[book.idx_teacher].name) }}
                         </div>

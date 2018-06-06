@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { SessionRefundReviewPage } from './session-refund-review.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
+import { ConfirmModalModule } from '../../components/modal/confirm/confirm.modal.module';
 
 
 
@@ -17,7 +18,8 @@ const routes: Routes = [
         FormsModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
-        MaterialModule
+        MaterialModule,
+        ConfirmModalModule
     ],
     exports: [
         RouterModule

@@ -59,7 +59,7 @@ export class ScheduleTableProfileComponent {
     openModalPromo() {
         this.forum.getPostBySlug('withcenter-teacher-75000-promo', this.a.language.getLanguage()).subscribe(posts => {
             console.log('posts', posts);
-            if (posts) {
+            if (posts && posts.length) {
                 this.modal.alert({ content: posts[0].content.rendered });
             }
         });

@@ -432,7 +432,7 @@
     }
   ],
   "INTERNET_STATUS": ["", "불쾌한", "표준", "좋은"],
-  "CAMERA_STATUS": ["아니", "예"],
+  "CAMERA_STATUS": {"N":"아니", "Y":"예"},
   "READY": "준비된",
   "REQUEST_REFUND": "환불 요청",
   "CANCEL_REFUND_REQUEST": "환불 요청 취소",
