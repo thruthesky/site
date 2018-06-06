@@ -19,7 +19,7 @@
         <a class="app-button" routerLink="/settings">{{ a.ln.UPDATE }}</a>
     </div>
 </div>
-<div class="search-chip-options" *ngIf="chip.show">
+<div class="search-contents" *ngIf="chip.show">
     <div class="hours" *ngIf="chip.show == 'hours'">
 
         <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">{{ 'MORNING' | t }}</div>

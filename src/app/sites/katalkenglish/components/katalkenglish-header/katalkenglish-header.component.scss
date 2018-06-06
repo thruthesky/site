@@ -27,14 +27,14 @@
         }
 
         .adjusted{
-            margin-bottom: .15em;
+            margin-bottom: .222em;
         }
     }
     .flags {
         display: flex;
         align-items: center;
         position: relative; // border: 1px solid rgb(202, 202, 202);
-        width: 34px;
+        width: 46px;
         height: 100%;
         overflow: hidden;
         .ko-flag {
@@ -48,7 +48,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 36px;
+            width: 46px;
             height: 100%;
             cursor: pointer;
             opacity: .001;

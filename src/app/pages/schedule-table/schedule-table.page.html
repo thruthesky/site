@@ -68,7 +68,10 @@
             </div>
             <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] " [attr.open]=" session[ N.open ] "
                 [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
-                <div class="info">
+                <div class="info" 
+                    [class.pointer-on]="icon(session)=='radio-button-off'||
+                                        session[ N.owner ]=='me'||
+                                        icon(session)=='heart'">
                     <div class="progress-spinner" *ngIf=" session.in_progress ">
                         <mat-spinner [diameter]="20"></mat-spinner>
                     </div>
