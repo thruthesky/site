@@ -16,11 +16,23 @@ main{
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 350px;
-        width: 450px;
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        margin-top: 1em;
+        padding:1em;
+        border: 1px solid rgba(125,125,125,0.1);
+        background: #fff;
 
         img{
             width: 100%;
+        }
+
+        div{
+            margin: .5em;
+            margin-bottom: .8em;
+            font-weight: bold;
+            color: gray;
         }
     }
     #student-comments {
