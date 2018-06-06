@@ -34,7 +34,7 @@
   "PHONE_NUMBER": "전화번호",
   "KAKAOTALK_ID_SHORT": "카카오톡 아이디",
   "FIND KAKAOTALK ID": "카카오톡 아이디 찾기",
-  "KAKAOTALK_ID_IMPORTANT": "중요: 카카오톡 아이디를 잘못입력하여 선생님이 학생에게 연결하지 못하는 경우가 많습니다. 꼭 카톡 아이디를 확인해 주세요.",
+  "KAKAOTALK_ID_IMPORTANT": "카카오톡 아이디를 잘못입력하여 수업이 안되는 경우가 많습니다. 꼭 카톡 아이디를 확인해 주세요.",
   "IN_REGISTERING": "회원가입",
   "IN_REGISTERING_DESCRIPTION": "회원 가입 중입니다. 잠시만 기다려주세요.",
   "INSTALL": "설치하다",
@@ -551,5 +551,9 @@
 
   "WITHCENTER_TEACHER_DESC_1": "이 강사는 학생의 수업 예약을 자주 취소하므로 미리 알고 계셔야합니다.",
   "WITHCENTER_TEACHER_DESC_2": "이 강사와 수업 취소가 없는 한달 고정 수업을 할 수 있습니다. 매일 25분 한달 7만5천원.",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "이 강사는 학생의 예약된 수업을 자주 취소하니 유의 해 주세요."
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "이 강사는 학생의 예약된 수업을 자주 취소하니 유의 해 주세요.",
+  "TOC_AGREE": "이용약관에 동의합니다.",
+  "TOC_TITLE": "이용약관 보기",
+  "VIDEO_RESERVE_TITLE": "수업 예약 동영상 설명",
+  "REDIRECTING": "이동중입니다."
 }

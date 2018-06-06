@@ -12,33 +12,24 @@ main{
             padding-left: .5em;
         }   
     }
-    .video-tutorial-reserve{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: auto;
-        width: 100%;
-        margin-top: 1em;
-        padding:1em;
-        border-top: 1px solid rgba(125,125,125,0.1);
-        border-bottom: 1px solid rgba(125,125,125,0.1);
-        @media screen and (min-width:$md){
-            border: 1px solid rgba(125,125,125,0.1);
+    .video-help {
+        margin: 1em;
+        @media (min-width: $md) {
+            margin: 1em 0;
         }
-
-        background: #fff;
+        h2 {
+            margin: 0;
+            padding: .6em 0 .5em 0;
+            font-weight: 100;
+            font-size: 1.2em;
+        }
         cursor: pointer;
-
-        img{
-            width: 100%;
-        }
-
-        div{
-            margin: .5em;
-            margin-bottom: .8em;
-            font-weight: bold;
-            color: gray;
+        .video {
+            padding: 1em;
+            border: 1px solid #ccc;
+            img{
+                width: 100%;
+            }
         }
     }
     #student-comments {

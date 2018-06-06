@@ -1,13 +1,12 @@
 <main>
     <header>
-        <h2>{{ 'WELCOME_TITLE' | t:{name: a.user.name} }}</h2>
+        <h1>{{ 'WELCOME_TITLE' | t:{name: a.user.name} }}</h1>
     </header>
-    <div (click)=" a.open('teacher-list') ">
-        <img class="icon" src="assets/img/student-adv/4.png">
-
-        <div class="message">{{ 'WELCOME_MESSAGE' | t }}</div>
-
-        <div class="try">{{ 'WELCOME_TRY' | t }}</div>
-
-    </div>
+    <section class="content">
+        <div (click)=" a.open('teacher-list') ">
+            <img class="icon" src="assets/img/student-adv/4.png">
+            <div class="message">{{ 'WELCOME_MESSAGE' | t }}</div>
+            <div class="try">{{ 'WELCOME_TRY' | t }}</div>
+        </div>
+    </section>
 </main>

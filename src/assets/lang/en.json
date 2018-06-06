@@ -117,10 +117,10 @@
   "POLICY": "Policies",
   "TERMS_AND_CONDITIONS": "Terms and Condition",
   "SESSION_FUTURE": "Reservations",
-  "SESSION_PAST": "Past Classes",
+  "SESSION_PAST": "Pasts",
   "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered.",
   "HELP PAGE TITLE": "If you are new to Katok English, please read the contents of this page.",
-  "TEACHING_MATERIALS": "Curriculum",
+  "TEACHING_MATERIALS": "Curriculums",
   "ALL_SCHEDULE_TABLE": "All Schedule",
   "PAYMENT_LONG_TEXT": "Payment",
   "PAYMENT_TOP_MENU": "Payment",
@@ -580,6 +580,11 @@
 "YOU_ARE_TO_AGREE": "Please, click the Agree button of Terms and Conditions to sign up.",
   "WITHCENTER_TEACHER_DESC_1": "Please be reminded that this teacher often cancels her reservations.",
   "WITHCENTER_TEACHER_DESC_2": "You can reserve fixed schedules with this teacher without cancellation. 25 minutes a day for 1 month. 75,000 KRW.",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher often cancels reservation."
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher often cancels reservation.",
+  "TOC_AGREE": "By registering, I agree to",
+  "TOC_TITLE": "the Terms and Conditions.",
+  "VIDEO_RESERVE_TITLE": "Video) How to reserve",
+  "REDIRECTING": "Redirecting...",
 
+  "KAKAOTALK_ID_IMPORTANT": "Please double check your Kakaotalk ID. There are many unsuccessful lessons due to wrong Kakaotalk ID."
 }
