@@ -93,48 +93,69 @@
         Teacher must see this page in wide screen since the content in this page is wide.
     </div>
 
-    <div class="stats container-fluid" *ngIf=" re && books.length ">
-        <div class="row">
-            <div class="col-md-4">{{ 'SEARCHED_SESSIONS' | t }}</div>
-            <div class="col-md-8">
-                <span>{{ books.length }} ( {{ 'TOTAL' | t }} : {{ re.total_sessions }} )</span>
-            </div>
+    <div class="mobile-stats-table" *ngIf=" re && books.length ">
+        <div>
+            <div>{{ 'SEARCHED_SESSIONS' | t }}</div>
+            <div>{{ books.length }} ( {{ 'TOTAL' | t }} : {{ re.total_sessions }} )</div>
         </div>
-        <div class="row"  *ngIf=" a.isTeacher ">
-            <div class="col-md-4">{{ 'SEARCHED_POINT' | t }}</div>
-            <div class="col-md-8">
-                <span>{{ re.total_points | number }}</span>
-            </div>
+        <div  *ngIf=" a.isTeacher ">
+            <div>{{ 'SEARCHED_POINT' | t }}</div>
+            <div>{{ re.total_points | number }}</div>
         </div>
-        <div class="row" *ngIf=" past ">
-            <div class="col-md-4">{{ 'REFUNDED_SESSIONS' | t}}</div>
-            <div class="col-md-8">
-                <span>{{re.total_session_refunded}}</span>
-            </div>
+        <div *ngIf=" past ">
+            <div>{{ 'REFUNDED_SESSIONS' | t}}</div>
+            <div>{{re.total_session_refunded}}</div>
         </div>
-        <div class="row"  *ngIf=" re.total_session_refund_in_progress ">
-            <div class="col-md-4">{{ 'SESSIONS_IN_REFUND_PROGRESS' | t}}</div>
-            <div class="col-md-8">
-                <span> {{re.total_session_refund_in_progress}}</span>
-            </div>
+        <div *ngIf=" re.total_session_refund_in_progress ">
+            <div>{{ 'SESSIONS_IN_REFUND_PROGRESS' | t}}</div>
+            <div>{{re.total_session_refund_in_progress}}</div>
         </div>
-        <div class="row">
-            <div class="col-md-4">{{ 'SEARCH_PERIOD' | t}}</div>
-            <div class="col-md-8">
-                <span> {{ date_begin }} ~  {{ date_end }} </span>
-            </div>
+        <div>
+            <div>{{ 'SEARCH_PERIOD' | t}}</div>
+            <div>{{ date_begin }} ~  {{ date_end }}</div>
         </div>
-        <div class="row" *ngIf="a.userTime" routerLink="/settings">
-            <div class="col-md-4">{{ 'TIMEZONE NOW' | t}}</div>
-            <div class="col-md-4">
-                <span> {{ a.userTime }}</span>
+        <div *ngIf="a.userTime" routerLink="/settings">
+            <div>{{ 'TIMEZONE NOW' | t}}</div>
+            <div> 
+                <span>{{ a.userTime }}</span>
+                <span class="change-timezone">{{ 'CHANGE TIMEZONE' | t }}</span>
             </div>
-            <div class="change-timezone col-md-4">
-                 <span> {{ 'CHANGE TIMEZONE' | t }}</span>
-            </div>
+ 
         </div>
 
     </div>
+    <div  class="desktop-stats-table" *ngIf=" re && books.length ">
+            <table>
+                <tr>
+                    <td>{{ 'SEARCHED_SESSIONS' | t }}</td>
+                    <td>{{ books.length }} ( {{ 'TOTAL' | t }} : {{ re.total_sessions }} )</td>
+                </tr>
+                <tr *ngIf=" a.isTeacher ">
+                    <td>{{ 'SEARCHED_POINT' | t }}</td>
+                    <td>{{ re.total_points | number }}</td>
+                </tr>
+                <tr *ngIf=" past ">
+                    <td>{{ 'REFUNDED_SESSIONS' | t}}</td>
+                    <td>{{re.total_session_refunded}}</td>
+                </tr>
+                <tr *ngIf=" re.total_session_refund_in_progress ">
+                    <td>{{ 'SESSIONS_IN_REFUND_PROGRESS' | t}}</td>
+                    <td>{{re.total_session_refund_in_progress}}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'SEARCH_PERIOD' | t}}</td>
+                    <td>{{ date_begin }} ~  {{ date_end }}</td>
+                </tr>
+                <tr  *ngIf="a.userTime" routerLink="/settings">
+                    <td>{{ 'TIMEZONE NOW' | t}}</td>
+                    <td>
+                        {{ a.userTime }}
+                        <span class="change-timezone"> {{ 'CHANGE TIMEZONE' | t }}</span>
+                    </td>
+                </tr>
+            </table>
+    </div>
+
 
     <div class="no-more" *ngIf=" re && books.length == 0 ">
         <ng-container *ngIf=" future ">{{ 'NO_MORE_RESERVATIONS' | t}}</ng-container>
