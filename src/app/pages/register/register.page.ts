@@ -1,17 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { FireService, USER } from './../../modules/firelibrary/core';
 import { AppService } from '../../providers/app.service';
 import {
-    USER_REGISTER, USER_REGISTER_RESPONSE, USER_DATA_RESPONSE, FILES, USER_UPDATE, USER_UPDATE_RESPONSE, FILE
+    USER_REGISTER, USER_DATA_RESPONSE, FILES, USER_UPDATE, USER_UPDATE_RESPONSE, FILE
 } from '../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
 import { LoaderService } from '../../providers/loader/loader.service';
-// import { MatDialog } from '@angular/material';
-import { HowToGetQRMARKModal } from '../how-to-get-qrmark/how-to-get-qrmark.modal';
-import { HowToGetkakaotalkIDModal } from '../how-to-get-kakaotalk-id/how-to-get-kakaotalk-id.modal';
 import { ModalService, ModalData } from '../../providers/modal/modal.service';
 import { ForumService } from '../../providers/forum.service';
-// import { LanguageService } from '../../providers/language.service';
 
 @Component({
     selector: 'app-component-register',
@@ -452,32 +447,30 @@ export class RegisterPage implements OnInit {
             maxWidth: '600px'
         };
         this.modal.alert(data);
-
-        // const dialogRef = this.dialog.open(HowToGetkakaotalkIDModal, {});
-
-        // dialogRef.afterClosed().subscribe(result => {
-        //     console.log('The dialog was closed', result);
-        // });
-
-        // this.showFindKakaotalkIDBox = true;
-        // setTimeout(() => {
-        //             document.querySelector('.kakaotalk-id-find-box').scrollIntoView();
-        // }, 200);
-        // if (this.a.isTeacher) {
-        //     this.showModalFAQ('kakaoID');
-        // } else {
-        //     this.showFindKakaotalkIDBox = true;
-        //
-        //     this.a.toast('프로필 관리 메뉴에서 카카오톡 아이디를 찾을 수 있습니다.');
-        // }
     }
 
     showModalFAQ() {
-        // const dialogRef = this.dialog.open(HowToGetQRMARKModal, {});
-
-        // dialogRef.afterClosed().subscribe(result => {
-        //     console.log('The dialog was closed', result);
-        // });
+        console.log(QRMARKHTML);
+        const content = `
+            <section class="content">
+                <p>1. Open the Kakaotalk app on your smart
+                    phone. *(Login if you didn't login yet) </p>
+                <p>2. In your Kakaotalk app, press the <b>More
+                    Option Button</b>. (3 dot shown on the image below)</p>
+                <div class="image"><img src="assets/img/kakao/6.jpg"></div>
+                <p>3. Press My <b>Profile</b>. (Primary Photo
+                    with your name shown on the image below)</p>
+                <div class="image"><img src="assets/img/kakao/7.jpg"></div>
+                <p>4. Press the <b>QR Code Button</b>.</p>
+                <div class="image"><img src="assets/img/kakao/8.jpg"></div>
+                <p>5. Press the <b>Download Button</b> to get a
+                    copy of your QR Code. (Check your gallery or Download folder)</p>
+                <div class="image"><img src="assets/img/kakao/9.jpg"></div>
+                <p>6. Hurray! You have a copy of your QR Code,
+                    you can update your Curriculum Vitae by uploading this image.</p>
+            </section>
+        `
+        this.modal.alert({ content: QRMARKHTML });
     }
 
 

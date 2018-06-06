@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { AppService } from '../../../providers/app.service';
 import { SCHEDULE_TABLE } from '../../../modules/xapi/interfaces';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ForumService } from '../../../providers/forum.service';
+import { ModalService } from '../../../providers/modal/modal.service';
 
 @Component({
     selector: 'schedule-table-profile-component',
@@ -22,7 +24,9 @@ export class ScheduleTableProfileComponent {
 
     constructor(
         public domSanitizer: DomSanitizer,
-        public readonly a: AppService
+        public readonly a: AppService,
+        public forum: ForumService,
+        public modal: ModalService,
     ) {
         //
     }
@@ -49,6 +53,16 @@ export class ScheduleTableProfileComponent {
         //   this.urlYoutube = this.domSanitizer.bypassSecurityTrustResourceUrl(this.a.getYoutubeUrl(ID));
         // }
 
+    }
+
+
+    openModalPromo() {
+        this.forum.getPostBySlug('withcenter-teacher-75000-promo', this.a.language.getLanguage()).subscribe(posts => {
+            console.log('posts', posts);
+            if (posts) {
+                this.modal.alert({ content: posts[0].content.rendered });
+            }
+        });
     }
 
 

@@ -55,8 +55,11 @@ export class ForumService {
     getLatestPost(slug) {
         return this.loadPosts({slug: slug, per_page: 1, page: 1});
     }
+
     getPostBySlug(slug: string, ln: string) {
-        slug = slug + '-' + ln;
+        const url = environment['urlBackend'] + '/wp-json/wp/v2/posts?slug=' + slug + '-' + ln;
+        console.log('getPostBySlug', url);
+        return this.http.get(url);
     }
 
     getPost(id): Observable<any> {
