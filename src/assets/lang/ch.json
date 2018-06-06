@@ -47,7 +47,7 @@
   "SESSION_PAST": "过去的类",
   "CODE_USER_NOT_FOUND_BY_THAT_EMAIL": "User not found by that email. Please check if the email address is registered.",
   "HELP PAGE TITLE": "如果您是Katok英语的新手，请阅读本页面的内容。",
-  "TEACHING_MATERIALS": "教材和课程",
+  "TEACHING_MATERIALS": "图书",
   "ALL_SCHEDULE_TABLE": "所有时间表",
   "PAYMENT_LONG_TEXT": "付款",
   "PAYMENT_TOP_MENU": "付款",
@@ -543,7 +543,9 @@
   "YOU_ARE_TO_AGREE": "请点击条款和条件的同意按钮进行注册。",
   "WITHCENTER_TEACHER_DESC_1": "请注意，这位老师经常取消她的预订。",
   "WITHCENTER_TEACHER_DESC_2": "您可以与这位老师保留固定的时间表而无需取消。 每天25分钟，1个月。 75,000韩元。",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "请注意，这位老师经常取消预约。"
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "请注意，这位老师经常取消预约。",
+
+  "KAKAOTALK_ID_IMPORTANT": "请仔细检查您的Kakaotalk ID。 由于Kakaotalk ID错误，导致许多失败的教训。"
 
 
 }
