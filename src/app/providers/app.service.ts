@@ -12,7 +12,7 @@ import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_
  */
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
-import { firestore } from 'firebase';
+import 'firebase/messaging';
 firebase.initializeApp(environment['firebaseConfig']);
 
 import { environment } from './../../environments/environment';
@@ -1289,7 +1289,7 @@ export class AppService {
     log(data) {
         if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         // data['name'] = 'test' + (new Date).getTime();
-        data['stamp'] = firestore.FieldValue.serverTimestamp();
+        data['stamp'] = firebase.firestore.FieldValue.serverTimestamp();
         // console.log(data);
         const col = this.firebase.db.collection(firestoreLogCollection);
         col.add(data)
