@@ -587,5 +587,6 @@
 
   "KAKAOTALK_ID_IMPORTANT": "Please double check your Kakaotalk ID. There are many unsuccessful lessons due to wrong Kakaotalk ID.",
   "ADD_KAKAOTALK": "Add Friend",
-  "NO": "No"
+  "NO": "No",
+  "TEACHER_LIST_OPTION_BUTTON": "Search"
 }

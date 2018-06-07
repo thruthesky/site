@@ -170,10 +170,25 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             setTimeout(() => {
                 // console.log(this.re);
                 /**
-                 * `this.re` becomes null when the options has changed and load schedule again in the middle of display previously loaded schedules.
+                 * When option changed in the middle of displaying,
+                 * `this.re` becomes null
+                 * And load schedule again
+                 * Meaning, it will stop and destroy previous display data and display new data.
                  */
                 if (this.re && this.re.table) {
                     this.re.table.push(table.shift());
+                    /**
+                     * If the browser is not IE nor Edge, then draws another to fast draw.
+                     * So, if the brwoser is not IE nor Edge, it display three times as faster than IE or Edge.
+                     */
+                    if ( ! this.a.isIeEdge() ) {
+                        if ( table.length ) {
+                            this.re.table.push(table.shift());
+                        }
+                        if ( table.length ) {
+                            this.re.table.push(table.shift());
+                        }
+                    }
                     this.displayRows(table);
                 }
                 // if (table && table.length) {
