@@ -41,12 +41,10 @@
                                     </div>
                                 </div>
                                 <div class="extra">
-                                    <div *ngIf="comment.internet">{{ 'INTERNET' | t}} : {{a.ln.INTERNET_STATUS[comment.internet]}}</div>
+                                    <div *ngIf="comment.internet">{{ 'INTERNET' | t}}: {{a.ln.INTERNET_STATUS[comment.internet]}}</div>
                                     <div *ngIf="comment.camera" >{{ 'Camera' | t}} : {{a.ln.CAMERA_STATUS[comment.camera]}}</div>
                                 </div>
-                                <div class="date">{{ 'DATE' | t }} : {{
-                                    a.shortDate(comment.stamp) }}
-                                </div>
+                                <div class="date">{{ 'DATE' | t }} : {{ a.shortDate(comment.stamp) }}</div>
                             </div>
                             <div class="comment">
                                 {{comment.comment.slice(0,30)}}
