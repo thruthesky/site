@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../providers/app.service';
 import { STUDENT_COMMENTS_TO_TEACHER } from '../../modules/xapi/interfaces';
-import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../../components/modal/confirm/confirm.modal';
 import { MatDialog } from '@angular/material';
+import { ModalData, ModalService } from '../../providers/modal/modal.service';
 
 
 @Component({
@@ -41,7 +41,7 @@ export class TeacherReviewListPage {
     constructor(
         public a: AppService,
         public active: ActivatedRoute,
-        public dialog: MatDialog
+        public modal: ModalService,
     ) {
         this.active.queryParams.subscribe(params => {
             this.showLoader = true;
@@ -91,23 +91,19 @@ export class TeacherReviewListPage {
 
     onClickDelete(comment) {
 
-        const dialogRef = this.dialog.open(ConfirmModal, {
-            data: <_CONFIRM_DATA_OPTION>{
-                header: this.a.t('COMMENT DELETE'),
-                content: this.a.t('COMMENT DELETE CONFIRM'),
-                actionYes: this.a.t('YES'),
-                actionNo: this.a.t('CANCEL')
-            }
-        });
-
-
-        dialogRef.afterClosed().subscribe(result => {
+        const data: ModalData = {
+            title: this.a.t('COMMENT DELETE'),
+            content: this.a.t('COMMENT DELETE CONFIRM'),
+            yes: this.a.t('YES'),
+            no: this.a.t('CANCEL')
+        };
+        this.modal.confirm(data).subscribe(result => {
             if ( result ) {
                 this.showLoader = true;
-                const data = {
+                const q = {
                     idx: comment.idx
                 };
-                this.a.lms.student_comment_to_teacher_delete(data).subscribe(res => {
+                this.a.lms.student_comment_to_teacher_delete(q).subscribe(res => {
                     if (res['idx'] === comment.idx) {
                         comment.idx = '';
                         this.a.toast( this.a.t('COMMENT DELETED'));

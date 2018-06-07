@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { SCHEDULE_EDIT_RESPONSE } from '../../../../modules/xapi/lms.service';
-import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../../../../components/modal/confirm/confirm.modal';
-import { MatDialog } from '@angular/material';
+import { ModalData, ModalService } from '../../../../providers/modal/modal.service';
 
 @Component({
     selector: 'ontue-my-schedule-page',
@@ -23,7 +22,7 @@ export class OntueMySchedulePage {
     loading = false;
 
     constructor(public a: AppService,
-                public dialog: MatDialog
+                public modal: ModalService
     ) {
 
         if (a.isLogin && a.isTeacher) {
@@ -86,16 +85,14 @@ export class OntueMySchedulePage {
 
     onClickDelete(idx) {
         if (this.a.user.isLogin) {
-            const dialogRef = this.dialog.open(ConfirmModal, {
-                data: <_CONFIRM_DATA_OPTION>{
-                    header: this.a.t('SCHEDULE DELETE'),
-                    content: this.a.t('SCHEDULE DELETE CONFIRM'),
-                    actionYes: this.a.t('YES'),
-                    actionNo: this.a.t('CANCEL')
-                }
-            });
 
-            dialogRef.afterClosed().subscribe(result => {
+            const data: ModalData = {
+                title: this.a.t('SCHEDULE DELETE'),
+                content: this.a.t('SCHEDULE DELETE CONFIRM'),
+                yes: this.a.t('YES'),
+                no: this.a.t('CANCEL')
+            };
+            this.modal.confirm(data).subscribe(result => {
                 if ( result ) {
                     this.loading = true;
                     this.a.lms.schedule_delete(idx).subscribe( () => {

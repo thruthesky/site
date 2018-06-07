@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService, KEY_SCHEDULES, SHARE_SESSION_LIST } from '../../providers/app.service';
-import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../modal/confirm/confirm.modal';
-import { MatDialog } from '@angular/material';
+import { ModalData, ModalService } from '../../providers/modal/modal.service';
 
 @Component({
   selector: 'session-list-component',
@@ -41,7 +40,7 @@ export class SessionListComponent implements OnInit {
     loadingOnSearch = true;
 
     constructor(public a: AppService,
-                public dialog: MatDialog
+                public modal: ModalService
     ) {
 
         if ( this.a.isLogout ) {
@@ -110,16 +109,13 @@ export class SessionListComponent implements OnInit {
 
     onClickCancel(book) {
 
-        const dialogRef = this.dialog.open(ConfirmModal, {
-            data: <_CONFIRM_DATA_OPTION>{
-                header: this.a.t('SESSION CANCEL'),
-                content: this.a.t('SESSION CANCEL CONFIRM'),
-                actionYes: this.a.t('YES'),
-                actionNo: this.a.t('CANCEL')
-            }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
+        const data: ModalData = {
+            title: this.a.t('SESSION CANCEL'),
+            content: this.a.t('SESSION CANCEL CONFIRM'),
+            yes: this.a.t('YES'),
+            no: this.a.t('CANCEL')
+        };
+        this.modal.confirm(data).subscribe(result => {
             if ( result ) {
                 book['process'] = true;
                 this.a.lms.session_cancel(book.idx).subscribe(re => {
@@ -137,8 +133,6 @@ export class SessionListComponent implements OnInit {
                 });
             }
         });
-
-
 
     }
 
@@ -226,16 +220,13 @@ export class SessionListComponent implements OnInit {
     }
     onClickRefund(book) {
 
-        const dialogRef = this.dialog.open(ConfirmModal, {
-            data: <_CONFIRM_DATA_OPTION>{
-                header: this.a.t('SESSION REFUND'),
-                content: this.a.t('SESSION REFUND CONFIRM'),
-                actionYes: this.a.t('YES'),
-                actionNo: this.a.t('CANCEL')
-            }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
+        const data: ModalData = {
+            title: this.a.t('SESSION REFUND'),
+            content: this.a.t('SESSION REFUND CONFIRM'),
+            yes: this.a.t('YES'),
+            no: this.a.t('CANCEL')
+        };
+        this.modal.confirm(data).subscribe(result => {
             if ( result ) {
                 this.a.lms.session_refund(book['idx']).subscribe(() => {
                     book['refund_done_at'] = 1;
