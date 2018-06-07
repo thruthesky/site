@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OntueMySchedulePage } from './ontue-my-schedule.page';
-import { ConfirmModalModule } from '../../../../components/modal/confirm/confirm.modal.module';
 import { MaterialModule } from '../../../../app.material.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { ModalSerivceModule } from '../../../../providers/modal/modal.service.module';
 
 
 const routes: Routes = [
@@ -16,10 +16,9 @@ const routes: Routes = [
         CommonModule,
         FormsModule,
         RouterModule.forChild(routes),
-        ConfirmModalModule,
         MaterialModule,
-        TranslatePipeModule
-
+        TranslatePipeModule,
+        ModalSerivceModule
     ],
     exports: [
         RouterModule
