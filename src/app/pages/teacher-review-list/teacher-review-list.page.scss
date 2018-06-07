@@ -4,40 +4,37 @@ main{
 }
 
 header{
+    display: flex;
+    flex-direction:column;
+    align-items: stretch;
+    color: #fff;
 
-    h1{
-        display: flex;
-        flex-direction:column;
-        align-items: flex-start;
-        
+    @media screen and (min-width:$md){
+        flex-direction: row;
+        justify-content: space-between;
+    }
     
-        @media screen and (min-width:$md){
-            flex-direction: row;
-            justify-content: space-between;
-        }
+    &>div{
+        display: flex;
+        align-items: stretch;
 
-        &>div{
+        a{
             display: flex;
             align-items: center;
-
-            span{
-                display: flex;
-                align-items: center;
-                margin-top: .5em;
-                @media screen and (min-width:$md){
-                    margin-top: 0;
-                }
-                font-size: 80%;
-                cursor: pointer;
-                
-                &:first-child{
-                    margin-right: 1em;
-                }
+            margin: 0;
+            padding: 0 1em 2em 2.5em;
+            @media screen and (min-width:$md){
+                padding: 0 2.5em;
+                margin-top: 0;
+            }
+            font-size: 80%;
+            cursor: pointer;
+            
+            &:first-child{
+                margin-right: 1em;
             }
         }
     }
-
-
 }
 
 

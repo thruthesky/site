@@ -71,12 +71,12 @@ body {
 
 #katalkenglish main {
     header {
+        background-color: $katalkenglish-page-title-background-color;
         h1 {
             margin: 0;
             padding: 1em 1.7em;
-            color: $katalkenglish-page-title-color;
-            background-color: $katalkenglish-page-title-background-color;
             font-weight: 100;
+            color: $katalkenglish-page-title-color;
         }
         p {
             margin: 0;

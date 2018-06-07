@@ -1,20 +1,18 @@
 <main>
     <header>
-        <h1>
-            <span>{{ 'SESSION_PAST' | t }}</span>
-            <div class="point-loader">
-                <ng-container *ngIf=" a.isStudent ">
-                    {{ 'USER_POINT' | t:{ username: a.user.name | t } }}
-                    <span *ngIf=" a.inLoadingMyPoint "><mat-spinner [diameter]="20"></mat-spinner></span>
-                    <span *ngIf=" ! a.inLoadingMyPoint "> {{ share.point }}</span>
-                </ng-container>
-            </div>
-        
-            <div class="option" (click)=" share.options = ! share.options ">
-                {{ "OPTIONS" | t }}
-                <svg class="options-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"/></svg>
-            </div>
-        </h1>    
+        <h1>{{ 'SESSION_PAST' | t }}</h1>
+        <div class="point-loader">
+            <ng-container *ngIf=" a.isStudent ">
+                {{ 'USER_POINT' | t:{ username: a.user.name | t } }}
+                <span *ngIf=" a.inLoadingMyPoint "><mat-spinner [diameter]="20"></mat-spinner></span>
+                <span *ngIf=" ! a.inLoadingMyPoint "> {{ share.point }}</span>
+            </ng-container>
+        </div>
+    
+        <a class="option" (click)=" share.options = ! share.options ">
+            {{ "OPTIONS" | t }}
+            <svg class="options-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"/></svg>
+        </a>    
     </header>
     <section class="level" *ngIf="showLevel">
         <div class="level-header">
