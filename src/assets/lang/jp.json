@@ -506,6 +506,12 @@
   "VIDEO_RESERVE_TITLE": "ビデオ）予約方法",
   "REDIRECTING": "リダイレクト...",
   "ADD_KAKAOTALK": "友人を追加する ",
-  "TEACHER_LIST_OPTION_BUTTON": "サーチ"
+  "TEACHER_LIST_OPTION_BUTTON": "サーチ",
+  "PAGE_NOT_FOUND_TITLE": "ページが見つかりません",
+  "PAGE_NOT_FOUND_DESC": "あなたは間違ったルートにアクセスしています。 前のページに移動してください。",
+  "PREVIOUS WEEK": "前の週",
+  "TODAY": "今日",
+  "NEXT WEEK": "来週",
+  "NEXT MONTH": "来月"
 
 }

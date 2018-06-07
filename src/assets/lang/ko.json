@@ -133,7 +133,7 @@
   "OPEN REVIEW": "수업후기",
   "CURRICULUM VITAE": "이력서",
   "ALL SCHEDULE": "전체시간표",
-  "SCHEDULE TABLE SEARCH OPTIONS SHORT": "Options",
+  "SCHEDULE TABLE SEARCH OPTIONS SHORT": "옵션",
   "TIMEZONE NOW": "옵션",
   "CHANGE TIMEZONE": "시간대 변경",
   "POINT": "포인트",
@@ -265,7 +265,7 @@
   "NEXT": "다음 것",
   "NO_MORE_MESSAGES": "더 이상 메시지 없음",
 
-  "SCHEDULE_TABLE_LOADING": "수업 시간표를 로딩중입니다.",
+  "SCHEDULE_TABLE_LOADING": "수업 시간표를 로딩중입니다. 약 30초 정도 걸립니다.",
   "NO_SCHEDULE_TRY_SEARCH": "일정 없음 검색 시도",
   "NO_MORE_RESERVATIONS": "예약된 수업이 없습니다.",
   "NO_MORE_PASTS": "더 이상 파스타",
@@ -430,7 +430,10 @@
     }
   ],
   "INTERNET_STATUS": ["", "불쾌한", "표준", "좋은"],
-  "CAMERA_STATUS": {"N":"아니", "Y":"예"},
+  "CAMERA_STATUS": {
+    "N": "아니",
+    "Y": "예"
+  },
   "READY": "준비된",
   "REQUEST_REFUND": "환불 요청",
   "CANCEL_REFUND_REQUEST": "환불 요청 취소",
@@ -555,5 +558,12 @@
   "VIDEO_RESERVE_TITLE": "수업 예약 동영상 설명",
   "REDIRECTING": "이동중입니다.",
   "ADD_KAKAOTALK": "카톡추가",
-  "TEACHER_LIST_OPTION_BUTTON": "검색"
+  "TEACHER_LIST_OPTION_BUTTON": "검색",
+  "PAGE_NOT_FOUND_TITLE": "잘못된 접속 경로",
+  "PAGE_NOT_FOUND_DESC": "앗, 잘못된 경로로 접속을 하였습니다. 홈페이지로 이동하여주세요.",
+  "DISPLAY WEEKENDS": "주말 표시",
+  "PREVIOUS WEEK": "이전 주",
+  "TODAY": "오늘",
+  "NEXT WEEK": "다음 주",
+  "NEXT MONTH": "다음 달"
 }

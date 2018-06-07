@@ -906,6 +906,7 @@ export class AppService {
 
         options = Object.assign({}, defaults, options);
 
+        // console.log('loadSchedule: options: ', options);
         /**
          * Use cached data for all schedule table.
          *

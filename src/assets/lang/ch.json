@@ -550,7 +550,13 @@
   "VIDEO_RESERVE_TITLE": "视频）如何保留",
   "REDIRECTING": "重定向...",
   "ADD_KAKAOTALK": "添加好友",
-  "TEACHER_LIST_OPTION_BUTTON": "搜索"
+  "TEACHER_LIST_OPTION_BUTTON": "搜索",
+  "PAGE_NOT_FOUND_TITLE": "找不到网页",
+  "PAGE_NOT_FOUND_DESC": "哦，你有访问错误的路线。 请转到首页。",
+  "PREVIOUS WEEK": "上个礼拜",
+  "TODAY": "今天",
+  "NEXT WEEK": "下周",
+  "NEXT MONTH": "下个月"
 
 
 }

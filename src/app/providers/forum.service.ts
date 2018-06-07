@@ -56,8 +56,11 @@ export class ForumService {
         return this.loadPosts({slug: slug, per_page: 1, page: 1});
     }
 
-    getPostBySlug(slug: string, ln: string): Observable<any> {
-        const url = environment['urlBackend'] + '/wp-json/wp/v2/posts?slug=' + slug + '-' + ln;
+    getPostBySlug(slug: string, ln?: string): Observable<any> {
+        let url = environment['urlBackend'] + '/wp-json/wp/v2/posts?slug=' + slug;
+        if ( ln ) {
+            url = url + '-' + ln;
+        }
         // console.log('getPostBySlug', url);
         return this.http.get(url);
     }

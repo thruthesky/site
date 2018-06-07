@@ -354,5 +354,5 @@ env['reloadTag'] = (new Date).getTime();
 
 * For student registration page, 'Finding Kakaotalk ID' image is not translated and will not be translated.
 
-
-
+* When student cancels commenting on class review, the user is redirected to teacher schedule table even if the stdent was acessing revew page from review list page.
+  It is fairly okay.

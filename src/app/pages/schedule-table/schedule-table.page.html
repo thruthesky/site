@@ -20,6 +20,44 @@
     </div>
 
 
+    <div class="buttons bg-white">
+            <div class="d-flex justify-content-between px-4">
+              <div class="d-flex align-items-center">
+                <button class="hover-effect p-md-4 px-0 py-4 dodgerblue" (click)="onClickNavigate('previous-week')">
+                  <span class="d-flex align-items-center fs-90">
+                    <i class="fal fa-arrow-left mr-1"></i>
+                    {{ 'PREVIOUS WEEK' | t }}
+                  </span>
+                </button>
+                <button class="hover-effect ml-3 p-md-4 px-0 py-4 dodgerblue" (click)="onClickNavigate('today')">
+                  <span class="d-flex align-items-center fs-90">
+                    <i class="fal fa-redo mr-1"></i>
+                    {{"TODAY" | t}}
+                  </span>
+                </button>
+                <button class="hover-effect ml-3 p-md-4 px-0 py-4 dodgerblue" (click)="onClickNavigate('next-week')">
+                  <span class="d-flex align-items-center fs-90">{{"NEXT WEEK" | t}}
+                    <i class="fal fa-arrow-right ml-1"></i>
+                  </span>
+                </button>
+                <button class="hover-effect ml-3 p-md-4 px-0 py-4 dodgerblue" (click)="onClickNavigate('next-month')">
+                  <span class="d-flex align-items-center fs-90">
+                    {{"NEXT MONTH" | t}}
+                    <i class="fas fa-forward ml-1"></i>
+                  </span>
+                </button>
+              </div>
+              <button class="hover-effect d-flex align-items-center p-md-4 p-0 dodgerblue" (click)=" display_options = !display_options; "
+                *ngIf=" ! display_options ">
+                <span class="d-flex align-items-center fs-90">
+                  {{ 'SCHEDULE TABLE SEARCH OPTIONS SHORT' | t }}
+                  
+                </span>
+              </button>
+            </div>
+          </div>
+
+          
     <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
 
 

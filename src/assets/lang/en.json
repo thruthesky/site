@@ -326,7 +326,7 @@
   "NO_SCHEDULE_TRY_SEARCH": "No Schedule Try Search",
   "NO_MORE_RESERVATIONS": "NO MORE RESERVATIONS",
   "NO_MORE_PASTS": "NO MORE PASTS",
-  
+
 
   "LEVEL": "Level",
   "YOUR_ENGLISH_LEVEL": "Your English Level",
@@ -518,7 +518,10 @@
     }
   ],
   "INTERNET_STATUS": ["", "Bad", "Normal", "Good"],
-  "CAMERA_STATUS": { "N":"No", "Y":"Yes"},
+  "CAMERA_STATUS": {
+    "N": "No",
+    "Y": "Yes"
+  },
 
   "HOW_WAS_TEACHER_INTERNET": "How was the Teacher's Internet Connection",
   "INTERNET_GOOD": "Good",
@@ -545,7 +548,7 @@
   "YOUR_TIME": "Your Time",
   "UPDATE": "Update",
 
-  "KATALK_STORY":"Our Story",
+  "KATALK_STORY": "Our Story",
 
   "LOGIN_CONFIRMING": "Confirming your login ...",
   "STUDENT_ADV_MENU_TEXT": "$10",
@@ -562,21 +565,21 @@
   "WOORIBANK_NAME": "Wooribank",
   "CONTACT": "Contact",
 
-  "CURRICULUM_PAGE_BOOK_1":"English Textbook for Children ",
-  "CURRICULUM_PAGE_TITLE_BOOK_2":"Teaching Materials for Teenagers and Adults",
-  "CURRICULUM_PAGE_TITLE_TEXT_1":"The most important part of the English language course is the choice of course materials.",
-  "CURRICULUM_PAGE_TITLE_TEXT_2":"There are various courses such as Basic English, English Conversation, Business English, and Test English. In Katok English, you can trust the reliable Let's Go (4th edition) Side by Side (3rd Edition) Two textbooks are adopted as formal textbooks.",
-  "CURRICULUM_PAGE_TITLE_TEXT_3":"These two textbooks cover everything from basic words in English to vocabulary, reading, writing, listening and speaking, and even include basic English, English conversation and business English.",
-  "CURRICULUM_PAGE_TITLE_TEXT_4":"Letsgo is suitable for under 14 years of age, and side by side is suitable for adults from 12 years old to adults.",
-  "CURRICULUM_PAGE_TITLE_TEXT_5":"The class materials will be delivered to the students by e-mail or phone before the class time.",
-  "CURRICULUM_PAGE_TITLE_TEXT_6":"However, please make a purchase at the bookstore in order to make preparations for lessons and review.",
-  "CURRICULUM_PAGE_TITLE_TEXT_7":"We have customized one-to-one lessons so you can take lessons with the textbooks you have. You can take the textbook of the student with your mobile phone and send it to you by e-mail.",
-  "CURRICULUM_PAGE_TITLE_TEXT_8":" For reference, it is difficult to open textbooks if you use video classes with KakaoTalk. (Teacher's face and student's face occupy the entire screen in KakaoTalk.) Therefore, the student should prepare the textbook before class time.",
+  "CURRICULUM_PAGE_BOOK_1": "English Textbook for Children ",
+  "CURRICULUM_PAGE_TITLE_BOOK_2": "Teaching Materials for Teenagers and Adults",
+  "CURRICULUM_PAGE_TITLE_TEXT_1": "The most important part of the English language course is the choice of course materials.",
+  "CURRICULUM_PAGE_TITLE_TEXT_2": "There are various courses such as Basic English, English Conversation, Business English, and Test English. In Katok English, you can trust the reliable Let's Go (4th edition) Side by Side (3rd Edition) Two textbooks are adopted as formal textbooks.",
+  "CURRICULUM_PAGE_TITLE_TEXT_3": "These two textbooks cover everything from basic words in English to vocabulary, reading, writing, listening and speaking, and even include basic English, English conversation and business English.",
+  "CURRICULUM_PAGE_TITLE_TEXT_4": "Letsgo is suitable for under 14 years of age, and side by side is suitable for adults from 12 years old to adults.",
+  "CURRICULUM_PAGE_TITLE_TEXT_5": "The class materials will be delivered to the students by e-mail or phone before the class time.",
+  "CURRICULUM_PAGE_TITLE_TEXT_6": "However, please make a purchase at the bookstore in order to make preparations for lessons and review.",
+  "CURRICULUM_PAGE_TITLE_TEXT_7": "We have customized one-to-one lessons so you can take lessons with the textbooks you have. You can take the textbook of the student with your mobile phone and send it to you by e-mail.",
+  "CURRICULUM_PAGE_TITLE_TEXT_8": " For reference, it is difficult to open textbooks if you use video classes with KakaoTalk. (Teacher's face and student's face occupy the entire screen in KakaoTalk.) Therefore, the student should prepare the textbook before class time.",
 
 
 
 
-"YOU_ARE_TO_AGREE": "Please, click the Agree button of Terms and Conditions to sign up.",
+  "YOU_ARE_TO_AGREE": "Please, click the Agree button of Terms and Conditions to sign up.",
   "WITHCENTER_TEACHER_DESC_1": "Please be reminded that this teacher often cancels her reservations.",
   "WITHCENTER_TEACHER_DESC_2": "You can reserve fixed schedules with this teacher without cancellation. 25 minutes a day for 1 month. 75,000 KRW.",
   "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher often cancels reservation.",
@@ -588,5 +591,12 @@
   "KAKAOTALK_ID_IMPORTANT": "Please double check your Kakaotalk ID. There are many unsuccessful lessons due to wrong Kakaotalk ID.",
   "ADD_KAKAOTALK": "Add Friend",
   "NO": "No",
-  "TEACHER_LIST_OPTION_BUTTON": "Search"
+  "TEACHER_LIST_OPTION_BUTTON": "Search",
+  "PAGE_NOT_FOUND_TITLE": "Page not found",
+  "PAGE_NOT_FOUND_DESC": "Ooh, You have access wrong route. Please move to front page.",
+
+  "PREVIOUS WEEK": "Prev",
+  "TODAY": "Today",
+  "NEXT WEEK": "Next",
+  "NEXT MONTH": "Next month"
 }

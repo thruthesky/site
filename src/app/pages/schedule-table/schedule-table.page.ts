@@ -37,6 +37,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         days: 7,
         display_weekends: 'Y',
         navigate: 'today',
+        starting_day: '',
         useCache: true          /// ** Only first schedule table list will be cached.
     };
 
@@ -211,6 +212,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
     onClickNavigate(navigate) {
         this.form.navigate = navigate;
         this.form.useCache = false;
+        this.form.starting_day = this.re.starting_day;
         this.loadScheduleAndDisplay(this.form);
     }
 
