@@ -31,7 +31,12 @@ main {
             border-top:1px solid #e9ecef;
             background: #fff;
             font-weight: 600;
-            cursor: pointer
+            cursor: pointer;
+
+            .day:hover{
+                color: dodgerblue
+            }
+
         }
         .teacher-schedule-header {
             top: 55px !important;
