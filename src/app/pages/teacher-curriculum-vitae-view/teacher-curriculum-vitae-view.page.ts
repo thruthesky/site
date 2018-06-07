@@ -26,7 +26,7 @@ export class TeacherCurriculumVitaeViewPage {
             this.showLoader = true;
             if (params['idx_teacher']) {
                 this.a.lms.get_teacher_info_by_idx(params['idx_teacher'], true).subscribe( re => {
-                    console.log('get_teacher_info_by_idx', re);
+                    // console.log('get_teacher_info_by_idx', re);
                     this.teacher = re;
                     this.showLoader = false;
                 }, e => {

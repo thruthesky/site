@@ -39,7 +39,7 @@ export class OntueSessionEvaluatePage {
         this.route.queryParams.subscribe(params => {
             if (params && params.idx) {
                 this.a.lms.get_session_evaluation(params.idx).subscribe(res => {
-                    console.log('get_session_evaluation', res);
+                    // console.log('get_session_evaluation', res);
                     const session = res.session;
                     this.idx = session.idx;
                     this.student_name = session.student_name;

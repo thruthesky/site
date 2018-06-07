@@ -18,7 +18,7 @@ export class KatalkEnglishFooterComponent {
     this.selectedLanguage = this.a.language.getUserLanguage();
   }
   onChangeLanguage() {
-    console.log(this.selectedLanguage);
+    // console.log(this.selectedLanguage);
     this.a.language.setUserLanguage(this.selectedLanguage);
   }
 }

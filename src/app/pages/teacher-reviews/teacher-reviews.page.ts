@@ -49,7 +49,7 @@ export class TeacherReviewsPage {
     }
 
     onClickShowMore(comment) {
-        console.log('onClickShowMore::', comment);
+        // console.log('onClickShowMore::', comment);
         this.a.open('teacher-review-list', {idx_teacher: comment['idx_teacher']});
     }
 

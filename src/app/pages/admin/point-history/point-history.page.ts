@@ -66,7 +66,7 @@ export class PointHistoryPage {
             teacher_info: true
         })
             .subscribe((re: Array<POINT_HISTORY>) => {
-                console.log('re: ', re);
+                // console.log('re: ', re);
                 if (!re) {
                     return;
                 }

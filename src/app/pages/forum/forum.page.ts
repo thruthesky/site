@@ -37,7 +37,7 @@ export class ForumPage implements OnInit {
         public a: AppService
     ) {
         activated.data.subscribe(data => {
-            console.log('data: ', data);
+            // console.log('data: ', data);
             this.slug = data['slug'];
             if (this.slug === 'termsandconditions') {
                 this.title = this.a.ln.TERMS_AND_CONDITIONS;
@@ -56,11 +56,11 @@ export class ForumPage implements OnInit {
     loadPosts(slug: string) {
 
         const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment['categories'][slug];
-        console.log('api: ', url);
+        // console.log('api: ', url);
 
 
         this.http.get(url).subscribe((posts: Array<WP_POST>) => {
-            console.log('posts: ', posts);
+            // console.log('posts: ', posts);
 
             if (posts && posts.length) {
 

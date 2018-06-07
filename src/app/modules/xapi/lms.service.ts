@@ -391,7 +391,7 @@ export class XapiLMSService extends Base {
     session_evaluate(data) {
         data['route'] = 'lms.session_evaluate';
         data['session_id'] = this.user.sessionId;
-        console.log(data);
+        // console.log(data);
         return this.x.post(data);
     }
 
@@ -415,7 +415,7 @@ export class XapiLMSService extends Base {
      */
     page(req): any {
         req['route'] = 'lms.page';
-        console.log(req);
+        // console.log(req);
         return this.x.post(req)
             .map(e => {
                 const re = this.x.safe(e);
@@ -550,7 +550,7 @@ export class XapiLMSService extends Base {
      * @example
              this.a.lms.admin_query({ table: 'wp_users' })
             .subscribe(re => {
-                console.log('re: ', re);
+                // console.log('re: ', re);
             }, e => this.a.toast(e));
      */
     admin_query( req ) {

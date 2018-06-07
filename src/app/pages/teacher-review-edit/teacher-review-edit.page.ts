@@ -38,7 +38,7 @@ export class TeacherReviewEditPage {
             } else   /** @Note for edit idx_review is required. */
                 if ( params['idx_comment'] ) {
                 this.a.lms.student_comment_to_teacher_by_idx({idx: params['idx_comment']}).subscribe(re => {
-                    console.log('student_comment_to_teacher_by_idx', re);
+                    // console.log('student_comment_to_teacher_by_idx', re);
                     this.data = re;
                     this.rate = parseInt(re['rate'], 10);
                     this.internet = parseInt(re['internet'], 10);

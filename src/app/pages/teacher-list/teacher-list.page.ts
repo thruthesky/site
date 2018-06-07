@@ -61,7 +61,7 @@ export class TeacherListPage implements OnInit {
     loadTeachers(options: OPTIONS = {}) {
         if (options.useCache) {
             const data = this.a.get(KEY_TEACHER_LIST);
-            console.log(`Use cached teacher list`, data);
+            // console.log(`Use cached teacher list`, data);
             this.displayTeachers(data);
         }
         this.show.loadTeacher = true;
@@ -76,7 +76,7 @@ export class TeacherListPage implements OnInit {
              */
             if (options.useCache) {
                 this.init();
-                console.log('Save cache teacher list', re);
+                // console.log('Save cache teacher list', re);
                 this.a.set( KEY_TEACHER_LIST, re );
             }
             this.show.loadTeacher = false;

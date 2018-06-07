@@ -124,7 +124,7 @@ export class TeacherReviewListPage {
 
 
     onClickCommentEdit(comment) {
-        console.log('onClickCommentEdit', comment);
+        // console.log('onClickCommentEdit', comment);
         this.a.open('teacher-review-edit', { idx_comment: comment.idx });
     }
 

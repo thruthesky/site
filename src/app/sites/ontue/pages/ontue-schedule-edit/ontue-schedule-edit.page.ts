@@ -88,7 +88,7 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.a.lms.timezone().subscribe(re => {
-            console.log(re);
+            // console.log(re);
             this.timezone_name = re['name'];
             this.timezone_offset = parseInt(re['offset'], 10);
         }, () => {

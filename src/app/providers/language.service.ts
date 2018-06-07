@@ -41,7 +41,7 @@ export class LanguageService {
      *
      * @example
         this.language.load.subscribe( ln => {
-            console.log('language load ln: ', ln);
+            // console.log('language load ln: ', ln);
             this.languageLoaded(ln);
         });
      */

@@ -98,11 +98,11 @@ export class XapiService extends Base {
     checkResult(res, data) {
         // console.log("checkResult() => res: ", res, " data: ", data);
         if (!res) {
-            console.error(`Response from backend is empty`);
-            console.log(`Requested data(that cause empty response): `, data);
+            // console.error(`Response from backend is empty`);
+            // console.log(`Requested data(that cause empty response): `, data);
             this.throw(-4008, 'Response from backend is empty');
         } else if (res['code'] === void 0) {
-            console.log(`=========> re:`, res);
+            // console.log(`=========> re:`, res);
             this.throw(-4009, 'Response has no code');
         } else if (res['code'] !== 0) {
             // console.log("WordPressApiService::checkResult => error : ", res);
@@ -151,7 +151,7 @@ export class XapiService extends Base {
         try {
             localStorage.setItem(key, JSON.stringify(data));
         } catch (e) {
-            console.log('Failed to set localStorage(). 5MB exhausted?');
+            // console.log('Failed to set localStorage(). 5MB exhausted?');
             return false;
         }
     }

@@ -80,7 +80,7 @@ export class XapiUserService extends Base {
     loadProfile(): Observable<any> {
         return this.x.post({ route: 'user.load_profile', session_id: this.sessionId })
             .map(res => {
-                console.log(`user profile loaded: `, res);
+                // console.log(`user profile loaded: `, res);
                 return this.setUserProfile(res);
             });
     }
@@ -244,12 +244,12 @@ export class XapiUserService extends Base {
             .subscribe(
             re => {
                 this.userData = re;
-                console.log("userData: ", this.userData);
+                // console.log("userData: ", this.userData);
             },
             e => {
                 const o = xapi.getError(e);
                 if (o.code == xapi.ERROR.LOGIN_FIRST) {
-                    console.log("User has not logged in, yet");
+                    // console.log("User has not logged in, yet");
                 }
                 else {
                     console.error("ERROR:", o);
@@ -258,9 +258,9 @@ export class XapiUserService extends Base {
      * @endcode
      */
     data(): Observable<any> {
-        console.log('data(): this.sessionId: ', this.sessionId);
+        // console.log('data(): this.sessionId: ', this.sessionId);
         if (!this.sessionId) {
-            console.log(`User has not logged in. So, it will throw an error of -405. `);
+            // console.log(`User has not logged in. So, it will throw an error of -405. `);
             // return Observable.throw( new Error( JSON.stringify(this.x.errorResponse(-504, 'login-first')) ) );
             return this.throw(this.ERROR.LOGIN_FIRST, 'login-first', true);
         }

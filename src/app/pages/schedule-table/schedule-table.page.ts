@@ -144,7 +144,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         this.re = null;
         this.show.schedule_loader = true;
         this.a.loadSchedule(options, re => {
-            console.log('a.loadSChedule: re: ', re);
+            // console.log('a.loadSChedule: re: ', re);
             this.show.schedule_loader = false;
             /**
              * If there are schedules.

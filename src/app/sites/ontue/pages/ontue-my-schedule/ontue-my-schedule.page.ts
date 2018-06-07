@@ -62,7 +62,7 @@ export class OntueMySchedulePage {
 
 
     onClickScheduleEdit(idx) {
-        console.log('onClickScheduleEdit::idx ', idx);
+        // console.log('onClickScheduleEdit::idx ', idx);
         this.a.open('schedule-edit', { idx: idx });
     }
 

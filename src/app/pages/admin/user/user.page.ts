@@ -129,7 +129,7 @@ export class UserPage implements OnInit {
         if (event) {
             event.preventDefault();
         }
-        console.log(this.form);
+        // console.log(this.form);
         const select = 'ID, user_email, display_name, name, user_registered, phone_number, kakaotalk_id, grade, bookable_time, list_order, timezone, domain, manager, point, gender, user_type';
         const where = this.getWhere();
         let sql = `SELECT ${select} FROM wp_users WHERE BRANCH`;
@@ -138,7 +138,7 @@ export class UserPage implements OnInit {
         }
         sql += ` ORDER BY ${this.form.order} ${this.form.by}`;
         sql += ` LIMIT ${this.form.limit}`;
-        console.log(sql);
+        // console.log(sql);
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
@@ -150,7 +150,7 @@ export class UserPage implements OnInit {
             }
             this.sanitize();
             this.statistics();
-            console.log(re);
+            // console.log(re);
         }, e => this.a.toast(e));
         return false;
     }
@@ -241,7 +241,7 @@ export class UserPage implements OnInit {
 
     onChangeSelectOrder(event) {
         const value = event.target.value;
-        console.log('onChangeSelectorOrder: ', value);
+        // console.log('onChangeSelectorOrder: ', value);
         this.form.order = value;
     }
     statistics() {

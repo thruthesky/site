@@ -18,7 +18,7 @@ export class KatalkEnglishPaymentResultPage {
     ) {
 
         active.queryParams.subscribe(params => {
-            console.log('params: ', params);
+            // console.log('params: ', params);
 
             this.re = params['result'] === 'true';
             this.message = params['message'];

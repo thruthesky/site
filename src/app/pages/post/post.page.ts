@@ -20,7 +20,7 @@ export class PostPage implements OnInit {
     ) {
         activated.paramMap.subscribe(params => {
             const url = this.a.urlBackend + '/wp-json/wp/v2/posts/' + params.get('ID');
-            console.log('api: ', url);
+            // console.log('api: ', url);
             this.http.get(url).subscribe( post => {
                 this.post = post;
                 this.post['safe_content'] = this.sanitizer.bypassSecurityTrustHtml( this.post.content.rendered );

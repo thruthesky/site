@@ -39,7 +39,7 @@ export class PointRefundPage implements OnInit {
 
     loadSessions() {
         this.a.lms.get_sessions_in_refund_progress( this.form ).subscribe(re => {
-            console.log(re);
+            // console.log(re);
             this.re = re;
             this.pre();
         }, e => this.a.toast(e));
@@ -80,7 +80,7 @@ export class PointRefundPage implements OnInit {
         }
         this.a.lms.admin_accept_refund_request({idx: idx, message: '@todo add accept message later.'})
             .subscribe( _idx => {
-                console.log('idx: ', _idx);
+                // console.log('idx: ', _idx);
                 const i = this.re.findIndex( session => session.idx === _idx );
                 this.re.splice(i, 1);
             }, e => this.a.toast(e) );
@@ -92,7 +92,7 @@ export class PointRefundPage implements OnInit {
         }
         this.a.lms.admin_reject_refund_request({idx: idx, message: '@todo add message later.'})
             .subscribe( _idx => {
-                console.log('idx: ', _idx);
+                // console.log('idx: ', _idx);
                 const i = this.re.findIndex( session => session.idx === _idx );
                 this.re.splice(i, 1);
             }, e => this.a.toast(e) );
