@@ -14,7 +14,6 @@ main{
     }
     .video-help {
         margin: 1em;
-        background: #fff;
         @media (min-width: $md) {
             margin: 1em 0;
         }
@@ -23,12 +22,11 @@ main{
             padding: .6em 0 .5em 0;
             font-weight: 100;
             font-size: 1.2em;
-            text-align: center;
         }
         cursor: pointer;
         .video {
             padding: 1em;
-            border: 1px solid rgba(125,125,125,0.1);
+            border: 1px solid #ccc;
             img{
                 width: 100%;
             }
