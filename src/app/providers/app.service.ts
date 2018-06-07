@@ -208,11 +208,11 @@ export class AppService {
         // this.setColor('white');
 
         this.language.load.subscribe( ln => {
-            console.log('language load ln: ', ln);
+            // console.log('language load ln: ', ln);
             this.languageLoaded(ln);
         });
         this.language.change.subscribe( ln => {
-            console.log('user change language into: ', ln);
+            // console.log('user change language into: ', ln);
             this.languageChanged(ln);
         });
 
@@ -221,7 +221,7 @@ export class AppService {
         this.site[this.getSite()] = true;
 
         this.urlBackend = environment['urlBackend'];
-        console.log('urlBackend: ', this.urlBackend);
+        // console.log('urlBackend: ', this.urlBackend);
         xapi.setServerUrl(this.urlBackend);
 
 
@@ -543,7 +543,7 @@ export class AppService {
             o = { message: o };
         } else if (o instanceof Error) { // Mostly an response error code from backend.
 
-            console.log('error from server?', o);
+            // console.log('error from server?', o);
             const code = this.xapi.getError(o).code;
             o = {
                 message: this.xapi.getError(o).message,
@@ -561,14 +561,14 @@ export class AppService {
              */
             if (code === CODE_WRONG_SESSION_ID || code === CODE_NO_USER_BY_THAT_SESSION_ID) {
                 this.user.logout();
-                console.log('==> login session invalid. login again');
+                // console.log('==> login session invalid. login again');
                 o['message'] = this.t('LOGIN_INVALID'); // rewrite error message.
             } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
                 o['message'] = this.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
             }
 
         } else if (o instanceof HttpErrorResponse) { // PHP ERROR. backend wordpress response error. status may be 200.
-            console.log('error of http: ', o);
+            // console.log('error of http: ', o);
             /**
              * @todo This error happens rarely. @see https://github.com/thruthesky/ontue/issues/192
              * @todo try to produce php error and display error log on console.
@@ -590,7 +590,7 @@ export class AppService {
             panelClass: 'toast'
         };
         o = Object.assign(defaults, o);
-        console.log('o:', o);
+        // console.log('o:', o);
         const snackBarRef = this.snackBar.open(o.message, o.action, {
             duration: o.duration,
             panelClass: o.panelClass
@@ -622,7 +622,7 @@ export class AppService {
      * @param home if set true, it move to home. by default it's false.
      */
     logout(home = false) {
-        console.log(`logout( home ) `, home);
+        // console.log(`logout( home ) `, home);
 
         this.user.logout();
         if (home) {
@@ -778,7 +778,7 @@ export class AppService {
     cacheKeySchedule(options: SCHEDULE_OPTIONS) {
         let key = KEY_SCHEDULES;
         key += '-' + options.teachers.toString();
-        console.log('cacheKeySchedule:', key);
+        // console.log('cacheKeySchedule:', key);
         return key;
     }
 
@@ -846,16 +846,16 @@ export class AppService {
 
             if (passed < SCHEDULE_CACHE_INTERVAL) {   //
                 const left = SCHEDULE_CACHE_INTERVAL - passed;
-                console.log(`Using cached schedule data. Cache Expiration Interval: ${SCHEDULE_CACHE_INTERVAL}. Time now(${timeNow}) - Time cached(${timeCache}) = ${passed} seconds has passed. and ${left} seconds left to re-cache.`);
+                // console.log(`Using cached schedule data. Cache Expiration Interval: ${SCHEDULE_CACHE_INTERVAL}. Time now(${timeNow}) - Time cached(${timeCache}) = ${passed} seconds has passed. and ${left} seconds left to re-cache.`);
                 // console.log(`Using Cached schedule. ${left} seconds left for update.`);
                 // return null;
                 return re;
             } else {
-                console.log(`Cached data has expired. Cache interval: ${SCHEDULE_CACHE_INTERVAL} but, ${passed} has passed. timeCache: ${timeCache}, timeNow: ${timeNow}. Going to get new data.`);
+                // console.log(`Cached data has expired. Cache interval: ${SCHEDULE_CACHE_INTERVAL} but, ${passed} has passed. timeCache: ${timeCache}, timeNow: ${timeNow}. Going to get new data.`);
                 return null;
             }
         } else {
-            console.log('No cached data. Going to load all teacher schedules');
+            // console.log('No cached data. Going to load all teacher schedules');
             return null;
         }
     }
@@ -864,11 +864,11 @@ export class AppService {
      */
     cacheDeleteSchedule() {
         const keys = Object.keys(localStorage);
-        console.log('cacheDeleteSchedule. Keys: ', keys);
+        // console.log('cacheDeleteSchedule. Keys: ', keys);
         if (keys) {
             for (const key of keys) {
                 if (key.indexOf(KEY_SCHEDULES) !== -1) {
-                    console.log('removing : ', key);
+                    // console.log('removing : ', key);
                     localStorage.removeItem(key);
                 }
             }
@@ -913,7 +913,7 @@ export class AppService {
         if (options.useCache) {
             const schedules = this.cacheGetSchedule(options);
             if (schedules) {
-                console.log('got cached schedule. length of table: ', schedules.table.length);
+                // console.log('got cached schedule. length of table: ', schedules.table.length);
                 callback(schedules);
                 return;
             }
@@ -925,7 +925,7 @@ export class AppService {
         this.lms.schedule_table_v4(options).subscribe(re => {
             // console.log('schedule_table_v4() result:', re);
             if (!re) { // something is wrong.
-                console.error('Something went wrong with schedule_table_v4()');
+                // console.error('Something went wrong with schedule_table_v4()');
                 callback(re); // just call the callback with the data even if something is wrong.
             }
             if (re && re.schedule) {
@@ -1145,7 +1145,7 @@ export class AppService {
 
     initWebPushMessage() {
         if ('Notification' in window) {
-            console.log('initWebPushMessage', this.firebase);
+            // console.log('initWebPushMessage', this.firebase);
             this.firebase.messaging.requestPermission()
                 .then(() => { /// User accepted 'push notification alert'
                     this.firebase.messaging.getToken()
@@ -1197,7 +1197,7 @@ export class AppService {
         if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         const platform = 'web';
         if (!this.pushToken) {
-            console.log('updatePushToken(): token is empty. It will not update. just return.');
+            // console.log('updatePushToken(): token is empty. It will not update. just return.');
             return;
         }
         this.lms.update_push_token(this.pushToken, platform).subscribe(re => {
@@ -1235,7 +1235,7 @@ export class AppService {
         this.updateLMSInfo();
         this.updatePushToken();
         this.lms.updateLanguage(this.language.getUserLanguage()).subscribe(re => {
-            console.log('updateLanguage: ', re);
+            // console.log('updateLanguage: ', re);
         });
         this.log({ idx_user: this.user.id, name: this.user.name, activity: 'register' });
     }
@@ -1320,9 +1320,9 @@ export class AppService {
                     data['date'] = this.serverTime(data['stamp']);
                     this.activity_log.push(data);
                 });
-                console.log('activity log', this.activity_log);
+                // console.log('activity log', this.activity_log);
             }).catch(error => {
-                console.log('Error getting document:', error);
+                // console.log('Error getting document:', error);
             });
 
         db.collection(firestoreLogCollection)
@@ -1342,7 +1342,7 @@ export class AppService {
                     }
                 });
             }, error => {
-                console.log('snap error::', error);
+                // console.log('snap error::', error);
             });
     }
 
@@ -1594,7 +1594,7 @@ export class AppService {
         // }
 
         this.userTime = this.t('CURRENT_TIME', { ap: ap, hour: hour, minute: min, country: user['timezone_country'] });
-        console.log('userTime: ', this.userTime);
+        // console.log('userTime: ', this.userTime);
     }
 
 
@@ -1703,19 +1703,19 @@ export class AppService {
         if (!YmdHi) {
             return '';
         }
-        console.log('YmdHis: ', YmdHi);
+        // console.log('YmdHis: ', YmdHi);
         const Y = parseInt(YmdHi.substr(0, 4), 10);
         const m = parseInt(YmdHi.substr(4, 2), 10) - 1;
         const d = parseInt(YmdHi.substr(6, 2), 10);
         const H = parseInt(YmdHi.substr(8, 2), 10);
         const i = parseInt(YmdHi.substr(10, 2), 10);
 
-        console.log(Y, m, d, H, i);
+        // console.log(Y, m, d, H, i);
         const date = new Date(Y, m, d, H, i);
         // console.log('ymdhis local: ', date);
         const userStamp = this.getStamp(date);
         const utcStamp = userStamp - this.getUserTimezone() * 60 * 60;
-        console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
+        // console.log('userStamp:', userStamp, 'utcStamp', utcStamp);
         return this.getYmdHi(new Date(utcStamp * 1000));
     }
     getUserYmdHiFromUTCYmdHi(YmdHi: string): string {
@@ -1804,7 +1804,7 @@ export class AppService {
 
     languageChanged(ln) {
         this.lms.updateLanguage(ln).subscribe( re => {
-            console.log('lms.languageChanged: re', re);
+            // console.log('lms.languageChanged: re', re);
         });
     }
 }
