@@ -175,6 +175,9 @@ main{
                 display: flex;
                 align-items: center;
             }
+            .desc{
+                cursor: pointer;
+            }
         }
         h2 {
             margin: .5em 0;
@@ -253,6 +256,7 @@ main{
             }
         }
         .desc{
+            cursor: pointer;
             h2 {
                 margin: 0;
                 margin-bottom: .4em;

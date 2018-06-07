@@ -4,10 +4,28 @@ section{
     outline: 1px solid #e9ecef;
     font-size: 85%;
     .title{
-        padding: .7em;
-        background: #66a2fb;
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 ;
+        padding-left: 1.3em;
+        background:rgba(0,123,255,.8);
         color: #fff;
+        font-weight: 200;
+
+        cursor: pointer;
+
+        .external-link{
+            display: flex;
+            align-items: center;
+            padding: .7em;
+            padding-right: 1.3em;
+            color: #fff;
+            cursor: pointer;
+            svg{
+                height: 1.15em;
+            }
+        }
     }
 
     .body{

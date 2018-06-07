@@ -41,16 +41,16 @@
                                     </div>
                                 </div>
                                 <div class="extra">
-                                    <div *ngIf="comment.internet"><b>{{ 'INTERNET' | t}}</b>: {{a.ln.INTERNET_STATUS[comment.internet]}}</div>
-                                    <div *ngIf="comment.camera" ><b>{{ 'Camera' | t}}</b>: {{a.ln.CAMERA_STATUS[comment.camera]}}</div>
+                                    <div *ngIf="comment.internet">{{ 'INTERNET' | t}} : {{a.ln.INTERNET_STATUS[comment.internet]}}</div>
+                                    <div *ngIf="comment.camera" >{{ 'Camera' | t}} : {{a.ln.CAMERA_STATUS[comment.camera]}}</div>
                                 </div>
                                 <div class="date">{{ 'DATE' | t }} : {{
                                     a.shortDate(comment.stamp) }}
                                 </div>
                             </div>
                             <div class="comment">
-                                {{comment.comment.slice(0,55)}}
-                                <span *ngIf="comment.comment.length>55">...</span>
+                                {{comment.comment.slice(0,30)}}
+                                <span *ngIf="comment.comment.length>30">...</span>
                             </div>
                             <!-- <button class="more-button">{{ 'MORE' | t }}</button> -->
                         </div>

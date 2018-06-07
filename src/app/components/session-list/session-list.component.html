@@ -93,38 +93,7 @@
         Teacher must see this page in wide screen since the content in this page is wide.
     </div>
 
-    <div class="mobile-stats-table" *ngIf=" re && books.length ">
-        <div>
-            <div>{{ 'SEARCHED_SESSIONS' | t }}</div>
-            <div>{{ books.length }} ( {{ 'TOTAL' | t }} : {{ re.total_sessions }} )</div>
-        </div>
-        <div  *ngIf=" a.isTeacher ">
-            <div>{{ 'SEARCHED_POINT' | t }}</div>
-            <div>{{ re.total_points | number }}</div>
-        </div>
-        <div *ngIf=" past ">
-            <div>{{ 'REFUNDED_SESSIONS' | t}}</div>
-            <div>{{re.total_session_refunded}}</div>
-        </div>
-        <div *ngIf=" re.total_session_refund_in_progress ">
-            <div>{{ 'SESSIONS_IN_REFUND_PROGRESS' | t}}</div>
-            <div>{{re.total_session_refund_in_progress}}</div>
-        </div>
-        <div>
-            <div>{{ 'SEARCH_PERIOD' | t}}</div>
-            <div>{{ date_begin }} ~  {{ date_end }}</div>
-        </div>
-        <div *ngIf="a.userTime" routerLink="/settings">
-            <div>{{ 'TIMEZONE NOW' | t}}</div>
-            <div> 
-                <span>{{ a.userTime }}</span>
-                <span class="change-timezone">{{ 'CHANGE TIMEZONE' | t }}</span>
-            </div>
- 
-        </div>
-
-    </div>
-    <div  class="desktop-stats-table" *ngIf=" re && books.length ">
+    <div  class="stats-table" *ngIf=" re && books.length ">
             <table>
                 <tr>
                     <td>{{ 'SEARCHED_SESSIONS' | t }}</td>
