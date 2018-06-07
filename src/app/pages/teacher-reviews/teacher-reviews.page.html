@@ -47,8 +47,8 @@
                                 <div class="date">{{ 'DATE' | t }} : {{ a.shortDate(comment.stamp) }}</div>
                             </div>
                             <div class="comment">
-                                {{comment.comment.slice(0,30)}}
-                                <span *ngIf="comment.comment.length>30">...</span>
+                                {{comment.comment.slice(0,25)}}
+                                <span *ngIf="comment.comment.length>25">...</span>
                             </div>
                         </div>
                         <div class="student col-md-3">
