@@ -496,3 +496,26 @@ export interface BOOK {
 }
 
 
+
+
+
+export interface TEACHER_SITE_INFO {
+        no_of_teacher: string;
+        no_of_student: string;
+        no_of_reservations: string;
+        no_of_past: string;
+        comment_from_student: {
+            total: string;
+            comments: Array<any>;
+            page: string;
+            limit: string;
+        };
+        comment_from_teacher: Array<any>;
+        recent_reservations: Array<any>;
+        recent_graded_teachers: Array<any>;
+        topearner: {
+            title: string;
+            content: string;
+            src: string;
+        };
+}
