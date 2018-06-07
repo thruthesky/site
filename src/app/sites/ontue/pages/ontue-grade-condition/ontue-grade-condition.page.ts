@@ -16,7 +16,7 @@ export class OntueGradeConditionPage {
                 private route: ActivatedRoute
     ) {
         this.route.queryParams.subscribe(params => {
-            console.log('queryParams', params);
+            // console.log('queryParams', params);
             if (params && params.grade) {
                 this.grade = params.grade;
             }

@@ -23,7 +23,7 @@ export class KatalkEnglishHelpPage implements OnDestroy {
     };
 
     constructor(public a: AppService) {
-        console.log(`HelpPage:constructor()`);
+        // console.log(`HelpPage:constructor()`);
 
     }
 

@@ -90,7 +90,7 @@ export class AdminPaymentPage implements OnInit {
         if (event) {
             event.preventDefault();
         }
-        console.log('form:', this.form);
+        // console.log('form:', this.form);
 
         let sql = `SELECT p.idx, p.amount, p.currency, p.idx_student, p.payment_method, p.point, p.stamp_begin, p.state FROM lms_payment as p, wp_users WHERE BRANCH AND wp_users.ID = p.idx_student`;
         const where = this.getWhere();
@@ -99,19 +99,19 @@ export class AdminPaymentPage implements OnInit {
         }
         sql += this.getOrderBy();
         sql += ` LIMIT ${this.form.limit}`;
-        console.log(sql);
+        // console.log(sql);
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.show.loader = false;
             this.re = re;
             this.statistics();
             this.sanitize();
-            console.log(re);
+            // console.log(re);
         }, e => this.a.toast(e));
         return false;
     }
@@ -125,14 +125,14 @@ export class AdminPaymentPage implements OnInit {
             where.push(`p.payment_method='${this.form.payment_method}'`);
         }
         if (this.form.date_begin) {
-            console.log('date_begin: ', this.form.date_begin);
+            // console.log('date_begin: ', this.form.date_begin);
             // console.log('ymdhi: ', this.a.getYmdHi( new Date(this.form.date_begin) ));
-            console.log(new Date(this.form.date_begin));
+            // console.log(new Date(this.form.date_begin));
             const begin_stamp = new Date(this.form.date_begin).getTime() / 1000;
             where.push(`p.stamp_begin>=${begin_stamp}`);
         }
         if (this.form.date_end) {
-            console.log(new Date(this.form.date_end));
+            // console.log(new Date(this.form.date_end));
             const stamp = Math.round(new Date(this.form.date_end).getTime() / 1000) + 60 * 60 * 24;
             where.push(`p.stamp_begin<=${stamp}`);
         }

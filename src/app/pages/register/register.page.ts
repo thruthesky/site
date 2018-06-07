@@ -115,7 +115,7 @@ export class RegisterPage implements OnInit {
         this.show.dataLoader = true;
         this.a.user.data().subscribe((userData: USER_DATA_RESPONSE) => {
             this.show.dataLoader = false;
-            console.log('userData::', userData);
+            // console.log('userData::', userData);
             this.form.user_email = userData.user_email;
             this.form.name = userData.name;
             this.form['display_name'] = userData['display_name'];
@@ -170,7 +170,7 @@ export class RegisterPage implements OnInit {
 
     onRegisterFailure(e) {
         //
-        console.log('Error on register: ', e);
+        // console.log('Error on register: ', e);
         this.loader.closeLoader();
         this.a.toast(e);
     }

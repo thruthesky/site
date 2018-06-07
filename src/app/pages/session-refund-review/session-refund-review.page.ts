@@ -30,7 +30,7 @@ export class SessionRefundReviewPage implements OnInit {
             this.idx = params.idx;
             if (params.idx) {
                 this.a.lms.get_session_refund_info({idx: params.idx}).subscribe(re => {
-                    console.log('get_session_refund_info::', re);
+                    // console.log('get_session_refund_info::', re);
                     this.book = re;
                 }, e => {
                     this.a.toast(e);

@@ -331,7 +331,7 @@ export class UserInfoPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('refund request: ', re);
+            // console.log('refund request: ', re);
             this.refundRequests = re;
             if (this.refundRequests && this.refundRequests.length) {
                 for (const s of this.refundRequests) {

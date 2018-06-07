@@ -29,7 +29,7 @@ export class KatalkEnglishHeaderComponent {
     this.a.logout(true);
   }
   onChangeLanguage() {
-    console.log( this.selectedLanguage );
+    // console.log( this.selectedLanguage );
     this.a.language.setUserLanguage( this.selectedLanguage );
   }
 }

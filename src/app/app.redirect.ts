@@ -15,9 +15,8 @@ export class RedirectPage {
         public a: AppService
     ) {
         activatedRoute.queryParamMap.subscribe( re => {
-            console.log('Redirecting to: ', re.get('url') );
+            // console.log('Redirecting to: ', re.get('url') );
             this.route.navigateByUrl( re.get('url') );
-            
         });
     }
 }

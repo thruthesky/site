@@ -193,7 +193,7 @@ export class XapiFileUploadComponent {
             }
         }, (err: HttpErrorResponse) => {
             if (err.error instanceof Error) {
-                console.log('Client-side error occurred.');
+                // console.log('Client-side error occurred.');
             } else {
                 // console.log(err);
                 if (err.message === 'file_is_not_selected' || err.message === 'file_is_not_selected_or_file_does_not_exist') {

@@ -313,7 +313,7 @@ modal.alert({ title: 'hi', content: 'oo'});
         content: 'Yes or no?',
     };
     modal.confirm(data).subscribe(re => {
-        console.log('User clicked on: ', re);
+        // console.log('User clicked on: ', re);
     });
 ````
 

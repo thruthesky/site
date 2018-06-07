@@ -48,7 +48,7 @@ export class ForumService {
         if (page) {
             url += page;
         }
-        console.log('loadPosts', url);
+        // console.log('loadPosts', url);
         return this.http.get(url);
     }
 
@@ -58,13 +58,13 @@ export class ForumService {
 
     getPostBySlug(slug: string, ln: string): Observable<any> {
         const url = environment['urlBackend'] + '/wp-json/wp/v2/posts?slug=' + slug + '-' + ln;
-        console.log('getPostBySlug', url);
+        // console.log('getPostBySlug', url);
         return this.http.get(url);
     }
 
     getPost(id): Observable<any> {
         const url = environment['urlBackend'] + '/wp-json/wp/v2/posts/' + id;
-        console.log('loadPosts', url);
+        // console.log('loadPosts', url);
         return this.http.get(url);
     }
 

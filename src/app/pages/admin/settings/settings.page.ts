@@ -36,7 +36,7 @@ export class SettingsPage implements OnInit {
         this.loader.save = true;
         this.a.lms.admin_save_settings(this.form).subscribe(res => {
             this.loader.save = false;
-            console.log('admin_settings(): ', res);
+            // console.log('admin_settings(): ', res);
         }, e => {
             this.loader.save = false;
             this.a.toast(e);

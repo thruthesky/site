@@ -37,7 +37,7 @@ export class PushNotificationPage implements OnInit {
             event.preventDefault();
         }
         this.a.lms.admin_push_send(this.form).subscribe(res => {
-            console.log('onSubmit()', res);
+            // console.log('onSubmit()', res);
         }, e => this.a.toast(e));
 
         return false;

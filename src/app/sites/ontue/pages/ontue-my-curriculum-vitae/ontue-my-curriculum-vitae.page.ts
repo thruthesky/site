@@ -54,7 +54,7 @@ export class OntueMyCurriculumVitaePage {
 
     loadData() {
         this.a.user.data().subscribe((userData: USER_DATA_RESPONSE) => {
-            console.log('userData::', userData);
+            // console.log('userData::', userData);
             this.account.name = userData.name;
             this.account.fullname = userData.fullname;
             this.account.nickname = userData.nickname;
@@ -147,7 +147,7 @@ export class OntueMyCurriculumVitaePage {
         delete this.account.kakao_qrmark_URL;
 
         this.showLoader = true;
-        console.log('account', this.account);
+        // console.log('account', this.account);
         this.a.user.update(this.account).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('curriculum vitae:', res);
             this.showLoader = false;
@@ -255,7 +255,7 @@ export class OntueMyCurriculumVitaePage {
 
     onYearSelected(event, yeardp) {
         const d = new Date(event);
-        console.log(d.getFullYear());
+        // console.log(d.getFullYear());
         this.account.experience = '' + d.getFullYear();
         yeardp.close();
 

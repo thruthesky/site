@@ -37,7 +37,7 @@ export class KatalkEnglishPaymentPage implements AfterViewInit {
         a.lms.payment_rate().subscribe(re => {
             this.inLoadingPaymentRate = false;
             this.payment_rate = re;
-            console.log(this.payment_rate);
+            // console.log(this.payment_rate);
         }, () => { });
     }
 

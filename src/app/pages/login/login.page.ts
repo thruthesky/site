@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
      * This method is being invoked when the user has logged in.
      */
     onLogin() {
-        console.log(`User has logged in now`);
+        // console.log(`User has logged in now`);
     }
     onSubmitLoginForm(event?: Event) {
         if (event) {
@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
         this.loader.submit = true;
 
         this.a.user.login(this.form.user_email, this.form.user_pass).subscribe(re => {
-            console.log('a.user.login() success: ');
+            // console.log('a.user.login() success: ');
 
             this.a.onUserLogin();
             // this.firebaseLogin(re);

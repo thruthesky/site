@@ -14,7 +14,7 @@ export class NotFoundPage implements OnInit {
     constructor(
         public a: AppService
     ) {
-        console.log(`NotFoundPage::constructor()`);
+        // console.log(`NotFoundPage::constructor()`);
 
     }
 

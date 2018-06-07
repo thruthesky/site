@@ -55,12 +55,12 @@ export class AppComponent implements OnInit, AfterViewInit {
      */
     const segments = this.a.getQuerySegments();
     if (segments.length) {
-      console.log('It has segment !!');
+      // console.log('It has segment !!');
     } else {
       /**
        * If no route accessed. You need to show first page of each domain.
        */
-      console.log('It has no segment. Opening front page of this domain', this.a.getDomain());
+      // console.log('It has no segment. Opening front page of this domain', this.a.getDomain());
       this.a.openHome();
     }
 
