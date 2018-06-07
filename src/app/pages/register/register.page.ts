@@ -55,6 +55,7 @@ export class RegisterPage implements OnInit {
         public forum: ForumService
     ) {
 
+
         // setTimeout(() => this.test(), 1000);
 
         // a.onUserRegisterPage();
@@ -468,7 +469,7 @@ export class RegisterPage implements OnInit {
                 <p>6. Hurray! You have a copy of your QR Code,
                     you can update your Curriculum Vitae by uploading this image.</p>
             </section>
-        `
+        `;
         this.modal.alert({ content: content });
     }
 

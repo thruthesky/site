@@ -306,10 +306,16 @@ So, just inject and use it any where you want it.
 modal.alert({ title: 'hi', content: 'oo'});
 ````
 
+* How to use confirm dialog
 
-
-
-
+```` typescript
+    const data: ModalData = {
+        content: 'Yes or no?',
+    };
+    modal.confirm(data).subscribe(re => {
+        console.log('User clicked on: ', re);
+    });
+````
 
 ## Firebase
 
