@@ -2,7 +2,8 @@
   section{
       .desktop-banner{
         height: 225px;
-        outline: 3px dashed #FF6400;
+        outline: 3px dashed rgba(125,125,125,0.1);
+        background: #fff;
         overflow: hidden;
         .top{
           display: flex;
