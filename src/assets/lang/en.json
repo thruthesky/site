@@ -636,5 +636,5 @@
   "_TOTAL_NO_OF_TEACHERS": "We have #number of teachers.",
   "USER_PROFILE_UPDATED": "Your profile has been updated.",
   "IN_UPDATING_PROFILE": "Updating your profile",
-  "SLUG_IS_EMPTY": "게시글이 없습니다."
+  "SLUG_IS_EMPTY": "There are no posts under this forum."
 }

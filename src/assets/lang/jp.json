@@ -553,5 +553,6 @@
   "_KATALK_TEACHERS": "Katalk英語教師",
   "_TOTAL_NO_OF_TEACHERS": "私たちは#numberの教師を持っています。",
   "USER_PROFILE_UPDATED": "あなたのプロフィールが更新されました。",
-  "IN_UPDATING_PROFILE": "あなたのプロフィールを更新する"
+  "IN_UPDATING_PROFILE": "あなたのプロフィールを更新する",
+  "SLUG_IS_EMPTY": "このフォーラムの下には投稿はありません。"
 }
