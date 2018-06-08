@@ -35,7 +35,7 @@ export class TeacherReviewsPage {
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
         }).subscribe(res => {
-            // console.log("loadClassComment:: ", res);
+            console.log('loadClassComment:: ', res);
             this.comments = res['comments'];
             this.pageOption.currentPage = res['page'];
             this.pageOption.limitPerPage = res['limit'];
