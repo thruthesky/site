@@ -1,7 +1,7 @@
 section{
     height: 100%;
     background: #fff;
-    outline: 1px solid #e9ecef;
+    outline: 1px solid rgba(125,125,125,0.1);
     font-size: 85%;
     .title{
         padding: .7em ;
@@ -9,7 +9,6 @@ section{
         background:rgba(0,123,255,.8);
         color: #fff;
         font-weight: 200;
-        cursor: pointer;
     }
 
     .body{

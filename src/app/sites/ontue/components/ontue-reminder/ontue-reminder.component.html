@@ -1,14 +1,21 @@
 <section class="container-fluid">
     <div class="row desktop-banner">
         <div class="col">
-            <div class="banner-container">
-                <img class="image1" src="../assets/img/teacher/teacherslide1.jpg" alt="image">
+            <!-- <div class="banner-container"> -->
+                <div class="top-earner" *ngIf=" site_info.topearner.title ">
+                    <div class="photo">
+                        <img src="{{ site_info.topearner.src }}">
+                    </div>
+                    <h2>{{ site_info.topearner.title }} </h2>
+                    <p>{{ site_info.topearner.content }}</p>
+                </div>
+                <!-- <img class="image1" src="../assets/img/teacher/teacherslide1.jpg" alt="image">
                 <img class="image2" src="../assets/img/teacher/teacherslide2.jpg" alt="image">
-                <img class="image3" src="../assets/img/teacher/teacherslide3.jpg" alt="image">
-            </div>
+                <img class="image3" src="../assets/img/teacher/teacherslide3.jpg" alt="image"> -->
+            <!-- </div> -->
         </div>
     </div>
-    <div class="row mobile-banner">
+    <!-- <div class="row mobile-banner">
         <div class="col">
                 <div class="banner-bg-1">
                     <div class="banner-wrapper">
@@ -18,7 +25,7 @@
                     </div>
                 </div>
         </div>
-    </div>
+    </div> -->
     <div class="row reminder">
         <div class="col" >
             <p class="title">Urgent Hiring </p>
