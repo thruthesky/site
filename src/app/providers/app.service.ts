@@ -69,6 +69,22 @@ export interface SHARE_SESSION_LIST {
 }
 
 
+interface Environmen {
+    production?: boolean;
+    hmr?: boolean;
+    urlBackend: string;
+    firebaseConfig: any;
+    reloadTag?: any;
+    disableFirebaseUserActivityLog: boolean;
+    categories: {
+        teacher_reminders: number;
+        student_reminders: number;
+        policy: number;
+        termsandconditions: number;
+        topearner: number;
+    };
+}
+
 
 
 const firestoreLogCollection = 'user-activity-log';
@@ -76,7 +92,7 @@ const firestoreLogCollection = 'user-activity-log';
 @Injectable()
 export class AppService {
 
-    environment = environment;
+    environment: Environmen = environment;
 
     // color: string = null;
 

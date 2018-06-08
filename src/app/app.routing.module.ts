@@ -241,9 +241,14 @@ const routes: Routes = [
   //   data: { category: 'rules' }
   // },
   {
-    path: 'reminders',
+    path: 'student_reminders',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
-    data: { slug: 'reminders' }
+    data: { slug: 'student_reminders' }
+  },
+  {
+    path: 'teacher_reminders',
+    loadChildren: './pages/forum/forum.page.module#ForumPageModule',
+    data: { slug: 'teacher_reminders' }
   },
   {
     path: 'termsAndConditions',
