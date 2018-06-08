@@ -4,27 +4,25 @@ header{
   @media screen and (min-width:$md) {
     font-size: inherit;
   }
-  h1{
-    margin: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  color: #fff;
+  .option{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    .option{
-      display: flex;
-      height: 100%;
-      font-weight: 200;
-      font-size: 80%;
-      cursor: pointer;
-  
-  
-      .options-icon{
-          height: 1em;
-          margin-left:.5em;
-      }
+    padding: 0 2.5em;
+    font-weight: 200;
+    font-size: 80%;
+    cursor: pointer;
+
+
+    .options-icon{
+        height: 1em;
+        margin-left:.5em;
+    }
   }
-}
-
-
   .point-loader{
     display: flex;
     align-items: center;
