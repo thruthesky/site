@@ -2,8 +2,18 @@
   section{
       .desktop-banner{
         height: 225px;
-        outline: 1px inset rgba(125,125,125,0.1);
+        outline: 3px dashed #FF6400;
         overflow: hidden;
+        .top{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          svg{
+            margin-left: .5em;
+            height: 4em;
+            color: #FFCB00;
+          }
+        }
 
         .top-earner{
           display: flex;
