@@ -601,7 +601,7 @@
   "NEXT MONTH": "Next month",
   "_ONE_TO_ONE_VIDEO_ENLGISH": "1:1 Video English Lesson",
   "_10000_PER_MONTH": "$10 a Month",
-  "_HUK": "Waht...?",
+  "_HUK": "What...?",
   "_10000": "Only $10?!",
   "_BEST_TEACHERS": "Best English Teachers",
   "_NATIVE_SPEACKERS": "Native teachers!",
@@ -633,5 +633,7 @@
   "_COMMENTS": "20 lessons. $10. Katalk English Reviews",
   "_MORE_COMMNETS": "Show more reviews",
   "_KATALK_TEACHERS": "Katalk English Teachers",
-  "_TOTAL_NO_OF_TEACHERS": "We have #number of teachers."
+  "_TOTAL_NO_OF_TEACHERS": "We have #number of teachers.",
+  "USER_PROFILE_UPDATED": "Your profile has been updated.",
+  "IN_UPDATING_PROFILE": "Updating your profile"
 }

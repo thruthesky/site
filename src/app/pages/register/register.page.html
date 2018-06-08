@@ -206,7 +206,7 @@
                 </div>
             </div>
 
-            <div class="agree">
+            <div class="agree" *ngIf=" a.isLogout ">
                     <label>
                         <input type="checkbox" id="agree" name="agree" [(ngModel)]="agree">
                         <span>{{ a.ln.TOC_AGREE }} </span>
@@ -215,10 +215,14 @@
             </div>
 
             <div>
-                <div class="buttons">
+                <div class="buttons" *ngIf=" ! show.updateLoader ">
                     <button class="app-button" type="submit" *ngIf="a.user.isLogout">{{ 'REGISTER_BUTTON' | t }}</button>
                     <button class="app-button" type="submit" *ngIf="a.user.isLogin">{{ 'UPDATE_PROFILE_BUTTON' | t }}</button>
                     <button class="app-button" [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
+                </div>
+                <div class="my-5 d-flex justify-content-center" *ngIf=" show.updateLoader ">
+                    <mat-spinner [diameter]="32"></mat-spinner>
+                    <div class="mt-1 pl-3">{{ a.ln.IN_UPDATING_PROFILE }}</div>
                 </div>
             </div>
 
