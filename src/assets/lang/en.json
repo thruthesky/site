@@ -636,5 +636,8 @@
   "_TOTAL_NO_OF_TEACHERS": "We have #number of teachers.",
   "USER_PROFILE_UPDATED": "Your profile has been updated.",
   "IN_UPDATING_PROFILE": "Updating your profile",
-  "SLUG_IS_EMPTY": "There are no posts under this forum."
+  "SLUG_IS_EMPTY": "There are no posts under this forum.",
+  "LEVELTEST_IS_BLOCKED": "This teacher cannot accept free class for the meantime.",
+  "AVERAGE_INTERNET": "Average Internet speed",
+  "AVERAGE_CAMERA": "Average use of Camera"
 }

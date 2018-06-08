@@ -554,5 +554,8 @@
   "_TOTAL_NO_OF_TEACHERS": "私たちは#numberの教師を持っています。",
   "USER_PROFILE_UPDATED": "あなたのプロフィールが更新されました。",
   "IN_UPDATING_PROFILE": "あなたのプロフィールを更新する",
-  "SLUG_IS_EMPTY": "このフォーラムの下には投稿はありません。"
+  "SLUG_IS_EMPTY": "このフォーラムの下には投稿はありません。",
+  "LEVELTEST_IS_BLOCKED": "その先生は、その間に無料のクラスを受け入れることはできません。",
+  "AVERAGE_INTERNET": "平均インターネット速度",
+  "AVERAGE_CAMERA": "カメラの平均使用"
 }

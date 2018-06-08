@@ -595,6 +595,9 @@
   "_TOTAL_NO_OF_TEACHERS": "我们有#Number老师。",
   "USER_PROFILE_UPDATED": "你的个人资料已经更新。",
   "IN_UPDATING_PROFILE": "更新你的个人资料",
-  "SLUG_IS_EMPTY": "本论坛没有帖子。"
+  "SLUG_IS_EMPTY": "本论坛没有帖子。",
+  "LEVELTEST_IS_BLOCKED": "这位老师同时不能接受免费课程。",
+  "AVERAGE_INTERNET": "平均互联网速度",
+  "AVERAGE_CAMERA": "相机的平均使用"
 
 }
