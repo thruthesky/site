@@ -1,39 +1,5 @@
 @import '../../../../../theme/vars.scss';
   section{
-
-      // .mobile-banner{
-      //   @media screen and (min-width:$md) {
-      //     display: none;
-      //   }
-
-      //   .banner-wrapper{
-      //     padding: 1em;
-      //     color:#fff;
-      //     text-align: center;
-      //     .title{
-      //       margin: .5em 0;
-      //       font-size: 1.8em;
-      //     }
-  
-      //     .body{
-      //       font-size: 90%;
-      //       font-weight: 100;
-      //       line-height: 1.6em;
-      //     }
-  
-      //     button{
-      //       margin: 1em 0;
-      //       padding: 1em 2em;
-      //       border-radius: 2px;
-      //       border: none;
-      //       background: dodgerblue;
-      //       color:#fff;
-      //       cursor: pointer;
-      //     }
-      //   }
-
-      // }
-
       .desktop-banner{
         height: 225px;
         outline: 1px inset rgba(125,125,125,0.1);
@@ -74,68 +40,11 @@
               font-size: .8em;
               line-height: 1.5em;
               font-weight: 400;
-              color: #141823
+              color: #3a3e4b
           }
       }
-      }
-      // .desktop-banner{
-      //   @media screen and (max-width:$sm) {
-      //     display: none;
-      //   }
-      //   height: 225px;
-      //   overflow: hidden;
-          
-      //   .banner-container{
-      //     background: #fff;
-    
-      //     img{
-      //       position: absolute;
-      //       width: 100%;
-      //     }
-      //     .image1{
-      //       animation: banner1 9s infinite ease-in-out alternate;
-      //     }
-      //     .image2{
-      //       animation: banner2 9s infinite ease-in-out alternate;
-      //     }
-      //     .image3{
-      //       animation: banner3 9s infinite ease-in-out alternate;
-      //     }
-      //     @keyframes banner1 {
-      //       0%{
-      //         opacity: 1;
-      //       }
-      //       50%{
-      //         opacity: 0;
-      //       }
-      //       100%{
-      //         opacity: 0;
-      //       }
-      //     }
-      //     @keyframes banner2 {
-      //       0%{
-      //         opacity: 0;
-      //       }
-      //       50%{
-      //         opacity: 1;
-      //       }
-      //       100%{
-      //         opacity: 0;
-      //       }
-      //     }
-      //     @keyframes banner3 {
-      //       0%{
-      //         opacity: 0;
-      //       }
-      //       50%{
-      //         opacity: 0;
-      //       }
-      //       100%{
-      //         opacity: 1;
-      //       }
-      //     }
-      //   }
-      // }
+    }
+      
 
       .col{
         padding: 0;
