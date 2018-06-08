@@ -600,5 +600,6 @@
   "_KATALK_TEACHERS": "카톡영어 선생님",
   "_TOTAL_NO_OF_TEACHERS": "총 #number 명의 선생님이 있습니다.",
   "USER_PROFILE_UPDATED": "회원 정보가 수정되었습니다.",
-  "IN_UPDATING_PROFILE": "회원 정보 수정 중입니다."
+  "IN_UPDATING_PROFILE": "회원 정보 수정 중입니다.",
+  "SLUG_IS_EMPTY": "게시글이 없습니다."
 }

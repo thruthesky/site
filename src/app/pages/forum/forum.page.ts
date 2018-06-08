@@ -75,7 +75,7 @@ export class ForumPage implements OnInit {
                     post.content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(post.content.rendered);
                 }
             } else {
-                this.modal.alert({ content: this.a.ln['POST_IS_EMPTY'] });
+                this.modal.alert({ content: this.a.ln['SLUG_IS_EMPTY'] });
             }
             this.showLoader = false;
         }, e => {
