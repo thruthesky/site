@@ -14,17 +14,13 @@
                                 <img class="calendar-img" src="assets/img/my-own-calendar.png">
                             </div>
                             <div class="desc col-6"  (click)=" showMoreMyOwnPlan() ">
-                                <h2>카톡만 되면
-                                    <br>언제 어디서나 수업</h2>
+                                <h2>{{ a.ln._IF_CAN_KATALK }}</h2>
                                 <div class="text">
-                                    365일 밤낮 언제 어디서나
-                                    <br> 카톡 1:1 화상영어 수업
-                                    <br> 선생님과 수업료를 내가 정하는
-                                    <br> 완벽한 자유 예약 시스템
+                                    {{ a.ln._WHENEVER_WHEREEVER }}
                                 </div>
 
                                 <div class="view-more" *ngIf=" ! showMoreMyOwnPlan_1 ">
-                                    더보기...
+                                    {{ a.ln.MORE }}...
                                 </div>
                             </div>
                         </div>
@@ -32,11 +28,11 @@
 
 
                     <div class="myOwnPlan-wrapper"  *ngIf=" showMoreMyOwnPlan_1 ">
-                        <div class="moreMyOwnPlan no1" *ngIf=" showMoreMyOwnPlan_1 ">카톡영어에서는 학생이 직접 수업료와 선생님을 정합니다.
+                        <div class="moreMyOwnPlan no1" *ngIf=" showMoreMyOwnPlan_1 ">{{ a.ln._ON_KATALK }}
                         </div>
-                        <div class="moreMyOwnPlan no2" *ngIf=" showMoreMyOwnPlan_2 ">카톡영어의 자유 예약 시스템은 매우 직관적이고 편리합니다. 무료 체험 수업을 해 보면 쉽게 이해가 됩니다.
+                        <div class="moreMyOwnPlan no2" *ngIf=" showMoreMyOwnPlan_2 ">{{ a.ln._KATALK_IS_EASY }}
                         </div>
-                        <div class="moreMyOwnPlan no3" *ngIf=" showMoreMyOwnPlan_3 ">카카오톡을 이용해서 화상영어 수업을 하며 언제 어디서나 선생님과 채팅을 할 수 있습니다.
+                        <div class="moreMyOwnPlan no3" *ngIf=" showMoreMyOwnPlan_3 ">{{ a.ln._WHENEVER_WHEREEVER_CHAT }}
                         </div>
                     </div>
                 </div>
@@ -51,12 +47,11 @@
                             </div>
                             <div class="desc col-8"  (click)=" showMoreAboutKatalkEnglish() ">
                                 <div>
-                                    <h2>카톡영어는</h2>
+                                    <h2>{{ a.ln._KATALK_ENGLISH }}</h2>
                                     <div>
-                                        최고라고 자화자찬하지 않으며 타 업체와 비교하지 않습니다.
-                                            그 이유는 바로 카톡영어와 경쟁 할 수 있는 화상영어 교육 사이트가 존재하지 않기 때문입니다.
+                                        {{ a.ln._NO_COMPARE }}
                                         <span class="show-more" *ngIf=" ! moreAbout1 ">
-                                              더보기...
+                                              {{ a.ln.MORE }}...
                                         </span>
                                     </div>
                                 </div>
@@ -70,23 +65,20 @@
                 <div class="more-about-katalkenglish" *ngIf=" moreAboutKatalkEnglish ">
                     <div class="inner">
                         <div class="text" *ngIf=" moreAbout1 ">
-                            최고의 강사들만 선정 하였으며
-                            <br>또 다시 최고의 강사들 끼리 경쟁을 하는 시스템
+                            {{ a.ln._BEST_OF_BEST_TEACHERS }}
                         </div>
                         <div class="text" *ngIf=" moreAbout2 ">
-                            강사와 학생이 직거래를 하여
-                            <br>학생은 최저의 수업료내면 선생님은 최고의 임금!
+                            {{ a.ln._BEST_PRICE }}
                         </div>
                         <div class="text" *ngIf=" moreAbout3 ">
-                            카카오톡으로 수업을 하여
-                            <br>강사와 학생이 하루 종일 채팅하는 시스템
+                            {{ a.ln._CHAT_ALL_DAY_LONG }}
                         </div>
 
                         <div class="text" *ngIf=" moreAbout4 ">
-                            무제한 예약, 취소 가능. 완벽한 학습 관리 시스템
+                            {{ a.ln._AUTO_SYSTEM }}
                         </div>
                     </div>
-                    <div class="help" routerLink="help">카톡영어 이용안내</div>
+                    <div class="help" routerLink="help">{{ a.ln._HOW_TO }}</div>
 
                 </div>
                 <!--/more-about-katalkenglish-->
@@ -96,20 +88,20 @@
                         <div class="row">
                             <div class="col">
                                 <div class="item teacher">
-                                    <div class="text">강사수</div>
+                                    <div class="text">{{ a.ln._NO_OF_TEACHERS }}</div>
                                     <div class="number">{{ a.info.teacher }}</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="item reservation">
-                                    <div class="text">예약된수업</div>
+                                    <div class="text">{{ a.ln._NO_OF_RESERVATIONS }}</div>
                                     <div class="number">{{ a.info.reservation }}</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="item leveltest">
-                                    <div class="text">레벨테스트</div>
-                                    <div class="number">{{ a.info.leveltest }}</div>
+                                    <div class="text">{{ a.ln._NO_OF_STUDENTS }}</div>
+                                    <div class="number">{{ a.info.student }}</div>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +125,7 @@
                 <katalkenglish-main-teacher-list *ngIf=" a.size() == 'big' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
 
                 <section id="student-comments" *ngIf=" a.t('STUDENT COMMENTS') ">
-                    <h2>1만원. 월 20회. 카톡영어의 생생한 수업후기</h2>
+                    <h2>{{ a.ln._COMMENTS }}</h2>
 
                     <ng-container *ngFor=" let comment of a.t('STUDENT COMMENTS'); let i = index ">
                         <div class="comment" *ngIf=" i < 2 || show['more-comment']">
@@ -155,7 +147,8 @@
                         </div>
                     </ng-container>
 
-                    <div class="more" (click)=" show['more-comment'] = true " *ngIf=" ! show['more-comment'] ">수강후기 더 보기
+                    <div class="more" (click)=" show['more-comment'] = true " *ngIf=" ! show['more-comment'] ">
+                        {{ a.ln._MORE_COMMNETS }}
                     </div>
                 </section>
 

@@ -1,8 +1,8 @@
 <section class="teacher-list">
     <div class="title">
-        <h2>카톡영어 선생님</h2>
+        <h2>{{ a.ln._KATALK_TEACHERS }}</h2>
         <div class="total-teachers" *ngIf=" total_teachers ">
-            총 <b>{{ total_teachers }}</b> 명의 선생님이 있습니다.
+            {{ '_TOTAL_NO_OF_TEACHERS' | t:{ number: total_teachers | number } }}
         </div>
     </div>
 

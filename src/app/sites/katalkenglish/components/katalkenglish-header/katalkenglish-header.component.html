@@ -48,7 +48,8 @@
             </ng-container>
             <ng-container *ngIf=" ! a.isNewUser ">
                 <a routerLink="/session-future">{{ a.ln.SESSION_FUTURE }}</a>
-                <a routerLink="/session-past">{{ a.ln.SESSION_PAST }}</a>
+                <!-- <a routerLink="/session-past">{{ a.ln.SESSION_PAST }}</a> -->
+                <a routerLink="/instance-schedule">{{ a.ln.AVAILABLE_SESSIONS_LONG }}</a>
             </ng-container>
         </nav>
     </div>
