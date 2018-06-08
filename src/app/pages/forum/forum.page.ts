@@ -41,7 +41,7 @@ export class ForumPage implements OnInit {
             this.slug = data['slug'];
             if (this.slug === 'termsandconditions') {
                 this.title = this.a.ln.TERMS_AND_CONDITIONS;
-            } else if (this.slug === 'reminders') {
+            } else if (this.slug === 'student_reminders' || this.slug === 'teacher_reminders') {
                 this.title = this.a.ln['REMINDER'];
             } else if (this.slug === 'policy') {
                 this.title = this.a.ln.POLICY;
@@ -55,7 +55,9 @@ export class ForumPage implements OnInit {
 
     loadPosts(slug: string) {
 
-        const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment['categories'][slug];
+        // console.log('slug: ', slug);
+        // console.log(this.a.environment.categories);
+        const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment.categories[ slug ];
         // console.log('api: ', url);
 
 
