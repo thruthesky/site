@@ -309,7 +309,7 @@ modal.alert({ title: 'hi', content: 'oo'});
     const data: ModalData = {
         content: 'Yes or no?',
     };
-    modal.confirm(data).subscribe(re => {
+    this.modal.confirm(data).subscribe(result => {
         // console.log('User clicked on: ', re);
     });
 ````

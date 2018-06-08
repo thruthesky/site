@@ -47,10 +47,7 @@ export class RegisterPage implements OnInit {
     year_now = new Date().getFullYear();
 
     constructor(public a: AppService,
-        // public f: FireService,
         public loader: LoaderService,
-        // public lang: LanguageService,
-        // public dialog: MatDialog,
         public modal: ModalService,
         public forum: ForumService
     ) {

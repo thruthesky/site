@@ -27,7 +27,7 @@ export class OntueHomePage {
 
     constructor(public a: AppService) {
         this.a.lms.get_teacher_site_info().subscribe(res => {
-            console.log('res', res);
+            // console.log('res', res);
             this.site_info = res['site_info'];
         }, () => {
         });

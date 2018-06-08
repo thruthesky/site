@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { ActivatedRoute } from '@angular/router';
-import { _CONFIRM_DATA_OPTION, ConfirmModal } from '../../components/modal/confirm/confirm.modal';
-import { MatDialog } from '@angular/material';
+import { ModalData, ModalService } from '../../providers/modal/modal.service';
 
 
 @Component({
@@ -21,7 +20,7 @@ export class SessionRefundReviewPage implements OnInit {
     constructor(
                 public active: ActivatedRoute,
                 public a: AppService,
-                public dialog: MatDialog
+                public modal: ModalService,
     ) {
     }
 
@@ -50,16 +49,13 @@ export class SessionRefundReviewPage implements OnInit {
 
     onClickRefund() {
 
-        const dialogRef = this.dialog.open(ConfirmModal, {
-            data: <_CONFIRM_DATA_OPTION>{
-                header: this.a.t('REFUND ACCEPT'),
-                content: this.a.t('REFUND ACCEPT CONFIRM'),
-                actionYes: this.a.t('YES'),
-                actionNo: this.a.t('CANCEL')
-            }
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
+        const data: ModalData = {
+            title: this.a.t('REFUND ACCEPT'),
+            content: this.a.t('REFUND ACCEPT CONFIRM'),
+            yes: this.a.t('YES'),
+            no: this.a.t('CANCEL')
+        };
+        this.modal.confirm(data).subscribe( result => {
             if ( result ) {
                 this.a.lms.session_refund(this.book['idx']).subscribe(re => {
                     // console.log(re);
@@ -70,6 +66,7 @@ export class SessionRefundReviewPage implements OnInit {
                 });
             }
         });
+
     }
 
     onClickRejectRefundRequest() {
@@ -79,16 +76,13 @@ export class SessionRefundReviewPage implements OnInit {
 
         if ( this.message ) {
 
-            const dialogRef = this.dialog.open(ConfirmModal, {
-                data: <_CONFIRM_DATA_OPTION>{
-                    header: this.a.t('REFUND REJECT'),
-                    content: this.a.t('REFUND REJECT CONFIRM'),
-                    actionYes: this.a.t('YES'),
-                    actionNo: this.a.t('CANCEL')
-                }
-            });
-
-            dialogRef.afterClosed().subscribe(result => {
+            const data: ModalData = {
+                title: this.a.t('REFUND REJECT'),
+                content: this.a.t('REFUND REJECT CONFIRM'),
+                yes: this.a.t('YES'),
+                no: this.a.t('CANCEL')
+            };
+            this.modal.confirm(data).subscribe( result => {
                 if ( result ) {
                     // console.log('this.message', this.message);
                     this.loadingRefundReject = true;
