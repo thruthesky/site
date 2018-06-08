@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { SessionRefundReviewPage } from './session-refund-review.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
-import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 const routes: Routes = [
     {path: '', component: SessionRefundReviewPage}
@@ -17,7 +17,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         TranslatePipeModule,
         MaterialModule,
-        ModalSerivceModule
+        ModalServiceModule
     ],
     exports: [
         RouterModule

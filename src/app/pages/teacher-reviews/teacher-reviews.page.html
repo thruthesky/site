@@ -4,7 +4,12 @@
         <p> {{ 'CLASS_COMMENTS_PAGE_DESC' | t }}</p>
     </header>
     <div class="container-fluid">
-        <div class="card-wrapper row">
+
+        <div class="loader" *ngIf=" showLoader ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
+        </div>
+        <div class="card-wrapper row" *ngIf=" !showLoader">
             <a class="col-12 col-md-6" *ngFor="let comment of comments" (click)="onClickShowMore(comment)">
                 <div class="card-inner container-fluid">
                     <div class="card-hover-effect">

@@ -6,7 +6,7 @@ import { MaterialModule } from '../../app.material.module';
 import { TeacherReviewListPage } from './teacher-review-list.page';
 import { PageNavigatorComponentModule } from '../../components/page-navigator/page-navigator.component.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
-import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
         TranslatePipeModule,
         MaterialModule,
         PageNavigatorComponentModule,
-        ModalSerivceModule
+        ModalServiceModule
     ],
     exports: [
         RouterModule

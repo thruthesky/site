@@ -20,5 +20,5 @@ import { MaterialModule } from '../../app.material.module';
   ],
   providers: [ ModalService ]
 })
-export class ModalSerivceModule { }
+export class ModalServiceModule { }
 

@@ -13,6 +13,11 @@
             <div class="py-4" class="col">{{ 'AMOUNT' | t }}</div>
             <div class="py-4" class="col">{{ 'POINT' | t }}</div>
         </div>
+        <div class="loader" *ngIf=" showLoader ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
+        </div>
+
         <div class="row" *ngFor="let payment of payments; even as o">
             <div class="col">{{ payment.idx }}</div>
             <!-- <div class="col">{{ payment.paymentID }</div> -->

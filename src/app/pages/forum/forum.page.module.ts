@@ -4,6 +4,8 @@ import { ForumPage } from './forum.page';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../../app.material.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild( routes ),
-        HttpClientModule
+        HttpClientModule,
+        MaterialModule,
+        ModalServiceModule
     ],
     exports: [
         ForumPage

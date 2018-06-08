@@ -163,6 +163,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             } else {            // if there is no schedule.
                 this.re = re;
             }
+            console.log('loadScheduleAndDisplay::', re);
         });
     }
     displayRows(table) {
@@ -206,6 +207,9 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
     }
     get isAllTeacher() {
         return !this.isSingleTeacher;
+    }
+    get isFreeClassBlock() {
+        return this.a.getYmd() <= this.re.teacher['block_free_class_until'];
     }
 
     onClickNavigate(navigate) {

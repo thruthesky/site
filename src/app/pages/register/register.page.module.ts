@@ -7,7 +7,7 @@ import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload
 import { LoaderSerivceModule } from '../../providers/loader/loader.service.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
-import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 import { ForumService } from '../../providers/forum.service';
 
 
@@ -23,7 +23,7 @@ const routes: Routes = [
         XapiFileUploadComponentModule,
         LoaderSerivceModule,
         MaterialModule,
-        ModalSerivceModule
+        ModalServiceModule
     ],
     exports: [
         RouterModule

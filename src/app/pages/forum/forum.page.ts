@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { AppService } from '../../providers/app.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { ModalService } from '../../providers/modal/modal.service';
 
 
 interface WP_POST {
@@ -30,11 +31,13 @@ export class ForumPage implements OnInit {
     posts: Array<WP_POST> = [];
     slug = '';
     title = '';
+    showLoader = true;
     constructor(
         activated: ActivatedRoute,
         public sanitizer: DomSanitizer,
         public http: HttpClient,
-        public a: AppService
+        public a: AppService,
+        public modal: ModalService
     ) {
         activated.data.subscribe(data => {
             // console.log('data: ', data);
@@ -54,7 +57,7 @@ export class ForumPage implements OnInit {
     ngOnInit() { }
 
     loadPosts(slug: string) {
-
+        this.showLoader = true;
         const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment['categories'][slug];
         // console.log('api: ', url);
 
@@ -63,14 +66,18 @@ export class ForumPage implements OnInit {
             // console.log('posts: ', posts);
 
             if (posts && posts.length) {
-
                 this.posts = posts;
                 for (const post of posts) {
                     post.content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(post.content.rendered);
                 }
-
+            } else {
+                this.modal.alert({ content: this.a.ln['POST_IS_EMPTY'] });
             }
-        }, e => console.error(e));
+            this.showLoader = false;
+        }, e => {
+            // console.error(e);
+            this.showLoader = false;
+        });
     }
 }
 

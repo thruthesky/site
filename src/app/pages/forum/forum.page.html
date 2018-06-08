@@ -3,6 +3,10 @@
         <h1>{{ title }}</h1>
     </header>
     <section>
+        <div class="loader" *ngIf=" showLoader ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ a.ln['IN LOADING'] }}</span>
+        </div>
         <div class="posts" *ngIf=" posts.length ">
             <div class="spacer" *ngFor=" let post of posts " >
                 <div class="post">

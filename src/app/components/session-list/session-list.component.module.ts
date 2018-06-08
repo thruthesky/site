@@ -5,7 +5,7 @@ import { SessionListComponent } from './session-list.component';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
-import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
         RouterModule,
         TranslatePipeModule,
         MaterialModule,
-        ModalSerivceModule
+        ModalServiceModule
     ],
     declarations: [
         SessionListComponent
