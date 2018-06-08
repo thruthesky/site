@@ -592,6 +592,8 @@
   "_COMMENTS": "20节课。$10 Katalk英语评论",
   "_MORE_COMMNETS": "显示更多评论",
   "_KATALK_TEACHERS": "Katalk英语教师",
-  "_TOTAL_NO_OF_TEACHERS": "我们有#Number老师。"
+  "_TOTAL_NO_OF_TEACHERS": "我们有#Number老师。",
+  "USER_PROFILE_UPDATED": "你的个人资料已经更新。",
+  "IN_UPDATING_PROFILE": "更新你的个人资料"
 
 }
