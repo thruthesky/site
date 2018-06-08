@@ -276,6 +276,14 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 
 * How to use pipe. See [FireLibrary Language Translation](https://github.com/thruthesky/firelibrary#language-translation)
 
+```` html
+{{ fire.translate('KEY', {info: 'extra'}) }}   <!-- This calls a method -->
+{{ fire.t('KEY', {info: 'extra'}) }}  <!-- Alias of translate() -->
+{{ fire.ln.HOME }}  <!-- This access a variable. NOT method call. Prefered for speed. -->
+{{ 'HOME' | t }} <!-- PIPE -->
+{{ post.created ? ('QNA_FORM_EDIT_TITLE' | t) : ('QNA_FORM_CREATE_TITLE' | t) }} <!-- complicated expression -->
+````
+
 ## Admin Page Module
 
 * Since admin pages is only for admins, it does not lazy load. it loads all the subpages at once.
@@ -354,5 +362,5 @@ env['reloadTag'] = (new Date).getTime();
 
 * For student registration page, 'Finding Kakaotalk ID' image is not translated and will not be translated.
 
-
-
+* When student cancels commenting on class review, the user is redirected to teacher schedule table even if the stdent was acessing revew page from review list page.
+  It is fairly okay.

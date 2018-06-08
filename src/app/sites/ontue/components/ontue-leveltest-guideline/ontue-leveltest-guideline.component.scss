@@ -1,7 +1,7 @@
 @import '../../../../../theme/vars.scss';
 section{
     background: #fff;
-    outline: 1px solid #e9ecef;
+    outline: 1px solid rgba(125,125,125,0.1);
     .title{
         padding-left: 4em;
         @media screen and (max-width:$sm){

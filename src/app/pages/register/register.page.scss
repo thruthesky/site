@@ -17,6 +17,7 @@ main{
         align-items: center;
         width: 80%;
         margin: auto;
+        margin-bottom: 2em;
         mat-spinner{
         margin: .5em;
         }
@@ -94,6 +95,7 @@ main{
                         display: flex;
                         align-items: center;
                         margin-right: 1.5em;
+                        cursor: pointer;
                     }
 
                     input{
@@ -308,6 +310,7 @@ main{
     }
     font-size: .85rem;
     label{
+        cursor: pointer;
         &>span{
             display: inline-block;
             padding: 1.5em 0;

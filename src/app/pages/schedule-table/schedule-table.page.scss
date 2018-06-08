@@ -8,6 +8,33 @@ header {
 
 main {
     padding-bottom: 1em;
+
+    .schedule-navigation{
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        a{
+            display: flex;
+            align-items: center;
+            padding: .3em 1.5em;
+            font-size: 70%;
+            @media screen and (min-width:$md){
+                padding: 1em 1.5em;
+                font-size: 85%;
+            }
+            border: 1px solid rgba(125,125,125,0.1);
+            border-bottom: none;
+            border-right: none;
+            &:last-child{
+                border-right: 1px solid rgba(125,125,125,0.1);
+            }
+            color: dodgerblue;
+            svg{
+                margin:0 .5em;
+                height: 1.2em;
+            }
+        }
+    }
     .schedule-table {
         position: relative;
         font-size: 10.5px;
@@ -255,3 +282,5 @@ main {
         }
       }
 }
+
+

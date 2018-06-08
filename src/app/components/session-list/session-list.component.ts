@@ -149,6 +149,10 @@ export class SessionListComponent implements OnInit {
     }
 
     sessionSearch() {
+        if ( this.a.isAdmin ) {
+            this.loadingOnSearch = false;
+            return this.a.toast('Admin cannot view session list');
+        }
         this.loadingOnSearch = true;
         this.a.lms.session_search(this.request()).subscribe(re => {
             // console.log("Result of class_search(): ", re);

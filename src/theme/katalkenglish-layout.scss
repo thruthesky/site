@@ -40,7 +40,7 @@ body {
                 margin: 0 auto;
                 max-width: $katalkenglish-page-width;
                 @media (min-width: $md) {
-                    min-height: 600px;
+                    min-height: 640px;
                 }
             }
         }
@@ -76,6 +76,7 @@ body {
             margin: 0;
             padding: 1em 1.7em;
             font-weight: 100;
+            font-size:16px;
             color: $katalkenglish-page-title-color;
         }
         p {

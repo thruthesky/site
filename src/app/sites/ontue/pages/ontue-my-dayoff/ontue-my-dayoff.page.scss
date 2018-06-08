@@ -1,16 +1,7 @@
 @import '../../../../../theme/vars.scss';
-header{
-    h2{
-        margin: 0;
-        padding: 1em;
-        background:orange;
-        font-size: 1em;
-        color:white;
-    }
-}
-
 main{
-    padding: 3em ;
+    &>section{
+        padding: 3em ;
     min-height: 540px;
 
     @media screen and(max-width:$sm){
@@ -153,5 +144,6 @@ main{
                 background: green;
             }
         }
+    }
     }
 }

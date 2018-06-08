@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { AppService } from '../../../../providers/app.service';
 
 @Component({
     selector: 'katalkenglish-main-banner',
@@ -21,7 +22,9 @@ export class KatalkEnglishMainBannerComponent implements OnInit, AfterViewInit, 
     intervals = [4000, 5000, 6000, 12000];
     timerID;
     pageDestroyed = false;
-    constructor() { }
+    constructor(
+        public a: AppService
+    ) { }
 
     ngOnInit() { }
 

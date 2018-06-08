@@ -410,6 +410,7 @@ export interface SCHEDULE_TABLE {
     header: Array<SCHEDULE_TABLE_HEADER>;
     no_of_schedules: number;
     schedule: { [idx_schedule: string]: SCHEDULE_COMPRESSED };
+    starting_day: string;
     student: { [key: string]: any };
     table: TABLE;
     teacher: TEACHER;
