@@ -32,5 +32,16 @@ main{
                 top:63px;
             }
         }
+
+        .loader{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          mat-spinner{
+            margin: .5em;
+          }
+        }
     }
 }

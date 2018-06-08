@@ -86,7 +86,7 @@ export class TeacherReviewEditPage {
     }
 
     onClickCancel() {
-        this.router.navigate(['schedule-table'], {queryParams: {idx_teacher: this.data['idx_teacher']}});
+        this.router.navigate(['teacher-review-list'], {queryParams: {idx_teacher: this.data['idx_teacher']}});
     }
 
 

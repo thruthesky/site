@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { OntueMySchedulePage } from './ontue-my-schedule.page';
 import { MaterialModule } from '../../../../app.material.module';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
-import { ModalSerivceModule } from '../../../../providers/modal/modal.service.module';
+import { ModalServiceModule } from '../../../../providers/modal/modal.service.module';
 
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         MaterialModule,
         TranslatePipeModule,
-        ModalSerivceModule
+        ModalServiceModule
     ],
     exports: [
         RouterModule

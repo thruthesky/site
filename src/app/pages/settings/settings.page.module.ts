@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SettingsPage } from './settings.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../app.material.module';
 // import { TranslatePipeModule } from '../../modules/firelibrary/pipes/translate/translate.pipe.module';
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
         FormsModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

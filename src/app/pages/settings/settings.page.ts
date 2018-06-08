@@ -11,13 +11,18 @@ export class SettingsPage {
     tz = {};
 
     userTZ = '0';
-
+    showLoader = true;
     constructor(public a: AppService) {
 
+        this.showLoader = true;
         a.lms.timezones().subscribe(re => {
+            this.showLoader = false;
             // console.log( re);
             this.tz = re;
-        }, e => this.a.toast(e));
+        }, e => {
+            this.a.toast(e);
+            this.showLoader = false;
+        });
 
         if (a.user.isLogin) {
             a.lms.timezone().subscribe(re => {

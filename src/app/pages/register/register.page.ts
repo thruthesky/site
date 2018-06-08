@@ -35,7 +35,7 @@ export class RegisterPage implements OnInit {
 
     show = {
         dataLoader: false,
-        registerLoader: false
+        updateLoader: false
     };
 
     user_type: '' | 'S' | 'T';
@@ -325,12 +325,15 @@ export class RegisterPage implements OnInit {
 
     updateWordpressBackend() {
         delete this.form.kakao_qrmark_string;
+        this.show.updateLoader = true;
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
-            this.a.toast('UPDATED');
+            this.show.updateLoader = false;
+            this.a.toast( this.a.ln.USER_PROFILE_UPDATED );
             this.a.onUserProfileUpdate();
             this.loadData();
         }, err => {
+            this.show.updateLoader = false;
             this.a.toast(err);
         });
     }

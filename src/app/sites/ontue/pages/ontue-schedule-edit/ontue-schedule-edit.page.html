@@ -3,202 +3,227 @@
         <h1>Schedule Add</h1>
     </header>
     <section>
-    <div class="timezone">
+        <div class="timezone">
             <div>
                 ({{ timezone_offset > 0 ? "+" + timezone_offset : timezone_offset }})
                 {{ timezone_name }}
             </div>
-    
+
             <div> {{ time }}</div>
-    
+
             <button (click)="dismiss(); a.open('settings')">Update Timezone</button>
-    
-        </div> 
-    
+
+        </div>
+
         <div class="promo-schedule">
             <span class="title">Promo Schedule Graded Teacher must have.</span>
             <div class="body">
                 <div> 1 schedule with <b>10mins</b> duration for <b>500 points</b> and must be from <b>Mon-Fri</b></div>
-                <div> 1 schedule with <b>20mins</b> duration for <b>1000 points</b> and must be from <b>Mon-Fri</b></div>
+                <div> 1 schedule with <b>20mins</b> duration for <b>1000 points</b> and must be from <b>Mon-Fri</b>
+                </div>
             </div>
         </div>
-    
+
         <div class="container-fluid">
             <div class="row inputs">
-    
+
                 <div class=" col-md-4 col-sm-12">
                     <div class="start-time">
-    
+
                         <div class="title">Start Time</div>
-    
-                        <div class="example"> 
+
+                        <div class="example">
                             Military Time:<br>
                             Put 20:30 for 8:30pm
                         </div>
-                        
+
                         <div class="entry">
                             <mat-form-field>
                                 <mat-label>Hour</mat-label>
                                 <input matInput placeholder="0-23" type="number" min="0" max="23"
-                                name="class_begin_hour" [(ngModel)]="data.class_begin_hour">
+                                       name="class_begin_hour" [(ngModel)]="data.class_begin_hour">
                             </mat-form-field>
                             <span>:</span>
                             <mat-form-field>
                                 <mat-label>Min</mat-label>
                                 <input matInput autocomplete="on" placeholder="0-60" min="0" max="60"
-                                type="number" name="class_begin_minute" [(ngModel)]="data.class_begin_minute">
+                                       type="number" name="class_begin_minute" [(ngModel)]="data.class_begin_minute">
                             </mat-form-field>
                         </div>
-                
+
                     </div>
                 </div>
-    
-    
+
+
                 <div class="col-md-4 col-sm-12">
-    
+
                     <div class="duration">
                         <div class="title"> Duration</div>
-    
-                        <div class="example"> 
+
+                        <div class="example">
                             Details:<br>
                             Put 120 for 120mins ( 2 hours )
                         </div>
-                        
+
                         <div class="entry">
                             <mat-form-field>
                                 <mat-label>Min</mat-label>
-                                <input matInput placeholder="1-120" autocomplete="on" type="text" name="duration" [(ngModel)]="data.duration">
+                                <input matInput placeholder="1-120" autocomplete="on" type="text" name="duration"
+                                       [(ngModel)]="data.duration">
                             </mat-form-field>
                         </div>
-                
+
                     </div>
-            
+
                 </div>
-    
+
                 <div class="col-md-4 col-sm-12">
-                    
+
                     <div class="points">
                         <div class="title"> Points</div>
-    
-                        <div class="example"> 
+
+                        <div class="example">
                             Details:<br>
                             Put 1000 for 1000 points
                         </div>
-    
+
                         <div class="entry">
                             <mat-form-field class="points">
                                 <mat-label>Points</mat-label>
                                 <input matInput placeholder="0" autocomplete="on" type="text"
-                                        name="point" [(ngModel)]="data.point">
-                            </mat-form-field>                        
+                                       name="point" [(ngModel)]="data.point">
+                            </mat-form-field>
                         </div>
-                
+
                     </div>
-                    
+
                 </div>
-    
+
             </div>
         </div>
-    
+
         <div class="container-fluid">
-                <div class="row input-week">
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="sunday" [(ngModel)]="data.sunday" (change)="allDays=false">
-                            <span>Sun</span>
-                        </label>
-                    </div>
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="monday" [(ngModel)]="data.monday" (change)="allDays=false">
-                            <span>Mon</span>
-                        </label>
-                    </div>
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="tuesday" [(ngModel)]="data.tuesday" (change)="allDays=false">
-                            <span>Tue</span>
-                        </label>
-                    </div>
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="wednesday" [(ngModel)]="data.wednesday" (change)="allDays=false">
-                            <span>Wed</span>
-                        </label>
-                    </div>
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="thursday" [(ngModel)]="data.thursday" (change)="allDays=false">
-                            <span>Thu</span>
-                        </label>
-                    </div>
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="friday" [(ngModel)]="data.friday" (change)="allDays=false">
-                            <span>Fri</span>
-                        </label>
-                    </div>
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="saturday" [(ngModel)]="data.saturday" (change)="allDays=false">
-                            <span>Sat</span>
-                        </label>
-                    </div>
-                    <div class="col">
-                        <label>
-                            <input type="checkbox" name="allDays"
-                                    [(ngModel)]="allDays" (click)="onClickAllDays()">
-                            <span>All</span>
-                        </label>
-                    </div>
+            <div class="row input-week">
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="sunday" [(ngModel)]="data.sunday" (change)="allDays=false">
+                        <span>Sun</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="monday" [(ngModel)]="data.monday" (change)="allDays=false">
+                        <span>Mon</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="tuesday" [(ngModel)]="data.tuesday" (change)="allDays=false">
+                        <span>Tue</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="wednesday" [(ngModel)]="data.wednesday" (change)="allDays=false">
+                        <span>Wed</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="thursday" [(ngModel)]="data.thursday" (change)="allDays=false">
+                        <span>Thu</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="friday" [(ngModel)]="data.friday" (change)="allDays=false">
+                        <span>Fri</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="saturday" [(ngModel)]="data.saturday" (change)="allDays=false">
+                        <span>Sat</span>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="checkbox" name="allDays"
+                               [(ngModel)]="allDays" (click)="onClickAllDays()">
+                        <span>All</span>
+                    </label>
                 </div>
             </div>
-    
-            <div  class="popout-maxpoint"  *ngIf=" maxPoint()  ">
-                    You cannot raise more than {{ max_point_per_minute }} per minute.
-                    The point for {{ data['duration'] }} minutes class must be less than or equal to {{ data['duration'] *
-                    max_point_per_minute }}
-                </div>
-                
-                
-                <div class="popout-earn" *ngIf=" calculateEarning() ">
-                    You will earn
-                    {{ calculateEarning() }}
-                    in a month
-                    (
-                    {{ data.duration }} minutes /
-                    {{ countSelectedDays() * 4 }} days a month
-                    with
-                    <label><input type="radio" name="payment_method" [(ngModel)]="payment_method" value="paypal"> paypal</label> or
-                    <label><input type="radio" name="payment_method" [(ngModel)]="payment_method" value="western-union"> western union/gcash</label>
-                    )
-            
-                    Approximately.
-                    @see Policy
-            
-                </div>
-    
+        </div>
+
+        <div class="popout-maxpoint" *ngIf=" maxPoint()  ">
+            You cannot raise more than {{ max_point_per_minute }} per minute.
+            The point for {{ data['duration'] }} minutes class must be less than or equal to {{ data['duration'] *
+            max_point_per_minute }}
+        </div>
+
+
+        <div class="popout-earn" *ngIf=" calculateEarning() ">
+            You will earn
+            {{ calculateEarning() }}
+            in a month
+            (
+            {{ data.duration }} minutes /
+            {{ countSelectedDays() * 4 }} days a month
+            with
+            <label><input type="radio" name="payment_method" [(ngModel)]="payment_method" value="paypal"> paypal</label>
+            or
+            <label><input type="radio" name="payment_method" [(ngModel)]="payment_method" value="western-union"> western
+                union/gcash</label>
+            )
+
+            Approximately.
+            @see Policy
+
+        </div>
+
         <div class="pre-re">
             <div>
                 <label>Pre-reserve</label>
                 <input placeholder="Student Email" autocomplete="on" type="text" name="prere" [(ngModel)]="data.prere">
             </div>
-    
+
             <div>
                 You can make the schedule limited to specific student, by adding the student email here.
             </div>
         </div>
-    
-    
-    
-            <div class="submit-button">
-                <button type="submit" (click)="onSubmit()">Submit</button>
+
+
+        <div class="submit-button">
+            <button type="submit" (click)="onSubmit()">Submit</button>
+        </div>
+
+
+        <div class="loader" *ngIf=" showLoader ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
+        </div>
+        <div class="pre-re">
+            <div>
+                <label>Pre-reserve</label>
+                <input placeholder="Student Email" autocomplete="on" type="text" name="prere" [(ngModel)]="data.prere">
             </div>
-    
-    
-            <div class="loader"  *ngIf=" showLoader ">
-                <mat-spinner [diameter]="48"></mat-spinner>
-                <span>{{ 'IN LOADING' | t}}</span>
+
+            <div>
+                You can make the schedule limited to specific student, by adding the student email here.
             </div>
+        </div>
+
+
+        <div class="buttons">
+            <button class="submit" type="submit" (click)="onSubmit()">Submit</button>
+            <button class="cancel" type="button" (click)=" a.open('my-schedule')">Cancel</button>
+        </div>
+
+
+        <div class="loader" *ngIf=" showLoader ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
+        </div>
     </section>
 </main>

@@ -2,6 +2,16 @@
 
 main{
     background: #fff;
+    .loader{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        mat-spinner{
+            margin: .5em;
+        }
+    }
 
     .posts{
         padding: 1em;

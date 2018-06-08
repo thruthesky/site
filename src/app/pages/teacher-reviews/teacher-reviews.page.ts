@@ -20,10 +20,7 @@ export class TeacherReviewsPage {
 
     idx_teacher = null;
 
-    showloader = false;
-
-    internet = ['', 'Bad', 'Normal', 'Good'];
-    camera = ['No', 'Yes'];
+    showLoader = false;
 
     constructor(
         public a: AppService
@@ -33,6 +30,7 @@ export class TeacherReviewsPage {
 
 
     loadClassComment() {
+        this.showLoader = true;
         this.a.lms.get_latest_student_comment_to_teachers({
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
@@ -42,8 +40,10 @@ export class TeacherReviewsPage {
             this.pageOption.currentPage = res['page'];
             this.pageOption.limitPerPage = res['limit'];
             this.pageOption.totalRecord = res['total'];
+            this.showLoader = false;
         }, e => {
             this.a.toast(e);
+            this.showLoader = false;
         });
 
     }

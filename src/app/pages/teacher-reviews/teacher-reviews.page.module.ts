@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { PageNavigatorComponentModule } from '../../components/page-navigator/page-navigator.component.module';
 import { TeacherReviewsPage } from './teacher-reviews.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { MaterialModule } from '../../app.material.module';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
         FormsModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
-        PageNavigatorComponentModule
+        PageNavigatorComponentModule,
+        MaterialModule
     ],
     exports: [
         RouterModule

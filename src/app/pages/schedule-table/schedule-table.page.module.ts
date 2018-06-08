@@ -9,8 +9,7 @@ import { ScheduleTableProfileComponent } from './schedule-table-profile/schedule
 import { LmsInfoComponentModule } from '../../components/lms-info/lms-info.component.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { ForumService } from '../../providers/forum.service';
-import { ModalService } from '../../providers/modal/modal.service';
-import { ModalSerivceModule } from '../../providers/modal/modal.service.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 const routes: Routes = [
   { path: '', component: ScheduleTablePage }
@@ -23,7 +22,7 @@ const routes: Routes = [
     TranslatePipeModule,
     MaterialModule,
     LmsInfoComponentModule,
-    ModalSerivceModule
+    ModalServiceModule
   ],
   exports: [
     RouterModule

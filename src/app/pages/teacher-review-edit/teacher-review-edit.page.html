@@ -82,7 +82,7 @@
             </span>
             <span *ngIf="!showLoader">{{ 'SUBMIT' | t }}</span>
         </button>
-        <button class="cancel" type="button" (click)="onClickCancel()">{{ 'CANCEL' | t }}</button>
+        <button class="cancel" type="button" (click)=" a.open('teacher-review-list', {idx_teacher: this.data['idx_teacher']}) ">{{ 'CANCEL' | t }}</button>
     </div>
 
 

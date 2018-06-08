@@ -211,10 +211,11 @@ main{
                 cursor: pointer
             }
         }
-    
-        .submit-button{
-            text-align: center;
-    
+
+
+        .buttons{
+            display: flex;
+            justify-content: center;
             button{
                 padding: 1em 3em;
                 background: dodgerblue;
@@ -223,6 +224,20 @@ main{
                 border-radius: 2px;
                 cursor: pointer;
             }
+
+            .submit{
+                margin-right: 1em;
+                background: dodgerblue;
+                color:white;
+            }
+
+            .cancel{
+                background: #d3d3d3;
+                color: red;
+            }
         }
-    }   
+    }
+
+
+
 }
