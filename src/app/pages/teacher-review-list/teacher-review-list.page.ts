@@ -36,6 +36,8 @@ export class TeacherReviewListPage {
     showLoader = false;
 
 
+    camera = null;
+    internet = null;
 
     constructor(
         public a: AppService,
@@ -71,7 +73,7 @@ export class TeacherReviewListPage {
             page: this.pageOption.currentPage
         };
         this.a.lms.get_student_comments_to_teacher(data).subscribe((res: STUDENT_COMMENTS_TO_TEACHER) => {
-            // console.log("get_comment_from_student_to_teaceher:: ", res);
+            console.log('get_comment_from_student_to_teaceher:: ', res);
             if (res && res['comments'] && res['comments'].length) {
                 this.comments = res['comments'];
             } else {
@@ -80,6 +82,8 @@ export class TeacherReviewListPage {
             this.pageOption.currentPage = res['page'];
             this.pageOption.limitPerPage = res['limit'];
             this.pageOption.totalRecord = res['total'];
+            this.camera = res['camera'];
+            this.internet = res['internet'];
             this.loading = false;
         }, e => {
             // console.log('get_student_comments_to_teacher::error');

@@ -19,12 +19,13 @@ export const environment = {
     reloadTag: (new Date).getTime(), /// Warning this must be only in environment.
     disableFirebaseUserActivityLog: false,
     categories: {
-        reminders: 2,
+        teacher_reminders: 2,
+        student_reminders: 6,
         policy: 4,
         termsandconditions: 3,
         topearner: 5
     }
-  };
+};
 
   /*
    * In development mode, to ignore zone related error stack frames such as

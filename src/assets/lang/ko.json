@@ -600,5 +600,9 @@
   "_KATALK_TEACHERS": "카톡영어 선생님",
   "_TOTAL_NO_OF_TEACHERS": "총 #number 명의 선생님이 있습니다.",
   "USER_PROFILE_UPDATED": "회원 정보가 수정되었습니다.",
-  "IN_UPDATING_PROFILE": "회원 정보 수정 중입니다."
+  "IN_UPDATING_PROFILE": "회원 정보 수정 중입니다.",
+  "SLUG_IS_EMPTY": "게시글이 없습니다.",
+  "LEVELTEST_IS_BLOCKED": "이 선생님은 당분간 무료 체험 수업을 받을 수 없습니다.",
+  "AVERAGE_INTERNET": "평균적인 인터넷 속도",
+  "AVERAGE_CAMERA": "평균적인 카메라 사용 여부"
 }
