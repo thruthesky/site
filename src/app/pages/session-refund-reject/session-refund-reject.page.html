@@ -1,7 +1,7 @@
-<header>
-    <h1>{{ 'SESSION_REFUND_REJECT_TITLE' | t }}</h1>
-</header>
 <main>
+    <header>
+        <h1>{{ 'SESSION_REFUND_REJECT_TITLE' | t }}</h1>
+    </header>
     <section class="content">
         <div class="loader" *ngIf="!book?.idx  ">
             <mat-spinner [diameter]="48"></mat-spinner>

@@ -146,6 +146,8 @@ main{
 
 
         .buttons{
+            display: flex;
+            justify-content: center;
             padding: 0 1.5em;
             padding-top: 0;
             padding-bottom: 3em;
@@ -155,12 +157,17 @@ main{
                 padding-bottom: 5em;
             }
             button{
-                display: inline-block;
+                display: flex;
+                justify-content: center;
                 margin-right: .5em;
                 margin-top:.5em;
                 padding: 1em 2em;
                 border:none;
                 cursor: pointer;
+
+                mat-spinner{
+                    margin-right:.5em;
+                }
             }
         }
 
@@ -242,7 +249,13 @@ main{
         }
     }
 
+    .progress-bar{
+        margin-top: 1em;   
+        text-align: center!important;
+    }
+
     .upload-qr{
+        margin-bottom: 1em;
         .qr-image{
             text-align: center;
         }
@@ -256,18 +269,9 @@ main{
             opacity: 0!important;
         }
 
-        .progress{
-            margin: .5em;
-
-            .bar{
-                margin: auto;
-                margin-bottom: .5em;
-                height: 10px;
-                max-width: 300px;
-                border-radius: 2px;
-                background: dodgerblue;
-
-            }
+        mat-progress-bar{
+            margin:auto;
+            width: 70%;
         }
 
         label{
@@ -301,7 +305,6 @@ main{
     }
 
 }
-
  
 .agree {
     margin-top: 2em;

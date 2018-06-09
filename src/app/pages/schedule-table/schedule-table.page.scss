@@ -11,8 +11,26 @@ main {
 
     .schedule-navigation{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
         background: #fff;
+        @media screen and (min-width:$md){
+            flex-direction: row;
+        }
+        .nav{
+            display: flex;
+        }
+        .student-info{
+            color: dodgerblue;
+            margin-top: .3em;
+            padding-bottom: .8em;
+            font-size: 80%;
+            @media screen and (min-width:$md){
+                padding-right: 1.5em;
+                padding-bottom: 0;
+            }
+        }
         a{
             display: flex;
             align-items: center;
@@ -21,12 +39,6 @@ main {
             @media screen and (min-width:$md){
                 padding: 1em 1.5em;
                 font-size: 85%;
-            }
-            border: 1px solid rgba(125,125,125,0.1);
-            border-bottom: none;
-            border-right: none;
-            &:last-child{
-                border-right: 1px solid rgba(125,125,125,0.1);
             }
             color: dodgerblue;
             svg{
@@ -119,8 +131,8 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        ion-spinner {
-            margin-bottom: .5em;
+        span {
+            margin-top: 1em;
         }
     }
     /**

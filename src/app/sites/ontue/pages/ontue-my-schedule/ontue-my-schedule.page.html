@@ -1,5 +1,5 @@
 <main>
-    <header class="global-header">
+    <header >
         <h1>My Schedule</h1>
     </header>
     <div class="container-fluid" *ngIf="data">
@@ -48,46 +48,46 @@
             <div class="col-2">Action</div>
         </div>
         <div class="row" *ngFor="let s of data.schedules; let odd = odd;">
-            <div class="col">{{ s.idx }}</div>
-            <div class="col">{{s.user_time_class_begin.slice(0,2)}}:{{s.user_time_class_begin.slice(2,4)}}</div>
-            <div class="col">{{s.duration}}</div>
-            <div class="col">
+            <div class="col-1">{{ s.idx }}</div>
+            <div class="col-1">{{s.user_time_class_begin.slice(0,2)}}:{{s.user_time_class_begin.slice(2,4)}}</div>
+            <div class="col-1">{{s.duration}}</div>
+            <div class="col-1">
                 <div *ngIf="s.user_time_days.sunday">
                     <div class="prere">{{s.prere}}</div>
                     {{s.point}}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <div *ngIf="s.user_time_days.monday">
                     <div class="prere">{{s.prere}}</div>
                     {{s.point}}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <div *ngIf="s.user_time_days.tuesday">
                     <div class="prere">{{s.prere}}</div>
                     {{s.point}}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <div *ngIf="s.user_time_days.wednesday">
                     <div class="prere">{{s.prere}}</div>
                     {{s.point}}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <div *ngIf="s.user_time_days.thursday">
                     <div class="prere">{{s.prere}}</div>
                     {{s.point}}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <div *ngIf="s.user_time_days.friday">
                     <div class="prere">{{s.prere}}</div>
                     {{s.point}}
                 </div>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <div *ngIf="s.user_time_days.saturday">
                     <div class="prere">{{s.prere}}</div>
                     {{s.point}}
