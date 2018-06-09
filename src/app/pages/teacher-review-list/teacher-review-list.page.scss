@@ -56,10 +56,9 @@ header{
 
     .teacher-name{
         display: flex;
+        align-items: center;
         margin-top: 1em;
         color: dodgerblue;
-        font-size: 110%;
-        text-transform: uppercase;
     }
 
 }
@@ -81,7 +80,15 @@ header{
     font-size: 80%;
 
     b{
-        color: dodgerblue;
+        color: #FF7B0D;
+    }
+}
+
+.average{
+    margin: 1.5em 0;
+
+    span{
+        color: #FF7B0D;
     }
 }
 
@@ -145,7 +152,7 @@ header{
         }
         
         .rating{
-            color:darkorange;
+            color:#FF7B0D;
         }
     }
 

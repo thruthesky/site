@@ -1,5 +1,5 @@
 <main>
-    <header class="global-header">
+    <header >
         <h1>Schedule Add</h1>
     </header>
     <section>
@@ -182,27 +182,6 @@
 
         </div>
 
-        <div class="pre-re">
-            <div>
-                <label>Pre-reserve</label>
-                <input placeholder="Student Email" autocomplete="on" type="text" name="prere" [(ngModel)]="data.prere">
-            </div>
-
-            <div>
-                You can make the schedule limited to specific student, by adding the student email here.
-            </div>
-        </div>
-
-
-        <div class="submit-button">
-            <button type="submit" (click)="onSubmit()">Submit</button>
-        </div>
-
-
-        <div class="loader" *ngIf=" showLoader ">
-            <mat-spinner [diameter]="48"></mat-spinner>
-            <span>{{ 'IN LOADING' | t}}</span>
-        </div>
         <div class="pre-re">
             <div>
                 <label>Pre-reserve</label>

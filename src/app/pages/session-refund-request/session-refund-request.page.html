@@ -1,7 +1,7 @@
-<header>
-    <h1>{{ 'SESSION_REFUND_REQUEST_PAGE_TITLE' | t }}</h1>
-</header>
 <main>
+    <header>
+        <h1>{{ 'SESSION_REFUND_REQUEST_PAGE_TITLE' | t }}</h1>
+    </header>
     <div class="text-area">
         <textarea class="input" rows="15" [(ngModel)]="message"></textarea>
         <div class="message" *ngIf=" a.isStudent ">{{ 'SESSION_REFUND_REQUEST_PAGE_REMINDER' | t }}</div>
