@@ -26,8 +26,13 @@
                     </button>
                 </div>
             </div>
-            <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
-                (success)="onSuccessUploadPicture($event)"></xapi-file-upload-component>
+            <xapi-file-upload-component #profilePhotoUpload
+                                        [title]="false"
+                                        [fileSelectionButton]="false"
+                                        [files]="files"
+                                        [showUploadedFiles]="false"
+                (success)="onSuccessUploadPicture($event)">
+            </xapi-file-upload-component>
         </div>
 
 
