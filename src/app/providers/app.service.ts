@@ -281,7 +281,7 @@ export class AppService {
         if ( ! this.isIeEdge() ) {
             this.firebase.messaging = firebase.messaging();
         }
-        
+
         // this.language.setUserLanguage();
 
         setTimeout(() => {
