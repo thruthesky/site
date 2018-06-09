@@ -254,6 +254,7 @@
                     <div class="buttons-wrapper container-fluid">
                         <div class="row">
                             <ng-container *ngIf=" book.past ">
+                                <!--{{book|json}}-->
                                 <ng-container *ngIf=" a.isTeacher ">
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
                                         <button class="evaluate" *ngIf=" ! evaluated(book) "

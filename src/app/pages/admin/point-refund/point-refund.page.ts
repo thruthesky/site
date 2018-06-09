@@ -78,7 +78,11 @@ export class PointRefundPage implements OnInit {
         if ( ! re ) {
             return;
         }
-        this.a.lms.admin_accept_refund_request({idx: idx, message: '@todo add accept message later.'})
+        const msg = prompt('Admin settle accept.', 'Admin settle the refund request by accepting student the request.');
+        if ( ! msg ) {
+            return;
+        }
+        this.a.lms.admin_accept_refund_request({idx: idx, message: msg })
             .subscribe( _idx => {
                 // console.log('idx: ', _idx);
                 const i = this.re.findIndex( session => session.idx === _idx );
@@ -90,7 +94,11 @@ export class PointRefundPage implements OnInit {
         if ( ! re ) {
             return;
         }
-        this.a.lms.admin_reject_refund_request({idx: idx, message: '@todo add message later.'})
+        const msg = prompt('Admin settle reject.', 'Admin settle the refund request by rejecting student the request.');
+        if ( ! msg ) {
+            return;
+        }
+        this.a.lms.admin_reject_refund_request({idx: idx, message: msg})
             .subscribe( _idx => {
                 // console.log('idx: ', _idx);
                 const i = this.re.findIndex( session => session.idx === _idx );

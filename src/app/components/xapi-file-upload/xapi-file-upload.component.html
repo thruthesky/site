@@ -8,7 +8,7 @@
         <span class="custom-file-control"></span>
     </label>
 
-    <div *ngIf=" progressPercentage > 0 " class="progress mt-1">
+    <div *ngIf=" progressPercentage > 0 || 1 " class="progress mt-1">
         <mat-progress-bar mode="determinate" [value]="progressPercentage"></mat-progress-bar>
     </div>
 

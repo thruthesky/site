@@ -517,12 +517,12 @@
   "NEXT WEEK": "来週",
   "NEXT MONTH": "来月",
 
-  "_ONE_TO_ONE_VIDEO_ENLGISH": "1:1ビデオ英語レッスン",
+  "_ONE_TO_ONE_VIDEO_ENGLISH": "1:1ビデオ英語レッスン",
   "_10000_PER_MONTH": "$10月",
   "_HUK": "うわー...？",
   "_10000": "わずか10ドル！",
   "_BEST_TEACHERS": "最高の英語教師",
-  "_NATIVE_SPEACKERS": "ネイティブの先生！",
+  "_NATIVE_SPEAKERS": "ネイティブの先生！",
   "_TEACHING_IN_SCHOOL": "学校で専門の教師の指導",
   "_HAHA": "ハハ",
   "_KIDDING": "冗談でしょ。",
@@ -534,10 +534,10 @@
 
 
   "_IF_CAN_KATALK": "いつでもどこでもカトークと一緒にいるなら",
-  "_WHENEVER_WHEREEVER": "完璧なKatalkビデオ英語学習システム。 毎日と夜に。 いつも、いつでも、私は自分のスケジュールをデザインします。",
+  "_WHENEVER_WHEREVER": "完璧なKatalkビデオ英語学習システム。 毎日と夜に。 いつも、いつでも、私は自分のスケジュールをデザインします。",
   "_ON_KATALK": "生徒はKatalk Englishで価格を作る人です。",
   "_KATALK_IS_EASY": "Katalkの英語は非常に簡単で直感的なインターフェイスを備えています。 無料のレッスンを受けると、すべてを理解することができます。",
-  "_WHENEVER_WHEREEVER_CHAT": "Katalkでいつでもどこでも教師とチャットすることができます。",
+  "_WHENEVER_WHEREVER_CHAT": "Katalkでいつでもどこでも教師とチャットすることができます。",
   "_KATALK_ENGLISH": "カトーク英語は",
   "_NO_COMPARE": "自分自身にとって最高のことを話すのではなく、他の人と比較しません。 競争力がないからです。",
   "_BEST_OF_BEST_TEACHERS": "Katalkの英語は最高の教師がいて、お互いにあなたのために競い合っています。",
@@ -549,7 +549,7 @@
   "_NO_OF_RESERVATIONS": "予約",
   "_NO_OF_STUDENTS": "学生の",
   "_COMMENTS": "20レッスン。 $ 10。 Katalk English Reviews",
-  "_MORE_COMMNETS": "レビューをもっと見る",
+  "_MORE_COMMENTS": "レビューをもっと見る",
   "_KATALK_TEACHERS": "Katalk英語教師",
   "_TOTAL_NO_OF_TEACHERS": "私たちは#numberの教師を持っています。",
   "USER_PROFILE_UPDATED": "あなたのプロフィールが更新されました。",
@@ -557,5 +557,14 @@
   "SLUG_IS_EMPTY": "このフォーラムの下には投稿はありません。",
   "LEVELTEST_IS_BLOCKED": "その先生は、その間に無料のクラスを受け入れることはできません。",
   "AVERAGE_INTERNET": "平均インターネット速度",
-  "AVERAGE_CAMERA": "カメラの平均使用"
+  "AVERAGE_CAMERA": "カメラの平均使用",
+
+  "IDX SESSION MISSING": "セッションIDがありません。",
+  "MESSAGE EMPTY": "メッセージは空です。",
+  "REFUND ACCEPT": "払い戻しリクエスト受諾",
+  "REFUND ACCEPT CONFIRM": "この払い戻しリクエストを受け入れてもよろしいですか？",
+  "REFUND ACCEPT SUCCESS": "返金されたリクエストの成功。",
+  "REFUND REJECT": "払い戻し請求拒否",
+  "REFUND REJECT CONFIRM": "この払い戻しリクエストを拒否してもよろしいですか？",
+  "REFUND REJECT SUCCESS": "拒否されたリクエストの成功。"
 }
