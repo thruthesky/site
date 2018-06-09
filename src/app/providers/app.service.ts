@@ -244,7 +244,7 @@ export class AppService {
         this.router.events.subscribe((e: any) => {
             if (e instanceof NavigationStart) {
                 if (this.router.url === e.url) {
-                    console.log('same url');
+                    // console.log('same url');
                     this.router.navigate(['/redirect'], { queryParams: { url: e.url } });
                 }
             } else if (e instanceof NavigationEnd) {
@@ -281,7 +281,7 @@ export class AppService {
         if ( ! this.isIeEdge() ) {
             this.firebase.messaging = firebase.messaging();
         }
-        
+
         // this.language.setUserLanguage();
 
         setTimeout(() => {
@@ -1190,6 +1190,8 @@ export class AppService {
                 .catch(err => { /// If failed to get permission.
                     console.error('User rejected/blocked push notification. ', err);
                 });
+
+
             // Callback fired if Instance ID token is updated.
             this.firebase.messaging.onTokenRefresh(() => {
                 this.firebase.messaging.getToken()
