@@ -77,7 +77,8 @@ git commit -m 'release for testing on GitHub Pages'
 git push
 ```
 
-* and access to 
+* and access to https://thruthesky.github.io/site/
+
 
 ## Concepts
 

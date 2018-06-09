@@ -567,7 +567,7 @@
   "TODAY": "오늘",
   "NEXT WEEK": "다음 주",
   "NEXT MONTH": "다음 달",
-  "_ONE_TO_ONE_VIDEO_ENLGISH": "일대일 화상영어",
+  "_ONE_TO_ONE_VIDEO_ENGLISH": "일대일 화상영어",
   "_10000_PER_MONTH": "월 1만원",
   "_HUK": "헉...",
   "_10000": "만원이라구욧?!",
@@ -604,5 +604,22 @@
   "SLUG_IS_EMPTY": "게시글이 없습니다.",
   "LEVELTEST_IS_BLOCKED": "이 선생님은 당분간 무료 체험 수업을 받을 수 없습니다.",
   "AVERAGE_INTERNET": "평균적인 인터넷 속도",
-  "AVERAGE_CAMERA": "평균적인 카메라 사용 여부"
+  "AVERAGE_CAMERA": "평균적인 카메라 사용 여부",
+  "IDX SESSION MISSING": "세션 ID가 없습니다.",
+  "MESSAGE EMPTY": "메시지가 비어 있습니다.",
+  "REFUND ACCEPT": "환불 요청 수락",
+  "REFUND ACCEPT CONFIRM": "이 환불 요청을 수락 하시겠습니까?",
+  "REFUND ACCEPT SUCCESS": "환불 요청 성공.",
+  "REFUND REJECT": "환불 요청 거부",
+  "REFUND REJECT CONFIRM": "이 환불 요청을 거부 하시겠습니까?",
+  "REFUND REJECT SUCCESS": "거부 된 요청 성공.",
+  "INSTANT_CANT_RESERVE": "앗, 지금 즉시 수업을 예약 할 수 없습니다.",
+  "INSTANT_CANT_REASON": "지금 즉시 수업(예약)을 할 수 없는 이유는 주로 아래와 같습니다.",
+  "INSTANT_NO_AVAILABLE": "지금 현재 시간에 수업 가능한 선생님이 없거나",
+  "INSTANT_IF_HAVE_RESERVATION": "회원님께서 곧 수업이 있는 경우 지금 즉시 수업 시작되는 다른 수업을 예약 할 수 없습니다.",
+  "INSTANT_LEVELTEST_DONE": "레벨테스트를 다 하였거나,",
+  "INSTANT_POINT_LACK": "회원님의 포인트가 없거나 수업을 예약하기에 부족한 경우에는 선생님 목록이 나타나지 않습니다.",
+  "INSTANT_RESERVE_ANOTHER_TIME": "다른 시간에 다시 예약을 시도 해 주세요.",
+
+  "POINT_REFUND_SETTLED": "포인트 복구 요청 종료됨"
 }

@@ -254,7 +254,7 @@
   "NO_SCHEDULE_TRY_SEARCH": "スケジュールは検索しないでください",
   "NO_MORE_RESERVATIONS": "その他の予約",
   "NO_MORE_PASTS": "もうパスタはない",
-  
+
   "LEVEL": "レベル",
   "YOUR_ENGLISH_LEVEL": "あなたの英語レベル",
   "LEVELS_ARE_FROM_1_9": "レベルは1から9までです",
@@ -356,8 +356,8 @@
   "CURRICULUM_CONTENT_8": "もし、先生が教材を授業時間前渡さず授業時間中に渡されると、授業の進行の妨げになります。",
   "CURRICULUM_CONTENT_9": "この場合、私たちに申告をしてください。",
   "CURRICULUM_CONTENT_10": "私たちがアルアヤジ先生に是正要求をすることができます。",
-  
-  
+
+
   "STUDENT COMMENTS": [{
       "name": "JinHyoung You",
       "date": "クリスティーナ先生と学ぶ",
@@ -407,7 +407,7 @@
       "description": "私は2ヶ月前にKatalk Englishから25分/月〜金のスケジュールで英語を学びました。 でも、今は2つのクラスに分かれています。 <br>それは本当にうまくいけば厄介で疑問でした。 しかし、私はそれが本当に納得して安いと驚いた。 そして教師はとても良いです。 <br>私はアメリカに行って、今度は英語を習得します。 <br>みなさまを応援！"
     }
   ],
-  
+
   "READY": "準備完了",
   "REQUEST_REFUND": "払い戻しのリクエスト",
   "CANCEL_REFUND_REQUEST": "リクエスト払い戻しをキャンセルする",
@@ -461,7 +461,10 @@
   "REJECT_CONFIRM": "払い戻し確認",
   "HOW_WAS_TEACHER_INTERNET": "先生のインターネット接続はどうでしたか？",
   "INTERNET_STATUS": ["", "悪い", "正常", "良い"],
-  "CAMERA_STATUS": { "N": "いいえ", "Y": "はい" },
+  "CAMERA_STATUS": {
+    "N": "いいえ",
+    "Y": "はい"
+  },
   "INTERNET_GOOD": "良い",
   "INTERNET_NORMAL": "正常",
   "INTERNET_BAD": "悪い",
@@ -517,7 +520,7 @@
   "NEXT WEEK": "来週",
   "NEXT MONTH": "来月",
 
-  "_ONE_TO_ONE_VIDEO_ENLGISH": "1:1ビデオ英語レッスン",
+  "_ONE_TO_ONE_VIDEO_ENGLISH": "1:1ビデオ英語レッスン",
   "_10000_PER_MONTH": "$10月",
   "_HUK": "うわー...？",
   "_10000": "わずか10ドル！",
@@ -557,5 +560,24 @@
   "SLUG_IS_EMPTY": "このフォーラムの下には投稿はありません。",
   "LEVELTEST_IS_BLOCKED": "その先生は、その間に無料のクラスを受け入れることはできません。",
   "AVERAGE_INTERNET": "平均インターネット速度",
-  "AVERAGE_CAMERA": "カメラの平均使用"
+  "AVERAGE_CAMERA": "カメラの平均使用",
+
+  "IDX SESSION MISSING": "セッションIDがありません。",
+  "MESSAGE EMPTY": "メッセージは空です。",
+  "REFUND ACCEPT": "払い戻しリクエスト受諾",
+  "REFUND ACCEPT CONFIRM": "この払い戻しリクエストを受け入れてもよろしいですか？",
+  "REFUND ACCEPT SUCCESS": "返金されたリクエストの成功。",
+  "REFUND REJECT": "払い戻し請求拒否",
+  "REFUND REJECT CONFIRM": "この払い戻しリクエストを拒否してもよろしいですか？",
+  "REFUND REJECT SUCCESS": "拒否されたリクエストの成功。",
+
+
+  "POINT_REFUND_SETTLED": "ポイント払い戻しが確定した",
+  "INSTANT_CANT_RESERVE": "インスタントセッションを予約することはできません。",
+  "INSTANT_CANT_REASON": "インスタントセッションを予約できない理由は、次のいずれかです",
+  "INSTANT_NO_AVAILABLE": "インスタントセッションを行うことができる先生はいません。",
+  "INSTANT_IF_HAVE_RESERVATION": "すぐに始まるセッションがあります。",
+  "INSTANT_LEVELTEST_DONE": "すべてのレベルテストを終了しました。",
+  "INSTANT_POINT_LACK": "ポイントを予約するためのポイントが不足しています。",
+  "INSTANT_RESERVE_ANOTHER_TIME": "いつか再びレザーを予約してください。"
 }
