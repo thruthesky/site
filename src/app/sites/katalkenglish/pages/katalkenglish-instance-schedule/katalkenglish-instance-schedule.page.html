@@ -64,14 +64,14 @@
 
         <ng-template #NoSchedule>
             <div class="alert alert-warning mx-3 my-5 p-5">
-                <h2 class="mb-3">앗, 지금 즉시 수업을 예약 할 수 없습니다.</h2>
-                지금 즉시 수업(예약)을 할 수 없는 이유는 주로 아래와 같습니다.
+                <h2 class="mb-3">{{ a.ln.INSTANT_CANT_RESERVE }}</h2>
+                {{ a.ln.INSTANT_CANT_REASON }}
                 <ol>
                     <li>
-                        지금 현재 시간에 수업 가능한 선생님이 없거나
+                        {{ a.ln.INSTANT_NO_AVAILABLE }}
                     </li>
                     <li>
-                        회원님께서 곧 수업이 있는 경우 지금 즉시 수업 시작되는 다른 수업을 예약 할 수 없습니다.
+                        {{ a.ln.INSTANT_IF_HAVE_RESERVATION }}
                     </li>
                     <li>
                         레벨테스트를 다 하였거나,
