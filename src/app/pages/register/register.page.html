@@ -26,6 +26,12 @@
                     </button>
                 </div>
             </div>
+            <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0" >
+                <mat-progress-bar mode="determinate" 
+                                    [value]="profilePhotoUpload.progressPercentage">
+                </mat-progress-bar>
+                <span>{{ profilePhotoUpload.progressPercentage}}%</span>
+            </div>
             <xapi-file-upload-component #profilePhotoUpload
                                         [title]="false"
                                         [fileSelectionButton]="false"
@@ -174,9 +180,11 @@
                         <xapi-file-upload-component #QRMARKFileUpload [title]="false" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="false"
                             (success)="onSuccessUploadQRMark( $event )">
                         </xapi-file-upload-component>
-                        <div class="progress" *ngIf="QRMARKFileUpload.progressPercentage">
-                            <div class="bar"></div>
-                            {{ QRMARKFileUpload.progressPercentage}}%
+                        <div class="progress-bar" *ngIf="QRMARKFileUpload.progressPercentage > 0" >
+                            <mat-progress-bar mode="determinate" 
+                                                [value]="QRMARKFileUpload.progressPercentage">
+                            </mat-progress-bar>
+                            <span>{{ QRMARKFileUpload.progressPercentage}}%</span>
                         </div>
                     </div>
                     <div class="qr-button">
