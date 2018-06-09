@@ -276,7 +276,7 @@ export class AppService {
         /**
          * Edge supports Web Notification. But not Push notification.
          */
-        if ( this.isIe() ) {
+        if ( this.isIeEdge() ) {
 
         } else {
             this.firebase.messaging = firebase.messaging();
