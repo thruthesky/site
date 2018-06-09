@@ -1,174 +1,183 @@
 @import './../../../../../theme/vars';
 
-main{
+main {
   padding: 2em 0;
   padding-top: 0;
   background: white;
 
-  header{
-      margin-bottom: 2em;
+  header {
+    margin-bottom: 2em;
   }
-    .input-info{
-      width: 80%;
-      margin: 2em auto;
-      mat-form-field{
-        width: 100%;
+  .input-info {
+    width: 80%;
+    margin: 2em auto;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: 200;
+  }
+
+  .update-button {
+    margin-top: 2em;
+    margin-bottom: 4em;
+    text-align: center;
+
+    button {
+      padding: 1em 3em;
+      border: none;
+      border-radius: 2px;
+      background: dodgerblue;
+      color: #fff;
+      cursor: pointer
+    }
+  }
+
+  .payment-information-history {
+    padding: 3em 0;
+
+    .rotate-45 {
+
+      &-on {
+        transition: all .1s ease-in-out;
+        transform: rotate(45deg)
+      }
+
+      &-off {
+        transition: all .1s ease-in-out;
+        transform: rotate(0)
       }
     }
 
-    h2{
-      text-align: center;
-      font-weight: 200;
-    }
-
-    .update-button{
-      margin-top:2em;
-      margin-bottom: 4em;
+    .show-history-button {
       text-align: center;
 
-        button{
-            padding: 1em 3em;
-            border: none;
-            border-radius: 2px;
-            background: dodgerblue;
-            color: #fff;
-            cursor: pointer
-        }
+      button {
+        padding: 1em 3em;
+        border-radius: 2px;
+        border: 0;
+        background: darkorange;
+        color: #fff;
+        cursor: pointer
+      }
     }
 
-    .payment-information-history{
-        padding: 3em 0;
+    ul {
+      list-style-type: none;
+      padding: 0;
 
-        .rotate-45{
+      .plus-icon {
+        height: 1em;
+      }
 
-            &-on{
-                transition: all .1s ease-in-out;
-                transform: rotate(45deg)
-            }
-
-            &-off{
-                transition: all .1s ease-in-out;
-                transform: rotate(0)
-            }
+      li {
+        & > div:first-child {
+          display: flex;
+          justify-content: space-between;
+          padding: 1em 2em;
+          border-bottom: 1px solid #fff;
+          background: #e2e2e2;
+          cursor: pointer;
         }
+      }
 
-        .show-history-button{
-            text-align: center;
-
-            button{
-                padding:1em 3em;
-                border-radius: 2px;
-                border:0;
-                background: darkorange;
-                color:#fff;
-                cursor: pointer
-            }
+      .list {
+        & > div {
+          display: flex;
+          padding: 0 2em;
+          border-bottom: 1px solid black;
+          div:first-child {
+            font-weight: bold;
+            width: 25%;
+          }
+          div:last-child {
+            width: 75%;
+          }
+          div {
+            margin: 1em;
+          }
         }
+      }
+    }
+  }
 
-        ul{
-            list-style-type: none;
-            padding: 0;
+  .payment-method {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 90%;
 
-            .plus-icon{
-                height: 1em;
-            }
+    input {
+      position: absolute;
+      opacity: 0;
 
-            li{
-                &>div:first-child{
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 1em 2em;
-                    border-bottom: 1px solid #fff;
-                    background: #e2e2e2;
-                    cursor: pointer;
-                }
-            }
+      &:checked + div {
+        background: #fff;
+        outline: 1px solid dodgerblue;
+        color: dodgerblue;
 
-            .list{
-                &>div{
-                    display: flex;
-                    padding: 0 2em;
-                    border-bottom:1px solid black;
-                    div:first-child{
-                        font-weight: bold;
-                        width: 25%;
-                    }
-                    div:last-child{
-                        width: 75%;
-                    }
-                    div{
-                        margin: 1em;
-                    }
-                }
-            }
-        }
+      }
+
     }
 
-    .payment-method{
+    .gcash {
+
+      svg {
+        color: green !important
+      }
+    }
+
+    .western-union {
+
+      svg {
+        color: orange !important
+      }
+
+    }
+
+    .paypal {
+      svg {
+        color: #253b80 !important
+      }
+    }
+
+    div {
       display: flex;
       align-items: center;
+      flex-direction: column;
       justify-content: center;
-      font-weight: bold;
-      font-size: 90%;
+      margin: 0 2em;
+      padding: 1em 3em;
+      text-align: center;
 
-      input{
-          position: absolute;
-          opacity: 0;
-
-          &:checked+div{
-              background: #fff;
-              outline: 1px solid dodgerblue;
-              color:dodgerblue;
-
-          }
-
+      @media screen and (max-width: $sm) {
+        margin: 0 .5em;
+        padding: .5em 1.5em;
       }
-
-
-      .gcash{
-
-          svg{
-              color:green!important
-          }
-      }
-
-      .western-union{
-
-          svg{
-              color: orange!important
-          }
-
-      }
-
-      .paypal{
-          svg{
-              color: #253b80!important
-          }
-      }
-
-      div{
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-          margin: 0 2em;
-          padding: 1em 3em;
-          text-align: center;
-
-          @media screen and (max-width:$sm) {
-              margin: 0 .5em;
-              padding: .5em 1.5em;
-          }
-          border-radius: 2px;
-          background: #eee;
-          cursor: pointer;
-      }
-
-      svg{
-          margin-bottom: .5em;
-          height: 3em ;
-      }
+      border-radius: 2px;
+      background: #eee;
+      cursor: pointer;
     }
+
+    svg {
+      margin-bottom: .5em;
+      height: 3em;
+    }
+  }
+  .loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    mat-spinner {
+      margin: .5em;
+    }
+  }
 }
 
 
