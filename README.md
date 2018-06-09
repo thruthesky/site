@@ -72,10 +72,12 @@ npm run serve:local:hmr             ; run locally with HMR. It is only working w
 
 ```` sh
 ng build --prod --output-path docs --base-href=/site/
-git commit -a -m 'test release to git page'
+git add --all
+git commit -m 'release for testing on GitHub Pages'
 git push
 ```
 
+* and access to 
 
 ## Concepts
 

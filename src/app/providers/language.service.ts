@@ -69,7 +69,7 @@ export class LanguageService {
      */
     loadUserLanguage(callback?) {
         const ln = this.getUserLanguage();
-        this.loadLanguage(ln, '/assets/lang/' + ln + '.json?reloadTag=' + environment['reloadTag'])
+        this.loadLanguage(ln, LanguageService.languageFolder + ln + '.json?reloadTag=' + environment['reloadTag'])
             .then(re => {
                 this.load.emit(re);
                 /// re draw?
