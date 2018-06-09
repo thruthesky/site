@@ -15,6 +15,8 @@ export class OntuePaymentInformationPage {
 
     reload_history = false;
 
+    loading = true;
+
     constructor(
         public a: AppService,
         public router: Router
