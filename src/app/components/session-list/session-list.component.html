@@ -277,8 +277,13 @@
                                     <div class="col-6" *ngIf=" paid(book) ">
                                         <span>{{ 'PAID' | t}}</span>
                                     </div>
-                                    <div class="col-6" *ngIf=" refunded( book ) ">
+                                    <div class="col-6" *ngIf=" refunded( book ) && !settled(book)">
                                         <span class="refunded">{{ 'REFUNDED' | t }}</span>
+                                    </div>
+                                    <div class="col-6" *ngIf=" settled(book) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
+                                        <button class="point-refund-rejected">
+                                            {{ 'POINT_REFUND_SETTLED' | t }}
+                                        </button>
                                     </div>
                                     <div class="col-6" *ngIf=" refund_in_progress(book) ">
                                         <div>
@@ -309,17 +314,19 @@
                                             {{ 'WRITE_A_REVIEW' | t }}
                                         </button>
                                     </div>
-                                    <div class="col-6" *ngIf=" rejected( book ) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
+                                    <div class="col-6" *ngIf=" rejected( book ) && !settled(book) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
                                         <button class="point-refund-rejected"> 
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-54.4 289.1c4.7 4.7 4.7 12.3 0 17L306 377.6c-4.7 4.7-12.3 4.7-17 0L224 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L102.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L280 256l65.6 65.1z"/></svg>
                                             {{ 'POINT_REFUND_REJECTED' | t }}
                                         </button>
                                     </div>
-                                    <div class="col-6" *ngIf=" refunded(book) ">
+                                    <div class="col-6" *ngIf=" refunded(book) && !settled(book)">
                                         <span class="refunded"> {{ 'REFUNDED' | t }}</span>
                                     </div>
-                                    <div class="col-6" *ngIf=" settled(book) ">
-                                        <span class="settled"> {{ 'POINT_REFUND_SETTLED' | t }}</span>
+                                    <div class="col-6" *ngIf=" settled(book) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
+                                        <button class="point-refund-rejected">
+                                            {{ 'POINT_REFUND_SETTLED' | t }}
+                                        </button>
                                     </div>
                                     <div class="col-6" *ngIf=" ! book.refund_timeover && ! rejected( book )">
                                         <ng-container *ngIf=" ! refunded( book ) ">

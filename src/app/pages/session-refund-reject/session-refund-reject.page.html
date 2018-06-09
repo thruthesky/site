@@ -11,10 +11,18 @@
 
 
         <div *ngIf="book?.idx">
+            <ng-container *ngIf="book?.refund_request_message">
             <span class="student-header">{{ 'STUDENT_MESSAGE' | t}}</span>
             <div class="message"> {{book.refund_request_message}}</div>
+            </ng-container>
+            <ng-container *ngIf="book?.refund_reject_message">
             <span class="teacher-header">{{ 'TEACHER_MESSAGE' | t}}</span>
             <div class="message"> {{book.refund_reject_message}}</div>
+            </ng-container>
+            <ng-container *ngIf="book?.refund_settle_message">
+            <span class="admin-header">{{ 'ADMIN_MESSAGE' | t}}</span>
+            <div class="message"> {{book.refund_settle_message}}</div>
+            </ng-container>
             <div class="note">{{ 'SESSION_REFUND_REJECT_NOTE' | t}}</div>
 
             <div class="buttons">
