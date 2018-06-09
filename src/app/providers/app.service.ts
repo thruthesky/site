@@ -273,7 +273,15 @@ export class AppService {
         this.firebase.db = firebase.firestore();
         const settings = {/* your settings... */ timestampsInSnapshots: true }; // 2018-05-07 backward compatibilities for firebase firestore new version.
         this.firebase.db.settings(settings);
-        this.firebase.messaging = firebase.messaging();
+        /**
+         * IE does not support Push Notification API at all.
+         * Latest Edge partly supports Push API. It supports Web Notification. But not Push notification.
+         * We simply block all IE and Edge for Push.
+         */
+        if ( ! this.isIeEdge() ) {
+            this.firebase.messaging = firebase.messaging();
+        }
+        
         // this.language.setUserLanguage();
 
         setTimeout(() => {
@@ -1161,6 +1169,9 @@ export class AppService {
 
 
     initWebPushMessage() {
+        if ( this.isIeEdge() ) {
+            return;
+        }
         if ('Notification' in window) {
             // console.log('initWebPushMessage', this.firebase);
             this.firebase.messaging.requestPermission()
@@ -1211,6 +1222,9 @@ export class AppService {
      * @param token push token string
      */
     updatePushToken() {
+        if ( this.isIeEdge() ) {
+            return;
+        }
         if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         const platform = 'web';
         if (!this.pushToken) {
@@ -1494,6 +1508,12 @@ export class AppService {
      */
     isIeEdge() {
         return !!window['ie_version'];
+    }
+    isIe() {
+        return window['ie_version'] <= 11;
+    }
+    isEdge() {
+        return window['ie_version'] >= 12;
     }
     warningIeEdge() {
         if (this.isIeEdge()) {
