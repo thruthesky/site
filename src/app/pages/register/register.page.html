@@ -54,25 +54,25 @@
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>{{ a.ln.NAME }}</mat-label>
+                <!-- <mat-label>{{ a.ln.NAME }}</mat-label> -->
                 <input matInput id="name" type="text" name="name" [(ngModel)]="form.name">
             </mat-form-field>
 
             <mat-form-field class="with-hint" appearance="outline">
-                <mat-label>{{ a.ln.NICKNAME }}</mat-label>
+                <!-- <mat-label>{{ a.ln.NICKNAME }}</mat-label> -->
                 <input matInput id="display_name" type="text" name="display_name" [(ngModel)]="form.display_name">
                 <mat-hint> {{ 'NICKNAME DESC' | t }}</mat-hint>
             </mat-form-field>
 
 
             <mat-form-field appearance="outline">
-                <mat-label>{{ a.ln.EMAIL }}</mat-label>
+                <!-- <mat-label>{{ a.ln.EMAIL }}</mat-label> -->
                 <input matInput type="email" name="email" id="email" [(ngModel)]="form.user_email">
             </mat-form-field>
 
 
             <mat-form-field *ngIf="a.isLogout" appearance="outline">
-                <mat-label>{{ a.ln.PASSWORD }}</mat-label>
+                <!-- <mat-label>{{ a.ln.PASSWORD }}</mat-label> -->
                 <input matInput type="password" name="password" id="password" [(ngModel)]="form.user_pass">
             </mat-form-field>
 
@@ -81,14 +81,14 @@
                 <div class="row" [class.removed-padding]="!a.teacherTheme">
                     <div class="col" *ngIf=" a.teacherTheme ">
                         <mat-form-field appearance="outline">
-                            <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label>
+                            <!-- <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label> -->
                             <input matInput id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
                             <mat-hint> Input minutes to prevent a sudden booking.</mat-hint>
                         </mat-form-field>
                     </div>
                     <div class="col">
                             <mat-form-field appearance="outline">
-                                <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
+                                <!-- <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label> -->
                                 <input matInput id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
                             </mat-form-field>
                     </div>
@@ -96,7 +96,7 @@
             </div>
 
             <mat-form-field class="katalk-id" appearance="outline">
-                <mat-label>{{ a.ln.KAKAOTALK_ID_SHORT }}</mat-label>
+                <!-- <mat-label>{{ a.ln.KAKAOTALK_ID_SHORT }}</mat-label> -->
                 <input matInput id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
                 <mat-hint>
                     <a class="hint" (click)=" onClickKakaoIDHelp() ">
@@ -116,7 +116,7 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="gender" appearance="outline">
-                            <mat-label>{{ a.ln.GENDER }}</mat-label>
+                            <!-- <mat-label>{{ a.ln.GENDER }}</mat-label> -->
                             <input class="removed" type="text" matInput value="dummy">
                             <div class="radio-group">
                                 <label>
@@ -131,7 +131,7 @@
 
                     <div class="col">
                         <mat-form-field appearance="outline">
-                            <mat-label>{{ 'BIRTHDAY' | t }}</mat-label>
+                            <!-- <mat-label>{{ 'BIRTHDAY' | t }}</mat-label> -->
                             <input class="removed" type="text" matInput value="dummy" disabled>
 
                             <div class="birthday">
@@ -168,7 +168,7 @@
             </div>
 
             <mat-form-field class="upload-qr" *ngIf=" a.teacherTheme " appearance="outline">
-                <mat-label>{{qrmarks.length? 'UPDATE': 'UPLOAD'}} Kakaotalk QR MARK</mat-label>
+                <!-- <mat-label>{{qrmarks.length? 'UPDATE': 'UPLOAD'}} Kakaotalk QR MARK</mat-label> -->
 
                 <label>
                     <div class="qr-image">
