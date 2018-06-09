@@ -20,7 +20,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
      * If ` re == null `, then it is loading.
      */
     re: SCHEDULE_TABLE = null;
-    params: any;
+    params: any = {};
     limit = 60; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
     noMoreTeachers: boolean;
 

@@ -20,6 +20,7 @@
                                                 [fileSelectionButton]="false"
                                                 [files]="files"
                                                 [showUploadedFiles]="false"
+                                                [showProgressBar]="false"
                                                 (success)="onSuccessUploadPicture($event)">
                     </xapi-file-upload-component>
                     <div class="progress-bar" *ngIf="fileUploadWidget.progressPercentage > 0" >
@@ -55,6 +56,7 @@
                                                 [fileSelectionButton]="false"
                                                 [files]="qrmarks"
                                                 [showUploadedFiles]="false"
+                                                [showProgressBar]="false"
                                                 (success)="onSuccessUploadQRMark( $event )">
                     </xapi-file-upload-component>                    
                     <div class="progress-bar" *ngIf="fileUploadWidgetQRMARK.progressPercentage > 0" >
