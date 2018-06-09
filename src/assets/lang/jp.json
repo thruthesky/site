@@ -454,6 +454,7 @@
   "SESSION_REFUND_REJECT_TITLE": "セッション払い戻しを拒否",
   "STUDENT_MESSAGE": "学生メッセージ",
   "TEACHER_MESSAGE": "教師メッセージ",
+  "ADMIN_MESSAGE": "管理メッセージ",
   "SESSION_REFUND_REJECT_NOTE": "*注：教師の事由に満足していない場合。adminに連絡して返金要求を移管することができます。",
   "SESSION_REFUND_REVIEW_TITLE": "学生還付検討",
   "REFUND_ACCEPT": "受け入れ返金",
