@@ -25,7 +25,6 @@ export class OntueSalaryComputationPage {
     };
     payment_computation: PAYMENT_COMPUTATION_INFORMATION = <PAYMENT_COMPUTATION_INFORMATION>{
         teacher_share: 0,
-        WU: {}
     };
 
 
@@ -35,7 +34,6 @@ export class OntueSalaryComputationPage {
     buying_rate = 0;
     earnings = 0;
     salary = '0';
-    gcash_transaction_fee = 0;
 
   constructor(
     public a: AppService,
@@ -49,7 +47,7 @@ export class OntueSalaryComputationPage {
       });
 
       this.a.lms.get_payment_computation_info().subscribe(re => {
-          // console.log('get_payment_computation_info', re);
+          console.log('get_payment_computation_info', re);
           this.payment_computation = re;
           this.recompute();
       }, e => {
