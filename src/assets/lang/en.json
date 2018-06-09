@@ -649,5 +649,12 @@
   "REFUND REJECT": "Refund Request Reject",
   "REFUND REJECT CONFIRM": "Are you sure you want to reject this refund request?",
   "REFUND REJECT SUCCESS": "Rejected request success.",
-  "POINT_REFUND_SETTLED": "Point refund setttled"
+  "POINT_REFUND_SETTLED": "Point refund setttled",
+  "INSTANT_CANT_RESERVE": "OOh, You cannot reserve instant session for now.",
+  "INSTANT_CANT_REASON": "The reasons why you cannot reserve instant session may be one of the followings",
+  "INSTANT_NO_AVAILABLE": "There is no teacher who can do the instant session.",
+  "INSTANT_IF_HAVE_RESERVATION": "You have a session that start soon.",
+  "INSTANT_LEVELTEST_DONE": "You have finished all your level tests.",
+  "INSTANT_POINT_LACK": "You are lacking on Point to reserve a session.",
+  "INSTANT_RESERVE_ANOTHER_TIME": "Please try to reserve again sometime laster."
 }

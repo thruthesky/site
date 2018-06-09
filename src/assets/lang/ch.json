@@ -610,6 +610,13 @@
   "REFUND REJECT SUCCESS": "拒绝请求成功。",
 
 
-  "POINT_REFUND_SETTLED": "点退款结算"
+  "POINT_REFUND_SETTLED": "点退款结算",
+  "INSTANT_CANT_RESERVE": "哦，你现在不能保留即时会话。",
+  "INSTANT_CANT_REASON": "您无法保留即时会话的原因可能是以下情况之一",
+  "INSTANT_NO_AVAILABLE": "没有老师可以进行即时会话。",
+  "INSTANT_IF_HAVE_RESERVATION": "你有一个会议即将开始。",
+  "INSTANT_LEVELTEST_DONE": "你已经完成了你所有的关卡测试。",
+  "INSTANT_POINT_LACK": "你缺乏点预约会议。",
+  "INSTANT_RESERVE_ANOTHER_TIME": "请尝试再次预约。"
 
 }

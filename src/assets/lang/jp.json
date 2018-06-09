@@ -572,5 +572,12 @@
   "REFUND REJECT SUCCESS": "拒否されたリクエストの成功。",
 
 
-  "POINT_REFUND_SETTLED": "ポイント払い戻しが確定した"
+  "POINT_REFUND_SETTLED": "ポイント払い戻しが確定した",
+  "INSTANT_CANT_RESERVE": "インスタントセッションを予約することはできません。",
+  "INSTANT_CANT_REASON": "インスタントセッションを予約できない理由は、次のいずれかです",
+  "INSTANT_NO_AVAILABLE": "インスタントセッションを行うことができる先生はいません。",
+  "INSTANT_IF_HAVE_RESERVATION": "すぐに始まるセッションがあります。",
+  "INSTANT_LEVELTEST_DONE": "すべてのレベルテストを終了しました。",
+  "INSTANT_POINT_LACK": "ポイントを予約するためのポイントが不足しています。",
+  "INSTANT_RESERVE_ANOTHER_TIME": "いつか再びレザーを予約してください。"
 }
