@@ -6,6 +6,7 @@ import { RouterModule, Route } from '@angular/router';
 import { KatalkEnglishMenuPage } from './katalkenglish-menu.page';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 
+
 const appRoutes: Array<Route> = [
     { component: KatalkEnglishMenuPage, path: '' }
 ];

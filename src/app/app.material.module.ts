@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
+  MatFormFieldModule,
   MatButtonModule,
   MatCheckboxModule,
   MatSelectModule,
@@ -14,6 +15,7 @@ import {
 
 @NgModule({
   imports: [
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -26,6 +28,7 @@ import {
     MatProgressBarModule
   ],
   exports: [
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,

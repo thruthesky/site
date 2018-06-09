@@ -117,6 +117,10 @@
         padding: .9em 0;
         background-color: #66a2fb;
         color: white;
+        font-size: 80%;
+        @media screen and (min-width:$md){
+            font-size: 100%;
+        }
         text-align: center;
     
         &>div{
@@ -176,29 +180,42 @@
     }
 
     .rejected{
+        display: flex;
         color: #856404;
         background-color: #fff3cd;
         border-color: #ffeeba;
+
+        svg{
+            height: 1.5em;
+        }
     }
 
     .point-refund-rejected{
         border-color: rgba(gray,0.2)!important;
         background: ghostwhite;
+
+        svg{
+            height: 2em;
+        }
     }
 
     .refundable{
         border-color: darkred!important;
         color: darkred!important;
         background: ghostwhite;
+
+        svg{
+            height: 1em;
+        }
     }
 
     button{
         display: flex;
         align-items: center;
+        justify-content: center;
         margin-top: 1em;
-        padding: .75em 1.25em;
+        padding: .5em 1em;
         font-size: 90%;
-        border-radius: 2px;
         border: 1px solid rgba(0,0,0,.06)!important;
         cursor: pointer;
     }
@@ -210,15 +227,28 @@
     .evaluate-view,.cancel{
         background-color: #eee!important;
         color: #4b4b4b!important;
+        
     }
     
+    .evaluate-view{
+        svg{
+            width: 1.5em
+        }
+    }
 
     .comment-create{
         background-color: #888;
         color: #fff;
+
+        svg{
+            margin: 0!important;
+            margin-left: .5em!important;
+            height: 1.5em;
+        }
     }
 
     .buttons-wrapper{
+        font-size: .9em;
         margin-bottom: 1em;
         .row{
             align-items: center;
@@ -228,6 +258,11 @@
         .col-6{
             display: flex;
             justify-content: center;
+            padding: 0 .5em;
+        }
+
+        svg{
+            margin-right: .4em;
         }
     }
 
@@ -247,26 +282,50 @@
 
     .request-refund{
         background-color: rgb(255, 123, 0);
+         svg{
+             margin:0!important;
+             margin-left: .5em!important;
+             height: 1.6em;
+         }
     }
 
     .evaluated{
         border-color: rgba(black, 0.06)!important;
         color:blue;
+
+        svg{
+            height: 1.5em;
+        }
     }
 
     .evaluate {
+        display: flex;
         background-color: rgb(255, 123, 0)!important;
         color: white!important;
+
+        svg{
+            height: 1.2em;
+        }
     }
 
     .refund-requested{
         background: darkred;
-        color:white
+        color:white;
+
+        svg{
+            height: 2em;
+        }
     }
 
     .cancel-refund-request{
         border:1px solid darkorange!important;
         color:darkorange;
+
+        svg{
+            margin: 0!important;
+            margin-left: .5em!important;
+            height: 2.5em;
+        }
     }
 
     .button-icon{
@@ -334,6 +393,20 @@
     padding-bottom: 12em;
 }
 
+.ready-confirmed,.ready-not-confirmed{
+    color: #fff;
+    mat-spinner{
+        margin-right: .5em
+    }
+}
+
+.ready-confirmed{
+    background: green!important;
+}
+
+.ready-not-confirmed{
+    background: red!important;
+}
 
 .legends{
     margin:5em 0;

@@ -26,7 +26,17 @@ main{
             align-items: center;
             padding: 1em;
             border-bottom: 1px solid #e9ecef;
+
+            &>div{
+                padding: 0 .3em;
+                word-wrap: break-word;
+
+                .prere{
+                    font-size: 80%;
+                }
+            }
         }
+
     }
 
     svg{

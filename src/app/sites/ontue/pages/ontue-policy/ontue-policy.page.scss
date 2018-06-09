@@ -1,26 +1,21 @@
-header{
-    h1{
-        margin: 0;
-        padding: 1em;
-        background: dodgerblue;
-        color:#fff
-    }
-}
+
 
 main{
-    padding: 3em;
-    background: #fff;
-    line-height: 1.6em;
+    section{
+        padding: 3em;
+        background: #fff;
+        line-height: 1.6em;
 
-    h2{
-        margin: 0;
-    }
+        h2{
+            margin: 0;
+        }
 
-    &>div{
-        margin: 3.5em 0;
-    }
+        &>div{
+            margin: 3.5em 0;
+        }
 
-    div:first-child{
-        margin-top: 0;
+        div:first-child{
+            margin-top: 0;
+        }
     }
 }
