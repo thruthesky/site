@@ -146,6 +146,8 @@ main{
 
 
         .buttons{
+            display: flex;
+            justify-content: center;
             padding: 0 1.5em;
             padding-top: 0;
             padding-bottom: 3em;
@@ -155,12 +157,17 @@ main{
                 padding-bottom: 5em;
             }
             button{
-                display: inline-block;
+                display: flex;
+                justify-content: center;
                 margin-right: .5em;
                 margin-top:.5em;
                 padding: 1em 2em;
                 border:none;
                 cursor: pointer;
+
+                mat-spinner{
+                    margin-right:.5em;
+                }
             }
         }
 
@@ -301,7 +308,6 @@ main{
     }
 
 }
-
  
 .agree {
     margin-top: 2em;

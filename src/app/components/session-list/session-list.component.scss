@@ -117,6 +117,10 @@
         padding: .9em 0;
         background-color: #66a2fb;
         color: white;
+        font-size: 80%;
+        @media screen and (min-width:$md){
+            font-size: 100%;
+        }
         text-align: center;
     
         &>div{
@@ -195,10 +199,10 @@
     button{
         display: flex;
         align-items: center;
+        justify-content: center;
         margin-top: 1em;
-        padding: .75em 1.25em;
+        padding: .5em 1em;
         font-size: 90%;
-        border-radius: 2px;
         border: 1px solid rgba(0,0,0,.06)!important;
         cursor: pointer;
     }
@@ -210,15 +214,26 @@
     .evaluate-view,.cancel{
         background-color: #eee!important;
         color: #4b4b4b!important;
+        
     }
     
+    .evaluate-view{
+        svg{
+            width: 1.5em
+        }
+    }
 
     .comment-create{
         background-color: #888;
         color: #fff;
+
+        svg{
+            height: 1.5em;
+        }
     }
 
     .buttons-wrapper{
+        font-size: .9em;
         margin-bottom: 1em;
         .row{
             align-items: center;
@@ -228,6 +243,11 @@
         .col-6{
             display: flex;
             justify-content: center;
+            padding: 0 .5em;
+        }
+
+        svg{
+            margin-right: .4em;
         }
     }
 
@@ -255,8 +275,13 @@
     }
 
     .evaluate {
+        display: flex;
         background-color: rgb(255, 123, 0)!important;
         color: white!important;
+
+        svg{
+            height: 1em;
+        }
     }
 
     .refund-requested{

@@ -14,7 +14,7 @@
 
     <div class="schedule-loader" *ngIf=" show.schedule_loader ">
         <mat-spinner [diameter]="48" name="circles"></mat-spinner>
-        {{ 'SCHEDULE_TABLE_LOADING' | t }}
+        <span>{{ 'SCHEDULE_TABLE_LOADING' | t }}</span>
     </div>
 
     <div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">

@@ -1,6 +1,6 @@
 
 <main>
-    <header class="global-header">
+    <header >
         <h1>{{ 'CLASS_COMMENTS_PAGE_TITLE' | t }}</h1>
         <p> {{ 'CLASS_COMMENTS_PAGE_DESC' | t }}</p>
     </header>
@@ -50,11 +50,11 @@
                                     <div *ngIf="comment.internet">{{ 'INTERNET' | t}}: {{a.ln.INTERNET_STATUS[comment.internet]}}</div>
                                     <div *ngIf="comment.camera" >{{ 'Camera' | t}} : {{a.ln.CAMERA_STATUS[comment.camera]}}</div>
                                 </div>
-                                <div class="date">{{ 'DATE' | t }} : {{ a.shortDate(comment.stamp) }}</div>
+                                <!-- <div class="date">{{ 'DATE' | t }} : {{ a.shortDate(comment.stamp) }}</div> -->
                             </div>
                             <div class="comment">
-                                {{comment.comment.slice(0,25)}}
-                                <span *ngIf="comment.comment.length>25">...</span>
+                                {{comment.comment.slice(0,75)}}
+                                <span *ngIf="comment.comment.length>75">...</span>
                             </div>
                         </div>
                         <div class="student col-md-3">

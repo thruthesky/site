@@ -258,6 +258,7 @@
                                     <div class="col-6" *ngIf=" !paid(book) && !refunded( book ) ">
                                         <button class="evaluate" *ngIf=" ! evaluated(book) "
                                                 (click)=" a.open('teacher-session-evaluate', {idx: book.idx}) ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>
                                             {{ 'EVALUATE' | t}}
                                         </button>
                                         <button class="evaluated" *ngIf="  evaluated(book) "
@@ -290,10 +291,16 @@
                                 </ng-container>
                                 <ng-container *ngIf=" a.isStudent ">
                                     <div class="col-6" *ngIf=" !refunded(book) ">
-                                        <button class="evaluate-view" (click)=" a.open('session-evaluation', {idx: book.idx} ) ">{{ 'LECTURE_EVALUATION' | t }}</button>
+                                        <button class="evaluate-view" (click)=" a.open('session-evaluation', {idx: book.idx} ) ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM96 424c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-192c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm128 368c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"/></svg>
+                                            {{ 'LECTURE_EVALUATION' | t }}
+                                        </button>
                                     </div>
                                     <div class="col-6" *ngIf=" !refund_in_progress(book) ">
-                                        <button class="comment-create" (click)=" a.open('teacher-review-create', {idx_teacher: book.idx_teacher} ) ">{{ 'WRITE_A_REVIEW' | t }}</button>
+                                        <button class="comment-create" (click)=" a.open('teacher-review-create', {idx_teacher: book.idx_teacher} ) ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/></svg>
+                                            {{ 'WRITE_A_REVIEW' | t }}
+                                        </button>
                                     </div>
                                     <div class="col-6" *ngIf=" rejected( book ) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
                                         <button class="point-refund-rejected"> {{ 'POINT_REFUND_REJECTED' | t }}</button>
@@ -305,7 +312,8 @@
                                         <ng-container *ngIf=" ! refunded( book ) ">
                                             <button class="cancel-refund-request" (click)=" onClickCancelRefundRequest( book )"
                                                     *ngIf="book.refund_request_at > 0 ">
-                                                {{ "CANCEL_REFUND_REQUEST" | t }}
+                                                    {{ "CANCEL_REFUND_REQUEST" | t }}
+                                  
                                             </button>
                                             <button class="request-refund" (click)=" a.open( 'session-refund-request', {idx: book.idx} )"
                                                     *ngIf=" book.refund_request_at == 0">
@@ -331,7 +339,7 @@
                                 </span>
                             </div>
                             <div class="col-6" *ngIf=" a.isTeacher ">
-                                <button [ngClass]=" book.stamp_checked != 0 ? 'bg-green' : 'bg-red' " (click)="onClickReady( book )">
+                                <button [ngClass]=" book.stamp_checked != 0 ? 'ready-confirmed' : 'ready-not-confirmed' " (click)="onClickReady( book )">
                                     <span *ngIf=" book.ready ">
                                         <svg class="button-icon spin" aria-hidden="true" data-prefix="fal" data-icon="spinner" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M288 32c0 17.673-14.327 32-32 32s-32-14.327-32-32 14.327-32 32-32 32 14.327 32 32zm-32 416c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm256-192c0-17.673-14.327-32-32-32s-32 14.327-32 32 14.327 32 32 32 32-14.327 32-32zm-448 0c0-17.673-14.327-32-32-32S0 238.327 0 256s14.327 32 32 32 32-14.327 32-32zm33.608 126.392c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zm316.784 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32zM97.608 65.608c-17.673 0-32 14.327-32 32 0 17.673 14.327 32 32 32s32-14.327 32-32c0-17.673-14.327-32-32-32z"></path></svg>
                                     </span>
