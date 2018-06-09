@@ -40,6 +40,22 @@
         </div>
 
         <div class="payment-information container-fluid">
+            <div class="row" *ngIf="payment_information['payment_method'] != 'paypal' ">
+                <div class="col">
+                    <div>KWR to PHP</div>
+                </div>
+                <div class="col">
+                    <input id="php" type="text" [(ngModel)]=" payment_computation['php'] " (keyup)="recompute()" />
+                </div>
+            </div>
+            <div class="row" *ngIf="payment_information['payment_method'] == 'paypal' ">
+                <div class="col">
+                    <div>KWR to USD</div>
+                </div>
+                <div class="col">
+                    <input id="usd" type="text" [(ngModel)]=" payment_computation['usd'] " (keyup)="recompute()" />
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <div>Total Points</div>
@@ -66,7 +82,7 @@
             </div>
             <div class="row"  *ngIf="payment_information['payment_method'] !== 'paypal' ">
                 <div class="col">
-                    <div>Buying Rate to PHP(3.1%)</div>
+                    <div>Conversion Rate(3.1%)</div>
                 </div>
                 <div class="col">
                     <div>{{ buying_rate }}</div>
@@ -99,16 +115,16 @@
             <b>*Teacher Share Points:</b> Teacher share is 88% of the total accumulated points.
         </div>
         <div class="mb-3">
-            <b>*Paypal Charges:</b> When the student buy points, paypal charges a total of 4.7% from the total amount
+            <b>*Paypal Charges:</b> When the student buy points, paypal deduct a total of 4.7% from the total amount
             they pay.
-            But we still give the full amount of points to student, thats why we deduct the 4.7% to the teacher and
+            But we still give the full amount of points to student, that's why we deduct the 4.7% to the teacher and
             company share.
             Company and teacher will share with this deduction. Since teacher share is 88% then we deduct 4.2% to
             teacher points.
             And since the company share is 12% we deduct 0.5% to company points.
         </div>
         <div class="mb-3">
-            <b>*Buying Rate:</b> It is applied when we transfer the money from paypal to local banks.
+            <b>*Conversion Rate Fee:</b> Paypal charge this fee when we transfer the money from paypal to local banks.
         </div>
         <div class="mb-3">
             <b>*Total Earnings:</b> This amount sum of all the share and deductions.
@@ -118,8 +134,9 @@
         </div>
         <div class="mb-3">
             <div><b>*Note:</b> Additional charges will be applied to GCash and Western Union base on the total salary earned.</div>
-            <div><b>*Note:</b> For paypal users, buying rate is not applied but paypal will charge a service fee upon
-                receiving your salary.</div>
+            <div><b>*Note:</b> For paypal users, Conversion rate is not applied but paypal will charge a service fee upon
+                receiving your salary.
+            </div>
         </div>
     </div>
 </main>

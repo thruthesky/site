@@ -70,8 +70,8 @@ export interface SHARE_SESSION_LIST {
 
 
 interface Environmen {
-    production?: boolean;
-    hmr?: boolean;
+    production: boolean;
+    hmr: boolean;
     urlBackend: string;
     firebaseConfig: any;
     reloadTag?: any;

@@ -15,6 +15,9 @@ export class OntuePaymentInformationPage {
 
     reload_history = false;
 
+    loadingInformation = false;
+    loadingHistory = false;
+
     constructor(
         public a: AppService,
         public router: Router
@@ -40,22 +43,30 @@ export class OntuePaymentInformationPage {
 
 
     loadPaymentInformation() {
+        this.loadingInformation = true;
         this.a.lms.payment_information().subscribe(re => {
             // console.log(re);
             if (re['payment_information']) {
                 this.payment_information = re['payment_information'];
             }
-        }, e => this.a.toast(e));
+            this.loadingInformation = false;
+        }, e => {
+            this.a.toast(e);
+            this.loadingInformation = false;
+        });
     }
 
 
     onClickShowHistory() {
+        this.loadingHistory = true;
         this.a.lms.payment_information_history().subscribe(res => {
             // console.log("payment history", res);
             this.payment_information_history = res['payment_history'];
             this.reload_history = true;
+            this.loadingHistory = false;
         }, e => {
             this.a.toast(e);
+            this.loadingHistory = false;
         });
     }
 

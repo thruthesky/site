@@ -2,6 +2,9 @@
 
 ## Reference
 
+* How to set admin
+ Please see [LMS Management - Admin](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd)
+
 * [Site and System Management](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.5fy66t330rxr)
 * [OnTue 2018 LMS Build Guide](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.zfa2sr5gxz1q)
 * Refer [OnTue issue tracker](https://github.com/thruthesky/ontue#issue-sh-boards)
@@ -11,11 +14,13 @@
   * [WordPress Xapi as PHP Restful API](https://docs.google.com/document/d/1w4QIQhkaGa55etiEiw1jsbfS_XhN8MQwFyex9l1BBeg/edit#heading=h.id4flcesu3j3)
   * [OnTue LMS with Xapi](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.zfa2sr5gxz1q)
 
-* [FireLibrary](https://github.com/thruthesky/firelibrary)
-
 * [Ionic/Angular v4 Breaking Changes](https://github.com/ionic-team/ionic/blob/master/angular/BREAKING.md)
 
 * [PHPJS library](http://locutus.io/php/) are saved under src/app/etc/php.
+
+* [Ionic v4 Development Theory (Korean)](https://docs.google.com/document/d/12HPnIawKRAEKwZ6hftPtKNsUmhU5ENNu_WJZZuASsKE/edit#heading=h.dkfde9dlhii9)
+
+* [Ontue v3 Issues](https://github.com/thruthesky/ontue#issue-sh-boards)
 
 ### Seo
 
@@ -43,7 +48,7 @@ git submodule update --init
 npm run s
 ````
 
-## Update
+### Update
 
 ```` bash
 rm -rf node_modules
@@ -61,22 +66,18 @@ npm run serve:remote                ; Run on production server.
 npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
 ````
 
-## How to create Category
+## Publish
 
-https://www.katalkenglish.com/category
+* To test on GitHub Pages,
 
-## How to install a branch site
+```` sh
+ng build --prod --output-path docs --base-href=/site/
+git add --all
+git commit -m 'release for testing on GitHub Pages'
+git push
+```
 
-* To create a branch site
-  * first, you will need to choose a sub domain of `katalkengilsh.com`. For instance `abc.katalkenglish.com`
-  * second, you will need to login as the owner of the subsite.
-  * thrid, access `install` route of the domain of the subsite. Ex) `https://abc.katalkenglish.com/install`
-
-## Documentation
-
-* [Ionic v4 Development Theory (Korean)](https://docs.google.com/document/d/12HPnIawKRAEKwZ6hftPtKNsUmhU5ENNu_WJZZuASsKE/edit#heading=h.dkfde9dlhii9)
-
-* [Ontue v3 Issues](https://github.com/thruthesky/ontue#issue-sh-boards)
+* and access to 
 
 ## Concepts
 
@@ -87,10 +88,6 @@ We may use Angular's [Multiple Apps Intergratin](https://github.com/angular/angu
 But we simply decide to differenciate the theme based on domain. It's much simpler when it comes to management.
 
 When source code is changed, we need only one time compilation and publishment. You don't have to manage all the three apps in one project.
-
-## Setting an admin
-
-Please see [LMS Management - Admin](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd)
 
 ## Folder structure
 
@@ -211,7 +208,6 @@ For instance, katalkenglish.com( student site ) and ontue.com ( teacher site ) h
 </div>
 ````
 
-
 ## Naming Convention
 
 ### Module Names
@@ -253,20 +249,6 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 
 * Security does not matter on Firebase. Read ##Registration.
 
-### Flowchart
-
-1. It will register at `PHP backend`.
-2. It will register at Firebase.
-  Password of the user is a combination of idx and register-date.
-
-## Login
-
-### Flowchart of Login
-
-1. It will login at `PHP backend`.
-2. It will login at Firebase.
- 2-1. If there the user is not registered on Firebase, then register.
-
 ## Langage Translate
 
 * It uses `FireLibrary` Language Transation for multi-language support.
@@ -281,7 +263,9 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 {{ fire.t('KEY', {info: 'extra'}) }}  <!-- Alias of translate() -->
 {{ fire.ln.HOME }}  <!-- This access a variable. NOT method call. Prefered for speed. -->
 {{ 'HOME' | t }} <!-- PIPE -->
-{{ post.created ? ('QNA_FORM_EDIT_TITLE' | t) : ('QNA_FORM_CREATE_TITLE' | t) }} <!-- complicated expression -->
+<!-- complicated expressions -->
+{{ post.created ? ('QNA_FORM_EDIT_TITLE' | t) : ('QNA_FORM_CREATE_TITLE' | t) }}
+{{ 'AGE_GENDER' | t:{ age: re.teacher.age | number , gender: re.teacher.gender | t } }}
 ````
 
 ## Admin Page Module
@@ -322,14 +306,6 @@ modal.alert({ title: 'hi', content: 'oo'});
     });
 ````
 
-## Firebase
-
-### Firebase User Login and Session
-
-* firebase user's email and password is set automatically.
-* `firebase user password` is LMS session. When session changes, user's cannot log into firebase and this is going to be a big problem.
-  * `session` changes when PHP `XUser::get_session_id()` changes or `XAPI_SECRET_CODE_SALT` in wp_config.php changes.
-
 ## Cache
 
 * `Teacher list` is cached and show when the user access. and it caches again in background.
@@ -337,7 +313,7 @@ modal.alert({ title: 'hi', content: 'oo'});
 
 ## Reload version tag
 
-* It is stated in environemnt ts files like below.
+* It is stated in environemnt ts files like below. It should work on development only.
 
 ```` typescript
 env['reloadTag'] = (new Date).getTime();
@@ -356,7 +332,6 @@ env['reloadTag'] = (new Date).getTime();
     Then, the user will see 'mobile view' of 'schedule table' since it is cached.
     This is a very rare case. and we just ignore this.
     If the user visits another teacher's schedule table, it may look okay as in 'desktop view'.
-
 
 ## Known Problems
 
