@@ -616,5 +616,6 @@
   "INSTANT_CANT_RESERVE": "앗, 지금 즉시 수업을 예약 할 수 없습니다.",
   "INSTANT_CANT_REASON": "지금 즉시 수업(예약)을 할 수 없는 이유는 주로 아래와 같습니다.",
   "INSTANT_NO_AVAILABLE": "지금 현재 시간에 수업 가능한 선생님이 없거나",
-  "INSTANT_IF_HAVE_RESERVATION": "회원님께서 곧 수업이 있는 경우 지금 즉시 수업 시작되는 다른 수업을 예약 할 수 없습니다."
+  "INSTANT_IF_HAVE_RESERVATION": "회원님께서 곧 수업이 있는 경우 지금 즉시 수업 시작되는 다른 수업을 예약 할 수 없습니다.",
+  "POINT_REFUND_SETTLED": "포인트 복구 요청 종료됨"
 }

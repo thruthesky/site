@@ -155,7 +155,7 @@ export class SessionListComponent implements OnInit {
         }
         this.loadingOnSearch = true;
         this.a.lms.session_search(this.request()).subscribe(re => {
-            // console.log("Result of class_search(): ", re);
+            // console.log('Result of class_search(): ', re);
             this.re = re;
             this.re['total_session_refunded'] = this.a.toInt(this.re['total_session_refunded']);
             this.re['total_session_refund_in_progress'] = this.a.toInt(this.re['total_session_refund_in_progress']);
@@ -214,10 +214,17 @@ export class SessionListComponent implements OnInit {
         if (this.refund_in_progress(book)) {
             return false;
         }
+        // console.log('settled?: ', book);
+        if ( this.settled(book) ) {
+            return false;
+        }
         return true;
     }
     refunded(book) {
         return book['refund_done_at'] > 0;
+    }
+    settled(book) {
+        return book['refund_settle_at'] > 0;
     }
     rejected(book) {
         return book['refund_reject_at'] > 0;

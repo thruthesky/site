@@ -254,7 +254,7 @@
   "NO_SCHEDULE_TRY_SEARCH": "スケジュールは検索しないでください",
   "NO_MORE_RESERVATIONS": "その他の予約",
   "NO_MORE_PASTS": "もうパスタはない",
-  
+
   "LEVEL": "レベル",
   "YOUR_ENGLISH_LEVEL": "あなたの英語レベル",
   "LEVELS_ARE_FROM_1_9": "レベルは1から9までです",
@@ -356,8 +356,8 @@
   "CURRICULUM_CONTENT_8": "もし、先生が教材を授業時間前渡さず授業時間中に渡されると、授業の進行の妨げになります。",
   "CURRICULUM_CONTENT_9": "この場合、私たちに申告をしてください。",
   "CURRICULUM_CONTENT_10": "私たちがアルアヤジ先生に是正要求をすることができます。",
-  
-  
+
+
   "STUDENT COMMENTS": [{
       "name": "JinHyoung You",
       "date": "クリスティーナ先生と学ぶ",
@@ -407,7 +407,7 @@
       "description": "私は2ヶ月前にKatalk Englishから25分/月〜金のスケジュールで英語を学びました。 でも、今は2つのクラスに分かれています。 <br>それは本当にうまくいけば厄介で疑問でした。 しかし、私はそれが本当に納得して安いと驚いた。 そして教師はとても良いです。 <br>私はアメリカに行って、今度は英語を習得します。 <br>みなさまを応援！"
     }
   ],
-  
+
   "READY": "準備完了",
   "REQUEST_REFUND": "払い戻しのリクエスト",
   "CANCEL_REFUND_REQUEST": "リクエスト払い戻しをキャンセルする",
@@ -461,7 +461,10 @@
   "REJECT_CONFIRM": "払い戻し確認",
   "HOW_WAS_TEACHER_INTERNET": "先生のインターネット接続はどうでしたか？",
   "INTERNET_STATUS": ["", "悪い", "正常", "良い"],
-  "CAMERA_STATUS": { "N": "いいえ", "Y": "はい" },
+  "CAMERA_STATUS": {
+    "N": "いいえ",
+    "Y": "はい"
+  },
   "INTERNET_GOOD": "良い",
   "INTERNET_NORMAL": "正常",
   "INTERNET_BAD": "悪い",
@@ -566,5 +569,8 @@
   "REFUND ACCEPT SUCCESS": "返金されたリクエストの成功。",
   "REFUND REJECT": "払い戻し請求拒否",
   "REFUND REJECT CONFIRM": "この払い戻しリクエストを拒否してもよろしいですか？",
-  "REFUND REJECT SUCCESS": "拒否されたリクエストの成功。"
+  "REFUND REJECT SUCCESS": "拒否されたリクエストの成功。",
+
+
+  "POINT_REFUND_SETTLED": "ポイント払い戻しが確定した"
 }

@@ -648,5 +648,6 @@
   "REFUND ACCEPT SUCCESS": "Refunded request success.",
   "REFUND REJECT": "Refund Request Reject",
   "REFUND REJECT CONFIRM": "Are you sure you want to reject this refund request?",
-  "REFUND REJECT SUCCESS": "Rejected request success."
+  "REFUND REJECT SUCCESS": "Rejected request success.",
+  "POINT_REFUND_SETTLED": "Point refund setttled"
 }

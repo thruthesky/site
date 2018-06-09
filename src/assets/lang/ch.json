@@ -607,6 +607,9 @@
   "REFUND ACCEPT SUCCESS": "退款请求成功。",
   "REFUND REJECT": "退款请求拒绝",
   "REFUND REJECT CONFIRM": "您确定要拒绝此退款要求吗？",
-  "REFUND REJECT SUCCESS": "拒绝请求成功。"
+  "REFUND REJECT SUCCESS": "拒绝请求成功。",
+
+
+  "POINT_REFUND_SETTLED": "点退款结算"
 
 }
