@@ -27,7 +27,7 @@ main{
             justify-content: space-around;
         }
 
-        .col{
+        .col-auto{
             @media screen and (max-width:$sm) {
                 padding: 0;
             }

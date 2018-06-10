@@ -82,7 +82,7 @@ main{
         
         margin: .5em -.1em;
 
-        .col{
+        .col-auto{
             padding:.4em .1em;
         }
 
@@ -140,6 +140,7 @@ main{
                     margin-left: .2em;
                     svg{
                         height: 1em;
+                        width: 1em;
                     }
                 }
             }

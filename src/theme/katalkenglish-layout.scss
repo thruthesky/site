@@ -37,6 +37,7 @@ body {
         }
         .page-inner {
             main {
+                display: block;
                 margin: 0 auto;
                 max-width: $katalkenglish-page-width;
                 @media (min-width: $md) {
