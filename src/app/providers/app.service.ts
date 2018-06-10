@@ -221,6 +221,11 @@ export class AppService {
         public readonly user: XapiUserService,
         public readonly file: XapiFileService,
         public readonly lms: XapiLMSService) {
+
+        // Base.collectionDomain = 'database';
+        this.site[this.getSite()] = true;
+
+
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
 
@@ -228,23 +233,28 @@ export class AppService {
          * Set's user default language If the user has not selected a language.
          */
         let languageCode = language.getUserSelectedLanguage();
-        if ( ! languageCode ) {
-            languageCode = 'ko';
+        if (!languageCode) {
+            // console.log('You did not choose a  language yet.');
+            if (this.studentTheme) {
+                // console.log('You are using student theme, So we set Korean');
+                languageCode = 'ko';
+            } else {
+                // console.log('You are using teacher theme. So web set English');
+                languageCode = 'english';
+            }
         }
+        console.log('user language: ', languageCode);
         language.setUserLanguage(languageCode);
 
-        this.language.load.subscribe( ln => {
+        this.language.load.subscribe(ln => {
             // console.log('language load ln: ', ln);
             this.languageLoaded(ln);
         });
-        this.language.change.subscribe( ln => {
+        this.language.change.subscribe(ln => {
             // console.log('user change language into: ', ln);
             this.languageChanged(ln);
         });
 
-
-        // Base.collectionDomain = 'database';
-        this.site[this.getSite()] = true;
 
         this.urlBackend = environment['urlBackend'];
         // console.log('urlBackend: ', this.urlBackend);
@@ -288,7 +298,8 @@ export class AppService {
          * Latest Edge partly supports Push API. It supports Web Notification. But not Push notification.
          * We simply block all IE and Edge for Push.
          */
-        if ( ! this.isIeEdge() ) {
+        if (this.isIeEdge() || this.isSafari()) {
+        } else {
             this.firebase.messaging = firebase.messaging();
         }
 
@@ -401,9 +412,9 @@ export class AppService {
      * @description student's theme may have more than one site/domain.
      */
     get studentTheme() {
-        if ( this.teacherTheme ) {
+        if (this.teacherTheme) {
             return false;
-        } else if ( this.withcenterTheme ) {
+        } else if (this.withcenterTheme) {
             return false;
         } else {
             return true;
@@ -599,7 +610,7 @@ export class AppService {
                 o['message'] = this.t('LOGIN_INVALID'); // rewrite error message.
             } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
                 o['message'] = this.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
-            } else if ( code === CODE_LOGIN_FIRST ) {
+            } else if (code === CODE_LOGIN_FIRST) {
                 o['message'] = this.ln.LOGIN_FIRST;
             }
 
@@ -1181,7 +1192,7 @@ export class AppService {
 
 
     initWebPushMessage() {
-        if ( this.isIeEdge() ) {
+        if (this.isIeEdge() || this.isSafari()) {
             return;
         }
         if ('Notification' in window) {
@@ -1236,7 +1247,7 @@ export class AppService {
      * @param token push token string
      */
     updatePushToken() {
-        if ( this.isIeEdge() ) {
+        if (this.isIeEdge() || this.isSafari()) {
             return;
         }
         if (environment['disableFirebaseUserActivityLog']) { return; } // development only
@@ -1528,6 +1539,12 @@ export class AppService {
     }
     isEdge() {
         return window['ie_version'] >= 12;
+    }
+    /**
+     * Returns true if the browser is Safari.
+     */
+    isSafari() {
+        return !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
     }
     warningIeEdge() {
         if (this.isIeEdge()) {
@@ -1854,7 +1871,7 @@ export class AppService {
     }
 
     languageChanged(ln) {
-        this.lms.updateLanguage(ln).subscribe( re => {
+        this.lms.updateLanguage(ln).subscribe(re => {
             // console.log('lms.languageChanged: re', re);
         });
     }
