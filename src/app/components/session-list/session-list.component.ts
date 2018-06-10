@@ -307,4 +307,11 @@ export class SessionListComponent implements OnInit {
 
     }
 
+    onClickKakaoQRMarkString(url) {
+        if ( !this.a.isMobileView() ) {
+            return;
+        }
+        window.open(url, '_blank');
+    }
+
 }
