@@ -173,6 +173,15 @@
         color:blue;
     }
 
+    .kakaotalk-id {
+        svg{
+            height: .9em;
+        }
+        @media screen and (max-width:$md) {
+            cursor: pointer;
+        }
+    }
+
     .rejected,.refunded{
         display: inline-block;
         margin-top: 1em;
