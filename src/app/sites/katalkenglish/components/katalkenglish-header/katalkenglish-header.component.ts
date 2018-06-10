@@ -11,11 +11,13 @@ import { XapiUserService } from '../../../../modules/xapi/xapi.module';
 export class KatalkEnglishHeaderComponent {
 
   selectedLanguage = '';
+  isIeEdge = false;
   constructor(
     public a: AppService,
     // public f: FireService,
     public user: XapiUserService
   ) {
+    this.isIeEdge = a.isIeEdge();
     // console.log(`HeaderComponent:constructor()`);
     // console.log(`current: ${a.color}, change: red`);
     // a.setColor('red');
@@ -33,5 +35,6 @@ export class KatalkEnglishHeaderComponent {
     this.a.language.setUserLanguage( this.selectedLanguage );
   }
 }
+
 
 

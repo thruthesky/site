@@ -70,7 +70,7 @@ export interface SHARE_SESSION_LIST {
 }
 
 
-interface Environmen {
+interface Environment {
     production: boolean;
     hmr: boolean;
     urlBackend: string;
@@ -93,7 +93,7 @@ const firestoreLogCollection = 'user-activity-log';
 @Injectable()
 export class AppService {
 
-    environment: Environmen = environment;
+    environment: Environment = environment;
 
     // color: string = null;
 
