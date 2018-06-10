@@ -15,7 +15,7 @@
   "PAYMENT_HISTORY": "支払歴",
   "CLOSE": "閉じる",
   "MENU": "メニュー",
-  "IE_EDGE_WARNING": "ああ！ あなたは問題があります。 Chromeウェブブラウザを使用する必要があります。 IE / Edgeは非常に遅いです。",
+  "IE_EDGE_WARNING": "ああ！ あなたはIE / Edgeを使用しています。 KatalkEnglishはChromeでさらに優れています",
   "NO_INTERNET": "インターネットがない。 インターネットに接続しているか確認してください。",
   "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
   "WELCOME_TITLE": "ようこそ、#name。",
@@ -581,5 +581,6 @@
   "INSTANT_LEVELTEST_DONE": "すべてのレベルテストを終了しました。",
   "INSTANT_POINT_LACK": "ポイントを予約するためのポイントが不足しています。",
   "INSTANT_RESERVE_ANOTHER_TIME": "いつか再びレザーを予約してください。",
-  "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name会員は#pointを保持しています。"
+  "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name会員は#pointを保持しています。",
+  "KATALK_OPEN_ON_MOBILE_ONLY": "あなたはあなたの電話を使って管理者にしか連絡することができません。 あなたの電話を使ってtalkEnglishにアクセスしてください。"
 }

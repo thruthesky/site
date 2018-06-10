@@ -1461,15 +1461,6 @@ export class AppService {
         }
     }
 
-    /**
-     * IE 버전을 리턴한다.
-     * 숫자로 8,9,10,11, 12, 13 을 리턴한다.
-     * IE 가 아니면 거짓을 리턴한다.
-     * 예를 들어 Edge 나 Chrome 은 false 를 리턴한다.
-     */
-    detectIE() {
-        return window['detect_ie_version']();
-    }
 
     onClickContactAdmin(event?: Event) {
         //
@@ -1478,16 +1469,17 @@ export class AppService {
         }
 
         if (this.isTeacher) {
-            if (this.isMobileView()) {
+            if (this.isMobile()) {
                 window.open(this.kakaoUrls.teacher_kakaoplus_deeplink);
             } else {
                 window.open(this.kakaoUrls.teacher_kakaoplus_url);
             }
         } else {
-            if (this.isMobileView()) {
+            if (this.isMobile()) {
                 window.open(this.kakaoUrls.student_kakaoplus_deeplink);
             } else {
-                window.open(this.kakaoUrls.student_kakaoplus_url);
+                this.toast( this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
+                // window.open(this.kakaoUrls.student_kakaoplus_url);
             }
         }
 
@@ -1527,7 +1519,6 @@ export class AppService {
             ':' + this.add0(d.getMinutes());
     }
 
-
     /**
      * Returns true if the user is using IE or Edge.
      */
@@ -1545,6 +1536,24 @@ export class AppService {
      */
     isSafari() {
         return !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+    }
+    /**
+     * Returns true if the user is using browser on mobile/tablet.
+     */
+    isMobile() {
+        if (navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
     warningIeEdge() {
         if (this.isIeEdge()) {

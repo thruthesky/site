@@ -14,7 +14,7 @@
   "PAYMENT_HISTORY": "支付历史",
   "CLOSE": "关",
   "MENU": "菜单",
-  "IE_EDGE_WARNING": "哦！ 你有个问题。 您需要使用Chrome浏览器。 IE / Edge非常慢。",
+  "IE_EDGE_WARNING": "哦！ 您正在使用IE/Edge。 KatalkEnglish在Chrome上更好",
   "NO_INTERNET": "没有互联网。 请检查您是否有互联网连接。",
   "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
   "WELCOME_TITLE": "欢迎，#name。",
@@ -620,6 +620,7 @@
   "INSTANT_POINT_LACK": "你缺乏点预约会议。",
   "INSTANT_RESERVE_ANOTHER_TIME": "请尝试再次预约。",
 
-"STUDENT_PONT_ON_SCHEDULE_TABLE": "你的#name成员有#point。"
+"STUDENT_PONT_ON_SCHEDULE_TABLE": "你的#name成员有#point。",
+  "KATALK_OPEN_ON_MOBILE_ONLY": "您只能使用电话联系管理员。 请使用您的手机打开访问talkEnglish网站。"
 
 }

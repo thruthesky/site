@@ -15,7 +15,7 @@
     "serve:local:hmr": "ng serve --disable-host-check --configuration=local-hmr --hmr",
     "bt": "ng build --prod --named-chunks=true",
     "publish": "npm run build:prod && npm run scp",
-    "publish:gitpage": "ng build --prod --output-path docs --base-href=/site/ && git add --all && git commit -m 'build test' && git push",
+    "publish:gitpage": "ng build --prod --output-path docs --base-href=/site/ && git add --all && git commit -m 'buildtest' && git push",
     "publish:all": "npm run build:prod && npm run scp:all",
     "build:prod": "ng build --prod",
     "scp": "cd www && scp -r *.js *.html ontue@ontue.com:./www",

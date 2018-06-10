@@ -86,7 +86,7 @@
   "PAYMENT_HISTORY": "Payment history",
   "CLOSE": "Close",
   "MENU": "Menu",
-  "IE_EDGE_WARNING": "Ooh! You have a problem. You need to use Chrome web browser. IE/Edge is very slow.",
+  "IE_EDGE_WARNING": "Ooh! You are using IE/Edge. KatalkEnglish is much better with Chrome",
   "NO_INTERNET": "No internet. Can't connect to server. Please check if you have Internet connection.",
   "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
   "WELCOME_TITLE": "Welcome, #name.",
@@ -628,7 +628,7 @@
   "_CHAT_ALL_DAY_LONG": "Katalk is very handy. Teachers and Student talk all day long.",
   "_AUTO_SYSTEM": "Student can freely reserve, cancel. It's automatic Learn Management System.",
   "_HOW_TO": "How to use Katalk English",
-  "_NO_OF_PASTS": "지난수업",
+  "_NO_OF_PASTS": "Past Classes",
   "_NO_OF_RESERVATIONS": "Reservations",
   "_NO_OF_STUDENTS": "Students",
   "_COMMENTS": "20 lessons. $10. Katalk English Reviews",
@@ -658,5 +658,6 @@
   "INSTANT_LEVELTEST_DONE": "You have finished all your level tests.",
   "INSTANT_POINT_LACK": "You are lacking on Point to reserve a session.",
   "INSTANT_RESERVE_ANOTHER_TIME": "Please try to reserve again sometime laster.",
-  "STUDENT_PONT_ON_SCHEDULE_TABLE": "Welcome #name. You have #point."
+  "STUDENT_PONT_ON_SCHEDULE_TABLE": "Welcome #name. You have #point.",
+  "KATALK_OPEN_ON_MOBILE_ONLY": "You can only contact Admin using your Phone. Please open acess KatalkEgnlish website using your Phone."
 }
