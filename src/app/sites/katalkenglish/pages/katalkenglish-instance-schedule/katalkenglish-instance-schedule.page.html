@@ -16,7 +16,7 @@
 
         <div class="container-fluid" *ngIf=" re && re?.available_schedules?.length; else NoSchedule">
             <div class="row">
-                <div class="col" *ngFor="let schedule of re.available_schedules">
+                <div class="col-auto" *ngFor="let schedule of re.available_schedules">
                     <div class="teacher">
 
                         <div class="teacher-profile-photo ">

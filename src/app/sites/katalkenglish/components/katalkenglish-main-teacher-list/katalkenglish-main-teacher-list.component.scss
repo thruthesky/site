@@ -1,5 +1,5 @@
 @import '../../../../../theme/vars.scss';
-.teacher-list {
+section{
     padding-top: .5em;
     padding-bottom: 1em;
     background: #fff;
@@ -26,16 +26,18 @@
     .row {
         padding: 0 .5em;
         .teacher-list {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+            // align-items: center;
             text-align: center;
             margin-bottom: 1.2em;
             padding: 0;
             font-size: .7em;
 
             .teacher-wrapper{
+                display: inline-block;
+                margin:auto;
                 border-radius: 2px;
                 border:1px solid rgba(125,125,125,0.1);
                 background: #fff;
@@ -48,7 +50,11 @@
                     }
         
                     .grade{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         margin: .4em 0;
+
                     }
 
                     .reservation{
@@ -84,6 +90,7 @@
     .grade {
         svg {
             height: .9em;
+            width: .9em;
         }
         &[grade="5"] {
             color: #f06000;
