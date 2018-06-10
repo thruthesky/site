@@ -96,7 +96,9 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
     }
     ngAfterViewInit() {
         if (this.a.isLogout) {
-            this.a.toast(this.a.t('LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME'));
+            setTimeout(() => {
+                this.a.toast(this.a.t('LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME'));
+            }, 500);
         }
     }
     ngOnDestroy() {
@@ -164,7 +166,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             } else {            // if there is no schedule.
                 this.re = re;
             }
-            console.log('loadScheduleAndDisplay::', re);
+            // console.log('loadScheduleAndDisplay::', re);
         });
     }
     displayRows(table) {
@@ -434,6 +436,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             }
         }, e => {
             session['in_progress'] = false;
+            // console.log('reserve e: ', e);
             this.a.toast(e);
         });
 

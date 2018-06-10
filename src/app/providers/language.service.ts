@@ -61,7 +61,7 @@ export class LanguageService {
         /**
          * Load user's language when it is injected by AppService.
          */
-        this.loadUserLanguage();
+        // this.loadUserLanguage();
     }
 
     /**
@@ -94,6 +94,13 @@ export class LanguageService {
         } else {
             return _.getBrowserLanguage();
         }
+    }
+
+    /**
+     * Returns user's chosen language. If the user didn't select the language yet, it will return null.
+     */
+    getUserSelectedLanguage(): string {
+        return _.get(LANGUAGE_CODE);
     }
 
 

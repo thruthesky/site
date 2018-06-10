@@ -548,7 +548,7 @@
   "_CHAT_ALL_DAY_LONG": "Katalkはとても便利です。 教師と学生は一日中話します。",
   "_AUTO_SYSTEM": "学生は自由に予約し、キャンセルすることができます。 自動学習管理システム。",
   "_HOW_TO": "Katalk Englishのインストール方法",
-  "_NO_OF_TEACHERS": "教師",
+  "_NO_OF_PASTS": "過去のセッション",
   "_NO_OF_RESERVATIONS": "予約",
   "_NO_OF_STUDENTS": "学生の",
   "_COMMENTS": "20レッスン。 $ 10。 Katalk English Reviews",
@@ -579,5 +579,6 @@
   "INSTANT_IF_HAVE_RESERVATION": "すぐに始まるセッションがあります。",
   "INSTANT_LEVELTEST_DONE": "すべてのレベルテストを終了しました。",
   "INSTANT_POINT_LACK": "ポイントを予約するためのポイントが不足しています。",
-  "INSTANT_RESERVE_ANOTHER_TIME": "いつか再びレザーを予約してください。"
+  "INSTANT_RESERVE_ANOTHER_TIME": "いつか再びレザーを予約してください。",
+  "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name会員は#pointを保持しています。"
 }

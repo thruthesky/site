@@ -520,3 +520,24 @@ export interface TEACHER_SITE_INFO {
             src: string;
         };
 }
+
+
+export interface LMS_INFO {
+    BUYER_RATE: string;
+    SELLER_RATE: string;
+    usd_exchange_rate: string;
+    php_exchange_rate: string;
+    PAYPAL_STUDENT_FEE: string;
+    MAX_FREE_CLASS: string;
+    MAX_FREE_CLASS_WITH_SAME_TEACHER: string;
+    MAX_FREE_CLASS_MINUTES: string;
+    MAX_FREE_CLASS_LIMIT: string;
+    MAX_CANCELLABLE_TIME: string;
+    MAX_REFUNDABLE_TIME: string;
+    MAX_POINT_PER_TEACHER_GRADE: string;
+    student: string;
+    teacher: string;
+    reservation: string;                // no of total reservations of all.
+    past: string;                       // no of total past of all students.
+    leveltest: string;
+}

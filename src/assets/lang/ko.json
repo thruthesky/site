@@ -592,7 +592,7 @@
   "_CHAT_ALL_DAY_LONG": "카카오톡으로 수업을 하여 강사와 학생이 하루 종일 채팅하는 시스템",
   "_AUTO_SYSTEM": "무제한 예약, 취소 가능. 완벽한 학습 관리 시스템",
   "_HOW_TO": "카톡영어 이용안내",
-  "_NO_OF_TEACHERS": "강사수",
+  "_NO_OF_PASTS": "지난수업",
   "_NO_OF_RESERVATIONS": "예약된수업",
   "_NO_OF_STUDENTS": "학생수",
   "_COMMENTS": "1만원. 월 20회. 카톡영어의 생생한 수업후기",
@@ -621,5 +621,7 @@
   "INSTANT_POINT_LACK": "회원님의 포인트가 없거나 수업을 예약하기에 부족한 경우에는 선생님 목록이 나타나지 않습니다.",
   "INSTANT_RESERVE_ANOTHER_TIME": "다른 시간에 다시 예약을 시도 해 주세요.",
 
-  "POINT_REFUND_SETTLED": "포인트 복구 요청 종료됨"
+  "POINT_REFUND_SETTLED": "포인트 복구 요청 종료됨",
+
+  "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name 회원님은 #point 를 보유중입니다."
 }

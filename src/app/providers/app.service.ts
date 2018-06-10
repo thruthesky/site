@@ -4,7 +4,7 @@ import { Router, NavigationExtras, NavigationStart, NavigationEnd } from '@angul
 // import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
-import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID } from '../modules/xapi/error';
+import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID, CODE_LOGIN_FIRST } from '../modules/xapi/error';
 
 
 /**
@@ -16,7 +16,7 @@ import 'firebase/messaging';
 firebase.initializeApp(environment['firebaseConfig']);
 
 import { environment } from './../../environments/environment';
-import { SCHEDULE_TABLE } from '../modules/xapi/interfaces';
+import { SCHEDULE_TABLE, LMS_INFO } from '../modules/xapi/interfaces';
 
 /**
  * Material SnackBar is included in AppService since it is being used everywhere.
@@ -46,6 +46,7 @@ export interface SITE {
     withcenter: boolean;
     katalkenglish: boolean;
 }
+
 
 export interface SCHEDULE_OPTIONS {
     teachers: Array<number>;
@@ -144,7 +145,7 @@ export class AppService {
      * @note this is being called once very boot.
      * @attention this must be the only variable to be used to display LMS information.
      */
-    info = null;
+    info: LMS_INFO = null;
 
     /**
      * Push Token
@@ -222,6 +223,15 @@ export class AppService {
         public readonly lms: XapiLMSService) {
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
+
+        /**
+         * Set's user default language If the user has not selected a language.
+         */
+        let languageCode = language.getUserSelectedLanguage();
+        if ( ! languageCode ) {
+            languageCode = 'ko';
+        }
+        language.setUserLanguage(languageCode);
 
         this.language.load.subscribe( ln => {
             // console.log('language load ln: ', ln);
@@ -589,6 +599,8 @@ export class AppService {
                 o['message'] = this.t('LOGIN_INVALID'); // rewrite error message.
             } else if (code === CODE_USER_NOT_FOUND_BY_THAT_EMAIL) {
                 o['message'] = this.t('CODE_USER_NOT_FOUND_BY_THAT_EMAIL');
+            } else if ( code === CODE_LOGIN_FIRST ) {
+                o['message'] = this.ln.LOGIN_FIRST;
             }
 
         } else if (o instanceof HttpErrorResponse) { // PHP ERROR. backend wordpress response error. status may be 200.
@@ -1069,7 +1081,7 @@ export class AppService {
     updateLMSInfo(callback = null) {
         this.info = this.get(KEY_LMS_INFO);
         if (!this.info) {
-            this.info = {};
+            this.info = <LMS_INFO>{};
         }
         this.lms.info().subscribe(re => {
             this.set(KEY_LMS_INFO, re);

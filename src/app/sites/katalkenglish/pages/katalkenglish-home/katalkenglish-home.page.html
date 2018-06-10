@@ -5,7 +5,7 @@
         <!-- Student RWD Grid -->
         <div class="row">
             <div class="left col-12 col-sm-6">
-                
+
                 <katalkenglish-main-teacher-list *ngIf=" a.size() == 'small' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
                 <div class="my-own-plan">
                     <div class="container-fluid">
@@ -13,7 +13,7 @@
                             <div class="col-6">
                                 <img class="calendar-img" src="assets/img/my-own-calendar.png">
                             </div>
-                            <div class="desc col-6"  (click)=" showMoreMyOwnPlan() ">
+                            <div class="desc col-6" (click)=" showMoreMyOwnPlan() ">
                                 <h2>{{ a.ln._IF_CAN_KATALK }}</h2>
                                 <div class="text">
                                     {{ a.ln._WHENEVER_WHEREVER }}
@@ -27,7 +27,7 @@
                     </div>
 
 
-                    <div class="myOwnPlan-wrapper"  *ngIf=" showMoreMyOwnPlan_1 ">
+                    <div class="myOwnPlan-wrapper" *ngIf=" showMoreMyOwnPlan_1 ">
                         <div class="moreMyOwnPlan no1" *ngIf=" showMoreMyOwnPlan_1 ">{{ a.ln._ON_KATALK }}
                         </div>
                         <div class="moreMyOwnPlan no2" *ngIf=" showMoreMyOwnPlan_2 ">{{ a.ln._KATALK_IS_EASY }}
@@ -45,13 +45,13 @@
                             <div class="col-4">
                                 <img src="assets/img/kakao-chat.png">
                             </div>
-                            <div class="desc col-8"  (click)=" showMoreAboutKatalkEnglish() ">
+                            <div class="desc col-8" (click)=" showMoreAboutKatalkEnglish() ">
                                 <div>
                                     <h2>{{ a.ln._KATALK_ENGLISH }}</h2>
                                     <div>
                                         {{ a.ln._NO_COMPARE }}
                                         <span class="show-more" *ngIf=" ! moreAbout1 ">
-                                              {{ a.ln.MORE }}...
+                                            {{ a.ln.MORE }}...
                                         </span>
                                     </div>
                                 </div>
@@ -87,21 +87,21 @@
                     <div class="stats container-fluid" *ngIf=" a.info ">
                         <div class="row">
                             <div class="col">
-                                <div class="item teacher">
-                                    <div class="text">{{ a.ln._NO_OF_TEACHERS }}</div>
-                                    <div class="number">{{ a.info.teacher }}</div>
+                                <div class="item leveltest">
+                                    <div class="text">{{ a.ln._NO_OF_STUDENTS }}</div>
+                                    <div class="number">{{ a.info.student | number }}</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="item reservation">
                                     <div class="text">{{ a.ln._NO_OF_RESERVATIONS }}</div>
-                                    <div class="number">{{ a.info.reservation }}</div>
+                                    <div class="number">{{ a.info.reservation | number }}</div>
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="item leveltest">
-                                    <div class="text">{{ a.ln._NO_OF_STUDENTS }}</div>
-                                    <div class="number">{{ a.info.student }}</div>
+                                <div class="item teacher">
+                                    <div class="text">{{ a.ln._NO_OF_PASTS }}</div>
+                                    <div class="number">{{ a.info.past | number }}</div>
                                 </div>
                             </div>
                         </div>
@@ -109,12 +109,11 @@
                 </div>
                 <!--/stats-wrapper-->
 
-
                 <div class="video-help">
                     <h2>{{ a.ln.VIDEO_RESERVE_TITLE }}</h2>
                     <div class="video">
-                       <img (click)=" showVideoTutorialReserve = true " *ngIf=" ! showVideoTutorialReserve " src="assets/video/student-reserve-thumbnail.jpg">
-                        <img src="assets/video/student-reserve.gif" *ngIf=" showVideoTutorialReserve ">        
+                        <img (click)=" showVideoTutorialReserve = true " *ngIf=" ! showVideoTutorialReserve " src="assets/video/student-reserve-thumbnail.jpg">
+                        <img src="assets/video/student-reserve.gif" *ngIf=" showVideoTutorialReserve ">
                     </div>
                 </div>
             </div>
@@ -124,10 +123,10 @@
 
                 <katalkenglish-main-teacher-list *ngIf=" a.size() == 'big' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
 
-                <section id="student-comments" *ngIf=" a.t('STUDENT COMMENTS') ">
+                <section id="student-comments" *ngIf=" a.ln['STUDENT COMMENTS'] && a.ln['STUDENT COMMENTS'].length ">
                     <h2>{{ a.ln._COMMENTS }}</h2>
 
-                    <ng-container *ngFor=" let comment of a.t('STUDENT COMMENTS'); let i = index ">
+                    <ng-container *ngFor=" let comment of a.ln['STUDENT COMMENTS']; let i = index ">
                         <div class="comment" *ngIf=" i < 2 || show['more-comment']">
                             <div class="container-fluid">
                                 <div class="row">

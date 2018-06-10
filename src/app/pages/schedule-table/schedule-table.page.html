@@ -43,7 +43,7 @@
         </div>
 
         <div class="student-info" *ngIf="a.isLogin && a.isStudent ">
-            {{ a.user.name}}  {{ a.userPoint }}
+                {{ 'STUDENT_PONT_ON_SCHEDULE_TABLE' | t:{name: a.user.name, point: a.userPoint } }}
         </div>
         
     </div>

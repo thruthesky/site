@@ -627,7 +627,7 @@
   "_CHAT_ALL_DAY_LONG": "Katalk is very handy. Teachers and Student talk all day long.",
   "_AUTO_SYSTEM": "Student can freely reserve, cancel. It's automatic Learn Management System.",
   "_HOW_TO": "How to use Katalk English",
-  "_NO_OF_TEACHERS": "Teachers",
+  "_NO_OF_PASTS": "지난수업",
   "_NO_OF_RESERVATIONS": "Reservations",
   "_NO_OF_STUDENTS": "Students",
   "_COMMENTS": "20 lessons. $10. Katalk English Reviews",
@@ -656,5 +656,6 @@
   "INSTANT_IF_HAVE_RESERVATION": "You have a session that start soon.",
   "INSTANT_LEVELTEST_DONE": "You have finished all your level tests.",
   "INSTANT_POINT_LACK": "You are lacking on Point to reserve a session.",
-  "INSTANT_RESERVE_ANOTHER_TIME": "Please try to reserve again sometime laster."
+  "INSTANT_RESERVE_ANOTHER_TIME": "Please try to reserve again sometime laster.",
+  "STUDENT_PONT_ON_SCHEDULE_TABLE": "Welcome #name. You have #point."
 }

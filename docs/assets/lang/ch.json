@@ -586,7 +586,7 @@
   "_CHAT_ALL_DAY_LONG": "Katalk非常方便。 教师和学生整天聊天。",
   "_AUTO_SYSTEM": "学生可以自由保留，取消。 Irs自动学习管理系统。",
   "_HOW_TO": "如何使用Katalk英语",
-  "_NO_OF_TEACHERS": "教师",
+  "_NO_OF_PASTS": "过去的会议",
   "_NO_OF_RESERVATIONS": "预订",
   "_NO_OF_STUDENTS": "学生们",
   "_COMMENTS": "20节课。$10 Katalk英语评论",
@@ -617,6 +617,8 @@
   "INSTANT_IF_HAVE_RESERVATION": "你有一个会议即将开始。",
   "INSTANT_LEVELTEST_DONE": "你已经完成了你所有的关卡测试。",
   "INSTANT_POINT_LACK": "你缺乏点预约会议。",
-  "INSTANT_RESERVE_ANOTHER_TIME": "请尝试再次预约。"
+  "INSTANT_RESERVE_ANOTHER_TIME": "请尝试再次预约。",
+
+"STUDENT_PONT_ON_SCHEDULE_TABLE": "你的#name成员有#point。"
 
 }
