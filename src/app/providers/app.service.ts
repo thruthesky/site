@@ -193,7 +193,7 @@ export class AppService {
      *
      * If it is null, then it is loading.
      */
-    userPoint: number = null;
+    userPoint = 0;
 
 
     NO_SCHEDULE_PER_PAGE = 50;
