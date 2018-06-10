@@ -47,7 +47,7 @@ export class OntueSalaryComputationPage {
       });
 
       this.a.lms.get_payment_computation_info().subscribe(re => {
-          console.log('get_payment_computation_info', re);
+          // console.log('get_payment_computation_info', re);
           this.payment_computation = re;
           this.recompute();
       }, e => {

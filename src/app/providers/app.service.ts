@@ -243,7 +243,7 @@ export class AppService {
                 languageCode = 'english';
             }
         }
-        console.log('user language: ', languageCode);
+        // console.log('user language: ', languageCode);
         language.setUserLanguage(languageCode);
 
         this.language.load.subscribe(ln => {

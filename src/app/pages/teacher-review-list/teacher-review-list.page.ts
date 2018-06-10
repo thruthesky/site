@@ -73,7 +73,7 @@ export class TeacherReviewListPage {
             page: this.pageOption.currentPage
         };
         this.a.lms.get_student_comments_to_teacher(data).subscribe((res: STUDENT_COMMENTS_TO_TEACHER) => {
-            console.log('get_comment_from_student_to_teaceher:: ', res);
+            // console.log('get_comment_from_student_to_teaceher:: ', res);
             if (res && res['comments'] && res['comments'].length) {
                 this.comments = res['comments'];
             } else {
