@@ -255,7 +255,11 @@
                         <td>{{ session.point | number }}</td>
                     </tr>
                     <tr class="session bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
-                        <td>{{ session.idx }}</td>
+                        <td>
+                            <div class="link" routerLink="/admin/session-edit/{{session.idx}}">
+                            {{ session.idx }}<button class="user-info-button">e</button>
+                            </div>
+                        </td>
                         <td *ngIf="user.user_type != 'T' ">
                             <div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
                                 <button class="user-info-button">e</button>
