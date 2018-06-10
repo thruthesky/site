@@ -472,6 +472,7 @@
   "SESSION_REFUND_REJECT_TITLE": "拒绝会话退款",
   "STUDENT_MESSAGE": "学生信息",
   "TEACHER_MESSAGE": "教师信息",
+  "ADMIN_MESSAGE": "管理员留言",
   "SESSION_REFUND_REJECT_NOTE": "*注意：如果你对你的理由不满意。 您可以通过联系管理员来升级您的退款请求。",
 
   "SESSION_REFUND_REVIEW_TITLE": "学生退款考虑",
