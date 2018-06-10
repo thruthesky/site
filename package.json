@@ -18,7 +18,7 @@
     "publish:gitpage": "ng build --prod --output-path docs --base-href=/site/ && git add --all && git commit -m 'buildtest' && git push",
     "publish:all": "npm run build:prod && npm run scp:all",
     "build:prod": "ng build --prod",
-    "scp": "cd www && scp -r *.js *.html ontue@ontue.com:./www",
+    "scp": "cd www && scp -r *.css *.js *.html ontue@ontue.com:./www",
     "scp:all": "cd www && scp -r * ontue@ontue.com:./www"
   },
   "private": true,
