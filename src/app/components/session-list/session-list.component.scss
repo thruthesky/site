@@ -229,7 +229,7 @@
         cursor: pointer;
     }
 
-    span{
+    &>span{
         margin-top: 1em
     }
 
@@ -243,6 +243,10 @@
         svg{
             width: 1.5em
         }
+
+        span{
+            margin-left: .6em;
+        }
     }
 
     .comment-create{
@@ -251,8 +255,12 @@
 
         svg{
             margin: 0!important;
-            margin-left: .5em!important;
             height: 1.5em;
+            width: 1.5em;
+        }
+
+        span{
+            margin-left: .6em;
         }
     }
 
@@ -296,6 +304,9 @@
              margin-left: .5em!important;
              height: 1.6em;
          }
+         span:last-child{
+             margin-left: .6em;
+         }
     }
 
     .evaluated{
@@ -314,6 +325,7 @@
 
         svg{
             height: 1.2em;
+            width: 1.2em;
         }
     }
 

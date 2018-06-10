@@ -34,7 +34,7 @@ main {
         a{
             display: flex;
             align-items: center;
-            padding: .3em 1.5em;
+            padding: 1em;
             font-size: 70%;
             @media screen and (min-width:$md){
                 padding: 1em 1.5em;
@@ -42,8 +42,12 @@ main {
             }
             color: dodgerblue;
             svg{
-                margin:0 .5em;
+                width: 1.2em;
                 height: 1.2em;
+            }
+
+            span{
+                margin:0 .5em;
             }
         }
     }
