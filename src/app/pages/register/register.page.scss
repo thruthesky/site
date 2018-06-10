@@ -172,12 +172,18 @@ main{
         }
 
 
+        .success{
+            text-align: center;
+            font-size: .8rem;
+        }
+
+
 
         .qr-mark{
             margin: auto;
             width: 80%;
 
-            .success,.warning{
+            .warning{
                 margin: 1em 0;
                 padding: 1em 3em;
                 @media screen and (max-width:$sm){
@@ -185,12 +191,6 @@ main{
                 }
         
                 word-wrap: break-word;
-            }
-
-            .success{
-                border-radius:2px;
-                border:1px solid green;
-                background:rgba(green,0.1);
             }
 
             .warning{

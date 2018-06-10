@@ -401,6 +401,8 @@ export class RegisterPage implements OnInit {
                 } else {
                     this.qrmarks = [file];
                     this.showQRMark = true;
+                    // console.log('res: ', res);
+                    this.form.kakao_qrmark_string = res.kakao_qrmark_string;
                     this.a.render();
                 }
             }, () => {
