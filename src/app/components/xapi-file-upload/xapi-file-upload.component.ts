@@ -25,6 +25,7 @@ export class XapiFileUploadComponent {
     @Input() title = true;
     @Input() fileSelectionButton = true;
     @Input() showUploadedFiles = true;
+    @Input() showProgressBar = true;
     @Output() success = new EventEmitter<any>();
 
     @Input() titleText = 'File Upload';

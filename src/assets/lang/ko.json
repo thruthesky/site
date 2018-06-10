@@ -486,6 +486,7 @@
   "SESSION_REFUND_REJECT_TITLE": "포인트 복구 거부",
   "STUDENT_MESSAGE": "학생의 사유",
   "TEACHER_MESSAGE": "선생님의 사유",
+  "ADMIN_MESSAGE": "관리자 메시지",
   "SESSION_REFUND_REJECT_NOTE": "* 참고 : 선생님의 포인트 복구 거절 사유에 이견이 있으면 관리자에게 연락하여 포인트 복구 신청에 대한 재 검토를 요청 할 수 있습니다.",
 
   "SESSION_REFUND_REVIEW_TITLE": "포인트 복구 검토",

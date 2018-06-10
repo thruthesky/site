@@ -37,6 +37,7 @@
                                         [fileSelectionButton]="false"
                                         [files]="files"
                                         [showUploadedFiles]="false"
+                                        [showProgressBar]="false"
                 (success)="onSuccessUploadPicture($event)">
             </xapi-file-upload-component>
         </div>
@@ -177,7 +178,11 @@
                             />
                         </svg>
                         <img class="qrmark-uploaded" *ngIf="qrmarks.length" src="{{qrmarks[0].url}}">
-                        <xapi-file-upload-component #QRMARKFileUpload [title]="false" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="false"
+                        <xapi-file-upload-component #QRMARKFileUpload [title]="false"
+                                                    [fileSelectionButton]="true"
+                                                    [files]="qrmarks"
+                                                    [showUploadedFiles]="false"
+                                                    [showProgressBar]="false"
                             (success)="onSuccessUploadQRMark( $event )">
                         </xapi-file-upload-component>
                         <div class="progress-bar" *ngIf="QRMARKFileUpload.progressPercentage > 0" >

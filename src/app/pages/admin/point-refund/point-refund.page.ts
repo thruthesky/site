@@ -78,7 +78,7 @@ export class PointRefundPage implements OnInit {
         if ( ! re ) {
             return;
         }
-        const msg = prompt('Admin settle accept.', 'Admin settle the refund request by accepting student the request.');
+        const msg = prompt('Admin settle accept.', 'Admin settle the refund request by accepting student request.');
         if ( ! msg ) {
             return;
         }
@@ -94,7 +94,7 @@ export class PointRefundPage implements OnInit {
         if ( ! re ) {
             return;
         }
-        const msg = prompt('Admin settle reject.', 'Admin settle the refund request by rejecting student the request.');
+        const msg = prompt('Admin settle reject.', 'Admin settle the refund request by rejecting student request.');
         if ( ! msg ) {
             return;
         }

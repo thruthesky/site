@@ -1,5 +1,5 @@
 <main>
-    <schedule-table-profile-component [isSingleTeacher]="isSingleTeacher" [isLoadComplete]="isLoadComplete" [re]=" re "
+    <schedule-table-profile-component *ngIf=" re " [isSingleTeacher]="isSingleTeacher" [isLoadComplete]="isLoadComplete" [re]=" re "
                                       [teacherName]=" teacher_name(re?.table[0]) "></schedule-table-profile-component>
 
 
@@ -45,10 +45,10 @@
         <div class="student-info" *ngIf="a.isLogin && a.isStudent ">
                 {{ 'STUDENT_PONT_ON_SCHEDULE_TABLE' | t:{name: a.user.name, point: a.userPoint } }}
         </div>
-        
+
     </div>
 
-          
+
     <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
 
 
