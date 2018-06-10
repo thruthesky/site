@@ -45,11 +45,13 @@ export class KatalkEnglishPaymentPage implements AfterViewInit {
 
 
     ngAfterViewInit() {
+        /**
+         * If it's old Ie, then it gives some time to init.
+         */
         let timeout = 200;
-        if (this.a.detectIE() <= 11) {
+        if (this.a.isIe()) {
             timeout = 2500;
         }
-
         setTimeout(() => this.initPaypal(), timeout);
     }
 
