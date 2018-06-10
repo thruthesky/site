@@ -345,11 +345,11 @@ export class AppService {
     }
 
     /**
-     * If the student has less than or equal to 4 sessions,
+     * If the student has less than or equal to 2 sessions,
      * then we consider the student is new to our site.
      */
     get isNewUser(): boolean {
-        return this.lmsInfoUserNoOfTotalSessions <= 4;
+        return this.lmsInfoUserNoOfTotalSessions <= 2;
     }
 
     // setColor(color) {
