@@ -46,7 +46,7 @@ export class OntueMyCurriculumVitaePage {
             this.loadData();
         } else {
             this.router.navigateByUrl('/');
-            this.a.toast('User type must be teacher and should login first...');
+            this.a.toast('Please login as teacher to update your curriculumn vitae.');
         }
 
     }

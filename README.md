@@ -36,6 +36,24 @@ Save these domains in `hosts` for test.
 * www.withcenter.org, withcenter.org
 * www.katalkenglish.org, katalkenglish.org abc.katalkenglish.org def.katalkenglish.org test.katalkenglish.org
 
+### Update local Xapi Server with latest information from server
+
+* Update database like below.
+  Note: 7-13 means, 7th day of week and 13 hour of the day in UTC+0.
+  You may look into the backup files 'date' to get the latest data.
+  And be careful you do it only your working computer. Not on server.
+
+```` sh
+scp ontue@ontue.com:./database-backup/7-13.sql.gz .
+gunzip 7-13.sql.gz
+# if you want, you can make back up here.
+mysql -uroot -p7777 -e "drop database ontue"
+mysql -uroot -p7777 -e "create database ontue"
+mysql -uroot -p7777 ontue < 1-01.sql
+cd ~/wordpress/wp-content/uploads
+$ scp -r ontue@ontue.com:./www/wp-content/uploads/* .
+````
+
 ## Installation
 
 ```` bash
@@ -85,6 +103,7 @@ then, access to https://thruthesky.github.io/site/
 npm run publish
 npm run publish:all
 ````
+
 
 ## Concepts
 
