@@ -11,7 +11,10 @@ header{
     .option{
         display: flex;
         align-items: center;
-        padding: 0 2em;
+        padding: 0 1em;
+        @media screen and (min-width:$md){
+            padding: 0 2em;
+        }
         font-size: 90%;
         .options-icon{
             height: 1em;
