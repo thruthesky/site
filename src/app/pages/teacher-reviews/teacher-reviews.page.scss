@@ -70,7 +70,7 @@ main{
             &:hover{
                 .card-hover-effect{
                     background: rgba(96, 125, 139, 0.4);
-                    z-index: 1000;
+                    z-index: 100;
                     opacity: 1;
                 }
             }
@@ -157,7 +157,8 @@ main{
     .comment{
         width:100%;
         padding: .5em 0;
-        font-size: 1.04em;
+        font-size: 1em;
+        line-height: 1.2em;   
     }
 
     .date{
