@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
-
+import { ForumService, WP_POST } from '../../../../providers/forum/forum.service.module';
 
 @Component({
     selector: 'katalkenglish-home-page',
@@ -26,12 +26,22 @@ export class KatalkEnglishHomePage {
 
     show = {};
 
+    // reminders
+    reminders: Array<WP_POST> = [];
 
     //
     showVideoTutorialReserve = false;
-    constructor(public a: AppService) {
+    constructor(
+        public a: AppService,
+        public forum: ForumService
+    ) {
         a.warningIeEdge();
         this.loadTeachers();
+
+        forum.loadPosts({ slug: 'student_reminders', page: 1, per_page: 3 }).subscribe( res => {
+            console.log('res: ', res);
+            this.reminders = res;
+        });
     }
 
     showMoreMyOwnPlan() {

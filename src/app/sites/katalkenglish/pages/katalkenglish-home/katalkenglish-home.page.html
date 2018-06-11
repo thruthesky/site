@@ -6,6 +6,8 @@
         <div class="row">
             <div class="left col-sm-12 col-md-6 col-lg-6">
 
+
+                <katalkenglish-home-reminders *ngIf=" a.size() == 'small' " [reminders]="reminders"></katalkenglish-home-reminders>
                 <katalkenglish-main-teacher-list *ngIf=" a.size() == 'small' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
                 <div class="my-own-plan">
                     <div class="container-fluid">
@@ -25,7 +27,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="myOwnPlan-wrapper" *ngIf=" showMoreMyOwnPlan_1 ">
                         <div class="moreMyOwnPlan no1" *ngIf=" showMoreMyOwnPlan_1 ">{{ a.ln._ON_KATALK }}
@@ -120,7 +121,7 @@
             <!--/left-->
             <div class="right col-sm-12 col-md-6 col-lg-6">
 
-
+                <katalkenglish-home-reminders *ngIf=" a.size() == 'big' " [reminders]="reminders"></katalkenglish-home-reminders>
                 <katalkenglish-main-teacher-list *ngIf=" a.size() == 'big' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
 
                 <section id="student-comments" *ngIf=" a.ln['STUDENT COMMENTS'] && a.ln['STUDENT COMMENTS'].length ">

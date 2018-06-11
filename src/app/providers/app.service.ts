@@ -558,6 +558,9 @@ export class AppService {
     openProfile() {
         this.open('/profile');
     }
+    urlPost(ID) {
+        return `/post/${ID}`;
+    }
 
 
     /**

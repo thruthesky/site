@@ -5,7 +5,7 @@ import { AppService } from './providers/app.service';
 @Component({
     selector: 'redirect-page',
     template: `
-        <main class="pt-5">{{ a.ln.REDIRECTING }}</main>
+        <main class="px-5 md-px-0 py-5">{{ a.ln.REDIRECTING }}</main>
     `
 })
 export class RedirectPage {

@@ -6,7 +6,8 @@ import {
 import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-file-upload.component';
 import { LoaderService } from '../../providers/loader/loader.service';
 import { ModalService, ModalData } from '../../providers/modal/modal.service';
-import { ForumService } from '../../providers/forum.service';
+import { ForumService } from '../../providers/forum/forum.service.module';
+
 
 @Component({
     selector: 'app-component-register',
@@ -51,7 +52,6 @@ export class RegisterPage implements OnInit {
         public modal: ModalService,
         public forum: ForumService
     ) {
-
 
         // setTimeout(() => this.test(), 1000);
 

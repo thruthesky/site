@@ -7,6 +7,8 @@ import { KatalkEnglishHomePage } from './katalkenglish-home.page';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 import { KatalkEnglishMainBannerComponentModule } from '../../components/katalkenglish-main-banner/katalkenglish-main-banner.component.module';
 import { KatalkEnglishMaiTeacherListComponentModule } from '../../components/katalkenglish-main-teacher-list/katalkenglish-main-teacher-list.component.module';
+import { KatalkEnglishHomeRemindersComponentModule } from '../../components/katalkenglish-home-reminders/katalkenglish-home-reminders.component.module';
+import { ForumServiceModule } from '../../../../providers/forum/forum.service.module';
 
 const routes: Routes = [
     {path: '', component: KatalkEnglishHomePage}
@@ -18,7 +20,9 @@ const routes: Routes = [
         // UserInfoComponentModule,
         TranslatePipeModule,
         KatalkEnglishMainBannerComponentModule,
-        KatalkEnglishMaiTeacherListComponentModule
+        KatalkEnglishMaiTeacherListComponentModule,
+        KatalkEnglishHomeRemindersComponentModule,
+        ForumServiceModule
     ],
     exports: [
         RouterModule

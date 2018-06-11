@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 
 export interface WP_POST {
@@ -20,6 +20,12 @@ export interface WP_POST {
     };
 }
 
+export interface LOAD_OPTIONS {
+    slug: string;
+    per_page: number;
+    page: number;
+}
+
 
 @Injectable()
 export class ForumService {
@@ -30,26 +36,16 @@ export class ForumService {
     }
 
 
-    loadPosts(options?): Observable<any> {
-        let slug = '';
-        let per_page = '';
-        let page = '';
-        if (typeof options === 'string') {
-            slug = options;
-        } else {
-            slug = options.slug;
-            per_page = '&per_page=' + options.per_page;
-            page = '&page=' + options.page;
-        }
+    loadPosts(options: LOAD_OPTIONS): Observable<Array<WP_POST>> {
+        const slug = options.slug;
         let url = environment['urlBackend'] + '/wp-json/wp/v2/posts?categories=' + environment['categories'][slug];
-        if (per_page) {
-            url += per_page;
+        if (options.per_page) {
+            url += '&per_paeg=' + options.per_page;
         }
-        if (page) {
-            url += page;
+        if (options.page) {
+            url += '&page=' + options.page;
         }
-        // console.log('loadPosts', url);
-        return this.http.get(url);
+        return this.http.get<Array<WP_POST>>(url);
     }
 
     getLatestPost(slug): Observable<any> {
