@@ -9,6 +9,7 @@ interface Stat {
     no_of_user: number;
     no_of_teacher: number;
     no_of_student: number;
+    no_of_test_user: number;
 }
 
 @Component({
