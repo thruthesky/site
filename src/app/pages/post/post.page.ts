@@ -25,7 +25,7 @@ export class PostPage implements OnInit {
                 this.post = post;
                 this.post['safe_content'] = this.sanitizer.bypassSecurityTrustHtml( this.post.content.rendered );
             });
-        });
+        }, e => a.toast(e));
     }
 
     ngOnInit() { }
