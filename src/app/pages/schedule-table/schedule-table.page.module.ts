@@ -8,7 +8,7 @@ import { ScheduleTableOptionsComponent } from './schedule-table-option/schedule-
 import { ScheduleTableProfileComponent } from './schedule-table-profile/schedule-table-profile.component';
 import { LmsInfoComponentModule } from '../../components/lms-info/lms-info.component.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
-import { ForumService } from '../../providers/forum.service';
+import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 const routes: Routes = [
@@ -22,7 +22,8 @@ const routes: Routes = [
     TranslatePipeModule,
     MaterialModule,
     LmsInfoComponentModule,
-    ModalServiceModule
+    ModalServiceModule,
+    ForumServiceModule
   ],
   exports: [
     RouterModule
@@ -36,7 +37,6 @@ const routes: Routes = [
     ScheduleTablePage
   ],
   providers: [
-    ForumService
   ],
   bootstrap: [ScheduleTablePage],
   schemas: []

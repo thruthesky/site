@@ -8,7 +8,7 @@ import { LoaderSerivceModule } from '../../providers/loader/loader.service.modul
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
 import { ModalServiceModule } from '../../providers/modal/modal.service.module';
-import { ForumService } from '../../providers/forum.service';
+import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 
 
 const routes: Routes = [
@@ -23,7 +23,8 @@ const routes: Routes = [
         XapiFileUploadComponentModule,
         LoaderSerivceModule,
         MaterialModule,
-        ModalServiceModule
+        ModalServiceModule,
+        ForumServiceModule
     ],
     exports: [
         RouterModule
@@ -34,7 +35,7 @@ const routes: Routes = [
     entryComponents: [
         RegisterPage
     ],
-    providers: [ ForumService ],
+    providers: [],
     bootstrap: [RegisterPage],
     schemas: []
 })

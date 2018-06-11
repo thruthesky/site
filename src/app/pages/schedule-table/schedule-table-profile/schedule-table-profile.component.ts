@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { AppService } from '../../../providers/app.service';
 import { SCHEDULE_TABLE } from '../../../modules/xapi/interfaces';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ForumService } from '../../../providers/forum.service';
+import { ForumService } from '../../../providers/forum/forum.service.module';
 import { ModalService } from '../../../providers/modal/modal.service';
 
 @Component({
