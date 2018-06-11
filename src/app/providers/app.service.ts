@@ -1904,4 +1904,12 @@ export class AppService {
             window.document.body.scrollTop = window.document.documentElement.scrollTop = 0;
         }
     }
+
+    /**
+     * strip out HTML tags.
+     * @param str string
+     */
+    stripTags(str) {
+        return str.replace(/<\/?.+?>/ig, '');
+    }
 }

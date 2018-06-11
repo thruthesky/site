@@ -4,38 +4,76 @@
 <main>
 
 
+    <b style='color:darkred;'>todo: merge root domain with www sub domain.</b>
+
+    How to use
+    <ol>
+        <li>
+            Choose one of user type or domain.
+            <br> You cannot select both.
+        </li>
+        <li>
+            Input the post no. and click [check] button.
+            <br> Url, title, body will be automatically set.
+        </li>
+        <li>
+            Change URL of domain.
+            <br> For student, you may want to user https://www.katalkenglish.com/post/ID
+            <br> For teacher, you will use https://www.ontue.com/post/ID
+        </li>
+    </ol>
     <form (ngSubmit)="onSubmit( $event )">
         <div>
             User type:
-            <select name="type" [(ngModel)]="form.type">
-                <option value="">All user(including un-registered)</option>
-                <option value="S">Students</option>
-                <option value="T">Teachers</option>
+            <select name="user_type" [(ngModel)]="form.user_type">
+                <option value=''>Select User Type</option>
+                <option value="A">All user(including un-registered): {{ stat.no_of_user }}</option>
+                <option value="S">Students: {{ stat.no_of_student }}</option>
+                <option value="T">Teachers: {{ stat.no_of_teacher }}</option>
             </select>
         </div>
         <div>
             Domain:
             <select name="domain" [(ngModel)]="form.domain">
+                <option value=''>Select Domain</option>
                 <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
                     {{ domain['domain'] ? domain['domain'] : 'No domain' }} : {{ domain['cnt'] }}
                 </option>
             </select>
         </div>
+
         <div>
-            URL
-            <input type="text" name="postId" [(ngModel)]="form.url">
+            Post No.:
+            <input type="text" name="postId" [(ngModel)]="form.postId">
+            <button type="button" (click)="onClickCheck()">CHECK</button>
         </div>
+
+        <ng-container *ngIf=" post?.id ">
+
+            <div>
+                Url: https://
+                <select name="url_domain" [(ngModel)]="form.urlDomain">
+                    <option value=''>Select Domain</option>
+                    <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
+                        {{ domain['domain'] ? domain['domain'] : '' }}
+                    </option>
+                </select>
+                /post/{{ form.postId }}
+            </div>
+            <div>
+                Title:
+                <input type="text" name="title" [(ngModel)]="form.title">
+            </div>
+            <div>
+                Body:
+                <input type="text" name="body" [(ngModel)]="form.body">
+            </div>
+
+        </ng-container>
         <div>
-            Title
-            <input type="text" name="postId" [(ngModel)]="form.title">
+            <button type="submit">Send Push Notificationr</button>
         </div>
-        <div>
-            Body
-            <input type="text" name="postId" [(ngModel)]="form.body">
-        </div>
-        <div>
-            <button type="submit">Search User</button>
-        </div>
+
     </form>
 
 </main>

@@ -16,6 +16,7 @@ import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module
 import { PushNotificationPage } from './push-notification/push-notification.page';
 import { SettingsPage } from './settings/settings.page';
 import { SessionEditPage } from './session-edit/session-edit.page';
+import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 
 
 const appRoutes: Array<Route> = [
@@ -54,6 +55,7 @@ const appRoutes: Array<Route> = [
         FormsModule,
         RouterModule.forChild( appRoutes ),
         TranslatePipeModule,
+        ForumServiceModule
         // UserInfoComponentModule
     ],
     entryComponents: [
