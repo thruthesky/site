@@ -102,7 +102,7 @@ export class TeacherListPage implements OnInit {
 
     onClickShowAllTeachers() {
         this.display_options = true;
-        document.querySelector('.page-header').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        this.a.scrollToTop(50);
     }
 
 }
