@@ -1,5 +1,5 @@
 <main>
-    <header >
+    <header>
         <h1 *ngIf="a.user.isLogout">{{ 'REGISTER' | t }}</h1>
         <h1 *ngIf="a.user.isLogin">{{ 'UPDATE_PROFILE' | t }}</h1>
     </header>
@@ -26,26 +26,20 @@
                     </button>
                 </div>
             </div>
-            <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0" >
-                <mat-progress-bar mode="determinate" 
-                                    [value]="profilePhotoUpload.progressPercentage">
+            <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">
+                <mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">
                 </mat-progress-bar>
                 <span>{{ profilePhotoUpload.progressPercentage}}%</span>
             </div>
-            <xapi-file-upload-component #profilePhotoUpload
-                                        [title]="false"
-                                        [fileSelectionButton]="false"
-                                        [files]="files"
-                                        [showUploadedFiles]="false"
-                                        [showProgressBar]="false"
-                (success)="onSuccessUploadPicture($event)">
+            <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
+                [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
             </xapi-file-upload-component>
         </div>
 
 
         <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
 
-            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme " >
+            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme ">
                 <!-- <mat-label>{{ 'TIMEZONE' | t }}</mat-label> -->
                 <mat-select id="timezone" [(ngModel)]="timezoneOffset" name="timezone" placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset]?.name }}">
                     <mat-option *ngFor="let t of keysTimezone()" value="{{ t }}">
@@ -88,10 +82,10 @@
                         </mat-form-field>
                     </div>
                     <div class="col">
-                            <mat-form-field appearance="outline">
-                                <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
-                                <input matInput id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
-                            </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
+                            <input matInput id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number">
+                        </mat-form-field>
                     </div>
                 </div>
             </div>
@@ -178,20 +172,19 @@
                             />
                         </svg>
                         <img class="qrmark-uploaded" *ngIf="qrmarks.length" src="{{qrmarks[0].url}}">
-                        <xapi-file-upload-component #QRMARKFileUpload [title]="false"
-                                                    [fileSelectionButton]="true"
-                                                    [files]="qrmarks"
-                                                    [showUploadedFiles]="false"
-                                                    [showProgressBar]="false"
-                            (success)="onSuccessUploadQRMark( $event )">
+                        <xapi-file-upload-component #QRMARKFileUpload [title]="false" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="false"
+                            [showProgressBar]="false" (success)="onSuccessUploadQRMark( $event )">
                         </xapi-file-upload-component>
-                        <div class="progress-bar" *ngIf="QRMARKFileUpload.progressPercentage > 0" >
-                            <mat-progress-bar mode="determinate" 
-                                                [value]="QRMARKFileUpload.progressPercentage">
+                        <div class="progress-bar" *ngIf="QRMARKFileUpload.progressPercentage > 0">
+                            <mat-progress-bar mode="determinate" [value]="QRMARKFileUpload.progressPercentage">
                             </mat-progress-bar>
                             <span>{{ QRMARKFileUpload.progressPercentage}}%</span>
                         </div>
                     </div>
+                    <div class="success" *ngIf=" qrmarks.length && form.kakao_qrmark_string != '' ">
+                        Your QRMark string: {{ form.kakao_qrmark_string }}
+                    </div>
+
                     <div class="qr-button">
                         <span>Choose File </span>
                     </div>
@@ -210,11 +203,6 @@
             </mat-form-field>
 
             <div class="qr-mark">
-                <!-- <div class="success" *ngIf=" a.teacherTheme&&qrmarks.length && form.kakao_qrmark_string != '' ">
-                            QR Mark is successfully uploaded. Your QR Mark string: {{ form.kakao_qrmark_string }} ( {{
-                            form.kakao_qrmark_URL }} )
-                        </div> -->
-
                 <div class="warning" *ngIf=" form.kakao_qrmark_URL != '' && form.kakao_qrmark_string == ''">
                     <div class="spin">
                         <mat-spinner [diameter]="40"></mat-spinner>
@@ -225,21 +213,21 @@
             </div>
 
             <div class="agree" *ngIf=" a.isLogout ">
-                    <label>
-                        <input type="checkbox" id="agree" name="agree" [(ngModel)]="agree">
-                        <span>{{ a.ln.TOC_AGREE }} </span>
-                    </label>
-                 <span class="toc" (click)="onClickTermsAndConditions()">{{ a.ln.TOC_TITLE }}</span>
+                <label>
+                    <input type="checkbox" id="agree" name="agree" [(ngModel)]="agree">
+                    <span>{{ a.ln.TOC_AGREE }} </span>
+                </label>
+                <span class="toc" (click)="onClickTermsAndConditions()">{{ a.ln.TOC_TITLE }}</span>
             </div>
 
             <div>
-                <div class="buttons" >
+                <div class="buttons">
                     <button class="app-button" type="submit">
-                        <mat-spinner  *ngIf=" show.updateLoader " color="accent" [diameter]="15"></mat-spinner>
+                        <mat-spinner *ngIf=" show.updateLoader " color="accent" [diameter]="15"></mat-spinner>
                         <span *ngIf=" show.updateLoader ">{{ a.ln.IN_UPDATING_PROFILE }}</span>
-                        <ng-container *ngIf="  !show.updateLoader " >
-                                <span  *ngIf="a.user.isLogout">{{ 'REGISTER_BUTTON' | t }}</span>
-                                <span  *ngIf="a.user.isLogin">{{ 'UPDATE_PROFILE_BUTTON' | t }}</span>
+                        <ng-container *ngIf="  !show.updateLoader ">
+                            <span *ngIf="a.user.isLogout">{{ 'REGISTER_BUTTON' | t }}</span>
+                            <span *ngIf="a.user.isLogin">{{ 'UPDATE_PROFILE_BUTTON' | t }}</span>
                         </ng-container>
                     </button>
                     <button class="app-button" [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>

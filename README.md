@@ -75,10 +75,16 @@ ng build --prod --output-path docs --base-href=/site/
 git add --all
 git commit -m 'release for testing on GitHub Pages'
 git push
-```
+````
 
-* and access to https://thruthesky.github.io/site/
+then, access to https://thruthesky.github.io/site/
 
+* To publish production site.
+
+```` sh
+npm run publish
+npm run publish:all
+````
 
 ## Concepts
 
