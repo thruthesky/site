@@ -115,11 +115,13 @@
             background-color: #d00;
             text-transform: uppercase;
             color: white;
+            white-space: nowrap;
             cursor: pointer;
         }
         svg {
             margin-right: .2em;
-            height: 1.3em
+            height: 1.3em;
+            width: 1.3em;
         }
     }
 }

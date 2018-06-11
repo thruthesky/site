@@ -105,7 +105,7 @@
                 fill: #222;
             }
             img {
-                height: 20px;
+                height: 24px;
             }
             span {
                 display: inline-block;
@@ -124,10 +124,20 @@
             }
         }
     }
+    .select-for-ieEdge{
+            select{
+                color:rgba(#aeadad,0)!important;
+            }
+
+            .custom-icon {
+                top: 25px!important;
+            }
+    }
     .select-wrapper {
         position: relative !important;
         padding-bottom: 7px;
         background: #aeadad;
+
         select {
             position: relative;
             padding: 0 .6em;
@@ -139,6 +149,8 @@
             color: white;
             font-size: .7em;
             text-align-last: center;
+            display: flex;
+            justify-content: center;
             -webkit-appearance: none;
             -moz-appearance: none;
             &::-ms-expand {

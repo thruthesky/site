@@ -2,15 +2,16 @@
 
 main{
 
-
-
     .re-aligned{
         padding:.6em;
-        padding-top: 2em;
+        padding-top:3.5em;
     }
 
     .landing{
-        padding-top: 2em;
+        padding-top: 1.5em;
+        @media screen and (min-width:$md){
+            padding-top: 3em;
+        }
     
         &>div{
             padding: 0 .6em;

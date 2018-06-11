@@ -8,6 +8,7 @@ header{
         align-items: center;
         padding: 0 2.5em;
         font-size: 85%;
+        white-space: nowrap;
     }
 }
 
@@ -17,11 +18,13 @@ header{
 
 .icon{
     height: 1em;
+    width: 1em;
     margin-right: .3em
 }
 
 .star{
     height: 1em;
+    width:1em;
     margin-right: .3em;
 
     &:last-of-type{

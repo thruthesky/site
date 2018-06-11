@@ -111,7 +111,7 @@
         position: sticky!important;
         left: 0;
         right: 0;
-        z-index: 1000;
+        z-index: 100;
         justify-content: space-around;
         align-items: center;
         padding: .9em 0;
@@ -166,6 +166,7 @@
     }
 
     &>div{
+        height: 100%;
         padding: 0;
     }
 
@@ -205,6 +206,7 @@
 
         svg{
             height: 1.5em;
+            width: 1.5em;
         }
     }
 
@@ -214,6 +216,7 @@
 
         svg{
             height: 2em;
+            width: 2em;
         }
     }
 
@@ -224,6 +227,7 @@
 
         svg{
             height: 1em;
+            width: 1em;
         }
     }
 
@@ -250,7 +254,8 @@
     
     .evaluate-view{
         svg{
-            width: 1.5em
+            width: 1.5em;
+            height: 1.5em;
         }
 
         span{
@@ -312,6 +317,7 @@
              margin:0!important;
              margin-left: .5em!important;
              height: 1.6em;
+             width: 1.6em;
          }
          span:last-child{
              margin-left: .6em;
@@ -355,6 +361,7 @@
             margin: 0!important;
             margin-left: .5em!important;
             height: 2.5em;
+            width: 2.5em;
         }
     }
 
