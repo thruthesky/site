@@ -38,7 +38,7 @@ export class KatalkEnglishHomePage {
         a.warningIeEdge();
         this.loadTeachers();
 
-        forum.loadPosts({ slug: 'student_reminders', page: 1, per_page: 5 }).subscribe( res => {
+        forum.loadPosts({ slug: 'student_reminders', page: 1, per_page: 3 }).subscribe( res => {
             console.log('res: ', res);
             this.reminders = res;
         });

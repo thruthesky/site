@@ -13,6 +13,8 @@ import { OntueLeveltestGuidelineComponentModule } from '../../components/ontue-l
 import { OntueGuideAndTipsComponentModule } from '../../components/ontue-guide-and-tips/ontue-guide-and-tips.component.module';
 import { OntueGradingSystemComponentModule } from '../../components/ontue-grading-system/ontue-grading-system.component.module';
 import { OntueEvaluationLatestListComponentModule } from '../../components/ontue-evaluation-latest-list/ontue-evaluation-latest-list.component.module';
+import { OntueHomeRemindersComponentModule } from '../../components/ontue-home-reminders/ontue-home-reminders.component.module';
+import { ForumServiceModule } from '../../../../providers/forum/forum.service.module';
 
 const routes: Routes = [
     {path: '', component: OntueHomePage}
@@ -31,7 +33,9 @@ const routes: Routes = [
         OntueLeveltestGuidelineComponentModule,
         OntueGuideAndTipsComponentModule,
         OntueGradingSystemComponentModule,
-        OntueEvaluationLatestListComponentModule
+        OntueEvaluationLatestListComponentModule,
+        OntueHomeRemindersComponentModule,
+        ForumServiceModule
     ],
     exports: [
         RouterModule
