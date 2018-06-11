@@ -23,6 +23,7 @@ header{
             align-items: center;
             margin: 0;
             padding: 0 1em 2em 2.5em;
+            white-space: nowrap;
             @media screen and (min-width:$md){
                 padding: 0 2.5em;
                 margin-top: 0;

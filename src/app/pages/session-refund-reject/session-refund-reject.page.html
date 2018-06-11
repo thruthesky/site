@@ -23,7 +23,7 @@
             <span class="admin-header">{{ 'ADMIN_MESSAGE' | t}}</span>
             <div class="message"> {{book.refund_settle_message}}</div>
             </ng-container>
-            <div class="note">{{ 'SESSION_REFUND_REJECT_NOTE' | t}}</div>
+            <div class="note" *ngIf="a.isStudent">{{ 'SESSION_REFUND_REJECT_NOTE' | t}}</div>
 
             <div class="buttons">
                 <button type="button" (click)="onClickClose()">

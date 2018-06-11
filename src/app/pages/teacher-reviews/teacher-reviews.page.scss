@@ -5,6 +5,7 @@ main{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top:3em;
 
         mat-spinner{
             margin: .5em;
@@ -154,8 +155,9 @@ main{
     }
 
     .comment{
-        font-size: 1.04em;
+        width:100%;
         padding: .5em 0;
+        font-size: 1.04em;
     }
 
     .date{

@@ -174,14 +174,17 @@
     }
 
     .kakaotalk-id {
+        font-size: 85%;
+        word-break: break-all;
         .id-button{
             display:flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: center;
         }
         svg{
             height: .9em;
-            margin-right: .5em;
+            margin-bottom: .5em;
         }
         @media screen and (max-width:$md) {
             cursor: pointer;
