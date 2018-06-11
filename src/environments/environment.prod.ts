@@ -10,7 +10,7 @@ export const environment = {
         storageBucket: 'ontue-client-sites.appspot.com',
         messagingSenderId: '328021421807'
     },
-    reloadTag: 0,
+    reloadTag: 1, // This can be manually set for prod.
     disableFirebaseUserActivityLog: false,
     categories: {
         teacher_reminders: 2,

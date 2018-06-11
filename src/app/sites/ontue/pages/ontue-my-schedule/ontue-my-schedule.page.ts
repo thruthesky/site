@@ -36,7 +36,7 @@ export class OntueMySchedulePage {
             this.getMySchedule();
         } else {
             this.a.open('teacher');
-            this.a.toast('User type must be teacher and should login first...');
+            this.a.toast('Please login as teacher to update your schedule.');
         }
     }
 

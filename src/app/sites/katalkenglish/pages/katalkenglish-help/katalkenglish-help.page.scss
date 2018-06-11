@@ -250,3 +250,16 @@ main {
     color: yellow;
   }
 }
+
+
+.how-to-reserve {
+  background: white;
+  color: #662c00;
+  & > div:first-child {
+    background-color: #dddddd;
+    color: black;
+  }
+  img {
+    width: 100%;
+  }
+}

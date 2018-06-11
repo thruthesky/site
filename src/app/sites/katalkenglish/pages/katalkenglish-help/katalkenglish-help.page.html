@@ -43,6 +43,24 @@
     </div>
     <section class="faq">
 
+        <div class="part how-to-reserve" (click)="accord.on11=!accord.on11">
+            <div class="desc">
+                <div>
+                    <div>
+                        <h2>{{ a.ln.VIDEO_RESERVE_TITLE }}</h2>
+                        <div>{{ a.ln.VIDEO_RESERVE_DESC }}</div>
+                    </div>
+                    <span [class.rotate-45-off]="!accord.on11" [class.rotate-45-on]="accord.on11">
+                        <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
+                    </span>
+                </div>
+                
+                <div [class.accordion-hidden]="!accord.on11" [class.accordion-showed]="accord.on11">
+                        <img src="assets/video/student-reserve.gif">
+                </div>
+            </div>
+        </div>
+
         <div class="part reservation" (click)="accord.on1=!accord.on1">
             <div class="desc">
                 <div>
