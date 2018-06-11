@@ -1,10 +1,10 @@
-<section class="reminders" *ngIf="reminders && reminders.length ">
-        <h2>{{ a.ln.REMINDER }}</h2>
-        <div>
-            <div *ngFor="let post of reminders ">
-                <a routerLink="{{ a.urlPost( post.id ) }}">• {{ post.title.rendered }}</a>
-            </div>
-        </div>
-    </section>
+<section *ngIf="reminders && reminders.length ">
+    <h2>{{ a.ln.REMINDER }}</h2>
+    <div class="content">
+        <a *ngFor="let post of reminders " routerLink="{{ a.urlPost( post.id ) }}">
+            {{ post.title.rendered }}
+        </a>
+    </div>
+</section>
     
     
