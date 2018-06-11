@@ -275,7 +275,7 @@ export class AppService {
              * Scroll the page to the top after transitioning into another page.
              */
             if (e instanceof NavigationEnd) {
-                window.document.body.scrollTop = window.document.documentElement.scrollTop = 0;
+                this.scrollToTop();
             }
         });
 
@@ -1478,7 +1478,7 @@ export class AppService {
             if (this.isMobile()) {
                 window.open(this.kakaoUrls.student_kakaoplus_deeplink);
             } else {
-                this.toast( this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
+                this.toast(this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
                 // window.open(this.kakaoUrls.student_kakaoplus_url);
             }
         }
@@ -1883,5 +1883,22 @@ export class AppService {
         this.lms.updateLanguage(ln).subscribe(re => {
             // console.log('lms.languageChanged: re', re);
         });
+    }
+
+
+    /**
+     * Scroll to the top.
+     * @param timeout timeout ms
+     * @example this.a.scrollToTop(50);
+     */
+    scrollToTop(timeout?) {
+        if (timeout) {
+            setTimeout(() => {
+                window.document.body.scrollTop = window.document.documentElement.scrollTop = 0;
+                console.log('scroll, ', timeout);
+            }, timeout);
+        } else {
+            window.document.body.scrollTop = window.document.documentElement.scrollTop = 0;
+        }
     }
 }

@@ -26,7 +26,7 @@ export class OntuePaymentInformationPage {
             this.loadPaymentInformation();
         } else {
             this.router.navigateByUrl('/teacher');
-            a.toast('User type must be teacher and should login first...');
+            a.toast('Please login as teacher to update your payment information.');
         }
     }
 
