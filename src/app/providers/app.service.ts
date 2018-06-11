@@ -88,7 +88,7 @@ interface Environment {
 
 
 
-const firestoreLogCollection = 'user-activity-log-v2';
+const firestoreLogCollection = 'user-activity-log';
 
 @Injectable()
 export class AppService {
