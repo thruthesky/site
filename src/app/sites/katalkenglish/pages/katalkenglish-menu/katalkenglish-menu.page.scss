@@ -1,20 +1,16 @@
 header{
     a{
         display:flex!important;
-        align-items: center;
+        align-items:center;
         justify-content: center;
         padding: 0!important;
-        text-align: center!important;
         background: inherit!important;
     }
     .icon{
         height: 1em;
+        width: 1em;
         color: #fff;
         margin-left: .5em;
-    }
-
-    h1{
-        padding-right: 1em!important;
     }
 }
 

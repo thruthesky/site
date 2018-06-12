@@ -166,7 +166,10 @@
     }
 
     &>div{
-        height: 100%;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        height: 90px;
         padding: 0;
     }
 
@@ -249,7 +252,11 @@
     .evaluate-view,.cancel{
         background-color: #eee!important;
         color: #4b4b4b!important;
-        
+    }
+
+    .cancel{
+        display: flex;
+        white-space: nowrap;
     }
     
     .evaluate-view{
@@ -367,6 +374,7 @@
 
     .button-icon{
         height: 1em;
+        width: 1em;
         margin-right: .4em;
     }
 

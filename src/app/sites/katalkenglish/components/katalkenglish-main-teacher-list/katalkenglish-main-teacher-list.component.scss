@@ -2,9 +2,9 @@
 section{
     padding-top: .5em;
     padding-bottom: 1em;
-    background: #fff;
+    // background: #fff;
     @media screen and (min-width:$md){
-        margin: 0;
+        margin: 0 -.95em;
         margin-bottom: 1em;
     }
     .title{
@@ -12,7 +12,7 @@ section{
         justify-content: space-between;
         padding: .5em 1.25em;
         @media screen and (min-width:$md){
-            padding: .5em 1.7em;
+            padding: .5em 1.4em;
         }
         padding-bottom: .7em;
         font-size: .8em;
@@ -79,10 +79,10 @@ section{
     }
     .teacher-list-button {
         margin: 0 1em;
-        padding: .4em;
         @media screen and (min-width:$md){
-            margin: 0 1.25em;
+            margin: 0 1.05em;
         }
+        padding: .4em;
         font-size: .9em;
         color: #464a4e;
         background-color: #e7e8ea;
