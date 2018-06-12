@@ -14,7 +14,7 @@ export const environment = {
         databaseURL: 'https://ontue-30fb9.firebaseio.com',
         projectId: 'ontue-30fb9',
         storageBucket: '',
-        messagingSenderId: '106864743985'
+        messagingSenderId: '1068647439857'
     },
     reloadTag: (new Date).getTime(), /// Warning this must be only in environment.
     disableFirebaseUserActivityLog: false,
