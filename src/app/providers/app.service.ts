@@ -1251,16 +1251,17 @@ export class AppService {
      */
     updatePushToken() {
         if (this.isIeEdge() || this.isSafari()) {
+            console.log('return because it is ie or edge or safari.');
             return;
         }
         if (environment['disableFirebaseUserActivityLog']) { return; } // development only
         const platform = 'web';
         if (!this.pushToken) {
-            // console.log('updatePushToken(): token is empty. It will not update. just return.');
+            console.log('updatePushToken(): token is empty. It will not update. just return.');
             return;
         }
         this.lms.update_push_token(this.pushToken, platform).subscribe(re => {
-            // console.log("Token updated:");
+            console.log('Token updated:', re);
         }, e => console.error(e));
     }
 
