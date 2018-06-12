@@ -22,9 +22,14 @@ export class SettingsPage implements OnInit {
     ) {
         this.loader.get = true;
         a.lms.admin_get_settings().subscribe(re => {
+            if ( re ) {
+                this.form = re;
+            }
             this.loader.get = false;
-            this.form = re;
-        }, e => a.toast(e));
+        }, e => {
+            a.toast(e);
+            this.loader.get = false;
+        });
     }
 
     ngOnInit() { }

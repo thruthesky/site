@@ -5,12 +5,14 @@ footer {
     text-align: center;
     background-color: #f3f5fa;
     color: #777;
-    @media (min-width: $md ) {
+    .footer {
+      @media (min-width: $md ) {
         display: flex;
         justify-content: space-around;
         .copyright {
-            max-width: 260px;
+          max-width: 260px;
         }
+      }
     }
     .contact {
         cursor: pointer;
