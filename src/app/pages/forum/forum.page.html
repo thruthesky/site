@@ -10,7 +10,7 @@
         <div class="posts" *ngIf=" posts.length ">
             <div class="spacer" *ngFor=" let post of posts " >
                 <div class="post">
-                    <a class="header" href="/post/{{ post.id }}">
+                    <a class="header" routerLink="/post/{{ post.id }}">
                         <span class="title">{{ post.title.rendered }}</span>
                         <span class="icon">
                             View
