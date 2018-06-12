@@ -87,8 +87,8 @@ export class OntueSessionEvaluatePage {
                 this.a.toast('You must comment even if the student was absent.');
                 return;
             }
-            if (this.comment.length < 10) {
-                this.a.toast('You must comment more than 10 characters.');
+            if (this.comment.length < 30) {
+                this.a.toast('You must comment more than 30 characters.');
                 return;
             }
             data['comment'] = this.comment;
