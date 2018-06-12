@@ -5,13 +5,11 @@ footer {
     text-align: center;
     background-color: #f3f5fa;
     color: #777;
-    .footer {
-      @media (min-width: $md ) {
-        display: flex;
-        justify-content: space-around;
-        .copyright {
-          max-width: 260px;
-        }
+    @media (min-width: $md ) {
+      display: flex;
+      justify-content: space-around;
+      .copyright {
+        max-width: 260px;
       }
     }
     .contact {
