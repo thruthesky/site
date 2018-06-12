@@ -1,29 +1,44 @@
 section {
-    margin-bottom:1em;
+    margin-bottom: 1em;
     background-color: #eee;
     font-size: .85em;
-
     h2 {
         margin: 0;
-        padding:.5em 1em;
+        padding: .5em 1em;
         font-weight: 100;
         font-size: 1.2em;
-        background: #133CAC;
-        color:#fff;
+        background: #e2ebf5;
+        color: black;
     }
-
-    .content{
-        &>a{
+    .content {
+        &>a {
             display: block;
             padding: .8em 1.3em;
-            border: 1px solid rgba(125,125,125,0.1);
-            border-top:none;
+            border: 1px solid rgba(125, 125, 125, 0.1);
+            border-top: none;
             background: #fff;
-
-            &:hover{
-                background:rgba(125,125,125,0.1);
+            &:hover {
+                background: rgb(243, 243, 243);
+                // font-weight: bold;
+                color: rgb(18, 18, 51);
                 cursor: pointer;
             }
         }
+    }
+}
+
+/**
+ * Animation
+ */
+section {
+    max-height: 0;
+    // background: #c3c;
+    overflow: hidden;
+    &.show {
+        max-height: 300px;
+        -webkit-transition: max-height 0.5s ease-in-out;
+        -moz-transition: max-height 0.5s ease-in-out;
+        -o-transition: max-height 0.5s ease-in-out;
+        transition: max-height 0.5s ease-in-out;
     }
 }

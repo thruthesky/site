@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 
 @Component({
@@ -6,8 +6,9 @@ import { AppService } from '../../../../providers/app.service';
     templateUrl: 'katalkenglish-home-reminders.component.html',
     styleUrls: ['katalkenglish-home-reminders.component.scss'],
 })
-export class KatalkEnglishHomeRemindersComponent implements OnInit {
+export class KatalkEnglishHomeRemindersComponent implements OnInit, OnChanges {
     @Input() reminders;
+    show = false;
     constructor(
         public a: AppService
     ) {
@@ -15,6 +16,13 @@ export class KatalkEnglishHomeRemindersComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+    ngOnChanges() {
+        if ( this.reminders ) {
+            setTimeout(() => {
+                this.show = true;
+            }, 5000);
+        }
     }
 }
 

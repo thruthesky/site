@@ -1,16 +1,18 @@
 @import '../../../../../theme/vars.scss';
-main{
-    padding:1em 0;
-    .left,.right {
+main {
+    padding: 0;
+    // padding: 1em 0;
+    .left,
+    .right {
         padding: 0;
     }
-    @media screen and (min-width:$md){
-        .left{
+    @media screen and (min-width:$md) {
+        .left {
             padding-right: .5em;
         }
-        .right{
+        .right {
             padding-left: .5em;
-        }   
+        }
     }
     .video-help {
         margin: 1em;
@@ -27,7 +29,7 @@ main{
         .video {
             padding: 1em;
             border: 1px solid #ccc;
-            img{
+            img {
                 width: 100%;
             }
         }
@@ -42,12 +44,12 @@ main{
         }
         .comment {
             margin: 1em;
-            @media screen and (min-width:$md){
+            @media screen and (min-width: $md) {
                 margin: 1em 0;
             }
             padding:1em 1.5em;
             border-radius: 2px;
-            border: 1px solid rgba(125,125,125,0.1);
+            border: 1px solid rgba(125, 125, 125, 0.1);
             background: #fff;
             .title {
                 margin-top: .4em;
@@ -61,7 +63,7 @@ main{
                 color: #6a9dcc;
             }
             .description {
-                margin:0;
+                margin: 0;
                 margin-top: 1em;
                 line-height: 1.7em;
                 font-weight: 300;
@@ -69,18 +71,17 @@ main{
             }
             .row {
                 align-items: center;
-                &>div{
-                    padding:0;
+                &>div {
+                    padding: 0;
                 }
-    
-                &>div:last-child{
+                &>div:last-child {
                     padding-left: .7em;
                 }
             }
         }
         .more {
             margin: 1.3em;
-            @media screen and (min-width:$md) {
+            @media screen and (min-width: $md) {
                 margin:1.3em 0;
             }
             padding: .6em;
@@ -93,10 +94,10 @@ main{
         .student-photo {
             width: 70px;
             height: 70px;
-            @media screen and (min-width:$md) {
+            @media screen and (min-width: $md) {
                 width: 86px;
                 height: 86px;
-                margin:auto;
+                margin: auto;
             }
             overflow: hidden;
             border-radius: 50%;
@@ -105,15 +106,14 @@ main{
             }
         }
     }
-    
     .stats-wrapper {
-        @media screen and (min-width:$md){
+        @media screen and (min-width: $md) {
             margin-top: 1em;
         }
         background: #e6e6e6;
         .stats {
             padding: 2.5em 1em;
-            .row{
+            .row {
                 justify-content: space-around;
             }
             .col {
@@ -142,45 +142,44 @@ main{
             }
             .leveltest {
                 border: 4px solid #cd5c5c;
-                background-color: rgba(#cd5c5c,0.7);
+                background-color: rgba(#cd5c5c, 0.7);
             }
             .reservation {
                 border: 4px solid #5c84cd;
-                background-color: rgba(#5c84cd,0.7);
+                background-color: rgba(#5c84cd, 0.7);
             }
             .teacher {
                 border: 4px solid #787951;
-                background-color: rgba(#787951,0.7);
+                background-color: rgba(#787951, 0.7);
             }
         }
     }
-    
     .my-own-plan {
         padding: 1.5em .5em;
         line-height: 1.25em;
-        @media screen and (min-width:$md){
+        @media screen and (min-width: $md) {
             padding: 1.5em;
         }
         background-color: #FFD600;
         .container-fluid {
             .col-6 {
                 padding: 0 .5em;
-                @media screen and (min-width:$md){
+                @media screen and (min-width: $md) {
                     padding: 0 .7em;
                 }
             }
-            .col-6:first-child{
+            .col-6:first-child {
                 display: flex;
                 align-items: center;
             }
-            .desc{
+            .desc {
                 cursor: pointer;
             }
         }
         h2 {
             margin: .5em 0;
             font-size: 1em;
-            @media screen and (min-width:$md){
+            @media screen and (min-width: $md) {
                 font-size: 1.3em;
             }
             font-weight: 500;
@@ -188,7 +187,7 @@ main{
         .text,
         .view-more {
             font-size: .8em;
-            @media screen and (min-width:$md){
+            @media screen and (min-width: $md) {
                 font-size: 90%;
             }
         }
@@ -199,15 +198,15 @@ main{
             margin: .5em 0;
             cursor: pointer
         }
-        .myOwnPlan-wrapper{
-            padding-top:.8em;
+        .myOwnPlan-wrapper {
+            padding-top: .8em;
         }
         .moreMyOwnPlan {
             animation: a1234 .2s 1;
             animation-timing-function: ease-in;
             position: relative;
             margin: 1em;
-            @media screen and (min-width:$md) {
+            @media screen and (min-width: $md) {
                 margin: 1em .1em 0;
             }
             padding: 1em;
@@ -227,11 +226,10 @@ main{
             }
         }
     }
-    
     .about-katalkenglish {
         padding: 3em 2em;
         line-height: 1.25em;
-        @media screen and (min-width:$md) {
+        @media screen and (min-width: $md) {
             padding: 2em;
             margin: 0;
             margin-top: 1em;
@@ -246,14 +244,13 @@ main{
         .col-9 {
             padding: .3em;
         }
-    
-        .col-4{
+        .col-4 {
             padding: 0;
-            @media screen and (min-width:$md) {
+            @media screen and (min-width: $md) {
                 padding-right: .5em;
             }
         }
-        .desc{
+        .desc {
             cursor: pointer;
             h2 {
                 margin: 0;
@@ -262,7 +259,7 @@ main{
                 font-weight: 400;
                 color: brown;
             }
-            div{
+            div {
                 line-height: 1.5em;
                 color: #607d8b;
             }
@@ -273,7 +270,6 @@ main{
             cursor: pointer;
         }
     }
-    
     .more-about-katalkenglish {
         .help {
             font-size: 90%;
@@ -283,12 +279,12 @@ main{
         }
         .inner {
             padding: 1em;
-            background:#f5db00;
+            background: #f5db00;
             .text {
                 padding: 1.1em 1.5em;
                 font-weight: 500;
                 font-size: 90%;
-                border-bottom: 1px solid rgba(125,125,125,0.1);
+                border-bottom: 1px solid rgba(125, 125, 125, 0.1);
                 background: #fff;
                 animation: animoreabout 1s 1;
             }
