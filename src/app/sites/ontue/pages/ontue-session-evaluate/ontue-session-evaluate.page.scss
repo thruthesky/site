@@ -17,8 +17,63 @@ main{
        padding: 1em;
     }
 
+    .radio-group{
+        margin: 2em auto;
+        width: 85%;
+        @media screen and (max-width:$sm) {
+            width: 95%
+        }
+
+        .custom-radio{
+            input{
+                position: absolute;
+                opacity: 0;
+            }
+    
+            .radio-selected{
+                &+span{
+                    border-color: dodgerblue;
+                    background: rgba(dodgerblue,0.1);
+                    color: dodgerblue;
+                }
+            }
+            span{
+                display: inline-block;
+                margin: .2em;
+                padding: .6em 1.8em;
+                border-radius: 2px;
+                border: 1px solid #e2e2e2;
+                color: rgba(#000,0.8);
+                font-size: 90%;
+                cursor: pointer;
+            }
+        }
+        .col-md-2,.col-md10{
+            padding: 0;
+        }
+        .col-md-2{
+            display: flex;
+            align-items: center;
+        }
+        .col-md-12{
+            padding: 0;
+            margin: .2em 0;
+        }
+
+        .title{
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .hint{
+            font-size: 80%;
+            text-align: left;
+            color: gray;
+        }
+    }
+
     mat-form-field{
-        width: 80%;
+        width: 90%;
 
         @media screen and (max-width:$sm) {
             width: 95%
@@ -35,7 +90,7 @@ main{
 
     .checkboxes{
         margin: 2em auto;
-        width: 80%;
+        width: 90%;
         text-align: left;
 
         @media screen and (max-width:$sm) {
@@ -80,6 +135,8 @@ main{
 
 
     .warning{
+        width: 90%;
+        margin: auto;
         padding: 1em;
         border: 1px solid darkred;
         border-radius: 2px;
