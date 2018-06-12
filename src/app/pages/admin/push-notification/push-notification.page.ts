@@ -21,6 +21,7 @@ export class PushNotificationPage implements OnInit {
         user_type: '',
         domain: '',
         urlDomain: '',
+        email: '',
         postId: '',
         url: '',
         title: '',

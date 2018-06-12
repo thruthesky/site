@@ -9,8 +9,8 @@
     How to use
     <ol>
         <li>
-            Choose one of user type or domain.
-            <br> You cannot select both.
+            Choose one of user type or domain or email.
+            <br> You can select only one of them. Email is for test purpose.
         </li>
         <li>
             Input the post no. and click [check] button.
@@ -41,6 +41,11 @@
                     {{ domain['domain'] ? domain['domain'] : 'No domain' }} : {{ domain['cnt'] }}
                 </option>
             </select>
+        </div>
+
+        <div>
+            Email:
+            <input type="text" name="email" [(ngModel)]="form.email"> For test purpose. You can send push to only this use.
         </div>
 
         <div>
