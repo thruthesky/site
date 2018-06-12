@@ -33,7 +33,7 @@ export class PushNotificationPage implements OnInit {
         public forum: ForumService
     ) {
         a.lms.admin_push_token_stat().subscribe((stat: Stat) => {
-            console.log('res: ', stat);
+            // console.log('res: ', stat);
             const domains = stat.domains;
             const merged: Array<Row> = [];
             if (domains && domains.length) {
@@ -45,7 +45,7 @@ export class PushNotificationPage implements OnInit {
                         // console.log('v: ', v.domain, ', bare: ', bare);
                         return v.domain === bare;
                     });
-                    console.log('i: ', i);
+                    // console.log('i: ', i);
                     if (i !== -1) {
                         merged[i].cnt = (parseInt(row.cnt, 10) + parseInt(merged[i].cnt, 10)) + '';
                     } else {
@@ -72,7 +72,7 @@ export class PushNotificationPage implements OnInit {
         }
         this.form.url = `https://${this.form.urlDomain}/post/${this.form.postId}`;
         this.a.lms.admin_push_send(this.form).subscribe(res => {
-            console.log('onSubmit()', res);
+            // console.log('onSubmit()', res);
         }, e => this.a.toast(e));
 
         return false;
@@ -80,7 +80,7 @@ export class PushNotificationPage implements OnInit {
 
     onClickCheck() {
         this.forum.getPost(this.form.postId).subscribe(re => {
-            console.log('re: post: ', re);
+            // console.log('re: post: ', re);
             this.post = re;
             this.form.title = this.a.stripTags(this.post.title.rendered);
             this.form.body = this.a.stripTags(this.post.content.rendered).substr(0, 64);

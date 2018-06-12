@@ -155,6 +155,15 @@ main {
     }
   }
 
+  .refund-payment .desc {
+    background: #424e09;
+    color: white;
+    & > div:first-child {
+      background-color: #067074;
+      color: white;
+    }
+  }
+
   .accordion-hidden, .accordion-showed {
     height: auto;
     overflow: hidden;

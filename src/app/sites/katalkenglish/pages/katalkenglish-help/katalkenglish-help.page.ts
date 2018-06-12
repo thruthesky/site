@@ -20,7 +20,8 @@ export class KatalkEnglishHelpPage implements OnDestroy {
         on8: false,
         on9: false,
         on10: false,
-        on11: false
+        on11: false,
+        on12: false
     };
 
     constructor(public a: AppService) {

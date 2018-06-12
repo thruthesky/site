@@ -40,11 +40,12 @@ export class ForumService {
         const slug = options.slug;
         let url = environment['urlBackend'] + '/wp-json/wp/v2/posts?categories=' + environment['categories'][slug];
         if (options.per_page) {
-            url += '&per_paeg=' + options.per_page;
+            url += '&per_page=' + options.per_page;
         }
         if (options.page) {
             url += '&page=' + options.page;
         }
+        // console.log('url: ', url);
         return this.http.get<Array<WP_POST>>(url);
     }
 
