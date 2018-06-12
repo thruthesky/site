@@ -28,6 +28,9 @@ export class PushNotificationPage implements OnInit {
     };
     post: WP_POST = <any>{};
     stat: Stat = <any>{};
+    loader = {
+        sending: false
+    };
     constructor(
         public a: AppService,
         public forum: ForumService
@@ -70,10 +73,15 @@ export class PushNotificationPage implements OnInit {
         if (event) {
             event.preventDefault();
         }
+        this.loader.send = true;
         this.form.url = `https://${this.form.urlDomain}/post/${this.form.postId}`;
         this.a.lms.admin_push_send(this.form).subscribe(res => {
             // console.log('onSubmit()', res);
-        }, e => this.a.toast(e));
+            this.loader.send = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.send = false;
+        });
 
         return false;
     }
