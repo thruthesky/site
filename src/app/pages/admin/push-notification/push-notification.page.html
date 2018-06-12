@@ -77,7 +77,8 @@
 
         </ng-container>
         <div>
-            <button type="submit">Send Push Notificationr</button>
+            <button type="submit" *ngIf=" !loader.send ">Send Push Notificationr</button>
+            <div class="loader" *ngIf=" loader.send ">Sending...</div>
         </div>
 
     </form>

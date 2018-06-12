@@ -1,7 +1,12 @@
 
 <main>
+    <div class="banner">
+        <img src="../../../assets/img/reminder-photo.jpg" alt="">
+    </div>
     <div class="post" *ngIf=" post ">
-        <div class="title">{{ post.title.rendered }}</div>
+        <div class="title">
+            <span>{{ post.title.rendered }}</span>
+        </div>
         <div class="content" [innerHTML]=" post.safe_content "></div>
     </div>
 </main>

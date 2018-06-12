@@ -19,7 +19,7 @@
 
     <div>
         <mat-form-field appearance="outline">
-            <mat-label>Book(Page) used in the session</mat-label>
+            <mat-label>Book(Page) from the recent session</mat-label>
             <input type="text" matInput placeholder="Book" [(ngModel)]="book_used">
             <mat-hint>book used for today session</mat-hint>
         </mat-form-field>
@@ -32,67 +32,118 @@
             <mat-hint>book you will use for the next session</mat-hint>
         </mat-form-field>
     </div>
+    
+    <section  class="radio-group container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-2">
+                <span class="title">Grammar :</span>
+            </div>
+            <div class="col-sm-12 col-md-10">
+                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                    <input type="radio" 
+                            [(ngModel)]="grammar"
+                            name="grammar"
+                            [value]="i"
+                            (change)="onChangeChecklevel()"
+                            [class.radio-selected]="grammar==i">
+                    <span>{{ i }}</span>
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="hint">Rate on student grammar</div>
+            </div>
+        </div>
+    </section>
 
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Grammar</mat-label>
-            <mat-select [(ngModel)]="grammar" (selectionChange)="onChangeChecklevel()">
-                <mat-option [value]="0">Select...</mat-option>
-                <mat-option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
-                </mat-option>
-            </mat-select>
-            <mat-hint>Rate on student grammar</mat-hint>
-        </mat-form-field>
-    </div>
+
+    <section  class="radio-group container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-2">
+                <span class="title">Expression:</span>
+            </div>
+            <div class="col-sm-12 col-md-10">
+                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                    <input type="radio" 
+                            [(ngModel)]="expression"
+                            name="expression"
+                            [value]="i"
+                            (change)="onChangeChecklevel()"
+                            [class.radio-selected]="expression==i">
+                    <span>{{ i }}</span>
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="hint">Rate how well the student can express</div>
+            </div>
+        </div>
+    </section>
 
 
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Expression:</mat-label>
-            <mat-select [(ngModel)]="expression" (selectionChange)="onChangeChecklevel()">
-                <mat-option [value]="0">Select...</mat-option>
-                <mat-option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
-                </mat-option>
-            </mat-select>
-            <mat-hint>Rate how well the student can express</mat-hint>
-        </mat-form-field>
-    </div>
+    <section  class="radio-group container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-2">
+                <span class="title">Vocabulary: </span>
+            </div>
+            <div class="col-sm-12 col-md-10">
+                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                    <input type="radio" 
+                            [(ngModel)]="vocabulary"
+                            name="vocabulary"
+                            [value]="i"
+                            (change)="onChangeChecklevel()"
+                            [class.radio-selected]="vocabulary==i">
+                    <span>{{ i }}</span>
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="hint">Rate if the student use proper words, cluases</div>
+            </div>
+        </div>
+    </section>
 
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Vocabulary:</mat-label>
-            <mat-select [(ngModel)]="vocabulary" (selectionChange)="onChangeChecklevel()">
-                <mat-option [value]="0">Select...</mat-option>
-                <mat-option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
-                </mat-option>
-            </mat-select>
-            <mat-hint>Rate if the student use proper words, cluases</mat-hint>
-        </mat-form-field>
-    </div>
+    <section  class="radio-group container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-2">
+                <span class="title">Pronunciation: </span>
+            </div>
+            <div class="col-sm-12 col-md-10">
+                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                    <input type="radio" 
+                            [(ngModel)]="pronunciation"
+                            name="pronunciation"
+                            [value]="i"
+                            (change)="onChangeChecklevel()"
+                            [class.radio-selected]="pronunciation==i">
+                    <span>{{ i }}</span>
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="hint">Rate on student accent and intonation</div>
+            </div>
+        </div>
+    </section>
 
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Pronunciation: </mat-label>
-            <mat-select [(ngModel)]="pronunciation" (selectionChange)="onChangeChecklevel()">
-                <mat-option [value]="0">Select...</mat-option>
-                <mat-option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
-                </mat-option>
-            </mat-select>
-            <mat-hint>Rate on student accent and intonation</mat-hint>
-        </mat-form-field>
-    </div>
-
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Speed of Speach:</mat-label>
-            <mat-select [(ngModel)]="speed" (selectionChange)="onChangeChecklevel()">
-                <mat-option [value]="0">Select...</mat-option>
-                <mat-option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]="i">{{i}}
-                </mat-option>
-            </mat-select>
-            <mat-hint>Rate on how fast and fluently the student speaks</mat-hint>
-        </mat-form-field>
-    </div>
+    <section  class="radio-group container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-2">
+                <span class="title">Speed of Speach:</span>
+            </div>
+            <div class="col-sm-12 col-md-10">
+                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                    <input type="radio" 
+                            [(ngModel)]="speed"
+                            name="speed"
+                            [value]="i"
+                            (change)="onChangeChecklevel()"
+                            [class.radio-selected]="speed==i">
+                    <span>{{ i }}</span>
+                </label>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="hint">Rate on how fast and fluently the student speaks</div>
+            </div>
+        </div>
+    </section>
 
     <div class="warning" *ngIf=" student_absent ">
             <b>Warning:</b> when you check on 'student was absent' box,
@@ -112,7 +163,7 @@
     <div>
         <mat-form-field appearance="outline">
             <mat-label>Comment:</mat-label>
-            <textarea matInput [(ngModel)]="comment"></textarea>
+            <textarea matInput rows="10" [(ngModel)]="comment"></textarea>
             <mat-hint> Leave comment of the session. Or Leave any message if the class was unsuccessful.</mat-hint>
         </mat-form-field>
     </div>

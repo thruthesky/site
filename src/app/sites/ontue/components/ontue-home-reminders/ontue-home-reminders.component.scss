@@ -1,13 +1,14 @@
 section {
-    margin-bottom:1.4em;
+    margin-bottom:1.5em;
     height: 225px;
+    border: 1px solid rgba(125,125,125,0.1);
     background-color: #fff;
     font-size: .85em;
     overflow:auto;
 
     h2 {
         margin: 0;
-        padding:.72em 1em;
+        padding:.72em 1.4em;
         font-weight: 100;
         font-size: 1em;
         background: #133CAC;
@@ -18,8 +19,6 @@ section {
         &>a{
             display: block;
             padding: .8em 1.3em;
-            border: 1px solid rgba(125,125,125,0.1);
-            border-top:none;
             background: #fff;
 
             &:hover{
