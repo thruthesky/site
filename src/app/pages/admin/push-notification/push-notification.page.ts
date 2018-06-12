@@ -29,7 +29,7 @@ export class PushNotificationPage implements OnInit {
     post: WP_POST = <any>{};
     stat: Stat = <any>{};
     loader = {
-        sending: false
+        send: false
     };
     constructor(
         public a: AppService,
