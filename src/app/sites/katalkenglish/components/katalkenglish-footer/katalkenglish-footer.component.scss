@@ -6,11 +6,11 @@ footer {
     background-color: #f3f5fa;
     color: #777;
     @media (min-width: $md ) {
-        display: flex;
-        justify-content: space-around;
-        .copyright {
-            max-width: 260px;
-        }
+      display: flex;
+      justify-content: space-around;
+      .copyright {
+        max-width: 260px;
+      }
     }
     .contact {
         cursor: pointer;
