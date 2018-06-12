@@ -17,7 +17,8 @@ export class SessionEditPage implements OnInit {
         class_end: '',
         point: '',
         book_used: '',
-        book_next: ''
+        book_next: '',
+        alert: ''
     };
     idx = '';
     loader = {

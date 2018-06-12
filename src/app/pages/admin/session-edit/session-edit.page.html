@@ -67,6 +67,10 @@
                 <td>book_next</td>
                 <td><input type="text" name="book_next" [(ngModel)]="form.book_next"></td>
             </tr>
+            <tr>
+                <td>alert</td>
+                <td><input type="text" name="alert" [(ngModel)]="form.alert"></td>
+            </tr>
     </table>
     <button type="submit" *ngIf=" ! loader.save ">Submit</button>
     <div class="loader" *ngIf=" loader.save ">Saving ...</div>
