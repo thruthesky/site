@@ -19,7 +19,8 @@
     "publish:all": "npm run build:prod && npm run scp:all",
     "build:prod": "ng build --prod",
     "scp": "cd www && scp *.js *.css *.html ontue@ontue.com:./www && cd assets && scp -r * ontue@ontue.com:./www/assets",
-    "scp:all": "cd www && scp -r * ontue@ontue.com:./www"
+    "scp:all": "cd www && scp -r * ontue@ontue.com:./www",
+    "delete-remote-js": "ssh ontue@ontue.com 'rm -f www/*.js'"
   },
   "private": true,
   "dependencies": {
