@@ -18,6 +18,8 @@
         <td>Apply Point</td>
         <td>Point</td>
         <td>Teacher</td>
+        <td>Student</td>
+        <td>Reason</td>
         <td>Time</td>
     </tr>
     <tr *ngFor="let log of re ">
@@ -28,7 +30,9 @@
                 {{ log.after_point }}
             </div>
         </td>
-        <td>{{ log.teacher?.display_name }}</td>
+        <td><button class='user-info-button' *ngIf="log?.teacher?.idx" routerLink="/admin/user-info/{{log?.teacher?.idx}}">{{ log.teacher?.display_name }}</button></td>
+        <td><button class='user-info-button' *ngIf="log?.student?.idx" routerLink="/admin/user-info/{{log?.student?.idx}}">{{ log.student?.display_name }} </button></td>
+        <td>{{ log.reason }}</td>
         <td>{{ log.stamp * 1000 | date:'yyyy-MM-dd HH:mm:ss z' }}</td>
     </tr>
 
