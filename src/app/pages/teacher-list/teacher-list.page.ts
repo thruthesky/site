@@ -126,7 +126,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
     }
 
     nameChange() {
-        console.log('nameChange');
+        // console.log('nameChange');
         this.teacherNameChange.next(this.teacher_name);
     }
 
