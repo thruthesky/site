@@ -5,7 +5,6 @@
         <p> {{ 'CLASS_COMMENTS_PAGE_DESC' | t }}</p>
     </header>
     <div class="container-fluid">
-
         <div class="loader" *ngIf=" showLoader ">
             <mat-spinner [diameter]="48"></mat-spinner>
             <span>{{ 'IN LOADING' | t}}</span>
@@ -53,8 +52,8 @@
                                 <!-- <div class="date">{{ 'DATE' | t }} : {{ a.shortDate(comment.stamp) }}</div> -->
                             </div>
                             <div class="comment">
-                                {{comment.comment.slice(0,75)}}
-                                <span *ngIf="comment.comment.length>75">...</span>
+                                {{comment.comment.slice(0,73)}}
+                                <span *ngIf="comment.comment.length>73">...</span>
                             </div>
                         </div>
                         <div class="student col-md-3">
