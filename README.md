@@ -104,6 +104,15 @@ npm run publish
 npm run publish:all
 ````
 
+## Deleting Javascript files on remote server
+
+* Warning: If you do this, all Javascript files including currently working Javascript files will be deleted.
+  Meaning, if you do this, the site will be down.
+  So, you need to quickly re-publish the site again.
+
+```` sh
+npm run delete-remote-js
+````
 
 ## Concepts
 

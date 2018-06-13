@@ -95,14 +95,14 @@
                             </div>
                             <div class="col">
                                 <div class="item reservation">
-                                    <div class="text">{{ a.ln._NO_OF_RESERVATIONS }}</div>
-                                    <div class="number">{{ a.info.reservation | number }}</div>
+                                    <div class="text">{{ a.ln._NO_OF_TEACHERS }}</div>
+                                    <div class="number">{{ a.info.teacher | number }}</div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="item teacher">
-                                    <div class="text">{{ a.ln._NO_OF_PASTS }}</div>
-                                    <div class="number">{{ a.info.past | number }}</div>
+                                    <div class="text">{{ a.ln._NO_OF_TOTAL_RESERVATIONS }}</div>
+                                    <div class="number">{{ plus( a.info.past, a.info.reservation ) | number }}</div>
                                 </div>
                             </div>
                         </div>

@@ -153,7 +153,7 @@
 .data-ie{
     &>div{
         @media screen and (min-width:$md) {
-            height:90px;
+            height:100px;
         }
     }
 }
@@ -162,7 +162,7 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    min-height: 90px;
+    min-height: 100px;
     border-bottom: 1px solid #e9ecef;
     background: #fff;
     font-size: 90%;

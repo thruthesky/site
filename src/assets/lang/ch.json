@@ -542,9 +542,9 @@
 
 
   "YOU_ARE_TO_AGREE": "请点击条款和条件的同意按钮进行注册。",
-  "WITHCENTER_TEACHER_DESC_1": "请注意，这位老师经常取消她的预订。",
+  "WITHCENTER_TEACHER_DESC_1": "请注意，这位老师可能会取消她的预订。",
   "WITHCENTER_TEACHER_DESC_2": "您可以与这位老师保留固定的时间表而无需取消。 每天25分钟，1个月。 75,000韩元。",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "请注意，这位老师经常取消预约。",
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "请注意，这位教练可能会取消学生的预定课程。",
 
   "KAKAOTALK_ID_IMPORTANT": "请仔细检查您的Kakaotalk ID。 由于Kakaotalk ID错误，导致许多失败的教训。",
   "TOC_AGREE": "通过注册，我同意",
@@ -592,6 +592,8 @@
   "_NO_OF_PASTS": "过去的会议",
   "_NO_OF_RESERVATIONS": "预订",
   "_NO_OF_STUDENTS": "学生们",
+  "_NO_OF_TEACHERS": "没有教师",
+  "_NO_OF_TOTAL_RESERVATIONS": "没有保留",
   "_COMMENTS": "20节课。$10 Katalk英语评论",
   "_MORE_COMMENTS": "显示更多评论",
   "_KATALK_TEACHERS": "Katalk英语教师",
@@ -630,6 +632,7 @@
   "SEARCH_BY": "搜索",
   "COUNTRY": "国家",
   "RESERVABLE_TEACHER": "可预留教师",
-  "ACTIVE_TEACHER": "积极的老师"
+  "ACTIVE_TEACHER": "积极的老师",
+  "IDX_MISSING": "号码丢失"
 
 }

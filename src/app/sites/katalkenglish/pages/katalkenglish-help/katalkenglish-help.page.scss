@@ -186,6 +186,8 @@ main {
   }
 
   .rotate-45-off, .rotate-45-on {
+    display:flex;
+    justify-content: right;
     svg {
       margin-left: .8em;
       height: 2em !important;

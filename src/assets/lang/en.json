@@ -582,9 +582,9 @@
 
 
   "YOU_ARE_TO_AGREE": "Please, click the Agree button of Terms and Conditions to sign up.",
-  "WITHCENTER_TEACHER_DESC_1": "Please be reminded that this teacher often cancels her reservations.",
+  "WITHCENTER_TEACHER_DESC_1": "Please be reminded that this teacher may cancel her reservations.",
   "WITHCENTER_TEACHER_DESC_2": "You can reserve fixed schedules with this teacher without cancellation. 25 minutes a day for 1 month. 75,000 KRW.",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher often cancels reservation.",
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher may cancel reservation.",
   "TOC_AGREE": "By registering, I agree to",
   "TOC_TITLE": "the Terms and Conditions.",
   "VIDEO_RESERVE_TITLE": "Video) How to reserve",
@@ -633,6 +633,8 @@
   "_NO_OF_PASTS": "Past Classes",
   "_NO_OF_RESERVATIONS": "Reservations",
   "_NO_OF_STUDENTS": "Students",
+  "_NO_OF_TEACHERS": "Teachers",
+  "_NO_OF_TOTAL_RESERVATIONS": "No. Reservations",
   "_COMMENTS": "20 lessons. $10. Katalk English Reviews",
   "_MORE_COMMENTS": "Show more reviews",
   "_KATALK_TEACHERS": "Katalk English Teachers",
@@ -668,5 +670,6 @@
   "SEARCH_BY": "Search by",
   "COUNTRY": "Country",
   "RESERVABLE_TEACHER": "Reservable Teacher",
-  "ACTIVE_TEACHER": "Active Teacher"
+  "ACTIVE_TEACHER": "Active Teacher",
+  "IDX_MISSING": "Wrong or Missing post number"
 }
