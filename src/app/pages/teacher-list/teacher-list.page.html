@@ -33,7 +33,6 @@
             </div>
             <div class="row">
                 <div class="col">
-
                     <mat-form-field>
                         <mat-select [(value)]="gender" (selectionChange)=" onChangeOption() " placeholder="{{ 'GENDER' | t }}">
                             <mat-option value="F">{{"FEMALE" | t}}</mat-option>
@@ -41,25 +40,32 @@
                             <mat-option value="">{{"ALL" | t}}</mat-option>
                         </mat-select>
                     </mat-form-field>
-
                 </div>
-
                 <div class="col">
-
                     <mat-form-field>
-                        <mat-label>{{ 'TEACHER_GRADE' | t }}</mat-label>
-                        <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() ">
-                            <mat-option value="Y">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
-                            <mat-option value="M">{{"ALL_TEACHER" | t}}</mat-option>
-                            <mat-option value="TN">{{"SEARCH_TEACHER_NAME" | t}}</mat-option>
+                        <mat-label>{{ 'SEARCH_BY' | t }}</mat-label>
+                        <mat-select [(value)]="search" (selectionChange)=" onChangeOption() ">
+                            <mat-option value="">{{"ALL_TEACHER" | t}}</mat-option>
+                            <!--<mat-option value="active">{{"ACTIVE_TEACHER" | t}}</mat-option>-->
+                            <mat-option value="recommended">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
+                            <!--<mat-option value="reservable">{{"RESERVABLE_TEACHER" | t}}</mat-option>-->
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field *ngIf=" recommend == 'TN' ">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
                         <mat-label>{{ a.ln.TEACHER_NAME }}</mat-label>
-                        <input matInput type="text" name="name" id="name" [(ngModel)]="teacher_name" (keyup)=" nameChange($event)">
+                        <input matInput type="text" name="country" id="name" [(ngModel)]="teacher_name" (keyup)=" nameChange($event)">
                     </mat-form-field>
                 </div>
-
+                <div class="col">
+                    <!--<mat-form-field>-->
+                        <!--<mat-label>{{ a.ln.COUNTRY }}</mat-label>-->
+                        <!--<input matInput type="text" name="country" id="country" [(ngModel)]="country" (keyup)=" onChangeOption()">-->
+                    <!--</mat-form-field>-->
+                </div>
             </div>
         </div>
     </section>
@@ -139,7 +145,7 @@
             </button>
         </div>
 
-        <div id="no-more-teachers" *ngIf=" noMoreTeachers && gender == '' && recommend == 'Y' ">
+        <div id="no-more-teachers" *ngIf=" noMoreTeachers && gender == '' && search == 'recommended' ">
 
             <div>{{ 'NO_MORE_TEACHERS' | t }}</div>
             <button (click)="onClickShowAllTeachers() ">

@@ -663,5 +663,10 @@
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "Welcome #name. You have #point.",
   "KATALK_OPEN_ON_MOBILE_ONLY": "You can only contact Admin using your Phone. Please open acess KatalkEnglish website using your Phone.",
   "SEARCH_TEACHER_NAME": "Search Teacher Name",
-  "TEACHER_NAME": "Teacher Name"
+  "TEACHER_NAME": "Teacher Name",
+  "MORE_OPTION": "More Options",
+  "SEARCH_BY": "Search by",
+  "COUNTRY": "Country",
+  "RESERVABLE_TEACHER": "Reservable Teacher",
+  "ACTIVE_TEACHER": "Active Teacher"
 }

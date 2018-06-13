@@ -21,7 +21,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
     teachers = [];
 
     gender = '';
-    recommend = 'Y';
+    search = 'recommended';
     page_no: number;
     limit = 120; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
     noMoreTeachers: boolean;
@@ -34,6 +34,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
     mode = null;
     title = 'Teacher List';
     teacher_name = '';
+    country = '';
     teacherNameChange: Subject<string> = new Subject<string>();
 
     constructor(
@@ -84,12 +85,13 @@ export class TeacherListPage implements OnInit, OnDestroy {
         const query = {
             gender: this.gender,
             name: this.teacher_name,
+            country: this.country,
+            search: this.search,
             page_no: this.page_no,
             limit: this.limit
         };
-        if ( this.recommend !== 'TN' ) {
-            query['recommend'] = this.recommend;
-        }
+
+        // console.log('loadTeachers', query);
         this.a.lms.teacher_list(query).subscribe(re => {
             /**
              * If cached data has been loaded.
