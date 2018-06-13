@@ -3,6 +3,7 @@ import { PostPage } from './post.page';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild( routes ),
-        HttpClientModule
+        HttpClientModule,
+        ForumServiceModule
     ],
     exports: [],
     declarations: [

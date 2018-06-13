@@ -627,6 +627,7 @@
 "STUDENT_PONT_ON_SCHEDULE_TABLE": "你的#name成员有#point。",
   "KATALK_OPEN_ON_MOBILE_ONLY": "您只能使用电话联系管理员。 请使用您的手机打开访问talkEnglish网站。",
   "SEARCH_TEACHER_NAME": "搜索教师姓名",
-  "TEACHER_NAME": "老师的名字"
+  "TEACHER_NAME": "老师的名字",
+  "IDX_MISSING": "号码丢失"
 
 }

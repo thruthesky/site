@@ -589,5 +589,6 @@
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name会員は#pointを保持しています。",
   "KATALK_OPEN_ON_MOBILE_ONLY": "あなたはあなたの電話を使って管理者にしか連絡することができません。 あなたの電話を使ってtalkEnglishにアクセスしてください。",
   "SEARCH_TEACHER_NAME": "教師の名前を検索する",
-  "TEACHER_NAME": "先生の名前"
+  "TEACHER_NAME": "先生の名前",
+  "IDX_MISSING": "番号がありません"
 }
