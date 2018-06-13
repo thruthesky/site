@@ -14,7 +14,8 @@ interface Stat {
 
 @Component({
     selector: 'push-notification-page',
-    templateUrl: 'push-notification.page.html'
+    templateUrl: 'push-notification.page.html',
+    styleUrls: ['push-notification.page.scss']
 })
 export class PushNotificationPage implements OnInit {
     form = {
@@ -77,8 +78,9 @@ export class PushNotificationPage implements OnInit {
         this.loader.send = true;
         this.form.url = `https://${this.form.urlDomain}/post/${this.form.postId}`;
         this.a.lms.admin_push_send(this.form).subscribe(res => {
-            // console.log('onSubmit()', res);
+            console.log('onSubmit()', res);
             this.loader.send = false;
+            this.a.toast('Push Notification success.');
         }, e => {
             this.a.toast(e);
             this.loader.send = false;
