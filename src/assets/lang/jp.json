@@ -585,5 +585,7 @@
   "INSTANT_POINT_LACK": "ポイントを予約するためのポイントが不足しています。",
   "INSTANT_RESERVE_ANOTHER_TIME": "いつか再びレザーを予約してください。",
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name会員は#pointを保持しています。",
-  "KATALK_OPEN_ON_MOBILE_ONLY": "あなたはあなたの電話を使って管理者にしか連絡することができません。 あなたの電話を使ってtalkEnglishにアクセスしてください。"
+  "KATALK_OPEN_ON_MOBILE_ONLY": "あなたはあなたの電話を使って管理者にしか連絡することができません。 あなたの電話を使ってtalkEnglishにアクセスしてください。",
+  "SEARCH_TEACHER_NAME": "教師の名前を検索する",
+  "TEACHER_NAME": "先生の名前"
 }
