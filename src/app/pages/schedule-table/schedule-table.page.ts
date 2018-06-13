@@ -7,7 +7,7 @@ import { SESSION } from '../../modules/xapi/lms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 const MAX_POINT = 9999;
-const MAX_DURATION = 120;
+const MAX_DURATION = 360;
 @Component({
     selector: 'schedule-table-page',
     templateUrl: 'schedule-table.page.html',

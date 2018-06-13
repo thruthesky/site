@@ -23,7 +23,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
     gender = '';
     search = 'recommended';
     page_no: number;
-    limit = 120; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
+    limit = 180; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
     noMoreTeachers: boolean;
 
     show = {
@@ -46,7 +46,12 @@ export class TeacherListPage implements OnInit, OnDestroy {
         this.teacherNameChange
             .debounceTime(500) // wait 500ms after the last event before emitting last event
             .distinctUntilChanged() // only emit if value is different from previous value
-            .subscribe(() => {
+            // .map(v => console.log('v: ', v))
+            .subscribe((v) => {
+                console.log('v: ', v);
+                if ( v !== '' && v.length < 2 ) {
+                    return;
+                }
                 this.init();
                 this.loadTeachers();
             });
@@ -132,6 +137,12 @@ export class TeacherListPage implements OnInit, OnDestroy {
         this.teacherNameChange.next(this.teacher_name);
     }
 
+    onClickSearchOptions() {
+        this.display_options = true;
+        this.search = '';
+        this.init();
+        this.loadTeachers();
+    }
 
 }
 
