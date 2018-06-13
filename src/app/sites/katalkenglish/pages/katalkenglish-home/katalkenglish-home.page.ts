@@ -44,6 +44,14 @@ export class KatalkEnglishHomePage {
         });
     }
 
+    plus(a, b) {
+        if ( a && b ) {
+            return parseInt(a, 10) + parseInt(b, 10);
+        } else {
+            return 0;
+        }
+    }
+
     showMoreMyOwnPlan() {
         setTimeout(() => this.showMoreMyOwnPlan_1 = true, 100);
         setTimeout(() => this.showMoreMyOwnPlan_2 = true, 300);
