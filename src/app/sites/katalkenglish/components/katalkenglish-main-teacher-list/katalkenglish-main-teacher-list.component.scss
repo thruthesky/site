@@ -33,19 +33,21 @@ section{
         }
     }
     .teacher-list {
-        margin: 0 -23px;
-        @media screen and (min-width:$md){
-            margin: 0 -30px;
-        }
+        // margin: 0 -23px;
+        // @media screen and (min-width:$md){
+        //     margin: 0 -30px;
+        // }
         &>a {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             text-align: center;
-            margin-bottom: 1.2em;
             padding: 0;
             font-size: .7em;
 
             .teacher-wrapper{
                 display: inline-block;
-                margin:auto;
+                margin-bottom: 1.2em;
                 border-radius: 2px;
                 border:1px solid rgba(125,125,125,0.1);
                 background: #fff;
