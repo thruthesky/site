@@ -630,5 +630,7 @@
   "POINT_REFUND_SETTLED": "포인트 복구 요청 종료됨",
 
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name 회원님은 #point 를 보유중입니다.",
-  "KATALK_OPEN_ON_MOBILE_ONLY": "카톡 질문 및 상담은 핸드폰으로만 할 수 있습니다. 핸드폰을 사용해서 질문 메뉴를 클릭해주세요."
+  "KATALK_OPEN_ON_MOBILE_ONLY": "카톡 질문 및 상담은 핸드폰으로만 할 수 있습니다. 핸드폰을 사용해서 질문 메뉴를 클릭해주세요.",
+  "SEARCH_TEACHER_NAME": "교사 이름 검색",
+  "TEACHER_NAME": "선생님 성함"
 }

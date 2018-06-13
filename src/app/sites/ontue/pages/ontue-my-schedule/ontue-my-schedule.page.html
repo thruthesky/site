@@ -14,7 +14,10 @@
             </div>
             <div class="info col-3">
                 <div>Your time is now</div>
-                <div>{{ time }}</div>
+                <div>
+                    <span *ngIf="time">{{ time }}</span>
+                    <mat-spinner *ngIf="!time" [diameter]="23"></mat-spinner>
+                </div>
             </div>
             <div class="buttons col-5">
                 <a class="add-schedule" (click)="onClickScheduleAdd()">
