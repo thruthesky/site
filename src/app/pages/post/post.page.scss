@@ -1,7 +1,7 @@
 @import '../../../theme/vars.scss';
 main{
     padding-bottom: 4em;
-    background: #fff;
+    background: rgba(#f5f5f5,0.55);
     .post{
         margin: auto;
         @media screen and (min-width:$md){
