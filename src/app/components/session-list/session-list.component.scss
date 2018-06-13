@@ -150,7 +150,13 @@
         }
     }
 
-
+.data-ie{
+    &>div{
+        @media screen and (min-width:$md) {
+            height:90px;
+        }
+    }
+}
 
 .data{
     justify-content: space-around;
@@ -169,7 +175,6 @@
         display:flex;
         align-items:center;
         justify-content: center;
-        height: 90px;
         padding: 0;
     }
 
@@ -182,6 +187,7 @@
         word-break: break-all;
         .id-button{
             display:flex;
+            flex-direction: column;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
@@ -263,10 +269,6 @@
         svg{
             width: 1.5em;
             height: 1.5em;
-        }
-
-        span{
-            margin-left: .6em;
         }
     }
 
@@ -366,9 +368,9 @@
 
         svg{
             margin: 0!important;
-            margin-left: .5em!important;
-            height: 2.5em;
-            width: 2.5em;
+            margin-right: .4em!important;
+            height: 1.5em;
+            width: 1.5em;
         }
     }
 

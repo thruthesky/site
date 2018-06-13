@@ -51,9 +51,13 @@
                         <mat-select [(value)]="recommend" (selectionChange)=" onChangeOption() ">
                             <mat-option value="Y">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
                             <mat-option value="M">{{"ALL_TEACHER" | t}}</mat-option>
+                            <mat-option value="TN">{{"SEARCH_TEACHER_NAME" | t}}</mat-option>
                         </mat-select>
                     </mat-form-field>
-
+                    <mat-form-field *ngIf=" recommend == 'TN' ">
+                        <mat-label>{{ a.ln.TEACHER_NAME }}</mat-label>
+                        <input matInput type="text" name="name" id="name" [(ngModel)]="teacher_name" (keyup)=" nameChange($event)">
+                    </mat-form-field>
                 </div>
 
             </div>

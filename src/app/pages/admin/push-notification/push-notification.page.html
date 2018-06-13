@@ -68,16 +68,16 @@
             </div>
             <div>
                 Title:
-                <input type="text" name="title" [(ngModel)]="form.title">
+                <textarea class="post-input" type="text" name="title" [(ngModel)]="form.title"></textarea>
             </div>
             <div>
                 Body:
-                <input type="text" name="body" [(ngModel)]="form.body">
+                <textarea class="post-input" type="text" name="body" [(ngModel)]="form.body"></textarea>
             </div>
 
         </ng-container>
         <div>
-            <button type="submit" *ngIf=" !loader.send ">Send Push Notificationr</button>
+            <button type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
             <div class="loader" *ngIf=" loader.send ">Sending...</div>
         </div>
 

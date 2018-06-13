@@ -1,14 +1,16 @@
+@import '../../../../../theme/vars.scss';
 section {
-    margin-bottom:1.5em;
-    height: 225px;
+    margin:1.35em 0;
+    @media (min-width:$md) {
+        margin-top:0;
+    }
     border: 1px solid rgba(125,125,125,0.1);
     background-color: #fff;
     font-size: .85em;
-    overflow:auto;
 
     h2 {
         margin: 0;
-        padding:.72em 1.4em;
+        padding:.71em 1.4em;
         font-weight: 100;
         font-size: 1em;
         background: #133CAC;
@@ -16,6 +18,8 @@ section {
     }
 
     .content{
+        height: 189px;
+        overflow:auto;
         &>a{
             display: block;
             padding: .8em 1.3em;
