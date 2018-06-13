@@ -13,20 +13,12 @@ main{
         .title{
             font-size: 2em;
             line-height: 1.2em;
-        }
 
-        svg{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            height: 15em;
-            width: 15em;
-            color: rgba(125,125,125,0.1);
-
-            @media (min-width:$md) {
-                height: 25em;
-                width: 25em;
+            svg{
+                height: 1em;
+                width: 1em;
+                margin-right: .3em;
+                margin-bottom: -.13em;
             }
         }
 
