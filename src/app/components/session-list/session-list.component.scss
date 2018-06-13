@@ -150,7 +150,13 @@
         }
     }
 
-
+.data-ie{
+    &>div{
+        @media screen and (min-width:$md) {
+            height:90px;
+        }
+    }
+}
 
 .data{
     justify-content: space-around;
@@ -169,7 +175,6 @@
         display:flex;
         align-items:center;
         justify-content: center;
-        flex-grow: 1;
         padding: 0;
     }
 

@@ -207,7 +207,7 @@
                 </div>
             </div>
 
-            <div class="data row" *ngFor="let book of books; let i = index; let o = odd; let e = even">
+            <div class="data row" [class.data-ie]="a.isIe()" *ngFor="let book of books; let i = index; let o = odd; let e = even">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <section class="teacher-photo">
                         <a class="photo"
