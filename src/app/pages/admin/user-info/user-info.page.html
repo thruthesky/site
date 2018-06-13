@@ -133,6 +133,37 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>Primary Photo</td>
+                            <td>
+                                <!--<div class="photo-upload">-->
+                                    <!--<input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">-->
+                                    <!--<div class="photo-upload-button">-->
+                                        <div class="photo">
+                                            <img src="{{ user.photoURL }}">
+                                        </div>
+                                        <!--<div>-->
+                                            <!--<button class="btn" [class.skip]="files && files.length">-->
+                                                <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">-->
+                                                    <!--<path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"-->
+                                                    <!--/>-->
+                                                <!--</svg>-->
+                                                <!--<span>{{ 'PHOTO UPLOAD' | t }}</span>-->
+                                            <!--</button>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">-->
+                                        <!--<mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">-->
+                                        <!--</mat-progress-bar>-->
+                                        <!--<span>{{ profilePhotoUpload.progressPercentage}}%</span>-->
+                                    <!--</div>-->
+                                    <!--<xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"-->
+                                                                <!--[showProgressBar]="false" (success)="onSuccessUploadPicture($event)">-->
+                                    <!--</xapi-file-upload-component>-->
+                                <!--</div>-->
+
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Phone Number</td>
                             <td>
                                 <input type='text' name='phone_number' [(ngModel)]=" user.phone_number ">
