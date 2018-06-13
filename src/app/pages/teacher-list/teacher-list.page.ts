@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppService, KEY_TEACHER_LIST } from '../../providers/app.service';
 import { Router } from '@angular/router';
-
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 interface OPTIONS {
     useCache?: boolean;
@@ -13,7 +15,7 @@ interface OPTIONS {
     templateUrl: 'teacher-list.page.html',
     styleUrls: ['teacher-list.page.scss'],
 })
-export class TeacherListPage implements OnInit {
+export class TeacherListPage implements OnInit, OnDestroy {
 
     re = null;
     teachers = [];
@@ -31,6 +33,8 @@ export class TeacherListPage implements OnInit {
     display_options = false;
     mode = null;
     title = 'Teacher List';
+    teacher_name = '';
+    teacherNameChange: Subject<string> = new Subject<string>();
 
     constructor(
         public router: Router,
@@ -38,9 +42,20 @@ export class TeacherListPage implements OnInit {
     ) {
         this.init();
         this.loadTeachers({ useCache: true });
+        this.teacherNameChange
+            .debounceTime(500) // wait 500ms after the last event before emitting last event
+            .distinctUntilChanged() // only emit if value is different from previous value
+            .subscribe(() => {
+                this.init();
+                this.loadTeachers();
+            });
     }
 
     ngOnInit() {
+    }
+
+    ngOnDestroy() {
+        this.teacherNameChange.unsubscribe();
     }
 
     init() {
@@ -65,12 +80,17 @@ export class TeacherListPage implements OnInit {
             this.displayTeachers(data);
         }
         this.show.loadTeacher = true;
-        this.a.lms.teacher_list({
+
+        const query = {
             gender: this.gender,
-            recommend: this.recommend,
+            name: this.teacher_name,
             page_no: this.page_no,
             limit: this.limit
-        }).subscribe(re => {
+        };
+        if ( this.recommend !== 'TN' ) {
+            query['recommend'] = this.recommend;
+        }
+        this.a.lms.teacher_list(query).subscribe(re => {
             /**
              * If cached data has been loaded.
              */
@@ -104,6 +124,12 @@ export class TeacherListPage implements OnInit {
         this.display_options = true;
         this.a.scrollToTop(50);
     }
+
+    nameChange() {
+        console.log('nameChange');
+        this.teacherNameChange.next(this.teacher_name);
+    }
+
 
 }
 
