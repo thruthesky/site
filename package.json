@@ -12,7 +12,7 @@
     "e2e": "ng e2e",
     "s": "ng serve --disable-host-check",
     "serve:local": "ng serve --disable-host-check --configuration=local-backend-server",
-    "serve:hmr": "ng serve --disable-host-check --configuration=local-hmr",
+    "serve:hmr": "ng serve --disable-host-check --configuration=hmr",
     "bt": "ng build --prod --named-chunks=true",
     "publish": "npm run build:prod && npm run scp",
     "publish:gitpage": "ng build --prod --output-path docs --base-href=/site/ && git add --all && git commit -m 'buildtest' && git push",
