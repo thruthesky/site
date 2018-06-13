@@ -70,6 +70,10 @@ main{
         div:last-child{
             padding: 2.5em 0;
             border:1px solid rgba(128, 128, 128, 0.2);
+
+            mat-spinner{
+                margin: auto;
+            }
         }
 
     }

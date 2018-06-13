@@ -1,24 +1,33 @@
 @import '../../../theme/vars.scss';
 main{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding-bottom: 4em;
     background: #fff;
     .post{
         margin: auto;
         @media screen and (min-width:$md){
-            width: 60%;
+            width: 65%;
         }
         padding: 2em;
         line-height: 1.6em;
-        text-align: center;
 
         .title{
             font-size: 2em;
             line-height: 1.2em;
+        }
+
+        svg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: 15em;
+            width: 15em;
+            color: rgba(125,125,125,0.1);
+
+            @media (min-width:$md) {
+                height: 25em;
+                width: 25em;
+            }
         }
 
         .content{
@@ -28,17 +37,6 @@ main{
             }
             line-height: 1.6em;
             font-weight: 200;
-        }
-    }
-    .banner{
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        height: 200px;
-        width: 100%;
-        overflow: hidden;
-        img{
-            width: 100%;
         }
     }
 }

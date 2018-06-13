@@ -169,7 +169,7 @@
         display:flex;
         align-items:center;
         justify-content: center;
-        height: 90px;
+        flex-grow: 1;
         padding: 0;
     }
 
@@ -182,6 +182,7 @@
         word-break: break-all;
         .id-button{
             display:flex;
+            flex-direction: column;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
@@ -263,10 +264,6 @@
         svg{
             width: 1.5em;
             height: 1.5em;
-        }
-
-        span{
-            margin-left: .6em;
         }
     }
 
@@ -366,9 +363,9 @@
 
         svg{
             margin: 0!important;
-            margin-left: .5em!important;
-            height: 2.5em;
-            width: 2.5em;
+            margin-right: .4em!important;
+            height: 1.5em;
+            width: 1.5em;
         }
     }
 
