@@ -49,8 +49,8 @@
                         <mat-label>{{ 'SEARCH_TEACHER_BY' | t }}</mat-label>
                         <mat-select [(value)]="search" (selectionChange)=" onChangeOption() ">
                             <mat-option value="">{{"ALL_TEACHER" | t}}</mat-option>
-                            <!--<mat-option value="active">{{"ACTIVE_TEACHER" | t}}</mat-option>-->
                             <mat-option value="recommended">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
+                            <mat-option value="active">{{"ACTIVE_TEACHER" | t}}</mat-option>
                             <mat-option value="reservable">{{"RESERVABLE_TEACHER" | t}}</mat-option>
                         </mat-select>
                     </mat-form-field>
