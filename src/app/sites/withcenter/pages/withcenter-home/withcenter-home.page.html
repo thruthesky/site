@@ -1,17 +1,16 @@
 <main>
-
       <header>
             <nav class="d-flex justify-content-between">
-                  <div class='logo d-flex p-2'>
+                  <div (click)=" onClickHome() " class='logo d-flex p-2'>
                         <span>
                               <img src="assets/img/logo/withcenter-icon.png" alt="Withcenter Logo">
                         </span>
                         <span class="pt-1 pl-2">위세너</span>
                   </div>
                   <div class='menu p-2'>
-                        <button>프랜차이즈</button>
-                        <button>화상영어</button>
-                        <button>시작하기</button>
+                        <button (click)=" scrollIntoView( 'franchise-about' ) ">프랜차이즈</button>
+                        <button (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</button>
+                        <button (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</button>
                   </div>
             </nav>
       </header>
@@ -46,16 +45,26 @@
 
             <section class="chapters p-2">
 
-                  <h2>위세너 프랜차이즈</h2>
-                  <about-franchise-component></about-franchise-component>
-                  <understanding-franchise-component></understanding-franchise-component>
+                  <section id="franchise-about">
+                        &nbsp;
+                        <h2 class="mt-5">위세너 프랜차이즈</h2>
+                        <about-franchise-component></about-franchise-component>
+                        <understanding-franchise-component></understanding-franchise-component>
 
+                  </section>
 
-                  <h2>화상영어 서비스</h2>
-                  <about-service-component></about-service-component>
+                  <section id="franchise-service">
+                        &nbsp;
+                        <h2 class="mt-5">화상영어 서비스</h2>
+                        <about-service-component></about-service-component>
 
-                  <h2>위세너 프랜차이즈 시작하기</h2>
-                  <apply-franchise-component></apply-franchise-component>
+                  </section>
+
+                  <section id="franchise-start">
+                              &nbsp;
+                        <h2 class="mt-5">위세너 프랜차이즈 시작하기</h2>
+                        <apply-franchise-component></apply-franchise-component>
+                  </section>
 
             </section>
 

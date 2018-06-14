@@ -20,7 +20,7 @@
 1만 5천페소(한화로 약 30만원)를 한달에 벌면 충분한데, 하루 8시간 근무를 하면, 10분 수업을 40회(매 시간 10분 휴식 포함)를 할 수 있습니다.
 
 
-<button (click)="show.salary = true">자세히 보기</button>
+<button (click)="show.salary = true" *ngIf=" ! show.salary ">자세히 보기</button>
 <div *ngIf=" show.salary ">
       <p>
             매우 낮은 수업료로 학생 만족 시키는 것 뿐만아니라, 동시에 매우 높은 수당 지급으로 강사를 만족시키고 있습니다.
@@ -51,7 +51,7 @@
 <h4>고품격 영어 교육 서비스</h4>
 영어 학원 강사와 재택근무 강사가 함께 수업을 합니다. 영어 학원 강사의 경우 수업을 잘 하지만 재택 근무 강사의 경우 꾸준한 관리를 통해 수업의 질을 높여나가고 있습니다.
 
-<button (click)="show.quality = true">자세히 보기</button>
+<button (click)="show.quality = true" *ngIf=" ! show.quality ">자세히 보기</button>
 <div *ngIf=" show.quality ">
       영어 학원 강사의 경우 대한민국에서 가장 유명하고, 비싸고, 고품격의 서비스를 하는 학원 강사가 카톡영어에서 수업을 하므로 수업의 품격에 대서는 걱정 할 필요가 없습니다. 재택 강사의 경우, 경험이 많은 강사 위주로
       수업을 진행하지만, 때로는 경험이 없는 영어 강사가 수업을 진행하기도 합니다. 온튜에서는 재택강사 관리를 위한 직원이 따로 있으며 시스템적으로 강사가 학생에게 최선을 다 해야 수업 예약을 받을 수 있으며,
@@ -63,7 +63,7 @@
 <h4>직거래 서비스</h4>
 온튜에서는 강사가 직접 수업료를 정하고 학생은 마음에 들면 예약을 합니다. 또한 선생님과 학생이 서로 상의해서 수업료를 조절하는 경우도 많습니다.
 
-<button (click)="show.directDeal = true">자세히 보기</button>
+<button (click)="show.directDeal = true" *ngIf=" ! show.directDeal ">자세히 보기</button>
 <div *ngIf=" show.directDeal ">
       강사가 직접 자신의 수업료를 정하다 보니 실력없는 영어 강사가 매우 높은 수업료를 지정하여 많은 수익을 벌기도 하는 일이 벌어지고 있습니다.
       <br>학생은 강사의 사진, 프로필, 동영상 및 수업 날짜,
@@ -83,7 +83,7 @@
 
 오직 학생만이 직접 해야하며 그 만큼 잘 자동화되어져 있습니다.
 
-<button (click)="show.automatic = true">자세히 보기</button>
+<button (click)="show.automatic = true" *ngIf=" ! show.automatic ">자세히 보기</button>
 <div *ngIf=" show.automatic ">
 위세너가 12년 전 100% 자동화 시스템을 처음 개발하고 난 다음, 다른 경쟁 회사들이 위세너 시스템을 따라하려고 하지만, 쉽게 따라오지 못하고 있습니다.
 <br>특히 전 세계의 재택 강사 및 여러 학원의 강사를 모집하여 직거래 시스템 생태계를 보유하고 있는 회사는 전 세계에서 위세너가 유일합니다.
