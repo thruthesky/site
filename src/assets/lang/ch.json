@@ -636,6 +636,7 @@
   "ACTIVE_TEACHER": "积极的老师",
   "IDX_MISSING": "号码丢失",
   "NO_VIDEO":"没有视频",
-  "NO_SCHEDULE": "没有时间表"
+  "NO_SCHEDULE": "没有时间表",
+  "WARNING_NOT_RECOMMENDED_TEACHER": "注意。 您正在查看没有明星老师的时间表。 老师可能不参加课程。"
 
 }

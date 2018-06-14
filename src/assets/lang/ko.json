@@ -640,9 +640,10 @@
   "COUNTRY": "국가",
   "All COUNTRY": "모든 국가",
   "RESERVABLE_TEACHER": "수업 시간표가 있는 선생님(주의: 선생님이 결석할 수 있음)",
-  "ACTIVE_TEACHER": "능동적 인 교사",
+  "ACTIVE_TEACHER": "활동적인 강사/최근 수업을 한 강사(주의: 선생님이 결석할 수 있음)",
   "IDX_MISSING": "글 번호가 없거나 잘못되었습니다.",
   "NO_VIDEO": "동영상 없음",
-  "NO_SCHEDULE" : "시간표 없음"
+  "NO_SCHEDULE" : "시간표 없음",
+  "WARNING_NOT_RECOMMENDED_TEACHER": "주의: 추천 강사가 아닙니다. 수업이 잘 진행되지 않을 수 있으니 유념해 주시기 바랍니다."
 
 }

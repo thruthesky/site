@@ -674,5 +674,6 @@
   "ACTIVE_TEACHER": "Active Teacher",
   "IDX_MISSING": "Wrong or Missing post number",
   "NO_VIDEO": "No Video",
-  "NO_SCHEDULE" : "No Schedule"
+  "NO_SCHEDULE" : "No Schedule",
+  "WARNING_NOT_RECOMMENDED_TEACHER": "Attention. You are viewing schedule with no star teacher."
 }
