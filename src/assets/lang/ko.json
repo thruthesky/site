@@ -443,7 +443,7 @@
   "REQUEST_REFUND": "복구 요청",
   "CANCEL_REFUND_REQUEST": "복구 요청 취소",
   "REFUNDED": "복구됨",
-  "POINT_REFUND_REJECTED": "환불 거부 됨",
+  "POINT_REFUND_REJECTED": "복구 거부 됨",
   "WRITE_A_REVIEW": "후기작성 ",
   "LECTURE_EVALUATION": "강의평가 ",
   "REFUND_REQUESTED": "복구 요청 됨",
@@ -629,7 +629,7 @@
   "INSTANT_POINT_LACK": "회원님의 포인트가 없거나 수업을 예약하기에 부족한 경우에는 선생님 목록이 나타나지 않습니다.",
   "INSTANT_RESERVE_ANOTHER_TIME": "다른 시간에 다시 예약을 시도 해 주세요.",
 
-  "POINT_REFUND_SETTLED": "환불이 완료 됨",
+  "POINT_REFUND_SETTLED": "복구 완료 됨",
 
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name 회원님은 #point 를 보유중입니다.",
   "KATALK_OPEN_ON_MOBILE_ONLY": "카톡 질문 및 상담은 핸드폰으로만 할 수 있습니다. 핸드폰을 사용해서 질문 메뉴를 클릭해주세요.",
