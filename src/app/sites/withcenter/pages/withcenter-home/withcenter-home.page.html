@@ -5,12 +5,18 @@
                         <span>
                               <img src="assets/img/logo/withcenter-icon.png" alt="Withcenter Logo">
                         </span>
-                        <span class="pt-1 pl-2">위세너</span>
+                        <span class="pt-1 pl-2">{{ t.withcenter }}</span>
                   </div>
                   <div class='menu p-2'>
-                        <button (click)=" scrollIntoView( 'franchise-about' ) ">프랜차이즈</button>
+                        <button (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.franchise }}</button>
                         <button (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</button>
                         <button (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</button>
+                        <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
+                              <option value='ch'>ch</option>
+                              <option value='en'>en</option>
+                              <option value='ko'>ko</option>
+                              <option value='jp'>jp</option>
+                        </select>
                   </div>
             </nav>
       </header>
@@ -61,7 +67,7 @@
                   </section>
 
                   <section id="franchise-start">
-                              &nbsp;
+                        &nbsp;
                         <h2 class="mt-5">위세너 프랜차이즈 시작하기</h2>
                         <apply-franchise-component></apply-franchise-component>
                   </section>

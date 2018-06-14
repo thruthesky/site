@@ -6,6 +6,8 @@ import { AboutFranchiseComponent } from '../../components/about-franchise/about-
 import { UnderstandingFranchiseComponent } from '../../components/understanding-franchise/understanding-franchise.component';
 import { AboutServiceComponent } from '../../components/about-service/about-service.component';
 import { ApplyFranchiseComponent } from '../../components/apply-franchise/apply-franchise.component';
+import { FormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
   { path: '', component: WithcenterHomePage }
@@ -13,6 +15,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ],
   exports: [
@@ -28,6 +31,7 @@ const routes: Routes = [
   entryComponents: [
     WithcenterHomePage
   ],
+  providers: [  ],
   bootstrap: [WithcenterHomePage],
   schemas: []
 })
