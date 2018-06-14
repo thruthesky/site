@@ -64,10 +64,13 @@
                     </mat-form-field>
                 </div>
                 <div class="col">
-                    <!--<mat-form-field>-->
-                    <!--<mat-label>{{ a.ln.COUNTRY }}</mat-label>-->
-                    <!--<input matInput type="text" name="country" id="country" [(ngModel)]="country" (keyup)=" onChangeOption()">-->
-                    <!--</mat-form-field>-->
+                    <mat-form-field>
+                        <mat-label>{{ 'COUNTRY' | t }}</mat-label>
+                        <mat-select [(value)]="country" (selectionChange)=" onChangeOption() ">
+                            <mat-option value="">{{"All COUNTRY" | t}}</mat-option>
+                            <mat-option *ngFor="let c of countries" [value]="c">{{ c }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
             </div>
         </div>
@@ -97,8 +100,8 @@
 
     </section>
 
+    
     <section class="page-body">
-
         <div class="teachers">
             <div class="container-fluid" *ngIf=" re ">
                 <div class="row">
@@ -114,7 +117,7 @@
                                 <img alt="profile photo" src="{{ teacher.photoURL }}">
                             </div>
                             <div class="name">{{ a.shortName( teacher.display_name )}}</div>
-                            <div class="grade" [attr.grade]=" teacher.grade " *ngIf="teacher.grade!=0">
+                            <div class="grade" [attr.grade]=" teacher.grade " *ngIf="teacher.grade != '0'">
                                 <span class="title">{{ 'RECOMMENDATION' | t}} : </span>
                                 <span class="star">
                                     <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"

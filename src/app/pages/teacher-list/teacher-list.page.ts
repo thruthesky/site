@@ -9,6 +9,7 @@ import { TEACHER_LIST_RESPONSE, TEACHER_LIST_INFO } from '../../modules/xapi/int
 interface OPTIONS {
     useCache?: boolean;
 }
+// SELECT idx_teacher, count(*) as cnt FROM lms_reservation WHERE `date` < '20180601' AND successful='Y' AND point > 0 GROUP BY idx_teacher
 
 
 @Component({
@@ -27,6 +28,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
      * This is needed to display teachers on the list.
      */
     teachers: Array<TEACHER_LIST_INFO> = [];
+    countries: Array<string> = null;
 
     gender = '';
     search = 'recommended';
@@ -149,8 +151,17 @@ export class TeacherListPage implements OnInit, OnDestroy {
     onClickSearchOptions() {
         this.display_options = true;
         this.search = '';
+        if (!this.countries) {
+            this.teacher_country_get();
+        }
         this.init();
         this.loadTeachers();
+    }
+
+    teacher_country_get() {
+        this.a.lms.teacher_country_get().subscribe( res => {
+            this.countries = res;
+        }, e => this.a.toast(e));
     }
 
 }

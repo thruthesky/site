@@ -554,7 +554,7 @@ export interface TEACHER_LIST_INFO {
     kakaotalk_id: string;
     list_order: string;
     photoURL: string;
-    totoal_reservation: string;
+    total_reservation: string;
     youtube_video_url: string;
     has_schedule: string;
 }

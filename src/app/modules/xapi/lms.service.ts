@@ -606,4 +606,9 @@ export class XapiLMSService extends Base {
         req['session_id'] = this.user.sessionId;
         return this.x.post(req);
     }
+    teacher_country_get() {
+        const req = {};
+        req['route'] = 'lms.teacher_country_get';
+        return this.x.post(req);
+    }
 }
