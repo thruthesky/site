@@ -1,3 +1,5 @@
+@import './../../../../../theme/vars';
+
 $page-width: 800px;
 $padding: .6em;
 $header-height: 2em;
@@ -18,7 +20,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: $content-width;
+        max-width: $page-width;
         height: $header-height;
         margin: auto;
         overflow: hidden;
@@ -69,7 +71,7 @@ header nav {
 section.content {
     margin: 0 auto;
     margin-top: $header-height + $padding;
-    max-width: $content-width;
+    max-width: $page-width;
     padding: 1em;
     @media (min-width:$md){
         padding: 0;
