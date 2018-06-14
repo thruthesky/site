@@ -414,7 +414,7 @@
   "REQUEST_REFUND": "払い戻しのリクエスト",
   "CANCEL_REFUND_REQUEST": "リクエスト払い戻しをキャンセルする",
   "REFUNDED": "払い戻された",
-  "POINT_REFUND_REJECTED": "ポイント払い戻しが拒否されました",
+  "POINT_REFUND_REJECTED": "返金拒否",
   "WRITE_A_REVIEW": "レビューを書く",
   "LECTURE_EVALUATION": "講義の評価",
   "REFUND_REQUESTED": "払い戻しが要求された",
@@ -578,7 +578,7 @@
   "REFUND REJECT SUCCESS": "拒否されたリクエストの成功。",
 
 
-  "POINT_REFUND_SETTLED": "ポイント払い戻しが確定した",
+  "POINT_REFUND_SETTLED": "払い戻しが決済された",
   "INSTANT_CANT_RESERVE": "インスタントセッションを予約することはできません。",
   "INSTANT_CANT_REASON": "インスタントセッションを予約できない理由は、次のいずれかです",
   "INSTANT_NO_AVAILABLE": "インスタントセッションを行うことができる先生はいません。",
@@ -595,5 +595,7 @@
   "COUNTRY": "国",
   "RESERVABLE_TEACHER": "予約可能な教師",
   "ACTIVE_TEACHER": "アクティブな教師",
-  "IDX_MISSING": "番号がありません"
+  "IDX_MISSING": "番号がありません",
+  "NO_VIDEO": "ビデオはありません",
+  "NO_SCHEDULE" : "スケジュールなし"
 }

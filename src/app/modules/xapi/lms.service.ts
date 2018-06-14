@@ -5,6 +5,7 @@ import { XapiUserService } from './user.service';
 
 
 import { Base } from './base';
+import { TEACHER_LIST_RESPONSE } from './interfaces';
 
 export interface SCHEDULE_EDIT extends DAYS {
     idx?: number;
@@ -49,19 +50,6 @@ export interface DAYS {
     saturday: boolean;
 }
 
-export interface TEACHER_LIST {
-    ID: number;
-    bookable_time: number;
-    class_id: string;
-    name: string;
-    age: number;
-    grade: number;
-    list_order: number;
-    photoURL: string;
-    kakao_qrmark_string: string;
-}
-
-export type TEACHERS_LIST = Array<TEACHER_LIST>;
 
 export interface SESSION {
     book_next: string;
@@ -264,9 +252,9 @@ export class XapiLMSService extends Base {
     }
 
 
-    teacher_list(data) {
+    teacher_list(data): Observable<TEACHER_LIST_RESPONSE> {
         data['route'] = 'lms.teacher_list';
-        return this.x.post(data);
+        return <any>this.x.post(data);
     }
 
 

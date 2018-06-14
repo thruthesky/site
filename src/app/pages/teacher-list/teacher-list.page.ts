@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { TEACHER_LIST_RESPONSE, TEACHER_LIST_INFO } from '../../modules/xapi/interfaces';
 
 interface OPTIONS {
     useCache?: boolean;
@@ -17,8 +18,15 @@ interface OPTIONS {
 })
 export class TeacherListPage implements OnInit, OnDestroy {
 
-    re = null;
-    teachers = [];
+    re: TEACHER_LIST_RESPONSE = null;
+
+    /**
+     * This holds all teachers that are searched.
+     *
+     * this.re.teachers will only holds the teachers of the request.
+     * This is needed to display teachers on the list.
+     */
+    teachers: Array<TEACHER_LIST_INFO> = [];
 
     gender = '';
     search = 'recommended';
@@ -98,6 +106,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
 
         // console.log('loadTeachers', query);
         this.a.lms.teacher_list(query).subscribe(re => {
+            console.log('re: ', re);
             /**
              * If cached data has been loaded.
              */

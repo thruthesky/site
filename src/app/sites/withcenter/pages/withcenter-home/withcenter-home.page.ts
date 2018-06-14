@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 // import { FireService } from '../../../../modules/firelibrary/core';
 
@@ -10,11 +10,11 @@ import { AppService } from '../../../../providers/app.service';
 })
 export class WithcenterHomePage {
 
-
   animation = {
     index: 0,
     show: 'text-group-0'
   };
+  dropdown = {};
   constructor(
     public a: AppService,
     // public fire: FireService
@@ -24,12 +24,21 @@ export class WithcenterHomePage {
   }
   animateText() {
     setInterval(() => {
-      this.animation.index ++;
-      if ( this.animation.index >= 3 ) {
+      this.animation.index++;
+      if (this.animation.index >= 3) {
         this.animation.index = 0;
       }
       this.animation.show = 'text-group-' + this.animation.index;
     }, 9000);
+  }
+
+  scrollIntoView(id: string) {
+    const element = document.getElementById(id);
+    element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+  }
+  onClickHome() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 }
 

@@ -541,3 +541,24 @@ export interface LMS_INFO {
     past: string;                       // no of total past of all students.
     leveltest: string;
 }
+
+
+export interface TEACHER_LIST_INFO {
+    ID: string;
+    age: string;
+    birthday: string;
+    bookable_time: string;
+    display_name: string;
+    grade: string;
+    kakao_qrmark_string: string;
+    kakaotalk_id: string;
+    list_order: string;
+    photoURL: string;
+    totoal_reservation: string;
+    youtube_video_url: string;
+    has_schedule: string;
+}
+export interface TEACHER_LIST_RESPONSE {
+    total: string;
+    teachers: Array<TEACHER_LIST_INFO>;
+}

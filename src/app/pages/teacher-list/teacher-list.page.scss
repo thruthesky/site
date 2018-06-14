@@ -1,237 +1,204 @@
 @import '../../../theme/vars';
-
-
-header{
+header {
     display: flex;
     justify-content: space-between;
     color: #fff;
     .option-icon {
         display: flex;
         align-items: center;
-        padding:0 2em;
+        padding: 0 2em;
         font-size: .8rem;
-         svg{
-             height: 1em;
-             width: 1em;
-         }
-        .text{  
+        svg {
+            height: 1em;
+            width: 1em;
+        }
+        .text {
             white-space: nowrap;
         }
         cursor: pointer;
     }
-
 }
 
-main{    
-
+main {
     min-height: 540px;
     font-size: 14px;
     padding-bottom: 4em;
-    
-    .options-icon{
+    .options-icon {
         height: 1em;
-        margin-left:.5em;
+        margin-left: .5em;
     }
-
     *,
     *::before,
-    *::after{
+    *::after {
         box-sizing: border-box;
     }
-
-    .display-option-true{
-        border-bottom: 1px solid rgba(125,125,125,0.1)
+    .display-option-true {
+        border-bottom: 1px solid rgba(125, 125, 125, 0.1)
     }
-
-    .page-options{
+    .page-options {
         padding: 1em;
         background: white;
-
-
-        mat-form-field{
-            margin-top:.5em;
+        mat-form-field {
+            margin-top: .5em;
             padding: .8em 0;
-            width:100%;
+            width: 100%;
         }
-
-        .title{
+        .title {
             font-size: 1.1em;
             font-weight: bold;
         }
-
-        mat-checkbox{
-            span{
+        mat-checkbox {
+            span {
                 font-size: .9em;
-                margin-left:.5em;
+                margin-left: .5em;
                 color: grey;
             }
         }
-
-        .checkboxes{
+        .checkboxes {
             margin: 2em auto;
             width: 90%;
             text-align: left;
-
-            @media screen and (max-width:$sm) {
+            @media screen and (max-width: $sm) {
                 width: 95%
             }
-
-            &>div{
+            &>div {
                 margin: 1em 0;
-
-                @media screen and (max-width:$sm) {
-                    span{
+                @media screen and (max-width: $sm) {
+                    span {
                         display: block;
                     }
                 }
             }
         }
-
-        button{
+        button {
             display: flex;
-            align-items:center;
+            align-items: center;
             margin-left: auto;
-            border:none;
-            background:none;
+            border: none;
+            background: none;
             cursor: pointer;
-
-            svg{
-               height: 1.2em;
-               width: 1.2em;
-               margin-right: .3em;
+            svg {
+                height: 1.2em;
+                width: 1.2em;
+                margin-right: .3em;
             }
-
-            &:focus{
-                outline:none;
+            &:focus {
+                outline: none;
             }
         }
     }
-
-
-    .page-desc{
+    .page-desc {
         padding: 1.2em;
         background-color: #e1e6e7;
         font-size: .8em;
         text-align: center;
     }
-
-
-    .teachers{
-        
+    .teachers {
         margin: .5em -.1em;
-
-        .col-auto{
-            padding:.4em .1em;
+        .col-auto {
+            padding: .4em .1em;
         }
-
-        .row{
+        .row {
             justify-content: space-around;
             align-items: stretch;
-
-            @media screen and(max-width:$sm) {
+            @media screen and(max-width: $sm) {
                 margin-right:0;
-                margin-left:0;
+                margin-left: 0;
             }
         }
-
-        .profile-wrapper{
+        .profile-wrapper {
             margin: .4em auto;
             width: 100px;
             height: 100%;
-            border:1px solid rgba(grey,0.2);
+            border: 1px solid rgba(grey, 0.2);
             border-radius: 2px;
             background: white;
             text-align: center;
             overflow: hidden;
-
-            .name{
+            .name {
                 margin-top: .6em;
                 text-transform: uppercase;
                 font-size: 90%;
                 font-weight: 500;
             }
-
-            .grade,.reservation{
+            .grade,
+            .reservation,
+            .no-video,
+            .no-schedule {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 margin-top: .6em;
                 font-size: 80%;
             }
-
-            .reservation{
-                color:#607d8b;
+            .reservation {
+                color: #607d8b;
             }
-
-            .grade{
+            .no-video,
+            .no-schedule {
+                color: rgb(202, 0, 0);
+                svg {
+                    color: #272727;
+                    height: 1.2em;
+                    width: 1.2em;
+                    margin-right: .2em;
+                }
+            }
+            .grade {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-wrap: wrap;
                 font-size: .75em;
-
-                .title{
+                .title {
                     margin-top: .1em;
                 }
-
-                .star{
+                .star {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     margin-left: .2em;
-                    svg{
+                    svg {
                         height: 1em;
                         width: 1em;
                     }
                 }
             }
-
-            .grade[grade="5"]{
+            .grade[grade="5"] {
                 color: #f06000;
-              }
-              
-              .grade[grade="4"] {
+            }
+            .grade[grade="4"] {
                 color: #ff9900;
-              }
-              
-              .grade[grade="3"] {
+            }
+            .grade[grade="3"] {
                 color: #4a8d23;
-              }
-              
-              .grade[grade="2"] {
+            }
+            .grade[grade="2"] {
                 color: #272775;
-              }
-              
-              .grade[grade="1"] {
+            }
+            .grade[grade="1"] {
                 color: #272727;
-              }
-            
+            }
         }
-
-        .teacher-profile-photo{
+        .teacher-profile-photo {
             height: 120px;
             width: 100px;
             overflow: hidden;
             border-top-left-radius: 2px;
             border-top-right-radius: 2px;
-        
-            img{
-                width:100%;
+            img {
+                width: 100%;
             }
-        
         }
-
-
         @media screen and (max-width:544px) {
-            .container-fluid{
+            .container-fluid {
                 padding-right: .4em;
                 padding-left: .4em;
-            }   
+            }
         }
-
-
         .hover-img-effect {
-            position: relative;
-            // transition: transform 0.1s ease-in-out;
+            position: relative; // transition: transform 0.1s ease-in-out;
             cursor: pointer;
-
             .hover-cover {
                 display: flex;
                 align-items: center;
@@ -242,77 +209,63 @@ main{
                 opacity: 0;
                 border-radius: 2px;
                 background: rgba(#607d8b, 0.4);
-                text-align:center;//for ie
+                text-align: center; //for ie
                 // transition: opacity 0.2s ease-in-out;
-
-                .icon{
+                .icon {
                     height: 2em;
                     width: 2em;
-                    color:white;
+                    color: white;
                 }
             }
-
-
             &:hover {
-              -webkit-transform: scale(0.98);
-              -ms-transform: scale(0.98);
-              transform: scale(0.98);
-              .hover-cover {
-                opacity: 1;
-              }
+                -webkit-transform: scale(0.98);
+                -ms-transform: scale(0.98);
+                transform: scale(0.98);
+                .hover-cover {
+                    opacity: 1;
+                }
             }
-
         }
-        
-
     }
-
-
-    #no-more-teachers,.showmoreteacher-wrapper {
+    #no-more-teachers,
+    .showmoreteacher-wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin:4em 1em;
-
-        @media screen and (max-width:$md) {
+        margin: 4em 1em;
+        @media screen and (max-width: $md) {
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
-
-        button{
+        button {
             display: flex;
-            align-items:center;
-            margin-left:2em;
+            align-items: center;
+            margin-left: 2em;
             padding: .8em 1.3em;
             border-radius: 2px;
-            border:none;
-            background:dodgerblue;
-            color:white;
+            border: none;
+            background: dodgerblue;
+            color: white;
             cursor: pointer;
-            @media screen and (max-width:$md) {
+            @media screen and (max-width: $md) {
                 margin: 0;
-                margin-top:1em;
+                margin-top: 1em;
             }
-
-            svg{
-                height:1.2em;
+            svg {
+                height: 1.2em;
                 margin-left: .4em;
             }
-
         }
     }
-
-    .loader{
+    .loader {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
-        mat-spinner{
-        margin: .5em;
+        mat-spinner {
+            margin: .5em;
         }
     }
-
 }
