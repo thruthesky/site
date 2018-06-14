@@ -9,8 +9,6 @@ import { TEACHER_LIST_RESPONSE, TEACHER_LIST_INFO } from '../../modules/xapi/int
 interface OPTIONS {
     useCache?: boolean;
 }
-// date('Ymd', time() - 60 * 60 * 24 * 14 );
-// SELECT idx_teacher, count(*) as cnt FROM lms_reservation WHERE `date` < '20180601' AND successful='Y' AND point > 0 GROUP BY idx_teacher
 
 
 @Component({
