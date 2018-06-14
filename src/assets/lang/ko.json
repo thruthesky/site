@@ -556,9 +556,9 @@
 
   "YOU_ARE_TO_AGREE": "이용약관에 동의 버튼을 클릭해야 회원 가입을 할 수 있습니다.",
 
-  "WITHCENTER_TEACHER_DESC_1": "이 강사는 학생의 수업 예약을 자주 취소하므로 미리 알고 계셔야합니다.",
+  "WITHCENTER_TEACHER_DESC_1": "이 강사는 학생의 수업 일정을 취소하여 사전에 알아 두어야합니다.",
   "WITHCENTER_TEACHER_DESC_2": "이 강사와 수업 취소가 없는 한달 고정 수업을 할 수 있습니다. 매일 25분 한달 7만5천원.",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "이 강사는 학생의 예약된 수업을 자주 취소하니 유의 해 주세요.",
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "이 강사는 학생의 예정된 수업을 취소 할 수 있습니다.",
   "TOC_AGREE": "이용약관에 동의합니다.",
   "TOC_TITLE": "이용약관 보기",
   "VIDEO_RESERVE_TITLE": "수업 예약 동영상 설명",
@@ -634,5 +634,11 @@
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name 회원님은 #point 를 보유중입니다.",
   "KATALK_OPEN_ON_MOBILE_ONLY": "카톡 질문 및 상담은 핸드폰으로만 할 수 있습니다. 핸드폰을 사용해서 질문 메뉴를 클릭해주세요.",
   "SEARCH_TEACHER_NAME": "교사 이름 검색",
-  "TEACHER_NAME": "선생님 성함"
+  "TEACHER_NAME": "선생님 성함",
+  "MORE_OPTION": "기타 옵션",
+  "SEARCH_BY": "검색 기준",
+  "COUNTRY": "국가",
+  "RESERVABLE_TEACHER": "예약 교사",
+  "ACTIVE_TEACHER": "능동적 인 교사",
+  "IDX_MISSING": "글 번호가 없거나 잘못되었습니다."
 }

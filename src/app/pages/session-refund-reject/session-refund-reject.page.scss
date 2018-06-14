@@ -49,8 +49,17 @@ main{
 
     .buttons{
         margin-top:4em;
-        text-align: center;
+
+        svg{
+            height: 3em;
+            width: 3em;
+        }
         button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin:auto;
             padding: 1em 3em;
             border:1px solid grey; 
             background: #e0e0e0;

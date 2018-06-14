@@ -58,6 +58,34 @@ main{
             font-weight: bold;
         }
 
+        mat-checkbox{
+            span{
+                font-size: .9em;
+                margin-left:.5em;
+                color: grey;
+            }
+        }
+
+        .checkboxes{
+            margin: 2em auto;
+            width: 90%;
+            text-align: left;
+
+            @media screen and (max-width:$sm) {
+                width: 95%
+            }
+
+            &>div{
+                margin: 1em 0;
+
+                @media screen and (max-width:$sm) {
+                    span{
+                        display: block;
+                    }
+                }
+            }
+        }
+
         button{
             display: flex;
             align-items:center;

@@ -6,7 +6,7 @@ import { AppService } from '../../../../providers/app.service';
 @Component({
   selector: 'app-page-withcenter-home',
   templateUrl: 'withcenter-home.page.html',
-  // styleUrls: ['./withcenter-home.page.scss']
+  styleUrls: ['./withcenter-home.page.scss']
 })
 export class WithcenterHomePage {
 

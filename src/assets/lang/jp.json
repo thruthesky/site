@@ -505,9 +505,9 @@
   "CURRICULUM_PAGE_TITLE_TEXT_8": " 参考にカカオトークで画像の授業をする教材を展開が困難である。（カカオトークで先生の顔と学生の顔が画面全体を多占めますからね）したがって、学生が授業時間の前に教材を一度予習をしてください。",
 
   "YOU_ARE_TO_AGREE": "登録するには、利用規約の同意ボタンをクリックしてください。",
-  "WITHCENTER_TEACHER_DESC_1": "この先生はしばしば彼女の予約をキャンセルすることを覚えておいてください。",
+  "WITHCENTER_TEACHER_DESC_1": "この先生は彼女の予約をキャンセルする可能性があることをご了承ください。",
   "WITHCENTER_TEACHER_DESC_2": "キャンセルしないでこの教師と固定スケジュールを予約することができます。 1日25分1日。 75,000ウォン",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "この先生はしばしば予約をキャンセルすることを覚えておいてください。",
+  "WITHCENTER_TEACHER_RESERVE_REMINDER": "このインストラクターは、学生の予定クラスをキャンセルすることがありますのでご注意ください。",
 
   "KAKAOTALK_ID_IMPORTANT": "カカオトークIDをもう一度確認してください。 間違ったカカオトークIDのために多くの失敗したレッスンがあります。",
   "TOC_AGREE": "登録することで、私は同意する",
@@ -589,5 +589,11 @@
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name会員は#pointを保持しています。",
   "KATALK_OPEN_ON_MOBILE_ONLY": "あなたはあなたの電話を使って管理者にしか連絡することができません。 あなたの電話を使ってtalkEnglishにアクセスしてください。",
   "SEARCH_TEACHER_NAME": "教師の名前を検索する",
-  "TEACHER_NAME": "先生の名前"
+  "TEACHER_NAME": "先生の名前",
+  "MORE_OPTION": "より多くのオプション",
+  "SEARCH_BY": "で検索",
+  "COUNTRY": "国",
+  "RESERVABLE_TEACHER": "予約可能な教師",
+  "ACTIVE_TEACHER": "アクティブな教師",
+  "IDX_MISSING": "番号がありません"
 }
