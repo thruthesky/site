@@ -671,5 +671,6 @@
   "COUNTRY": "Country",
   "RESERVABLE_TEACHER": "Reservable Teacher",
   "ACTIVE_TEACHER": "Active Teacher",
-  "IDX_MISSING": "Wrong or Missing post number"
+  "IDX_MISSING": "Wrong or Missing post number",
+  "NO_VIDEO": "No Video"
 }

@@ -15,6 +15,7 @@ export class WithcenterHomePage {
     index: 0,
     show: 'text-group-0'
   };
+  dropdown = {};
   constructor(
     public a: AppService,
     // public fire: FireService

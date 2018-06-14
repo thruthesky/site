@@ -114,8 +114,8 @@
                                 <img alt="profile photo" src="{{ teacher.photoURL }}">
                             </div>
                             <div class="name">{{ a.shortName( teacher.display_name )}}</div>
-                            <div class="grade" [attr.grade]=" teacher.grade ">
-                                <span class="title" *ngIf="teacher.grade!=0">{{ 'RECOMMENDATION' | t}} : </span>
+                            <div class="grade" [attr.grade]=" teacher.grade "  *ngIf="teacher.grade!=0">
+                                <span class="title">{{ 'RECOMMENDATION' | t}} : </span>
                                 <span class="star">
                                     <svg *ngFor="let i of a.countStar(teacher.grade)" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 576 512" data-fa-i2svg="">
@@ -125,6 +125,12 @@
                             </div>
                             <div class="reservation">
                                 ( {{ teacher.total_reservation }} {{ 'PARTICIPATED' | t}} )
+                            </div>
+                            <div class="no-video" *ngIf="!teacher.youtube_video_url">
+                                {{ 'NO_VIDEO' | t }}
+                            </div>
+                            <div class="no-schedule" *ngIf="false">
+                                {{ 'NO_SHEDULE' | t }}
                             </div>
                         </div>
                     </a>

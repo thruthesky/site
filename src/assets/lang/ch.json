@@ -633,6 +633,7 @@
   "COUNTRY": "国家",
   "RESERVABLE_TEACHER": "可预留教师",
   "ACTIVE_TEACHER": "积极的老师",
-  "IDX_MISSING": "号码丢失"
+  "IDX_MISSING": "号码丢失",
+  "NO_VIDEO":"没有视频"
 
 }
