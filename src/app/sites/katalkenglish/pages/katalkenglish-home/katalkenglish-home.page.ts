@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { ForumService, WP_POST } from '../../../../providers/forum/forum.service.module';
+import { TEACHER_LIST_INFO } from '../../../../modules/xapi/interfaces';
 
 @Component({
     selector: 'katalkenglish-home-page',
@@ -20,7 +21,7 @@ export class KatalkEnglishHomePage {
     moreAbout3 = false;
     moreAbout4 = false;
 
-    teachers = [];
+    teachers: Array<TEACHER_LIST_INFO> = [];
     total_teachers = 0;
 
 
@@ -77,8 +78,8 @@ export class KatalkEnglishHomePage {
             limit: 8
         };
         this.a.lms.teacher_list(opt).subscribe(re => {
-            this.teachers = re['teachers'];
-            this.total_teachers = re['total'];
+            this.teachers = re.teachers;
+            this.total_teachers = parseInt(re.total, 10);
         }, () => {});
     }
 }
