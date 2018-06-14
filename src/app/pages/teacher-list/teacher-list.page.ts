@@ -19,6 +19,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
 
     re = null;
     teachers = [];
+    countries: Array<string> = null;
 
     gender = '';
     search = 'recommended';
@@ -140,8 +141,17 @@ export class TeacherListPage implements OnInit, OnDestroy {
     onClickSearchOptions() {
         this.display_options = true;
         this.search = '';
+        if (!this.countries) {
+            this.teacher_country_get();
+        }
         this.init();
         this.loadTeachers();
+    }
+
+    teacher_country_get() {
+        this.a.lms.teacher_country_get().subscribe( res => {
+            this.countries = res;
+        }, e => this.a.toast(e));
     }
 
 }

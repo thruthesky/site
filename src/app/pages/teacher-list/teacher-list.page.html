@@ -64,10 +64,13 @@
                     </mat-form-field>
                 </div>
                 <div class="col">
-                    <!--<mat-form-field>-->
-                        <!--<mat-label>{{ a.ln.COUNTRY }}</mat-label>-->
-                        <!--<input matInput type="text" name="country" id="country" [(ngModel)]="country" (keyup)=" onChangeOption()">-->
-                    <!--</mat-form-field>-->
+                    <mat-form-field>
+                        <mat-label>{{ 'COUNTRY' | t }}</mat-label>
+                        <mat-select [(value)]="country" (selectionChange)=" onChangeOption() ">
+                            <mat-option value="">{{"All COUNTRY" | t}}</mat-option>
+                            <mat-option *ngFor="let c of countries" [value]="c">{{ c }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
             </div>
         </div>
