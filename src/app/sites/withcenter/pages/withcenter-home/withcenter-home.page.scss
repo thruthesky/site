@@ -69,6 +69,7 @@ section.content {
     h2{
         margin: 0;
         text-align: center;
+        padding-top: 2em;
         @media (min-width:$md){
             padding-top: 3.5em;   
         }
@@ -78,7 +79,7 @@ section.content {
         color: #113ca0;
         padding-top: 1.5em;
         @media (min-width:$md){
-            padding-top: 2.5em;   
+            padding-top: 2em;   
         }
     }
     p{
