@@ -14,4 +14,5 @@ export interface WithcenterShow {
     share: boolean;
     teachers: boolean;
     books: boolean;
+    howtoApply: boolean;
 }
