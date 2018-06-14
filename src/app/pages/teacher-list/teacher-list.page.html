@@ -129,7 +129,7 @@
                             <div class="no-video" *ngIf="!teacher.youtube_video_url">
                                 {{ 'NO_VIDEO' | t }}
                             </div>
-                            <div class="no-schedule" *ngIf="false">
+                            <div class="no-schedule" *ngIf="!teacher.has_schedule">
                                 {{ 'NO_SHEDULE' | t }}
                             </div>
                         </div>

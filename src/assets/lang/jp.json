@@ -596,5 +596,6 @@
   "RESERVABLE_TEACHER": "予約可能な教師",
   "ACTIVE_TEACHER": "アクティブな教師",
   "IDX_MISSING": "番号がありません",
-  "NO_VIDEO": "ビデオはありません"
+  "NO_VIDEO": "ビデオはありません",
+  "NO_SCHEDULE" : "スケジュールなし"
 }

@@ -290,7 +290,7 @@
   "REQUEST_REFUND": "Request Refund",
   "CANCEL_REFUND_REQUEST": "Cancel Request Refund",
   "REFUNDED": "Refunded",
-  "POINT_REFUND_REJECTED": "Point Refund Rejected",
+  "POINT_REFUND_REJECTED": "Refund Rejected",
   "WRITE_A_REVIEW": "Write a Review",
   "LECTURE_EVALUATION": "Lecture Evaluation",
   "REFUND_REQUESTED": "Refund Requested",
@@ -654,7 +654,7 @@
   "REFUND REJECT": "Refund Request Reject",
   "REFUND REJECT CONFIRM": "Are you sure you want to reject this refund request?",
   "REFUND REJECT SUCCESS": "Rejected request success.",
-  "POINT_REFUND_SETTLED": "Point refund settled",
+  "POINT_REFUND_SETTLED": "Refund settled",
   "INSTANT_CANT_RESERVE": "OOh, You cannot reserve instant session for now.",
   "INSTANT_CANT_REASON": "The reasons why you cannot reserve instant session may be one of the followings",
   "INSTANT_NO_AVAILABLE": "There is no teacher who can do the instant session.",
@@ -672,5 +672,6 @@
   "RESERVABLE_TEACHER": "Reservable Teacher",
   "ACTIVE_TEACHER": "Active Teacher",
   "IDX_MISSING": "Wrong or Missing post number",
-  "NO_VIDEO": "No Video"
+  "NO_VIDEO": "No Video",
+  "NO_SCHEDULE" : "No Schedule"
 }
