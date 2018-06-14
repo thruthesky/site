@@ -150,13 +150,29 @@ main{
                 font-weight: 500;
             }
 
-            .grade,.reservation{
+            .grade,
+            .reservation,
+            .no-video,
+            .no-schedule{
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 margin-top: .6em;
                 font-size: 80%;
             }
 
             .reservation{
                 color:#607d8b;
+            }
+
+            .no-video,.no-schedule{
+                color: red;
+                svg{
+                    color: #272727;
+                    height: 1.2em;
+                    width: 1.2em;
+                    margin-right: .2em;
+                }
             }
 
             .grade{
