@@ -1,8 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../providers/app.service';
-import { USER_DATA_RESPONSE, BOOK } from '../../../modules/xapi/interfaces';
+import { USER_DATA_RESPONSE, BOOK, FILES, USER_UPDATE, USER_UPDATE_RESPONSE } from '../../../modules/xapi/interfaces';
+import { XapiFileUploadComponent } from '../../../components/xapi-file-upload/xapi-file-upload.component';
 
 interface SHOW {
     loader: {
@@ -23,6 +24,9 @@ interface SHOW {
     styleUrls: ['user-info.page.scss'],
 })
 export class UserInfoPage implements OnInit {
+
+    @ViewChild('profilePhotoUpload') fileUpload: XapiFileUploadComponent;
+    files: FILES = [];
     user: USER_DATA_RESPONSE = {};
     sessions: Array<BOOK> = [];
     sessionsToday: Array<BOOK> = [];
@@ -340,6 +344,42 @@ export class UserInfoPage implements OnInit {
                 }
             }
         }, e => this.a.toast(e));
+    }
+
+
+    onSuccessUploadPicture(file) {
+        /**
+         * Delete previous photo.
+         *
+         * file[0]
+         */
+        if (this.files.length > 1) { /// If there are two files, one for prvious photo, the other is for new photo.
+            this.fileUpload.deleteFile(this.files[0], () => this.updatePrimaryPhoto(file), () => this.updatePrimaryPhoto(file));
+        } else {
+            this.updatePrimaryPhoto(file);
+        }
+
+
+    }
+
+
+    updatePrimaryPhoto(file) {
+
+        // const data: USER_UPDATE = {
+        //     photoURL: this.files[0].url,
+        //     user_email: this.form.user_email
+        // };
+        // this.a.user.admin_update_user(data).subscribe((res: USER_UPDATE_RESPONSE) => {
+        //
+        //     // console.log("updatePrimaryPhoto", file);
+        //     this.files[0] = file;
+        //     this.a.render(100);
+        //     this.a.render(5000); // on mobile, the image is updated very late.
+        //     this.a.render(15000);
+        // }, err => {
+        //     this.a.toast(err);
+        // });
+
     }
 
 }

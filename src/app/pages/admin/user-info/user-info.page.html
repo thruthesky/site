@@ -135,9 +135,9 @@
                         <tr>
                             <td>Primary Photo</td>
                             <td>
-                                <!--<div class="photo-upload">-->
+                                <div class="photo-upload">
                                     <!--<input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">-->
-                                    <!--<div class="photo-upload-button">-->
+                                    <div class="photo-upload-button">
                                         <div class="photo">
                                             <img src="{{ user.photoURL }}">
                                         </div>
@@ -150,16 +150,16 @@
                                                 <!--<span>{{ 'PHOTO UPLOAD' | t }}</span>-->
                                             <!--</button>-->
                                         <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">-->
-                                        <!--<mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">-->
-                                        <!--</mat-progress-bar>-->
-                                        <!--<span>{{ profilePhotoUpload.progressPercentage}}%</span>-->
-                                    <!--</div>-->
-                                    <!--<xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"-->
-                                                                <!--[showProgressBar]="false" (success)="onSuccessUploadPicture($event)">-->
-                                    <!--</xapi-file-upload-component>-->
-                                <!--</div>-->
+                                    </div>
+                                    <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">
+                                        <mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">
+                                        </mat-progress-bar>
+                                        <span>{{ profilePhotoUpload.progressPercentage}}%</span>
+                                    </div>
+                                    <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
+                                                                [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
+                                    </xapi-file-upload-component>
+                                </div>
 
                             </td>
                         </tr>
