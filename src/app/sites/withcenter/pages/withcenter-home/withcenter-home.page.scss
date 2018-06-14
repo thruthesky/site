@@ -1,5 +1,10 @@
+$page-width: 800px;
 $padding: .6em;
 $header-height: 2em;
+main {
+    margin: 0 auto;
+    max-width: $page-width;
+}
 header {
     position: fixed;
     top: 0;
@@ -12,6 +17,10 @@ header {
             width: 24px;
         }
     }
+}
+
+header nav {
+    max-width: $page-width;
 }
 
 section.content {
@@ -41,6 +50,15 @@ section.content {
         .text[no='2'] {
             animation: textAni 1s 3s 1 forwards;
         }
+        .text[no='3'] {
+            animation: textAni 1s 4s 1 forwards;
+        }
+    }
+    nav {
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        bottom: 0;
     }
     .banner {
         position: absolute;
@@ -59,4 +77,24 @@ section.content {
     100% {
         opacity: 1;
     }
+}
+
+
+
+h2 {
+    margin: 0;
+    padding: 2em;
+    font-weight: 100;
+    background-color: #b4cddd;
+}
+
+
+
+
+.withcenter-button {
+    padding: .8em .6em;
+    border: 0;
+    border-radius: 4px;
+    font-size: 11pt;
+    background-color: rgba(55, 125, 255, 0.1);
 }
