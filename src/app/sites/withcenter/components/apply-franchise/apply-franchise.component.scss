@@ -1,3 +1,24 @@
+h3{
+    margin: 0;
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 1em;
+    color: #113ca0;
+}
+.info{
+    padding: 1em;
+    border-radius: 2px;
+    border: 1px solid #EFC600;
+    background: rgba(#EFC600,0.2);
+    line-height: 1.6em;
+    font-size: .9em;
+
+    button{
+        border: none;
+        background: none;
+        color: #3513a4
+    }
+}
 #company-info{
     &>div{
         display: flex;
@@ -7,7 +28,7 @@
         input{
             padding: .75em;
             border-radius: 2px;
-            border: 1px solid rgba(125,125,125,0.4);
+            border: 1px solid rgba(125,125,125,0.3);
             font-size: .9em;
         }
 
