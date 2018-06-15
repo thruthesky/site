@@ -1480,7 +1480,7 @@ export class AppService {
             }
         } else {
             if (this.isMobile()) {
-                window.open(this.kakaoUrls.student_kakaoplus_deeplink);
+                document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
             } else {
                 this.toast(this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
                 // window.open(this.kakaoUrls.student_kakaoplus_url);
