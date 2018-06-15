@@ -10,7 +10,6 @@ import { AppService } from '../../../../providers/app.service';
 })
 export class WithcenterHomePage {
 
-
   animation = {
     index: 0,
     show: 'text-group-0'
@@ -25,8 +24,8 @@ export class WithcenterHomePage {
   }
   animateText() {
     setInterval(() => {
-      this.animation.index ++;
-      if ( this.animation.index >= 3 ) {
+      this.animation.index++;
+      if (this.animation.index >= 3) {
         this.animation.index = 0;
       }
       this.animation.show = 'text-group-' + this.animation.index;
