@@ -1,17 +1,22 @@
 <main>
-
       <header>
             <nav class="d-flex justify-content-between">
-                  <div class='logo d-flex p-2'>
+                  <div (click)=" onClickHome() " class='logo d-flex p-2'>
                         <span>
                               <img src="assets/img/logo/withcenter-icon.png" alt="Withcenter Logo">
                         </span>
-                        <span class="pt-1 pl-2">위세너</span>
+                        <span class="pt-1 pl-2">{{ t.withcenter }}</span>
                   </div>
                   <div class='menu p-2'>
-                        <button>프랜차이즈</button>
-                        <button>화상영어</button>
-                        <button>시작하기</button>
+                        <button (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.franchise }}</button>
+                        <button (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</button>
+                        <button (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</button>
+                        <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
+                              <option value='ch'>ch</option>
+                              <option value='en'>en</option>
+                              <option value='ko'>ko</option>
+                              <option value='jp'>jp</option>
+                        </select>
                   </div>
             </nav>
       </header>
@@ -46,19 +51,44 @@
 
             <section class="chapters p-2">
 
+<<<<<<< HEAD
                   <h2>위세너 프랜차이즈</h2>
                   <about-franchise-component></about-franchise-component>
                   <understanding-franchise-component></understanding-franchise-component>
+=======
+                  <section id="franchise-about">
+                        &nbsp;
+                        <h2 class="mt-5">위세너 프랜차이즈</h2>
+                        <about-franchise-component></about-franchise-component>
+                        <understanding-franchise-component></understanding-franchise-component>
+>>>>>>> 5d538007944f73e396123eb74a8ac69ff54e6166
 
+                  </section>
 
-                  <h2>화상영어 서비스</h2>
-                  <about-service-component></about-service-component>
+                  <section id="franchise-service">
+                        &nbsp;
+                        <h2 class="mt-5">화상영어 서비스</h2>
+                        <about-service-component></about-service-component>
 
+<<<<<<< HEAD
                   <h2>위세너 프랜차이즈 시작하기</h2>
                   <apply-franchise-component></apply-franchise-component>
 
             </section>
+=======
+                  </section>
+>>>>>>> 5d538007944f73e396123eb74a8ac69ff54e6166
 
+                  <section id="franchise-start">
+                        &nbsp;
+                        <h2 class="mt-5">위세너 프랜차이즈 시작하기</h2>
+                        <apply-franchise-component></apply-franchise-component>
+                  </section>
 
+<<<<<<< HEAD
+=======
+            </section>
+
+>>>>>>> 5d538007944f73e396123eb74a8ac69ff54e6166
       </section>
 </main>

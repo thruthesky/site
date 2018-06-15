@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { TEACHER_LIST_RESPONSE, TEACHER_LIST_INFO } from '../../modules/xapi/interfaces';
 
 interface OPTIONS {
     useCache?: boolean;
@@ -17,13 +18,21 @@ interface OPTIONS {
 })
 export class TeacherListPage implements OnInit, OnDestroy {
 
-    re = null;
-    teachers = [];
+    re: TEACHER_LIST_RESPONSE = null;
+
+    /**
+     * This holds all teachers that are searched.
+     *
+     * this.re.teachers will only holds the teachers of the request.
+     * This is needed to display teachers on the list.
+     */
+    teachers: Array<TEACHER_LIST_INFO> = [];
+    countries: Array<string> = null;
 
     gender = '';
     search = 'recommended';
     page_no: number;
-    limit = 120; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
+    limit = 180; // default should be 100 or more numbers NOT to scroll. Instead, put a option button to show all teachers.
     noMoreTeachers: boolean;
 
     show = {
@@ -46,7 +55,12 @@ export class TeacherListPage implements OnInit, OnDestroy {
         this.teacherNameChange
             .debounceTime(500) // wait 500ms after the last event before emitting last event
             .distinctUntilChanged() // only emit if value is different from previous value
-            .subscribe(() => {
+            // .map(v => console.log('v: ', v))
+            .subscribe((v) => {
+                console.log('v: ', v);
+                if ( v !== '' && v.length < 2 ) {
+                    return;
+                }
                 this.init();
                 this.loadTeachers();
             });
@@ -93,6 +107,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
 
         // console.log('loadTeachers', query);
         this.a.lms.teacher_list(query).subscribe(re => {
+            console.log('re: ', re);
             /**
              * If cached data has been loaded.
              */
@@ -132,6 +147,21 @@ export class TeacherListPage implements OnInit, OnDestroy {
         this.teacherNameChange.next(this.teacher_name);
     }
 
+    onClickSearchOptions() {
+        this.display_options = true;
+        this.search = '';
+        if (!this.countries) {
+            this.teacher_country_get();
+        }
+        this.init();
+        this.loadTeachers();
+    }
+
+    teacher_country_get() {
+        this.a.lms.teacher_country_get().subscribe( res => {
+            this.countries = res;
+        }, e => this.a.toast(e));
+    }
 
 }
 

@@ -591,11 +591,13 @@
   "SEARCH_TEACHER_NAME": "教師の名前を検索する",
   "TEACHER_NAME": "先生の名前",
   "MORE_OPTION": "より多くのオプション",
-  "SEARCH_BY": "で検索",
+  "SEARCH_TEACHER_BY": "で検索",
   "COUNTRY": "国",
+  "All COUNTRY": "すべての国",
   "RESERVABLE_TEACHER": "予約可能な教師",
   "ACTIVE_TEACHER": "アクティブな教師",
   "IDX_MISSING": "番号がありません",
   "NO_VIDEO": "ビデオはありません",
-  "NO_SCHEDULE" : "スケジュールなし"
+  "NO_SCHEDULE" : "スケジュールなし",
+  "WARNING_NOT_RECOMMENDED_TEACHER": "注意。 あなたは星の先生がいないスケジュールを見ています。 教師はクラスに参加することはできません。"
 }

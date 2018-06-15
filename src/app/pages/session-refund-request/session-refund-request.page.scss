@@ -1,41 +1,34 @@
-
-main{
+main {
     min-height: 540px;
-
-    .text-area{
+    .text-area {
         margin: 3em 2em;
         margin-bottom: 2em;
-
-        .input{
+        .input {
+            border: 1px solid #ddd;
             width: 100%;
             padding: 2em;
             font-size: 1em;
         }
-
-        .message{
+        .message {
             margin-top: 1em;
-            color:darkred;
+            color: darkred;
         }
     }
-    .buttons{
+    .buttons {
         text-align: center;
-        button{
-            margin:.5em;
+        button {
+            margin: .5em;
             padding: 1em 3em;
             border: none;
             cursor: pointer;
-
-            &:first-child{
+            &:first-child {
                 background: dodgerblue;
                 color: white
             }
-
-            &:last-child{
+            &:last-child {
                 background: #e0e0e0;
-                color:darkred;
+                color: darkred;
             }
         }
-
-
     }
 }

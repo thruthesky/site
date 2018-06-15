@@ -667,11 +667,13 @@
   "SEARCH_TEACHER_NAME": "Search Teacher Name",
   "TEACHER_NAME": "Teacher Name",
   "MORE_OPTION": "More Options",
-  "SEARCH_BY": "Search by",
+  "SEARCH_TEACHER_BY": "List Teachers By",
   "COUNTRY": "Country",
+  "All COUNTRY": "All Country",
   "RESERVABLE_TEACHER": "Reservable Teacher",
   "ACTIVE_TEACHER": "Active Teacher",
   "IDX_MISSING": "Wrong or Missing post number",
   "NO_VIDEO": "No Video",
-  "NO_SCHEDULE" : "No Schedule"
+  "NO_SCHEDULE" : "No Schedule",
+  "WARNING_NOT_RECOMMENDED_TEACHER": "Attention. You are viewing schedule with no star teacher."
 }

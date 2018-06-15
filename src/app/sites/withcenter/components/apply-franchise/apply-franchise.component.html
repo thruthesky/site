@@ -6,7 +6,7 @@
 <br>2) 도메인 선택
 <br>을 하면 창업이 끝나고 바로 시작을 하면 됩니다.
 
-<button (click)="show.howtoApply = true">설명 더 보기</button>
+<button (click)="show.howtoApply = true" *ngIf=" ! show.howtoApply ">설명 더 보기</button>
 <div *ngIf=" show.howtoApply ">
 
     가맹사는 창업을 위해서 단 돈 1원도 쓸 필요가 없으며 창업 방법이 너무 쉬워 따로 설명이나 상담을 하지 않습니다. 가맹사 등록 후, 가맹사 매니저 페이지에서 본사와 상담을 할 수 있습니다.
@@ -43,7 +43,7 @@
     <button>위세너 프랜차이즈 가맹사로 가입하기</button>
 </form>
 
-<button class="withcenter-button" (click)=" show.company = true ">추가 설명 보기</button>
+<button class="withcenter-button" (click)=" show.company = true " *ngIf=" ! show.company ">추가 설명 보기</button>
 <div *ngIf=" show.company ">
     참고로 사업자 등록과 통신판매업 신고 번호는 누구나 쉽게 취득 할 수 있습니다. 개인의 경우, 세무서에 가서 그냥 집 주소로 전화영어, 화상영어, 온라인영어와 같이 등록을 해 달라고 하시면됩니다. 그리고 통신판매업 신고를
     어디서 하는지 물어보시면됩니다. 통신판매업신고를 하실 때, 서버와 도메인이 아직 없는 상태이므로 나중에 따로 등록을 한다고 말씀을 하시면됩니다. 만약 통신판매신고를 할 때, 서버 도메인과 소재지를 묻는다면 아래의
@@ -60,7 +60,7 @@
     <button>도메인 입력</button>
 </form>
 
-<button class="withcenter-button" (click)=" show.domain = true ">추가 설명 보기</button>
+<button class="withcenter-button" (click)=" show.domain = true " *ngIf=" ! show.domain ">추가 설명 보기</button>
 <div *ngIf=" show.domain ">
 
 

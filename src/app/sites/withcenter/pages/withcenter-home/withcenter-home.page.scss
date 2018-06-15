@@ -1,4 +1,5 @@
-@import '../../../../../theme/vars';
+@import './../../../../../theme/vars';
+
 $page-width: 800px;
 $padding: .6em;
 $header-height: 2em;
@@ -8,6 +9,7 @@ main {
 }
 header {
     position: fixed;
+    z-index: 1234;
     top: 0;
     left: 0;
     width: 100%;
@@ -146,8 +148,6 @@ section.content {
         opacity: 1;
     }
 }
-
-
 
 h2 {
     margin: 0;
