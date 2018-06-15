@@ -432,7 +432,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             this.a.updateUserPoint();
             this.a.onLmsReserve(this.teacher_name([session]));
             if ( this.teacher_group(session) === 'withcenter' ) {
-                this.a.toast( this.a.ln.WITHCENTER_TEACHER_RESERVE_REMINDER );
+                // this.a.toast( this.a.ln.WITHCENTER_TEACHER_RESERVE_REMINDER );
             }
         }, e => {
             session['in_progress'] = false;
