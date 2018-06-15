@@ -1,22 +1,23 @@
 <main>
       <header>
-            <nav class="d-flex justify-content-between">
-                  <div (click)=" onClickHome() " class='logo d-flex p-2'>
-                        <span>
-                              <img src="assets/img/logo/withcenter-icon.png" alt="Withcenter Logo">
-                        </span>
-                        <span class="pt-1 pl-2">{{ t.withcenter }}</span>
+            <nav>
+                  <div class="logo" (click)=" onClickHome() ">
+                        <img src="assets/img/logo/withcenter-icon.png" alt="Withcenter Logo">
+                        <span>{{ t.withcenter }}</span>
                   </div>
-                  <div class='menu p-2'>
-                        <button (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.franchise }}</button>
-                        <button (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</button>
-                        <button (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</button>
-                        <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
-                              <option value='ch'>ch</option>
-                              <option value='en'>en</option>
-                              <option value='ko'>ko</option>
-                              <option value='jp'>jp</option>
-                        </select>
+                  <div class='menu'>
+                        <a (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.franchise }}</a>
+                        <a (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</a>
+                        <a (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</a>
+
+                        <div class="flags">
+                              <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
+                                    <option value='ch'>ch</option>
+                                    <option value='en'>en</option>
+                                    <option value='ko'>ko</option>
+                                    <option value='jp'>jp</option>
+                              </select>
+                        </div>
                   </div>
             </nav>
       </header>
@@ -49,7 +50,7 @@
                   </div>
             </nav>
 
-            <section class="chapters p-2">
+            <section class="chapters">
 
                   <section id="franchise-about">
                         &nbsp;

@@ -15,4 +15,9 @@ export interface WithcenterShow {
     teachers: boolean;
     books: boolean;
     howtoApply: boolean;
+    stableManagement: boolean;
+    instructorCancelation: boolean;
+    revenueSharing: boolean;
+    PWA: boolean;
+    smartPhoneApp: boolean;
 }

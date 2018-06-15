@@ -2,20 +2,21 @@
 
 $page-width: 800px;
 $padding: .6em;
-$header-height: 2em;
+$header-height: 4em;
+
 main {
     margin: 0 auto;
     max-width: $page-width;
+    font-family: Helvetica, Arial, sans-serif
 }
 header {
     position: fixed;
-    z-index: 1234;
     top: 0;
     left: 0;
     width: 100%;
     background-color: #fff;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(125,125,125,0.2);
+    z-index: 1234;
+    border-bottom: 1px solid rgba(125,125,125,0.4);
     nav{
         display: flex;
         justify-content: space-between;
@@ -23,18 +24,16 @@ header {
         max-width: $page-width;
         height: $header-height;
         margin: auto;
-        overflow: hidden;
-        font-size: 80%;
-        @media (min-width:$md) {
-            font-size: .9em;
+        padding: 0 1em;
+        @media (min-width:$md){
+            padding: 0;
         }
+        overflow: hidden;
+        color: #1e2022;
         .logo {
             display: flex;
             align-items: center;
-            padding:0 1em;
-            @media (min-width:$md) {
-                padding: 0;
-            }
+            padding:0;
             height:  $header-height;
             font-weight: bold;
             img {
@@ -46,27 +45,48 @@ header {
         .menu{
             display: flex;
             align-items: center;
+            height:  $header-height;
             a{
-                display: flex;
-                align-items: center;
-                height:  $header-height;
-                padding:0 1em;
+                display: none;
                 @media (min-width:$md){
-                    padding-left:3em; 
-                    padding-right: 0;  
+                    display: flex;
                 }
+                align-items: center;
+                height:100%;
+                padding:0 1em;
+                font-weight: 300;
+                font-size: .8em;
+                white-space: nowrap;
 
                 &:hover{
-                    opacity: 0.6;
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        .flags{
+            border: 1px solid rgba(125,125,125,0.4);
+            border-bottom: none;
+            border-top: none;
+            height:  $header-height;
+            select{
+                border: none;
+                background: none;
+                width: 5em;
+                height:100%;
+                text-align-last: center;
+                font-size: .8em;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                &::-ms-expand {
+                    display: none; //for ie
                 }
             }
         }
     }
 }
 
-header nav {
-    max-width: $page-width;
-}
 
 section.content {
     margin: 0 auto;
@@ -75,25 +95,6 @@ section.content {
     padding: 1em;
     @media (min-width:$md){
         padding: 0;
-    }
-    h2{
-        margin: 0;
-        text-align: center;
-        padding-top: 2em;
-        @media (min-width:$md){
-            padding-top: 3.5em;   
-        }
-        color: #ef6c00
-    }
-    h3{
-        color: #113ca0;
-        padding-top: 1.5em;
-        @media (min-width:$md){
-            padding-top: 2em;   
-        }
-    }
-    p{
-        line-height: 1.6em;
     }
 }
 
@@ -151,13 +152,19 @@ section.content {
 
 h2 {
     margin: 0;
-    padding: 2em;
+    margin-top: 2.5em;
+    color: #EF6C00;
+    font-size:1.87em;
     font-weight: 100;
-    background-color: #b4cddd;
 }
 
-
-
+h3{
+    margin: 0;
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 1em;
+    color: #113ca0;
+}
 
 .withcenter-button {
     padding: .8em .6em;

@@ -97,6 +97,16 @@ main {
         margin: .5em -.1em;
         .col-auto {
             padding: .4em .1em;
+            &:hover {
+                .hover-img-effect{
+                    -webkit-transform: scale(0.98);
+                    -ms-transform: scale(0.98);
+                    transform: scale(0.98);
+                    .hover-cover {
+                        opacity: 1;
+                    }
+                }
+            }
         }
         .row {
             justify-content: space-around;
@@ -190,7 +200,7 @@ main {
                 width: 100%;
             }
         }
-        @media screen and (max-width:544px) {
+        @media screen and (max-width:$sm) {
             .container-fluid {
                 padding-right: .4em;
                 padding-left: .4em;
@@ -215,14 +225,6 @@ main {
                     height: 2em;
                     width: 2em;
                     color: white;
-                }
-            }
-            &:hover {
-                -webkit-transform: scale(0.98);
-                -ms-transform: scale(0.98);
-                transform: scale(0.98);
-                .hover-cover {
-                    opacity: 1;
                 }
             }
         }

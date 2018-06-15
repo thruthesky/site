@@ -288,21 +288,22 @@
     }
 
     .buttons-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
         font-size: .9em;
-        margin-bottom: 1em;
-        .row{
-            align-items: center;
-            justify-content: center;
+        margin-bottom: .5em;
+        @media (min-width:$md) {
+            margin-bottom: 0;
         }
-
-        .col-6{
-            display: flex;
-            justify-content: center;
-            padding: 0 .5em;
-        }
-
         svg{
             margin-right: .4em;
+        }
+
+        &>button,&>span{
+            margin:.5em;   
         }
     }
 
@@ -325,8 +326,8 @@
          svg{
              margin:0!important;
              margin-left: .5em!important;
-             height: 1.6em;
-             width: 1.6em;
+             height: 1.4em;
+             width: 1.4em;
          }
          span:last-child{
              margin-left: .6em;
@@ -363,8 +364,10 @@
     }
 
     .cancel-refund-request{
-        border:1px solid darkorange!important;
-        color:darkorange;
+        background: #fff;
+        border-radius: 2px;
+        border:1px solid darkred!important;
+        color:darkred;
 
         svg{
             margin: 0!important;
