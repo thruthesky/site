@@ -15,32 +15,61 @@
 
 <h4>가맹사 정보 입력</h4>
 사업자 등록증이 없다면, 아래의 입력 양식에서 사업자등록번호와 통신판매업 신고번호를 빼고 입력하시면됩니다.
-<form>
-    담당자 명:
-    <input>(필수)
-    <br> 회사명:
-    <input>(필수)
-    <br> 대표자명:
-    <input>(필수)
-    <br> 사업자 등록번호:
-    <input>
-    <br> 통신판매업 신고 번호:
-    <input>
-    <br> 회사 주소:
-    <input>(필수)
+<form id="company-info">
+    <div>
+        <label>담당자 명: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+    <div>
+        <label>회사명: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+    <div>
+        <label>대표자명: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+    <div>
+        <label>사업자 등록번호:</label>
+        <input>
+    </div>
+    <div>
+        <label>통신판매업 신고 번호:</label>
+        <input>
+    </div>
 
-    <br> 회사 전화번호:
-    <input>(필수)
-    <br> 회사 이메일:
-    <input>(필수)
-    <br> 담당자 명:
-    <input>(필수)
-    <br> 담당자 연락처:
-    <input>(필수)
-    <br>
-    <input type="checkbox"> 프랜차이즈 가맹사 가입 약관 동의하기
-    <br>
-    <button>위세너 프랜차이즈 가맹사로 가입하기</button>
+    <div>
+        <label>회사 주소: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+
+    <div>
+        <label>회사 전화번호: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+
+    <div>
+        <label>회사 이메일: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+
+    <div>
+        <label>담당자 명: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+
+    <div>
+        <label>담당자 연락처: <span class="notice">(필수)</span></label>
+        <input>
+    </div>
+
+    <label class="toc">
+        <input type="checkbox"> 
+        프랜차이즈 가맹사 가입 약관 동의하기
+    </label>
+
+    <span class="submit">
+        <button>위세너 프랜차이즈 가맹사로 가입하기</button>
+    </span>
 </form>
 
 <button class="withcenter-button" (click)=" show.company = true " *ngIf=" ! show.company ">추가 설명 보기</button>
