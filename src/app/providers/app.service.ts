@@ -1127,6 +1127,13 @@ export class AppService {
             return 0;
         }
     }
+    lmsInfoCancellableTimeForInstantReservation() {
+        if (this.info && this.info['CANCELLABLE_TIME_FOR_INSTANT_RESERVATION']) {
+            return parseInt(this.info['CANCELLABLE_TIME_FOR_INSTANT_RESERVATION'], 10) / 60;
+        } else {
+            return 0;
+        }
+    }
 
 
     /**
