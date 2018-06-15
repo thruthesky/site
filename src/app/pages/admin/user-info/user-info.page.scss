@@ -62,3 +62,13 @@
     background-color: rgb(37, 126, 161);
     color: white;
 }
+
+
+.profile-photo {
+    width: 100px;
+    height: 120px;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
+}

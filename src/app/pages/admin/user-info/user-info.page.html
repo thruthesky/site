@@ -136,9 +136,9 @@
                             <td>Primary Photo</td>
                             <td>
                                 <div class="photo-upload">
-                                    <!--<input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">-->
+                                    
                                     <div class="photo-upload-button">
-                                        <div class="photo">
+                                        <div class="profile-photo">
                                             <img src="{{ user.photoURL }}">
                                         </div>
                                         <!--<div>-->
@@ -151,6 +151,7 @@
                                             <!--</button>-->
                                         <!--</div>-->
                                     </div>
+                                    <input class="input-box" type="file" (change)="profilePhotoUpload.onChangeFile($event)">
                                     <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">
                                         <mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">
                                         </mat-progress-bar>

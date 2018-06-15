@@ -2,7 +2,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../providers/app.service';
-import { USER_DATA_RESPONSE, BOOK, FILES, USER_UPDATE, USER_UPDATE_RESPONSE } from '../../../modules/xapi/interfaces';
+import { USER_DATA_RESPONSE, BOOK, FILES } from '../../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../../components/xapi-file-upload/xapi-file-upload.component';
 
 interface SHOW {
@@ -25,7 +25,7 @@ interface SHOW {
 })
 export class UserInfoPage implements OnInit {
 
-    @ViewChild('profilePhotoUpload') fileUpload: XapiFileUploadComponent;
+    @ViewChild('profilePhotoUpload') profilePhotoUpload: XapiFileUploadComponent;
     files: FILES = [];
     user: USER_DATA_RESPONSE = {};
     sessions: Array<BOOK> = [];
@@ -354,7 +354,7 @@ export class UserInfoPage implements OnInit {
          * file[0]
          */
         if (this.files.length > 1) { /// If there are two files, one for prvious photo, the other is for new photo.
-            this.fileUpload.deleteFile(this.files[0], () => this.updatePrimaryPhoto(file), () => this.updatePrimaryPhoto(file));
+            this.profilePhotoUpload.deleteFile(this.files[0], () => this.updatePrimaryPhoto(file), () => this.updatePrimaryPhoto(file));
         } else {
             this.updatePrimaryPhoto(file);
         }
@@ -364,6 +364,15 @@ export class UserInfoPage implements OnInit {
 
 
     updatePrimaryPhoto(file) {
+
+        console.log('file uploaded: ', file);
+
+        this.user.photoURL = file.url;
+
+        this.a.lms.admin_user_profile_photo_update({ ID: this.user.ID, photo_guid: file.url }).subscribe( re => {
+            console.log('admin_user_profile_update: re:', re);
+        }, e => this.a.toast(e));
+
 
         // const data: USER_UPDATE = {
         //     photoURL: this.files[0].url,
