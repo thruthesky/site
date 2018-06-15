@@ -1,7 +1,8 @@
 <section [ngClass]="{ show: show }" *ngIf="reminders && reminders.length ">
-    <h2>{{ a.ln.REMINDER }}</h2>
+    <a routerLink="/student_reminders">
+        <h2>{{ a.ln.REMINDER }}</h2>
+    </a>
     <div class="content">
-        <a *ngFor="let post of reminders " routerLink="{{ a.urlPost( post.id ) }}" >{{ post.title.rendered }}</a>
+        <a *ngFor="let post of reminders " routerLink="{{ a.urlPost( post.id ) }}">{{ post.title.rendered }}</a>
     </div>
 </section>
-
