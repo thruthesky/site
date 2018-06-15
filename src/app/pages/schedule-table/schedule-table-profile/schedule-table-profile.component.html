@@ -110,12 +110,10 @@
 
     </ng-template>
 
-    <div class="attention-no-star-teacher">
-
-            <div class="text">
-                    {{ a.ln.WARNING_NOT_RECOMMENDED_TEACHER }}
-                </div>
-            
+    <div class="attention-no-star-teacher" *ngIf=" isSingleTeacher && re.teacher.grade < 1 ">
+        <div class="text">
+            {{ a.ln.WARNING_NOT_RECOMMENDED_TEACHER }}
+        </div>
     </div>
 
 
