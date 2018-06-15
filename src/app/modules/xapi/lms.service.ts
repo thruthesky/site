@@ -611,4 +611,10 @@ export class XapiLMSService extends Base {
         req['route'] = 'lms.teacher_country_get';
         return this.x.post(req);
     }
+
+    admin_user_profile_photo_update( req ) {
+        req['route'] = 'lms.admin_user_profile_photo_update';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
 }

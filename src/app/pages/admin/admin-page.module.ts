@@ -17,6 +17,8 @@ import { PushNotificationPage } from './push-notification/push-notification.page
 import { SettingsPage } from './settings/settings.page';
 import { SessionEditPage } from './session-edit/session-edit.page';
 import { ForumServiceModule } from '../../providers/forum/forum.service.module';
+import { MaterialModule } from '../../app.material.module';
+import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload/xapi-file-upload.component.module';
 
 
 const appRoutes: Array<Route> = [
@@ -55,7 +57,9 @@ const appRoutes: Array<Route> = [
         FormsModule,
         RouterModule.forChild( appRoutes ),
         TranslatePipeModule,
-        ForumServiceModule
+        ForumServiceModule,
+        MaterialModule,
+        XapiFileUploadComponentModule,
         // UserInfoComponentModule
     ],
     entryComponents: [
