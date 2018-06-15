@@ -533,6 +533,7 @@ export interface LMS_INFO {
     MAX_FREE_CLASS_MINUTES: string;
     MAX_FREE_CLASS_LIMIT: string;
     MAX_CANCELLABLE_TIME: string;
+    CANCELLABLE_TIME_FOR_INSTANT_RESERVATION: string;
     MAX_REFUNDABLE_TIME: string;
     MAX_POINT_PER_TEACHER_GRADE: string;
     student: string;
