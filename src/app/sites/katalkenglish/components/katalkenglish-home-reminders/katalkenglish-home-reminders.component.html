@@ -8,7 +8,6 @@
         </a>
     </h2>
     <div class="content">
-        <a *ngFor="let post of reminders " routerLink="{{ a.urlPost( post.id ) }}" >{{ post.title.rendered }}</a>
+        <a *ngFor="let post of reminders " routerLink="{{ a.urlPost( post.id ) }}">{{ post.title.rendered }}</a>
     </div>
 </section>
-
