@@ -340,7 +340,7 @@
                 </div>
 
                 <div [class.accordion-hidden]="!accord.on9" [class.accordion-showed]="accord.on9">
-                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_9_1' | t:{'lmsInfoCancellableMinutes': a.lmsInfoCancellableMinutes()} }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_9_1' | t:{'lmsInfoCancellableMinutes': a.lmsInfoCancellableMinutes(), 'lmsInfoCancellableMinutes_2': a.lmsInfoCancellableMinutes(), 'lmsInfoCancellableTimeForInstantReservation': a.lmsInfoCancellableTimeForInstantReservation() } }}</div>
                 </div>
             </div>
         </div>
