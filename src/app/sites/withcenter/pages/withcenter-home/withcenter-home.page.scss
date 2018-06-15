@@ -24,20 +24,16 @@ header {
         max-width: $page-width;
         height: $header-height;
         margin: auto;
-        overflow: hidden;
-        font-weight: 300;
-        font-size: 80%;
-        color: #1e2022;
-        @media (min-width:$md) {
-            font-size: .9em;
+        padding: 0 1em;
+        @media (min-width:$md){
+            padding: 0;
         }
+        overflow: hidden;
+        color: #1e2022;
         .logo {
             display: flex;
             align-items: center;
-            padding:0 1em;
-            @media (min-width:$md) {
-                padding: 0;
-            }
+            padding:0;
             height:  $header-height;
             font-weight: bold;
             img {
@@ -49,12 +45,19 @@ header {
         .menu{
             display: flex;
             align-items: center;
+            height:  $header-height;
             a{
-                display: flex;
+                display: none;
+                @media (min-width:$md){
+                    display: flex;
+                }
                 align-items: center;
-                height:  $header-height;
+                height:100%;
                 padding:0 1em;
+                font-weight: 300;
+                font-size: 80%;
                 line-height: 0;
+                white-space: nowrap;
 
                 &:hover{
                     opacity: 0.7;
@@ -64,9 +67,6 @@ header {
     }
 }
 
-header nav {
-    max-width: $page-width;
-}
 
 section.content {
     margin: 0 auto;
@@ -75,25 +75,6 @@ section.content {
     padding: 1em;
     @media (min-width:$md){
         padding: 0;
-    }
-    h2{
-        margin: 0;
-        text-align: center;
-        padding-top: 2em;
-        @media (min-width:$md){
-            padding-top: 3.5em;   
-        }
-        color: #ef6c00
-    }
-    h3{
-        color: #113ca0;
-        padding-top: 1.5em;
-        @media (min-width:$md){
-            padding-top: 2em;   
-        }
-    }
-    p{
-        line-height: 1.6em;
     }
 }
 
@@ -151,13 +132,12 @@ section.content {
 
 h2 {
     margin: 0;
-    padding: 2em;
-    font-weight: 100;
-    background-color: #b4cddd;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    font-size: 2.5em;
+    font-weight: 400;
+    text-align: center;
 }
-
-
-
 
 .withcenter-button {
     padding: .8em .6em;
