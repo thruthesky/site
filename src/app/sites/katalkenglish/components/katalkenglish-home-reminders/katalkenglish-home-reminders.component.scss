@@ -4,11 +4,29 @@ section {
     font-size: .85em;
     h2 {
         margin: 0;
-        padding: .5em 1em;
+        background: #e2ebf5;
         font-weight: 100;
         font-size: 1.2em;
-        background: #e2ebf5;
         color: black;
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 1em;
+            .external-link{
+                display: flex;
+                align-items: center;
+                padding: .7em;
+                padding-right: 1em;
+                color: #000;
+                cursor: pointer;
+    
+                svg{
+                    height: 1.15em;
+                    width: 1.15em;
+                }
+            }
+        }
     }
     .content {
         &>a {

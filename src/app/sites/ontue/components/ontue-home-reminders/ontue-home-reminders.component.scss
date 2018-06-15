@@ -10,11 +10,30 @@ section {
 
     h2 {
         margin: 0;
-        padding:.71em 1.4em;
-        font-weight: 100;
+        font-weight: 200;
         font-size: 1em;
         background: #133CAC;
         color:#fff;
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+            padding-left: 1em;
+            .external-link{
+                display: flex;
+                align-items: center;
+                padding: .71em;
+                padding-right: 1em;
+                color: #fff;
+                cursor: pointer;
+    
+                svg{
+                    height: 1.15em;
+                    width: 1.15em;
+                }
+            }
+        }
     }
 
     .content{

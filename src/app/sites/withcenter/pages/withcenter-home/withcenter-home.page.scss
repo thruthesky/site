@@ -2,19 +2,20 @@
 
 $page-width: 800px;
 $padding: .6em;
-$header-height: 2em;
+$header-height: 4em;
+
 main {
     margin: 0 auto;
     max-width: $page-width;
+    font-family: Helvetica, Arial, sans-serif
 }
 header {
     position: fixed;
-    z-index: 1234;
     top: 0;
     left: 0;
     width: 100%;
     background-color: #fff;
-    z-index: 1000;
+    z-index: 1234;
     border-bottom: 1px solid rgba(125,125,125,0.2);
     nav{
         display: flex;
@@ -24,7 +25,9 @@ header {
         height: $header-height;
         margin: auto;
         overflow: hidden;
+        font-weight: 300;
         font-size: 80%;
+        color: #1e2022;
         @media (min-width:$md) {
             font-size: .9em;
         }
@@ -51,13 +54,10 @@ header {
                 align-items: center;
                 height:  $header-height;
                 padding:0 1em;
-                @media (min-width:$md){
-                    padding-left:3em; 
-                    padding-right: 0;  
-                }
+                line-height: 0;
 
                 &:hover{
-                    opacity: 0.6;
+                    opacity: 0.7;
                 }
             }
         }
