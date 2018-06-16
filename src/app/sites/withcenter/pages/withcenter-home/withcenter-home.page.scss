@@ -46,13 +46,10 @@ header {
             display: flex;
             height:  $header-height;
             &>span{
-                display: none;
-                @media (min-width:$md){
-                    display: flex;
-                }
+                display: flex;
                 align-items: center;
                 height:100%;
-                padding:0 1em;
+                padding:0 .5em;
                 font-weight: 400;
                 font-size: .8em;
                 white-space: nowrap;
@@ -65,79 +62,11 @@ header {
         }
 
         .flags{
-            position: relative;
-            height:  $header-height;
-            width: 100px;
-            &:hover{
-                .toggle + .content{
-                    display: block;
-                    animation: .3s 1 fade-in-out;
-                }
-                cursor: pointer;
-            } 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: $header-height;
             
-            @keyframes fade-in-out {
-                0%{
-                    opacity: 0;
-                }
-                100%{
-                    opacity: 1;
-                }
-            }
-            .toggle{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100%;
-                width: 100%;
-                font-size: 1em;
-                font-weight: 300;
-                padding-bottom: .13em;
-                color: #77838f;
-
-                svg,img{
-                    height: 1.2em;
-                    width: 1.2em;
-                }
-
-                svg{
-                    margin-left: .2em;
-                }
-                img{
-                    margin-right: .5em 
-                }
-
-                .ko-flag{
-                    border:1px solid rgba(125,125,125,0.1);
-                    height: 1.5em;
-                    width: 1.5em;
-                }
-            }
-            .content{
-                display: none;
-                position: absolute;
-                top: 100%;
-                border-radius: 2px;
-                border: 1px solid rgba(125,125,125,0.4);
-                background: #fff;
-                text-align: center;
-                input{
-                    position: absolute;
-                    opacity: 0;
-                }
-
-                span{
-                    display: inline-block;
-                    width: 100%;
-                    padding: .5em;
-                    cursor: pointer;
-                    font-size: .85em;
-
-                    &:hover{
-                        color: #377dff
-                    }
-                }
-            }
         }
     }
 }
