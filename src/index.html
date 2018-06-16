@@ -116,7 +116,7 @@
           });
         }
       }).catch(function (error) {
-        console.log('Caught error on getRegisteration()');
+        console.log('Caught error on getRegisteration().', error, 'This may be an error on local developemnt computer only since we have no service-worker.js anymore.');
       });
     };
   </script>

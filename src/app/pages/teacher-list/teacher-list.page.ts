@@ -107,7 +107,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
 
         // console.log('loadTeachers', query);
         this.a.lms.teacher_list(query).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             /**
              * If cached data has been loaded.
              */
