@@ -15,16 +15,19 @@ export class WithcenterTextService {
         // this.t = getTexts(this.languageCode);
 
         const keys = Object.keys(texts);
+        console.log('keys: ', keys);
+        console.log('texts: ', texts);
         for (const key of keys) {
-            this.selectedTexts[key] = texts[this.languageCode][key];
+            this.selectedTexts[key] = texts[key][this.languageCode];
         }
+
+        console.log('selectedTexts: ', this.selectedTexts);
         return this.selectedTexts;
     }
 
     getLanguageCode(): string {
 
         const ln = _.get(WITHCENTER_LANGUAGE_CODE);
-        console.log('got ln: ', ln);
         if (ln) {
             return ln;
         } else {
