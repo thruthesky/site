@@ -2,67 +2,38 @@
 
 <p>위세너 화상영어 프랜차이즈 가맹사 등록은 너무 간단합니다.</p>
 
-<ol>
-    <li> 가맹 정보</li>
-    <li> 도메인 선택</li>
-</ol>
 
 <div class="info" (click)="show.howtoApply = true">
-    을 하면 창업이 끝나고 바로 시작을 하면 됩니다.
     <button  *ngIf=" ! show.howtoApply ">설명 더 보기</button>
     <div *ngIf=" show.howtoApply ">
-        가맹사는 창업을 위해서 단 돈 1원도 쓸 필요가 없으며 창업 방법이 너무 쉬워 따로 설명이나 상담을 하지 않습니다. 가맹사 등록 후, 가맹사 매니저 페이지에서 본사와 상담을 할 수 있습니다.
+        가맹사는 창업을 위해서 단 돈 1원도 쓸 필요가 없으며 창업 방법이 너무 쉬워 따로 설명이나 상담을 하지 않습니다.
+        가맹사 등록 후, 관리자 페이지에서 본사와 상담을 할 수 있는 연락처가 제공됩니다.
+        그리고 가맹사 관리자 페이지에서 회사 정보나 로고 등 자세한 정보를 입력 할 수 있습니다.
     </div>
 </div>
 
 
 <h4>가맹사 정보 입력</h4>
 사업자 등록증이 없다면, 아래의 입력 양식에서 사업자등록번호와 통신판매업 신고번호를 빼고 입력하시면됩니다.
-<form id="company-info">
+<form id="company-info" (ngSubmit)="onSubmitApply( $event )">
     <div>
-        <label>담당자 명: <span class="notice">(필수)</span></label>
+        <label>창업자 명</label>
         <input>
     </div>
     <div>
-        <label>회사명: <span class="notice">(필수)</span></label>
+        <label>전화번호</label>
         <input>
     </div>
     <div>
-        <label>대표자명: <span class="notice">(필수)</span></label>
-        <input>
-    </div>
-    <div>
-        <label>사업자 등록번호:</label>
-        <input>
-    </div>
-    <div>
-        <label>통신판매업 신고 번호:</label>
-        <input>
-    </div>
-
-    <div>
-        <label>회사 주소: <span class="notice">(필수)</span></label>
-        <input>
-    </div>
-
-    <div>
-        <label>회사 전화번호: <span class="notice">(필수)</span></label>
-        <input>
-    </div>
-
-    <div>
-        <label>회사 이메일: <span class="notice">(필수)</span></label>
-        <input>
-    </div>
-
-    <div>
-        <label>담당자 명: <span class="notice">(필수)</span></label>
-        <input>
-    </div>
-
-    <div>
-        <label>담당자 연락처: <span class="notice">(필수)</span></label>
-        <input>
+        <table>
+            <tr>
+                <td>Domain</td>
+                <td>https://www.</td>
+                <td><input></td>
+                <td>.katalkenglish.com</td>
+            </tr>
+        </table>
+        Or Click here to input your own domain
     </div>
 
     <label class="toc">
@@ -71,7 +42,7 @@
     </label>
 
     <span class="submit">
-        <button>위세너 프랜차이즈 가맹사로 가입하기</button>
+        <button type="submit">위세너 프랜차이즈 가맹사로 가입하기</button>
     </span>
 </form>
 
@@ -81,25 +52,10 @@
     어디서 하는지 물어보시면됩니다. 통신판매업신고를 하실 때, 서버와 도메인이 아직 없는 상태이므로 나중에 따로 등록을 한다고 말씀을 하시면됩니다. 만약 통신판매신고를 할 때, 서버 도메인과 소재지를 묻는다면 아래의
     도메인을 입력하시고, SSL 및 호스팅 비용을 납부하시면, 가맹사 매니저 페이지에서 확인을 할 수 있습니다. 그 정보로 다시 신고 하시면 됩니다.
 
+    도메인은 홈페이지 주소입니다. 직접 구매한 도메인을 입력하신 경우, 평일 기준 약 24시간이 걸립니다.
+    가맹사가 직접 도메인을 www.hosting.kr 에서 1년 1만원에 구매하신 다음 본사로 알려주시면 됩니다.
 </div>
-<h4>가맹사 도메인 입력</h4>
-도메인은 홈페이지 주소입니다. 직접 구매한 도메인을 입력하신 경우, 평일 기준 약 24시간이 걸립니다.
-<form>
-    도메인: https://
-    <input>.katalkenglish.com
-    <br> 또는 직접 구매한 도메인 등록
-    <br>
-    <button>도메인 입력</button>
-</form>
 
-<button class="withcenter-button" (click)=" show.domain = true " *ngIf=" ! show.domain ">추가 설명 보기</button>
-<div *ngIf=" show.domain ">
-
-
-    그리고 이것은 사업이 성공적으로 진행 될 때, 매우 중요한 자산이 됩니다. 가맹사가 직접 도메인을 구매해야하며 www.hosting.kr 에서 1년 1만원에 구매하실 수 있습니다. 도메인은 나중에 1회 변경 하실 수
-    있습니다.
-
-</div>
 <h4>도메인 및 SSL, 호스팅 비용</h4>
 
 도메인(서브 도메인) 및 SSL, 호스팅 등은 본사에서 무료로 해 드립니다. ( 단, 독립 도메인은 직접 구매 해야 합니다. )

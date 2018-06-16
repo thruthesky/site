@@ -15,5 +15,11 @@ export class ApplyFranchiseComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    onSubmitApply(event: Event) {
+        event.preventDefault();
+
+        return false;
+    }
 }
 
