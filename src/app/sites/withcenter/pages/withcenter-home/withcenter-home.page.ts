@@ -32,7 +32,7 @@ export class WithcenterHomePage {
     // public fire: FireService
   ) {
     this.t = withcenterTextService.getTexts();
-    console.log(this.t);
+    console.log('t: ', this.t);
 
     this.animateText();
   }
@@ -59,7 +59,7 @@ export class WithcenterHomePage {
   onChangeLanguageCode() {
     this.withcenterTextService.setLanguageCode();
     // console.log('ln saved: ', _.get( WITHCENTER_LANGUAGE_CODE ) );
-    document.location.reload(true);
+    setTimeout(() => document.location.reload(true), 100);
   }
 }
 
