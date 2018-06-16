@@ -28,7 +28,10 @@ header{
     .point-loader{
         display: flex;
         align-items: center;
-
+          span{
+              margin-left: .3em;
+              line-height: 0;
+          }
         mat-spinner{
             margin-left: .5em;
         }

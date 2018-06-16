@@ -4,7 +4,7 @@ h3{
     margin-top: 2em;
     margin-bottom: .5em;
     font-size: 1em;
-    color: #113ca0;
+    color: #0E51A7;
 }
 
 p{
@@ -15,7 +15,7 @@ p{
 ul{
     list-style-type: none;
     padding: 0;
-    border-top: 1px solid rgba(125,125,125,0.2);
+    border-top: 1px solid rgba(125,125,125,0.1);
 
     h4{
         display: flex;
@@ -23,6 +23,8 @@ ul{
         justify-content: space-between;
         margin: 0;
         padding:1em 1.5em;
+        border-left: 5px solid #FEC800;
+        transition: all .2s ease-in-out; 
         @media (min-width:$md) {
             padding:1em 2em;
         }
@@ -58,7 +60,7 @@ ul{
     }
 
     li{
-        border: 1px solid rgba(125,125,125,0.2);
+        border: 1px solid rgba(125,125,125,0.1);
         border-top: none;
         cursor: pointer;
 
@@ -68,7 +70,18 @@ ul{
             @media (min-width:$md) {
                 padding:.6em 1.8em; 
             }
-            border-top: 1px solid rgba(125,125,125,0.2);
+            border-top: 1px solid rgba(125,125,125,0.1);
+            background:rgba(125,125,125,0.2);
+            animation: .3s 1 fade-in-out;
+        }
+
+        @keyframes fade-in-out {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
         }
     }
 }

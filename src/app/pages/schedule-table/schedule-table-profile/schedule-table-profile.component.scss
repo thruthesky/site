@@ -195,29 +195,34 @@
 }
 
 .attention-no-star-teacher {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width:$md) {
+        border: 1px solid rgba(#AA3939,0.2);   
+    }
+    background-color: rgba(#AA3939,0.1);
+    color: #AA3939;
+    margin-top: 1em;
+    padding: 1em 2em;
+    @media (min-width: $md ) {
+        margin-top: .5em;
+        margin-bottom: 1.5em;
+        padding: 1em 1.5em;
+        font-size: .85em;
+        border-radius: 4px;
+    }
     .text {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 1em;
-        padding: .5em 1em .5em;
-        background-color: rgba(255, 162, 162, 0.24);
-        font-size: .8em;
-        text-align: center;
-        @media (min-width: $md ) {
-            margin-top: .5em;
-            margin-bottom: 1.5em;
-            padding: 1em 1.5em;
-            font-size: .85em;
-            border-radius: 4px;
+        padding-left: 1em;
+        font-size: .85em;
+        @media (min-width:$md){
+            font-size: 1em;
         }
+    }
 
-        svg{
-            color: darkred;
-            height: 1.5em;
-            width: 1.5em;
-            margin-right: .5em;
-        }
+    svg{
+        color: #AA3939;
+        min-height: 1.5em;
+        min-width: 1.5em;
     }
 }

@@ -6,17 +6,36 @@
                         <span>{{ t.withcenter }}</span>
                   </div>
                   <div class='menu'>
-                        <a (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.franchise }}</a>
-                        <a (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</a>
-                        <a (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</a>
-
+                        <span (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.franchise }}</span>
+                        <span (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</span>
+                        <span (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</span>
                         <div class="flags">
-                              <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
-                                    <option value='ch'>ch</option>
-                                    <option value='en'>en</option>
-                                    <option value='ko'>ko</option>
-                                    <option value='jp'>jp</option>
-                              </select>
+                              <div class="toggle">
+                                    <img *ngIf="languageCode=='ch'" src="../../../../../assets/img/language-flags/ch-desktop.png" alt="">
+                                    <img *ngIf="languageCode=='en'" src="../../../../../assets/img/language-flags/en-desktop.png" alt="">
+                                    <img class="ko-flag" *ngIf="languageCode=='ko'" src="../../../../../assets/img/language-flags/ko-desktop.png" alt="">
+                                    <img *ngIf="languageCode=='jp'" src="../../../../../assets/img/language-flags/jp-desktop.png" alt="">
+                                    <span>{{ languageCode }}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M119.5 326.9L3.5 209.1c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0L128 287.3l100.4-102.2c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.7 4.7 12.3 0 17L136.5 327c-4.7 4.6-12.3 4.6-17-.1z"/></svg>
+                              </div>
+                              <div class="content">
+                                    <label>
+                                          <input [(ngModel)]="languageCode" type="radio" value="ch" (change)="onChangeLanguageCode()">
+                                          <span>Chinese</span>
+                                    </label>
+                                    <label>
+                                          <input [(ngModel)]="languageCode" type="radio" value="en" (change)="onChangeLanguageCode()">
+                                          <span>English</span>
+                                    </label>
+                                    <label>
+                                          <input [(ngModel)]="languageCode" type="radio" value="ko" (change)="onChangeLanguageCode()">
+                                          <span>Korean</span>
+                                    </label>
+                                    <label>
+                                          <input [(ngModel)]="languageCode" type="radio" value="jp" (change)="onChangeLanguageCode()">
+                                          <span>Japanese</span>
+                                    </label>
+                              </div>
                         </div>
                   </div>
             </nav>

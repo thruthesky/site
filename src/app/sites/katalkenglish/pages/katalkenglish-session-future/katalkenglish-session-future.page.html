@@ -5,7 +5,7 @@
             <ng-container *ngIf=" a.isStudent ">
                 {{ 'USER_POINT' | t:{ username: a.user.name | t } }}
                 <span *ngIf=" a.inLoadingMyPoint "><mat-spinner [diameter]="20"></mat-spinner></span>
-                <span *ngIf=" ! a.inLoadingMyPoint ">{{ share.point }}</span>
+                <span *ngIf=" ! a.inLoadingMyPoint "> {{ share.point }}</span>
             </ng-container>
         </div>
     

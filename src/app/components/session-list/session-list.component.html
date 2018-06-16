@@ -10,8 +10,7 @@
                         <mat-label>{{ 'DATE_BEGIN' | t}}</mat-label>
                         <input name="date" [(ngModel)]="date_begin" matInput
                               [matDatepicker]="dpStart"
-                              (dateChange)="onChangeSearchOption()"
-                        >
+                              (dateChange)="onChangeSearchOption()">
                         <mat-datepicker #dpStart touchUi="true" disabled="false"></mat-datepicker>
                     </mat-form-field>
                 </div>
@@ -21,8 +20,7 @@
                             <mat-label>{{ 'DATE_END' | t}}</mat-label>
                             <input name="date" [(ngModel)]="date_end" matInput
                                     [matDatepicker]="dpEnd"
-                                    (dateChange)="onChangeSearchOption()"
-                            >
+                                    (dateChange)="onChangeSearchOption()">
                             <mat-datepicker #dpEnd touchUi="true" disabled="false"></mat-datepicker>
                         </mat-form-field>
                 </div>
@@ -207,7 +205,7 @@
                 </div>
             </div>
 
-            <div class="data row" [class.data-ie]="a.isIe()" *ngFor="let book of books; let i = index; let o = odd; let e = even">
+            <div class="data row" [class.data-ie]="a.isIeEdge()" *ngFor="let book of books; let i = index; let o = odd; let e = even">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <section class="teacher-photo">
                         <a class="photo"
