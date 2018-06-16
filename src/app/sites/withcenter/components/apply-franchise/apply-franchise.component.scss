@@ -19,11 +19,25 @@ h3{
         color: #377dff
     }
 }
+.company-info-wrapper{
+    overflow: scroll;
+}
 #company-info{
     margin: 1em 0;
     padding: 2em;
     border-radius: 2px;
     border: 1px solid rgba(125,125,125,0.4);
+    min-width: 550px;
+    .domain{
+        font-size: .9em;
+        color: #EF6C00;
+        text-align: center;
+        .click-here{
+            display: inline-block;
+            padding: 1em 0;
+            color: #0E51A7;
+        }
+    }
 
     &>div{
         display: flex;
@@ -49,7 +63,7 @@ h3{
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1em 0;
+        padding: .5em 0;
         font-size: .8em;
         cursor: pointer;
     }
