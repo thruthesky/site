@@ -16,24 +16,33 @@
 <h4>가맹사 정보 입력</h4>
 사업자 등록증이 없다면, 아래의 입력 양식에서 사업자등록번호와 통신판매업 신고번호를 빼고 입력하시면됩니다.
 <form id="company-info" (ngSubmit)="onSubmitApply( $event )">
-    <div>
-        <label>창업자 명</label>
-        <input>
-    </div>
+        <div>
+            <label>Email</label>
+            <input name="user_email" type="email" [(ngModel)]="form.user_email">
+        </div>
+        <div>
+            <label>Password</label>
+            <input name="user_pass" type="password" [(ngModel)]="form.user_pass">
+        </div>
+        <div>
+            <label>창업자 명</label>
+            <input name="name" type="text" [(ngModel)]="form.name">
+        </div>
     <div>
         <label>전화번호</label>
-        <input>
+        <input name="phone_number" type="text" [(ngModel)]="form.phone_number">
     </div>
     <div class="domain">
         <table>
             <tr>
                 <td>Domain</td>
                 <td>https://www.</td>
-                <td><input></td>
+                <td><input name="sub_domain" type="text" [(ngModel)]="form.sub_domain"></td>
                 <td>.katalkenglish.com</td>
             </tr>
         </table>
         <span class="click-here">Or Click here to input your own domain</span>
+        <input name="root_domain" type="text" [(ngModel)]="form.root_domain">
     </div>
 
     <label class="toc">
