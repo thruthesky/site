@@ -35,8 +35,8 @@ export class WithcenterTextService {
         }
     }
 
-    setLanguageCode() {
-        _.set(WITHCENTER_LANGUAGE_CODE, this.languageCode);
+    setLanguageCode( ln ) {
+        _.set(WITHCENTER_LANGUAGE_CODE, ln );
     }
 
 }

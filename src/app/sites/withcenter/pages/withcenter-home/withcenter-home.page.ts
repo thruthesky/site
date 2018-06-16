@@ -57,9 +57,9 @@ export class WithcenterHomePage {
   }
 
   onChangeLanguageCode() {
-    this.withcenterTextService.setLanguageCode();
-    // console.log('ln saved: ', _.get( WITHCENTER_LANGUAGE_CODE ) );
-    setTimeout(() => document.location.reload(true), 100);
+    this.withcenterTextService.setLanguageCode( this.languageCode );
+    console.log('ln saved: ', this.withcenterTextService.getLanguageCode() );
+    setTimeout(() => document.location.reload(true), 200);
   }
 }
 
