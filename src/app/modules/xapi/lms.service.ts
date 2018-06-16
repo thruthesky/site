@@ -218,11 +218,23 @@ export class XapiLMSService extends Base {
         return this.x.post(data);
     }
 
+    /**
+     * return lms info to use in schedule input validation
+     * @returns {Observable<any>}
+     */
+    my_schedule_info(): Observable<any> {
+        const data = {
+            route: 'lms.my_schedule_info',
+            session_id: this.user.sessionId
+        };
+        return this.x.post(data);
+    }
+
 
     /**
      *
      * @param idx
-     * @returns mixed 1 schedule and lms info
+     * @returns mixed 1 schedule and
      */
     my_schedules_by_idx(idx): Observable<any> {
         const data = {

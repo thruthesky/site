@@ -44,6 +44,7 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
             if (this.params.idx) {
                 // GET DATA FROM SERVER
                 this.a.lms.my_schedules_by_idx(this.params.idx).subscribe( re => {
+                    // console.log('my_schedules_by_idx', re);
                     const s = re.schedules[0];
                     this.data = {
                         idx: s.idx,
@@ -60,16 +61,19 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
                         friday: s.user_time_days.friday,
                         saturday: s.user_time_days.saturday
                     };
-                    this.php_to_kwr = re['php_to_kwr'];
-                    this.usd_to_kwr = re['usd_to_kwr'];
-                    this.share_teacher = re['share_teacher'];
-                    this.transaction_fee = re['transaction_fee'];
-                    this.buyer_rate = re['buyer_rate'];
-                    this.max_point_per_minute = re['max_point_per_minute'];
                 }, e => {
                     this.a.toast(e);
                 });
             }
+            this.a.lms.my_schedule_info().subscribe(re => {
+                // console.log('my_schedule_info', re);
+                this.php_to_kwr = re['php_to_kwr'];
+                this.usd_to_kwr = re['usd_to_kwr'];
+                this.share_teacher = re['share_teacher'];
+                this.transaction_fee = re['transaction_fee'];
+                this.buyer_rate = re['buyer_rate'];
+                this.max_point_per_minute = re['max_point_per_minute'];
+            }, e => this.a.toast(e));
         });
 
 
