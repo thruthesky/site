@@ -113,7 +113,7 @@
                 </tr>
                 <tr>
                     <td>{{ 'SEARCH_PERIOD' | t}}</td>
-                    <td>{{ date_begin }} ~  {{ date_end }}</td>
+                    <td>{{ date_begin | date }} ~  {{ date_end |date }}</td>
                 </tr>
                 <tr  *ngIf="a.userTime" routerLink="/settings">
                     <td>{{ 'TIMEZONE NOW' | t}}</td>
