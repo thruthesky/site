@@ -32,7 +32,8 @@ export class ApplyFranchiseComponent implements OnInit {
 
 
         this.a.lms.branch_register(this.form).subscribe(re => {
-            console.log('branch_register: ', re);
+            // console.log('branch_register: ', re);
+            this.a.openAdminPage();
         }, e => this.a.toast(e));
         return false;
     }

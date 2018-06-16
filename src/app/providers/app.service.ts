@@ -29,6 +29,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 export const SITE_KATALKENGLISH = 'katalkenglish';
 export const SITE_ONTUE = 'ontue';
 export const SITE_WITHCENTER = 'withcenter';
+export const SITE_ADMIN = 'admin';
+
 
 export const KEY_SCHEDULES = 'key-schedules';
 const SCHEDULE_CACHE_INTERVAL = 600; // 600 for 10 minutes. 1 for 1 second. 1800 for 30 min. 3600 for 1 hour.
@@ -45,6 +47,7 @@ export interface SITE {
     ontue: boolean;
     withcenter: boolean;
     katalkenglish: boolean;
+    admin: boolean;
 }
 
 
@@ -120,7 +123,8 @@ export class AppService {
     site: SITE = {
         ontue: false,
         katalkenglish: false,
-        withcenter: false
+        withcenter: false,
+        admin: false
     };
 
     /**
@@ -415,6 +419,14 @@ export class AppService {
     private isWithcenterDomain() {
         return this.getDomain().indexOf(SITE_WITHCENTER) !== -1;
     }
+    private isAdminPath() {
+        if ( document && document.location && document.location.pathname ) {
+            if ( document.location.pathname.indexOf('/manager') !== -1 ) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Returns true if the theme that the user is using is student's theme.
@@ -442,9 +454,13 @@ export class AppService {
 
     /**
      * Returns site code.
+     *
+     * It determins which site you are in.
      */
-    getSite() {
-        if (this.isKatalkenglishDomain()) {
+    getSite(): string {
+        if (this.isAdminPath() ) {
+            return SITE_ADMIN;
+        } else if (this.isKatalkenglishDomain()) {
             return SITE_KATALKENGLISH;
         } else if (this.isOntueDomain()) {
             return SITE_ONTUE;
@@ -563,6 +579,14 @@ export class AppService {
      */
     openHome() {
         this.open(this.homeUrl);
+    }
+
+
+    /**
+     * Admin page must be reloaded to run getSite() again.
+     */
+    openAdminPage() {
+        document.location.href = '/manager';
     }
 
     openProfile() {

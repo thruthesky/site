@@ -31,6 +31,7 @@ export class WithcenterHomePage {
     public withcenterTextService: WithcenterTextService
     // public fire: FireService
   ) {
+    this.languageCode = withcenterTextService.getLanguageCode();
     this.t = withcenterTextService.getTexts();
     console.log('t: ', this.t);
 
