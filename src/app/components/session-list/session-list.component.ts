@@ -94,7 +94,7 @@ export class SessionListComponent implements OnInit {
             defaults['idx_teacher'] = this.show_teacher;
         }
         if (this.date_begin) {
-            console.log('typeof date_begin: ', typeof this.date_begin);
+            // console.log('typeof date_begin: ', typeof this.date_begin);
             const d = this.date_begin;
             defaults['date_begin'] = d.getFullYear() + this.a.add0(d.getMonth() + 1) + this.a.add0(d.getDate());
             // defaults['date_begin'] = this.date_begin.replace(/\-/g, '');
@@ -104,7 +104,7 @@ export class SessionListComponent implements OnInit {
             defaults['date_end'] = d.getFullYear() + this.a.add0(d.getMonth() + 1) + this.a.add0(d.getDate());
             // defaults['date_end'] = this.date_end.replace(/\-/g, '');
         }
-        console.log('defaults: ', defaults);
+        // console.log('defaults: ', defaults);
         const req = Object.assign(defaults, options);
         // console.log("Request: ", req);
         return req;
