@@ -20,28 +20,31 @@ h3{
     }
 }
 #company-info{
+    margin: 1em 0;
+    padding: 2em;
+    border-radius: 2px;
+    border: 1px solid rgba(125,125,125,0.4);
+
     &>div{
         display: flex;
         flex-direction: column;
-        margin-top: 1em;
-
+        margin-bottom: 1em;
+        label{
+            font-size: .85em;
+            margin-bottom: .3em;
+            margin-left: .2em;
+        }
         input{
             padding: .75em;
             border-radius: 2px;
-            border: 1px solid rgba(125,125,125,0.3);
-            font-size: .9em;
-        }
-
-        .notice{
-            color: #b71c1c;
-        }
-
-        label{
-            padding-left: .3em;
-            margin-bottom: .3em;
+            border: 1px solid rgba(125,125,125,0.4);
+            background: rgba(125,125,125,0.1);
+            font-size: 1em;
+            &:focus{
+                background: #fff;
+            }
         }
     }
-
     .toc{
         display: flex;
         align-items: center;
