@@ -105,7 +105,10 @@
             </div>
             <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] "
                  [attr.open]=" session[ N.open ] "
-                 [attr.owner]=" session[ N.owner ] " text-center (click)="onClickSession( session )">
+                 [attr.owner]=" session[ N.owner ] "
+                 text-center
+                 (click)="onClickSession( session )"
+                 >
                 <div class="info" [class.pointer-on]="icon(session)=='radio-button-off'||
                                         session[ N.owner ]=='me'||
                                         icon(session)=='heart'">
@@ -198,9 +201,9 @@
                     </div>
                     <div>{{ session[N.point] }}</div>
                     <div class="name" *ngIf=" session[ N.student_name ] ">{{ session[ N.student_name ] }}</div>
+                    <div class="name" *ngIf=" session[ N.prere ] && ! session[ N.student_name ] ">{{ session[ N.prere ] }}</div>
                 </div>
             </div>
-
         </div>
         <!--/schedule-row-->
 

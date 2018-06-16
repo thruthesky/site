@@ -1,12 +1,12 @@
 import { Component, } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
-import { getTexts, WITHCENTER_LANGUAGE_CODE } from '../../withenter-text';
+
 
 // import { texts } from '../../text';
 // import { FireService } from '../../../../modules/firelibrary/core';
 
 
-import { Library as _ } from './../../../../etc/library';
+import { WithcenterTextService } from '../../withcenter-text.service';
 
 
 
@@ -18,8 +18,8 @@ import { Library as _ } from './../../../../etc/library';
 })
 export class WithcenterHomePage {
 
+  languageCode;
   t;
-  languageCode = 'en';
   animation = {
     index: 0,
     show: 'text-group-0'
@@ -27,25 +27,14 @@ export class WithcenterHomePage {
   dropdown = {};
 
   constructor(
-    public a: AppService
+    public a: AppService,
+    public withcenterTextService: WithcenterTextService
     // public fire: FireService
   ) {
-    this.languageCode = this.getLanguageCode();
-    this.t = getTexts( this.languageCode );
+    this.t = withcenterTextService.getTexts();
     console.log(this.t);
 
     this.animateText();
-  }
-
-  getLanguageCode(): string {
-
-    const ln = _.get( WITHCENTER_LANGUAGE_CODE );
-    console.log('got ln: ', ln);
-    if (ln) {
-        return ln;
-    } else {
-        return _.getBrowserLanguage();
-    }
   }
 
   animateText() {
@@ -68,7 +57,7 @@ export class WithcenterHomePage {
   }
 
   onChangeLanguageCode() {
-    _.set( WITHCENTER_LANGUAGE_CODE, this.languageCode );
+    this.withcenterTextService.setLanguageCode();
     // console.log('ln saved: ', _.get( WITHCENTER_LANGUAGE_CODE ) );
     document.location.reload(true);
   }

@@ -7,6 +7,7 @@ import { UnderstandingFranchiseComponent } from '../../components/understanding-
 import { AboutServiceComponent } from '../../components/about-service/about-service.component';
 import { ApplyFranchiseComponent } from '../../components/apply-franchise/apply-franchise.component';
 import { FormsModule } from '@angular/forms';
+import { WithcenterTextService } from '../../withcenter-text.service';
 
 
 const routes: Routes = [
@@ -31,7 +32,7 @@ const routes: Routes = [
   entryComponents: [
     WithcenterHomePage
   ],
-  providers: [  ],
+  providers: [ WithcenterTextService ],
   bootstrap: [WithcenterHomePage],
   schemas: []
 })

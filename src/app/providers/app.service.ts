@@ -357,6 +357,16 @@ export class AppService {
     //     // console.log(`Color has been set to ${this.color}`);
     // }
 
+    /**
+     * Returns a domain of the site including sub-domain
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hostname
+     *
+     * @return string
+     *      abc.com
+     *      www.abc.com
+     *      subdomain.rootdomain.com
+     */
     getDomain() {
         return window.location.hostname;
     }

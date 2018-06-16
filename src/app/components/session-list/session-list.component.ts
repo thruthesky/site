@@ -26,8 +26,8 @@ export class SessionListComponent implements OnInit {
         counts_of_incomplete_eval: 0
     };
     show_teacher = 0;
-    date_begin = null;
-    date_end = null;
+    date_begin: Date = null;
+    date_end: Date = null;
     today = new Date();
     show_refund_in_progress = false;
     show_refunded = false;
@@ -62,11 +62,12 @@ export class SessionListComponent implements OnInit {
     ngOnInit() {
         const now = this.today.getFullYear() + '-' + this.a.add0(this.today.getMonth() + 1) + '-' + this.a.add0(this.today.getDate());
         if (this.future) {
-            this.date_begin = now;
+            this.date_begin = new Date( now );
         } else if (this.past) {
             const _begin = new Date(this.today.getTime() - 24 * 60 * 60 * 1000 * this.a.DEFAULT_DAYS_TO_SHOW_ON_PAST_PAGE);
-            this.date_begin = _begin.getFullYear() + '-' + this.a.add0(_begin.getMonth() + 1) + '-' + this.a.add0(_begin.getDate());
-            this.date_end = now;
+            const _begin_date = _begin.getFullYear() + '-' + this.a.add0(_begin.getMonth() + 1) + '-' + this.a.add0(_begin.getDate());
+            this.date_begin = new Date( _begin_date );
+            this.date_end = new Date( now );
         }
         this.sessionSearch();
     }
@@ -93,11 +94,17 @@ export class SessionListComponent implements OnInit {
             defaults['idx_teacher'] = this.show_teacher;
         }
         if (this.date_begin) {
-            defaults['date_begin'] = this.date_begin.replace(/\-/g, '');
+            // console.log('typeof date_begin: ', typeof this.date_begin);
+            const d = this.date_begin;
+            defaults['date_begin'] = d.getFullYear() + this.a.add0(d.getMonth() + 1) + this.a.add0(d.getDate());
+            // defaults['date_begin'] = this.date_begin.replace(/\-/g, '');
         }
         if (this.date_end) {
-            defaults['date_end'] = this.date_end.replace(/\-/g, '');
+            const d = this.date_end;
+            defaults['date_end'] = d.getFullYear() + this.a.add0(d.getMonth() + 1) + this.a.add0(d.getDate());
+            // defaults['date_end'] = this.date_end.replace(/\-/g, '');
         }
+        // console.log('defaults: ', defaults);
         const req = Object.assign(defaults, options);
         // console.log("Request: ", req);
         return req;
