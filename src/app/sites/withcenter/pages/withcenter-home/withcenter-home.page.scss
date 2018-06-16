@@ -19,15 +19,15 @@ header {
     border-bottom: 1px solid rgba(125,125,125,0.2);
     nav{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        @media (min-width:$md){
+            justify-content: space-between
+        }
         align-items: center;
         max-width: $page-width;
         height: $header-height;
         margin: auto;
-        padding: 0 1em;
-        @media (min-width:$md){
-            padding: 0;
-        }
+        padding: 0;
         color: #1e2022;
         .logo {
             display: flex;
@@ -61,12 +61,44 @@ header {
             }
         }
 
-        .flags{
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .flags {
+            position: relative !important;
+            // padding-bottom: 7px;
+            @media (min-width:$md) {
+                background: #aeadad;   
+            }
             height: $header-height;
-            
+    
+            select {
+                position: relative;
+                padding: 0 2em;
+                // padding-bottom: 8px;
+                height:100%;
+                // padding-top: 40px;
+                border: none;
+                background: rgba(#fff, 0);
+                color: white;
+                font-size: .7em;
+                text-align-last: center;
+                display: flex;
+                justify-content: center;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                &::-ms-expand {
+                    display: none; //for ie
+                }
+                cursor: pointer;
+                option {
+                    color: black !important;
+                }
+            }
+            .custom-icon {
+                position: absolute;
+                top: 18px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 24px;
+            }
         }
     }
 }
