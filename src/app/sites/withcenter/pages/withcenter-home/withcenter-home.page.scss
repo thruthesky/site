@@ -110,10 +110,15 @@ header {
                 }
             }
             .ko-icon{
-                border: 1px solid rgba(125, 125, 255, 0.1);
-                height: 24px;
-                width: 24px;
-                top: 18px;
+                height: 30px;
+                width: 30px;
+                top: 15.5px;
+
+                @media (min-width:$md){
+                    top: 10px;
+                    height: 24px;
+                    width: 24px;
+                }
             }
         }
     }
