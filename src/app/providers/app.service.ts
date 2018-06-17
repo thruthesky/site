@@ -87,6 +87,7 @@ interface Environment {
         termsandconditions: number;
         topearner: number;
     };
+    sslPort: string;
 }
 
 
@@ -420,8 +421,8 @@ export class AppService {
         return this.getDomain().indexOf(SITE_WITHCENTER) !== -1;
     }
     private isAdminPath() {
-        if ( document && document.location && document.location.pathname ) {
-            if ( document.location.pathname.indexOf('/manager') !== -1 ) {
+        if (document && document.location && document.location.pathname) {
+            if (document.location.pathname.indexOf('/manager') !== -1) {
                 return true;
             }
         }
@@ -458,7 +459,7 @@ export class AppService {
      * It determins which site you are in.
      */
     getSite(): string {
-        if (this.isAdminPath() ) {
+        if (this.isAdminPath()) {
             return SITE_ADMIN;
         } else if (this.isKatalkenglishDomain()) {
             return SITE_KATALKENGLISH;
@@ -583,10 +584,30 @@ export class AppService {
 
 
     /**
-     * Admin page must be reloaded to run getSite() again.
+     * Admin page must be visited with reloading to run getSite() again.
      */
-    openAdminPage() {
-        document.location.href = '/manager';
+    openAdminPage(manager_domain?, session_id?) {
+        if (!manager_domain) {
+            if (this.user.manager) {
+                manager_domain = this.user.manager;
+            }
+            if (!manager_domain) {
+                this.toast('매니저 도메인이 잘못되어 관리자 페이지를 열 수 없습니다.');
+                return;
+            }
+        }
+        let port = this.environment.sslPort;
+        if (port) {
+            port = ':' + port;
+        }
+        if ( session_id ) {
+            session_id = `session_id=${session_id}`;
+        } else {
+            session_id = '';
+        }
+        const url = `https://${manager_domain}${port}/manager?${session_id}`;
+        // console.log(url);
+        document.location.href = url;
     }
 
     openProfile() {

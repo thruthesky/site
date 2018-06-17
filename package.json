@@ -20,7 +20,8 @@
     "build:prod": "ng build --prod",
     "scp": "cd www && scp *.js *.css *.html ontue@ontue.com:./www && cd assets && scp -r * ontue@ontue.com:./www/assets",
     "scp:all": "cd www && scp -r * ontue@ontue.com:./www",
-    "delete-remote-js": "ssh ontue@ontue.com 'rm -f www/*.js'"
+    "delete-remote-js": "ssh ontue@ontue.com 'rm -f www/*.js'",
+    "ssl": "ng serve --disable-host-check --configuration=local-backend-server --ssl --ssl-key './tmp/ssl/wild-katalkenglish/private.key' --ssl-cert './tmp/ssl/wild-katalkenglish/certificate.crt' --port 9443"
   },
   "private": true,
   "dependencies": {

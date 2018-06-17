@@ -82,6 +82,7 @@ ng s --disable-host-check
 npm run serve:local                 ; Run with local backend server.
 npm run serve:remote                ; Run on production server.
 npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
+npm run ssl                         ; run project with ssl. after run, access https://abc.katalkenglish.com:9443/
 ````
 
 ## Publish
@@ -353,6 +354,14 @@ modal.alert({ title: 'hi', content: 'oo'});
 ```` typescript
 env['reloadTag'] = (new Date).getTime();
 ````
+
+## Branch
+
+* set domains of `abc.katalkenglish.com`, `def.katalkenglish.com`, `branch.katalkenglish.com` in hosts file for test.
+* run project with ssl as described in run section.
+* access `https://branch.katalkenglish.com:9433/franchise` to access withcenter site.
+* for testing, create branch with domain `abc` or `def`.
+
 
 ## KNOWN-BUG
 

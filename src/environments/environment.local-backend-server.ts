@@ -1,8 +1,6 @@
 export const environment = {
     production: false,
     hmr: false,
-    // urlBackend: 'http://workserver.ontue.com',
-    // urlBackend: 'https://www.ontue.com',
     urlBackend: 'https://sonub.com:8443',
     firebaseConfig: {
         apiKey: 'AIzaSyCF9jsyLjQEDi4963DpOYi2wV0j19XSM2Q',
@@ -20,5 +18,6 @@ export const environment = {
         policy: 4,
         termsandconditions: 3,
         topearner: 5
-    }
+    },
+    sslPort: '9443'
   };

@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogComponent } from './dialog/dialog.component';
 import { AppService } from '../app.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Observable } from 'rxjs/Observable';
 
 
 export interface ModalData {
@@ -52,17 +53,17 @@ export class ModalService {
      * Show a alert modal box
      * @param data data to dsiplay on modal
      *
+     * @return boolean of Observable
+     *      true will be returned after close.
      */
-    alert(data: ModalData): void {
+    alert(data: ModalData): Observable<boolean> {
         this.sanitizeData(data);
         this.dialogRef = this.dialog.open(DialogComponent, {
             disableClose: true,
             maxWidth: data.maxWidth,
             data: data
         });
-        this.dialogRef.afterClosed().subscribe(result => {
-            //
-        });
+        return this.dialogRef.afterClosed();
     }
 
     /**

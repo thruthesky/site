@@ -77,8 +77,23 @@ export class XapiUserService extends Base {
 
 
 
-    loadProfile(): Observable<any> {
-        return this.x.post({ route: 'user.load_profile', session_id: this.sessionId })
+    /**
+     * Load user profile information and set user information in localStorage.
+     *
+     * @description Use case.
+     *  Branch registers and gets branch session id from server.
+     *  The web browser changes domain so, localStorage's realm changes
+     *  It needs to set user data into localStorage with user information of that session_id user.
+     *  Call this methods when you have only session_id to restore user information into localStorage.
+     *
+     * @since 2018-06-16 It accepts session_id to load that user's data.
+     * @param sessionId User session id to load user data.
+     */
+    loadProfile(sessionId?): Observable<any> {
+        if ( ! sessionId ) {
+            sessionId = this.sessionId;
+        }
+        return this.x.post({ route: 'user.load_profile', session_id: sessionId })
             .map(res => {
                 // console.log(`user profile loaded: `, res);
                 return this.setUserProfile(res);

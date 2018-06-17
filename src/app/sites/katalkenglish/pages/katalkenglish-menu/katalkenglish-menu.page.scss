@@ -1,12 +1,12 @@
-header{
-    a{
-        display:flex!important;
-        align-items:center;
+header {
+    a {
+        display: flex !important;
+        align-items: center;
         justify-content: center;
-        padding: 0!important;
-        background: inherit!important;
+        padding: 0 !important;
+        background: inherit !important;
     }
-    .icon{
+    .icon {
         height: 1em;
         width: 1em;
         color: #fff;
@@ -14,30 +14,26 @@ header{
     }
 }
 
-main{
+main {
     padding-bottom: 3em;
-    a{  
+    a, button {
         display: inline-block;
         padding: .8em 1em;
-        border-bottom: 1px solid rgba(125,125,125,0.1);
+        border-bottom: 1px solid rgba(125, 125, 125, 0.1);
         background: #fff;
         cursor: pointer;
         transition: all .1s ease-in-out;
-
-        &:hover{
-            background: rgba(125,125,125,0.1)
+        &:hover {
+            background: rgba(125, 125, 125, 0.1)
         }
-        .row{
+        .row {
             align-items: center;
-
-            .col-2{
-                text-align:center;
+            .col-2 {
+                text-align: center;
             }
-
         }
-        .fontawesome{
+        .fontawesome {
             height: 1.4em;
         }
-
     }
 }

@@ -8,6 +8,7 @@ import { AboutServiceComponent } from '../../components/about-service/about-serv
 import { ApplyFranchiseComponent } from '../../components/apply-franchise/apply-franchise.component';
 import { FormsModule } from '@angular/forms';
 import { WithcenterTextService } from '../../withcenter-text.service';
+import { ModalServiceModule } from '../../../../providers/modal/modal.service.module';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ModalServiceModule
   ],
   exports: [
     RouterModule
