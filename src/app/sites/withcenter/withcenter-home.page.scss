@@ -148,10 +148,21 @@ header {
             animation: .2s 1 fade-in;
 
             div{
-                padding: 1.5em 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.5em 2em;
                 text-align: center;
                 border-bottom: 1px solid rgba(125,125,125,0.2);
                 background:#fff;
+                font-size: .9em;
+                font-weight: 500;
+                color: #377dff;
+
+                svg{
+                    height: 1em;
+                    width: 1em;
+                }
             }
         }
 
