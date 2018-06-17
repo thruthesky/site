@@ -218,6 +218,7 @@
   "DELETE COMMENT": "删除评论",
   "CONFIRM DELETE COMMENT": "你确定要删除这条评论？”",
   "YES": "是的",
+  "NO": "没有",
   "CHANGE PASSWORD TITLE": "更改密码",
   "CHANGE PASSWORD DESC": "请提供旧密码和新密码",
   "OLD PASSWORD": "旧密码",

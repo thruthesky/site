@@ -44,7 +44,7 @@ export class AdminUserPage implements OnInit {
         list_order_begin: 0,
         list_order_end: 999,
         bookable_time_begin: 0,
-        bookable_time_end: 99999,
+        bookable_time_end: 0,
         timezone: '',
         order: 'ID',
         by: 'DESC',

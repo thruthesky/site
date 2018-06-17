@@ -70,7 +70,7 @@ export class ModalService {
      * Returns an Observable<boolean> after the choice of users.
      * @param data ModalData
      */
-    confirm(data: ModalData) {
+    confirm(data: ModalData): Observable<boolean> {
         data.type = 'confirm';
         this.sanitizeData(data);
         this.dialogRef = this.dialog.open(DialogComponent, {

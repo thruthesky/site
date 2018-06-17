@@ -218,6 +218,7 @@
   "DELETE COMMENT": "コメントを削除する",
   "CONFIRM DELETE COMMENT": "コメントを削除してもよろしいですか？」：このコメントを削除してもよろしいですか？",
   "YES": "はい",
+  "NO": "いいえ",
   "CHANGE PASSWORD TITLE": "パスワードの変更",
   "CHANGE PASSWORD DESC": "古いパスワードと新しいパスワードを入力してください",
   "OLD PASSWORD": "旧パスワード",

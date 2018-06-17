@@ -85,6 +85,27 @@ export interface SESSION {
     teacherName?: string;
 }
 
+
+export interface Branch {
+    idx: number;
+    user_ID: string;
+    domain: string;
+    ceo_name: string;
+    manager_name: string;
+    company_name: string;
+    company_phone: string;
+    company_email: string;
+    company_address: string;
+    company_business_registration_no: string;
+    company_business_registration_other_no: string;
+    manager_phone: string;
+    manager_email: string;
+    no_of_students: string;
+    stamp_register: string;
+    stamp_update: string;
+    domain_change_application: string;
+}
+
 @Injectable()
 export class XapiLMSService extends Base {
 
@@ -553,7 +574,7 @@ export class XapiLMSService extends Base {
                 // console.log('re: ', re);
             }, e => this.a.toast(e));
      */
-    admin_query( req ) {
+    admin_query(req) {
         req['session_id'] = this.user.sessionId;
         req['route'] = 'lms.admin_query';
         return this.x.post(req);
@@ -624,7 +645,7 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
-    admin_user_profile_photo_update( req ) {
+    admin_user_profile_photo_update(req) {
         req['route'] = 'lms.admin_user_profile_photo_update';
         req['session_id'] = this.user.sessionId;
         return this.x.post(req);
@@ -634,5 +655,39 @@ export class XapiLMSService extends Base {
     branch_register(req) {
         req['route'] = 'lms.branch_register';
         return this.x.post(req);
+    }
+    branch_get(): Observable<Branch> {
+        return this.x.post({ route: 'lms.branch_get', session_id: this.user.sessionId });
+    }
+    branch_domain_change_application(domain: string): Observable<any> {
+        return this.x.post({
+            route: 'lms.branch_domain_change_application',
+            session_id: this.user.sessionId,
+            domain: domain
+        });
+    }
+    branch_cancel_domain_change_application(idx?: number): Observable<any> {
+        if ( ! idx ) {
+            idx = 0;
+        }
+        return this.x.post({
+            route: 'lms.branch_cancel_domain_change_application',
+            session_id: this.user.sessionId,
+            idx: idx
+        });
+    }
+    branch_get_domain_change_applications(): Observable<Array<Branch>> {
+        return this.x.post({
+            route: 'lms.branch_get_domain_change_applications',
+            session_id: this.user.sessionId
+        });
+    }
+
+    branch_accept_domain_change_application(idx: number): Observable<any> {
+        return this.x.post({
+            route: 'lms.branch_accept_domain_change_application',
+            session_id: this.user.sessionId,
+            idx: idx
+        });
     }
 }

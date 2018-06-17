@@ -1,4 +1,32 @@
- no of student. no of reservations. no of past classes. no of users registered today, yesterday, this month, last 30 days.
+<div *ngIf=" a.isSuperManager ">
+
+    You are supermanager!
+
+    <h2>List of domain change application</h2>
+    <div>Note: subdomain of katalkenglish.com does not need to Nginx configuration. So, you can simply click Accept button.</div>
+
+    <table>
+        <tr>
+            <th>Current Domain</th>
+            <th>New Domain</th>
+            <th>Accept or Reject</th>
+        </tr>
+        <tr *ngFor=" let branch of domain_change_applications ">
+            <td>{{ branch.domain }}</td>
+            <td>=&gt; {{ branch.domain_change_application }}</td>
+            <td>
+                <button (click)="onClickDomainChangeApplicationAccept( branch )">Accept</button>
+                <button (click)="onClickDomainChangeApplicationReject( branch )">Reject</button>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+
+You have logged in as : {{ a.user.email }} Manager of: {{ a.user.manager }}<br>
+
+no of student. no of reservations. no of past classes. no of users registered today, yesterday, this month, last 30 days.
 no of users who have free class only. no of users who have paid class. no of users who have no classes at all. no of reservation
 for today, tomorow, this month, for the coming 30 days. no of past classes for yester day, this month, last 30 days. payment
 of today, yester day, this month, last 30 days. no of point refund request
