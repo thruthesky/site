@@ -1,16 +1,23 @@
-<header class="">
-    <nav>
-        <a class="d-inline-block p-3" routerLink="./">Dashboard</a>
-        <a class="d-inline-block p-3" routerLink="./login">Login Page</a>
-        <button class="d-inline-block p-3" (click)=" a.user.logout() ">Logout</button>
+<header class="admin-header">
+    <nav class="mainmenu">
+        <input type="text" placeholder="Quick Search">
+        <a class="d-inline-block" routerLink="./user">User</a>
+        <a routerLink="./session">Sessions</a>
+        <a routerLink="./payment">Payment</a>
+    </nav>
+    <nav class='submenu'>
+        <a routerLink="./point-refund">Point Refund</a>
+        <a routerLink="./point-history">Point History</a>
+        <a routerLink="./push-notification">Push notification</a>
+        <a routerLink="./setting">Settings</a>
     </nav>
 </header>
 <main>
     <router-outlet></router-outlet>
 </main>
-
-<footer class="p-5 text-center">
+<section>AAA</section>
+<footer class="admin-footer p-5 text-center">
     <div class="copyright">
-            Withcenter, Inc.
+        Withcenter, Inc.
     </div>
 </footer>

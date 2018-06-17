@@ -589,7 +589,11 @@ export class AppService {
     openAdminPage(manager_domain?, session_id?) {
         if (!manager_domain) {
             if (this.user.manager) {
-                manager_domain = this.user.manager;
+                if (this.user.manager === '*') {
+                    manager_domain = document.location.hostname;
+                } else {
+                    manager_domain = this.user.manager;
+                }
             }
             if (!manager_domain) {
                 this.toast('매니저 도메인이 잘못되어 관리자 페이지를 열 수 없습니다.');
@@ -600,7 +604,7 @@ export class AppService {
         if (port) {
             port = ':' + port;
         }
-        if ( session_id ) {
+        if (session_id) {
             session_id = `session_id=${session_id}`;
         } else {
             session_id = '';
@@ -739,6 +743,10 @@ export class AppService {
 
     get isManager() {
         return !!this.user.manager;
+    }
+
+    get isSuperManager() {
+        return this.isAdmin;
     }
 
     get isAdmin() {

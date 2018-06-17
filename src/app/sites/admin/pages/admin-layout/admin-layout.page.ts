@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'admin-layout-page',
     templateUrl: 'admin-layout.page.html',
-    styleUrls: ['admin-layout.page.scss']
+    styleUrls: ['admin-layout.page.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class AdminLayoutPage implements OnInit {

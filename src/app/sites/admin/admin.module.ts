@@ -5,6 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AdminHomePage } from './pages/admin-home/admin-home.page';
 import { AdminLayoutPage } from './pages/admin-layout/admin-layout.page';
 import { AdminLoginPage } from './pages/admin-login/admin-login.page';
+import { AdminPaymentPage } from './pages/admin-payment/admin-payment.page';
+import { AdminPointHistoryPage } from './pages/admin-point-history/admin-point-history.page';
+import { AdminPointRefundPage } from './pages/admin-point-refund/admin-point-refund.page';
+import { AdminPushNotificationPage } from './pages/admin-push-notification/admin-push-notification.page';
+import { AdminSessionPage } from './pages/admin-session/admin-session.page';
+import { AdminSettingPage } from './pages/admin-setting/admin-setting.page';
+import { AdminUserPage } from './pages/admin-user/admin-user.page';
+
 
 const routes: Routes = [
     {
@@ -19,6 +27,34 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: AdminLoginPage
+            },
+            {
+                path: 'payment',
+                component: AdminPaymentPage
+            },
+            {
+                path: 'point-history',
+                component: AdminPointHistoryPage
+            },
+            {
+                path: 'point-refund',
+                component: AdminPointRefundPage
+            },
+            {
+                path: 'push-notification',
+                component: AdminPushNotificationPage
+            },
+            {
+                path: 'session',
+                component: AdminSessionPage
+            },
+            {
+                path: 'setting',
+                component: AdminSettingPage
+            },
+            {
+                path: 'user',
+                component: AdminUserPage
             }
         ]
     }
@@ -36,12 +72,26 @@ const routes: Routes = [
     declarations: [
         AdminLayoutPage,
         AdminHomePage,
-        AdminLoginPage
+        AdminLoginPage,
+        AdminPaymentPage,
+        AdminPointHistoryPage,
+        AdminPointRefundPage,
+        AdminPushNotificationPage,
+        AdminSessionPage,
+        AdminSettingPage,
+        AdminUserPage
     ],
     entryComponents: [
         AdminLayoutPage,
         AdminHomePage,
-        AdminLoginPage
+        AdminLoginPage,
+        AdminPaymentPage,
+        AdminPointHistoryPage,
+        AdminPointRefundPage,
+        AdminPushNotificationPage,
+        AdminSessionPage,
+        AdminSettingPage,
+        AdminUserPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],
