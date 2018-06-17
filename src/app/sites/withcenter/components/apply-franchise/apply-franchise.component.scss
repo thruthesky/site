@@ -37,10 +37,6 @@ h3{
         color: #EF6C00;
         text-align: center;
         .title{
-            display: block;
-            @media (min-width:$md){
-                display: inline-block;
-            }
             padding-bottom: 1em;
             text-align: left;
             color: #0E51A7;

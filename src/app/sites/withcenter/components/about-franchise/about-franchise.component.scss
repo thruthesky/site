@@ -11,13 +11,14 @@ h4{
     margin-bottom: .5em;
 }
 
-.col-sm-12:first-child{
-    padding-left: 0
+@media (min-width:$md){
+    .col-sm-12:first-child{
+        padding-left: 0
+    }
+    .col-sm-12:last-child{
+        padding-right: 0
+    }
 }
-.col-sm-12:last-child{
-    padding-right: 0
-}
-
 p{
     margin: 0;
     font-size: .9em;
@@ -43,20 +44,11 @@ article{
     text-align: center;
     div{
         text-align: center;
-        svg{
+        .icon{
             height: 6em;
-            width: 6em;
+            margin-bottom: .5em;
         }
 
-        .withcenter{
-            color: #FE5E00
-        }
-        .ontue{
-            color: #2A17B1
-        }
-        .katalkenglish{
-            color: #FE9D00
-        }
     }
     .desc{
         font-size: .9em;
