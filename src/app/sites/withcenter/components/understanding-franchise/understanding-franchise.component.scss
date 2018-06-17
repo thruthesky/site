@@ -15,7 +15,6 @@ p{
 ul{
     list-style-type: none;
     padding: 0;
-    border-top: 1px solid rgba(125,125,125,0.1);
     h4{
         display: flex;
         align-items: center;
@@ -57,7 +56,7 @@ ul{
 }
 
     li{
-        border: 1px solid rgba(125,125,125,0.1);
+        border: 1px solid rgba(125,125,125,0.3);
         border-top: none;
         cursor: pointer;
 
@@ -87,12 +86,10 @@ ul{
 *  and font colors
 */ 
 .salary{
-    background: #FEC800;
+    background: #00A57C;
+    color: #fff;
 
-    &+.content{
-        background: #fff;
-        color: darkred
-    }
+
 }
 .quality{
     background: #546e7a;
@@ -113,8 +110,11 @@ ul{
     }
 }
 .stableManagement{
-    background: #2e7d32;
-    color: #fff
+    background: #FEC800;
+    &+.content{
+        background: #fff;
+        color: darkred
+    }
 }
 .automatic{
     background: #753650;

@@ -1,3 +1,4 @@
+@import './../../../../../theme/vars';
 h3{
     margin: 0;
     margin-top: 2em;
@@ -6,7 +7,7 @@ h3{
     color: #0E51A7;
 }
 .info{
-    padding: 1em;
+    padding: 1em 2em;
     border-radius: 2px;
     border: 1px solid #FEC800;
     background: rgba(#FEC800,0.2);
@@ -24,17 +25,47 @@ h3{
 }
 #company-info{
     margin: 1em 0;
-    padding: 2em;
+    padding: 1.5em;
+    @media(min-width:$md) {
+        padding: 2em;
+    }
     border-radius: 2px;
     border: 1px solid rgba(125,125,125,0.4);
-    min-width: 550px;
+    // min-width: 550px;
     .domain{
         font-size: .9em;
         color: #EF6C00;
         text-align: center;
-        .click-here{
+        .title{
+            padding-bottom: 1em;
+            text-align: left;
+            color: #0E51A7;
+        }
+        .input{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: .9em;
+            @media(min-width:$md) {
+                font-size: 1em;
+                justify-content: center
+            }
+
+            input{
+                margin: 0 .5em;
+                width: 111px;
+                @media(min-width:$md) {
+                    width: auto;
+                }
+            }
+        }
+        .foot-note{
             display: inline-block;
             padding: 1em 0;
+            font-size: .8em;
+            @media(min-width:$md) {
+                font-size: .9em;
+            }
             color: #0E51A7;
         }
     }
@@ -82,4 +113,41 @@ h3{
             cursor: pointer;
         }
     }
+    
 }
+
+.more{
+    padding: 1em;
+    .withcenter-button {
+        padding: .8em .6em;
+        border: 0;
+        border-radius: 4px;
+        font-size: 11pt;
+        background-color: rgba(55, 125, 255, 0.1);
+    }
+
+    div,{
+        padding: 1em;
+        background-color: rgba(55, 125, 255, 0.1);
+        line-height: 1.6em;
+        font-size: .9em;
+    }
+}
+
+// .ssl{
+//     padding: 1em 2em;
+//     border-radius: 2px;
+//     border: 1px solid #377dff;
+//     background: rgba(#377dff,0.2);
+//     line-height: 1.6em;
+//     font-size: .9em;
+
+//     h4{
+//         margin:0;
+//         margin-top:1em;
+//     }
+
+//     p{
+//         margin-top: .5em;
+//     }
+// }

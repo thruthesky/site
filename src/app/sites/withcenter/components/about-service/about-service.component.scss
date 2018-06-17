@@ -1,3 +1,4 @@
+@import "../../../../../theme/vars";
 h3{
     margin: 0;
     margin-top: 2em;
@@ -6,13 +7,35 @@ h3{
     color: #0E51A7;
 }
 
+button{
+    padding: 0;
+    border: none;
+    background: none;
+    color: #0E51A7;
+    text-decoration: underline;
+}
 .board{
     margin: 1em 0;
-    padding: 2em;
-    border: 1px solid rgba(125,125,125,0.1);
+    padding: 1.5em 1em;   
+    @media (min-width:$md){
+        padding: 2em;
+    }
+    border-radius: 2px;
+    border: 1px solid rgba(125,125,125,0.2);
 
     h3{
         margin: 0;
         margin-bottom: .5em;
+    }
+
+    p,div{
+        line-height: 1.6em;
+        font-size: .9em;
+    }
+
+    div{
+        margin-top: 1em;
+        padding: 1.5em;
+        background: #eee;
     }
 }
