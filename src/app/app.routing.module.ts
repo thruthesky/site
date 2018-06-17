@@ -250,6 +250,7 @@ const routes: Routes = [
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
     data: { slug: 'teacher_reminders' }
   },
+  { path: 'termsandconditions', redirectTo: 'termsAndConditions' },
   {
     path: 'termsAndConditions',
     loadChildren: './pages/forum/forum.page.module#ForumPageModule',
