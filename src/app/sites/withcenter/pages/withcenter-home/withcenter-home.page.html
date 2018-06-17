@@ -7,8 +7,8 @@
                   </div>
                   <div class='menu'>
                         <span (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.franchise }}</span>
-                        <span (click)=" scrollIntoView( 'franchise-service' ) ">화상영어</span>
-                        <span (click)=" scrollIntoView( 'franchise-start' ) ">시작하기</span>
+                        <span (click)=" scrollIntoView( 'franchise-service' ) ">{{ t.videoenglish }}</span>
+                        <span (click)=" scrollIntoView( 'franchise-start' ) ">{{ t.startup }}</span>
                         <div class="flags">
                               <img class="custom-icon" *ngIf="languageCode=='en'" src="../../../../../assets/img/language-flags/en-desktop.png" alt="">
                               <img class="custom-icon ko-icon" *ngIf="languageCode=='ko'" src="../../../../../assets/img/language-flags/ko-desktop.png" alt="">

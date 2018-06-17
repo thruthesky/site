@@ -17,6 +17,18 @@ export const texts = {
         en: `Open franchise in 1 minute`,
         ch: `在1分钟内打开特许经营权`,
         jp: `オープンフランチャイズ1分で`
+    },
+    videoenglish: {
+        ko: `화상영어`,
+        en: `VideoEnglish`,
+        ch: `视频英语`,
+        jp: `ビデオ英語`
+    },
+    startup: {
+        ko: `창업하기`,
+        en: `Start up`,
+        ch: `启动`,
+        jp: `起動`
     }
 };
 
