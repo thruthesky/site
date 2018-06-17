@@ -1,0 +1,46 @@
+/**
+ *
+ * @warning this scss is globally appied.
+ *
+ */
+@import './../../../../../theme/vars';
+
+body {
+    font-size: 16px!important;
+}
+
+.admin-header {
+    .mainmenu {
+        background-color: rgb(97, 163, 189);
+        a {
+            display: inline-block;
+            padding: 1em .5em;
+        }
+        a.home {
+            padding: .5em;
+            svg {
+                width: 24px;
+            }
+        }
+    }
+    .submenu {
+        background-color: rgb(235, 220, 220);
+        a {
+            display: inline-block;
+            padding: 1em;
+            font-size: 0.75em;
+        }
+    }
+
+    @media (min-width: $md) {
+        display: flex;
+        justify-content: space-around;
+        .submenu {
+            a {
+                font-size: 1em;
+            }
+        }
+    }
+
+}
+

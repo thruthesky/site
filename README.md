@@ -308,6 +308,12 @@ Since fontawesome takes a lot of spaces, you will only copy the SVG XML code int
 
 * Since admin pages is only for admins, it does not lazy load. it loads all the subpages at once.
 
+## New Admin Page Module (updated on 2018-06-16)
+
+* admin-layout.page.scss is a global scss file.
+  We need it to be globally applied to the app/site.
+  For instance, we can redeclare the font size of body if it applies globally.
+
 ## Dialog Loader - Angular Material Dialog
 
 Use loader service for showing a loader in dialog window when you need to show a loader.
