@@ -16,23 +16,17 @@ ul{
     list-style-type: none;
     padding: 0;
     border-top: 1px solid rgba(125,125,125,0.1);
-
     h4{
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 0;
         padding:1em 1.2em;
-        border-left: 5px solid #FEC800;
         transition: all .2s ease-in-out; 
         @media (min-width:$md) {
             padding:1em 1.7em;
         }
         font-size: .9em;
-        &:hover{
-            background: rgba(125,125,125,0.1)
-        }
-
         .desc{
             padding: 1em 0;
             padding-right: 1em;
@@ -60,11 +54,7 @@ ul{
         .rotate-45-on{
             transform: rotate(45deg)
         }
-
-        .title-active{
-            color:#3056AD
-        }
-    }
+}
 
     li{
         border: 1px solid rgba(125,125,125,0.1);
@@ -77,8 +67,6 @@ ul{
             @media (min-width:$md) {
                 padding:.6em 1.8em; 
             }
-            border-top: 1px solid rgba(125,125,125,0.1);
-            background:rgba(125,125,125,0.2);
             animation: .3s 1 fade-in-out;
         }
 
@@ -91,4 +79,80 @@ ul{
             }
         }
     }
+
+
+
+/*
+* list background colors
+*  and font colors
+*/ 
+.salary{
+    background: #FEC800;
+
+    &+.content{
+        background: #fff;
+        color: darkred
+    }
+}
+.quality{
+    background: #546e7a;
+    color: #fff;
+
+    &+.content{
+        background: #fff;
+        color: #29434e
+    }
+}
+.directDeal{
+    background: #512da8;
+    color: #fff;
+
+    &+.content{
+        background: #fff;
+        color: #512da8
+    }
+}
+.stableManagement{
+    background: #2e7d32;
+    color: #fff
+}
+.automatic{
+    background: #753650;
+    color: #fff;
+
+    &+.content{
+        background: #251a1f;
+        color: #fff
+    }
+}
+.instructorCancelation{
+    background: #647536;
+    color: #fff;
+
+    &+.content{
+        background: #23251a;
+        color: #fff;
+    }
+}
+.revenueSharing{
+    background: #067074;
+    color: #fff;
+
+    &+.content{
+      background: #424e09;
+      color: #fff;
+    }
+}
+.PWA{
+    background: #0E51A7;
+    color: #fff
+}
+.smartPhoneApp{
+    background: #2A17B1;
+    color: #fff;
+    &+.content{
+        color: #2A17B1;
+      }
+}
+
 }
