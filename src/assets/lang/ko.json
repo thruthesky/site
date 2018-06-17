@@ -644,6 +644,8 @@
   "IDX_MISSING": "글 번호가 없거나 잘못되었습니다.",
   "NO_VIDEO": "동영상 없음",
   "NO_SCHEDULE" : "시간표 없음",
-  "WARNING_NOT_RECOMMENDED_TEACHER": "주의: 추천 강사가 아닙니다. 수업이 잘 진행되지 않을 수 있으니 유념해 주시기 바랍니다."
+  "WARNING_NOT_RECOMMENDED_TEACHER": "주의: 추천 강사가 아닙니다. 수업이 잘 진행되지 않을 수 있으니 유념해 주시기 바랍니다.",
+
+  "RETURN_TO_LIST" : "목록으로 돌아 가기"
 
 }

@@ -19,6 +19,7 @@ header {
     border-bottom: 1px solid rgba(125,125,125,0.2);
     nav{
         display: flex;
+        align-items: center;
         justify-content: space-around;
         @media (min-width:$md){
             justify-content: space-between
@@ -46,11 +47,12 @@ header {
             display: flex;
             height:  $header-height;
             &>span{
-                display: flex;
+                display: none;
                 align-items: center;
                 height:100%;
                 padding:0 .75em;
                 @media (min-width:$md) {
+                    display: flex;
                     padding: 0 1em;
                 }
                 font-weight: 400;
@@ -64,6 +66,15 @@ header {
             }
         }
 
+        .options-button{
+            display: flex;
+            align-items: center;
+            height: 100%;
+            svg{
+                height: 1.8em;
+                width: 1.8em;
+            }
+        }
         .flags {
             position: relative !important;
             @media (min-width:$md) {

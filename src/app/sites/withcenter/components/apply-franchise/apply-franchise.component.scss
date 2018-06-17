@@ -17,7 +17,8 @@ h3{
     button{
         border: none;
         background: none;
-        color: #377dff
+        color: #0A3F82;
+        text-decoration: underline
     }
 }
 .company-info-wrapper{
@@ -35,39 +36,44 @@ h3{
     .domain{
         font-size: .9em;
         color: #EF6C00;
-        text-align: center;
         .title{
             padding-bottom: 1em;
             text-align: left;
             color: #0E51A7;
         }
+
         .input{
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-size: .9em;
             @media(min-width:$md) {
-                font-size: 1em;
-                justify-content: center
+                font-size: 1.8em;
+                justify-content: center;
             }
 
             input{
                 margin: 0 .5em;
                 width: 111px;
+                text-align: center;
+                color: #EF6C00;
                 @media(min-width:$md) {
-                    width: auto;
+                    width: 370px;
+                    padding: .25em;
                 }
             }
         }
-        .foot-note{
-            display: inline-block;
-            padding: 1em 0;
-            font-size: .8em;
-            @media(min-width:$md) {
-                font-size: .9em;
-            }
-            color: #0E51A7;
+    }
+
+    .foot-note{
+        display:block;
+        text-align: center;
+        padding: 1em 0;
+        font-size: .8em;
+        @media(min-width:$md) {
+            font-size: .9em;
         }
+        color: #0E51A7;
     }
 
     &>div{
@@ -108,7 +114,7 @@ h3{
             padding: 1em 2em;
             border-radius: 2px;
             border:none;
-            background: darkblue;
+            background: #0A3F82;
             color: #fff;
             cursor: pointer;
         }
@@ -117,37 +123,22 @@ h3{
 }
 
 .more{
-    padding: 1em;
-    .withcenter-button {
-        padding: .8em .6em;
-        border: 0;
-        border-radius: 4px;
+    text-align: center;
+    .button {
+        padding: 1em;
+        border: 0;  
         font-size: 11pt;
-        background-color: rgba(55, 125, 255, 0.1);
+        background: none;
+        color: #0A3F82;
+        text-decoration: underline;
     }
 
     div,{
         padding: 1em;
-        background-color: rgba(55, 125, 255, 0.1);
+        border: 1px solid #FEC800;
+        background: rgba(#FEC800,0.2);
         line-height: 1.6em;
         font-size: .9em;
+        text-align: left;
     }
 }
-
-// .ssl{
-//     padding: 1em 2em;
-//     border-radius: 2px;
-//     border: 1px solid #377dff;
-//     background: rgba(#377dff,0.2);
-//     line-height: 1.6em;
-//     font-size: .9em;
-
-//     h4{
-//         margin:0;
-//         margin-top:1em;
-//     }
-
-//     p{
-//         margin-top: .5em;
-//     }
-// }

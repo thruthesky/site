@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ForumServiceModule } from '../../providers/forum/forum.service.module';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild( routes ),
         HttpClientModule,
-        ForumServiceModule
+        ForumServiceModule,
+        TranslatePipeModule
     ],
     exports: [],
     declarations: [
