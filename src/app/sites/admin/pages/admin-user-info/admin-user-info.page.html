@@ -1,37 +1,34 @@
 <div class="loader" *ngIf=" show.loader.loadProfile ">
     Loading user profile...</div>
-<table>
-    <tr>
-        <th class="title">Stat &amp; User Edit Form</th>
-        <th class="title">Sessions</th>
-        <th class="title">Payment</th>
-        <th class="title">Point History</th>
-    </tr>
-    <tr valign='top'>
-        <td>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <h1 class="title">Stat &amp; User Edit Form</h1>
             <button class="app-button" routerLink="/admin/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
             <button class="app-button" routerLink="/admin/payment/{{ user.ID }}">Payment Detail Page</button>
-
             <form class="user-profile-form" *ngIf=" ! show.loader.loadProfile ">
-                <table>
-                    <tr>
-                        <td>User ID</td>
-                        <td>{{ user.ID }}</td>
-                    </tr>
-                    <tr>
-                        <td>Login</td>
-                        <td>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4">User ID</div>
+                        <div class="col-8">{{ user.ID }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Login</div>
+                        <div class="col-8">
                             <b class="user-login">{{ user.user_login }}</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Point</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Point</div>
+                        <div class="col-8">
                             <div class="point">
                                 <div class='user-point'>User Point: {{ user.point | number }}</div>
-                                <button type='button' class="app-button point-edit" (click)="show.pointUpdateForm = true" *ngIf=" ! show.pointUpdateForm ">Point Edit</button>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type='button' class="app-button point-edit" (click)="show.pointUpdateForm = true" *ngIf=" ! show.pointUpdateForm ">Point Edit</button>
                             <section class='point-edit' *ngIf=" show.pointUpdateForm ">
                                 <b>Point Update</b>
                                 <div>
@@ -81,75 +78,65 @@
                                 <button class="app-button" type="button" (click)="onClickPointUpdate()" *ngIf=" ! show.loader.updatePoint ">Update Point</button>
                                 <button class="app-button" type="button" (click)=" show.pointUpdateForm = false">Cancel</button>
                                 <div class="loader" *ngIf=" show.loader.updatePoint ">Updating point...</div>
-
-
                             </section>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Email</div>
+                        <div class="col-8">
                             {{ user.user_email }}
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>Password</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">Password</div>
+                        <div class="col-8">
                             <input type='text' name='password' [(ngModel)]=" user.user_pass ">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>User Type</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">User Type</div>
+                        <div class="col-8">
                             <input type='radio' id="user_type_student" name='user_type' [(ngModel)]=" user.user_type " [value]="'S'" [checked]=" user.user_type ">
                             <label for="user_type_student">Student</label>,
                             <input type='radio' id="user_type_teacher" name='user_type' [(ngModel)]=" user.user_type " [value]="'T'" [checked]=" user.user_type ">
                             <label for="user_type_teacher">Teacher</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Display Name</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Display Name</div>
+                        <div class="col-8">
                             <input type='text' name='display_name' [(ngModel)]=" user.display_name ">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Name</div>
+                        <div class="col-8">
                             <input type='text' name='name' [(ngModel)]=" user.name ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>Gender</td>
-                        <td>
+
+                    <div class="row">
+                        <div class="col-4">Gender</div>
+                        <div class="col-8">
                             <input type='radio' id="gender_male" name='gender' [(ngModel)]=" user.gender " [value]="'M'" [checked]=" user.gender ">
                             <label for="gender_male">Male</label>,
                             <input type='radio' id="gender_female" name='gender' [(ngModel)]=" user.gender " [value]="'F'" [checked]=" user.gender ">
                             <label for="gender_female">Female</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Primary Photo</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Primary Photo</div>
+                        <div class="col-8">
                             <div class="photo-upload">
 
                                 <div class="photo-upload-button">
                                     <div class="profile-photo">
                                         <img src="{{ user.photoURL }}">
                                     </div>
-                                    <!--<div>-->
-                                    <!--<button class="btn" [class.skip]="files && files.length">-->
-                                    <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">-->
-                                    <!--<path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"-->
-                                    <!--/>-->
-                                    <!--</svg>-->
-                                    <!--<span>{{ 'PHOTO UPLOAD' | t }}</span>-->
-                                    <!--</button>-->
-                                    <!--</div>-->
                                 </div>
-                                <input class="input-box" type="file" (change)="profilePhotoUpload.onChangeFile($event)">
+                                <input class="input-box" type="file" (change)="profilePhotoUpload.onChangeFile($event)" style="width:86px;">
                                 <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">
                                     <mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">
                                     </mat-progress-bar>
@@ -159,94 +146,94 @@
                                     [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
                                 </xapi-file-upload-component>
                             </div>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone Number</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Phone Number</div>
+                        <div class="col-8">
                             <input type='text' name='phone_number' [(ngModel)]=" user.phone_number ">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kakaotalk ID</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Kakaotalk ID</div>
+                        <div class="col-8">
                             <input type='text' name='kakaotalk_id' [(ngModel)]=" user.kakaotalk_id ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
 
-                    <tr>
-                        <td>Teacher Group</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">Teacher Group</div>
+                        <div class="col-8">
                             <input type='text' name='user_group' [(ngModel)]=" user.user_group ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>Teacher Grade</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">Teacher Grade</div>
+                        <div class="col-8">
                             <input type='text' name='grade' [(ngModel)]=" user.grade ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>List Order</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">List Order</div>
+                        <div class="col-8">
                             <input type='text' name='list_order' [(ngModel)]=" user.list_order ">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bookable Time</td>
-                        <td>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Bookable Time</div>
+                        <div class="col-8">
                             <input type='text' name='bookable_time' [(ngModel)]=" user.bookable_time ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
 
-                    <tr>
-                        <td>Block
-                            <div>Freeclass</div>Until</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">
+                            Block Freeclass Until
+                        </div>
+                        <div class="col-8">
                             <input type='text' name='block_free_class_until' [(ngModel)]=" user.block_free_class_until ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
 
-                    <tr>
-                        <td>Timezone</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">Timezone</div>
+                        <div class="col-8">
                             <input type='text' name='timezone' [(ngModel)]=" user.timezone ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
 
-                    <tr>
-                        <td>Domain</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">Domain</div>
+                        <div class="col-8">
                             <input type='text' name='domain' [(ngModel)]=" user.domain ">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>Manager</td>
-                        <td>
+                    <div class="row">
+                        <div class="col-4">Manager</div>
+                        <div class="col-8">
                             <input type='text' name='manager' [(ngModel)]=" user.manager ">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8">
                             <button class="app-button" type='button' (click)="onSubmitUserInfo()" *ngIf=" ! show.loader.updateProfile ">Update User Profile</button>
                             <div class="loader" *ngIf=" show.loader.updateProfile ">Saving ...</div>
                             <div class="loader" *ngIf=" show.loader.profileSaved ">Saved...</div>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
             </form>
-        </td>
-        <td>
+        </div>
+        <div class="col-3">
+            <h1 class="title">Sessions</h1>
             <ul class="sessions-desc">
                 <li>
                     Date and time is based on user timezone setting.
@@ -257,57 +244,58 @@
             </ul>
             <div class="loader" *ngIf=" show.loader.loadSchedule ">Loading schedule</div>
             Reserved: {{ count.session.future | number }}, Past: {{ count.session.past | number }}
-            <table class="sessions" *ngIf=" sessions.length ">
-                <tr>
-                    <th>No.</th>
-                    <th *ngIf="user.user_type != 'T' ">Teacher</th>
-                    <th *ngIf="user.user_type == 'T' ">Student</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Point</th>
-                </tr>
-
-                <tr class="session top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
-                    <td>{{ session.idx }}</td>
-                    <td *ngIf="user.user_type != 'T' ">
+            <div class="sessions container-fluid" *ngIf=" sessions.length ">
+                <div class="row">
+                    <div class="col-2">No.</div>
+                    <div class="col-2" *ngIf="user.user_type != 'T' ">Teacher</div>
+                    <div class="col-2" *ngIf="user.user_type == 'T' ">Student</div>
+                    <div class="col-3">Date</div>
+                    <div class="col-3">Time</div>
+                    <div class="col-2">Point</div>
+                </div>
+                <div class="session row top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
+                    <div class="col-2">{{ session.idx }}</div>
+                    <div class="col-2" *ngIf="user.user_type != 'T' ">
                         <a class="user-info" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
                           
                         </a>
-                    </td>
-                    <td *ngIf="user.user_type == 'T' ">
+                    </div>
+                    <div class="col-2" *ngIf="user.user_type == 'T' ">
                         <a class="user-info" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
                             
                         </a>
-                    </td>
-                    <td>
+                    </div>
+                    <div class="col-3">
                         <div>{{ session.date }}</div>
-                    </td>
-                    <td nowrap>{{ session.class_begin }}-{{ session.class_end }}</td>
-                    <td>{{ session.point | number }}</td>
-                </tr>
-                <tr class="session bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
-                    <td>
+                    </div>
+                    <div class="col-3" nowrap>{{ session.class_begin }}-{{ session.class_end }}</div>
+                    <div class="col-2">{{ session.point | number }}</div>
+                </div>
+                <div class="session row bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
+                    <div class="col">
                         <a class="user-info" routerLink="/admin/session-edit/{{session.idx}}">
                             {{ session.idx }}
                         </a>
-                    </td>
-                    <td *ngIf="user.user_type != 'T' ">
+                    </div>
+                    <div class="col" *ngIf="user.user_type != 'T' ">
                         <a class="user-info" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
                             
                         </a>
-                    </td>
-                    <td *ngIf="user.user_type == 'T' ">
+                    </div>
+                    <div class="cl" *ngIf="user.user_type == 'T' ">
                         <a class="user-info" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
                             
                         </a>
-                    </td>
-                    <td>{{ session.date }}</td>
-                    <td nowrap>{{ session.class_begin }}-{{ session.class_end }}</td>
-                    <td>{{ session.point | number }}</td>
-                </tr>
-            </table>
-        </td>
-        <td>
+                    </div>
+                    <div class="col">{{ session.date }}</div>
+                    <div class="col" nowrap>{{ session.class_begin }}-{{ session.class_end }}</div>
+                    <div class="col">{{ session.point | number }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+
+            <h1 class="title">Payment</h1>
             <section class="payments-wrapper">
 
                 <div class="loader" *ngIf=" show.loader.loadPayment ">
@@ -363,9 +351,9 @@
                     </tr>
                 </table>
             </section>
-        </td>
-
-        <td>
+        </div>
+        <div class="col-3">
+            <h1 class="title">Point History</h1>
             <section class="point-history">
 
                 <div class="loader" *ngIf=" show.loader.loadPointHistory ">
@@ -425,7 +413,6 @@
                     </tr>
                 </table>
             </section>
-
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
