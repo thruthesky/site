@@ -629,4 +629,10 @@ export class XapiLMSService extends Base {
         req['session_id'] = this.user.sessionId;
         return this.x.post(req);
     }
+
+
+    branch_register(req) {
+        req['route'] = 'lms.branch_register';
+        return this.x.post(req);
+    }
 }

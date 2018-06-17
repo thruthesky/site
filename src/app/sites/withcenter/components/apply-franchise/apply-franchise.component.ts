@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WithcenterShow } from '../../interfaces';
+import { AppService } from '../../../../providers/app.service';
 
 
 interface Form {
@@ -7,8 +8,7 @@ interface Form {
     user_pass: string;
     name: string;
     phone_number: string;
-    sub_domain: string;
-    root_domain: string;
+    domain: string;
 }
 @Component({
     selector: 'apply-franchise-component',
@@ -21,13 +21,20 @@ export class ApplyFranchiseComponent implements OnInit {
     show: WithcenterShow = <any>{};
     form = <Form>{};
 
-    constructor() { }
+    constructor(
+        public a: AppService
+    ) { }
 
     ngOnInit() { }
 
     onSubmitApply(event: Event) {
         event.preventDefault();
 
+
+        this.a.lms.branch_register(this.form).subscribe(re => {
+            // console.log('branch_register: ', re);
+            this.a.openAdminPage();
+        }, e => this.a.toast(e));
         return false;
     }
 }

@@ -296,6 +296,13 @@ const routes: Routes = [
     loadChildren: './pages/admin/admin-page.module#AdminPageModule'
   },
 
+  /**
+   * New admin pages and branch pages.
+   */
+  {
+    path: 'manager',
+    loadChildren: './sites/admin/admin.module#AdminModule'
+  },
 
   /**
    * Defaults
