@@ -19,5 +19,6 @@ export const environment = {
         policy: 4,
         termsandconditions: 3,
         topearner: 5
-    }
+    },
+    sslPort: ''
 };

@@ -11,10 +11,6 @@ export class AdminHomePage implements OnInit {
     constructor(
         public a: AppService
     ) {
-        if ( a.isLogout ) {
-            this.a.toast('Please login first');
-            this.a.open('/manager/login');
-        }
     }
 
     ngOnInit() { }
