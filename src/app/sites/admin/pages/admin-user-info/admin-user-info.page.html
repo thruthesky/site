@@ -270,14 +270,14 @@
                 <tr class="session top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
                     <td>{{ session.idx }}</td>
                     <td *ngIf="user.user_type != 'T' ">
-                        <div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
-                            <button class="user-info-button">e</button>
-                        </div>
+                        <a class="user-info" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                          
+                        </a>
                     </td>
                     <td *ngIf="user.user_type == 'T' ">
-                        <div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
-                            <button class="user-info-button">e</button>
-                        </div>
+                        <a class="user-info" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                            
+                        </a>
                     </td>
                     <td>
                         <div>{{ session.date }}</div>
@@ -287,20 +287,19 @@
                 </tr>
                 <tr class="session bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
                     <td>
-                        <div class="link" routerLink="/admin/session-edit/{{session.idx}}">
+                        <a class="user-info" routerLink="/admin/session-edit/{{session.idx}}">
                             {{ session.idx }}
-                            <button class="user-info-button">e</button>
-                        </div>
+                        </a>
                     </td>
                     <td *ngIf="user.user_type != 'T' ">
-                        <div class="link" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
-                            <button class="user-info-button">e</button>
-                        </div>
+                        <a class="user-info" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                            
+                        </a>
                     </td>
                     <td *ngIf="user.user_type == 'T' ">
-                        <div class="link" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
-                            <button class="user-info-button">e</button>
-                        </div>
+                        <a class="user-info" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                            
+                        </a>
                     </td>
                     <td>{{ session.date }}</td>
                     <td nowrap>{{ session.class_begin }}-{{ session.class_end }}</td>
@@ -348,18 +347,18 @@
                     </tr>
                     <tr *ngFor=" let re of refundRequests ">
                         <td>
-                            <div class='link' routerLink="/admin/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}
-                                <button class='user-info-button'>e</button>
-                            </div>
+                            <a class='user-info' routerLink="/admin/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}
+                                
+                            </a>
                         </td>
                         <td>
-                            <div class='link' routerLink="/admin/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}
-                                <button class='user-info-button'>e</button>
-                            </div>
+                            <a class='user-info' routerLink="/admin/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}
+                                
+                            </a>
                         </td>
                         <td>{{ re.date }} {{ re.class_begin }}</td>
                         <td>
-                            <button class='user-info-button' routerLink="/admin/point-refund/idx/{{re.idx}}">open</button>
+                            <a class='user-info-button' routerLink="/admin/point-refund/idx/{{re.idx}}">open</a>
                         </td>
                     </tr>
                 </table>
@@ -398,16 +397,16 @@
 
                     <tr *ngFor=" let log of pointHistory ">
                         <td *ngIf=" user.user_type == 'S' ">
-                            <div class="link" routerLink="/admin/user-info/{{ log.teacher?.idx }}">
+                            <a class="user-info" routerLink="/admin/user-info/{{ log.teacher?.idx }}">
                                 {{ log.teacher?.display_name }}
-                                <button class="user-info-button">e</button>
-                            </div>
+                                
+                            </a>
                         </td>
                         <td *ngIf=" user.user_type == 'T' ">
-                            <div class="link" routerLink="/admin/user-info/{{ log.student?.idx }}">
+                            <a class="user-info" routerLink="/admin/user-info/{{ log.student?.idx }}">
                                 {{ log.student?.display_name }}
-                                <button class="user-info-button">e</button>
-                            </div>
+                                
+                            </a>
                         </td>
                         <td>
                             <div class="reason">{{ log.reason }}</div>
@@ -416,10 +415,9 @@
                             <div class="reason">{{ log.apply_point | number }}</div>
                         </td>
                         <td>
-                            <div class='link' routerLink="/admin/session/idx/{{log.idx_reservation}}">
+                            <a class='user-info' routerLink="/admin/session/idx/{{log.idx_reservation}}">
                                 {{ log.idx_reservation }}
-                                <button class="user-info-button">s</button>
-                            </div>
+                            </a>
                         </td>
                         <td>
                             {{ a.shortDateTime(log.stamp) }}
