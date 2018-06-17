@@ -198,30 +198,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @media (min-width:$md) {
-        border: 1px solid rgba(#AA3939,0.2);   
-    }
-    background-color: rgba(#AA3939,0.1);
-    color: #AA3939;
+    background-color: #860000;
+    color: #ffffff;
     margin-top: 1em;
     padding: 1em 2em;
-    @media (min-width: $md ) {
+    @media (min-width: $md) {
         margin-top: .5em;
         margin-bottom: 1.5em;
         padding: 1em 1.5em;
         font-size: .85em;
         border-radius: 4px;
+        background-color: #0d0086;
     }
     .text {
         padding-left: 1em;
         font-size: .85em;
-        @media (min-width:$md){
+        @media (min-width: $md) {
             font-size: 1em;
         }
     }
-
-    svg{
-        color: #AA3939;
+    svg {
+        color: #ffffff;
         min-height: 1.5em;
         min-width: 1.5em;
     }

@@ -17,7 +17,7 @@ export class WithcenterHomePage {
     index: 0,
     show: 'text-group-0'
   };
-  dropdown = {};
+  showMobileMenu: boolean;
 
   constructor(
     public a: AppService,
@@ -44,6 +44,7 @@ export class WithcenterHomePage {
   scrollIntoView(id: string) {
     const element = document.getElementById(id);
     element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+    return true;
   }
   onClickHome() {
     document.body.scrollTop = 0; // For Safari
