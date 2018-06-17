@@ -31,14 +31,14 @@
                   <div class="texts text-group-0" *ngIf=" animation.show == 'text-group-0' ">
                         <div class="text" no="0">화상영어 창업</div>
                         <div class="text" no="1">성공 비결은 무엇일까요?</div>
-                        <div class="text" no="2">제대로된 회사와 가맹을 맺는 것입니다.</div>
+                        <div class="text" no="2">제대로된 회사와 협력하는 것입니다.</div>
                         <div class="text" no="3">12년째, 오직 화상영어 한 길</div>
                   </div>
                   <div class="texts text-group-1" *ngIf=" animation.show == 'text-group-1' ">
-                        <div class="text" no="0">글로벌 리더 위세너 화상영어</div>
+                        <div class="text" no="0">글로벌 리더 위세너</div>
                         <div class="text" no="1">2007년 부터 화상영어 프랜차이즈</div>
                         <div class="text" no="2">12년째 필리핀에서 콜센터 운영</div>
-                        <div class="text" no="3">500 여개에 이르는 가맹사</div>
+                        <div class="text" no="3">5백여 개에 이르는 가맹사</div>
                   </div>
                   <div class="texts text-group-2" *ngIf=" animation.show == 'text-group-2' ">
                         <div class="text" no="0">창업비용 제로. 부가 비용 완전 제로.</div>
@@ -47,8 +47,7 @@
                         <div class="text" no="3">학생만 있으면 바로 수익 발생</div>
                   </div>
                   <nav class="buttons">
-                        <button class="withcenter-button ml-2">{{ t.open_branch_in_one_minute }}</button>
-
+                        <button class="withcenter-button ml-2" (click)=" scrollIntoView( 'franchise-start' ) ">{{ t.open_branch_in_one_minute }}</button>
                   </nav>
                   <div class="banner">
                         <img src="assets/withcenter/img/main-title.jpg">
