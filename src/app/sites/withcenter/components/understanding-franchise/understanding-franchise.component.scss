@@ -20,7 +20,7 @@ ul{
         align-items: center;
         justify-content: space-between;
         margin: 0;
-        padding:1em 1.2em;
+        padding:1em 1.5em;
         transition: all .2s ease-in-out; 
         @media (min-width:$md) {
             padding:1em 1.7em;
@@ -28,22 +28,22 @@ ul{
         font-size: .9em;
         .desc{
             padding: 1em 0;
-            padding-right: 1em;
             font-weight: 300;
-            font-size: 1em;
+            font-size: .9em;
         }
 
         span{
+            padding: 1em;
             line-height: 0;
         }
         svg{
-            height: 1em;
-            width: 1em;
+            height: 1.5em;
+            width: 1.5em;
         }
 
         .rotate-45-off,
         .rotate-45-on{
-            transition:all .2s ease-in-out 
+            transition:all .2s ease-in-out; 
         }
 
         .rotate-45-off{
