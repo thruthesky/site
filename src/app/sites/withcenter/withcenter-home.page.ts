@@ -1,20 +1,13 @@
 import { Component, } from '@angular/core';
-import { AppService } from '../../../../providers/app.service';
-
-
-// import { texts } from '../../text';
-// import { FireService } from '../../../../modules/firelibrary/core';
-
-
-import { WithcenterTextService } from '../../withcenter-text.service';
-
+import { AppService } from '../../providers/app.service';
+import { WithcenterTextService } from './withcenter-text.service';
 
 
 
 @Component({
   selector: 'app-page-withcenter-home',
   templateUrl: 'withcenter-home.page.html',
-  styleUrls: ['./withcenter-home.page.scss']
+  styleUrls: ['withcenter-home.page.scss']
 })
 export class WithcenterHomePage {
 

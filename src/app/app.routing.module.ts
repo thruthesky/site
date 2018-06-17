@@ -139,7 +139,7 @@ const routes: Routes = [
   /**
    * withcenter.com for Franchise web site.
    */
-  { path: 'franchise', loadChildren: './sites/withcenter/pages/withcenter-home/withcenter-home.page.module#WithcenterHomePageModule' },
+  { path: 'franchise', loadChildren: './sites/withcenter/withcenter.module#WithcenterModule' },
 
 
   /**

@@ -1,4 +1,4 @@
-@import './../../../../../theme/vars';
+@import './../../../theme/vars';
 
 $page-width: 800px;
 $padding: .6em;
@@ -9,6 +9,7 @@ main {
     max-width: $page-width;
     font-family: Helvetica, Arial, sans-serif
 }
+
 header {
     position: fixed;
     top: 0;
@@ -221,4 +222,10 @@ h3{
     border-radius: 4px;
     font-size: 11pt;
     background-color: rgba(55, 125, 255, 0.1);
+}
+
+
+footer {
+    padding: 5em;
+    text-align: center;
 }
