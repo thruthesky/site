@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'admin-layout-page',
@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AdminLayoutPage implements OnInit {
     constructor(
         public activated: ActivatedRoute,
+        public router: Router,
         public a: AppService
     ) {
         console.log('AdminLayoutPage::construction()');

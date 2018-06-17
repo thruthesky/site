@@ -15,7 +15,9 @@
         <a routerLink="./setting">Settings</a>
     </nav>
 </header>
-<main>
+
+
+<main [attr.path]=" router.url ">
     <router-outlet></router-outlet>
 </main>
 <section>AAA</section>
