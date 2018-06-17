@@ -34,5 +34,25 @@ main {
             line-height: 1.6em;
             font-weight: 200;
         }
+
+        a{
+            display: flex;
+            .button{
+                display: flex;
+                align-items: center;
+                margin: 2em 0;
+                padding: .75em 1.5em;
+                border-radius: 2px;
+                background: darkblue;
+                color: #fff;
+                font-size: .9em;
+    
+                svg{
+                    height: 1.5em;
+                    width: 1.5em;
+                    margin-right: .5em;
+                }
+            }
+        }
     }
 }
