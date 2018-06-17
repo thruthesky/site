@@ -14,7 +14,13 @@ body {
         background-color: rgb(97, 163, 189);
         a {
             display: inline-block;
-            padding: 1em;
+            padding: 1em .5em;
+        }
+        a.home {
+            padding: .5em;
+            svg {
+                width: 24px;
+            }
         }
     }
     .submenu {
