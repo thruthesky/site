@@ -12,6 +12,9 @@ import { AdminPushNotificationPage } from './pages/admin-push-notification/admin
 import { AdminSessionPage } from './pages/admin-session/admin-session.page';
 import { AdminSettingPage } from './pages/admin-setting/admin-setting.page';
 import { AdminUserPage } from './pages/admin-user/admin-user.page';
+import { AdminUserInfoPage } from './pages/admin-user-info/admin-user-info.page';
+import { MaterialModule } from '../../app.material.module';
+import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload/xapi-file-upload.component.module';
 
 
 const routes: Routes = [
@@ -24,38 +27,16 @@ const routes: Routes = [
                 pathMatch: 'full',
                 component: AdminHomePage
             },
-            {
-                path: 'login',
-                component: AdminLoginPage
-            },
-            {
-                path: 'payment',
-                component: AdminPaymentPage
-            },
-            {
-                path: 'point-history',
-                component: AdminPointHistoryPage
-            },
-            {
-                path: 'point-refund',
-                component: AdminPointRefundPage
-            },
-            {
-                path: 'push-notification',
-                component: AdminPushNotificationPage
-            },
-            {
-                path: 'session',
-                component: AdminSessionPage
-            },
-            {
-                path: 'setting',
-                component: AdminSettingPage
-            },
-            {
-                path: 'user',
-                component: AdminUserPage
-            }
+            { path: 'login', component: AdminLoginPage },
+            { path: 'payment', component: AdminPaymentPage },
+            { path: 'point-history', component: AdminPointHistoryPage },
+            { path: 'point-refund', component: AdminPointRefundPage },
+            { path: 'push-notification', component: AdminPushNotificationPage },
+            { path: 'session', component: AdminSessionPage },
+            { path: 'setting', component: AdminSettingPage },
+            { path: 'user/:field/:value', component: AdminUserPage },
+            { path: 'user', component: AdminUserPage },
+            { path: 'user-info/:ID', component: AdminUserInfoPage }
         ]
     }
 
@@ -64,7 +45,9 @@ const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        MaterialModule,
+        XapiFileUploadComponentModule
     ],
     exports: [
         RouterModule
@@ -79,7 +62,8 @@ const routes: Routes = [
         AdminPushNotificationPage,
         AdminSessionPage,
         AdminSettingPage,
-        AdminUserPage
+        AdminUserPage,
+        AdminUserInfoPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -91,7 +75,8 @@ const routes: Routes = [
         AdminPushNotificationPage,
         AdminSessionPage,
         AdminSettingPage,
-        AdminUserPage
+        AdminUserPage,
+        AdminUserInfoPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],

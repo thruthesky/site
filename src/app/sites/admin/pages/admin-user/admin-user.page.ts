@@ -22,8 +22,6 @@ export interface AdminUserStatistics {
     templateUrl: 'admin-user.page.html',
     styleUrls: ['admin-user.page.scss']
 })
-
-
 export class AdminUserPage implements OnInit {
 
     re = null;
@@ -135,7 +133,7 @@ export class AdminUserPage implements OnInit {
             this.show.loader = false;
             this.re = re;
             if ( re.length && re.length === 1 && this.quickSearch ) {
-                this.router.navigateByUrl('/admin/user-info/' + this.re[0]['ID'] );
+                this.router.navigateByUrl('/manager/user-info/' + this.re[0]['ID'] );
             }
             this.sanitize();
             this.statistics();

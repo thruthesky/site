@@ -10,6 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class AdminLayoutPage implements OnInit {
+
+
+    /**
+     * quick search
+     */
+    uid = '';
     constructor(
         public activated: ActivatedRoute,
         public router: Router,
@@ -35,6 +41,11 @@ export class AdminLayoutPage implements OnInit {
     }
 
     ngOnInit() { }
+    onSubmitUserQuickSearch(event: Event) {
+        event.preventDefault();
+        this.router.navigateByUrl('/manager/user/uid/' + this.uid);
+        return false;
+    }
 }
 
 
