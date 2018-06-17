@@ -10,6 +10,7 @@
                         <div class="desc">
                               저희는 '원어민 강사 월 20회 1만원' 으로 광고를 하고 있습니다. 저렴해도 너무 치명적으로 저렴합니다. 핵심은 강사가 75% 라는 대부분의 수업료를 가져가기 때문에 강사는 충분한 수익을 얻습니다. 필리핀 강사의 경우,
                               1만 5천페소(한화로 약 30만원)를 한달에 벌면 충분한데, 하루 8시간 근무를 하면, 10분 수업을 40회(매 시간 10분 휴식 포함)를 할 수 있습니다.
+                              <button (click)="show.salary = true" *ngIf=" ! show.salary ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.salary">
@@ -53,6 +54,8 @@
                         <div>고품격 영어 교육서비스</div>
                         <div class="desc">
                               영어 학원 강사와 재택근무 강사가 함께 수업을 합니다. 영어 학원 강사의 경우 수업을 잘 하지만 재택 근무 강사의 경우 꾸준한 관리를 통해 수업의 질을 높여나가고 있습니다.
+
+                              <button (click)="show.quality = true" *ngIf=" ! show.quality ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.quality">
@@ -76,6 +79,7 @@
                         <div>직거래 서비스</div>
                         <div class="desc">
                               온튜에서는 강사가 직접 수업료를 정하고 학생은 마음에 들면 예약을 합니다. 또한 선생님과 학생이 서로 상의해서 수업료를 조절하는 경우도 많습니다.
+                              <button (click)="show.directDeal = true" *ngIf=" ! show.directDeal ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.directDeal">
@@ -102,6 +106,7 @@
                         <div class="desc">
                               학원 강사의 경우 문제가 없지만 재택 강사의 경우 인터넷, 정전, 개인적인 긴급 용무 등 여러가지 상황이 발생하고 있습니다. 이 부분에 대해서는 필리핀 매니저가 배정되어 재택 강사의 수업 참여도를 관리하며 지속적으로
                               개선 하고 있습니다.
+                              <button (click)="show.stableManagement = true" *ngIf=" ! show.stableManagement ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.stableManagement">
@@ -121,6 +126,7 @@
                         <div>자동화 시스템</div>
                         <div class="desc">
                               위세너에서는 관리자 또는 매니저가 학생 대신 수업을 예약, 취소, 변경 등을 할 수 없습니다. 오직 학생만이 직접 해야하며 그 만큼 잘 자동화되어져 있습니다.
+                              <button (click)="show.automatic = true" *ngIf=" ! show.automatic ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.automatic">
@@ -148,8 +154,8 @@
                   <div>
                         <div>강사의 수업 취소</div>
                         <div class="desc">
-                              "위세너 프랜차이즈"에서 특이한 점은 학생 뿐만아니라, 강사도 수업을 취소 할 수 있습니다. 물론 선생님이 수업을 취소하는 경우는 매우 드물며 그러한 일은 거의 벌어지지 않습니다. 또한 상습적으로 수업을 취소하는 강사는
-                              위세너에서 제제를 합니다. 그리고 수업 취소가 발생할 가능성이 높은 강사의 경우 따로 표시를 하기도 합니다. 본사에서는 학생들에게 이러한 내용을 홈페이지를 통해 잘 인식시키고 있습니다.
+                              "위세너 프랜차이즈"에서 특이한 점은 학생 뿐만아니라, 강사도 수업을 취소 할 수 있습니다.
+                              <button (click)="show.instructorCancelation = true" *ngIf=" ! show.instructorCancelation ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.instructorCancelation">
@@ -158,7 +164,7 @@
             </h4>
             <div class="content" *ngIf="show.instructorCancelation">
                   <p>
-                        "위세너 프랜차이즈"에서 특이한 점은 학생 뿐만아니라, 강사도 수업을 취소 할 수 있습니다. 물론 선생님이 수업을 취소하는 경우는 매우 드물며 그러한 일은 거의 벌어지지 않습니다. 또한 상습적으로 수업을 취소하는 강사는
+                        물론 선생님이 수업을 취소하는 경우는 매우 드물며 그러한 일은 거의 벌어지지 않습니다. 또한 상습적으로 수업을 취소하는 강사는
                         위세너에서 제제를 합니다. 그리고 수업 취소가 발생할 가능성이 높은 강사의 경우 따로 표시를 하기도 합니다. 본사에서는 학생들에게 이러한 내용을 홈페이지를 통해 잘 인식시키고 있습니다.
                   </p>
             </div>
@@ -168,8 +174,8 @@
                   <div>
                         <div>수익분배</div>
                         <div class="desc">
-                              학생이 지불한 수업료의 수익 분배 비율은 강사 75% 가맹사 20% 본사 5% 입니다. 가맹사의 수익금은 페이팔로 전송합니다. 수익 분배는 1일 부터 말 일까지의 수익을 그 다음달 7일 드립니다.
-                              만약, 가맹사의 수익이 $10 이하인 경우, 지급되지 않으며 홈페이지 운영비로 사용됩니다.
+                              학생이 지불한 수업료의 수익 분배 비율은 강사 75% 가맹사 20% 본사 5% 입니다.
+                              <button (click)="show.revenueSharing = true" *ngIf=" ! show.revenueSharing ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.revenueSharing">
@@ -178,7 +184,7 @@
             </h4>
             <div class="content" *ngIf="show.revenueSharing">
                   <p>
-                        학생이 지불한 수업료의 수익 분배 비율은 강사 75% 가맹사 20% 본사 5% 입니다. 가맹사의 수익금은 페이팔로 전송합니다. 수익 분배는 1일 부터 말 일까지의 수익을 그 다음달 7일 드립니다.
+                   가맹사의 수익금은 페이팔로 전송합니다. 수익 분배는 1일 부터 말 일까지의 수익을 그 다음달 7일 드립니다.
                         만약, 가맹사의 수익이 $10 이하인 경우, 지급되지 않으며 홈페이지 운영비로 사용됩니다.
                   </p>
             </div>
@@ -189,9 +195,7 @@
                         <div>PWA</div>
                         <div class="desc">
                               프로그레시브 웹앱(Progressive Web Apps)의 약자로 PWA 라고 칭하는 최신의 홈페이지의 개발 기법으로 모바일앱과 경쟁할 수 있는 홈페이지입니다.
-                              위세너에서 2016년 이후 개발하는 모든 사이트는 PWA 및 앱/웹앱 방식으로 개발하기 위해 Angular/Ionic 으로 개발하고 있습니다.
-                              PWA 는 여러가지 장점이 있지만, 그 중 매우 중요한 것이 학생의 참여도를 높이는 것입니다.
-                              참고로 네이버에서 PWA 또는 '프로그레시브 웹앱' 라고 검색을 해 보시면 PWA 가 어떤 개념인지 알 수 있습니다.
+                              <button (click)="show.PWA = true" *ngIf=" ! show.PWA ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.PWA">
@@ -200,7 +204,6 @@
             </h4>
             <div class="content" *ngIf="show.PWA">
                   <p>
-                        프로그레시브 웹앱(Progressive Web Apps)의 약자로 PWA 라고 칭하는 최신의 홈페이지의 개발 기법으로 모바일앱과 경쟁할 수 있는 홈페이지입니다.
                         위세너에서 2016년 이후 개발하는 모든 사이트는 PWA 및 앱/웹앱 방식으로 개발하기 위해 Angular/Ionic 으로 개발하고 있습니다.
                         PWA 는 여러가지 장점이 있지만, 그 중 매우 중요한 것이 학생의 참여도를 높이는 것입니다.
                         참고로 네이버에서 PWA 또는 '프로그레시브 웹앱' 라고 검색을 해 보시면 PWA 가 어떤 개념인지 알 수 있습니다.
@@ -213,8 +216,7 @@
                         <div>스마트폰 앱</div>
                         <div class="desc">
                               위세너에서 제공하는 홈페이지는 PWA 로 모바일 앱에 견줄만한 성능과 기능을 자랑하므로 특별히 앱을 제작 할 필요가 없습니다.
-                              하지만, 올바른 수업의 진행 횟수가 한달 1,000 (학생 약 50명) 개가 넘으면 앱을 무료로 제작해 드립니다.
-                              참고로 앱은 안드로이드 앱만 제작합니다. 한국의 특성상 애플은 많이 사용하지 않아 제작하지 않습니다.
+                              <button (click)="show.smartPhoneApp = true" *ngIf=" ! show.smartPhoneApp ">자세히 보기</button>
                         </div>
                   </div>
                   <span class="rotate-45-off" [class.rotate-45-on]="show.smartPhoneApp">
@@ -223,7 +225,6 @@
             </h4>
             <div class="content" *ngIf="show.smartPhoneApp">
                   <p>
-                        위세너에서 제공하는 홈페이지는 PWA 로 모바일 앱에 견줄만한 성능과 기능을 자랑하므로 특별히 앱을 제작 할 필요가 없습니다.
                         하지만, 올바른 수업의 진행 횟수가 한달 1,000 (학생 약 50명) 개가 넘으면 앱을 무료로 제작해 드립니다.
                         참고로 앱은 안드로이드 앱만 제작합니다. 한국의 특성상 애플은 많이 사용하지 않아 제작하지 않습니다.
                   </p>
