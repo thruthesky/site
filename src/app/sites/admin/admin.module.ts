@@ -16,6 +16,7 @@ import { AdminUserInfoPage } from './pages/admin-user-info/admin-user-info.page'
 import { MaterialModule } from '../../app.material.module';
 import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload/xapi-file-upload.component.module';
 import { ModalServiceModule } from '../../providers/modal/modal.service.module';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 
 const routes: Routes = [
@@ -49,7 +50,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         MaterialModule,
         ModalServiceModule,
-        XapiFileUploadComponentModule
+        XapiFileUploadComponentModule,
+        TranslatePipeModule
     ],
     exports: [
         RouterModule
