@@ -1,4 +1,5 @@
 <h2>Domain</h2>
+
 {{ branch.domain }} <button (click)=" show.domain_change_application = true ">Apply for Domain Change</button>
 <div *ngIf=" branch.domain_change_application ">
 Your application of domain change to 
@@ -14,24 +15,47 @@ If you want to cancel change your domain please click the button below.
 </form>
 
 <h2>Branch Informations</h2>
-
+<form (ngSubmit)=" onSubmitBranchInformation() " *ngIf=" branch ">
 <div>
-    Company Name: {{ branch.company_name }}
+    Branch Domain: {{ branch.domain }}
 </div>
 <div>
-    Manger Name: {{ branch.manager_name }}
+    Branch Owner: {{ branch.owner?.name }} Email: {{ branch.owner?.email }}
+</div>
+<div>
+    Company Name: <input type="text" name="company_name" [(ngModel)]=" branch.company_name ">
+</div>
+<div>
+    Company Phone: <input type="text" name="company_phone" [(ngModel)]=" branch.company_phone ">
+</div>
+<div>
+    Company Email: <input type="text" name="company_email" [(ngModel)]=" branch.company_email ">
+</div>
+<div>
+    Company Address: <input type="text" name="company_address" [(ngModel)]=" branch.company_address ">
+</div>
+<div>
+    {{ a.ln['COMPANY BUSINESS REGISTRATION NO'] }}
+    <input type="text" name="company_business_registration_no" [(ngModel)]=" branch.company_business_registration_no ">
+</div>
+<div>
+        {{ a.ln['COMPANY BUSINESS REGISTRATION OTHER NO'] }}
+    <input type="text" name="company_business_registration_other_no" [(ngModel)]=" branch.company_business_registration_other_no ">
+</div>
+<div>
+    Manger Name: <input type="text" name="manager_name" [(ngModel)]=" branch.manager_name ">
 </div>
 
 <div>
-    Manger Email: {{ branch.manager_email }}
+    Manger Email: <input type="text" name="manager_email" [(ngModel)]=" branch.manager_email ">
 </div>
 
 <div>
-    Manger Pone: {{ branch.manager_phone }}
+    Manger Pone: <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone ">
 </div>
 
-<button>Update Branch Information</button>
-
+<button type="submit">Update Branch Information</button>
+</form>
 
 
 <h2>Reminder Popup</h2>

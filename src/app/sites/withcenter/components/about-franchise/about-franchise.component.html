@@ -5,26 +5,26 @@
 위세너 프랜차이즈와 관련된 분야 별 설명은 아래와 같습니다.</p>
 <div class="container-fluid">
     <div class="row">
-        <article class="col-sm-12 col-md-4">
+        <article class="col-sm-12 col-md-4" (click)="show.withcenter = true">
                 <div>
                     <img class="icon" src="../../../../../assets/withcenter/img/withcenter.png" alt="withcenter logo">
                 </div>
                 <h4>위세너</h4>
                 <p class="desc">위세너는 화상영어 사업에 필요한 모든 서비스와 관리를 하는 본사입니다.</p>
-                <button (click)="show.withcenter = true" *ngIf=" ! show.withcenter ">자세히 보기</button>
+                <button *ngIf=" ! show.withcenter ">자세히 보기</button>
                 <p *ngIf=" show.withcenter ">
                     위세너는 2008년 필리핀 마닐라에서 화상영어 전문 교육 학원 Online English OnTue.COM, Inc. 를 설립하였으며 이후, 2010 년 클락으로 이전하였으며 2015년 법인명을 Withcenter,
                     Inc. 로 변경하였습니다. 위세너는 한국, 중국, 일본을 주요 마케팅 대상국으로 삼으며 각 나라별 가맹점을 모집하여 화상영어 서비스를 운영하는 글로벌 기업입니다.
                 </p>
             </article>
             
-            <article class="col-sm-12 col-md-4">
+            <article class="col-sm-12 col-md-4"  (click)="show.ontue = true">
                 <div>
                     <img class="icon ontue" src="../../../../../assets/withcenter/img/ontue.png" alt="ontue logo">
                 </div>
                 <h4>온튜</h4>
                 <p class="desc">온튜 www.ontue.com 선생님들이 이용하는 홈페이지입니다.</p>
-                <button (click)="show.ontue = true" *ngIf=" ! show.ontue ">자세히 보기</button>
+                <button *ngIf=" ! show.ontue ">자세히 보기</button>
                 <p *ngIf=" show.ontue ">
                     위세너에서 2008년에 만든 온튜는 전 세계적으로 재택 강사를 모집하여 화상영어 서비스하는 새로운 서비스 모델을 만들어 냈습니다.
                     <br>이후, 온튜는 재택 강사로 화상영어 수업을 하는 다른 업체의 모델이 되었으며 많은 업체들이 온튜의 신화에 도전을 하고 있지만 성공하지 못하고 있습니다.
@@ -32,13 +32,13 @@
                 </p>
             </article>
             
-            <article class="col-sm-12 col-md-4">
+            <article class="col-sm-12 col-md-4"  (click)="show.katalkenglish = true">
                 <div>
                     <img class="icon" src="../../../../../assets/withcenter/img/katalkenglish.png" alt="katalkenglish logo">
                 </div>
                 <h4>카톡영어</h4>
                 <p class="desc">카톡영어 www.katalkenglish.com 는 학생들이 사용하는 홈페이지입니다. 가맹사로 등록하면 디자인은 동일하지만, 회사명, 로고, 전화번호, 주소 등을 변경해서 사용합니다.</p>
-                <button (click)="show.katalkenglish = true" *ngIf=" ! show.katalkenglish ">자세히 보기</button>
+                <button *ngIf=" ! show.katalkenglish ">자세히 보기</button>
                 <p *ngIf=" show.katalkenglish ">
                     카톡영어 홈페이지는 한국인을 대상으로하는 화상영어 서비스를 하는 홈페이지입니다.
                     참고로, 한국들은 카톡을 사용하며, 중국인들은 위쳇, 일본인들은 라인을 사용하여 화상영어 수업을 받고 있습니다.

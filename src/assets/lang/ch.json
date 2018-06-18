@@ -639,6 +639,8 @@
   "NO_VIDEO":"没有视频",
   "NO_SCHEDULE": "没有时间表",
   "WARNING_NOT_RECOMMENDED_TEACHER": "注意。 您正在查看没有明星老师的时间表。 老师可能不参加课程。",
-  "RETURN_TO_LIST" : "返回列表"
+  "RETURN_TO_LIST" : "返回列表",
+  "Company Business Registration No": "商业登记号码",
+  "Company Business Registration Other No": "商业登记其他没有"
 
 }

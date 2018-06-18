@@ -104,6 +104,10 @@ export interface Branch {
     stamp_register: string;
     stamp_update: string;
     domain_change_application: string;
+    owner: {
+        name: string;
+        email: string;
+    };
 }
 
 @Injectable()
