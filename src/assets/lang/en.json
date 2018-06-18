@@ -676,5 +676,7 @@
   "NO_VIDEO": "No Video",
   "NO_SCHEDULE" : "No Schedule",
   "WARNING_NOT_RECOMMENDED_TEACHER": "Attention. You are viewing schedule with no star teacher.",
-  "RETURN_TO_LIST" : "Return to List"
+  "RETURN_TO_LIST" : "Return to List",
+  "Company Business Registration No": "Business Registration No",
+  "Company Business Registration Other No": "Business Registration Other No"
 }

@@ -47,6 +47,9 @@ export class AdminSettingPage implements OnInit {
             this.getBranchInformation();
         }, e => this.a.toast(e));
     }
+    onSubmitBranchInformation() {
+
+    }
 }
 
 

@@ -602,5 +602,7 @@
   "NO_SCHEDULE" : "スケジュールなし",
   "WARNING_NOT_RECOMMENDED_TEACHER": "注意。 あなたは星の先生がいないスケジュールを見ています。 教師はクラスに参加することはできません。",
 
-  "RETURN_TO_LIST" : "リストに戻る"
+  "RETURN_TO_LIST" : "リストに戻る",
+  "Company Business Registration No": "ビジネス登録番号",
+  "Company Business Registration Other No": "ビジネス登録その他"
 }

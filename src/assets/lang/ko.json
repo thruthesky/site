@@ -647,6 +647,8 @@
   "NO_SCHEDULE" : "시간표 없음",
   "WARNING_NOT_RECOMMENDED_TEACHER": "주의: 추천 강사가 아닙니다. 수업이 잘 진행되지 않을 수 있으니 유념해 주시기 바랍니다.",
 
-  "RETURN_TO_LIST" : "목록으로 돌아 가기"
+  "RETURN_TO_LIST" : "목록으로 돌아 가기",
+  "Company Business Registration No": "사업자등록 번호",
+  "Company Business Registration Other No": "통신판매업 번호"
 
 }
