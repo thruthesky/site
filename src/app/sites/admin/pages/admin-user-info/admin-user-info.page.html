@@ -1,8 +1,9 @@
 <div class="loader" *ngIf=" show.loader.loadProfile ">
-    Loading user profile...</div>
+    Loading user profile...
+</div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xl-3">
             <h1 class="title">Stat &amp; User Edit Form</h1>
             <button class="app-button" routerLink="/admin/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
             <button class="app-button" routerLink="/admin/payment/{{ user.ID }}">Payment Detail Page</button>
@@ -232,7 +233,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xl-3">
             <h1 class="title">Sessions</h1>
             <ul class="sessions-desc">
                 <li>
@@ -293,7 +294,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xl-3">
 
             <h1 class="title">Payment</h1>
             <section class="payments-wrapper">
@@ -352,7 +353,7 @@
                 </table>
             </section>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-xl-3">
             <h1 class="title">Point History</h1>
             <section class="point-history">
 
