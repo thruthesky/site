@@ -681,9 +681,9 @@ export class XapiLMSService extends Base {
     }
     branch_domain_change_application(domain: string): Observable<any> {
         return this.x.post({
-            route: 'lms.branch_domain_change_application',
+            route: 'lms.branch_update',
             session_id: this.user.sessionId,
-            domain: domain
+            domain_change_application: domain,
         });
     }
     branch_cancel_domain_change_application(idx?: number): Observable<any> {
@@ -691,9 +691,10 @@ export class XapiLMSService extends Base {
             idx = 0;
         }
         return this.x.post({
-            route: 'lms.branch_cancel_domain_change_application',
+            route: 'lms.branch_update',
             session_id: this.user.sessionId,
-            idx: idx
+            idx: idx,
+            domain_change_application: ''
         });
     }
     branch_get_domain_change_applications(): Observable<Array<Branch>> {

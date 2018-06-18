@@ -106,6 +106,11 @@ npm run ssl                         ; run project with ssl. port is 9443. after 
 
 * Try to run with SSL always.
 
+### Working SEO
+
+* Add branch domain at sonub.com:8443 server block.
+* Access http://xxx.katalkenglish.com
+
 ## Publish
 
 * To test on GitHub Pages,
