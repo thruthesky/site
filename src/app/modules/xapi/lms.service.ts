@@ -663,6 +663,11 @@ export class XapiLMSService extends Base {
     branch_get(): Observable<Branch> {
         return this.x.post({ route: 'lms.branch_get', session_id: this.user.sessionId });
     }
+    branch_update(req): Observable<Branch> {
+        req['route'] = 'lms.branch_update';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
     branch_domain_change_application(domain: string): Observable<any> {
         return this.x.post({
             route: 'lms.branch_domain_change_application',

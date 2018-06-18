@@ -54,7 +54,8 @@ If you want to cancel change your domain please click the button below.
     Manger Pone: <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone ">
 </div>
 
-<button type="submit">Update Branch Information</button>
+<button type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
+<div class="loader" *ngIf=" loader.branchUpdate ">Updating branch info</div>
 </form>
 
 

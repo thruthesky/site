@@ -82,8 +82,20 @@ ng s --disable-host-check
 npm run serve:local                 ; Run with local backend server.
 npm run serve:remote                ; Run on production server.
 npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
-npm run ssl                         ; run project with ssl. after run, access https://abc.katalkenglish.com:9443/
+npm run ssl                         ; run project with ssl. port is 9443. after run, access https://withcenter.katalkenglish.com:9443/
 ````
+
+### Working with SSL and Branch coding
+
+* Put `withcenter.katalkenglish.com` in hosts file in your working computer.
+  This will work as `withcenter.com` domain.
+
+* set domains of `abc.katalkenglish.com`, `def.katalkenglish.com`, `branch.katalkenglish.com` in hosts file for test as branch subdomain.
+* Access `https://withcenter.katalkenglish.com:9433/franchise` to access withcenter site.
+* To create and access branch site and branch manager page,
+  Create a branch with `abc` or `def`.
+
+* Try to run with SSL always.
 
 ## Publish
 
@@ -363,11 +375,7 @@ env['reloadTag'] = (new Date).getTime();
 
 ## Branch
 
-* set domains of `abc.katalkenglish.com`, `def.katalkenglish.com`, `branch.katalkenglish.com` in hosts file for test.
-* run project with ssl as described in run section.
-* access `https://branch.katalkenglish.com:9433/franchise` to access withcenter site.
-* for testing, create branch with domain `abc` or `def`.
-
+* See `Run` section to run and test on branch functionality.
 
 ## KNOWN-BUG
 

@@ -13,6 +13,9 @@ export class AdminSettingPage implements OnInit {
     show = {
         domain_change_application: false
     };
+    loader = {
+        branchUpdate: false
+    };
     branch: Branch = <any>{};
 
 
@@ -48,7 +51,17 @@ export class AdminSettingPage implements OnInit {
         }, e => this.a.toast(e));
     }
     onSubmitBranchInformation() {
-
+        console.log(`onSubmitBranchInformation() `, this.branch);
+        this.loader.branchUpdate = true;
+        this.a.lms.branch_update(this.branch).subscribe(re => {
+            this.loader.branchUpdate = false;
+            console.log('branch_update: re: ', re);
+            this.modal.alert({ content: 'Your branch information has been updated.' });
+            this.branch = re;
+        }, e => {
+            this.loader.branchUpdate = false;
+            this.a.toast(e);
+        });
     }
 }
 

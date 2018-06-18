@@ -26,8 +26,15 @@ import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
 
 
+/**
+ * If the domain contains `katalkenglish`, then it is considered as katalkenglish.com website
+ *  except the domain does not contain `withcenter`. like `withcenterxxxx.katalkenglish.com` will be withcenter site.
+ */
 export const SITE_KATALKENGLISH = 'katalkenglish';
 export const SITE_ONTUE = 'ontue';
+/**
+ * If the domain contains `withcenter`, then it is considered as withcenter.com website.
+ */
 export const SITE_WITHCENTER = 'withcenter';
 export const SITE_ADMIN = 'admin';
 
@@ -461,12 +468,12 @@ export class AppService {
     getSite(): string {
         if (this.isAdminPath()) {
             return SITE_ADMIN;
+        } else if (this.isWithcenterDomain()) {
+            return SITE_WITHCENTER;
         } else if (this.isKatalkenglishDomain()) {
             return SITE_KATALKENGLISH;
         } else if (this.isOntueDomain()) {
             return SITE_ONTUE;
-        } else if (this.isWithcenterDomain()) {
-            return SITE_WITHCENTER;
         } else {
             return SITE_KATALKENGLISH;
         }
