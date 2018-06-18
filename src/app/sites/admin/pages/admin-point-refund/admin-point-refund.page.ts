@@ -51,10 +51,7 @@ export class AdminPointRefundPage implements OnInit {
 
         return false;
     }
-
-    ngOnInit() {
-    }
-
+    
     pre() {
         if (!this.re || !this.re.length) {
             return;
