@@ -51,7 +51,7 @@ export class AdminPointRefundPage implements OnInit {
 
         return false;
     }
-    
+
     pre() {
         if (!this.re || !this.re.length) {
             return;

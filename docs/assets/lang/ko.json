@@ -131,8 +131,8 @@
 
 
 
-  "TAKEN": "세션 수",
-  "HAD SESSIONS": "",
+  "TAKEN": "참여",
+  "HAD SESSIONS": "명",
   "ADD KAKAO": "카카오 친구 추가",
   "VIDEO": "동영상",
   "OPEN REVIEW": "수업후기",
@@ -228,6 +228,7 @@
   "DELETE COMMENT": "코멘트 삭제",
   "CONFIRM DELETE COMMENT": "이 코멘트를 삭제 하시겠습니까?",
   "YES": "예",
+  "NO": "아니오",
   "CHANGE PASSWORD TITLE": "비밀번호 변경",
   "CHANGE PASSWORD DESC": "이전 비밀번호와 새 비밀번호를 입력하십시오.",
   "OLD PASSWORD": "이전 비밀번호",
@@ -629,7 +630,7 @@
   "INSTANT_POINT_LACK": "회원님의 포인트가 없거나 수업을 예약하기에 부족한 경우에는 선생님 목록이 나타나지 않습니다.",
   "INSTANT_RESERVE_ANOTHER_TIME": "다른 시간에 다시 예약을 시도 해 주세요.",
 
-  "POINT_REFUND_SETTLED": "복구 완료 됨",
+  "POINT_REFUND_SETTLED": "복구종료됨",
 
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "#name 회원님은 #point 를 보유중입니다.",
   "KATALK_OPEN_ON_MOBILE_ONLY": "카톡 질문 및 상담은 핸드폰으로만 할 수 있습니다. 핸드폰을 사용해서 질문 메뉴를 클릭해주세요.",
@@ -644,6 +645,10 @@
   "IDX_MISSING": "글 번호가 없거나 잘못되었습니다.",
   "NO_VIDEO": "동영상 없음",
   "NO_SCHEDULE" : "시간표 없음",
-  "WARNING_NOT_RECOMMENDED_TEACHER": "주의: 추천 강사가 아닙니다. 수업이 잘 진행되지 않을 수 있으니 유념해 주시기 바랍니다."
+  "WARNING_NOT_RECOMMENDED_TEACHER": "주의: 추천 강사가 아닙니다. 수업이 잘 진행되지 않을 수 있으니 유념해 주시기 바랍니다.",
+
+  "RETURN_TO_LIST" : "목록으로 돌아 가기",
+  "Company Business Registration No": "사업자등록 번호",
+  "Company Business Registration Other No": "통신판매업 번호"
 
 }

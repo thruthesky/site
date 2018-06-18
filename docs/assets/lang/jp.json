@@ -124,7 +124,7 @@
   "MY_POINT_PAGE_REMINDER": "授業料の支払いの内訳は、決済内訳メニューから確認することができます。",
   "GOTO_PAYMENT_HISTORY": "お支払い履歴ページへ移動",
   "TAKEN": "セッション",
-  "HAD SESSIONS": "",
+  "HAD SESSIONS": " ",
   "ADD KAKAO": "カカオフレンドを追加",
   "VIDEO": "ビデオ",
   "OPEN REVIEW": "コメント",
@@ -218,6 +218,7 @@
   "DELETE COMMENT": "コメントを削除する",
   "CONFIRM DELETE COMMENT": "コメントを削除してもよろしいですか？」：このコメントを削除してもよろしいですか？",
   "YES": "はい",
+  "NO": "いいえ",
   "CHANGE PASSWORD TITLE": "パスワードの変更",
   "CHANGE PASSWORD DESC": "古いパスワードと新しいパスワードを入力してください",
   "OLD PASSWORD": "旧パスワード",
@@ -599,5 +600,9 @@
   "IDX_MISSING": "番号がありません",
   "NO_VIDEO": "ビデオはありません",
   "NO_SCHEDULE" : "スケジュールなし",
-  "WARNING_NOT_RECOMMENDED_TEACHER": "注意。 あなたは星の先生がいないスケジュールを見ています。 教師はクラスに参加することはできません。"
+  "WARNING_NOT_RECOMMENDED_TEACHER": "注意。 あなたは星の先生がいないスケジュールを見ています。 教師はクラスに参加することはできません。",
+
+  "RETURN_TO_LIST" : "リストに戻る",
+  "Company Business Registration No": "ビジネス登録番号",
+  "Company Business Registration Other No": "ビジネス登録その他"
 }
