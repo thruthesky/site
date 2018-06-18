@@ -6,7 +6,7 @@
         <form class="user-quick-search" (ngSubmit)="onSubmitUserQuickSearch( $event )">
             <input type="text" name="quick_search" [(ngModel)]="uid" placeholder="User Search. ID(no), email, KatalkID, name, display_name">
         </form>
-        <a class="d-inline-block" routerLink="./user">User</a>
+        <a routerLink="./user">User</a>
         <a routerLink="./session">Sessions</a>
         <a routerLink="./payment">Payment</a>
     </nav>
