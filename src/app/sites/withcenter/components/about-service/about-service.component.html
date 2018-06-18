@@ -1,11 +1,11 @@
-<div class="board">
+<div class="board"  (click)="show.kakaotalk = true">
         <h3>카카오톡으로 수업</h3>
 
         <p>
                 위세너는 2007년 부터 지금까지 화상솔루션을 사용해 오고 있습니다. ( 본 프랜차이즈에서는 솔루션을 사용하지 않습니다. )
                 이 솔루션으로 인해서 엄청난 업무량이 늘어나게 되는데, 위세너 프랜차이즈에서는 카카오톡으로 매우 편리하게 수업을 하고 있습니다.
         </p>
-        <button (click)="show.kakaotalk = true" *ngIf=" ! show.kakaotalk ">자세히 보기</button>
+        <button *ngIf=" ! show.kakaotalk ">자세히 보기</button>
         <div *ngIf=" show.kakaotalk ">
                 위세너는 화상영어 수업에 필요한 화상 솔루션을 직접 개발해서 사용하고 있으며, 솔루션을 구매하여 수업을 하고 있기도 하고, 스카이프 및 다른 소프트웨어도 사용을 하고 있습니다. 그러나 2018년 "위세너 프랜차이즈"에서는
                 과감하게 (한국 학생들에게만) 카카오톡을 선택했으며 그 결과가 말해 주듯이 매우 탁월한 선택이었습니다. 다른 화상영어 사이트에서는 스카이프나 솔루션 설치 및 에러 문제로 장 시간 상담을 하고, 또 그로 인해 수업이
@@ -17,13 +17,13 @@
         </div>
 </div>
 
-<div class="board">
+<div class="board"  (click)="show.payment = true">
         <h3>수업료</h3>
         <p>
                 1포인트는 1원으로 
                 학생은 원하는 만큼 결제하고 원하는 만큼 수업 예약하면 됩니다. 페이팔을 통해서 미국 달러로 결제되며 무통장 입금도 가능합니다.
         </p>
-        <button (click)="show.payment = true" *ngIf=" ! show.payment ">자세히 보기</button>
+        <button *ngIf=" ! show.payment ">자세히 보기</button>
         <div *ngIf=" show.payment ">
                 위세너는 글로벌 서비스로 전세계의 학생들을 대상으로 서비스하고 있습니다. 따라서 특정 국가의 신용카드 결제가 어려워 전 세계적으로 가장 많이 쓰이는 페이팔 결제를 기본으로 하고 있습니다.
                 <br>수업료 결제는 미국 달러로 결제되며 학생이 결제를 하면 포인트가 충전(적립)됩니다.
@@ -35,7 +35,7 @@
         </div>
 </div>
 
-<div class="board">
+<div class="board"  (click)="show.share = true">
         <h3>결제 수수료 및 세금</h3>
 
         <p>
@@ -44,7 +44,7 @@
                 환차손이 발생하게됩니다.
         </p>
         
-        <button (click)="show.share = true" *ngIf=" ! show.share ">자세히 보기</button>
+        <button *ngIf=" ! show.share ">자세히 보기</button>
         <div *ngIf=" show.share ">
         
         학생이 포인트로 수업을 하면, 그 포인트를 강사, 가맹사, 본사가 수익을 분배하는데 이 때, 각 강사와 가맹사의 국가, 송금 방법에 따라 수수료 및 환차손이 달라집니다.
@@ -56,7 +56,7 @@
                 
 </div>
 
-<div class="board">
+<div class="board"  (click)="show.teachers = true">
         <h3>강사 안내</h3>
         <p>
                 화상영어 학원 강사들과 전 세계의 재택 강사들이 수업을 하고 있습니다.
@@ -64,7 +64,7 @@
                 재택 강사의 장점은 미국, 영국, 캐나다와 같은 원어민 강사들이 수업을 할 수 있으며 또 책임이 학원 강사들 보다 더 높습니다.
         </p>
         
-        <button (click)="show.teachers = true" *ngIf=" ! show.teachers ">자세히 보기</button>
+        <button *ngIf=" ! show.teachers ">자세히 보기</button>
         <div *ngIf=" show.teachers "> 
         강사들은 모두 온튜 사이트에 등록하여 수업을 진행하고 있으며
         위세너에서는 엄격한 심사를 통해서 온튜에서 선정된 영어 선생님을 학생 홈페이지에 먼저 나타나도록 하고 있습니다.
@@ -81,12 +81,12 @@
         </p>
 </div>
 
-<div class="board">
+<div class="board"  (click)="show.books = true">
         <h3>교재 안내</h3>
         <p>
                 수업 교재는 기본적으로 Let’s Go 와 Side By Side 를 사용합니다. 하지만 학생의 요구나 강사의 취향에 따라 다른 교재를 사용 할 수 도 있습니다.
         </p>
-        <button (click)="show.books = true" *ngIf=" ! show.books ">자세히 보기</button>
+        <button *ngIf=" ! show.books ">자세히 보기</button>
         <div *ngIf=" show.books ">
         스마트폰으로 카톡 화상영어 수업을 하는 경우, 스마트폰 화면이 작아 채팅을 하거나 교재를 볼 수 없습니다.
         <br>카카오톡은 스마트폰 뿐만아니라 컴퓨터에서도 실행 할 수 있는데, 컴퓨터에서 실행하는 경우, 오른쪽에 교재를 띄우고,
