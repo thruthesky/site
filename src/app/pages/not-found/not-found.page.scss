@@ -1,12 +1,13 @@
 @import '../../../theme/variables-katalkenglish.scss';
 @import '../../../theme/vars.scss';
-main{
+section{
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background: #fff;
     min-height: 540px;
+    text-align: center;
     h1{
         margin: .5em 0;
         font-size: 2em;

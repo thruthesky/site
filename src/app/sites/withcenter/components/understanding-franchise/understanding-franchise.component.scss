@@ -8,7 +8,7 @@ h3{
 }
 
 p{
-    font-size: .9em;
+    font-size: .95em;
     line-height: 1.6em;
 }
 
@@ -16,16 +16,15 @@ ul{
     list-style-type: none;
     padding: 0;
     h4{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         margin: 0;
-        padding:1.5em;
+        padding:1.5em 0;
+        border-radius: 2px;
+        color: #00A57C;
         @media ( min-width:$md) {
-            padding: 2em 1.5em;
+            padding: 2em 0;
         }
         transition: all .2s ease-in-out; 
-        font-size: .9em;
+        font-size: 1em;
         .desc{
             padding:0;
             padding-top: 1em;
@@ -35,6 +34,7 @@ ul{
             }
             font-weight: 300;
             font-size: .9em;
+            color: #77838f;
         }
 
         span{
@@ -45,32 +45,19 @@ ul{
             height: 1.5em;
             width: 1.5em;
         }
-
-        .rotate-45-off,
-        .rotate-45-on{
-            transition:all .2s ease-in-out; 
-        }
-
-        .rotate-45-off{
-            transform: rotate(0)
-        }
-
-        .rotate-45-on{
-            transform: rotate(45deg)
-        }
-}
+    }
 
     li{
-        border: 1px solid rgba(125,125,125,0.3);
-        border-top: none;
+        margin-bottom: .2em;
         cursor: pointer;
-
+        line-height: 1.5em;
 
         .content{
             padding: .3em 1.4em;
             @media (min-width:$md) {
                 padding:.6em 1.8em; 
             }
+            border: 1px solid rgba(125,125,125,0.2);
             animation: .3s 1 fade-in-out;
         }
 
@@ -82,82 +69,90 @@ ul{
                 opacity: 1;
             }
         }
+
+        button{
+            border: 0;  
+            font-size: 1em;
+            background: none;
+            color: #0A3F82;
+            text-decoration: underline;
+        }
     }
 
 
 
-/*
-* list background colors
-*  and font colors
-*/ 
-.salary{
-    background: #00A57C;
-    color: #fff;
+// /*
+// * list background colors
+// *  and font colors
+// */ 
+// .salary{
+//     background: #00A57C;
+//     color: #fff;
 
 
-}
-.quality{
-    background: #546e7a;
-    color: #fff;
+// }
+// .quality{
+//     background: #546e7a;
+//     color: #fff;
 
-    &+.content{
-        background: #fff;
-        color: #29434e
-    }
-}
-.directDeal{
-    background: #512da8;
-    color: #fff;
+//     &+.content{
+//         background: #fff;
+//         color: #29434e
+//     }
+// }
+// .directDeal{
+//     background: #512da8;
+//     color: #fff;
 
-    &+.content{
-        background: #fff;
-        color: #512da8
-    }
-}
-.stableManagement{
-    background: #FEC800;
-    &+.content{
-        background: #fff;
-        color: darkred
-    }
-}
-.automatic{
-    background: #753650;
-    color: #fff;
+//     &+.content{
+//         background: #fff;
+//         color: #512da8
+//     }
+// }
+// .stableManagement{
+//     background: #FEC800;
+//     &+.content{
+//         background: #fff;
+//         color: darkred
+//     }
+// }
+// .automatic{
+//     background: #753650;
+//     color: #fff;
 
-    &+.content{
-        background: #251a1f;
-        color: #fff
-    }
-}
-.instructorCancelation{
-    background: #647536;
-    color: #fff;
+//     &+.content{
+//         background: #251a1f;
+//         color: #fff
+//     }
+// }
+// .instructorCancelation{
+//     background: #647536;
+//     color: #fff;
 
-    &+.content{
-        background: #23251a;
-        color: #fff;
-    }
-}
-.revenueSharing{
-    background: #067074;
-    color: #fff;
+//     &+.content{
+//         background: #23251a;
+//         color: #fff;
+//     }
+// }
+// .revenueSharing{
+//     background: #067074;
+//     color: #fff;
 
-    &+.content{
-      background: #424e09;
-      color: #fff;
-    }
-}
-.PWA{
-    background: #0E51A7;
-    color: #fff
-}
-.smartPhoneApp{
-    background: #2A17B1;
-    color: #fff;
-    &+.content{
-        color: #2A17B1;
-      }
-}
+//     &+.content{
+//       background: #424e09;
+//       color: #fff;
+//     }
+// }
+// .PWA{
+//     background: #0E51A7;
+//     color: #fff
+// }
+// .smartPhoneApp{
+//     background: #2A17B1;
+//     color: #fff;
+//     &+.content{
+//         color: #2A17B1;
+//       }
+// }
 
 }

@@ -38,6 +38,10 @@
     }
     .top{
         padding: 0;
+        .row{
+            justify-content: center;
+            align-items: stretch;
+        }
         &>div{
             padding: 0
         }
@@ -158,7 +162,7 @@
     */
 
     .bio{
-        width: 150px
+        width: 160px
     }
     .teacher-intro{
         width: 300px

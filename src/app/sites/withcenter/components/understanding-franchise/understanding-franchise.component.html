@@ -10,12 +10,9 @@
                         <div class="desc">
                               저희는 '원어민 강사 월 20회 1만원' 으로 광고를 하고 있습니다. 저렴해도 너무 치명적으로 저렴합니다. 핵심은 강사가 75% 라는 대부분의 수업료를 가져가기 때문에 강사는 충분한 수익을 얻습니다. 필리핀 강사의 경우,
                               1만 5천페소(한화로 약 30만원)를 한달에 벌면 충분한데, 하루 8시간 근무를 하면, 10분 수업을 40회(매 시간 10분 휴식 포함)를 할 수 있습니다.
-                              <button (click)="show.salary = true" *ngIf=" ! show.salary ">자세히 보기</button>
+                              <button *ngIf=" ! show.salary ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.salary">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf="show.salary">
                   <p>
@@ -55,12 +52,9 @@
                         <div class="desc">
                               영어 학원 강사와 재택근무 강사가 함께 수업을 합니다. 영어 학원 강사의 경우 수업을 잘 하지만 재택 근무 강사의 경우 꾸준한 관리를 통해 수업의 질을 높여나가고 있습니다.
 
-                              <button (click)="show.quality = true" *ngIf=" ! show.quality ">자세히 보기</button>
+                              <button *ngIf=" ! show.quality ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.quality">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf=" show.quality ">
                   <p>
@@ -79,12 +73,9 @@
                         <div>직거래 서비스</div>
                         <div class="desc">
                               온튜에서는 강사가 직접 수업료를 정하고 학생은 마음에 들면 예약을 합니다. 또한 선생님과 학생이 서로 상의해서 수업료를 조절하는 경우도 많습니다.
-                              <button (click)="show.directDeal = true" *ngIf=" ! show.directDeal ">자세히 보기</button>
+                              <button *ngIf=" ! show.directDeal ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.directDeal">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf=" show.directDeal ">
                   <p>
@@ -106,12 +97,9 @@
                         <div class="desc">
                               학원 강사의 경우 문제가 없지만 재택 강사의 경우 인터넷, 정전, 개인적인 긴급 용무 등 여러가지 상황이 발생하고 있습니다. 이 부분에 대해서는 필리핀 매니저가 배정되어 재택 강사의 수업 참여도를 관리하며 지속적으로
                               개선 하고 있습니다.
-                              <button (click)="show.stableManagement = true" *ngIf=" ! show.stableManagement ">자세히 보기</button>
+                              <button *ngIf=" ! show.stableManagement ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.stableManagement">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf="show.stableManagement">
                   <p>
@@ -126,12 +114,9 @@
                         <div>자동화 시스템</div>
                         <div class="desc">
                               위세너에서는 관리자 또는 매니저가 학생 대신 수업을 예약, 취소, 변경 등을 할 수 없습니다. 오직 학생만이 직접 해야하며 그 만큼 잘 자동화되어져 있습니다.
-                              <button (click)="show.automatic = true" *ngIf=" ! show.automatic ">자세히 보기</button>
+                              <button *ngIf=" ! show.automatic ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.automatic">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf=" show.automatic ">
                   <p>
@@ -155,12 +140,9 @@
                         <div>강사의 수업 취소</div>
                         <div class="desc">
                               "위세너 프랜차이즈"에서 특이한 점은 학생 뿐만아니라, 강사도 수업을 취소 할 수 있습니다.
-                              <button (click)="show.instructorCancelation = true" *ngIf=" ! show.instructorCancelation ">자세히 보기</button>
+                              <button *ngIf=" ! show.instructorCancelation ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.instructorCancelation">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf="show.instructorCancelation">
                   <p>
@@ -175,12 +157,9 @@
                         <div>수익분배</div>
                         <div class="desc">
                               학생이 지불한 수업료의 수익 분배 비율은 강사 75% 가맹사 20% 본사 5% 입니다.
-                              <button (click)="show.revenueSharing = true" *ngIf=" ! show.revenueSharing ">자세히 보기</button>
+                              <button *ngIf=" ! show.revenueSharing ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.revenueSharing">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf="show.revenueSharing">
                   <p>
@@ -195,12 +174,9 @@
                         <div>PWA</div>
                         <div class="desc">
                               프로그레시브 웹앱(Progressive Web Apps)의 약자로 PWA 라고 칭하는 최신의 홈페이지의 개발 기법으로 모바일앱과 경쟁할 수 있는 홈페이지입니다.
-                              <button (click)="show.PWA = true" *ngIf=" ! show.PWA ">자세히 보기</button>
+                              <button *ngIf=" ! show.PWA ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.PWA">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf="show.PWA">
                   <p>
@@ -216,12 +192,9 @@
                         <div>스마트폰 앱</div>
                         <div class="desc">
                               위세너에서 제공하는 홈페이지는 PWA 로 모바일 앱에 견줄만한 성능과 기능을 자랑하므로 특별히 앱을 제작 할 필요가 없습니다.
-                              <button (click)="show.smartPhoneApp = true" *ngIf=" ! show.smartPhoneApp ">자세히 보기</button>
+                              <button *ngIf=" ! show.smartPhoneApp ">자세히 보기</button>
                         </div>
                   </div>
-                  <span class="rotate-45-off" [class.rotate-45-on]="show.smartPhoneApp">
-                        <svg role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z" fill="currentColor"></path></svg>
-                  </span>
             </h4>
             <div class="content" *ngIf="show.smartPhoneApp">
                   <p>
