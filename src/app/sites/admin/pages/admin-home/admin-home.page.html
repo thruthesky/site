@@ -5,23 +5,33 @@
     <h2>List of domain change application</h2>
     <div>Note: subdomain of katalkenglish.com does not need to Nginx configuration. So, you can simply click Accept button.</div>
 
-    <table>
-        <tr>
-            <th>Current Domain</th>
-            <th>New Domain</th>
-            <th>Accept or Reject</th>
-        </tr>
-        <tr *ngFor=" let branch of domain_change_applications ">
-            <td>{{ branch.domain }}</td>
-            <td>=&gt; {{ branch.domain_change_application }}</td>
-            <td>
-                <button (click)="onClickDomainChangeApplicationAccept( branch )">Accept</button>
-                <button (click)="onClickDomainChangeApplicationReject( branch )">Reject</button>
-            </td>
-        </tr>
-    </table>
 
-
+    <section class="domain-change-application">
+        <div class="loader" *ngIf=" loader.domainChangeApplication; else domainChangeApplication">Loaing domain change application</div>
+        <ng-template #domainChangeApplication>
+            <table *ngIf="domain_change_applications.length; else noDomainChangeApplication">
+                <tr>
+                    <th>Current Domain</th>
+                    <th>New Domain</th>
+                    <th>Accept or Reject</th>
+                </tr>
+                <tr *ngFor=" let branch of domain_change_applications ">
+                    <td>{{ branch.domain }}</td>
+                    <td>=&gt; {{ branch.domain_change_application }}</td>
+                    <td>
+                        <button (click)="onClickDomainChangeApplicationAccept( branch )">Accept</button>
+                        <button (click)="onClickDomainChangeApplicationReject( branch )">Reject</button>
+                    </td>
+                </tr>
+            </table>
+            <ng-template #noDomainChangeApplication>
+                <div>
+                    <h2>There is no domain change application</h2>
+                </div>
+            </ng-template>
+        </ng-template>
+    </section>
+    <!--/domain-change-application-->
 </div>
 
 <h1>You have logged in as : {{ a.user.email }} Manager of: {{ a.user.manager }}</h1>

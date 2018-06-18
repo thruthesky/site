@@ -363,31 +363,11 @@ export class AdminUserInfoPage implements OnInit {
 
 
     updatePrimaryPhoto(file) {
-
         console.log('file uploaded: ', file);
-
         this.user.photoURL = file.url;
-
         this.a.lms.admin_user_profile_photo_update({ ID: this.user.ID, photo_guid: file.url }).subscribe( re => {
             console.log('admin_user_profile_update: re:', re);
         }, e => this.a.toast(e));
-
-
-        // const data: USER_UPDATE = {
-        //     photoURL: this.files[0].url,
-        //     user_email: this.form.user_email
-        // };
-        // this.a.user.admin_update_user(data).subscribe((res: USER_UPDATE_RESPONSE) => {
-        //
-        //     // console.log("updatePrimaryPhoto", file);
-        //     this.files[0] = file;
-        //     this.a.render(100);
-        //     this.a.render(5000); // on mobile, the image is updated very late.
-        //     this.a.render(15000);
-        // }, err => {
-        //     this.a.toast(err);
-        // });
-
     }
 
 }

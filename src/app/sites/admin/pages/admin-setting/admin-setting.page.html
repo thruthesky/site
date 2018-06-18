@@ -1,12 +1,14 @@
 <h2>Domain</h2>
 
-{{ branch.domain }} <button (click)=" show.domain_change_application = true ">Apply for Domain Change</button>
+{{ branch.domain }}
+<button (click)=" show.domain_change_application = true ">Apply for Domain Change</button>
 <div *ngIf=" branch.domain_change_application ">
-Your application of domain change to 
-<b>{{ branch.domain_change_application }}</b> is under review.
-
-If you want to cancel change your domain please click the button below.
-<div><button (click)=" onClickCancelDomainChangeApplication() ">Cancel domain change application</button></div>
+    Your application of domain change to
+    <b>{{ branch.domain_change_application }}</b> is under review. If you want to cancel change your domain please click the
+    button below.
+    <div>
+        <button (click)=" onClickCancelDomainChangeApplication() ">Cancel domain change application</button>
+    </div>
 </div>
 <form (ngSubmit)="onSubmitDomainChangeApplication()" *ngIf=" show.domain_change_application ">
     Input new domain:
@@ -16,46 +18,69 @@ If you want to cancel change your domain please click the button below.
 
 <h2>Branch Informations</h2>
 <form (ngSubmit)=" onSubmitBranchInformation() " *ngIf=" branch ">
-<div>
-    Branch Domain: {{ branch.domain }}
-</div>
-<div>
-    Branch Owner: {{ branch.owner?.name }} Email: {{ branch.owner?.email }}
-</div>
-<div>
-    Company Name: <input type="text" name="company_name" [(ngModel)]=" branch.company_name ">
-</div>
-<div>
-    Company Phone: <input type="text" name="company_phone" [(ngModel)]=" branch.company_phone ">
-</div>
-<div>
-    Company Email: <input type="text" name="company_email" [(ngModel)]=" branch.company_email ">
-</div>
-<div>
-    Company Address: <input type="text" name="company_address" [(ngModel)]=" branch.company_address ">
-</div>
-<div>
-    {{ a.ln['COMPANY BUSINESS REGISTRATION NO'] }}
-    <input type="text" name="company_business_registration_no" [(ngModel)]=" branch.company_business_registration_no ">
-</div>
-<div>
+    <div>
+        Branch Domain: {{ branch.domain }}
+    </div>
+    <div>
+        Branch Owner: {{ branch.owner?.name }} Email: {{ branch.owner?.email }}
+    </div>
+    <div class="photo-upload company-logo">
+        <div class="logo" *ngIf=" branch.logo_url ">
+            <img src="{{ branch.logo_url }}">
+        </div>
+        <div class="photo-upload-button">
+            <input class="input-box" type="file" (change)="companyLogo.onChangeFile($event)" style="width:86px;">
+        </div>
+        <div class="progress-bar" *ngIf="companyLogo.progressPercentage > 0">
+            <mat-progress-bar mode="determinate" [value]="companyLogo.progressPercentage">
+            </mat-progress-bar>
+            <span>{{ companyLogo.progressPercentage}}%</span>
+        </div>
+        <xapi-file-upload-component #companyLogo [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
+            [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
+        </xapi-file-upload-component>
+    </div>
+    <div>
+        Company Name:
+        <input type="text" name="company_name" [(ngModel)]=" branch.company_name ">
+    </div>
+    <div>
+        Company Phone:
+        <input type="text" name="company_phone" [(ngModel)]=" branch.company_phone ">
+    </div>
+    <div>
+        Company Email:
+        <input type="text" name="company_email" [(ngModel)]=" branch.company_email ">
+    </div>
+    <div>
+        Company Address:
+        <input type="text" name="company_address" [(ngModel)]=" branch.company_address ">
+    </div>
+    <div>
+        {{ a.ln['COMPANY BUSINESS REGISTRATION NO'] }}
+        <input type="text" name="company_business_registration_no" [(ngModel)]=" branch.company_business_registration_no ">
+    </div>
+    <div>
         {{ a.ln['COMPANY BUSINESS REGISTRATION OTHER NO'] }}
-    <input type="text" name="company_business_registration_other_no" [(ngModel)]=" branch.company_business_registration_other_no ">
-</div>
-<div>
-    Manger Name: <input type="text" name="manager_name" [(ngModel)]=" branch.manager_name ">
-</div>
+        <input type="text" name="company_business_registration_other_no" [(ngModel)]=" branch.company_business_registration_other_no ">
+    </div>
+    <div>
+        Manger Name:
+        <input type="text" name="manager_name" [(ngModel)]=" branch.manager_name ">
+    </div>
 
-<div>
-    Manger Email: <input type="text" name="manager_email" [(ngModel)]=" branch.manager_email ">
-</div>
+    <div>
+        Manger Email:
+        <input type="text" name="manager_email" [(ngModel)]=" branch.manager_email ">
+    </div>
 
-<div>
-    Manger Pone: <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone ">
-</div>
+    <div>
+        Manger Pone:
+        <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone ">
+    </div>
 
-<button type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
-<div class="loader" *ngIf=" loader.branchUpdate ">Updating branch info</div>
+    <button type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
+    <div class="loader" *ngIf=" loader.branchUpdate ">Updating branch info</div>
 </form>
 
 

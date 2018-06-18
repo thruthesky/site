@@ -104,6 +104,7 @@ export interface Branch {
     stamp_register: string;
     stamp_update: string;
     domain_change_application: string;
+    logo_url: string;
     owner: {
         name: string;
         email: string;
@@ -663,6 +664,16 @@ export class XapiLMSService extends Base {
     branch_get(): Observable<Branch> {
         return this.x.post({ route: 'lms.branch_get', session_id: this.user.sessionId });
     }
+    /**
+     * Update branch information.
+     * @param req request data to update on branch information. It can be only one key and value to update only one field.
+     * @example
+                console.log('file uploaded: ', file);
+                this.branch.logo_url = file.url;
+                this.a.lms.branch_update({ logo_url: this.branch.logo_url }).subscribe( re => {
+                    console.log('branch_update logo: re:', re);
+                }, e => this.a.toast(e));
+     */
     branch_update(req): Observable<Branch> {
         req['route'] = 'lms.branch_update';
         req['session_id'] = this.user.sessionId;

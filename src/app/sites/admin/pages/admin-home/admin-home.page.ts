@@ -11,21 +11,30 @@ import { ModalService } from '../../../../providers/modal/modal.service';
 
 export class AdminHomePage implements OnInit {
     domain_change_applications: Array<Branch> = [];
+    loader = {
+        domainChangeApplication: true
+    };
     constructor(
         public a: AppService,
         public modal: ModalService
     ) {
-        this.loadDomainChangeApplications();
-
+        if ( a.isSuperManager ) {
+            this.loadDomainChangeApplications();
+        }
     }
 
     ngOnInit() { }
 
     loadDomainChangeApplications() {
+        this.loader.domainChangeApplication = true;
         this.a.lms.branch_get_domain_change_applications().subscribe(re => {
+            this.loader.domainChangeApplication = false;
             console.log('branch_get_domain_change_applications: re: ', re);
             this.domain_change_applications = re;
-        }, e => this.a.toast(e));
+        }, e => {
+            this.loader.domainChangeApplication = false;
+            this.a.toast(e);
+        });
     }
     onClickDomainChangeApplicationReject(branch: Branch) {
         this.a.lms.branch_cancel_domain_change_application(branch.idx).subscribe(re => {

@@ -616,7 +616,7 @@ export class AppService {
         } else {
             session_id = '';
         }
-        const url = `https://${manager_domain}${port}/manager?${session_id}`;
+        const url = `//${manager_domain}${port}/manager?${session_id}`;
         // console.log(url);
         document.location.href = url;
     }

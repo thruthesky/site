@@ -89,11 +89,20 @@ npm run ssl                         ; run project with ssl. port is 9443. after 
 
 * Put `withcenter.katalkenglish.com` in hosts file in your working computer.
   This will work as `withcenter.com` domain.
+  The app will opoen `withcenter` theme if the domain contains `withcenter`.
 
 * set domains of `abc.katalkenglish.com`, `def.katalkenglish.com`, `branch.katalkenglish.com` in hosts file for test as branch subdomain.
-* Access `https://withcenter.katalkenglish.com:9433/franchise` to access withcenter site.
+
 * To create and access branch site and branch manager page,
   Create a branch with `abc` or `def`.
+
+* It is okay to test the app without SSL. But push-notification may not work.
+  To enable SSL please follow below.
+
+  * Set `sslPort` from 4200 to 9443 in `environment.local-backend-server.ts`
+    The default is 4200 which is the default port of Angular.
+  * and run `npm run ssl`
+  * Access `https://withcenter.katalkenglish.com:9433/franchise` to access withcenter site.
 
 * Try to run with SSL always.
 

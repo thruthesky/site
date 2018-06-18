@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { Branch } from '../../../../modules/xapi/lms.service';
 import { ModalService } from '../../../../providers/modal/modal.service';
+import { FILES } from '../../../../modules/xapi/interfaces';
+import { XapiFileUploadComponent } from '../../../../components/xapi-file-upload/xapi-file-upload.component';
 
 @Component({
     selector: 'admin-setting-page',
@@ -21,6 +23,8 @@ export class AdminSettingPage implements OnInit {
 
     domain_change_application = '';
 
+    @ViewChild('companyLogo') companyLogo: XapiFileUploadComponent;
+    files: FILES = [];
     constructor(
         public a: AppService,
         public modal: ModalService
@@ -63,6 +67,31 @@ export class AdminSettingPage implements OnInit {
             this.a.toast(e);
         });
     }
+
+
+    onSuccessUploadPicture(file) {
+        /**
+         * Delete previous photo.
+         *
+         * file[0]
+         */
+        if (this.files.length > 1) { /// If there are two files, one for prvious photo, the other is for new photo.
+            this.companyLogo.deleteFile(this.files[0], () => this.updateCompanyLogo(file), () => this.updateCompanyLogo(file));
+        } else {
+            this.updateCompanyLogo(file);
+        }
+
+    }
+
+
+    updateCompanyLogo(file) {
+        console.log('file uploaded: ', file);
+        this.branch.logo_url = file.url;
+        this.a.lms.branch_update({ logo_url: this.branch.logo_url }).subscribe( re => {
+            console.log('branch_update logo: re:', re);
+        }, e => this.a.toast(e));
+    }
+
 }
 
 
