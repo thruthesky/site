@@ -2,6 +2,22 @@
 
     You are supermanager!
 
+    <h2>Latest Branches</h2>
+    <table *ngIf=" latestBranches.length ">
+        <tr>
+            <th>No.</th>
+            <th>Domain</th>
+            <th>Company Name</th>
+            <th>Manager Name</th>
+        </tr>
+        <tr *ngFor=" let branch of latestBranches ">
+            <td>{{ branch.idx }}</td>
+            <td>{{ branch.domain }}</td>
+            <td>{{ branch.company_name }}</td>
+            <td>{{ branch['student']['name'] }}</td>
+        </tr>
+    </table>
+    
     <h2>List of domain change application</h2>
     <div>Note: subdomain of katalkenglish.com does not need to Nginx configuration. So, you can simply click Accept button.</div>
 
