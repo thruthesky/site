@@ -11,10 +11,19 @@ p{
     font-size: .95em;
     line-height: 1.6em;
 }
+ .content{
+    animation: .2s 1 fade-in;
 
 
-// if .item height/width changed 
-// the height/width should be also changed
+    @keyframes fade-in{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+ }
 .gallery{
     font-size: .95em;
     line-height: 1.5em;
