@@ -93,7 +93,7 @@ No of student who (successfully) paid: <span class="statNo">{{ stat.studentName.
     <tr *ngFor="let pay of re">
         <td>{{ pay.idx }}</td>
         <td>
-            <div class="link" routerLink="/admin/user-info/{{pay.student?.idx}}">{{ pay.student?.display_name }}({{
+            <div class="link" routerLink="/manager/user-info/{{pay.student?.idx}}">{{ pay.student?.display_name }}({{
                 pay.student?.name}})
                 <button class="user-info-button">e</button>
             </div>

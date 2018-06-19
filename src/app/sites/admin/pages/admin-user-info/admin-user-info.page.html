@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-12 col-md-6 col-xl-3">
             <h1 class="title">Stat &amp; User Edit Form</h1>
-            <button class="app-button" routerLink="/admin/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
-            <button class="app-button" routerLink="/admin/payment/{{ user.ID }}">Payment Detail Page</button>
+            <button class="app-button" routerLink="/manager/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
+            <button class="app-button" routerLink="/manager/payment/{{ user.ID }}">Payment Detail Page</button>
             <form class="user-profile-form" *ngIf=" ! show.loader.loadProfile ">
                 <div class="container-fluid">
                     <div class="row">
@@ -257,12 +257,12 @@
                 <div class="session row top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
                     <div class="col-2">{{ session.idx }}</div>
                     <div class="col-2" *ngIf="user.user_type != 'T' ">
-                        <a class="user-info" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                        <a class="user-info" routerLink="/manager/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
                           
                         </a>
                     </div>
                     <div class="col-2" *ngIf="user.user_type == 'T' ">
-                        <a class="user-info" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                        <a class="user-info" routerLink="/manager/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
                             
                         </a>
                     </div>
@@ -274,17 +274,17 @@
                 </div>
                 <div class="session row bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
                     <div class="col">
-                        <a class="user-info" routerLink="/admin/session-edit/{{session.idx}}">
+                        <a class="user-info" routerLink="/manager/session-edit/{{session.idx}}">
                             {{ session.idx }}
                         </a>
                     </div>
                     <div class="col" *ngIf="user.user_type != 'T' ">
-                        <a class="user-info" routerLink="/admin/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                        <a class="user-info" routerLink="/manager/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
                             
                         </a>
                     </div>
                     <div class="cl" *ngIf="user.user_type == 'T' ">
-                        <a class="user-info" routerLink="/admin/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                        <a class="user-info" routerLink="/manager/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
                             
                         </a>
                     </div>
@@ -336,18 +336,18 @@
                     </tr>
                     <tr *ngFor=" let re of refundRequests ">
                         <td>
-                            <a class='user-info' routerLink="/admin/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}
+                            <a class='user-info' routerLink="/manager/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}
                                 
                             </a>
                         </td>
                         <td>
-                            <a class='user-info' routerLink="/admin/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}
+                            <a class='user-info' routerLink="/manager/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}
                                 
                             </a>
                         </td>
                         <td>{{ re.date }} {{ re.class_begin }}</td>
                         <td>
-                            <a class='user-info-button' routerLink="/admin/point-refund/idx/{{re.idx}}">open</a>
+                            <a class='user-info-button' routerLink="/manager/point-refund/idx/{{re.idx}}">open</a>
                         </td>
                     </tr>
                 </table>
@@ -386,13 +386,13 @@
 
                     <tr *ngFor=" let log of pointHistory ">
                         <td *ngIf=" user.user_type == 'S' ">
-                            <a class="user-info" routerLink="/admin/user-info/{{ log.teacher?.idx }}">
+                            <a class="user-info" routerLink="/manager/user-info/{{ log.teacher?.idx }}">
                                 {{ log.teacher?.display_name }}
                                 
                             </a>
                         </td>
                         <td *ngIf=" user.user_type == 'T' ">
-                            <a class="user-info" routerLink="/admin/user-info/{{ log.student?.idx }}">
+                            <a class="user-info" routerLink="/manager/user-info/{{ log.student?.idx }}">
                                 {{ log.student?.display_name }}
                                 
                             </a>
@@ -404,7 +404,7 @@
                             <div class="reason">{{ log.apply_point | number }}</div>
                         </td>
                         <td>
-                            <a class='user-info' routerLink="/admin/session/idx/{{log.idx_reservation}}">
+                            <a class='user-info' routerLink="/manager/session/idx/{{log.idx_reservation}}">
                                 {{ log.idx_reservation }}
                             </a>
                         </td>

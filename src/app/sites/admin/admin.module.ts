@@ -17,6 +17,7 @@ import { MaterialModule } from '../../app.material.module';
 import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload/xapi-file-upload.component.module';
 import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { AdminSessionEditPage } from './pages/admin-session-edit/admin-session-edit.page';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
             { path: 'setting', component: AdminSettingPage },
             { path: 'user/:field/:value', component: AdminUserPage },
             { path: 'user', component: AdminUserPage },
-            { path: 'user-info/:ID', component: AdminUserInfoPage }
+            { path: 'user-info/:ID', component: AdminUserInfoPage },
+            { path: 'session-edit/:idx', component: AdminSessionEditPage },
         ]
     }
 
@@ -67,7 +69,8 @@ const routes: Routes = [
         AdminSessionPage,
         AdminSettingPage,
         AdminUserPage,
-        AdminUserInfoPage
+        AdminUserInfoPage,
+        AdminSessionEditPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -80,7 +83,8 @@ const routes: Routes = [
         AdminSessionPage,
         AdminSettingPage,
         AdminUserPage,
-        AdminUserInfoPage
+        AdminUserInfoPage,
+        AdminSessionEditPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],
