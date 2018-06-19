@@ -15,15 +15,35 @@ button{
     color: #0E51A7;
 }
 .board{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 1em 0;
     padding: 1.5em 0;   
     @media (min-width:$md){
         padding: 2em 0;
+        flex-direction: row
     }
+    // .md-position-left{
+    //     @media (min-width:$md){
+    //         padding-right: 4em;   
+    //     }
+    // }
+    // .md-position-right{
+    //     order: 2;
+    //     @media (min-width:$md){
+    //         padding-left: 4em;   
+    //     }
+    // }
 
     h3{
-        margin: 0;
-        margin-bottom: .5em;
+        margin: .5em 0;
+        text-align: center;
+        @media (min-width:$md){
+            text-align: left;
+            margin: 0;
+            margin-bottom: .5em;
+        }
     }
 
     p,div{
@@ -31,23 +51,28 @@ button{
         font-size: .9em;
     }
 
-    div{
-        margin-top: 1em;
-        padding: 1.5em;
-        background: #eee;
+    .text{
+        @media (min-width:$md){
+            padding-left: 4em;   
+        }
+        div{
+            margin-top: 1em;
+            padding: 1.5em;
+            background: #eee;
+        }
     }
 }
 
 svg{
-    height: 3em;
-    width: 3em;
+    height: 5em;
+    width: 5em;
 }
 
 .kakao{
     color: #FEC800
 }
 .payment{
-    color: green
+    color: #00A57C
 }
 .share{
     color: #2A17B1
