@@ -170,7 +170,7 @@ export class AdminUserInfoPage implements OnInit {
              * This should be javascript plain alert !
              */
             alert('Point update success.');
-            this.router.navigateByUrl('/admin/user-info/' + this.user.ID);
+            this.router.navigateByUrl('/manager/user-info/' + this.user.ID);
         }, e => {
             this.show.loader.updatePoint = false;
             this.a.toast(e);
