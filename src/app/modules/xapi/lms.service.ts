@@ -5,7 +5,8 @@ import { XapiUserService } from './user.service';
 
 
 import { Base } from './base';
-import { TEACHER_LIST_RESPONSE } from './interfaces';
+import { TEACHER_LIST_RESPONSE, LMS_INFO, Branch } from './interfaces';
+export { Branch };
 
 export interface SCHEDULE_EDIT extends DAYS {
     idx?: number;
@@ -85,36 +86,6 @@ export interface SESSION {
     teacherName?: string;
 }
 
-
-export interface Branch {
-    idx: number;
-    user_ID: string;
-    domain: string;
-    ceo_name: string;
-    manager_name: string;
-    company_name: string;
-    company_phone: string;
-    company_email: string;
-    company_address: string;
-    company_business_registration_no: string;
-    company_business_registration_other_no: string;
-    manager_phone: string;
-    manager_email: string;
-    html_title: string;
-    html_description: string;
-    html_keywords: string;
-    html_header: string;
-    html_footer: string;
-    no_of_students: string;
-    stamp_register: string;
-    stamp_update: string;
-    domain_change_application: string;
-    logo_url: string;
-    owner: {
-        name: string;
-        email: string;
-    };
-}
 
 @Injectable()
 export class XapiLMSService extends Base {
@@ -491,8 +462,12 @@ export class XapiLMSService extends Base {
      * Gets lms information.
      * @note this should be called once on every boot.
      */
-    info() {
-        return this.x.post({ route: 'lms.info', session_id: this.user.sessionId });
+    info(domain?): Observable<LMS_INFO> {
+        const req = { route: 'lms.info', session_id: this.user.sessionId };
+        if ( domain ) {
+            req['domain'] = domain;
+        }
+        return this.x.post(req);
     }
 
 

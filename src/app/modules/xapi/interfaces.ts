@@ -522,6 +522,39 @@ export interface TEACHER_SITE_INFO {
 }
 
 
+export interface Branch {
+    idx: number;
+    user_ID: string;
+    domain: string;
+    ceo_name: string;
+    manager_name: string;
+    company_name: string;
+    company_phone: string;
+    company_email: string;
+    company_address: string;
+    company_business_registration_no: string;
+    company_business_registration_other_no: string;
+    manager_phone: string;
+    manager_email: string;
+    html_title: string;
+    html_description: string;
+    html_keywords: string;
+    html_header: string;
+    html_footer: string;
+    copyright: string;
+    no_of_students: string;
+    stamp_register: string;
+    stamp_update: string;
+    domain_change_application: string;
+    logo_url: string;
+    owner: {
+        name: string;
+        email: string;
+    };
+}
+
+
+
 export interface LMS_INFO {
     BUYER_RATE: string;
     SELLER_RATE: string;
@@ -541,6 +574,7 @@ export interface LMS_INFO {
     reservation: string;                // no of total reservations of all.
     past: string;                       // no of total past of all students.
     leveltest: string;
+    branch: Branch;
 }
 
 
