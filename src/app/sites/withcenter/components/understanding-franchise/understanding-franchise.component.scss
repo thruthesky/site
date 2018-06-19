@@ -12,74 +12,70 @@ p{
     line-height: 1.6em;
 }
 
-ul{
-    list-style-type: none;
-    padding: 0;
-    h4{
-        margin: 0;
-        padding:1.5em 0;
-        border-radius: 2px;
-        color: #00A57C;
-        @media ( min-width:$md) {
-            padding: 2em 0;
-        }
-        transition: all .2s ease-in-out; 
-        font-size: 1em;
-        .desc{
-            padding:0;
-            padding-top: 1em;
-            @media (min-width:$md){
-                padding-top: .5em;
-                padding-bottom: 0;
-            }
-            font-weight: 300;
-            font-size: .9em;
-            color: #77838f;
-        }
 
-        span{
-            padding: 0 1em;
-            line-height: 0;
-        }
-        svg{
-            height: 1.5em;
-            width: 1.5em;
-        }
+// if .item height/width changed 
+// the height/width should be also changed
+.gallery{
+    font-size: .95em;
+    line-height: 1.5em;
+    .col-md-4{
+        padding: 0;
+    }
+    .col-md-4:first-child{
+        padding-right: .75em;
+    }
+    .col-md-4:last-child{
+        padding-left: .75em;
     }
 
-    li{
-        margin-bottom: .2em;
+    .item{
+        margin-bottom: 2em;
         cursor: pointer;
-        line-height: 1.5em;
-
-        .content{
-            padding: .3em 1.4em;
-            @media (min-width:$md) {
-                padding:.6em 1.8em; 
-            }
-            border: 1px solid rgba(125,125,125,0.2);
-            animation: .3s 1 fade-in-out;
+        @media (min-width:$md){
+            margin-bottom: .75em;
+        }
+                
+        img{
+            width: 100%;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
         }
 
-        @keyframes fade-in-out {
-            0%{
-                opacity: 0;
+        .body{
+            padding: 0 .4em;
+            h4{
+                margin: 0;
+                padding: .25em 0;
+                padding-bottom: 0;
+                color: #00A57C;
+                font-size: 1em;
             }
-            100%{
-                opacity: 1;
+    
+            .desc{
+                margin: 0;
+                padding:.4em 0;
+                padding-top: .25em;
+                font-weight: 300;
+                font-size: .9em;
+                color: #77838f;
             }
-        }
-
-        button{
-            border: 0;  
-            font-size: 1em;
-            background: none;
-            color: #0A3F82;
-            text-decoration: underline;
+    
+            button{
+                border: 0;  
+                font-size: .95em;
+                background: none;
+                color: #0A3F82;
+                text-decoration: underline;
+            }
+    
         }
     }
+}
 
+//                    color: #0A3F82; blue
+//                    color: #77838f;gray
 
+//                color: #00A57C;greeb
 
 // /*
 // * list background colors
@@ -154,5 +150,3 @@ ul{
 //         color: #2A17B1;
 //       }
 // }
-
-}
