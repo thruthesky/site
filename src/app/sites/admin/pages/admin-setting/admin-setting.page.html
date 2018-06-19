@@ -25,6 +25,7 @@
         Branch Owner: {{ branch.owner?.name }} Email: {{ branch.owner?.email }}
     </div>
     <div class="photo-upload company-logo">
+        Branch Site Logo. Preferred size: 200x48.
         <div class="logo" *ngIf=" branch.logo_url ">
             <img src="{{ branch.logo_url }}">
         </div>
@@ -103,6 +104,12 @@
         <textarea name="html_footer" [(ngModel)]=" branch.html_footer " placeholder="Input Javascript, CSS, HTML that will be display at the bottom of the site."></textarea>
     </div>
 
+    <div>
+            Copyright at bottom of the site.
+            <textarea name="copyright" [(ngModel)]=" branch.copyright " placeholder="Input copyright like (C) 2017-2018 All right reserved by Withcenter.com. email. contact. address. Business reg. no."></textarea>
+            You can use simple HTML tags only.
+        </div>
+    
     <button type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
     <div class="loader" *ngIf=" loader.branchUpdate ">Updating branch info</div>
 </form>

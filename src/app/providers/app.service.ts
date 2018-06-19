@@ -24,6 +24,7 @@ import { SCHEDULE_TABLE, LMS_INFO } from '../modules/xapi/interfaces';
  */
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 /**
@@ -226,6 +227,7 @@ export class AppService {
     constructor(
         public ngZone: NgZone,
         public router: Router,
+        public domSanitizer: DomSanitizer,
         public snackBar: MatSnackBar,
         // public readonly fire: FireService,
         public readonly language: LanguageService,
@@ -293,6 +295,7 @@ export class AppService {
 
         // Just in case the app may need sometime to init.
         // Try to connect to the server first before it display the first page.
+        this.info = this.get(KEY_LMS_INFO);
         setTimeout(() => {
             // console.log("going to call this.updateLMSInfo()");
             this.updateLMSInfo();
@@ -476,6 +479,23 @@ export class AppService {
             return SITE_ONTUE;
         } else {
             return SITE_KATALKENGLISH;
+        }
+    }
+
+    /**
+     * Returns true if the user is accessing student's main site like `katalkenglish.com` or `www.katalkenglish.com`
+     *  sub domains of katalkenglish.com or other domains returns false.
+     *
+     *  Aside katalkenglish, there might be another student domain like 'englishas.com'.
+     *
+     *  It only returns true if the user is accessing main office site.
+     */
+    get isStudentMainSite(): boolean {
+        const d = this.getDomain();
+        if (d.indexOf('katalkenglish') === 0 || d.indexOf('www.katalkenglish') === 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -1167,7 +1187,8 @@ export class AppService {
         if (!this.info) {
             this.info = <LMS_INFO>{};
         }
-        this.lms.info().subscribe(re => {
+        this.lms.info(this.getDomain()).subscribe(re => {
+            console.log('lms.info: ', re);
             this.set(KEY_LMS_INFO, re);
             this.info = this.get(KEY_LMS_INFO);
             if (this.info['user'] !== void 0) {
@@ -1989,5 +2010,9 @@ export class AppService {
      */
     stripTags(str) {
         return str.replace(/<\/?.+?>/ig, '');
+    }
+
+    safeHtml(html: string): any {
+        return this.domSanitizer.bypassSecurityTrustHtml(html);
     }
 }
