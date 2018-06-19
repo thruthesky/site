@@ -79,6 +79,30 @@
         <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone ">
     </div>
 
+    <div>
+        TITLE :
+        <input type="text" name="html_title" [(ngModel)]=" branch.html_title "> Input the title of website that will be displayed on web browser title. It will be displayed in HTML title meta
+        tag.
+    </div>
+    <div>
+        Description :
+        <input type="text" name="html_description" [(ngModel)]=" branch.html_description "> Input the description of website that would be appear on search engine. like google.com. It will be display in HTML
+        description meta tag.
+    </div>
+    <div>
+        Keywords :
+        <input type="text" name="html_keywords" [(ngModel)]=" branch.html_keywords "> Input the keywords of website. It will be displayed in HTML keywords meta tag..
+    </div>
+    <div>
+        HTML Header
+        <textarea name="html_header" [(ngModel)]=" branch.html_header " placeholder="Input Javascript, CSS, HTML for head tag."></textarea>
+        You can add external services like google analysitcs and other.
+    </div>
+    <div>
+        HTML Footer
+        <textarea name="html_footer" [(ngModel)]=" branch.html_footer " placeholder="Input Javascript, CSS, HTML that will be display at the bottom of the site."></textarea>
+    </div>
+
     <button type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
     <div class="loader" *ngIf=" loader.branchUpdate ">Updating branch info</div>
 </form>

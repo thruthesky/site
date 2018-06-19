@@ -109,7 +109,12 @@ npm run ssl                         ; run project with ssl. port is 9443. after 
 ### Working SEO
 
 * Add branch domain at sonub.com:8443 server block.
-* Access http://xxx.katalkenglish.com
+  * add domains like
+    * katalkenglish.org
+    * ontue.org
+    * withcenter.org
+    to server in sonub.com:8443 server block.
+  * Access http://xxx.katalkenglish.com or http://katalkenglish.com
 
 ## Publish
 

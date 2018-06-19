@@ -100,6 +100,11 @@ export interface Branch {
     company_business_registration_other_no: string;
     manager_phone: string;
     manager_email: string;
+    html_title: string;
+    html_description: string;
+    html_keywords: string;
+    html_header: string;
+    html_footer: string;
     no_of_students: string;
     stamp_register: string;
     stamp_update: string;
