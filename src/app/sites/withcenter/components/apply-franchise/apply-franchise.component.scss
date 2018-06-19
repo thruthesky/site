@@ -1,183 +1,184 @@
 @import './../../../../../theme/vars';
-h3{
+h3 {
     margin: 0;
     margin-top: 2em;
     margin-bottom: .5em;
     font-size: 1em;
     color: #0E51A7;
 }
-.info{
+
+.info {
     padding: 1em 2em;
     border-radius: 2px;
     border: 1px solid #FEC800;
-    background: rgba(#FEC800,0.2);
+    background: rgba(#FEC800, 0.2);
     line-height: 1.6em;
     font-size: .9em;
-
-    button{
+    button {
         border: none;
         background: none;
         color: #0A3F82;
         text-decoration: underline
     }
 }
-.company-info-wrapper{
+
+.company-info-wrapper {
     overflow: scroll;
 }
-#company-info{
+
+#company-info {
     margin: 1em 0;
     padding: 1.5em;
-    @media(min-width:$md) {
+    @media(min-width: $md) {
         padding: 2em;
     }
-    border-radius: 2px;
-    // border: 1px solid rgba(125,125,125,0.1);
-    background:#F3EEEB;
-    // min-width: 550px;
-    .form-desc{
-        h4{
-            margin:.5em 0;
+    border-radius: 2px; // border: 1px solid rgba(125,125,125,0.1);
+    background:#F3EEEB; // min-width: 550px;
+    .form-desc {
+        h4 {
+            margin: .5em 0;
             text-align: center;
             font-size: 1.4em;
         }
-        p{
+        p {
             padding: 0;
             font-size: .85em;
-            @media (min-width:$md){
+            @media (min-width: $md) {
                 padding: 0 10em;
                 font-size: .9em;
             }
             line-height: 1.6em;
         }
     }
-    .domain{
+    .domain {
         font-size: .9em;
         color: #EF6C00;
-        .title{
+        .title {
             padding-left: .2em;
             padding-bottom: 1em;
             text-align: left;
             color: #0E51A7;
         }
-
-        .input{
+        .input {
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-size: .9em;
-            @media(min-width:$md) {
+            @media(min-width: $md) {
                 font-size: 1.8em;
                 justify-content: center;
             }
-
-            input{
+            input {
                 margin: 0 .5em;
                 width: 111px;
                 text-align: center;
                 color: #EF6C00;
-                @media(min-width:$md) {
+                @media(min-width: $md) {
                     width: 370px;
                     padding: .25em;
                 }
             }
         }
     }
-
-    .foot-note{
-        display:block;
+    .foot-note {
+        display: block;
         text-align: center;
         padding: 1em 0;
         font-size: .8em;
-        @media(min-width:$md) {
+        @media(min-width: $md) {
             font-size: .9em;
         }
         color: #0E51A7;
     }
-
-    &>div{
+    &>div {
         display: flex;
         flex-direction: column;
         margin-bottom: 1em;
-        label{
+        label {
             font-size: .85em;
             margin-bottom: .3em;
             margin-left: .2em;
             color: #0E51A7;
         }
-        input{
+        input {
             padding: .75em 1em;
             border-radius: 2px;
-            border:1px solid rgba(125,125,125,0.2);
+            border: 1px solid rgba(125, 125, 125, 0.2);
             background: #fff;
             font-size: 1em;
         }
     }
-    .toc{
+    .toc {
         display: flex;
-        align-items: center;
+        flex-flow: row;
         justify-content: center;
         padding: .5em 0;
-        font-size: .8em;
-        cursor: pointer;
+        label {
+            font-size: .85em;
+            cursor: pointer;
+        }
+        span {
+            font-size: .85em;
+            cursor: pointer;
+        }
     }
-    .submit{
+    .submit {
         padding: 1em 0;
         display: flex;
         justify-content: center;
-        button{
+        button {
             display: inline-block;
             padding: 1em 2em;
             border-radius: 2px;
-            border:none;
+            border: none;
             background: #0A3F82;
             color: #fff;
             cursor: pointer;
         }
     }
-    
 }
 
-.important-button{
+.important-button {
     padding: 0.25em .65em;
     border-radius: 2px;
-    border:0;
+    border: 0;
     background: #0E51A7;
     color: #fff;
     font-size: .9em;
 }
 
-.ssl{
-    h4{
+.ssl {
+    h4 {
         color: #00A57C
     }
     margin-top: 1em;
 }
 
-.more{
+.more {
     text-align: center;
     .button {
         padding: 1em;
-        border: 0;  
+        border: 0;
         font-size: 11pt;
         background: none;
         color: #0A3F82;
     }
-
-    div,{
+    div,
+        {
         padding: 1em;
         border: 1px solid #FEC800;
-        background: rgba(#FEC800,0.2);
+        background: rgba(#FEC800, 0.2);
         line-height: 1.6em;
         font-size: .9em;
         text-align: left;
     }
 }
 
-article{
-    h3{
+article {
+    h3 {
         margin-left: .2em;
     }
-    p{
+    p {
         padding: 1em;
         font-size: .9em;
         line-height: 1.5em;

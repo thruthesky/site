@@ -12,7 +12,6 @@ import { WithcenterTextService } from './withcenter-text.service';
 export class WithcenterHomePage {
 
   languageCode;
-  t;
   animation = {
     index: 0,
     show: 'text-group-0'
@@ -21,12 +20,12 @@ export class WithcenterHomePage {
 
   constructor(
     public a: AppService,
-    public withcenterTextService: WithcenterTextService
+    public t: WithcenterTextService
     // public fire: FireService
   ) {
-    this.languageCode = withcenterTextService.getLanguageCode();
-    this.t = withcenterTextService.getTexts();
-    console.log('t: ', this.t);
+
+    this.languageCode = t.getLanguageCode();
+    console.log('t: ', t.ln);
 
     this.animateText();
   }
@@ -52,8 +51,8 @@ export class WithcenterHomePage {
   }
 
   onChangeLanguageCode() {
-    this.withcenterTextService.setLanguageCode( this.languageCode );
-    console.log('ln saved: ', this.withcenterTextService.getLanguageCode() );
+    this.t.setLanguageCode( this.languageCode );
+    console.log('ln saved: ', this.t.getLanguageCode() );
     setTimeout(() => document.location.reload(true), 200);
   }
 }

@@ -1,9 +1,7 @@
 @import './../../../theme/vars';
-
 $page-width: 800px;
 $padding: .6em;
 $header-height: 4em;
-
 main {
     margin: 0 auto;
     max-width: $page-width;
@@ -15,9 +13,9 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(#fff,0.95);
+    background-color: rgba(#fff, 0.95);
     z-index: 1234;
-    nav{
+    nav {
         position: relative;
         display: flex;
         align-items: center;
@@ -31,11 +29,11 @@ header {
         .logo {
             display: flex;
             align-items: center;
-            padding:0 1.5em;
-            @media (min-width:$md){
+            padding: 0 1.5em;
+            @media (min-width: $md) {
                 padding: 0;
             }
-            height:  $header-height;
+            height : $header-height;
             font-weight: bold;
             cursor: pointer;
             img {
@@ -43,16 +41,15 @@ header {
                 margin-right: .5em;
             }
         }
-
-        .menu{
+        .menu {
             display: flex;
-            height:  $header-height;
-            &>span{
+            height: $header-height;
+            &>span {
                 display: none;
                 align-items: center;
-                height:100%;
-                padding:0 .75em;
-                @media (min-width:$md) {
+                height: 100%;
+                padding: 0 .75em;
+                @media (min-width: $md) {
                     display: flex;
                     padding: 0 1em;
                 }
@@ -60,39 +57,36 @@ header {
                 font-size: .8em;
                 white-space: nowrap;
                 cursor: pointer;
-
-                &:hover{
+                &:hover {
                     color: #377dff
                 }
             }
         }
-
-        .options-button{
+        .options-button {
             padding: 0 1.5em;
             display: flex;
-            @media (min-width:$md){
+            @media (min-width: $md) {
                 display: none;
             }
             align-items: center;
             height: 100%;
-            svg{
+            svg {
                 height: 1.8em;
                 width: 1.8em;
             }
         }
         .flags {
             position: relative !important;
-            @media (min-width:$md) {
-                background: #aeadad;   
+            @media (min-width: $md) {
+                background: #aeadad;
             }
             height: $header-height;
-    
             select {
                 position: relative;
                 padding: 0 3em;
-                height:100%;
+                height: 100%;
                 padding-top: 33px;
-                @media (min-width:$md) {
+                @media (min-width: $md) {
                     padding-top: 20px;
                 }
                 border: none;
@@ -114,30 +108,28 @@ header {
             }
             .custom-icon {
                 position: absolute;
-                top:21px;
+                top: 21px;
                 left: 50%;
                 transform: translateX(-50%);
                 height: 20px;
-                @media (min-width:$md){
+                @media (min-width: $md) {
                     top: 13px;
                     height: 24px;
                 }
             }
-            .ko-icon{
+            .ko-icon {
                 height: 30px;
                 width: 30px;
                 top: 15.5px;
-
-                @media (min-width:$md){
+                @media (min-width: $md) {
                     top: 13px;
                     height: 24px;
                     width: 24px;
                 }
             }
         }
-
-        .mobile-menu{
-            @media (min-width:$md) {
+        .mobile-menu {
+            @media (min-width: $md) {
                 display: none;
             }
             position: absolute;
@@ -145,51 +137,47 @@ header {
             left: 0;
             right: 0;
             animation: .2s 1 fade-in;
-            border-top:  1px solid #eee;
-
-            div{
+            border-top : 1px solid #eee;
+            div {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 padding: 1.5em 2em;
                 text-align: center;
                 border-bottom: 1px solid #eee;
-                background:#fff;
+                background: #fff;
                 font-size: .9em;
                 font-weight: 500;
                 color: #377dff;
-
-                svg{
+                svg {
                     height: 1em;
                     width: 1em;
                 }
             }
         }
-
         @keyframes fade-in {
-            0%{
+            0% {
                 opacity: 0;
             }
-            100%{
+            100% {
                 opacity: 1;
             }
         }
     }
 }
 
-
 section.content {
     margin: 0 auto;
     margin-top: $header-height;
     max-width: $page-width;
-    @media (min-width:$md){
+    @media (min-width: $md) {
         padding: 0;
     }
 }
 
-.chapters{
+.chapters {
     padding: 0 1em;
-    @media (min-width:$md){
+    @media (min-width: $md) {
         padding: 0;
     }
 }
@@ -198,7 +186,7 @@ section.content {
     position: relative;
     width: 100%;
     height: 230px;
-    @media (min-width:$md){
+    @media (min-width: $md) {
         height: 250px;
         font-size: 1.3em;
         font-weight: 200;
@@ -209,7 +197,7 @@ section.content {
         right: 0;
         img {
             height: 230px;
-            @media (min-width:$md){
+            @media (min-width: $md) {
                 height: 300px;
             }
         }
@@ -220,7 +208,8 @@ section.content {
         left: 0;
         padding: 1em;
         border-radius: 2px;
-        background: rgba(#fff,0.7);
+        // background: rgba(#fff, 0.7);
+        text-shadow: 2px 2px 2px rgb(255, 255, 255), 2px 2px 14px rgb(255, 255, 255), 2px 2px 4px rgb(255, 254, 254);
         line-height: 1.6em;
         font-size: .9em;
         z-index: 200;
@@ -260,15 +249,15 @@ section.content {
 
 h2 {
     margin: 1em 0;
-    @media (min-width:$md) {
-        margin-top: 2em;   
+    @media (min-width: $md) {
+        margin-top: 2em;
     }
     color: #EF6C00;
     font-size:1.87em;
     font-weight: 100;
 }
 
-h3{
+h3 {
     margin: 0;
     margin-top: 2em;
     margin-bottom: .5em;
@@ -284,17 +273,15 @@ h3{
     background-color: rgba(55, 125, 255, 0.2);
     color: #377dff;
     font-weight: 300;
-    @media (min-width:$md) {
-        background-color: rgba(55, 125, 255, 0.1); 
+    @media (min-width: $md) {
+        background-color: rgba(55, 125, 255, 0.1);
     }
     transition: all .2s ease-in-out;
-
-    &:hover{
+    &:hover {
         background: #377dff;
         color: #fff;
     }
 }
-
 
 footer {
     padding: 5em;

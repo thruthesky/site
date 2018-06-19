@@ -3,13 +3,19 @@ import { texts } from './withenter-text';
 import { Library as _ } from './../../etc/library';
 
 export const WITHCENTER_LANGUAGE_CODE = 'withcenterLanguageCode';
-
+interface Text {
+    [key: string]: string;
+}
 @Injectable()
 export class WithcenterTextService {
 
 
     languageCode = 'en';
-    selectedTexts = {};
+    ln: Text = <any> {};
+
+    constructor() {
+        this.getTexts();
+    }
     getTexts() {
         this.languageCode = this.getLanguageCode();
         // this.t = getTexts(this.languageCode);
@@ -18,11 +24,11 @@ export class WithcenterTextService {
         console.log('keys: ', keys);
         console.log('texts: ', texts);
         for (const key of keys) {
-            this.selectedTexts[key] = texts[key][this.languageCode];
+            this.ln[key] = texts[key][this.languageCode];
         }
 
-        console.log('selectedTexts: ', this.selectedTexts);
-        return this.selectedTexts;
+        console.log('selectedTexts: ', this.ln);
+        return this.ln;
     }
 
     getLanguageCode(): string {
@@ -35,8 +41,8 @@ export class WithcenterTextService {
         }
     }
 
-    setLanguageCode( ln ) {
-        _.set(WITHCENTER_LANGUAGE_CODE, ln );
+    setLanguageCode(ln) {
+        _.set(WITHCENTER_LANGUAGE_CODE, ln);
     }
 
 }
