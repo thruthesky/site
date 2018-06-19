@@ -21,14 +21,18 @@ p{
     .col-md-4{
         padding: 0;
     }
-    .col-md-4:first-child{
-        padding-right: .75em;
-    }
-    .col-md-4:last-child{
-        padding-left: .75em;
-    }
 
+    @media (min-width:$md) {
+        .col-md-4:first-child{
+            padding-right: .75em;
+        }
+        .col-md-4:last-child{
+            padding-left: .75em;
+        }
+       
+    }
     .item{
+        position: relative;
         margin-bottom: 2em;
         cursor: pointer;
         @media (min-width:$md){
@@ -65,88 +69,8 @@ p{
                 font-size: .95em;
                 background: none;
                 color: #0A3F82;
-                text-decoration: underline;
             }
     
         }
     }
 }
-
-//                    color: #0A3F82; blue
-//                    color: #77838f;gray
-
-//                color: #00A57C;greeb
-
-// /*
-// * list background colors
-// *  and font colors
-// */ 
-// .salary{
-//     background: #00A57C;
-//     color: #fff;
-
-
-// }
-// .quality{
-//     background: #546e7a;
-//     color: #fff;
-
-//     &+.content{
-//         background: #fff;
-//         color: #29434e
-//     }
-// }
-// .directDeal{
-//     background: #512da8;
-//     color: #fff;
-
-//     &+.content{
-//         background: #fff;
-//         color: #512da8
-//     }
-// }
-// .stableManagement{
-//     background: #FEC800;
-//     &+.content{
-//         background: #fff;
-//         color: darkred
-//     }
-// }
-// .automatic{
-//     background: #753650;
-//     color: #fff;
-
-//     &+.content{
-//         background: #251a1f;
-//         color: #fff
-//     }
-// }
-// .instructorCancelation{
-//     background: #647536;
-//     color: #fff;
-
-//     &+.content{
-//         background: #23251a;
-//         color: #fff;
-//     }
-// }
-// .revenueSharing{
-//     background: #067074;
-//     color: #fff;
-
-//     &+.content{
-//       background: #424e09;
-//       color: #fff;
-//     }
-// }
-// .PWA{
-//     background: #0E51A7;
-//     color: #fff
-// }
-// .smartPhoneApp{
-//     background: #2A17B1;
-//     color: #fff;
-//     &+.content{
-//         color: #2A17B1;
-//       }
-// }
