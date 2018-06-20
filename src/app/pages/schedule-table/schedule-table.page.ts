@@ -63,6 +63,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         public a: AppService
     ) {
 
+        a.updateUserPoint();
         this.showHelpReserve = !a.lmsInfoUserNoOfTotalSessions;
 
         if (a.isDesktopView()) {
