@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WithcenterShow } from '../../interfaces';
+import { WithcenterTextService } from '../../withcenter-text.service';
 
 @Component({
     selector: 'about-service-component',
@@ -9,7 +10,9 @@ import { WithcenterShow } from '../../interfaces';
 
 export class AboutServiceComponent implements OnInit {
     show: WithcenterShow = <any>{};
-    constructor() { }
+    constructor(
+        public t: WithcenterTextService
+    ) { }
 
     ngOnInit() { }
 }

@@ -8,7 +8,7 @@ export class WithcenterTextService {
 
 
     languageCode = 'en';
-    ln = {};
+    ln: any = {};
 
     constructor() {
         this.getTexts();
