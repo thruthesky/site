@@ -39,9 +39,10 @@ h3 {
     p {
         margin-bottom: 0;
         padding: 0;
+        padding-bottom: .8em;
         font-size: .85em;
         @media (min-width: $md) {
-            font-size: 1em;
+            font-size: .9em;
             font-weight: 200;
         }
         line-height: 1.6em;
@@ -70,7 +71,8 @@ h3 {
         font-size: 1em;
     }
 
-    .col-6{
+    .col-sm-12{
+        padding: 0;
         &>div{
             margin-top: 1em;
             display: flex;
@@ -79,12 +81,12 @@ h3 {
 
         &:first-child{
             @media (min-width:$md) {
-                padding-left: 0   
+                padding-right: 1em   
             }
         }
         &:last-child{
             @media (min-width:$md){
-                padding-right: 0   
+                padding-left: 1em   
             }
         }
     }
@@ -104,7 +106,7 @@ h3 {
             justify-content: space-between;
             font-size: .9em;
             @media(min-width: $md) {
-                font-size: 1.8em;
+                font-size: 1em;
                 justify-content: center;
             }
             input {
@@ -114,7 +116,7 @@ h3 {
                 color: #EF6C00;
                 @media(min-width: $md) {
                     width: 370px;
-                    padding: .25em;
+                    padding: .85em .25em;
                 }
             }
         }
@@ -127,22 +129,30 @@ h3 {
         @media(min-width: $md) {
             font-size: .9em;
         }
-        color: #0E51A7;
+        color: #000;
     }
 
 
     .toc {
         display: flex;
-        flex-flow: row;
         justify-content: center;
         padding: .5em 0;
-        label {
-            font-size: .85em;
-            cursor: pointer;
+        font-size: .8em;
+        @media (min-width:$md) {
+            font-size: .95em
+        }
+        label,span{
+            display: flex;
+            align-items: center;
+            margin: 0!important;
+            cursor: pointer
         }
         span {
-            font-size: .85em;
-            cursor: pointer;
+            margin: 0 .5em!important;
+            font-size: 85%;
+            @media (min-width:$md) {
+                font-size: 95%;
+            }
         }
     }
     .submit {
@@ -162,7 +172,8 @@ h3 {
 }
 
 .important-button {
-    padding: 0.25em;
+    padding:0;
+    padding-bottom: 1em;
     border-radius: 2px;
     border: 0;
     background: 0;

@@ -384,7 +384,244 @@ This Agreement will be effective from June 20, 2018.`,
 附則
 本規約は、2018年6月20日から施行する。
 `
+    },
+
+    text_group_0_1: {
+        ko: `화상영어 창업`,
+        en: `English language business`,
+        ch: `英语语言业务`,
+        jp: `画像の英語創業`
+    },
+    text_group_0_2: {
+        ko: `성공 비결은 무엇일까요?`,
+        en: `What is the secret to success?`,
+        ch: `成功的秘诀是什么？`,
+        jp: `成功の秘訣は何でしょうか？`
+    },
+    text_group_0_3: {
+        ko: `제대로된 회사와 협력하는 것입니다.`,
+        en: `It is working with the right company.`,
+        ch: `它正在与合适的公司合作。`,
+        jp: `まともな会社と協力することです。`
+    },
+    text_group_0_4: {
+        ko: `12년째, 오직 화상영어 한 길 `,
+        en: `For 12 years, only English`,
+        ch: `12年来，只有英语`,
+        jp: `12年目、唯一の画像の英語た道`
+    },
+    text_group_1_1: {
+        ko: `글로벌 리더 위세너`,
+        en: `Global leader Withcenter`,
+        ch: `全球领先的Withcenter`,
+        jp: `グローバルリーダー威勢あなた`
+    },
+    text_group_1_2: {
+        ko: `2007년 부터 화상영어 프랜차이즈`,
+        en: `Since 2007, the video English franchise`,
+        ch: `自2007年以来，视频英语专营权`,
+        jp: `2007年から画像の英語フランチャイズ`
+    },
+    text_group_1_3: {
+        ko: `12년째 필리핀에서 콜센터 운영`,
+        en: `Call center in the Philippines for 12 years`,
+        ch: `呼叫中心在菲律宾12年`,
+        jp: `12年目、フィリピンでコールセンター運営`
+    },
+    text_group_1_4: {
+        ko: `5백여 개에 이르는 가맹사`,
+        en: `About 500 family members`,
+        ch: `约500名家庭成员`,
+        jp: `5百個に及ぶ加盟社`
+    },
+    text_group_2_1: {
+        ko: `창업비용 제로. 부가 비용 완전 제로.`,
+        en: `Zero start-up costs. Extra zero added cost.`,
+        ch: `零启动成本。 零增加成本。`,
+        jp: `創業費用ゼロ。付加費用完全ゼロ。`
+    },
+    text_group_2_2: {
+        ko: `도메인, SSL, 호스팅 무료 제공`,
+        en: `Free domain, SSL, hosting`,
+        ch: `免费域名，SSL，托管`,
+        jp: `ドメイン、SSL、ホスティング無料`
+    },
+    text_group_2_3: {
+        ko: `아무런 준비없이 10초 만에 창업 완료!`,
+        en: `Founded in 10 seconds without any preparation!`,
+        ch: `没有任何准备10秒内成立`,
+        jp: `何の準備なしに10秒で創業完了！`
+    },
+    text_group_2_4: {
+        ko: `학생만 있으면 바로 수익 발생`,
+        en: `Earning revenue immediately with a student`,
+        ch: `立即与学生一起赚取收入`,
+        jp: `学生だけあればすぐに収入が発生`
+    },
+    franchise_about: {
+        ko: `위세너 프랜차이즈`,
+        en: `Withcenter franchise`,
+        ch: `Withcenter特许经营权`,
+        jp: `威勢あなたのフランチャイズ`
+    },
+    franchise_service: {
+        ko: `화상영어 서비스`,
+        en: `Video English service`,
+        ch: `视频英语服务`,
+        jp: `画像の英語サービス`
+    },
+    franchise_start: {
+        ko: `위세너 프랜차이즈 시작하기`,
+        en: `Getting Started with the Withcenter franchise`,
+        ch: `开始使用Weisser特许经营权`,
+        jp: `威勢あなたフランチャイズを開始する`
+    },
+    about_franchise_title: {
+        ko: `위세너 프랜차이즈 개요 `,
+        en: `Withcenter franchise overview`,
+        ch: `Withcenter特许经营概述`,
+        jp: `威勢あなたのフランチャイズの概要`
+    },
+    about_franchise_desc: {
+        ko: `위세너는 국제 기업으로 한국 학생을 대상으로 화상영어 직거래 수업을 하는 프랜차이즈 사업을 진행하며 가맹사 모집을 합니다. 위세너 프랜차이즈와 관련된 분야 별 설명은 아래와 같습니다.`,
+        en: `As a international company, WISEIN is a franchise project for Korean students who is engaged in direct conversation classes. Below is a description of each area related to the Weisserin franchise.`,
+        ch: `作为一家国际性公司，WISEIN是韩国学生参与直接谈话课程的特许经营项目。 以下是与Weisserin特许经营相关的每个领域的描述。`,
+        jp: `威勢君国際企業に韓国の学生を対象に、画像の英語直接取引の授業をするフランチャイズ事業を進行して加盟社募集をします。威勢あなたのフランチャイズに関連する分野別説明は以下の通りです。`
+    },
+    about_franchise_withcenter: {
+        ko: `위세너  `,
+        en: `Withcenter`,
+        ch: `你的声望`,
+        jp: `威勢君`
+    },
+    about_franchise_ontue: {
+        ko: `온튜 `,
+        en: `Ontue`,
+        ch: `Ontue`,
+        jp: `オンチュ`
+    },
+    about_franchise_katalk: {
+        ko: `카톡영어`,
+        en: `Katok English`,
+        ch: `Katok英语`,
+        jp: `カトクの英語`
+    },
+    learn_more: {
+        ko: `자세히 보기 `,
+        en: `Learn more`,
+        ch: `了解更多`,
+        jp: `続きを読む`
+    },
+    about_franchise_withcenter_desc: {
+        ko: `위세너는 화상영어 사업에 필요한 모든 서비스와 관리를 하는 본사입니다.`,
+        en: `Withcenter is a headquarters that manages all the services and management necessary for the video English business.`,
+        ch: `Withcenter是一家总部，负责管理视频英语业务所需的所有服务和管理。`,
+        jp: `威勢君画像の英語、ビジネスに必要なすべてのサービスと管理をする本社です。`
+    },
+    about_franchise_ontue_desc: {
+        ko: `온튜 www.ontue.com 선생님들이 이용하는 홈페이지입니다.`,
+        en: `www.ontue.com is the home page for teachers.`,
+        ch: `www.ontue.com是教师的主页。`,
+        jp: `オンチュwww.ontue.com先生が利用するホームページです。`
+    },
+    about_franchise_katalk_desc: {
+        ko: `카톡영어 www.katalkenglish.com 는 학생들이 사용하는 홈페이지입니다. 가맹사로 등록하면 디자인은 동일하지만, 회사명, 로고, 전화번호, 주소 등을 변경해서 사용합니다.`,
+        en: `Katok English www.katalkenglish.com is the homepage used by students. When you register as a registered member, the design is the same, but the company name, logo, phone number, address, etc. are changed and used.`,
+        ch: `Katok英语www.katalkenglish.com是学生使用的主页。 当您注册为注册会员时，设计是相同的，但公司名称，标识，电话号码，地址等被更改和使用。`,
+        jp: `カトク、英語www.katalkenglish.comは、学生が使用するホームページです。加盟社に登録すると、デザインは同じですが、会社名、ロゴ、電話番号、住所などを変更して使用します。`
+    },
+    about_franchise_withcenter_content: {
+        ko: `위세너는 2008년 필리핀 마닐라에서 화상영어 전문 교육 학원 Online English OnTue.COM, Inc. 를 설립하였으며 이후, 2010 년 클락으로 이전하였으며 2015년 법인명을 Withcenter, Inc. 로 변경하였습니다. 위세너는 한국, 중국, 일본을 주요 마케팅 대상국으로 삼으며 각 나라별 가맹점을 모집하여 화상영어 서비스를 운영하는 글로벌 기업입니다.`,
+        en: `Withcenter in 2008 was in Manila, Philippines English School of Professional Education Online English OnTue.COM, Inc. And then moved to Clark in 2010. In 2015, the company was named Withcenter, Inc. . Weisser is a global company operating Korea English, Chinese, and Japanese as major marketing target countries, and recruiting merchants in each country and running video English service.`,
+        ch: `Weissa你2008年在菲律宾马尼拉英语专业教育学院Online English OnTue.COM，Inc. 然后于2010年搬到了Clark。2015年，该公司被命名为Withcenter，Inc.它改变了。 Weisser是一家全球性公司，主要营销韩国英语，中国和日本语作为主要的营销目标国家，并在各个国家招募商家并开展视频英语服务。`,
+        jp: `威勢君2008年、フィリピンのマニラで画像の英語専門教育学院Online English OnTue.COM、Inc.を設立して以来、、2010年クロックに移転し、2015年法人名をWithcenter、Inc.に変更しました。威勢君韓国、中国、日本を主なマーケティング対象国にしよおり、それぞれの国別加盟店を募集して画像の英語サービスを運営するグローバル企業です。`
+    },
+    about_franchise_ontue_content: {
+        ko: ` 위세너에서 2008년에 만든 온튜는 전 세계적으로 재택 강사를 모집하여 화상영어 서비스하는 새로운 서비스 모델을 만들어 냈습니다. 이후, 온튜는 재택 강사로 화상영어 수업을 하는 다른 업체의 모델이 되었으며 많은 업체들이 온튜의 신화에 도전을 하고 있지만 성공하지 못하고 있습니다. 온튜는 재택 강사 뿐만아니라 화상영어 교육 전문 학원의 강사도 함께 화상영어 수업을 하며 온튜 선생님들이 여러분의 학생을 가르킬 것입니다.`,
+        en: `Created in 2008 by Withcenter, Ontee has created a new service model for recruiting English language teachers by recruiting home tutors from around the world. Since then, Onew has become a model for other companies to teach video English classes as a home tutor, and many companies have challenged myths of Othough, but they have not succeeded. Onew teaches video English classes as well as instructors from video English education colleges as well as home teachers, who will point you to your students.`,
+        ch: `Ontue由Withcenter于2008年创建，通过招募来自世界各地的家庭教师创建了招聘英语语言教师的新服务模式。 此后，Onew成为其他公司教授视频英语课程作为家庭教师的典范，许多公司对Othough的神话提出了挑战，但他们还没有成功。 Onew教授视频英语课程，以及视频英语教育学院的老师以及家庭教师，他们会指导你的学生。`,
+        jp: `威勢あなたの2008年に作成されたオンチュは、世界的に在宅講師を募集して画像の英語サービスする新しいサービスモデルを作り上げました。以後、オンチュは在宅講師に画像の英語の授業をする他の企業のモデルとなり、多くの企業がオンチュの神話に挑戦をしているが、成功していないです。オンチュは在宅講師だけでなく、画像の英語教育専門学院の講師も一緒に画像の英語の授業をしてオンチュ先生があなたの学生を指すことです。`
+    },
+    about_franchise_katalk_content: {
+        ko: `카톡영어 홈페이지는 한국인을 대상으로하는 화상영어 서비스를 하는 홈페이지입니다. 참고로, 한국들은 카톡을 사용하며, 중국인들은 위쳇, 일본인들은 라인을 사용하여 화상영어 수업을 받고 있습니다. 위세너에서 카톡을 선택한 이유는 바로 대한민국 사람들이라면 누구나 카톡 사용하고 있기에 곧 바로 화상영어 수업을 할 수 있기 때문입니다. 다른 화상 영어 사이트는 화상 솔루션을 많이 쓰고 있는데, 설치, 업데이트, 잦은 에러 등으로 인해 업무량이 늘어나며 실제로 화상 솔루션 자체의 문제로 수업이 안되는 경우가 비일비재합니다. 이러한 문제를 한번에 해결하기 위해서 카카오톡을 선택했으며 결과로 보여주듯이 매우 훌륭한 선택이었습니다. 카톡은 프로그램 에러나 설치와 같은 문제가 전혀 없습니다. 여러분들이 가맹을 등록을 할 때, "카톡영어" 대신 여러분이 원하는 이름을 지으시면됩니다. 예를 들어 "재미있는영어"와 같이 지으시면 됩니다. 홈페이지의 로고, 하단의 회사 정보 등을 가맹사에서 원하는 대로 변경 할 수 있습니다.`,
+        en: `The KATALK English homepage is a homepage for video English service for Koreans. For reference, Koreans use katok, Chinese people use withet, Japanese use lines to learn video English classes. The reason for choosing KAtok in WISEENER is because everyone in Korea can use KAtok so that they can learn English vocabulary immediately. Other video English sites are using a lot of video solutions, but their workload increases due to installs, updates, and frequent errors. I chose KakaoTalk to solve these problems at once, and as a result, it was a great choice. KAtok has no problems such as program error or installation. When you register as a member, you can name your name instead of "Katok English". For example, you can write "funny English". You can change the logo of your homepage, company information at the bottom, and so on.`,
+        ch: `KATALKO英文主页是韩国人视频英语服务的主页。作为参考，韩国人使用katok，中国人使用withet，日语使用线学习视频英语课。在WISEENER选择KAtok的原因是因为韩国的每个人都可以使用KAtok，以便他们可以立即学习英语词汇。其他视频英语网站正在使用很多视频解决方案，但由于安装，更新和频繁的错误，他们的工作量会增加。我选择了KakaoTalk来立即解决这些问题，因此这是一个很好的选择。 KAtok不存在程序错误或安装等问题。当您注册成为会员时，您可以为您的姓名命名，而不是“Katok英语”。例如，你可以写“有趣的英语”。您可以更改主页的徽标，底部的公司信息等等。`,
+        jp: `カトク、英語のホームページは韓国人を対象とする画像の英語サービスをするホームページです。ちなみに、韓国はカトクを使用して、中国の人々はウィチェト、日本人はラインを使用して画像の英語の授業を受けています。威勢あなたのカトクを選択した理由は、まさに大韓民国人なら誰でもカトク使用しているのですぐに画像の英語の授業をすることができるからです。他の画像の英語サイトは画像ソリューションを多く使っているのに、インストール、更新、頻繁にエラーなどにより業務量が増え、実際に画像ソリューション自体の問題で授業ができない場合が一度や二度です。これらの問題を一度に解決するためにカカオトークを選択し、結果として示すように、非常に優れた選択でした。カカオトークは、プログラムエラーやインストールなどの問題がありません。皆さんが加盟を登録するときに、「カカオトーク英語 "の代わりに、あなたが希望する名前をばごされます。たとえば、「楽しい英語 "のようにかばごされます。ホームページのロゴ、下部に会社情報などを加盟社から必要に応じて変更することができます。`
+    },
+    about_service_title_1: {
+        ko: `카카오톡으로 수업 `,
+        en: `Class with Kakao Talk`,
+        ch: `与Kakao谈话类`,
+        jp: `カカオトークで授業`
+    },
+    about_service_title_2: {
+        ko: `수업료  `,
+        en: `Tuition`,
+        ch: `学费`,
+        jp: `授業料`
+    },
+    about_service_title_3: {
+        ko: `결제 수수료 및 세금  `,
+        en: `Payment Fee & Tax`,
+        ch: `支付费用和税金`,
+        jp: `決済手数料と税金`
+    },
+    about_service_title_4: {
+        ko: `강사 안내 `,
+        en: `Instructor Information`,
+        ch: `教师信息`,
+        jp: `講師のご案内`
+    },
+    about_service_title_5: {
+        ko: `카카오톡으로 수업 `,
+        en: `Class with Kakao Talk`,
+        ch: `与Kakao谈话类`,
+        jp: `カカオトークで授業`
+    },
+    about_service_title_6: {
+        ko: `교재 안내 `,
+        en: `Student Counseling Guide`,
+        ch: `教材`,
+        jp: `教材のご案内`
+    },
+    about_service_summary_1: {
+        ko: `위세너는 2007년 부터 지금까지 화상솔루션을 사용해 오고 있습니다. ( 본 프랜차이즈에서는 솔루션을 사용하지 않습니다. ) 이 솔루션으로 인해서 엄청난 업무량이 늘어나게 되는데, 위세너 프랜차이즈에서는 카카오톡으로 매우 편리하게 수업을 하고 있습니다. `,
+        en: `We have been using video solutions since 2007. (We do not use the solution in this franchise.) Due to this solution, we have a lot of work to be done. In the Weisserin franchise, we use KakaoTalk as a very convenient class.`,
+        ch: `自2007年起我们一直在使用视频解决方案。 （我们没有在这个特许经营中使用这个解决方案）。由于这个解决方案，我们有很多工作要做。在Weisserin特许经营中，我们使用KakaoTalk作为一个非常方便的课程。`,
+        jp: `威勢君2007年から今まで画像ソリューションを使ってきています。（本フランチャイズでは、ソリューションを使用していません。）このソリューションによってで膨大な仕事量が増えるが、威勢あなたのフランチャイズでは、カカオトークに非常に便利な授業をしています。`
+    },
+    about_service_summary_2: {
+        ko: `1포인트는 1원으로 학생은 원하는 만큼 결제하고 원하는 만큼 수업 예약하면 됩니다. 페이팔을 통해서 미국 달러로 결제되며 무통장 입금도 가능합니다.`,
+        en: `1 point is 1 won. Students pay as much as they want and book as much as they want. Payments are made in US Dollars via PayPal and can also be made by bank transfer.`,
+        ch: `1分是1韩元，学生按照自己的想法付费，并尽可能多地预定。 付款通过PayPal以美元支付，也可以通过银行转账支付。`,
+        jp: `1ポイントは1ウォンで学生は好きなだけ課金して好きなだけ授業予約できます。ペイパルを通じて米国ドルで決済され、振込みも可能です。`
+    },
+    about_service_summary_3: {
+        ko: ` 학생이 1만원 결제를 하면 1만 포인트가 적립되는데, 결제를 할 때 학생은 11.7% 가 부가세로 내야합니다. 학생이 결제를 하기 위해서는 결제 수수료가 발생하며, 환차손이 발생하고, 강사 또는 가맹사의 수익금 배분을 위해서 송금 수수료와 환차손이 발생하게됩니다.`,
+        en: ` When a student makes a payment of 10,000 won, 10,000 points will be earned. When paying, 11.7% of students have to pay by VAT. In order for the student to make a payment, a payment commission will be incurred, the exchange loss will be incurred, and the transfer fee and the exchange loss will be incurred in order to distribute the profits of the instructor or the member company.`,
+        ch: ` 当学生支付10,000韩元时，将获得10,000点积分。付款时，11.7％的学生需要缴纳增值税。 为了让学生付款，将产生支付佣金，并产生汇兑损失，并且为了分配教员或会员公司的利润而产生转移费用和汇兑损失。`,
+        jp: ` 学生が1万ウォン決済をすると、1万ポイントを獲得されるが、支払いをする際に、学生は11.7％が消費税に必要です。学生が支払いをするためには、決済手数料が発生し、為替差損が発生し、講師や加盟社の収益配分のために送金手数料と為替差損が発生することになります。`
+    },
+    about_service_summary_4: {
+        ko: `강사 안내 `,
+        en: `Instructor Information`,
+        ch: `教师信息`,
+        jp: `講師のご案内`
+    },
+    about_service_summary_5: {
+        ko: `카카오톡으로 수업 `,
+        en: `Class with Kakao Talk`,
+        ch: `与Kakao谈话类`,
+        jp: `カカオトークで授業`
+    },
+    about_service_summary_6: {
+        ko: `교재 안내 `,
+        en: `Student Counseling Guide`,
+        ch: `教材`,
+        jp: `教材のご案内`
     }
+
 };
+
 
 

@@ -66,22 +66,22 @@
 
             <nav class="title-banner">
                   <div class="texts text-group-0" *ngIf=" animation.show == 'text-group-0' ">
-                        <div class="text" no="0">화상영어 창업</div>
-                        <div class="text" no="1">성공 비결은 무엇일까요?</div>
-                        <div class="text" no="2">제대로된 회사와 협력하는 것입니다.</div>
-                        <div class="text" no="3">12년째, 오직 화상영어 한 길</div>
+                        <div class="text" no="0"> {{ t.ln.text_group_0_1 }}</div>
+                        <div class="text" no="1"> {{ t.ln.text_group_0_2 }}</div>
+                        <div class="text" no="2"> {{ t.ln.text_group_0_3 }}</div>
+                        <div class="text" no="3">{{ t.ln.text_group_0_4 }}</div>
                   </div>
                   <div class="texts text-group-1" *ngIf=" animation.show == 'text-group-1' ">
-                        <div class="text" no="0">글로벌 리더 위세너</div>
-                        <div class="text" no="1">2007년 부터 화상영어 프랜차이즈</div>
-                        <div class="text" no="2">12년째 필리핀에서 콜센터 운영</div>
-                        <div class="text" no="3">5백여 개에 이르는 가맹사</div>
+                        <div class="text" no="0"> {{ t.ln.text_group_1_1 }}</div>
+                        <div class="text" no="1"> {{ t.ln.text_group_1_2 }}</div>
+                        <div class="text" no="2"> {{ t.ln.text_group_1_3 }}</div>
+                        <div class="text" no="3"> {{ t.ln.text_group_1_4 }}</div>
                   </div>
                   <div class="texts text-group-2" *ngIf=" animation.show == 'text-group-2' ">
-                        <div class="text" no="0">창업비용 제로. 부가 비용 완전 제로.</div>
-                        <div class="text" no="1">도메인, SSL, 호스팅 무료 제공</div>
-                        <div class="text" no="2">아무런 준비없이 10초 만에 창업 완료!</div>
-                        <div class="text" no="3">학생만 있으면 바로 수익 발생</div>
+                        <div class="text" no="0"> {{ t.ln.text_group_2_1 }}</div>
+                        <div class="text" no="1"> {{ t.ln.text_group_2_2 }}</div>
+                        <div class="text" no="2"> {{ t.ln.text_group_2_3 }}</div>
+                        <div class="text" no="3"> {{ t.ln.text_group_2_4 }}</div>
                   </div>
                   <nav class="buttons">
                         <button class="withcenter-button" (click)=" scrollIntoView( 'franchise-start' ) ">{{ t.ln.open_branch_in_one_minute }}</button>
@@ -95,7 +95,7 @@
 
                   <section id="franchise-about">
                         &nbsp;
-                        <h2>위세너 프랜차이즈</h2>
+                        <h2> {{ t.ln.franchise_about }}</h2>
                         <about-franchise-component></about-franchise-component>
                         <understanding-franchise-component></understanding-franchise-component>
 
@@ -103,14 +103,14 @@
 
                   <section id="franchise-service">
                         &nbsp;
-                        <h2>화상영어 서비스</h2>
+                        <h2> {{ t.ln.franchise_service }}</h2>
                         <about-service-component></about-service-component>
 
                   </section>
 
                   <section id="franchise-start">
                         &nbsp;
-                        <h2>위세너 프랜차이즈 시작하기</h2>
+                        <h2> {{ t.ln.franchise_start }}</h2>
                         <apply-franchise-component></apply-franchise-component>
                   </section>
 
