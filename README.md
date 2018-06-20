@@ -416,3 +416,7 @@ env['reloadTag'] = (new Date).getTime();
 
 * When student cancels commenting on class review, the user is redirected to teacher schedule table even if the stdent was acessing revew page from review list page.
   It is fairly okay.
+
+## Resources
+
+* logo icon svg is on tmp folder.

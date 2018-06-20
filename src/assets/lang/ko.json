@@ -652,6 +652,7 @@
   "Company Business Registration Other No": "통신판매업 번호",
   "DOMAIN_CHANGE_APPLICATION": "도메인 변경 신청을 하였습니다. 본사에서 확인을 할 것입니다.",
   "DOMAIN_CHANGE_APPLICATION_CANCELLED": "도메인 변경 신청을 취소하셨습니다.",
-  "BRANCH_INFO_UPDATED": "가맹사 정보가 업데이트되었습니다."
+  "BRANCH_INFO_UPDATED": "가맹사 정보가 업데이트되었습니다.",
+  "POINT_REFUND_REQUEST_DESC": "포인트 복구 신청 사유를 적어주세요."
 
 }
