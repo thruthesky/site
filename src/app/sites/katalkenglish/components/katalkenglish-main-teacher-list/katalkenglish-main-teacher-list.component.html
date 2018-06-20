@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="title col">
-                <h2>{{ a.ln._KATALK_TEACHERS }}</h2>
+                <h2>{{ '_KATALK_TEACHERS' | t:{site_name: a.info?.branch?.site_name }  }}</h2>
                 <div class="total-teachers" *ngIf=" total_teachers ">
                     {{ '_TOTAL_NO_OF_TEACHERS' | t:{ number: total_teachers | number } }}
                 </div>
