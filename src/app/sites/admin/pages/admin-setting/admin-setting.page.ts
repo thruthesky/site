@@ -42,7 +42,7 @@ export class AdminSettingPage implements OnInit {
     onSubmitDomainChangeApplication() {
         this.a.lms.branch_domain_change_application(this.domain_change_application).subscribe(re => {
             console.log('onSubmitDomainChangeApplication: re: ', re);
-            this.modal.alert({ content: 'Your domain change application has been submitted.' });
+            this.modal.alert({ content: this.a.ln.DOMAIN_CHANGE_APPLICATION, ok: this.a.ln.OK });
             this.getBranchInformation();
             this.show.domain_change_application = false;
         }, e => this.a.toast(e));
@@ -50,7 +50,7 @@ export class AdminSettingPage implements OnInit {
     onClickCancelDomainChangeApplication() {
         this.a.lms.branch_cancel_domain_change_application().subscribe(re => {
             console.log('cancel: re: ', re);
-            this.modal.alert({ content: 'Your domain change application has been cancelled.' });
+            this.modal.alert({ content: this.a.ln.DOMAIN_CHANGE_APPLICATION_CANCELLED, ok: this.a.ln.OK });
             this.getBranchInformation();
         }, e => this.a.toast(e));
     }
@@ -60,7 +60,7 @@ export class AdminSettingPage implements OnInit {
         this.a.lms.branch_update(this.branch).subscribe(re => {
             this.loader.branchUpdate = false;
             console.log('branch_update: re: ', re);
-            this.modal.alert({ content: 'Your branch information has been updated.' });
+            this.modal.alert({ content: this.a.ln.BRANCH_INFO_UPDATED, ok: this.a.ln.OK });
             this.branch = re;
         }, e => {
             this.loader.branchUpdate = false;
