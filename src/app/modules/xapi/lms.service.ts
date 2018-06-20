@@ -691,4 +691,10 @@ export class XapiLMSService extends Base {
             idx: idx
         });
     }
+
+    point_log_actions_get() {
+        return this.x.post({
+            route: 'lms.point_log_actions_get'
+        });
+    }
 }

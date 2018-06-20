@@ -18,6 +18,7 @@ import { XapiFileUploadComponentModule } from '../../components/xapi-file-upload
 import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { AdminSessionEditPage } from './pages/admin-session-edit/admin-session-edit.page';
+import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 
 
 const routes: Routes = [
@@ -53,7 +54,8 @@ const routes: Routes = [
         MaterialModule,
         ModalServiceModule,
         XapiFileUploadComponentModule,
-        TranslatePipeModule
+        TranslatePipeModule,
+        ForumServiceModule
     ],
     exports: [
         RouterModule

@@ -1,10 +1,22 @@
 <h1>Point history</h1>
 
 <form (ngSubmit)="onSubmit()">
-    Student UID or email
-    <input type="text" name="uid" [(ngModel)]="uid">
-    LIMIT <input type="number" name="limit" [(ngModel)]="limit">
-    <button class="app-button" type="submit">Search</button>
+    <div *ngIf="point_log_actions && point_log_actions.length">
+        <h4>Filter by</h4>
+        <label><input type="checkbox" [(ngModel)]="point_log_selected_all" (ngModelChange)="selectActions()" name="all">All</label>
+        <label><input type="checkbox" [(ngModel)]="point_log_selected_empty" (ngModelChange)=" point_log_selected_all = false" name="empty_action">No action</label>
+        <label *ngFor="let action of point_log_actions">
+            <input type="checkbox" [(ngModel)]="point_log_selected[action]" (ngModelChange)=" point_log_selected_all = false" name="{{action}}">
+            {{action}}
+        </label>
+    </div>
+    <div>
+        Student UID or email
+        <input type="text" name="uid" [(ngModel)]="uid">
+        LIMIT <input type="number" name="limit" [(ngModel)]="limit">
+        <button class="app-button" type="submit">Search</button>
+    </div>
+
 </form>
 
 <hr>
@@ -29,8 +41,16 @@
                 {{ log.after_point }}
             </div>
         </td>
-        <td><button class='user-info-button' *ngIf="log?.teacher?.idx" routerLink="/manager/user-info/{{log?.teacher?.idx}}">{{ log.teacher?.display_name }}</button></td>
-        <td><button class='user-info-button' *ngIf="log?.student?.idx" routerLink="/manager/user-info/{{log?.student?.idx}}">{{ log.student?.display_name }} </button></td>
+        <td>
+            <button class='user-info-button' *ngIf="log?.teacher?.idx"
+                    routerLink="/manager/user-info/{{log?.teacher?.idx}}">{{ log.teacher?.display_name }}
+            </button>
+        </td>
+        <td>
+            <button class='user-info-button' *ngIf="log?.student?.idx"
+                    routerLink="/manager/user-info/{{log?.student?.idx}}">{{ log.student?.display_name }}
+            </button>
+        </td>
         <td>{{ log.reason }}</td>
         <td>{{ log.stamp * 1000 | date:'yyyy-MM-dd HH:mm:ss z' }}</td>
     </tr>
