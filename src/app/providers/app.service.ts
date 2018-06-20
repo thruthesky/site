@@ -2015,4 +2015,23 @@ export class AppService {
     safeHtml(html: string): any {
         return this.domSanitizer.bypassSecurityTrustHtml(html);
     }
+
+    get site_name(): string {
+        // console.log('info.branch', this.info.branch);
+        /**
+         * Main branch has no branch information. No site_name.
+         */
+        // const d = this.getDomain();
+        // if ( this.getDomain() === 'katalkenglish.com' || d === 'www.katalkenglishc.com' ) {
+        //     return '카톡영어';
+        // }
+        if (this.info) {
+            if (this.info.branch) {
+                if (this.info.branch.site_name && this.info.branch.site_name !== 'undefined') {
+                    return this.info.branch.site_name;
+                }
+            }
+        }
+        return '';
+    }
 }

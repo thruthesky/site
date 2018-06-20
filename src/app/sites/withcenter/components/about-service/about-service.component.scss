@@ -18,9 +18,9 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1em 0;
-    padding: 1.5em 0;   
+    padding: 1.25em 0;   
     @media (min-width:$md){
+        margin: 1em 0;
         padding: 2em 0;
         flex-direction: row
     }
@@ -58,7 +58,7 @@ button{
         div{
             margin-top: 1em;
             padding: 1.5em;
-            background: #eee;
+            background: #eff0f1;
         }
     }
 }

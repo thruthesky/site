@@ -53,11 +53,12 @@ article{
         font-size: .9em;
         color: #77838f;
         line-height: 1.6em;
+        text-align: justify
     }
     p:last-child{
         margin: .5em 0;
         padding: 1em;
-        background:#eee;
+        background:#eff0f1;
         font-size: .8em;
         text-align: left;
         @media (min-width:$md){
