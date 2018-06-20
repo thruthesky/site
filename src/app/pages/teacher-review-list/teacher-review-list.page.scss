@@ -201,4 +201,37 @@ header{
     color: red;
 }
 
+.teacher-rating{
+    display: flex;
+    align-items: center;
+    padding-top: 1em;
+    span:first-child{
+        margin-right: .5em;
+    }
+    span{
+        line-height: 0
+    }
+
+    svg{
+        margin-right: .1em;
+    }
+}
+
+
+[grade="5"] {
+    color: #f06000;
+}
+[grade="4"] {
+    color: #ff9900;
+}
+[grade="3"] {
+    color: #4a8d23;
+}
+[grade="2"] {
+    color: #272775;
+}
+[grade="1"] {
+    color: #272727;
+}
+
 
