@@ -3,15 +3,12 @@ import { texts } from './withenter-text';
 import { Library as _ } from './../../etc/library';
 
 export const WITHCENTER_LANGUAGE_CODE = 'withcenterLanguageCode';
-interface Text {
-    [key: string]: string;
-}
 @Injectable()
 export class WithcenterTextService {
 
 
     languageCode = 'en';
-    ln: Text = <any> {};
+    ln = {};
 
     constructor() {
         this.getTexts();
