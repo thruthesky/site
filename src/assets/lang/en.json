@@ -86,7 +86,7 @@
   "PAYMENT_HISTORY": "Payment history",
   "CLOSE": "Close",
   "MENU": "Menu",
-  "IE_EDGE_WARNING": "Ooh! You are using IE/Edge. KatalkEnglish is much better with Chrome",
+  "IE_EDGE_WARNING": "Ooh! You are using IE/Edge. Our website would work much better with Chrome",
   "NO_INTERNET": "No internet. Can't connect to server. Please check if you have Internet connection.",
   "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
   "WELCOME_TITLE": "Welcome, #name.",
@@ -147,7 +147,7 @@
   "STUDENT_HELP_PAGE_HEADER_1": "Free Reservation",
   "STUDENT_HELP_PAGE_SUB_HEADER_1": "Students can book their classes and cancel",
   "STUDENT_HELP_PAGE_CONTENT_1_1": "Everything is automated, including changing teachers, changing the date / time, and returning class points when classes are wrong.",
-  "STUDENT_HELP_PAGE_CONTENT_1_2": "The free reservation system of Katok English is very intuitive and convenient. Free trial button It is very easy to understand if you click once",
+  "STUDENT_HELP_PAGE_CONTENT_1_2": "Our free reservation system is very intuitive and convenient. Free trial button It is very easy to understand if you click once",
   "STUDENT_HELP_PAGE_HEADER_2": "Class with Kakao Talk",
   "STUDENT_HELP_PAGE_SUB_HEADER_2": "One of the biggest problems of an English-speaking English company is that students and teachers directly exchange tuition fees",
   "STUDENT_HELP_PAGE_CONTENT_2_1": "So I set up a separate English-language program to block student and teacher communication",
@@ -170,7 +170,7 @@
   "STUDENT_HELP_PAGE_HEADER_5": "Choosing and paying tuition fees",
   "STUDENT_HELP_PAGE_SUB_HEADER_5": "There is no fixed tuition fee for each student depending on the free reservation.",
   "STUDENT_HELP_PAGE_CONTENT_5_1": "You can pay as much as you want and make a reservation.",
-  "STUDENT_HELP_PAGE_CONTENT_5_2": "Katok English is internationally available and payments are made in US dollars via PayPal.",
+  "STUDENT_HELP_PAGE_CONTENT_5_2": "Payments are made in US dollars via PayPal. Since we are serving our service all over the countries.",
   "STUDENT_HELP_PAGE_CONTENT_5_3": "If you have difficulties in payment, please contact us through the question menu.",
   "STUDENT_HELP_PAGE_HEADER_6": "Students choose tuition fees",
   "STUDENT_HELP_PAGE_SUB_HEADER_6": "Points will be charged when you pay the tuition fee.",
@@ -188,7 +188,7 @@
   "STUDENT_HELP_PAGE_CONTENT_9_1": "You must cancel your class until #lmsInfoCancellableMinutes minutes before class time.",
   "STUDENT_HELP_PAGE_HEADER_10": "Questions and answers",
   "STUDENT_HELP_PAGE_SUB_HEADER_10": "We have a lot of services through KakaoTalk, and we are going to Q & A with KakaoTalk.",
-  "STUDENT_HELP_PAGE_CONTENT_10_1": "Please add katok english as a friend.",
+  "STUDENT_HELP_PAGE_CONTENT_10_1": "Please add us in your kakaotalk friend list.",
   "POINT_EXPIRE": "Point is valid for 3 years after the payment date. Point will be expire and no longer used after expire.",
 
 
@@ -409,7 +409,7 @@
   "ADV_CONTENT_10": "If you pay $ 150 for a video English student, you will receive $ 15 for a teacher. The instructor takes only 10%.",
   "ADV_CONTENT_11": "There are too many bubbles. If you do a direct deal, you pay only 15,000 won to the instructor.",
   "ADV_CONTENT_12": "English Direct Deal Service. A system in which 90% of the tuition paid by the student is delivered to the teacher!",
-  "ADV_CONTENT_13": "Katok starts in English.",
+  "ADV_CONTENT_13": "And we are doing it.",
   "ADV_CONTENT_14_1": "Twice a month is 10,000 won.",
   "ADV_CONTENT_14_2": "Because the teacher sets the tuition fee directly, not all classes are 10,000 won, but the tuition is very low.",
   "ADV_CONTENT_14_3": " ",
@@ -474,7 +474,7 @@
       "name": "JinHyoung You",
       "date": "Study with Christina teacher",
       "title": "❝ Best choice for my family ❞",
-      "description": "My family has learned English with Katalk English for 4 months already.<br> At first, we met Katalk English for JinHyoung's English improvement, but now all of my family and realtives are learning form Katalk English."
+      "description": "My family has learned English from this site for 6 months already.<br> At first, we started this website's English lesson service for JinHyoung's English improvement, but now all of my family and realtives are learning form this site."
     },
     {
       "name": "SeungMin Noh",
@@ -485,14 +485,14 @@
     {
       "name": "JuHyoung Yeo",
       "date": "Study with Yanee teacher",
-      "title": "❝ Thank you teacher Yanee. Thank Katalk English. ❞",
-      "description": "I have had learned English for one and half years from serveral English site and now I am with Katalk English for three months.<br>English teachers in Katalk English are very different from other English sites because Students pay to teachers directly."
+      "title": "❝ Thank you teacher Yanee. ❞",
+      "description": "I have had learned English for one and half years from serveral English site and now I am learning from this website for three months.<br>English teachers here are very different from other English sites because Students pay to teachers directly."
     },
     {
       "name": "YoungShin Ahn",
       "date": "Study with Stefie teacher",
       "title": "❝ Chat with teacher all day long ❞",
-      "description": "This is my first review ^^;<br>People may not know that Katalk Enlgish is a part of OnTue.COM, I was using this site for more than 10 years already.<br>And the system has never changed.<br>Recently they lauched a new site with Katalk and think this is a genius idea. You know why? because I talk to student all day long. And some times, free video chat. Haha..."
+      "description": "This is my first review ^^;<br>People may not know that this site is a part of OnTue.COM, I was using this site for more than 10 years already.<br>And the system has never changed.<br>Recently they lauched a new site with Katalk and think this is a genius idea. You know why? because I talk to student all day long. And some times, free video chat. Haha..."
     },
     {
       "name": "SeoYoun Lee",
@@ -510,13 +510,13 @@
       "name": "JungHan Youn",
       "date": "Study with Eden teacher",
       "title": "❝ I can speak Enlgish now. ❞",
-      "description": "Hello there !!! I am JungHan Youn. Middle schoool student studing with teacher Lika and teacher Sep.<br>I learned English from this site since I was in 5th grade of Elementary.<br>I like English lessons. And my English score in school got skyrockted. My mother bought me a branch new smart phone for English lessons. Haha.<br>Thank you Katalk English. I love you !!! :-)"
+      "description": "Hello there !!! I am JungHan Youn. Middle schoool student studing with teacher Lika and teacher Sep.<br>I learned English from this site since I was in 5th grade of Elementary.<br>I like English lessons. And my English score in school got skyrockted. My mother bought me a branch new smart phone for English lessons. Haha.<br>Thank you teacher Eden. I love you !!! :-)"
     },
     {
       "name": "Suna Kim",
       "date": "Study with Juliean teacher",
-      "title": "❝ I met Katalk English while I was preparing to America ❞",
-      "description": "I started to learn English from Katalk English two month ago with 25 minutes/Mon~Fri schedule. But now I take two classes a day.<br>It was awkward and doubting if it's really working. But I got suprised that it was really convinent and cheap. And the teachers are very good.<br>I will continue even after I go to America and will master English this time.<br>Cheer up everybody!"
+      "title": "❝ I met this site while I was preparing to America ❞",
+      "description": "I started to learn English from this site two month ago with 25 minutes/Mon~Fri schedule. But now I take two classes a day.<br>It was awkward and doubting if it's really working. But I got suprised that it was really convinent and cheap. And the teachers are very good.<br>I will continue even after I go to America and will master English this time.<br>Cheer up everybody!"
     }
   ],
   "INTERNET_STATUS": ["", "Bad", "Normal", "Good"],
@@ -620,24 +620,24 @@
 
   "_IF_CAN_KATALK": "Whenever, Wherever If you are with Katalk",
   "_WHENEVER_WHEREVER": "Perfect Katalk Video English Learning System. Every day and night. Wherever, whenever, I design my own schedule.",
-  "_ON_KATALK": "Students are the one who make the price in Katalk English.",
-  "_KATALK_IS_EASY": "Katalk English has very easy and straight interface. Try a free lesson and you will understand everything.",
+  "_ON_KATALK": "Students are the one who make the price in our site.",
+  "_KATALK_IS_EASY": "Our website has very easy and straight interface. Try a free lesson and you will understand everything.",
   "_WHENEVER_WHEREVER_CHAT": "You can chat with Teachers whenever, wherever you want with Katalk.",
-  "_KATALK_ENGLISH": "Katalk English is",
+  "SITENAME": "About #site_name",
   "_NO_COMPARE": "Does not speak the best for itself and does not compare for others. Because there is no competitors.",
-  "_BEST_OF_BEST_TEACHERS": "Katalk English has the best of best teachers and they are competing each other for you.",
+  "_BEST_OF_BEST_TEACHERS": "We have the best of best teachers and they are competing each other for you.",
   "_BEST_PRICE": "Teachers and Student make Direct Deals. So Students pay less and Teacher get more since there is no middle man!",
   "_CHAT_ALL_DAY_LONG": "Katalk is very handy. Teachers and Student talk all day long.",
   "_AUTO_SYSTEM": "Student can freely reserve, cancel. It's automatic Learn Management System.",
-  "_HOW_TO": "How to use Katalk English",
+  "_HOW_TO": "How to use our service",
   "_NO_OF_PASTS": "Past Classes",
   "_NO_OF_RESERVATIONS": "Reservations",
   "_NO_OF_STUDENTS": "Students",
   "_NO_OF_TEACHERS": "Teachers",
   "_NO_OF_TOTAL_RESERVATIONS": "No. Reservations",
-  "_COMMENTS": "20 lessons. $10. Katalk English Reviews",
+  "_COMMENTS": "20 lessons. $10. Reviews",
   "_MORE_COMMENTS": "Show more reviews",
-  "_KATALK_TEACHERS": "Katalk English Teachers",
+  "_KATALK_TEACHERS": "Our Teachers",
   "_TOTAL_NO_OF_TEACHERS": "We have #number of teachers.",
   "USER_PROFILE_UPDATED": "Your profile has been updated.",
   "IN_UPDATING_PROFILE": "Updating your profile",
@@ -663,7 +663,7 @@
   "INSTANT_POINT_LACK": "You are lacking on Point to reserve a session.",
   "INSTANT_RESERVE_ANOTHER_TIME": "Please try to reserve again sometime laster.",
   "STUDENT_PONT_ON_SCHEDULE_TABLE": "Welcome #name. You have #point point.",
-  "KATALK_OPEN_ON_MOBILE_ONLY": "You can only contact Admin using your Phone. Please open acess KatalkEnglish website using your Phone.",
+  "KATALK_OPEN_ON_MOBILE_ONLY": "You can only contact Admin using your Phone. Please open our kakaotalk by click QnA on the website using your Phone.",
   "SEARCH_TEACHER_NAME": "Search Teacher Name",
   "TEACHER_NAME": "Teacher Name",
   "MORE_OPTION": "More Options",

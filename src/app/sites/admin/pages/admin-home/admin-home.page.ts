@@ -10,6 +10,7 @@ import { ModalService } from '../../../../providers/modal/modal.service';
 })
 
 export class AdminHomePage implements OnInit {
+    latestBranches: Array<Branch> = [];
     domain_change_applications: Array<Branch> = [];
     loader = {
         domainChangeApplication: true
@@ -21,6 +22,8 @@ export class AdminHomePage implements OnInit {
         if ( a.isSuperManager ) {
             this.loadDomainChangeApplications();
         }
+
+        this.loadLatestBranches();
     }
 
     ngOnInit() { }
@@ -29,7 +32,7 @@ export class AdminHomePage implements OnInit {
         this.loader.domainChangeApplication = true;
         this.a.lms.branch_get_domain_change_applications().subscribe(re => {
             this.loader.domainChangeApplication = false;
-            console.log('branch_get_domain_change_applications: re: ', re);
+            // console.log('branch_get_domain_change_applications: re: ', re);
             this.domain_change_applications = re;
         }, e => {
             this.loader.domainChangeApplication = false;
@@ -55,6 +58,18 @@ export class AdminHomePage implements OnInit {
             console.log('branch_accept_domain_change_application: re: ', re);
             this.modal.alert({ content: 'Domain change application has been done.' });
             this.loadDomainChangeApplications();
+        }, e => this.a.toast(e));
+    }
+    loadLatestBranches() {
+        if ( ! this.a.isSuperManager ) {
+            return;
+        }
+        this.a.lms.admin_query({
+            sql: 'SELECT idx, domain, user_ID as idx_student, company_name FROM lms_branch ORDER BY idx DESC LIMIT 5',
+            student_info: true
+        }).subscribe( (re: Array<Branch>) => {
+            console.log('list branches: ', re);
+            this.latestBranches = re;
         }, e => this.a.toast(e));
     }
 }

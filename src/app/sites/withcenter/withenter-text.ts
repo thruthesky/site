@@ -1,5 +1,17 @@
 
 export const texts = {
+    ok: {
+        ko: `확인`,
+        en: `OK`,
+        ch: `好`,
+        jp: `好`
+    },
+    registered: {
+        ko: `<p>축하합니다.</p><p>창업을 완료하였습니다.</p>`,
+        en: `<p>Contratulation.</p> You have just opened your new business.`,
+        ch: `<p>恭喜。</p> 你刚开了你的新生意。`,
+        jp: `<p>おめでとう。</p> あなたは新しいビジネスを始めたばかりです。`
+    },
     withcenter: {
         ko: `위세너`,
         en: `Withcenter`,
@@ -29,6 +41,12 @@ export const texts = {
         en: `Start up`,
         ch: `启动`,
         jp: `起動`
+    },
+    agree: {
+        ko: `가맹사 가입 약관에 동의 하셔야 가맹사 등록을 할 수 있습니다.`,
+        en: `Please agree on terms and condtions to register a branch.`,
+        ch: `请同意条款和条件注册分支机构。`,
+        jp: `支店を登録するには、利用規約に同意してください。`
     },
     terms_and_conditions: {
         ko: `

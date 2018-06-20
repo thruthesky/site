@@ -536,6 +536,7 @@ export interface Branch {
     company_business_registration_other_no: string;
     manager_phone: string;
     manager_email: string;
+    site_name: string;
     html_title: string;
     html_description: string;
     html_keywords: string;

@@ -36,11 +36,11 @@ export class ApplyFranchiseComponent implements OnInit {
     onSubmitApply(event: Event) {
         event.preventDefault();
         if ( ! this.agree ) {
-            this.modal.alert({content: '가맹사 가입 약관에 동의 하셔야 가맹사 등록을 할 수 있습니다.'});
+            this.modal.alert({content: this.t.ln.agree, ok: this.t.ln.ok });
             return;
         }
         this.a.lms.branch_register(this.form).subscribe(re => {
-            this.modal.alert({ content: '<p>축하합니다.</p><p>창업을 완료하였습니다.</p>' }).subscribe(() => {
+            this.modal.alert({ content: this.t.ln.registered, ok: this.t.ln.ok }).subscribe(() => {
                 this.a.openAdminPage(re['user']['manager'], re['session_id']);
             }, e => {
                 this.a.openAdminPage(re['user']['manager'], re['session_id']);
