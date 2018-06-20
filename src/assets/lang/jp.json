@@ -604,5 +604,9 @@
 
   "RETURN_TO_LIST" : "リストに戻る",
   "Company Business Registration No": "ビジネス登録番号",
-  "Company Business Registration Other No": "ビジネス登録その他"
+  "Company Business Registration Other No": "ビジネス登録その他",
+  "DOMAIN_CHANGE_APPLICATION": "ドメイン変更アプリケーションが送信されました。 本社で申請書を審査します。",
+  "DOMAIN_CHANGE_APPLICATION_CANCELLED": "ドメイン変更アプリケーションがキャンセルされました。",
+  "BRANCH_INFO_UPDATED": "ブランチ情報が更新されました。",
+  "POINT_REFUND_REQUEST_DESC": "ポイントを取得したい理由を入力してください"
 }

@@ -1,14 +1,12 @@
 <footer id="katalkenglish-footer" class="p-5">
     <div class="copyright">
-
-        <div *ngIf=" a.info && a.info.branch; else MainCopyright " [innerHTML]=" a.safeHtml(a.info.branch?.copyright) ">
+        <div *ngIf=" a.info && a.info.branch && a.info.branch.copyright; else MainCopyright " [innerHTML]=" a.safeHtml(a.info.branch?.copyright) ">
         </div>
         <ng-template #MainCopyright>
             <div>
                 © 2006-{{ year }} Withcenter, Inc., Pampanga Philippines.
             </div>
         </ng-template>
-
     </div>
     <div class="menu">
         <div>

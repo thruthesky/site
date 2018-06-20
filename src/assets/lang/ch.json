@@ -641,6 +641,10 @@
   "WARNING_NOT_RECOMMENDED_TEACHER": "注意。 您正在查看没有明星老师的时间表。 老师可能不参加课程。",
   "RETURN_TO_LIST" : "返回列表",
   "Company Business Registration No": "商业登记号码",
-  "Company Business Registration Other No": "商业登记其他没有"
+  "Company Business Registration Other No": "商业登记其他没有",
+  "DOMAIN_CHANGE_APPLICATION": "您的域名更改申请已提交。 总部将审查您的申请。",
+  "DOMAIN_CHANGE_APPLICATION_CANCELLED": "您的域名更改应用程序已被取消。",
+  "BRANCH_INFO_UPDATED": "您的分行信息已更新。",
+  "POINT_REFUND_REQUEST_DESC": "请输入您想要回复的原因"
 
 }

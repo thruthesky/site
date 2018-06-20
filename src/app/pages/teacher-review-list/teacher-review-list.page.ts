@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from '../../providers/app.service';
 import { STUDENT_COMMENTS_TO_TEACHER } from '../../modules/xapi/interfaces';
-import { MatDialog } from '@angular/material';
 import { ModalData, ModalService } from '../../providers/modal/modal.service';
 
 
@@ -20,6 +19,7 @@ export class TeacherReviewListPage {
     limit = 10;
     teacher_photoURL;
     teacher_name;
+    teacher_grade;
 
 
     error = null;
@@ -48,11 +48,12 @@ export class TeacherReviewListPage {
             this.showLoader = true;
             if (params['idx_teacher']) {
                 this.a.lms.get_teacher_info_by_idx(params['idx_teacher'], false).subscribe(re => {
-                    // console.log('get_teacher_info_by_idx', re);
+                    console.log('get_teacher_info_by_idx', re);
 
                     this.idx_teacher = re['ID'];
                     this.teacher_name = re['display_name'];
                     this.teacher_photoURL = re['photoURL'];
+                    this.teacher_grade = re['grade'];
                     this.loadCommentList();
                     this.showLoader = false;
                 }, e => {

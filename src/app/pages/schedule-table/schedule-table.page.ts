@@ -63,6 +63,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         public a: AppService
     ) {
 
+        a.updateUserPoint();
         this.showHelpReserve = !a.lmsInfoUserNoOfTotalSessions;
 
         if (a.isDesktopView()) {
@@ -185,11 +186,11 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
                      * If the browser is not IE nor Edge, then draws another to fast draw.
                      * So, if the brwoser is not IE nor Edge, it display three times as faster than IE or Edge.
                      */
-                    if ( ! this.a.isIeEdge() ) {
-                        if ( table.length ) {
+                    if (!this.a.isIeEdge()) {
+                        if (table.length) {
                             this.re.table.push(table.shift());
                         }
-                        if ( table.length ) {
+                        if (table.length) {
                             this.re.table.push(table.shift());
                         }
                     }
@@ -415,6 +416,17 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
 
         session['in_progress'] = true;
         this.a.lms.session_reserve({ idx_schedule: session[N.idx_schedule], date: session[N.date] }).subscribe(re => {
+
+            /**
+             * @since 2018-06-20 This was added due to `Cannot read property of 'schedule' of null`.
+             *      This happens when student has already left schedule table or in another teacher's schedule table
+             *          while the reservation or canncellation is in progress of a teacher's schedule
+             */
+            if (!this.re) {
+                // console.log('Schedule table information has been destoryed. this.re is null. so, just return.');
+                return null;
+            }
+
             // console.log("class_reserve: ", re);
 
             // setTimeout(() => session['in_progress'] = false, 500);
@@ -431,7 +443,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
             this.a.updateUserPoint();
             this.a.onLmsReserve(this.teacher_name([session]));
-            if ( this.teacher_group(session) === 'withcenter' ) {
+            if (this.teacher_group(session) === 'withcenter') {
                 // this.a.toast( this.a.ln.WITHCENTER_TEACHER_RESERVE_REMINDER );
             }
         }, e => {
@@ -446,6 +458,16 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         session['in_progress'] = true;
         // console.log("Going to cancel with : ", session[ this.IDX_RESERVATION ]);
         this.a.lms.session_cancel(session[N.idx_reservation]).subscribe(re => {
+
+            /**
+             * @since 2018-06-20 This was added due to `Cannot read property of 'schedule' of null`.
+             *      This happens when student has already left schedule table or in another teacher's schedule table
+             *          while the reservation or canncellation is in progress of a teacher's schedule
+             */
+            if (!this.re) {
+                // console.log('Schedule table information has been destoryed. this.re is null. so, just return.');
+                return null;
+            }
             // console.log("cancel success", re);
             session['in_progress'] = false;
             session[N.status] = N.session_future;
