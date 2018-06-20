@@ -9,30 +9,37 @@
     페이지에서 회사 정보나 로고 등 자세한 정보를 입력 할 수 있습니다.
 </div>
 
-
-
+<div class="form-desc">
+    <h4>가맹사 정보 입력</h4>
+    <p>
+        간략히 아래의 정보를 입력하시면 가맹사 홈페이지가 분양되며, 가맹사 관리자 페이지에서 회사 정보와 같은 추가적인 정보를 입력 하실 수 있습니다.
+    </p>
+</div>
 <form id="company-info" (ngSubmit)="onSubmitApply( $event )">
-    <div class="form-desc">
-        <h4>가맹사 정보 입력</h4>
-        <p>
-            간략히 아래의 정보를 입력하시면 가맹사 홈페이지가 분양되며, 가맹사 관리자 페이지에서 회사 정보와 같은 추가적인 정보를 입력 하실 수 있습니다.
-        </p>
-    </div>
-    <div>
-        <label>Email</label>
-        <input name="user_email" type="email" [(ngModel)]="form.user_email">
-    </div>
-    <div>
-        <label>Password</label>
-        <input name="user_pass" type="password" [(ngModel)]="form.user_pass">
-    </div>
-    <div>
-        <label>창업자 명</label>
-        <input name="name" type="text" [(ngModel)]="form.name">
-    </div>
-    <div>
-        <label>전화번호</label>
-        <input name="phone_number" type="text" [(ngModel)]="form.phone_number">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div>
+                    <label>Email</label>
+                    <input name="user_email" type="email" [(ngModel)]="form.user_email">
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input name="user_pass" type="password" [(ngModel)]="form.user_pass">
+                </div>
+            </div>
+            <div class="col-6">
+                <div>
+                    <label>창업자 명</label>
+                    <input name="name" type="text" [(ngModel)]="form.name">
+                </div>
+                <div>
+                    <label>전화번호</label>
+                    <input name="phone_number" type="text" [(ngModel)]="form.phone_number">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="domain">
 

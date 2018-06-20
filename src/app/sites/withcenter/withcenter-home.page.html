@@ -4,33 +4,35 @@
                   <img src="assets/img/logo/withcenter-icon.png" alt="Withcenter Logo">
                   <span>{{ t.ln.withcenter }}</span>
             </div>
-            <div class='menu'>
-                  <span (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.ln.franchise }}</span>
-                  <span (click)=" scrollIntoView( 'franchise-service' ) ">{{ t.ln.videoenglish }}</span>
-                  <span (click)=" scrollIntoView( 'franchise-start' ) ">{{ t.ln.startup }}</span>
-                  <div class="flags">
-                        <img class="custom-icon" *ngIf="languageCode=='en'" src="../../../../../assets/img/language-flags/en-desktop.png" alt="">
-                        <img class="custom-icon ko-icon" *ngIf="languageCode=='ko'" src="../../../../../assets/img/language-flags/ko-desktop.png"
-                              alt="">
-                        <img class="custom-icon" *ngIf="languageCode=='ch'" src="../../../../../assets/img/language-flags/ch-desktop.png" alt="">
-                        <img class="custom-icon" *ngIf="languageCode=='jp'" src="../../../../../assets/img/language-flags/jp-desktop.png" alt="">
-                        <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
-                              <option value='ch'>ch</option>
-                              <option value='en'>en</option>
-                              <option value='ko'>ko</option>
-                              <option value='jp'>jp</option>
-                        </select>
+            <div class="mobile-alignment">
+                  <div class='menu'>
+                        <span (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.ln.franchise }}</span>
+                        <span (click)=" scrollIntoView( 'franchise-service' ) ">{{ t.ln.videoenglish }}</span>
+                        <span (click)=" scrollIntoView( 'franchise-start' ) ">{{ t.ln.startup }}</span>
+                        <div class="flags">
+                              <img class="custom-icon" *ngIf="languageCode=='en'" src="../../../../../assets/img/language-flags/en-desktop.png" alt="">
+                              <img class="custom-icon ko-icon" *ngIf="languageCode=='ko'" src="../../../../../assets/img/language-flags/ko-desktop.png"
+                                    alt="">
+                              <img class="custom-icon" *ngIf="languageCode=='ch'" src="../../../../../assets/img/language-flags/ch-desktop.png" alt="">
+                              <img class="custom-icon" *ngIf="languageCode=='jp'" src="../../../../../assets/img/language-flags/jp-desktop.png" alt="">
+                              <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
+                                    <option value='ch'>ch</option>
+                                    <option value='en'>en</option>
+                                    <option value='ko'>ko</option>
+                                    <option value='jp'>jp</option>
+                              </select>
+                        </div>
                   </div>
-            </div>
-            <div class="options-button" (click)="showMobileMenu=!showMobileMenu">
-                  <svg *ngIf="!showMobileMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                        <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
-                        />
-                  </svg>
-                  <svg *ngIf="showMobileMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                        <path d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z"
-                        />
-                  </svg>
+                  <div class="options-button" (click)="showMobileMenu=!showMobileMenu">
+                        <svg *ngIf="!showMobileMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                              <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+                              />
+                        </svg>
+                        <svg *ngIf="showMobileMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                              <path d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z"
+                              />
+                        </svg>
+                  </div>
             </div>
             <div class="mobile-menu" *ngIf="showMobileMenu">
                   <div (click)=" showMobileMenu=!scrollIntoView( 'franchise-about' ) ">
@@ -115,12 +117,6 @@
             </section>
 
       </section>
-
-
-
-
-
-
 
 </main>
 

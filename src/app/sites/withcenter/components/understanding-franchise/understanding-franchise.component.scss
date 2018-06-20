@@ -47,11 +47,21 @@ p{
         @media (min-width:$md){
             margin-bottom: .75em;
         }
-                
-        img{
-            width: 100%;
-            border-top-left-radius: 2px;
-            border-top-right-radius: 2px;
+           
+        .photo{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            height: 125px;
+            @media (min-width:$md) {
+                height: auto;
+            }
+            overflow: hidden;
+            img{
+                width: 100%;
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+            }
         }
 
         .body{
