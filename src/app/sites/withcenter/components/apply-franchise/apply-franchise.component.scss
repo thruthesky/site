@@ -150,9 +150,7 @@ h3 {
         span {
             margin: 0 .5em!important;
             font-size: 85%;
-            @media (min-width:$md) {
-                font-size: 95%;
-            }
+            color: dodgerblue
         }
     }
     .submit {
