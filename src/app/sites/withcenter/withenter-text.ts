@@ -435,7 +435,7 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `5百個に及ぶ加盟社`
     },
     text_group_2_1: {
-        ko: `창업비용 제로. 부가 비용 완전 제로.`,
+        ko: `창업비용 제로`,
         en: `Zero start-up costs. Extra zero added cost.`,
         ch: `零启动成本。 零增加成本。`,
         jp: `創業費用ゼロ。付加費用完全ゼロ。`
@@ -483,7 +483,7 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `威勢あなたのフランチャイズの概要`
     },
     about_franchise_desc: {
-        ko: `위세너는 글로벌 기업으로 한국, 중국, 일본 학생을 주요 대상으로 화상영어 직거래 수업을 하는 프랜차이즈 사업을 진행하며 가맹사 모집을 합니다. 위세너 프랜차이즈와 관련된 분야 별 설명은 아래와 같습니다.`,
+        ko: `위세너는 글로벌 기업으로 한국, 중국, 일본을 주요 대상으로 화상영어 수업 직거래 서비스를 하고 있으며 위세너와 함께 할 가맹사 모집을 합니다. 위세너 프랜차이즈와 관련된 주요 부분의 설명은 아래와 같습니다.`,
         en: `As a international company, WITHCENTER is a franchise project for Korean students who is engaged in direct conversation classes. Below is a description of each area related to the Weisserin franchise.`,
         ch: `作为一家国际性公司，WISEIN是韩国学生参与直接谈话课程的特许经营项目。 以下是与Weisserin特许经营相关的每个领域的描述。`,
         jp: `威勢君国際企業に韓国の学生を対象に、画像の英語直接取引の授業をするフランチャイズ事業を進行して加盟社募集をします。威勢あなたのフランチャイズに関連する分野別説明は以下の通りです。`
@@ -531,7 +531,7 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `カトク、英語www.katalkenglish.comは、学生が使用するホームページです。加盟社に登録すると、デザインは同じですが、会社名、ロゴ、電話番号、住所などを変更して使用します。`
     },
     about_franchise_withcenter_content: {
-        ko: `위세너는 2008년 필리핀 마닐라에서 화상영어 전문 교육 학원 Online English OnTue.COM, Inc. 를 설립하였으며 이후, 2010 년 클락으로 이전하였으며 2015년 법인명을 Withcenter, Inc. 로 변경하였습니다. 위세너는 한국, 중국, 일본을 주요 마케팅 대상국으로 삼으며 각 나라별 가맹점을 모집하여 화상영어 서비스를 운영하는 글로벌 기업입니다.`,
+        ko: `위세너는 2008년 필리핀 마닐라에서 화상영어 전문 교육 학원 Online English OnTue.COM, Inc. 를 설립하였으며 이후, 2010 년 클락으로 이전하였으며 2015년 법인명을 Withcenter, Inc. 로 변경하였습니다. 여러분들이 이 글을 읽고 있는 지금 이 순간에도 여러 나라의 선생님과 학생들이 위세너와 가맹사를 통해 영어 수업을 하고 있습니다.`,
         en: `Withcenter in 2008 was in Manila, Philippines English School of Professional Education Online English OnTue.COM, Inc. And then moved to Clark in 2010. In 2015, the company was named Withcenter, Inc. . Weisser is a global company operating Korea English, Chinese, and Japanese as major marketing target countries, and recruiting merchants in each country and running video English service.`,
         ch: `Weissa你2008年在菲律宾马尼拉英语专业教育学院Online English OnTue.COM，Inc. 然后于2010年搬到了Clark。2015年，该公司被命名为Withcenter，Inc.它改变了。 Weisser是一家全球性公司，主要营销韩国英语，中国和日本语作为主要的营销目标国家，并在各个国家招募商家并开展视频英语服务。`,
         jp: `威勢君2008年、フィリピンのマニラで画像の英語専門教育学院Online English OnTue.COM、Inc.を設立して以来、、2010年クロックに移転し、2015年法人名をWithcenter、Inc.に変更しました。威勢君韓国、中国、日本を主なマーケティング対象国にしよおり、それぞれの国別加盟店を募集して画像の英語サービスを運営するグローバル企業です。`
@@ -573,8 +573,8 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `講師のご案内`
     },
     about_service_title_5: {
-        ko: `카카오톡으로 수업 `,
-        en: `Class with Kakao Talk`,
+        ko: `가맹사가 해야 할 일 `,
+        en: `Duties of Branch`,
         ch: `与Kakao谈话类`,
         jp: `カカオトークで授業`
     },
@@ -591,19 +591,19 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `威勢君2007年から今まで画像ソリューションを使ってきています。（本フランチャイズでは、ソリューションを使用していません。）このソリューションによってで膨大な仕事量が増えるが、威勢あなたのフランチャイズでは、カカオトークに非常に便利な授業をしています。`
     },
     about_service_summary_2: {
-        ko: `1포인트는 1원으로 학생은 원하는 만큼 결제하고 원하는 만큼 수업 예약하면 됩니다. 페이팔을 통해서 미국 달러로 결제되며 무통장 입금도 가능합니다.`,
+        ko: `2018년 2월 현재, 1포인트는 1원으로 학생은 원하는 만큼 결제하고 원하는 만큼 수업 예약하면 됩니다. 페이팔을 통해서 미국 달러로 결제되며 무통장 입금도 가능합니다.`,
         en: `1 point is 1 won. Students pay as much as they want and book as much as they want. Payments are made in US Dollars via PayPal and can also be made by bank transfer.`,
         ch: `1分是1韩元，学生按照自己的想法付费，并尽可能多地预定。 付款通过PayPal以美元支付，也可以通过银行转账支付。`,
         jp: `1ポイントは1ウォンで学生は好きなだけ課金して好きなだけ授業予約できます。ペイパルを通じて米国ドルで決済され、振込みも可能です。`
     },
     about_service_summary_3: {
-        ko: ` 학생이 1만원 결제를 하면 1만 포인트가 적립되는데, 결제를 할 때 학생은 11.7% 가 부가세로 내야합니다. 학생이 결제를 하기 위해서는 결제 수수료가 발생하며, 환차손이 발생하고, 강사 또는 가맹사의 수익금 배분을 위해서 송금 수수료와 환차손이 발생하게됩니다.`,
+        ko: ` 학생이 1만원 결제를 하면 1만 포인트가 적립되는데, 결제를 할 때 학생은 11.7% 를 부가세로 내야합니다. 학생이 결제를 하기 위해서는 결제 수수료가 발생하며, 환차손이 발생하고, 강사 또는 가맹사의 수익금 배분을 위해서 송금 수수료와 환차손이 발생하게됩니다.`,
         en: ` When a student makes a payment of 10,000 won, 10,000 points will be earned. When paying, 11.7% of students have to pay by VAT. In order for the student to make a payment, a payment commission will be incurred, the exchange loss will be incurred, and the transfer fee and the exchange loss will be incurred in order to distribute the profits of the instructor or the member company.`,
         ch: ` 当学生支付10,000韩元时，将获得10,000点积分。付款时，11.7％的学生需要缴纳增值税。 为了让学生付款，将产生支付佣金，并产生汇兑损失，并且为了分配教员或会员公司的利润而产生转移费用和汇兑损失。`,
         jp: ` 学生が1万ウォン決済をすると、1万ポイントを獲得されるが、支払いをする際に、学生は11.7％が消費税に必要です。学生が支払いをするためには、決済手数料が発生し、為替差損が発生し、講師や加盟社の収益配分のために送金手数料と為替差損が発生することになります。`
     },
     about_service_summary_4: {
-        ko: `화상영어 학원 강사들과 전 세계의 재택 강사들이 수업을 하고 있습니다. 재택 강사의 장점은 미국, 영국, 캐나다와 같은 원어민 강사들이 수업을 할 수 있으며 또 책임이 학원 강사들 보다 더 높습니다.`,
+        ko: `화상영어 학원 강사들과 전 세계의 재택 강사들이 수업을 하고 있습니다. 재택 강사의 장점은 미국, 영국, 캐나다와 같은 원어민 강사들이 수업을 할 수 있습니다.`,
         en: `Video English language instructors and home teachers from all over the world are taking classes. The advantage of a home tutor is that native-language teachers such as the United States, United Kingdom, and Canada are allowed to teach, and responsibility is higher than that of school teachers.`,
         ch: `来自世界各地的视频英语教师和家庭教师正在上课。 家庭辅导员的优势在于允许美国，英国和加拿大等本地语言教师进行授课，责任比学校教师高。`,
         jp: `画像の英語塾講師と世界の在宅講師が授業をしています。在宅講師の利点は、米国、英国、カナダのようなネイティブ講師が授業を行うことができ、また責任が塾の講師よりも高くなります。`
@@ -712,7 +712,7 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `スマートフォンアプリ`
     },
     understanding_franchise_content_desc_1: {
-        ko: `저희는 '원어민 강사 월 20회 1만원' 으로 광고를 하고 있습니다. 저렴해도 너무 치명적으로 저렴합니다. 핵심은 강사가 75% 라는 대부분의 수업료를 가져가기 때문에 강사는 충분한 수익을 얻습니다. 필리핀 강사의 경우, 1만 5천페소(한화로 약 30만원)를 한달에 벌면 충분한데, 하루 8시간 근무를 하면, 10분 수업을 40회(매 시간 10분 휴식 포함)를 할 수 있습니다.`,
+        ko: `'원어민 강사 월 20회 1만원' 으로 광고를 하고 있습니다. 불가능하지 않나요?`,
         en: `We advertise 'Native speaker instructor 20 times a month 10,000 won'. Even if it is inexpensive, it is too lethal and cheap. The point is that the instructor will earn enough money because the instructor will pay most of the tuition, which is 75%. If you are a Filipino instructor, you can earn 15,000 pesos (about 300,000 won) a month. If you work eight hours a day, you can have 40 minutes of ten-minute classes (including 10 minutes break every hour).`,
         ch: `我们宣传'母语讲师每月20次10,000韩元'。 即使它价格低廉，它太致命，也很便宜。 问题是，教师将赚取足够的钱，因为教师将支付大部分学费，这是75％。 如果你是一名菲律宾教师，每月可挣15,000比索（约合300,000韩元），如果你每天工作8小时，你可以有40分钟的10分钟课程（包括每小时休息10分钟）。`,
         jp: `私たちは、「ネイティブ講師月20回1万円」で広告をしています。安価もとても致命的安いです。核心は講師が75％という、ほとんどの授業料を持って行くので講師は十分な収入を得ています。フィリピンの講師の場合、1万5千ペソ（ハンファで約30万円）を月に稼げば十分には、1日8時間勤務をすれば、10分の授業を40回（毎時間10分の休憩を含む）をすることができます。`
@@ -730,7 +730,7 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `「威勢あなたのフランチャイズ"で特異な点は、学生だけでなく、講師も授業をキャンセルすることができます。`
     },
     understanding_franchise_content_desc_4: {
-        ko: `위세너에서는 관리자 또는 매니저가 학생 대신 수업을 예약, 취소, 변경 등을 할 수 없습니다. 오직 학생만이 직접 해야하며 그 만큼 잘 자동화되어져 있습니다.`,
+        ko: `위세너에서는 관리자 또는 매니저가 학생 대신 수업을 예약, 취소, 변경 등을 할 수 없습니다.`,
         en: `At Withcenter, managers or managers can not schedule, cancel or change classes on behalf of students. Only the student has to do it himself and it is as well automated as it is.`,
         ch: `在Withcenter，经理或经理不能代表学生安排，取消或更改课程。 只有学生必须自己做，而且它自动化。`,
         jp: `威勢あなたは、管理者またはマネージャーが学生の代わりに授業を予約、キャンセル、変更等をすることができません。ただ、学生だけが直接する必要があり、その分よく自動化されています。`
@@ -765,20 +765,14 @@ This Agreement will be effective from June 20, 2018.`,
         ch: `Withcenter提供的网站的性能和功能可与PWA的移动应用程序相媲美，因此您无需创建任何特殊应用程序。`,
         jp: `威勢あなたが提供するホームページはPWAで、モバイルアプリに匹敵する性能と機能を誇るので、特にアプリを制作する必要がありません。`
     },
-    understanding_franchise_content_text_1_0: {
-        ko: `저희는 '원어민 강사 월 20회 1만원' 으로 광고를 하고 있습니다. 저렴해도 너무 치명적으로 저렴합니다. 핵심은 강사가 75% 라는 대부분의 수업료를 가져가기 때문에 강사는 충분한 수익을 얻습니다. 필리핀 강사의 경우,1만 5천페소(한화로 약 30만원)를 한달에 벌면 충분한데, 하루 8시간 근무를 하면, 10분 수업을 40회(매 시간 10분 휴식 포함)를 할 수 있습니다.`,
-        en: `We advertise 'Native speaker instructor 20 times a month 10,000 won'. Even if it is inexpensive, it is too lethal and cheap. The point is that the instructor will earn enough money because the instructor will pay most of the tuition, which is 75%. If you are a Filipino instructor, you can earn 15,000 pesos (about 300,000 won) a month. If you work eight hours a day, you can have 40 minutes of ten-minute classes (including 10 minutes break every hour).`,
-        ch: `我们宣传'母语讲师每月20次10,000韩元'。 即使它价格低廉，它太致命，也很便宜。 问题是，教师将赚取足够的钱，因为教师将支付大部分学费，这是75％。 如果你是一名菲律宾教师，每月可挣15,000比索（约合300,000韩元），如果你每天工作8小时，你可以有40分钟的10分钟课程（包括每小时休息10分钟）。`,
-        jp: `私たちは、「ネイティブ講師月20回1万円」で広告をしています。安価もとても致命的安いです。核心は講師が75％という、ほとんどの授業料を持って行くので講師は十分な収入を得ています。フィリピンの講師の場合、1万5千ペソ（ハンファで約30万円）を月に稼げば十分には、1日8時間勤務をすれば、10分の授業を40回（毎時間10分の休憩を含む）をすることができます。`
-    },
     understanding_franchise_content_text_1_1: {
-        ko: `매우 낮은 수업료로 학생 만족 시키는 것 뿐만아니라, 동시에 매우 높은 수당 지급으로 강사를 만족시키고 있습니다. 일반적으로 (필리핀 기준) 영어 강사가 아무리 열심히 해도 자신이 정해진 월급 또는 그 비슷한 수준 밖에 가져가지 못하는데 비해, 온튜의 강사는 그 5배를 가져갑니다. 뭔가 앞, 뒤 말이 맞지 않죠? 화상영어 직거래 자체가 말이 안되고 학생이 직접 수업료를 정한다는 것은 더더욱 말이 안되고, 학생이 한달에 1만원 밖에 내지 않는데 어떻게 강사가 높은 수당을 가져 갈 수 있는지 이해가 잘 안 될 것입니다.`,
+        ko: `저렴해도 너무 치명적으로 저렴합니다. 핵심은 강사가 75% 라는 대부분의 수업료를 가져가기 때문에 강사는 충분한 수익을 얻습니다. 필리핀 강사의 경우, 1만 5천페소(한화로 약 30만원)를 한달에 벌면 충분한데, 하루 8시간 근무를 하면, 10분 수업을 40회(매 시간 10분 휴식 포함)를 할 수 있습니다. 매우 낮은 수업료로 학생 만족 시키는 것 뿐만아니라, 동시에 매우 높은 수당 지급으로 강사를 만족시키고 있습니다. 일반적으로 (필리핀 기준) 영어 강사가 아무리 열심히 해도 자신이 정해진 월급 또는 그 비슷한 수준 밖에 가져가지 못하는데 비해, 온튜의 강사는 그 5배를 가져갑니다. 뭔가 앞, 뒤 말이 맞지 않죠? 화상영어 직거래 자체가 말이 안되고 학생이 직접 수업료를 정한다는 것은 더더욱 말이 안되고, 학생이 한달에 1만원 밖에 내지 않는데 어떻게 강사가 높은 수당을 가져 갈 수 있는지 완전 이해가 안 될 것입니다.`,
         en: `In addition to satisfying students with very low tuition fees, we are also able to satisfy our instructors with very high payouts. Generally speaking (even in the Philippines) an English instructor can hardly take his or her salary at a fixed salary or similar level, but his instructor takes that five times. Something front and back is not right? It will not make any sense if the student does not pay the fee directly and the student will only pay 10,000 won a month, but it will be difficult to understand how the instructor can bring the high allowance.`,
         ch: `除了满足学费非常低的学生外，我们还能够以非常高的支出满足我们的教师。 一般来说（即使在菲律宾），英语教师很难以固定工资或类似水平拿到自己的工资，但他的老师拿了五次。 正面和背面的东西是不正确的？ 如果学生不直接支付费用，学生每月只需支付10,000韩元，但是很难理解教师如何提高津贴。`,
         jp: `非常に低い授業料で学生満足させるだけでなく、同時に非常に高い手当の支給に講師を満足させています。一般的に、（フィリピンの基準）の英語講師がいくら頑張っても自分が決められた給料またはそのようなレベルしか持って行かないのに比較して、オンチュの講師は、その5倍を持っていきます。何か前、後言葉合わないでしょう？画像の英語直接取引自体が話ならず、学生が直接授業料を定めることは、なおさら話ならず、学生が月に1万ウォンしかないのにどのように講師が高い手当を持って行くことができるかどうかを理解していないでしょう。`
     },
     understanding_franchise_content_text_1_2: {
-        ko: `한달 20회 1만원이면 1회 수업에 500 원입니다. 강사가 8시간 근무(매 시간 10분 휴식 포함) 기준 40회 수업을 할 수 있습니다. 한달 20일 가정하면, (1회 수업) 500 원 * (하루) 40회 수업 * (한달) 20일 = 40만원이 됩니다.  40 만원의 75% 는 30만원입니다. 하지만 모든 강사가 1회 수업에 500 원으로 하지 않습니다. 1000원, 1500원 등 강사가 마음데로 정합니다. 따라서 어떤 강사는 다른 강사들 보다 비싸게 수업료를 받기도 합니다. 2018년 현재 위세너에서 권장하는 수업료는 아래와 같습니다. 10분 월 1만~2만원 20분 월 2만~4만원 30분 월 4만~6만원 위세너에서는 강사들에게 10분 500원, 20분 1000원으로 수업을 2개씩 의무적으로 최저가로 오픈하게 하고 있습니다. 이렇게 하므로서 학생은 충분히 낮은 수업료로 수업을 할 수 있고, 낮은 수업료가 예약이 잘 된다는 것을 강사는 알게되고, 강사 끼리 낮은 수업료를 경쟁하게 됩니다. 실제로 Cherish라는 한 강사는 2018년 5월 하루 평균 3시간 30분 수업을 하고, 3만페소(한화 약 62만원)를 수령하였는데, 이것을 8시간 기준으로 환산다면, 필리핀의 일반 영어학원(또는 콜센터) 강사의 평균 월급의 5배에 해당합니다. 이 처럼 강사는 매우 높은 수익을 가져가고 있으며 또 학생으로 부터 직접 선택을 받아야하므로 그 만큼 학생들에게 최선을 다합니다. 이로 인해 온튜 강사들은 일반 학원이나 화상 영어 콜센터 강사와는 차원이 다르게 책임감을 넘어선 높은 주인 정신을 가지고 있습니다. 그리고 이것이 고품격 영어 교육 서비스를 할 수 있는 원동력이됩니다.`,
+        ko: `한달 20회 1만원이면 1회 수업에 500 원입니다. 강사가 8시간 근무(매 시간 10분 휴식 포함) 기준 40회 수업을 할 수 있습니다. 한달 20일 가정하면, (1회 수업) 500 원 * (하루) 40회 수업 * (한달) 20일 = 40만원이 됩니다.  40 만원의 75% 는 30만원입니다. 이 금액은 이미 강사의 한달 수익으로 충분합니다. 하지만 모든 강사가 1회 수업에 500 원으로 하지 않습니다. 1000원, 1500원 등 강사가 마음데로 정합니다. 따라서 어떤 강사는 다른 강사들 보다 비싸게 수업료를 받기도 합니다. 2018년 현재 위세너에서 권장하는 수업료는 아래와 같습니다. 10분 월 1만~2만원 20분 월 2만~4만원 30분 월 4만~6만원 위세너에서는 강사들에게 10분 500원, 20분 1000원으로 수업을 2개씩 의무적으로 최저가로 오픈하게 하고 있습니다. 이렇게 하므로서 학생은 충분히 낮은 수업료로 수업을 할 수 있고, 낮은 수업료가 예약이 잘 된다는 것을 강사는 알게되고, 강사 끼리 낮은 수업료를 경쟁하게 됩니다. 실제로 Cherish라는 한 강사는 2018년 5월 하루 평균 3시간 30분 수업을 하고, 3만페소(한화 약 62만원)를 수령하였는데, 이것을 8시간 기준으로 환산다면, 필리핀의 일반 영어학원(또는 콜센터) 강사의 평균 월급의 5배에 해당합니다. 이 처럼 강사는 매우 높은 수익을 가져가고 있으며 또 학생으로 부터 직접 선택을 받아야하므로 그 만큼 학생들에게 최선을 다합니다. 이로 인해 온튜 강사들은 일반 학원이나 화상 영어 콜센터 강사와는 차원이 다르게 책임감을 넘어선 높은 주인 정신을 가지고 있습니다. 그리고 이것이 고품격 영어 교육 서비스를 할 수 있는 원동력이됩니다.`,
         en: `It is 500 won per class once per 20 times a month. Instructor can have 40 lessons based on 8 hours of work (including 10 minutes break every hour). Assuming 20 days a month, it will be 500 won per day * 40 times per month * per month 20 days = 400,000 won. 75% of 400,000 won is 300,000 won. However, not all instructors pay 500 won per class. 1000 won, 1,500 won, and so on. Therefore, some instructors receive higher tuition fees than other instructors. As of 2018, the following fees are recommended by Weisser. 10 minutes a month ~ 20,000 won 20 minutes a month 20,000 ~ 40,000 won a month 30 ~ 40,000 won a month 40 ~ 60,000 won a month We will give teachers a minimum of 500 won for 10 minutes and 1000 won for 20 minutes. We are doing. By doing this, the student will be able to take less expensive tuition, the lesson will be informed that the lesson is well booked, and the lesson fee will be lower for the instructor. In fact, an instructor named Cherish received an average of 3 hours and 30 minutes a day in May 2018 and received 30,000 pesos (about 620,000 won). If you translate this on an 8-hour basis, the general English school (or call center) This corresponds to five times the average salary of the instructor. As such, the instructor is very profitable and has to make direct choices from students, so he does his best to the students. As a result, onew's instructors have a high sense of ownership that goes beyond responsibility and is different from the general academy or video English call center lecturer. And this is the driving force for high-quality English education services.`,
         ch: `每班20次，每班500韩元。教师可以根据8小时的工作量（包括每小时10分钟的休息时间）获得40节课。假设一个月20天，每天500韩元*每月40次*每月20天= 400,000韩元。 400,000韩元的75％是300,000韩元。但是，并不是所有的教师每班支付500韩元。 1000韩元，1,500韩元等等。因此，一些教师比其他教师收到更高的学费。截至2018年，Weisser推荐以下费用。 10分钟月10000-20000赢得20分钟周一20000-40000韩元30分钟开一个月的教训从40,000到60,000韩元信誉您的讲师10分钟500韩元，20分钟1000韩元到最低的两个两个强制性我们正在做。这hameuroseo学生完全有能力教学以低学费，低费，是教师了解到，预订福祉，将指导员较低的费用之间的竞争。事实上，2018年5月的讲师和平均每天3小时，每次30分钟，堪称妙手3 10 000收集比索（韩华约62亿美元），如果换算到8小时，菲律宾通用英语学院（或呼叫中心）这相当于导师平均工资的五倍。因此，导师非常有利可图，必须从学生中直接作出选择，所以他尽全力为学生服务。因此，他们的教师具有超越责任感的高度归属感，与普通学院或视频英语呼叫中心讲师不同。这是高质量英语教育服务的动力。`,
         jp: `月20回1万円であれば1回の授業に500ウォンです。講師は8時間勤務（毎時10分の休憩を含む）の基準40回の授業を行うことができます。月20日と仮定すれば、（1レッスン）500ウォン*（日）40回の授業*（月）20日= 40万ウォンになります。 40万ウォンの75％は、30万ウォンです。しかし、すべての講師が1回の授業に500ウォンではありません。 1000ウォン、1500ウォンなど講師が心通りに設定します。したがって、ある講師は、他の講師よりも高く、授業料を受けています。 2018年現在、威勢あなたが推奨する授業料は以下の通りです。 10分月1万〜2万ウォン20分月2万〜4万ウォン30分月4万〜6万ウォン威勢あなたは講師に10分500ウォン、20分1000ウォンで授業を2つずつ強制的最安値でオープンにしています。このようにすることで、学生は十分に低い授業料で授業をすることができ、低授業料が予約がよくなることを講師には分かるようになって、講師同士の低い授業料を競うことになります。実際Cherishという講師は2018年5月、一日平均3時間30分の授業をして、3万ペソ（約62万円）を受領したが、これを8時間あたりに換算なら、フィリピンの一般英語塾（またはコールセンター）講師の平均給料の5倍に相当します。このように講師は非常に高い収益をもたらしており、また、学生に直接選択を受けなければならなので、その分生徒に最善を尽くします。これにより、オンチュ講師は一般塾や画像の英語コールセンター講師とは次元が違って責任を超えた高い主人の精神を持っています。そして、これは高品質の英語教育サービスを行うことができる原動力になります。`
@@ -800,12 +794,6 @@ This Agreement will be effective from June 20, 2018.`,
         en: `Of course, it is very rare for a teacher to cancel a class, and that rarely happens. In addition, the instructor who cancels the class regularly does the formulation in Weisserr. Instructors who are likely to cancel their classes may also mark them separately. At the headquarters, students are aware of these contents through the website.`,
         ch: `当然，老师取消课程非常罕见，而且很少发生。 此外，定期取消课程的教师在Weisserr中进行配方。 有可能取消课程的教师也可以分开标记。 在总部，学生通过网站了解这些内容。`,
         jp: `もちろん先生が授業をキャンセルする場合は、非常にまれ、そのようなことはほとんど行われません。また、常習的に授業をキャンセルする講師は、威勢あなたの製剤をします。そして授業のキャンセルが発生する可能性が高い講師の場合別に表示をしたりします。弊社では、学生にこのような内容をホームページを通じてよく認識させています。`
-    },
-    understanding_franchise_content_text_4_0: {
-        ko: `위세너에서는 관리자 또는 매니저가 학생 대신 수업을 예약, 취소, 변경 등을 할 수 없습니다. 오직 학생만이 직접 해야하며 그 만큼 잘 자동화되어져 있습니다.`,
-        en: `At Withcenter, managers or managers can not schedule, cancel or change classes on behalf of students. Only the student has to do it himself and it is as well automated as it is.`,
-        ch: `在Withcenter，经理或经理不能代表学生安排，取消或更改课程。 只有学生必须自己做，而且它自动化。`,
-        jp: `威勢あなたは、管理者またはマネージャーが学生の代わりに授業を予約、キャンセル、変更等をすることができません。ただ、学生だけが直接する必要があり、その分よく自動化されています。`
     },
     understanding_franchise_content_text_4_1: {
         ko: `위세너가 12년 전 100% 자동화 시스템을 처음 개발하고 난 다음, 다른 경쟁 회사들이 위세너 시스템을 따라하려고 하지만, 쉽게 따라오지 못하고 있습니다. 특히 전 세계의 재택 강사 및 여러 학원의 강사를 모집하여 직거래 시스템 생태계를 보유하고 있는 회사는 전 세계에서 위세너가 유일합니다. 강사가 마음데로 수업료를 정하고, 학생이 신용카드로 원하는 만큼 수업료를 충전하고 학생은 자유 자제로 예약, 취소, 변경 할 수 있으며 수업이 잘못되면 학생이 복구 신청하고 강사가 응답하는 100% 자동화 된 관리가 필요없는 LMS 시스템. 오직 위세너에서만 가능했으며 지금도 위세너에서만 가능합니다. 참고로 카톡영어에는 전화번호가 없으며 전화 상담하지 않습니다. 그만큼 매우 직관적이고 사용하기 쉽습니다.`,
@@ -833,16 +821,22 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `塾講師の場合は、問題ありませんが、在宅講師の場合、インターネット、停電、個人的な緊急用など様々な状況が発生しています。この部分には、フィリピンのマネージャーが割り当てられて在宅講師の授業参加度を管理し、継続的に改善しています。`
     },
     understanding_franchise_content_text_7_0: {
-        ko: ` 가맹사의 수익금은 페이팔로 전송합니다. 수익 분배는 1일 부터 말 일까지의 수익을 그 다음달 7일 드립니다. 만약, 가맹사의 수익이 $10 이하인 경우, 지급되지 않으며 홈페이지 운영비로 사용됩니다.`,
-        en: `Your affiliate's earnings will be transferred to PayPal. Revenue distribution will be made on the 7th day of the following month from the 1st day to the last day. If a member has a profit of $ 10 or less, he / she will not be paid and will be used for operating the homepage.`,
-        ch: `您的会员收入将转移到PayPal。 收入分配将在下个月的第7天从第1天到最后一天进行。 如果会员有10美元或更少的利润，他/她将不会被支付，并且将被用于操作主页。`,
-        jp: `加盟社の収益は、PayPalに転送します。収益分配は、1日から末日までの収益を、その翌月7日いたします。もし、加盟社の収益が$10以下の場合には、支給されず、ホームページ運営費として使用されます。`
+        ko: `가맹사의 수익금은 페이팔로 전송되며 수익 분배는 1일 부터 말 일까지의 수익을 그 다음달 15일 드립니다. 만약, 가맹사의 수익이 $20 이하인 경우, 지급되지 않으며 홈페이지 운영비로 사용됩니다.`,
+        en: `Affiliate's earnings will be transferred to PayPal on 15th for the previous month. If the earning is less than $ 20, then it will not be paid to affiliates and will be used for operating the homepage.`,
+        ch: `会员的收入将在前一个月的15日转入PayPal。 如果收入少于20美元，那么它将不会被支付给分支机构，并将用于操作主页。`,
+        jp: `アフィリエイトの収益は、前月の15日にPayPalに振り込まれます。 収入が20ドル未満の場合、それは関連会社に支払われず、ホームページの運営に使用されます。`
     },
     understanding_franchise_content_text_8_0: {
         ko: `위세너에서 2016년 이후 개발하는 모든 사이트는 PWA 및 앱/웹앱 방식으로 개발하기 위해 Angular/Ionic 으로 개발하고 있습니다. PWA 는 여러가지 장점이 있지만, 그 중 매우 중요한 것이 학생의 참여도를 높이는 것입니다. 참고로 네이버에서 PWA 또는 '프로그레시브 웹앱' 라고 검색을 해 보시면 PWA 가 어떤 개념인지 알 수 있습니다.`,
         en: `All sites developed by Weisseriner since 2016 are developed with Angular / Ionic for PWA and app / web app development. PWA has many advantages, but the most important one is to increase student participation. For reference, you can search PWA or 'Progressive Web App' on Naver to see what concept PWA is.`,
         ch: `Weisseriner自2016年开发的所有网站都是使用Angular / Ionic开发的，用于PWA和应用程序/ Web应用程序开发。 PWA有许多优点，但最重要的是增加学生的参与。 作为参考，您可以在Naver上搜索PWA或“Progressive Web App”，查看PWA的概念。`,
         jp: `威勢あなたの2016年以来、開発しているすべてのサイトは、PWAとアプリ/ Webアプリの方法で開発するためにAngular/ Ionicに開発しています。PWAはいくつかの利点があるが、その中で非常に重要なのが、学生の参加度を高めることです。ちなみにネイバーでPWAまたは「プログレッシブWebアプリ」と検索をしてみてPWAがどの概念であるか知ることができます。`
+    },
+    understanding_franchise_content_text_9_0: {
+        ko: `한달에 수업료를 납부하는 학생의 수가 100명이 넘으면 무료로 안드로이드 앱을 만들어드립니다.`,
+        en: `We will make you android app when you have more than 100 students who pay in any month.`,
+        ch: `当您有超过100名学生在任何月份付款时，我们会为您制作Android应用程序。`,
+        jp: `あなたが月に支払う学生が100人以上の場合、アンドロイドアプリを作成します。`
     },
     understanding_franchise_content_text_9: {
         ko: `하지만, 올바른 수업의 진행 횟수가 한달 1,000 (학생 약 50명) 개가 넘으면 앱을 무료로 제작해 드립니다. 참고로 앱은 안드로이드 앱만 제작합니다. 한국의 특성상 애플은 많이 사용하지 않아 제작하지 않습니다.`,
