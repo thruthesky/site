@@ -25,7 +25,7 @@ export class WithcenterHomePage {
   ) {
 
     this.languageCode = t.getLanguageCode();
-    console.log('t: ', t.ln);
+    // console.log('t: ', t.ln);
 
     this.animateText();
   }
