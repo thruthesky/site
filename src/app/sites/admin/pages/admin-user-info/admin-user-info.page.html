@@ -95,7 +95,7 @@
                             <input type='text' name='password' [(ngModel)]=" user.user_pass ">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngIf="a.isSuperManager">
                         <div class="col-4">User Type</div>
                         <div class="col-8">
                             <input type='radio' id="user_type_student" name='user_type' [(ngModel)]=" user.user_type " [value]="'S'" [checked]=" user.user_type ">

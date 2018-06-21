@@ -34,15 +34,18 @@ const routes: Routes = [
             },
             { path: 'login', component: AdminLoginPage },
             { path: 'payment', component: AdminPaymentPage },
+            { path: 'payment/:ID', component: AdminPaymentPage },
             { path: 'point-history', component: AdminPointHistoryPage },
             { path: 'point-refund', component: AdminPointRefundPage },
+            { path: 'point-refund/:field/:value', component: AdminPointRefundPage },
             { path: 'push-notification', component: AdminPushNotificationPage },
             { path: 'session', component: AdminSessionPage },
+            { path: 'session/:type/:ID', component: AdminSessionPage },
+            { path: 'session-edit/:idx', component: AdminSessionEditPage },
             { path: 'setting', component: AdminSettingPage },
             { path: 'user/:field/:value', component: AdminUserPage },
             { path: 'user', component: AdminUserPage },
             { path: 'user-info/:ID', component: AdminUserInfoPage },
-            { path: 'session-edit/:idx', component: AdminSessionEditPage },
         ]
     }
 

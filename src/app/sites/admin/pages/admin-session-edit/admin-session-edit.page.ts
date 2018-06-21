@@ -47,6 +47,11 @@ export class AdminSessionEditPage implements OnInit {
 
     onSubmit(event: Event) {
         event.preventDefault();
+
+        if ( !this.a.isSuperManager ) {
+            return;
+        }
+
         this.loader.save = true;
         this.form['idx'] = this.idx;
         this.a.lms.admin_session_save(this.form).subscribe( re => {
