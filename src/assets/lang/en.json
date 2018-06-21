@@ -532,6 +532,8 @@
   },
 
   "HOW_WAS_TEACHER_INTERNET": "How was the Teacher's Internet Connection",
+  "INTERNET": "Internet",
+  "CAMERA": "Camera",
   "INTERNET_GOOD": "Good",
   "INTERNET_NORMAL": "Normal",
   "INTERNET_BAD": "Bad",
