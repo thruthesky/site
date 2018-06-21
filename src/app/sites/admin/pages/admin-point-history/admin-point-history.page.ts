@@ -54,7 +54,7 @@ export class AdminPointHistoryPage implements OnInit {
         this.loadPointHistory();
 
         this.a.lms.point_log_actions_get().subscribe( re => {
-            console.log('point_log_actions_get', re);
+            // console.log('point_log_actions_get', re);
             this.point_log_actions = re;
         });
     }
@@ -101,7 +101,7 @@ export class AdminPointHistoryPage implements OnInit {
             teacher_info: true
         })
             .subscribe((re: Array<POINT_HISTORY>) => {
-                console.log('re: ', re);
+                // console.log('re: ', re);
                 if (!re) {
                     return;
                 }
@@ -125,9 +125,9 @@ export class AdminPointHistoryPage implements OnInit {
            this.point_log_selected[v] = this.point_log_selected_all;
         });
         this.point_log_selected_empty = this.point_log_selected_all;
-        console.log('point_log_selected', this.point_log_selected);
-        console.log('point_log_selected_all', this.point_log_selected_all);
-        console.log('point_log_selected_empty', this.point_log_selected_empty);
+        // console.log('point_log_selected', this.point_log_selected);
+        // console.log('point_log_selected_all', this.point_log_selected_all);
+        // console.log('point_log_selected_empty', this.point_log_selected_empty);
     }
 
 
