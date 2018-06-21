@@ -39,7 +39,6 @@
                 </div>
                 <!--/my-own-plan-->
 
-
                 <div class="about-katalkenglish">
                     <div class="container-fluid ">
                         <div class="row">
@@ -48,7 +47,7 @@
                             </div>
                             <div class="desc col-8" (click)=" showMoreAboutKatalkEnglish() ">
                                 <div>
-                                    <h2>{{ 'SITENAME' | t:{site_name: a.info?.branch.site_name } }}</h2>
+                                    <h2>{{ 'SITENAME' | t:{ site_name: a.site_name} }}</h2>
                                     <div>
                                         {{ a.ln._NO_COMPARE }}
                                         <span class="show-more" *ngIf=" ! moreAbout1 ">
@@ -59,7 +58,6 @@
                             </div>
                         </div>
                     </div>
-
 
                 </div>
                 <!--/about-katalkenglish-->
@@ -79,7 +77,7 @@
                             {{ a.ln._AUTO_SYSTEM }}
                         </div>
                     </div>
-                    <div class="help" routerLink="help">{{ '_HOW_TO' | t:{site_name: a.info?.branch?.site_name} }}</div>
+                    <div class="help" routerLink="help">{{ '_HOW_TO' | t:{ site_name: a.site_name } }}</div>
 
                 </div>
                 <!--/more-about-katalkenglish-->
@@ -125,7 +123,7 @@
                 <katalkenglish-main-teacher-list *ngIf=" a.size() == 'big' " [total_teachers]=" total_teachers " [teachers]=" teachers "></katalkenglish-main-teacher-list>
 
                 <section id="student-comments" *ngIf=" a.ln['STUDENT COMMENTS'] && a.ln['STUDENT COMMENTS'].length ">
-                    <h2>{{ '_COMMENTS' | t:{site_name: a.info?.branch?.site_name } }}</h2>
+                    <h2>{{ '_COMMENTS' | t:{ site_name: a.site_name } }}</h2>
 
                     <ng-container *ngFor=" let comment of a.ln['STUDENT COMMENTS']; let i = index ">
                         <div class="comment" *ngIf=" i < 2 || show['more-comment']">

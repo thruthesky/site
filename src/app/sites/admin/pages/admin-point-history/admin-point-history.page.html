@@ -7,7 +7,7 @@
         <label><input type="checkbox" [(ngModel)]="point_log_selected_empty" (ngModelChange)=" point_log_selected_all = false" name="empty_action">No action</label>
         <label *ngFor="let action of point_log_actions">
             <input type="checkbox" [(ngModel)]="point_log_selected[action]" (ngModelChange)=" point_log_selected_all = false" name="{{action}}">
-            {{action}}
+            {{ action | t }}
         </label>
     </div>
     <div>
@@ -34,7 +34,7 @@
         <td>Time</td>
     </tr>
     <tr *ngFor="let log of re ">
-        <td>{{ log.action | t }}</td>
+        <td><ng-container *ngIf="log.action">{{ log.action | t }}</ng-container></td>
         <td>{{ log.apply_point }}</td>
         <td>
             <div [class.bg-danger]=" ! log.point_change ">
