@@ -469,6 +469,8 @@
     "N": "いいえ",
     "Y": "はい"
   },
+  "INTERNET": "Internet",
+  "CAMERA": "Camera",
   "INTERNET_GOOD": "良い",
   "INTERNET_NORMAL": "正常",
   "INTERNET_BAD": "悪い",
