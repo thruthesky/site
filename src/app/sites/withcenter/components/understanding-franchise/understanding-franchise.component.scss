@@ -1,5 +1,5 @@
 @import './../../../../../theme/vars';
-h3{
+h3 {
     margin: 0;
     margin-top: 2em;
     margin-bottom: .5em;
@@ -7,61 +7,58 @@ h3{
     color: #0E51A7;
 }
 
-p{
+p {
     font-size: .95em;
     line-height: 1.6em;
 }
- .content{
+
+.content {
     animation: .2s 1 fade-in;
-
-
-    @keyframes fade-in{
-        0%{
+    @keyframes fade-in {
+        0% {
             opacity: 0;
         }
-        100%{
+        100% {
             opacity: 1;
         }
     }
- }
-.gallery{
+}
+
+.gallery {
     font-size: .95em;
     line-height: 1.5em;
-    .col-md-4{
+    .col-md-4 {
         padding: 0;
     }
-
     @media (min-width:$md) {
-       
-        .col-md-4:first-child{
+        .col-md-4:first-child {
             padding-right: .5em;
         }
         .middle {
             padding-left: .25em;
             padding-right: .25em;
         }
-        .col-md-4:last-child{
+        .col-md-4:last-child {
             padding-left: .5em;
         }
     }
-    .item{
+    .item {
         position: relative;
         margin-bottom: 2em;
         cursor: pointer;
-        @media (min-width:$md){
+        @media (min-width: $md) {
             margin-bottom: .75em;
         }
-           
-        .photo{
+        .photo {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 125px;
-            @media (min-width:$md) {
+            @media (min-width: $md) {
                 height: auto;
             }
             overflow: hidden;
-            img{
+            img {
                 width: 100%;
                 border-top-left-radius: 2px;
                 border-top-right-radius: 2px;
@@ -84,7 +81,7 @@ p{
 
         .body{
             padding: 0 .4em;
-            h4{
+            h4 {
                 margin: 0;
                 margin-top: .5em;
                 padding: .25em 0;
@@ -92,23 +89,25 @@ p{
                 color: #00A57C;
                 font-size: 1em;
             }
-    
-            .desc{
+            .desc {
                 margin: 0;
-                padding:.4em 0;
+                padding: .4em 0;
                 padding-top: .25em;
                 font-weight: 300;
                 font-size: .9em;
                 color: #77838f;
             }
-    
-            button{
-                border: 0;  
+            button {
+                border: 0;
                 font-size: .95em;
                 background: none;
                 color: #0A3F82;
+
+                @media (min-width: $md) {
+                    display: block;
+                    padding-left: 0;
+                }
             }
-    
         }
     }
 }
