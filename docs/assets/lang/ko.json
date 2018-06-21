@@ -500,6 +500,8 @@
   "REJECT_CONFIRM": "확인",
 
   "HOW_WAS_TEACHER_INTERNET": "선생님의 인터넷 연결 속도는 어땠습니까?",
+  "INTERNET": "인터넷",
+  "CAMERA": "카메라",
   "INTERNET_GOOD": "좋음",
   "INTERNET_NORMAL": "보통",
   "INTERNET_BAD": "나쁨",
