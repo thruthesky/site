@@ -977,7 +977,7 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `本社に連絡する`
     },
     article_content_3: {
-        ko: `궁금하신 점이 있으면 thruthesky@gmail.com 으로 제목 "위세너 프랜차이즈 화상영어 창업 상담" 와 같이 메일을 보내주시면 됩니다. `,
+        ko: `궁금하신 점이 있으면 thruthesky@gmail.com 으로 제목 "위세너 프랜차이즈 화상영어 창업 상담" 와 같이 메일을 보내주시면 됩니다. 가맹사 가입 후, 가맹사 관리자 페이지에 보다 많은 연락처가 있습니다.`,
         en: `If you have any questions, please send an e-mail to thruthesky@gmail.com with the title "Weisserin franchise image English consultation".`,
         ch: `如果您有任何问题，请发送电子邮件至“weisserin franchise image English consultation”标题为thruthesky@gmail.com。`,
         jp: `ご不明な点があればthruthesky@gmail.comにタイトル「威勢あなたのフランチャイズ画像の英語創業相談」のようにメールをお送りください。`
@@ -989,11 +989,23 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `その他`
     },
     article_content_4: {
-        ko: `월 수익 $300 이상이 발생하는 가맹사는 의무적으로 독립도메인을 사용해야하며, 사업자 등록을 하고, 통신판매업신고를 한 다음, 그 서류를 홈페이지에 등록하셔야 합니다. 가맹사 매니저 페이지에서 가맹사 정보를 수정 할 수 있으며, 수익을 분배 받을 페이팔 계정을 입력하실 수 있습니다.`,
-        en: `Affiliates with monthly revenues of $ 300 or more must use the independent domain, register the business, report the carrier, and then register the documents on the homepage. You can edit your affiliate information on the Affiliate Managers page and enter a PayPal account to distribute revenue.`,
-        ch: `每月收入300美元或以上的联营公司必须使用独立域名，注册公司，报告承运人，然后在主页上登记文件。 您可以在联盟经理页面上编辑您的联盟信息，并输入贝宝账户来分配收入。`,
-        jp: `月に収入$300以上が発生する加盟社は義務的に独立ドメインを使用する必要があり、事業者登録をして、通信販売業申告をし、その書類をホームページに登録する必要があります。加盟社マネージャーページで加盟社の情報を修正することができ、収益を分配受けるPayPalアカウントを入力することができます。`
+        ko: `월 매출 $1,000 이상이 발생하는 가맹사는 의무적으로 독립도메인을 사용해야하며, 사업자 등록을 하고, 통신판매업신고를 한 다음, 그 서류를 홈페이지에 등록하셔야 합니다. 가맹사 매니저 페이지에서 가맹사 정보를 수정 할 수 있으며, 수익을 분배 받을 페이팔 계정을 입력하실 수 있습니다.`,
+        en: `Affiliates with monthly revenues of $ 1,000 or more must use the independent domain, register the business, report the carrier, and then register the documents on the homepage. You can edit your affiliate information on the Affiliate Managers page and enter a PayPal account to distribute revenue.`,
+        ch: `每月收入1000美元或以上的联营公司必须使用独立域名，注册公司，报告承运人，然后在主页上登记文件。 您可以在联盟经理页面上编辑您的联盟信息，并输入贝宝账户来分配收入。`,
+        jp: `月に収入$1000以上が発生する加盟社は義務的に独立ドメインを使用する必要があり、事業者登録をして、通信販売業申告をし、その書類をホームページに登録する必要があります。加盟社マネージャーページで加盟社の情報を修正することができ、収益を分配受けるPayPalアカウントを入力することができます。`
     },
+    how_to_advertise: {
+        ko: `광고 노하우`,
+        en: `How to advertise`,
+        ch: `如何做广告`,
+        jp: `広告の方法`
+    },
+    how_to_advertise_desc: {
+        ko: `학생 모집을 위한 광고는 각 가맹사 별로 진행을 해야하지만, 한국, 중국, 일본 등 각 국가별로 오프라인 모임 또는 온라인 화상 회의를 통해서 광고 노하우를 전수 해 드립니다. 한국 가맹사의 경우 아이보스( https://www.i-boss.co.kr/ )와 같은 홈페이지에서 광고 노하우를 얻을 수 있습니다. 참고로, 페이스북, 네이버 블로그, 네이버 카페 쪽으로 우선 시도해 보시면됩니다. 가능하면 구글 유료 광고에 도전해 보십시오.`,
+        en: `Advertisements for student recruitment should be conducted by branches, but we will give tips on advertising through meetings or online video conferences. Try first on Facebook and Blogs. If possible, try Google adwords.`,
+        ch: `招生广告应由分支机构进行，但我们会通过会议或在线视频会议提供有关广告的提示。 首先在Facebook和博客上尝试。 如果可能，请尝试使用Google Adwords。`,
+        jp: `学生募集の広告は支店で実施する必要がありますが、会議やオンラインビデオ会議を通じて広告に関するヒントを提供します。 まずはFacebookやブログで試してみてください。 可能であれば、Google AdWordsを試してみてください。`
+    }
 
 };
 
