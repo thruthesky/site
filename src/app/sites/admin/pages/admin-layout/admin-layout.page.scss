@@ -14,7 +14,8 @@ body {
     max-width: $page-width;
 }
 header{
-    background-color: #f1f1f0;
+    border-bottom: 1px solid rgba(125,125,125,0.2);
+    // background-color: #f1f1f0;
 
     .admin-header {
         display: flex;

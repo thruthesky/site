@@ -5,9 +5,41 @@ h1{
 }
 
 .notice{
+    display: flex;
+    align-items: center;
+    margin: 2em 0;
     padding: 1em 2em;
     border-radius: 2px;
-    border:1px solid rgba(darkorange,0.6);
-    background:rgba(darkorange,0.1);
-    color: darkorange
+    color: #C69500;
+    background-color: rgba(#FFDF7E,0.4);
+
+    svg{
+        height: 1.5em;
+        width: 1.5em;
+        margin-right: .5em;
+    }
+}
+
+.table{
+    border-radius: 2px;
+    border: 1px solid rgba(125,125,125,0.2);
+    .title{
+        padding:1em 2em;
+        color: #0867B0;
+        font-weight: 500
+    }
+
+    .content{
+        overflow: auto;
+        table{
+            width: 100%;
+            text-align: center;
+    
+            *{
+                padding: .75em 1.5em;
+                border-top: 1px solid rgba(125,125,125,0.2)
+            }
+        }
+    }
+
 }
