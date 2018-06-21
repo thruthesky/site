@@ -48,7 +48,7 @@ export class TeacherReviewListPage {
             this.showLoader = true;
             if (params['idx_teacher']) {
                 this.a.lms.get_teacher_info_by_idx(params['idx_teacher'], false).subscribe(re => {
-                    console.log('get_teacher_info_by_idx', re);
+                    // console.log('get_teacher_info_by_idx', re);
 
                     this.idx_teacher = re['ID'];
                     this.teacher_name = re['display_name'];

@@ -125,7 +125,7 @@ export class AdminUserPage implements OnInit {
         }
         sql += ` ORDER BY ${this.form.order} ${this.form.by}`;
         sql += ` LIMIT ${this.form.limit}`;
-        console.log(sql);
+        // console.log(sql);
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
@@ -138,7 +138,7 @@ export class AdminUserPage implements OnInit {
             }
             this.sanitize();
             this.statistics();
-            console.log(re);
+            // console.log(re);
         }, e => this.a.toast(e));
         return false;
     }

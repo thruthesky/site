@@ -11,6 +11,9 @@
     <input class="normal" type="text" name="idx_student" [(ngModel)]="form.idx_student" placeholder="idx_student">
     <input type="text" name="method" [(ngModel)]="form.payment_method" placeholder="Payment Method. paypal, etc.">
 
+    <input type="radio" id="all" name="state" [(ngModel)]="form.state" [value]="'all'">
+    <label for="success">All transaction</label>
+
     <input type="radio" id="success" name="state" [(ngModel)]="form.state" [value]="'approved'">
     <label for="success">Payment Success</label>
 
@@ -94,14 +97,14 @@ No of student who (successfully) paid: <span class="statNo">{{ stat.studentName.
         <td>{{ pay.idx }}</td>
         <td>
             <div class="link" routerLink="/manager/user-info/{{pay.student?.idx}}">{{ pay.student?.display_name }}({{
-                pay.student?.name}})
+                pay.student?.name}})({{pay.student?.idx}})
                 <button class="user-info-button">e</button>
             </div>
         </td>
         <td>{{ pay.point }}</td>
         <td>{{ pay.currency }}</td>
         <td>{{ pay.payment_method }}</td>
-        <td>{{ pay.state == 'approved' ? 'Success' : '' }}</td>
+        <td>{{ pay.state }}</td>
         <td>{{ a.shortDate(pay.stamp_begin) }}</td>
     </tr>
 </table>
