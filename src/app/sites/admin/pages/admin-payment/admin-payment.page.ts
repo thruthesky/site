@@ -35,7 +35,7 @@ export class AdminPaymentPage implements OnInit {
     form = {
         date_begin: '',
         date_end: '',
-        state: 'approved',
+        state: 'all',
         idx_student: '',
         payment_method: '',
         order: 'stamp_begin',
@@ -104,7 +104,7 @@ export class AdminPaymentPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            // console.log('re: ', re);
+            console.log('re: ', re);
             this.show.loader = false;
             this.re = re;
             this.statistics();
@@ -145,7 +145,10 @@ export class AdminPaymentPage implements OnInit {
         // if (this.form.refund) {
         //     where.push(`p.state='refund'`);
         // }
-        where.push(`p.state='${this.form.state}'`);
+
+        if ( this.form.state !== 'all') {
+            where.push(`p.state='${this.form.state}'`);
+        }
 
         if (where.length) {
             return '( ' + where.join(') AND ( ') + ')';
