@@ -12,20 +12,23 @@ body {
 
 main{
     &>.container-fluid{
+        max-width: $page-width;
         padding: 0 1em;
         @media (min-width:$md){
             padding: 0;
         }
-
         .layout-left{
+            padding-right: .5em;
             display: none;
             @media (min-width:$md){
-                display: flex;
+                display: block;
             }
         }
+
         .layout-right{
-            padding:0 .5em;
+            padding-left:.5em;
         }
+
         
     }
 }
@@ -37,6 +40,7 @@ header{
     .admin-header {
         display: flex;
         flex-direction: column;
+        max-width: $page-width;
         @media (min-width:$md){
             flex-direction: row;
             justify-content: space-between;
