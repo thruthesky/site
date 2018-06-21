@@ -188,14 +188,12 @@ section.content {
     }
 }
 
-.title-banner {
+.main-banner {
     position: relative;
     width: 100%;
     height: 230px;
     @media (min-width: $md) {
-        height: 250px;
-        font-size: 1.3em;
-        font-weight: 200;
+        height: 280px;
     }
     .banner {
         position: absolute;
@@ -210,12 +208,12 @@ section.content {
     }
     .texts {
         position: absolute;
-        top: 15%;
+        z-index: 200;
+        top: 0;
         left: 0;
         padding: 1em;
-        @media (min-width:$md){
-            padding: 0;
-        }
+        font-size: 1.1em;
+        line-height: 160%;
         border-radius: 2px;
         text-shadow:
         0.05em 0 #fff,
@@ -226,9 +224,6 @@ section.content {
         -0.05em 0.05em #fff,
         0.05em -0.05em #fff,
         0.05em 0.05em #fff;
-        line-height: 1.6em;
-        font-size: .9em;
-        z-index: 200;
         .text {
             color: #000;
             opacity: 0;
@@ -244,6 +239,11 @@ section.content {
         }
         .text[no='3'] {
             animation: textAni 1s 4s 1 forwards;
+        }
+        @media (min-width:$md){
+            padding: 1.2em 0 0 0;
+            line-height: 180%;
+            font-size: 1.2em;
         }
     }
     nav {

@@ -18,13 +18,13 @@ export class WithcenterTextService {
         // this.t = getTexts(this.languageCode);
 
         const keys = Object.keys(texts);
-        console.log('keys: ', keys);
-        console.log('texts: ', texts);
+        // console.log('keys: ', keys);
+        // console.log('texts: ', texts);
         for (const key of keys) {
             this.ln[key] = texts[key][this.languageCode];
         }
 
-        console.log('selectedTexts: ', this.ln);
+        // console.log('selectedTexts: ', this.ln);
         return this.ln;
     }
 
