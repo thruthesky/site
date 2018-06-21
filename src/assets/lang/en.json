@@ -682,5 +682,6 @@
   "DOMAIN_CHANGE_APPLICATION": "Your domain change application has been submitted. Head office will review your application.",
   "DOMAIN_CHANGE_APPLICATION_CANCELLED": "Your domain change application has been cancelled.",
   "BRANCH_INFO_UPDATED": "Your branch information has been updated.",
-  "POINT_REFUND_REQUEST_DESC": "Please input the reason why you want to get your point back"
+  "POINT_REFUND_REQUEST_DESC": "Please input the reason why you want to get your point back",
+  "HEAD_OFFICE_CONTACTS": "Withcenter head office contacts"
 }
