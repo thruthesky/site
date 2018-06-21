@@ -7,7 +7,7 @@
 </button>
 
 <div class="info" *ngIf=" show.howtoApply ">
-        {{ t.ln.apply_info }}
+    {{ t.ln.apply_info }}
 </div>
 
 <div class="form-desc">
@@ -52,38 +52,25 @@
             </span>
             <span>.katalkenglish.com</span>
         </div>
-        <span class="foot-note">
-                {{ t.ln.foot_note}}
-
-        </span>
     </div>
 
     <div class="toc">
         <label>
-            <input type="checkbox" name="agree" [(ngModel)]=" agree "> 
-            {{ t.ln.toc}}
+            <input type="checkbox" name="agree" [(ngModel)]=" agree "> {{ t.ln.toc}}
         </label>
         <span (click)=" onClickShowTermsAndConditions() ">
-                {{ t.ln.more_description}} ...
+            {{ t.ln.more_description}} ...
         </span>
     </div>
 
-    
+
     <span class="submit">
         <button type="submit">
-                {{ t.ln.apply_submit }}
+            {{ t.ln.apply_submit }}
         </button>
     </span>
 </form>
 
-<div class="more">
-    <button class="button" (click)=" show.company = true " *ngIf=" ! show.company ">
-            {{ t.ln.see_more}}
-    </button>
-    <div *ngIf=" show.company ">
-            {{ t.ln.see_more_content}}
-    </div>
-</div>
 
 
 <div class="ssl">
@@ -112,6 +99,16 @@
 <article>
     <h3>{{ t.ln.article_title_3}}</h3>
     <p>{{ t.ln.article_content_3}}</p>
+</article>
+
+
+<article>
+    <h3>
+        {{ t.ln.how_to_register_business_in_korea}}
+    </h3>
+    <p>
+        {{ t.ln.how_to_register_business_in_korea_desc}}
+    </p>
 </article>
 
 <article>

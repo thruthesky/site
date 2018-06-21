@@ -910,12 +910,6 @@ This Agreement will be effective from June 20, 2018.`,
         ch: `域`,
         jp: `ドメイン`
     },
-    foot_note: {
-        ko: `자신의 도메인을 가지고 있다면, 당신은 자신의 도메인을 분기 대시 보드에서 업데이트 할 수 있습니다.`,
-        en: `If you have your own domain, you can update your own domain on branch dash board.`,
-        ch: `如果您拥有自己的域名，则可以在分支机构板上更新自己的域名。`,
-        jp: `独自のドメインをお持ちの場合は、ブランチダッシュボードで自分のドメインを更新できます。`
-    },
     toc: {
         ko: `위세너 가맹사 가입 약관에 동의하기.`,
         en: `Agree to the Terms of Membership Agreement.`,
@@ -928,13 +922,13 @@ This Agreement will be effective from June 20, 2018.`,
         ch: `成为特许加盟`,
         jp: `威勢あなたのフランチャイズ加盟社に登録`
     },
-    see_more: {
-        ko: `추가 설명 보기`,
-        en: `See more instructions`,
+    how_to_register_business_in_korea: {
+        ko: `사업자 등록하는 방법`,
+        en: `How to register a business`,
         ch: `查看更多说明`,
         jp: `追加の説明を見る`
     },
-    see_more_content: {
+    how_to_register_business_in_korea_desc: {
         ko: `참고로 사업자 등록과 통신판매업 신고 번호는 누구나 쉽게 취득 할 수 있습니다. 개인의 경우, 세무서에 가서 그냥 집 주소로 전화영어, 화상영어, 온라인영어와 같이 등록을 해 달라고 하시면됩니다. 그리고 통신판매업 신고를 어디서 하는지 물어보시면됩니다. 통신판매업신고를 하실 때, 서버와 도메인이 아직 없는 상태이므로 나중에 따로 등록을 한다고 말씀을 하시면됩니다. 만약 통신판매신고를 할 때, 서버 도메인과 소재지를 묻는다면 아래의 도메인을 입력하시고, SSL 및 호스팅 비용을 납부하시면, 가맹사 매니저 페이지에서 확인을 할 수 있습니다. 그 정보로 다시 신고 하시면 됩니다. 도메인은 홈페이지 주소입니다. 직접 구매한 도메인을 입력하신 경우, 평일 기준 약 24시간이 걸립니다. 가맹사가 직접 도메인을 www.hosting.kr 에서 1년 1만원에 구매하신 다음 본사로 알려주시면 됩니다.`,
         en: `For reference, business registration and telecommunication business notification number can be easily obtained by anyone. If you are an individual, simply go to the tax office and ask them to register with your home address, such as telephone English, video English, or online English. You can also ask where you are reporting a telecommunications distributor. When you report a telecom vendor, the server and domain do not exist yet, so you can register separately later. If you are asking for a server domain and location when you make a mail order report, please enter the domain below and pay SSL and hosting fee, you can check it on your affiliate manager page. You can report it back with that information. Your domain is your homepage address. If you enter your domain, it will take about 24 hours on weekdays. You can purchase your domain at www.hosting.kr for 1 year for 1 year and then let us know at your head office.`,
         ch: `作为参考，任何人都可以轻松获得商业登记和电信业务通知号码。如果您是个人，只需前往税务办公室，让他们注册您的家庭住址，如电话英语，视频英语或在线英语。你也可以问你在哪里报告电信分销商。当您报告电信供应商时，服务器和域名尚不存在，因此您可以稍后单独注册。如果您在制作邮购报告时询问服务器域和位置，请输入下面的域并支付SSL和托管费，您可以在您的联属经理页面上查看。您可以使用该信息回报。您的域名是您的主页地址。如果您输入域名，则平日大约需要24小时。您可以在www.hosting.kr网站上购买域名1年1年，然后在您的总部通知我们。`,

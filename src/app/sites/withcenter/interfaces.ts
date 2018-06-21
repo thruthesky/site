@@ -1,6 +1,5 @@
 
 export interface WithcenterShow {
-    company: boolean;
     domain: boolean;
     withcenter: boolean;
     ontue: boolean;
