@@ -20,6 +20,7 @@ import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module
 import { AdminSessionEditPage } from './pages/admin-session-edit/admin-session-edit.page';
 import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { AdminScheduleTablePage } from './pages/admin-schedule-table/admin-schedule-table.page';
 
 
 const routes: Routes = [
@@ -34,15 +35,19 @@ const routes: Routes = [
             },
             { path: 'login', component: AdminLoginPage },
             { path: 'payment', component: AdminPaymentPage },
+            { path: 'payment/:ID', component: AdminPaymentPage },
             { path: 'point-history', component: AdminPointHistoryPage },
             { path: 'point-refund', component: AdminPointRefundPage },
+            { path: 'point-refund/:field/:value', component: AdminPointRefundPage },
             { path: 'push-notification', component: AdminPushNotificationPage },
             { path: 'session', component: AdminSessionPage },
+            { path: 'session/:type/:ID', component: AdminSessionPage },
+            { path: 'session-edit/:idx', component: AdminSessionEditPage },
             { path: 'setting', component: AdminSettingPage },
             { path: 'user/:field/:value', component: AdminUserPage },
             { path: 'user', component: AdminUserPage },
             { path: 'user-info/:ID', component: AdminUserInfoPage },
-            { path: 'session-edit/:idx', component: AdminSessionEditPage },
+            { path: 'schedule-table/:ID', component: AdminScheduleTablePage },
         ]
     }
 
@@ -74,7 +79,8 @@ const routes: Routes = [
         AdminUserPage,
         AdminUserInfoPage,
         AdminSessionEditPage,
-        AdminSidebarComponent
+        AdminSidebarComponent,
+        AdminScheduleTablePage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -88,7 +94,8 @@ const routes: Routes = [
         AdminSettingPage,
         AdminUserPage,
         AdminUserInfoPage,
-        AdminSessionEditPage
+        AdminSessionEditPage,
+        AdminScheduleTablePage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],

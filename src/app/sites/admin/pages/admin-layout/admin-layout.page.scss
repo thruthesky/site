@@ -9,25 +9,41 @@
 body {
     font-size: 16px!important;
 }
-.content{
-    margin: auto;
-    max-width: $page-width;
-    padding: 0 1em;
-    @media (min-width:$md){
-        padding: 0;
+
+main{
+    &>.container-fluid{
+        max-width: $page-width;
+        padding: 0 1em;
+        @media (min-width:$md){
+            padding: 0;
+        }
+        .layout-left{
+            padding-right: .5em;
+            display: none;
+            @media (min-width:$md){
+                display: block;
+            }
+        }
+
+        .layout-right{
+            padding-left:.5em;
+        }
+
+        
     }
 }
 header{
-    border-bottom: 1px solid rgba(125,125,125,0.2);
+    background: #1D2B36;
+    color: #fff;
     // background-color: #f1f1f0;
 
     .admin-header {
         display: flex;
         flex-direction: column;
+        max-width: $page-width;
         @media (min-width:$md){
             flex-direction: row;
             justify-content: space-between;
-            max-width: $page-width;
             margin: auto;
         }
         a {
@@ -41,11 +57,12 @@ header{
                 opacity: 0.65;
             }
             @media (min-width: $md) {
-                font-size: .9em;
+                font-size: .85em;
             }
             svg {
                 height: 24px;
                 width: 24px;
+                color: #fff;
             }
         }
         .main-menu,.sub-menu {
@@ -55,7 +72,7 @@ header{
         }
         .sub-menu {
             height: $submenu-height;
-            background-color: #BFBFBF;
+            background-color: #455460;
             @media (min-width:$md){
                 height: $main-menu-height;
                 background-color: transparent;
@@ -72,17 +89,12 @@ header{
             input{
                 padding: .5em;
                 border-radius: 2px;
-                border:1px solid rgba(#000,0.1);
-                color: #000;
-                background: transparent;
+                border: 0;
+                background: #fff;
                 font-size: .8em;
                 width: 130px;
                 @media (min-width:$md) {
                     width: 360px
-                }
-
-                &:focus{
-                    background: #fff;
                 }
             }
         }
