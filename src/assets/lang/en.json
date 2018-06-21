@@ -21,12 +21,18 @@
   "YOU ARE NOT LOGGED IN": "Please login first.",
 
   "Email": "Email",
+
   "Version": "Version: #version",
   "LMS.SESSION_RESERVE": "Reservation",
   "LMS.SESSION_CANCEL": "Cancellation",
   "ADMIN.PAYMENT": "Payment",
   "LMS.ADMIN_ACCEPT_REFUND_REQUEST": "Refunded by admin",
   "LMS.SESSION_REFUND": "Refunded by teacher",
+  "ADMIN.ADD": "Admin add",
+  "ADMIN.REFUND": "Admin refund",
+  "ADMIN.SUBTRACT": "Admin subtract",
+  "PAYMENT.PAYPAL": "Paypal Payment",
+
   "TEACHER": "Teacher",
   "TIME": "Time",
   "Minute": "Minute",

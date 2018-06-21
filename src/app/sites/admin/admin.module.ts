@@ -19,6 +19,7 @@ import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { AdminSessionEditPage } from './pages/admin-session-edit/admin-session-edit.page';
 import { ForumServiceModule } from '../../providers/forum/forum.service.module';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 
 
 const routes: Routes = [
@@ -72,7 +73,8 @@ const routes: Routes = [
         AdminSettingPage,
         AdminUserPage,
         AdminUserInfoPage,
-        AdminSessionEditPage
+        AdminSessionEditPage,
+        AdminSidebarComponent
     ],
     entryComponents: [
         AdminLayoutPage,

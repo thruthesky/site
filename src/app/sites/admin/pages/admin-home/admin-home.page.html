@@ -49,10 +49,15 @@
     </section>
     <!--/domain-change-application-->
 </div>
-
-<h1>You have logged in as : {{ a.user.email }} Manager of: {{ a.user.manager }}</h1>
-
-no of student. no of reservations. no of past classes. no of users registered today, yesterday, this month, last 30 days.
-no of users who have free class only. no of users who have paid class. no of users who have no classes at all. no of reservation
-for today, tomorow, this month, for the coming 30 days. no of past classes for yester day, this month, last 30 days. payment
-of today, yester day, this month, last 30 days. no of point refund request
+<div class="row">
+    <div class="col">
+        <admin-sidebar-component></admin-sidebar-component>
+    </div>
+    <div class="col">
+        <h1>You have logged in as : {{ a.user.email }} Manager of: {{ a.user.manager }}</h1>
+        no of student. no of reservations. no of past classes. no of users registered today, yesterday, this month, last 30 days.
+        no of users who have free class only. no of users who have paid class. no of users who have no classes at all. no of reservation
+        for today, tomorow, this month, for the coming 30 days. no of past classes for yester day, this month, last 30 days. payment
+        of today, yester day, this month, last 30 days. no of point refund request
+    </div>
+</div>
