@@ -1,0 +1,55 @@
+<h1>Teacher Schedule Table</h1>
+
+<div>
+    <div *ngIf="teacher && teacher.photoURL"><img src="{{teacher?.photoURL}}"></div>
+    <div *ngIf="teacher && teacher.name">Teacher: {{teacher.name}}</div>
+</div>
+
+<div class="sched container-fluid" *ngIf=" schedules ">
+    <div class="header row">
+        <div class="col">No.</div>
+        <div class="col">Time</div>
+        <div class="col">Min</div>
+        <div class="col">Point</div>
+        <div class="col">Prere</div>
+        <div class="col-7">Days</div>
+    </div>
+    <div class="row" *ngFor="let s of schedules; let odd = odd;">
+        <div class="col">{{s.idx}}</div>
+        <div class="col">{{s.class_begin}}~{{s.class_end}}</div>
+        <div class="col">{{s.duration}}</div>
+        <div class="col">{{s.point}}</div>
+        <div class="col">{{s.prere}}</div>
+        <div class="col-7">
+            <div class="row">
+                <div class="col">
+                    Sun:<span *ngIf="s.sunday">✓</span>
+                </div>
+                <div class="col">
+                    Mon:<span *ngIf="s.monday">✓</span>
+                </div>
+                <div class="col">
+                    Tue:<span *ngIf="s.tuesday">✓</span>
+                </div>
+                <div class="col">
+                    Wed:<span *ngIf="s.wednesday">✓</span>
+                </div>
+                <div class="col">
+                    Thu:<span *ngIf="s.thursday">✓</span>
+                </div>
+                <div class="col">
+                    Fri:<span *ngIf="s.friday">✓</span>
+                </div>
+                <div class="col">
+                    Sat:<span *ngIf="s.saturday">✓</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="loader" *ngIf=" loading ">
+    <mat-spinner [diameter]="48"></mat-spinner>
+    <span>{{ 'IN LOADING' | t}}</span>
+</div>

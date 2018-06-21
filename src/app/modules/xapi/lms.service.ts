@@ -697,4 +697,10 @@ export class XapiLMSService extends Base {
             route: 'lms.point_log_actions_get'
         });
     }
+    teacher_schedule_table_get( idx_teacher ): Observable<any> {
+        return this.x.post({
+            route: 'lms.teacher_schedule_table_get',
+            idx_teacher: idx_teacher
+        });
+    }
 }
