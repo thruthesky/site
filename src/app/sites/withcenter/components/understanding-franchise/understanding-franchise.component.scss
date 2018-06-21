@@ -73,6 +73,12 @@ p{
             img{
                 position: absolute;
                 top: -15%;
+            }   
+            @media (min-width:$md){
+                position: static;
+                img{
+                    position: static;
+                }   
             }
         }
 
