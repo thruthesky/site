@@ -20,6 +20,7 @@ import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module
 import { AdminSessionEditPage } from './pages/admin-session-edit/admin-session-edit.page';
 import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { AdminScheduleTablePage } from './pages/admin-schedule-table/admin-schedule-table.page';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
             { path: 'user/:field/:value', component: AdminUserPage },
             { path: 'user', component: AdminUserPage },
             { path: 'user-info/:ID', component: AdminUserInfoPage },
+            { path: 'schedule-table/:ID', component: AdminScheduleTablePage },
         ]
     }
 
@@ -77,7 +79,8 @@ const routes: Routes = [
         AdminUserPage,
         AdminUserInfoPage,
         AdminSessionEditPage,
-        AdminSidebarComponent
+        AdminSidebarComponent,
+        AdminScheduleTablePage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -91,7 +94,8 @@ const routes: Routes = [
         AdminSettingPage,
         AdminUserPage,
         AdminUserInfoPage,
-        AdminSessionEditPage
+        AdminSessionEditPage,
+        AdminScheduleTablePage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],
