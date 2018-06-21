@@ -161,7 +161,7 @@ export class UserPage implements OnInit {
         if (this.form.name) {
             const n = this.form.name.trim();
             if (isNaN(<any>n)) {
-                where.push(`name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk_id LIKE '${n}%'`);
+                where.push(`user_login LIKE '${n}%' OR name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk_id LIKE '${n}%'`);
             } else {
                 where.push(`ID=${n}`);
             }
