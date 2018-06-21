@@ -3,33 +3,38 @@
 .login-info{
     margin: 1.5em 0;
     @media (min-width:$md){
-        margin: 3em 0;
+        margin-top: 1.5em;
+        margin-bottom: 3em;
     }
     .row{
         justify-content: space-between;
         align-items: stretch;
-        font-size: .8em;
+        font-size: .75em;
+        @media (min-width:$md){
+            font-size: 1em;  
+        }
         .col-md-4{
             padding: 0;
         }  
         .col-md-4:first-child{
             padding-right: .5em;
+            @media (min-width:$md){
+                padding-right: .5em;
+            }
         }
         .middle{
             padding-left: .5em;
-        }
-        @media (min-width:$md){
-            font-size: 1em;  
-            .col-md-4:first-child{
-                padding-right: .5em;
-            }
-            .middle{
+            @media (min-width:$md){
                 padding: 0 .5em;
             }
-            .col-md-4:last-child{
-                padding-left: .5em;
-            }   
         }
+        .col-md-4:last-child{
+            margin-top: 1em;
+            @media (min-width:$md){
+                padding-left: .5em;
+                margin: 0;
+            }
+        }   
     }
     .notice{
         margin: 0;
