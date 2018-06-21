@@ -1,9 +1,41 @@
-<h1>You have logged in as : {{ a.user.email }} Manager of: {{ a.user.manager }}</h1>
+<div class="login-info container-fluid">
+    <div class="row">
+        <div class="col-6 col-md-4">
+            <div class="item">
+                <div class="item-title">
+                        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm128 421.6c-35.9 26.5-80.1 42.4-128 42.4s-92.1-15.9-128-42.4V416c0-35.3 28.7-64 64-64 11.1 0 27.5 11.4 64 11.4 36.6 0 52.8-11.4 64-11.4 35.3 0 64 28.7 64 64v13.6zm30.6-27.5c-6.8-46.4-46.3-82.1-94.6-82.1-20.5 0-30.4 11.4-64 11.4S204.6 320 184 320c-48.3 0-87.8 35.7-94.6 82.1C53.9 363.6 32 312.4 32 256c0-119.1 96.9-216 216-216s216 96.9 216 216c0 56.4-21.9 107.6-57.4 146.1zM248 120c-48.6 0-88 39.4-88 88s39.4 88 88 88 88-39.4 88-88-39.4-88-88-88zm0 144c-30.9 0-56-25.1-56-56s25.1-56 56-56 56 25.1 56 56-25.1 56-56 56z"></path></svg>
+                        <span> have logged in as</span>
+                </div>
+                <div class="item-content">
+                        <span>{{ a.user.email }} </span>
+                </div>
+            </div>
+        </div>
+        <div class="middle col-6 col-md-4">
+            <div class="item ">
+                <div class="item-title">
+                        <svg  viewBox="0 0 512 512"><path fill="currentColor" d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM32 80c0-8.8 7.2-16 16-16h48v64H32V80zm448 352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V160h448v272zm0-304H128V64h336c8.8 0 16 7.2 16 16v48z"></path></svg> 
+                        Manager of
+                </div>
+                <div class="item-content">
+                        <span>{{ a.user.manager }} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4" *ngIf=" a.isSuperManager ">
+                <div class="notice">
+                    <span><svg viewBox="0 0 512 512" ><path fill="currentColor" d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"></path></svg></span>
+                    <span>You are supermanager!</span>
+                </div>
+        </div>
+    </div>
+</div>
+
 <div *ngIf=" a.isSuperManager ">    
-    <div class="notice">
+    <!-- <div class="notice">
         <span><svg viewBox="0 0 512 512" ><path fill="currentColor" d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"></path></svg></span>
         <span>You are supermanager!</span>
-    </div>
+    </div> -->
 
     <div class="table">
         <div class="table-title">
@@ -64,7 +96,194 @@
 
 </div>
 
-no of student. no of reservations. no of past classes. no of users registered today, yesterday, this month, last 30 days.
-no of users who have free class only. no of users who have paid class. no of users who have no classes at all. no of reservation
-for today, tomorow, this month, for the coming 30 days. no of past classes for yester day, this month, last 30 days. payment
-of today, yester day, this month, last 30 days. no of point refund request
+<div class="stats">
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Student
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Reservations
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Past Classes
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users Registered yesterday
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users Registered today
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users Registered this Month
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users Registered this Last 30 Days
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users who have Free Class only.
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users who have Paid Class.
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users who have no Classes at all.
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Users who have no Classes at all.
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Reservations for Today
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Reservations for Tomorrow
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Reservations for this Month
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Reservations for the coming 30 Days
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Past Classes for yesterday
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Past Classes for this Month
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Past Classes for this last 30 Days
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                Payment of Today
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                Payment of yesterday
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                Payment of this month
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                Payment Last 30 days
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+                876
+        </div>
+        <div class="stats-title">
+                No of Point Refund Request
+        </div>
+    </div>
+
+</div>
+<!-- no of student.<br> no of reservations.<br> no of past classes.<br> no of users registered today,<br> yesterday,<br> this month,<br> last 30 days.<br>
+no of users who have free class only.<br> no of users who have paid class.<br> no of users who have no classes at all.<br> no of reservation
+for today,<br> tomorow,<br> this month,<br> for the coming 30 days.<br> no of past classes for yester day,<br> this month,<br> last 30 days.<br> payment
+of today,<br> yester day,<br> this month,<br> last 30 days.<br> no of point refund request -->

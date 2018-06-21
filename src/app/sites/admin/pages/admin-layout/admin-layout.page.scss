@@ -18,7 +18,8 @@ body {
     }
 }
 header{
-    border-bottom: 1px solid rgba(125,125,125,0.2);
+    background: #1D2B36;
+    color: #fff;
     // background-color: #f1f1f0;
 
     .admin-header {
@@ -41,11 +42,12 @@ header{
                 opacity: 0.65;
             }
             @media (min-width: $md) {
-                font-size: .9em;
+                font-size: .85em;
             }
             svg {
                 height: 24px;
                 width: 24px;
+                color: #fff;
             }
         }
         .main-menu,.sub-menu {
@@ -72,17 +74,12 @@ header{
             input{
                 padding: .5em;
                 border-radius: 2px;
-                border:1px solid rgba(#000,0.1);
-                color: #000;
-                background: transparent;
+                border: 0;
+                background: #fff;
                 font-size: .8em;
                 width: 130px;
                 @media (min-width:$md) {
                     width: 360px
-                }
-
-                &:focus{
-                    background: #fff;
                 }
             }
         }
