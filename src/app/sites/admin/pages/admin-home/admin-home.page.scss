@@ -170,37 +170,53 @@
 
 .contact{
     margin-top: 2em;
-
     h2{
+        padding: .5em 1em;
+        @media (min-width:$md){
+            padding: 1em 2em;
+        }
         margin: 0;
-        font-size: 1.5em;
+        color: #F08900;
+        font-size: 1.3em;
         font-weight: 100;
     }
 
-    .app-button{
-        font-weight: 100;
+    .content{
+        display: flex;
+        flex-direction: column;
+        @media (min-width:$md){
+            flex-direction: row;
+        }
+    
+        svg{
+            height: 2em;
+            width: 2em;
+            margin-right: .5em;
+        }
+    
+        .contact-item{
+            display: flex;
+            align-items: center;
+            padding: .5em 1em;
+            @media (min-width:$md){
+                padding: 1em 2em;
+            }
+        }
     }
 
-    div{
-        padding: 1em;
-    }
 
-    svg{
-        height: 2em;
-        width: 2em;
-    }
 }
 
 .stats{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 2em 0;
+    margin: 2em -.5em;
     .stats-card{
         font-size: .85em;
         width: 147px;
         @media (min-width:$md){
-            width: 200px;
+            width: 205px;
             font-size: 1em;
         }
 
