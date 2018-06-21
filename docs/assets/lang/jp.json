@@ -608,5 +608,6 @@
   "DOMAIN_CHANGE_APPLICATION": "ドメイン変更アプリケーションが送信されました。 本社で申請書を審査します。",
   "DOMAIN_CHANGE_APPLICATION_CANCELLED": "ドメイン変更アプリケーションがキャンセルされました。",
   "BRANCH_INFO_UPDATED": "ブランチ情報が更新されました。",
-  "POINT_REFUND_REQUEST_DESC": "ポイントを取得したい理由を入力してください"
+  "POINT_REFUND_REQUEST_DESC": "ポイントを取得したい理由を入力してください",
+  "HEAD_OFFICE_CONTACTS": "本社の連絡先を控えて"
 }
