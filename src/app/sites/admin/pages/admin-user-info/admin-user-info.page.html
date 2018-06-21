@@ -20,14 +20,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-4">Point</div>
+                        <div class="col-4">User Point</div>
                         <div class="col-8">
                             <div class="point">
-                                <div class='user-point'>User Point: {{ user.point | number }}</div>
+                                <div class='user-point'>{{ user.point | number }}</div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngIf="a.isSuperManager">
                         <div class="col-12">
                             <button type='button' class="app-button point-edit" (click)="show.pointUpdateForm = true" *ngIf=" ! show.pointUpdateForm ">Point Edit</button>
                             <section class='point-edit' *ngIf=" show.pointUpdateForm ">
@@ -95,7 +95,7 @@
                             <input type='text' name='password' [(ngModel)]=" user.user_pass ">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" *ngIf="a.isSuperManager">
                         <div class="col-4">User Type</div>
                         <div class="col-8">
                             <input type='radio' id="user_type_student" name='user_type' [(ngModel)]=" user.user_type " [value]="'S'" [checked]=" user.user_type ">
@@ -116,8 +116,6 @@
                             <input type='text' name='name' [(ngModel)]=" user.name ">
                         </div>
                     </div>
-
-
                     <div class="row">
                         <div class="col-4">Gender</div>
                         <div class="col-8">
@@ -131,7 +129,6 @@
                         <div class="col-4">Primary Photo</div>
                         <div class="col-8">
                             <div class="photo-upload">
-
                                 <div class="photo-upload-button">
                                     <div class="profile-photo">
                                         <img src="{{ user.photoURL }}">
@@ -209,14 +206,14 @@
                     </div>
 
 
-                    <div class="row">
+                    <div class="row" *ngIf="a.isSuperManager">
                         <div class="col-4">Domain</div>
                         <div class="col-8">
                             <input type='text' name='domain' [(ngModel)]=" user.domain ">
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" *ngIf="a.isSuperManager">
                         <div class="col-4">Manager</div>
                         <div class="col-8">
                             <input type='text' name='manager' [(ngModel)]=" user.manager ">
