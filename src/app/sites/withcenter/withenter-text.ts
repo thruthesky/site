@@ -477,13 +477,13 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `威勢あなたフランチャイズを開始する`
     },
     about_franchise_title: {
-        ko: `위세너 프랜차이즈 개요 `,
-        en: `Withcenter franchise overview`,
+        ko: `프랜차이즈 개요 `,
+        en: `Franchise overview`,
         ch: `Withcenter特许经营概述`,
         jp: `威勢あなたのフランチャイズの概要`
     },
     about_franchise_desc: {
-        ko: `위세너는 국제 기업으로 한국 학생을 대상으로 화상영어 직거래 수업을 하는 프랜차이즈 사업을 진행하며 가맹사 모집을 합니다. 위세너 프랜차이즈와 관련된 분야 별 설명은 아래와 같습니다.`,
+        ko: `위세너는 글로벌 기업으로 한국, 중국, 일본 학생을 주요 대상으로 화상영어 직거래 수업을 하는 프랜차이즈 사업을 진행하며 가맹사 모집을 합니다. 위세너 프랜차이즈와 관련된 분야 별 설명은 아래와 같습니다.`,
         en: `As a international company, WITHCENTER is a franchise project for Korean students who is engaged in direct conversation classes. Below is a description of each area related to the Weisserin franchise.`,
         ch: `作为一家国际性公司，WISEIN是韩国学生参与直接谈话课程的特许经营项目。 以下是与Weisserin特许经营相关的每个领域的描述。`,
         jp: `威勢君国際企業に韓国の学生を対象に、画像の英語直接取引の授業をするフランチャイズ事業を進行して加盟社募集をします。威勢あなたのフランチャイズに関連する分野別説明は以下の通りです。`
