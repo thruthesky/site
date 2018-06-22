@@ -155,11 +155,6 @@
             color: #C63800
         }
     }
-
-}
-
-#domain-change-application{
-    margin-top: 3em;
 }
 
 .contact{
@@ -201,6 +196,33 @@
 
 }
 
+.stats-summary{
+    font-size: .9em;
+    .col-sm-12{
+        padding: 0;
+        &>*{
+            margin-top: 2em;
+        }
+    }
+
+    .left{
+        @media (min-width:$md){
+            padding-right: .5em;
+        }
+    }
+    .middle{
+        @media (min-width:$md){
+            padding-right: .5em;
+            padding-left: .5em;
+        }
+    }
+    .right{
+        @media (min-width:$md){
+            padding-left: .5em;
+        }
+    }
+}
+
 .stats{
     display: flex;
     flex-wrap: wrap;
@@ -222,7 +244,6 @@
             padding: 1em;
             padding-top: .75em;
             font-size: .9em;
-            color: #00874D;
         }
         .stats-content{
             padding-top: 1em;

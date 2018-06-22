@@ -1,71 +1,81 @@
 <aside>
-    <table>
-        <tr valign="top">
-            <td>
-                <section class="payments">
-                    <h2>Paymnet Information</h2>
-                    Today's Total Point: {{ pointToday | number }}
-                    <table>
-                        <tr class="payment" *ngFor="let payment of payments">
-                            <td>
-                                <div class='link' routerLink="/manager/user-info/{{payment.student?.idx}}">{{ a.shortName( payment.student?.display_name ) }}<button class='user-info-button'>e</button></div>
-                            </td>
-                            <td>
-                                {{ payment.point | number }}
-                            </td>
-                            <td>
-                                {{ a.veryShortDate( payment.stamp_begin ) }}
-                            </td>
-                        </tr>
-                    </table>
-                </section>
-            </td>
-            <td>
+    <div class="total-points">
+        <span>Today's Total Points: </span>
+        <span>{{ pointToday | number }}</span>
+    </div>
 
-                <section class="refund-request">
-                    <h2>Refund Request. Your timezone.</h2>
-                    <table>
-                        <tr>
-                            <th>Teacher</th>
-                            <th>Student</th>
-                            <th>Date Time</th>
-                            <th></th>
-                        </tr>
-                        <tr *ngFor=" let re of refundRequests ">
-                            <td><div class='link' routerLink="/manager/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}<button class='user-info-button'>e</button></div></td>
-                            <td><div class='link' routerLink="/manager/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}<button class='user-info-button'>e</button></div></td>
-                            <td>{{ re.date }} {{ re.class_begin }}</td>
-                            <td><button class='user-info-button' routerLink="/manager/point-refund/idx/{{re.idx}}">open</button></td>
-                        </tr>
-                    </table>
-                </section>
-            </td>
-        </tr>
-    </table>
-
+            <h2>Payment Information</h2>
+            <table class="custom-table">
+                <tr>
+                    <th>Student</th>
+                    <th>Points</th>
+                    <th>Date/Time</th>
+                </tr>
+                <tr class="payment" *ngFor="let payment of payments">
+                    <td>
+                        <div class='link' routerLink="/manager/user-info/{{payment.student?.idx}}">
+                            {{ a.shortName( payment.student?.display_name ) }}
+                            <button class='user-info-button'>e</button>
+                        </div>
+                    </td>
+                    <td>
+                        {{ payment.point | number }}
+                    </td>
+                    <td>
+                        {{ a.veryShortDate( payment.stamp_begin ) }}
+                    </td>
+                </tr>
+            </table>
+            <h2>Refund Request. Your timezone.</h2>
+            <table class="custom-table">
+                <tr>
+                    <th>Teacher</th>
+                    <th>Student</th>
+                    <th>Date Time</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor=" let re of refundRequests ">
+                    <td><div class='link' routerLink="/manager/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}</div></td>
+                    <td><div class='link' routerLink="/manager/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}</div></td>
+                    <td>{{ re.date }} {{ re.class_begin }}</td>
+                    <td><button class='user-info-button' routerLink="/manager/point-refund/idx/{{re.idx}}">open</button></td>
+                </tr>
+            </table>
 
     <h2>Reservation Stat</h2>
-    <hr>
     <section class="stat" *ngIf="stats">
-
-        No. of Reservation: {{ stats['no_of_reservation'] }} No. of Past: {{ stats['no_of_past'] }}
-        <hr> No. of Sessions by Grade:
-        <span class='session'>
-            <span class='grade'>1</span>
-            <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
-            <span class='past'>{{ stats['stat']['past']['1'] }}</span>
-        </span>
-        <span class='session'>
-            <span class='grade'>2</span>
-            <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
-            <span class='past'>{{ stats['stat']['past']['2'] }}</span>
-        </span>
-        <span class='session'>
-            <span class='grade'>3</span>
-            <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
-            <span class='past'>{{ stats['stat']['past']['3'] }}</span>
-        </span>
-        <hr>
+        <div class="top-info">
+            <div>
+                <span> No. of Reservation:</span>
+                <span>{{ stats['no_of_reservation'] }} </span>
+            </div>
+            <div>
+                <span> No. of Past: </span>
+                <span>{{ stats['no_of_past'] }}</span>
+            </div>
+        </div>
+        <div>
+        <div class="bottom-info">
+                <div> No. of Sessions by Grade:</div>
+                <div>
+                    <span class='session'>
+                        <span class='grade'>1</span>
+                        <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
+                        <span class='past'>{{ stats['stat']['past']['1'] }}</span>
+                    </span>
+                    <span class='session'>
+                        <span class='grade'>2</span>
+                        <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
+                        <span class='past'>{{ stats['stat']['past']['2'] }}</span>
+                    </span>
+                    <span class='session'>
+                        <span class='grade'>3</span>
+                        <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
+                        <span class='past'>{{ stats['stat']['past']['3'] }}</span>
+                    </span>
+                </div>
+        </div>
+    </div>
         <div class="teacher-sessions">
             <!-- {{ stats.teachers | json }} -->
             <span class='teacher' *ngFor="let teacher of stats.teachers">
@@ -77,9 +87,9 @@
 
     </section>
 
-    <h2>Sessions of on going. Timezone: {{ a.userTime }}</h2>
-    <hr>
-    <table class="sessions" *ngIf=" sessions.length ">
+    <h2>Sessions ongoing</h2>
+    <div class="timezone"> Timezone: {{ a.userTime }}</div>
+    <table class="custom-table" *ngIf=" sessions.length ">
         <tr>
             <th>idx</th>
             <th>Teacher</th>

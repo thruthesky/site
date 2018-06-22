@@ -1,37 +1,51 @@
 aside {
-    // position: absolute;
+    padding:1em;
     display: block;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: #FFD34F;
     font-size: .8rem;
+    .total-points{
+        padding: .785em;
+        background: #fff;
+        font-size: 1.1em;
+        text-align: center;
+        span{
+            font-weight: 100;
+        }
+    }
+
+    .link{
+        &:hover{
+            color: dodgerblue;
+            font-weight: 100;
+        }
+    }
     h2 {
         margin: 0;
-        padding: 0;
+        padding: .75em .2em;
         font-size: .9rem;
         font-weight: bold;
     }
-    .session {
-        .grade {
-            display: inline-block;
-            padding: .1em .25em;
-            border-radius: 2px;
-            background-color: black;
-            color: white;
-        }
-        .reserved {
-            margin-left: .25em;
-            padding: .1em .25em;
-            background-color: burlywood;
-        }
-        .past {
-            margin-left: .25em;
-            margin-right: .5em;
-            padding: .1em .25em;
-            background-color: #eee;
+    .timezone{
+        font-size: 1.1em;
+        padding: .5em .2em;
+    }
+    .custom-table{
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        td,th{
+            padding: .25em .3em;
+            // border: 1px solid #000;
         }
     }
     .teacher-sessions {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+        padding: 1em 0;
         .teacher {
+            width: 48%;
             display: inline-block;
             margin: .4em .25em .4em 0;
         }
@@ -50,13 +64,67 @@ aside {
         }
     }
     .user-info-button {
-        margin: 0;
-        padding: 2px;
+        margin: .2em;
         border: 0;
         border-radius: 50%;
-        background-color: rgb(236, 236, 236);
-        color: rgb(148, 148, 148);
-        font-size: 6pt;
+        background: 0;
+        font-weight: 500;
+        color: #4A4AB3;
+        font-size: 7pt;
         cursor: pointer;
+    }
+
+    .stat{
+        .top-info{
+            display: flex;
+            justify-content: space-between;
+
+            &>div{
+                width: 49%;
+                background: #fff;
+                span:first-child{
+                    font-weight: bold;
+                }
+                span{
+                    display: inline-block;
+                    padding: .75em
+                }
+            }
+        }
+        .bottom-info{
+            margin-top: .7em;
+            &>div{
+                width: 100%;
+                background: #fff;
+            }
+            &>div:first-child{
+                padding: .75em;
+                font-weight: bold;
+            }
+            &>div:last-child{
+                display: flex;
+                justify-content: space-around;
+                text-align: center;
+                padding-bottom: .75em;
+            }
+
+            .session {
+                .grade {
+                    display: inline-block;
+                    padding: .4em .7em;
+                    border-radius: 2px;
+                    background-color: black;
+                    color: white;
+                }
+                .reserved {
+                    padding: .4em .7em;
+                    background-color: burlywood;
+                }
+                .past {
+                    padding: .4em .7em;
+                    background-color: #eee;
+                }
+            }
+        }
     }
 }
