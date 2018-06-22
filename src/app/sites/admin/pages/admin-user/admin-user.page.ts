@@ -129,6 +129,7 @@ export class AdminUserPage implements OnInit {
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
+            no_of_reservations: true
         }).subscribe(re => {
             this.show.loader = false;
             this.re = re;
