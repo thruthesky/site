@@ -122,7 +122,10 @@
         </tr>
         <tr class="user" *ngFor=" let user of re ">
             <td class="id" *ngIf=" form.display.ID ">{{ user.ID }}</td>
-            <td class="display_name">{{ a.shortName( user.display_name ) }}</td>
+            <td class="display_name">
+                {{ a.shortName( user.display_name ) }}
+                ({{ user.no_of_future }}/{{ user.no_of_past }})
+            </td>
             <td class="name">
                 <a class="user-info" routerLink="/manager/user-info/{{user.ID}}">{{ user.name }}</a>
                 <a *ngIf=" user.user_type == 'T' " routerLink="/manager/schedule-table/{{user.ID}}"><button>Sched</button></a>
