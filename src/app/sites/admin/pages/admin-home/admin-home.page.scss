@@ -13,22 +13,16 @@
         @media (min-width:$md){
             font-size: 1em;  
         }
-        .col-md-4{
+        .col-md-6{
             padding: 0;
         }  
-        .col-md-4:first-child{
+        .col-md-6:first-child{
             padding-right: .5em;
             @media (min-width:$md){
                 padding-right: .5em;
             }
         }
-        .middle{
-            padding-left: .5em;
-            @media (min-width:$md){
-                padding: 0 .5em;
-            }
-        }
-        .col-md-4:last-child{
+        .col-md-6:last-child{
             margin-top: 1em;
             @media (min-width:$md){
                 padding-left: .5em;
