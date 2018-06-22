@@ -1,25 +1,21 @@
 aside {
-    padding:1em;
+    padding:.5em 1em;
     display: block;
     width: 100%;
-    background-color: #FFD34F;
+    background-color: antiquewhite;
     font-size: .8rem;
-    .total-points{
-        padding: .785em;
-        background: #fff;
-        font-size: 1.1em;
-        text-align: center;
-        span{
-            font-weight: 100;
+
+    .payment-info-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .total-points{
+            padding: .4em;
+            background: #fff;
+            font-size: .9em;
         }
     }
 
-    .link{
-        &:hover{
-            color: dodgerblue;
-            font-weight: 100;
-        }
-    }
     h2 {
         margin: 0;
         padding: .75em .2em;
@@ -45,9 +41,8 @@ aside {
         justify-content: space-between;
         padding: 1em 0;
         .teacher {
-            width: 48%;
             display: inline-block;
-            margin: .4em .25em .4em 0;
+            margin: 1em .25em .4em 0;
         }
         .name {
             margin-right: .15em;
@@ -64,13 +59,13 @@ aside {
         }
     }
     .user-info-button {
-        margin: .2em;
+        margin: 0;
+        padding: 2px;
         border: 0;
         border-radius: 50%;
-        background: 0;
-        font-weight: 500;
-        color: #4A4AB3;
-        font-size: 7pt;
+        background-color: #ececec;
+        color: #949494;
+        font-size: 8pt;
         cursor: pointer;
     }
 

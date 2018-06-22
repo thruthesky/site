@@ -1,46 +1,57 @@
 <aside>
-    <div class="total-points">
-        <span>Today's Total Points: </span>
-        <span>{{ pointToday | number }}</span>
-    </div>
+    <h2 class="payment-info-header">
+        <span>Payment Information</span>
+        <span class="total-points">
+            Today's Total Points: {{ pointToday | number }}
+        </span>
+    </h2>
+    <table class="custom-table">
+        <tr>
+            <th>Student</th>
+            <th>Points</th>
+            <th>Date Time</th>
+        </tr>
+        <tr class="payment" *ngFor="let payment of payments">
+            <td>
+                <div class='link' routerLink="/manager/user-info/{{payment.student?.idx}}">
+                    {{ a.shortName( payment.student?.display_name ) }}<button class="user-info-button">e</button>
+                </div>
+            </td>
+            <td>
+                {{ payment.point | number }}
+            </td>
+            <td>
+                {{ a.veryShortDate( payment.stamp_begin ) }}
+            </td>
+        </tr>
+    </table>
 
-            <h2>Payment Information</h2>
-            <table class="custom-table">
-                <tr>
-                    <th>Student</th>
-                    <th>Points</th>
-                    <th>Date/Time</th>
-                </tr>
-                <tr class="payment" *ngFor="let payment of payments">
-                    <td>
-                        <div class='link' routerLink="/manager/user-info/{{payment.student?.idx}}">
-                            {{ a.shortName( payment.student?.display_name ) }}
-                            <button class='user-info-button'>e</button>
-                        </div>
-                    </td>
-                    <td>
-                        {{ payment.point | number }}
-                    </td>
-                    <td>
-                        {{ a.veryShortDate( payment.stamp_begin ) }}
-                    </td>
-                </tr>
-            </table>
-            <h2>Refund Request. Your timezone.</h2>
-            <table class="custom-table">
-                <tr>
-                    <th>Teacher</th>
-                    <th>Student</th>
-                    <th>Date Time</th>
-                    <th></th>
-                </tr>
-                <tr *ngFor=" let re of refundRequests ">
-                    <td><div class='link' routerLink="/manager/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}</div></td>
-                    <td><div class='link' routerLink="/manager/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}</div></td>
-                    <td>{{ re.date }} {{ re.class_begin }}</td>
-                    <td><button class='user-info-button' routerLink="/manager/point-refund/idx/{{re.idx}}">open</button></td>
-                </tr>
-            </table>
+
+    <h2>Refund Request. Your timezone.</h2>
+    <table class="custom-table">
+        <tr>
+            <th>Teacher</th>
+            <th>Student</th>
+            <th>Date Time</th>
+            <th></th>
+        </tr>
+        <tr *ngFor=" let re of refundRequests ">
+            <td><div class='link' routerLink="/manager/user-info/{{re.teacher?.idx}}">
+                {{ re.teacher?.display_name }}
+                <button class="user-info-button">e</button>
+            </div>
+        </td>
+            <td><div class='link' routerLink="/manager/user-info/{{re.student?.idx}}">
+                {{ a.shortName( re.student?.display_name ) }}
+                <button class="user-info-button">e</button>
+            </div>
+        </td>
+            <td>{{ re.date }} {{ re.class_begin }}</td>
+            <td><button class='user-info-button' routerLink="/manager/point-refund/idx/{{re.idx}}">open</button></td>
+        </tr>
+    </table>
+
+
 
     <h2>Reservation Stat</h2>
     <section class="stat" *ngIf="stats">
@@ -55,37 +66,38 @@
             </div>
         </div>
         <div>
-        <div class="bottom-info">
-                <div> No. of Sessions by Grade:</div>
-                <div>
-                    <span class='session'>
-                        <span class='grade'>1</span>
-                        <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
-                        <span class='past'>{{ stats['stat']['past']['1'] }}</span>
-                    </span>
-                    <span class='session'>
-                        <span class='grade'>2</span>
-                        <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
-                        <span class='past'>{{ stats['stat']['past']['2'] }}</span>
-                    </span>
-                    <span class='session'>
-                        <span class='grade'>3</span>
-                        <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
-                        <span class='past'>{{ stats['stat']['past']['3'] }}</span>
-                    </span>
-                </div>
+            <div class="bottom-info">
+                    <div> No. of Sessions by Grade:</div>
+                    <div>
+                        <span class='session'>
+                            <span class='grade'>1</span>
+                            <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
+                            <span class='past'>{{ stats['stat']['past']['1'] }}</span>
+                        </span>
+                        <span class='session'>
+                            <span class='grade'>2</span>
+                            <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
+                            <span class='past'>{{ stats['stat']['past']['2'] }}</span>
+                        </span>
+                        <span class='session'>
+                            <span class='grade'>3</span>
+                            <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
+                            <span class='past'>{{ stats['stat']['past']['3'] }}</span>
+                        </span>
+                    </div>
+            </div>
         </div>
-    </div>
         <div class="teacher-sessions">
             <!-- {{ stats.teachers | json }} -->
-            <span class='teacher' *ngFor="let teacher of stats.teachers">
-                <span class="link" routerLink="/manager/user-info/{{ teacher.idx }}" class="name">{{ teacher.name }}<button class="user-info-button">e</button></span>
-                <span class="reserved">{{ teacher.reserved }}</span>
-                <span class="past">{{ teacher.past }}</span>
-            </span>
+                <span class='teacher' *ngFor="let teacher of stats.teachers">
+                    <span class="link" routerLink="/manager/user-info/{{ teacher.idx }}" class="name">{{ teacher.name }}<button class="user-info-button">e</button></span>
+                    <span class="reserved">{{ teacher.reserved }}</span>
+                    <span class="past">{{ teacher.past }}</span>
+                </span>
         </div>
-
     </section>
+
+    
 
     <h2>Sessions ongoing</h2>
     <div class="timezone"> Timezone: {{ a.userTime }}</div>
