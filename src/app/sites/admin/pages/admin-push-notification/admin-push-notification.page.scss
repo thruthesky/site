@@ -1,0 +1,53 @@
+h2{
+    font-size: 1.6em;
+    font-weight: 100;
+}
+
+ol{
+    line-height: 1.5em;
+}
+
+form{
+    &>div{
+        margin-top: 1.5em;
+    }
+    select{
+        height: 3.6em;
+        border: 1px solid rgba(125,125,125,0.4)
+    }
+
+    label{
+        display: block;
+        padding-left: .2em;
+        margin-bottom: .3em;
+        font-size: .9em;
+    }
+
+    input{
+        padding: .5em .75em;
+        font-size: 1em;
+    }
+
+    button{
+        padding: .8em 2em;
+        border: 0;
+        border-radius: 2px;
+        font-size: .75em;
+    }
+
+    .check-button{
+        margin-left: 1em;
+        background: darkorange;
+    }
+
+    .submit-button{
+        background: darkblue;
+        color: #fff;
+    }
+
+    .note{
+        margin-left: 1em;
+        font-size: .9em;
+        color: darkorange;
+    }
+}
