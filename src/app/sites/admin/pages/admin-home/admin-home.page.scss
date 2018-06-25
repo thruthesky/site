@@ -94,6 +94,7 @@
 }
 
 .table{
+    height: 220px;
     border-radius: 2px;
     border: 1px solid rgba(125,125,125,0.2);
     font-size: 90%;
@@ -128,7 +129,6 @@
     }
 
     &-content{
-        max-height: 200px;
         font-size: .9em;
         overflow: auto;
         table{
