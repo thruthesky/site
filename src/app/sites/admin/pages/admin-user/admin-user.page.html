@@ -3,22 +3,6 @@
 
 <form (ngSubmit)="quickSearch = false; onSubmit()">
     <div>
-        <div>
-            Order
-            <select name="order" [(ngModel)]="form.order" (change)="onChangeSelectOrder($event)">
-                <option value="regdate">Reg. Date</option>
-                <option value="ID">User ID</option>
-                <option value="point">Point</option>
-                <option value="grade">Grade</option>
-                <option value="list_order">List Order</option>
-                <option value="bookable_time">Bookable Time</option>
-            </select>
-            by
-            <select name="by" [(ngModel)]="form.by">
-                <option value="ASC">ASC</option>
-                <option value="DESC">DESC</option>
-            </select>
-        </div>
         <div class="user-type">
             <span>Type</span>
             <input id="student-checkbox" type="checkbox" name="type_male" [(ngModel)]="form.student">
@@ -34,15 +18,21 @@
             <label for="female-checkbox">Female</label>
         </div>
         <div>
-            Manager:
-            <input type="checkbox" name="manager" [(ngModel)]="form.manager">
+            Limit:
+            <input class="limit" type="text" name="limit" [(ngModel)]="form.limit"> 
+        </div>
+        <div>
+            Grade:
+            <input class="grade" type="text" name="grade_begin" [(ngModel)]="form.grade_begin"> ~
+            <input class="grade" type="text" name="grade_end" [(ngModel)]="form.grade_end"> 
         </div>
     </div>
     <div>
+
         <div>
-            Point:
-            <input class="user-point" type="text" name="point_begin" [(ngModel)]="form.point_begin"> ~
-            <input class="user-point" type="text" name="point_end" [(ngModel)]="form.point_end">
+            Bookable Time:
+            <input  class="bookable-time"type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
+            <input  class="bookable-time" type="text" name="bookable_time_end" [(ngModel)]="form.bookable_time_end">     
         </div>
         <div>
             Domain:
@@ -53,9 +43,8 @@
             <input class="timezone" type="text" name="timezone" [(ngModel)]="form.timezone"> 
         </div>
         <div>
-            Grade:
-            <input class="grade" type="text" name="grade_begin" [(ngModel)]="form.grade_begin"> ~
-            <input class="grade" type="text" name="grade_end" [(ngModel)]="form.grade_end"> 
+            Manager:
+            <input type="checkbox" name="manager" [(ngModel)]="form.manager">
         </div>
     </div>
     <div>
@@ -66,27 +55,21 @@
         </div>
 
         <div>
-            Bookable Time:
-            <input  class="bookable-time"type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
-            <input  class="bookable-time" type="text" name="bookable_time_end" [(ngModel)]="form.bookable_time_end">     
-        </div>
-
-        <div>
             List Order:
             <input class="list-order" type="text" name="list_order_begin" [(ngModel)]="form.list_order_begin"> ~
             <input class="list-order" type="text" name="list_order_end" [(ngModel)]="form.list_order_end"> 
         </div>
-        
         <div>
-            Limit:
-            <input class="limit" type="text" name="limit" [(ngModel)]="form.limit"> 
+            Point:
+            <input class="user-point" type="text" name="point_begin" [(ngModel)]="form.point_begin"> ~
+            <input class="user-point" type="text" name="point_end" [(ngModel)]="form.point_end">
         </div>
     </div>
 
     <div>
 </div>
 
-    <div> 
+    <div class="display"> 
         <span>Display:</span>
         <span>
             <input type="checkbox" id="display_ID" name="display_ID" [(ngModel)]="form.display.ID">
@@ -122,7 +105,7 @@
         </span>
     </div>
 
-    <div> 
+    <div class="stat"> 
         <span>Stat:</span>
         <span>
             <input id="count_result" type="checkbox" name="count_result" [(ngModel)]="form.display.stat.count_result">
@@ -156,6 +139,22 @@
                 User
             </label>
             <input id="user-search" class="user-search" type="text" name="name" [(ngModel)]="form.name"> 
+        </div>
+        <div>
+            Order
+            <select name="order" [(ngModel)]="form.order" (change)="onChangeSelectOrder($event)">
+                <option value="regdate">Reg. Date</option>
+                <option value="ID">User ID</option>
+                <option value="point">Point</option>
+                <option value="grade">Grade</option>
+                <option value="list_order">List Order</option>
+                <option value="bookable_time">Bookable Time</option>
+            </select>
+            by
+            <select name="by" [(ngModel)]="form.by">
+                <option value="ASC">ASC</option>
+                <option value="DESC">DESC</option>
+            </select>
         </div>
         <button class="app-button" type="submit">Search</button>
     </div>

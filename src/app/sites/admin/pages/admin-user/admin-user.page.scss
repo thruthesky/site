@@ -94,6 +94,12 @@ form{
         @media (min-width:$md){
             justify-content: space-around
         }
+
+        label{
+            color: #0867B0
+        }
+
+        
     }
     input[type="checkbox"],label{
         cursor: pointer;
@@ -107,13 +113,21 @@ form{
         padding: .3em 0;
         color: #000;
     }
+
+    .display{
+        padding-top: .75em;
+        padding-bottom:.2em;
+    }
+    .stat{
+        padding-top:.2em;
+        padding-bottom: .75em
+    }
     &>div{
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 1em 0;
         @media (min-width:$md){
-            justify-content: space-between;
             align-items: center;
             flex-direction: row;
             margin: .5em 0;
@@ -123,6 +137,12 @@ form{
             margin: 1em;
             @media (min-width:$md){
                 margin: 0;
+                margin-right: 2em;
+            }
+        }
+        &>span{
+            @media (min-width:$md){
+                margin-right: 1em;
             }
         }
 
