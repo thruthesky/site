@@ -133,7 +133,6 @@
     &-content{
         font-size: .9em;
         overflow: auto;
-        min-height: 200px;
         table{
             width: 100%;
             text-align: center;
@@ -200,6 +199,10 @@
 
 .stats-summary{
     font-size: .9em;
+
+    &>.row{
+        align-items: stretch;
+    }
     .col-sm-12{
         padding: 0;
         &>*{
