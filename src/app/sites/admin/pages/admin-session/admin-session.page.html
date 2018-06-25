@@ -199,69 +199,71 @@
     </div>
 </section>
 The time of session list is in your timezone. {{ a.userTime }}
-<table class="sessions" *ngIf=" re.length ">
-    <tr>
-        <th>idx</th>
-        <th>Teacher</th>
-        <th>Student</th>
-        <th>Date</th>
-        <th>Begin</th>
-        <th>End</th>
-        <th>Point</th>
-        <th *ngIf=" form.display.reserved_at ">Reserved At</th>
-        <th *ngIf=" form.display.paid ">Paid</th>
-        <th *ngIf=" form.display.refund_request_at ">Refund Request At</th>
-        <th *ngIf=" form.display.refund_request_message ">Request Message</th>
-        <th *ngIf=" form.display.refund_reject_at ">Reject At</th>
-        <th *ngIf=" form.display.refund_reject_message ">Reject Message</th>
-        <th *ngIf=" form.display.refund_done_at ">Done At</th>
-        <th *ngIf=" form.display.refund_done_point ">Done Point</th>
-        <th *ngIf=" form.display.refund_done_by ">Done By</th>
-        <th *ngIf=" form.display.refund_settle_at ">Settled At</th>
-        <th *ngIf=" form.display.refund_settle_message ">Settled Message</th>
-        <th *ngIf=" form.display.teacher_absent ">Teacher Absent</th>
-        <th *ngIf=" form.display.student_absent ">Student Absent</th>
-        <th *ngIf=" form.display.successful ">Successful</th>
-        <th *ngIf=" form.display.expression ">Expression</th>
-        <th *ngIf=" form.display.vocabulary ">Vocabulary</th>
-        <th *ngIf=" form.display.grammar ">Grammar</th>
-        <th *ngIf=" form.display.pronunciation ">Pronuncitation</th>
-        <th *ngIf=" form.display.speed ">Speed</th>
-        <th *ngIf=" form.display.comment ">Comment</th>
-        <th *ngIf=" form.display.book_used ">Book Used</th>
-        <th *ngIf=" form.display.book_next ">Book Next</th>
-        <th *ngIf=" form.display.stamp_checked ">Checked</th>
-    </tr>
-    <tr *ngFor="let session of re">
-        <td routerLink="/manager/session-edit/{{session.idx}}">{{ session.idx }}<button class="user-info-button">e</button></td>
-        <td routerLink="/manager/user-info/{{session.teacher?.idx}}">{{ session.teacher?.display_name }}<button class="user-info-button">e</button></td>
-        <td routerLink="/manager/user-info/{{session.student?.idx}}">{{ session.student?.display_name }}<button class="user-info-button">e</button></td>
-        <td>{{ session.date }}</td>
-        <td>{{ session.class_begin }}</td>
-        <td>{{ session.class_end }}</td>
-        <td>{{ session.point }}</td>
-        <td *ngIf=" form.display.reserved_at ">{{ session.stamp_reserve }}</td>
-        <td *ngIf=" form.display.paid ">{{ session.paid }}</td>
-        <td *ngIf=" form.display.refund_request_at ">{{ session.refund_request_at }}</td>
-        <td *ngIf=" form.display.refund_request_message ">{{ session.refund_request_message }}</td>
-        <td *ngIf=" form.display.refund_reject_at ">{{ session.refund_reject_at }}</td>
-        <td *ngIf=" form.display.refund_reject_message ">{{ session.refund_reject_message }}</td>
-        <td *ngIf=" form.display.refund_done_at ">{{ session.refund_done_at }}</td>
-        <td *ngIf=" form.display.refund_done_point ">{{ session.refund_done_point }}</td>
-        <td *ngIf=" form.display.refund_done_by ">{{ session.refund_done_by }}</td>
-        <td *ngIf=" form.display.refund_settle_at ">{{ session.refund_settle_at }}</td>
-        <td *ngIf=" form.display.refund_settle_message ">{{ session.refund_settle_message }}</td>
-        <td *ngIf=" form.display.teacher_absent ">{{ session.teacher_absent }}</td>
-        <td *ngIf=" form.display.student_absent ">{{ session.student_absent }}</td>
-        <td *ngIf=" form.display.successful ">{{ session.successful }}</td>
-        <td *ngIf=" form.display.expression ">{{ session.expression }}</td>
-        <td *ngIf=" form.display.vocabulary ">{{ session.vocabulary }}</td>
-        <td *ngIf=" form.display.grammar ">{{ session.grammar }}</td>
-        <td *ngIf=" form.display.pronunciation ">{{ session.pronunciation }}</td>
-        <td *ngIf=" form.display.speed ">{{ session.speed }}</td>
-        <td *ngIf=" form.display.comment ">{{ session.comment }}</td>
-        <td *ngIf=" form.display.book_used ">{{ session.book_used }}</td>
-        <td *ngIf=" form.display.book_next ">{{ session.book_next }}</td>
-        <td *ngIf=" form.display.stamp_checked ">{{ session.stamp_checked  != '0' ? 'Y' : 'N' }}</td>
-    </tr>
-</table>
+<div class="custom-table">
+    <table class="sessions" *ngIf=" re.length ">
+            <tr>
+                <th>idx</th>
+                <th>Teacher</th>
+                <th>Student</th>
+                <th>Date</th>
+                <th>Begin</th>
+                <th>End</th>
+                <th>Point</th>
+                <th *ngIf=" form.display.reserved_at ">Reserved At</th>
+                <th *ngIf=" form.display.paid ">Paid</th>
+                <th *ngIf=" form.display.refund_request_at ">Refund Request At</th>
+                <th *ngIf=" form.display.refund_request_message ">Request Message</th>
+                <th *ngIf=" form.display.refund_reject_at ">Reject At</th>
+                <th *ngIf=" form.display.refund_reject_message ">Reject Message</th>
+                <th *ngIf=" form.display.refund_done_at ">Done At</th>
+                <th *ngIf=" form.display.refund_done_point ">Done Point</th>
+                <th *ngIf=" form.display.refund_done_by ">Done By</th>
+                <th *ngIf=" form.display.refund_settle_at ">Settled At</th>
+                <th *ngIf=" form.display.refund_settle_message ">Settled Message</th>
+                <th *ngIf=" form.display.teacher_absent ">Teacher Absent</th>
+                <th *ngIf=" form.display.student_absent ">Student Absent</th>
+                <th *ngIf=" form.display.successful ">Successful</th>
+                <th *ngIf=" form.display.expression ">Expression</th>
+                <th *ngIf=" form.display.vocabulary ">Vocabulary</th>
+                <th *ngIf=" form.display.grammar ">Grammar</th>
+                <th *ngIf=" form.display.pronunciation ">Pronuncitation</th>
+                <th *ngIf=" form.display.speed ">Speed</th>
+                <th *ngIf=" form.display.comment ">Comment</th>
+                <th *ngIf=" form.display.book_used ">Book Used</th>
+                <th *ngIf=" form.display.book_next ">Book Next</th>
+                <th *ngIf=" form.display.stamp_checked ">Checked</th>
+            </tr>
+            <tr *ngFor="let session of re">
+                <td routerLink="/manager/session-edit/{{session.idx}}">{{ session.idx }}<button class="user-info-button">e</button></td>
+                <td routerLink="/manager/user-info/{{session.teacher?.idx}}">{{ session.teacher?.display_name }}<button class="user-info-button">e</button></td>
+                <td routerLink="/manager/user-info/{{session.student?.idx}}">{{ session.student?.display_name }}<button class="user-info-button">e</button></td>
+                <td>{{ session.date }}</td>
+                <td>{{ session.class_begin }}</td>
+                <td>{{ session.class_end }}</td>
+                <td>{{ session.point }}</td>
+                <td *ngIf=" form.display.reserved_at ">{{ session.stamp_reserve }}</td>
+                <td *ngIf=" form.display.paid ">{{ session.paid }}</td>
+                <td *ngIf=" form.display.refund_request_at ">{{ session.refund_request_at }}</td>
+                <td *ngIf=" form.display.refund_request_message ">{{ session.refund_request_message }}</td>
+                <td *ngIf=" form.display.refund_reject_at ">{{ session.refund_reject_at }}</td>
+                <td *ngIf=" form.display.refund_reject_message ">{{ session.refund_reject_message }}</td>
+                <td *ngIf=" form.display.refund_done_at ">{{ session.refund_done_at }}</td>
+                <td *ngIf=" form.display.refund_done_point ">{{ session.refund_done_point }}</td>
+                <td *ngIf=" form.display.refund_done_by ">{{ session.refund_done_by }}</td>
+                <td *ngIf=" form.display.refund_settle_at ">{{ session.refund_settle_at }}</td>
+                <td *ngIf=" form.display.refund_settle_message ">{{ session.refund_settle_message }}</td>
+                <td *ngIf=" form.display.teacher_absent ">{{ session.teacher_absent }}</td>
+                <td *ngIf=" form.display.student_absent ">{{ session.student_absent }}</td>
+                <td *ngIf=" form.display.successful ">{{ session.successful }}</td>
+                <td *ngIf=" form.display.expression ">{{ session.expression }}</td>
+                <td *ngIf=" form.display.vocabulary ">{{ session.vocabulary }}</td>
+                <td *ngIf=" form.display.grammar ">{{ session.grammar }}</td>
+                <td *ngIf=" form.display.pronunciation ">{{ session.pronunciation }}</td>
+                <td *ngIf=" form.display.speed ">{{ session.speed }}</td>
+                <td *ngIf=" form.display.comment ">{{ session.comment }}</td>
+                <td *ngIf=" form.display.book_used ">{{ session.book_used }}</td>
+                <td *ngIf=" form.display.book_next ">{{ session.book_next }}</td>
+                <td *ngIf=" form.display.stamp_checked ">{{ session.stamp_checked  != '0' ? 'Y' : 'N' }}</td>
+            </tr>
+        </table>
+</div>

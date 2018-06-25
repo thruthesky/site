@@ -23,36 +23,39 @@
 <section class="result" *ngIf=" re.length ">
     No of Searched Record: {{ re.length }}
 </section>
-<table *ngIf=" re.length ">
-    <tr>
-        <td>Action</td>
-        <td>Apply Point</td>
-        <td>Point</td>
-        <td>Teacher</td>
-        <td>Student</td>
-        <td>Reason</td>
-        <td>Time</td>
-    </tr>
-    <tr *ngFor="let log of re ">
-        <td><ng-container *ngIf="log.action">{{ log.action | t }}</ng-container></td>
-        <td>{{ log.apply_point }}</td>
-        <td>
-            <div [class.bg-danger]=" ! log.point_change ">
-                {{ log.after_point }}
-            </div>
-        </td>
-        <td>
-            <button class='user-info-button' *ngIf="log?.teacher?.idx"
-                    routerLink="/manager/user-info/{{log?.teacher?.idx}}">{{ log.teacher?.display_name }}
-            </button>
-        </td>
-        <td>
-            <button class='user-info-button' *ngIf="log?.student?.idx"
-                    routerLink="/manager/user-info/{{log?.student?.idx}}">{{ log.student?.display_name }}
-            </button>
-        </td>
-        <td>{{ log.reason }}</td>
-        <td>{{ log.stamp * 1000 | date:'yyyy-MM-dd HH:mm:ss z' }}</td>
-    </tr>
 
-</table>
+<div class="custom-table">
+    <table *ngIf=" re.length ">
+            <tr>
+                <td>Action</td>
+                <td>Apply Point</td>
+                <td>Point</td>
+                <td>Teacher</td>
+                <td>Student</td>
+                <td>Reason</td>
+                <td>Time</td>
+            </tr>
+            <tr *ngFor="let log of re ">
+                <td><ng-container *ngIf="log.action">{{ log.action | t }}</ng-container></td>
+                <td>{{ log.apply_point }}</td>
+                <td>
+                    <div [class.bg-danger]=" ! log.point_change ">
+                        {{ log.after_point }}
+                    </div>
+                </td>
+                <td>
+                    <button class='user-info-button' *ngIf="log?.teacher?.idx"
+                            routerLink="/manager/user-info/{{log?.teacher?.idx}}">{{ log.teacher?.display_name }}
+                    </button>
+                </td>
+                <td>
+                    <button class='user-info-button' *ngIf="log?.student?.idx"
+                            routerLink="/manager/user-info/{{log?.student?.idx}}">{{ log.student?.display_name }}
+                    </button>
+                </td>
+                <td>{{ log.reason }}</td>
+                <td>{{ log.stamp * 1000 | date:'yyyy-MM-dd HH:mm:ss z' }}</td>
+            </tr>
+        
+        </table>
+</div>

@@ -1,19 +1,131 @@
-
+@import '../../../../../theme/vars';
 h1{
-    font-size: 1.6em;
+    @media (min-width:$md){
+        margin: 0;
+        margin-top: 1em;
+    }
+    font-size: 1.4em;
     font-weight: 200;
 }
 .result{
     font-size: .85em;
 }
 
+.statistics{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: .8em;
+    padding: 1em 0;
+    @media (min-width:$md){
+        flex-direction: row;
+        font-size: 1em;
+    }
+    .statistics{
+        @media (min-width:$md){
+            width:25%;
+       } 
+    }
+    .daily-registration{
+        @media (min-width:$md){
+            width:65%;
+       } 
+    }
+
+    .stats{
+        display: flex;
+        padding: 1em 0;
+        @media (min-width:$md){
+            flex-direction: column;
+        }
+        .stats-item{
+            margin: 0 .5em;
+            @media (min-width:$md){
+                margin: .2em 0;
+                width: 200px;
+            }
+            padding: 1em;
+            background: #eee;
+    
+        }
+    }
+
+    .daily-registration{
+        display: flex;
+    
+        .bar{
+            width: 40px;
+            @media (min-width:$md){
+                width: 80px;
+            }
+        }
+        .day{
+            padding-top: .75em;
+        }
+        .date{
+            padding-top: .75em;
+            font-weight: bold;
+            color: gray;
+        }
+    }
+}
+
+.custom-table{// GLOBAL scss/index.scss
+    .sched{
+        margin-left: .5em;
+        padding: .3em .7em;
+        border: 0;
+        border-radius: 2px;
+        background: darkorange;
+        color: #fff;
+    }
+}
+
 form{
-    font-size: .9em;
+    font-size: .8em;
+    @media (min-width:$md){
+        font-size: .9em
+    }
+    color: #0867B0;
+    .last{
+        justify-content: center;
+        padding: .5em 0;
+        @media (min-width:$md){
+            justify-content: space-around
+        }
+    }
+    input[type="checkbox"],label{
+        cursor: pointer;
+    }
+    select{
+        height: 25px;
+        width: 100px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+    label{
+        padding: .3em 0;
+        color: #000;
+    }
     &>div{
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        margin: .5em 0;
+        margin: 1em 0;
+        @media (min-width:$md){
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            margin: .5em 0;
+        }
+
+        &>div{
+            margin: 1em;
+            @media (min-width:$md){
+                margin: 0;
+            }
+        }
+
         input{
             padding: .5em 1em;
             font-size: .85em;
@@ -26,9 +138,6 @@ form{
         .user-type,.gender{
             label,span{
                 margin-right: 1em;
-            }
-            label{
-                cursor: pointer;
             }
         }
         .user-point{
@@ -52,6 +161,12 @@ form{
         .limit,
         .list-order{
             width: 60px;
+        }
+
+        .app-button{
+            padding: .5em 2em;
+            width: 250px;
+            font-size: .9em;
         }
     }
 }
