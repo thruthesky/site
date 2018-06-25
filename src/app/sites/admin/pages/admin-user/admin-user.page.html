@@ -1,80 +1,157 @@
-
 <h1>User</h1>
 
 
 <form (ngSubmit)="quickSearch = false; onSubmit()">
-    User
-    <input class="wider" type="text" name="name" [(ngModel)]="form.name" placeholder="uid, email, kakaotalk id, display name"> Type
+    <div>
+        <div>
+            <label for="user-search">
+                User
+            </label>
+            <input id="user-search" class="user-search" type="text" name="name" [(ngModel)]="form.name"> 
+        </div>
+        <div class="user-type">
+            <span>Type</span>
+            <input id="student-checkbox" type="checkbox" name="type_male" [(ngModel)]="form.student">
+            <label for="student-checkbox">Student</label>
+            <input id="teacher-checkbox" type="checkbox" name="type_male" [(ngModel)]="form.teacher">
+            <label for="teacher-checkbox">Teacher</label>
+        </div>
+        <div class="gender">
+            <span>Gender</span>
+            <input id="male-checkbox" type="checkbox" name="type_male" [(ngModel)]="form.male">
+            <label for="male-checkbox">Male</label>
+            <input id="female-checkbox" type="checkbox" name="type_male" [(ngModel)]="form.female"> 
+            <label for="female-checkbox">Female</label>
+        </div>
+        <div>
+            <label for="manager">Manager:</label>
+            <input id="manager" type="checkbox" name="manager" [(ngModel)]="form.manager">
+        </div>
+    </div>
+    <div>
+        <div>
+            Point:
+            <input class="user-point" type="text" name="point_begin" [(ngModel)]="form.point_begin"> ~
+            <input class="user-point" type="text" name="point_end" [(ngModel)]="form.point_end">
+        </div>
+        <div>
+            Domain:
+            <input class="domain" type="text" name="domain" [(ngModel)]="form.domain"> 
+        </div>
+        <div >
+            Timezone:
+            <input class="timezone" type="text" name="timezone" [(ngModel)]="form.timezone"> 
+        </div>
+        <div>
+            Grade:
+            <input class="grade" type="text" name="grade_begin" [(ngModel)]="form.grade_begin"> ~
+            <input class="grade" type="text" name="grade_end" [(ngModel)]="form.grade_end"> 
+        </div>
+    </div>
+    <div>
+        <div>
+            Reg Date:
+            <input class="reg-date" type="text" name="date_begin" [(ngModel)]="form.date_begin"> ~
+            <input class="reg-date" type="text" name="date_end" [(ngModel)]="form.date_end">
+        </div>
 
-    <input type="checkbox" name="type_male" [(ngModel)]="form.student"> Student,
-    <input type="checkbox" name="type_male" [(ngModel)]="form.teacher"> Teacher
+        <div>
+            Bookable Time:
+            <input  class="bookable-time"type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
+            <input  class="bookable-time" type="text" name="bookable_time_end" [(ngModel)]="form.bookable_time_end">     
+        </div>
 
-    <input type="checkbox" name="type_male" [(ngModel)]="form.male"> Male,
-    <input type="checkbox" name="type_male" [(ngModel)]="form.female"> Female Point:
-    <input type="text" name="point_begin" [(ngModel)]="form.point_begin"> ~
-    <input class="wide" type="text" name="point_end" [(ngModel)]="form.point_end"> Reg Date.:
-    <input class="wide" type="text" name="date_begin" [(ngModel)]="form.date_begin"> ~
-    <input class="wide" type="text" name="date_end" [(ngModel)]="form.date_end"> Domain:
-    <input class="wide" type="text" name="domain" [(ngModel)]="form.domain"> Manager:
-    <input type="checkbox" name="manager" [(ngModel)]="form.manager"> Grade:
-    <input class="narrow" type="text" name="grade_begin" [(ngModel)]="form.grade_begin"> ~
-    <input class="narrow" type="text" name="grade_end" [(ngModel)]="form.grade_end"> List Order:
-    <input class="narrow" type="text" name="list_order_begin" [(ngModel)]="form.list_order_begin"> ~
-    <input class="narrow" type="text" name="list_order_end" [(ngModel)]="form.list_order_end"> Bookable Time:
-    <input class="narrow" type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
-    <input type="text" name="bookable_time_end" [(ngModel)]="form.bookable_time_end"> Timezone:
-    <input type="text" name="timezone" [(ngModel)]="form.timezone"> Limit
-    <input type="text" name="limit" [(ngModel)]="form.limit"> Order
-    <select name="order" [(ngModel)]="form.order" (change)="onChangeSelectOrder($event)">
-        <option value="regdate">Reg. Date</option>
-        <option value="ID">User ID</option>
-        <option value="point">Point</option>
-        <option value="grade">Grade</option>
-        <option value="list_order">List Order</option>
-        <option value="bookable_time">Bookable Time</option>
-    </select>
-    by
-    <select name="by" [(ngModel)]="form.by">
-        <option value="ASC">ASC</option>
-        <option value="DESC">DESC</option>
-    </select>
-    <hr> Display:
-    <input type="checkbox" id="display_ID" name="display_ID" [(ngModel)]="form.display.ID">
-    <label for="display_ID">ID</label>
-    <input type="checkbox" id="phone_number" name="phone_number" [(ngModel)]="form.display.phone_number">
-    <label for="phone_number">Phone Number</label>
-    <input type="checkbox" id="display_grade" name="display_grade" [(ngModel)]="form.display.grade">
-    <label for="display_grade">Grade</label>
-    <input type="checkbox" id="display_bookable_time" name="display_bookable_time" [(ngModel)]="form.display.bookable_time">
-    <label for="display_bookable_time">Bookable Time:</label>
-    <input type="checkbox" id="display_list_order" name="display_list_order" [(ngModel)]="form.display.list_order">
-    <label for="display_list_order">List Order:</label>
-    <input type="checkbox" id="display_timezone" name="display_timezone" [(ngModel)]="form.display.timezone">
-    <label for="display_timezone">Timezone:</label>
-    <input type="checkbox" id="display_domain" name="display_domain" [(ngModel)]="form.display.domain">
-    <label for="display_domain">Domain:</label>
-    <input type="checkbox" id="display_manager" name="display_manager" [(ngModel)]="form.display.manager">
-    <label for="display_manager">Manager:</label>
-    <hr> Stat:
+        <div>
+            List Order:
+            <input class="list-order" type="text" name="list_order_begin" [(ngModel)]="form.list_order_begin"> ~
+            <input class="list-order" type="text" name="list_order_end" [(ngModel)]="form.list_order_end"> 
+        </div>
+        
+        <div>
+            Limit:
+            <input class="limit" type="text" name="limit" [(ngModel)]="form.limit"> 
+        </div>
+    </div>
+    <div>
+        <div>
+            Order
+            <select name="order" [(ngModel)]="form.order" (change)="onChangeSelectOrder($event)">
+                <option value="regdate">Reg. Date</option>
+                <option value="ID">User ID</option>
+                <option value="point">Point</option>
+                <option value="grade">Grade</option>
+                <option value="list_order">List Order</option>
+                <option value="bookable_time">Bookable Time</option>
+            </select>
+            by
+            <select name="by" [(ngModel)]="form.by">
+                <option value="ASC">ASC</option>
+                <option value="DESC">DESC</option>
+            </select>
+        </div>
+    </div>
 
-    <input id="count_result" type="checkbox" name="count_result" [(ngModel)]="form.display.stat.count_result">
-    <label for="count_result">Count of Result</label>
-    <input [(ngModel)]="form.display.stat.count_daily_registration" id="count_daily_registration" type="checkbox" name="count_daily_registration">
-    <label for="count_daily_registration">Daily count of Registration</label>
+    <div>
+</div>
+
+    <div> 
+        <span>Display:</span>
+        <span>
+            <input type="checkbox" id="display_ID" name="display_ID" [(ngModel)]="form.display.ID">
+            <label for="display_ID">ID</label>
+        </span>
+        <span>
+            <input type="checkbox" id="phone_number" name="phone_number" [(ngModel)]="form.display.phone_number">
+            <label for="phone_number">Phone Number</label>
+        </span>
+        <span>
+            <input type="checkbox" id="display_grade" name="display_grade" [(ngModel)]="form.display.grade">
+            <label for="display_grade">Grade</label>
+        </span>
+        <span>
+            <input type="checkbox" id="display_bookable_time" name="display_bookable_time" [(ngModel)]="form.display.bookable_time">
+            <label for="display_bookable_time">Bookable Time:</label>
+        </span>
+        <span>
+            <input type="checkbox" id="display_list_order" name="display_list_order" [(ngModel)]="form.display.list_order">
+            <label for="display_list_order">List Order:</label>
+        </span>
+        <span>
+            <input type="checkbox" id="display_timezone" name="display_timezone" [(ngModel)]="form.display.timezone">
+            <label for="display_timezone">Timezone:</label>
+        </span>
+        <span>
+            <input type="checkbox" id="display_domain" name="display_domain" [(ngModel)]="form.display.domain">
+            <label for="display_domain">Domain:</label>
+        </span>
+        <span>
+                <input type="checkbox" id="display_manager" name="display_manager" [(ngModel)]="form.display.manager">
+                <label for="display_manager">Manager:</label>
+        </span>
+    </div>
+
+    <div> 
+        <span>Stat:</span>
+
+        <input id="count_result" type="checkbox" name="count_result" [(ngModel)]="form.display.stat.count_result">
+        <label for="count_result">Count of Result</label>
+        <input [(ngModel)]="form.display.stat.count_daily_registration" id="count_daily_registration" type="checkbox" name="count_daily_registration">
+        <label for="count_daily_registration">Daily count of Registration</label>
 
 
-    <input [(ngModel)]="form.display.stat.count_user_type" id="count_user_type" type="checkbox" name="count_user_type">
-    <label for="count_user_type">Count of User Type</label>
+        <input [(ngModel)]="form.display.stat.count_user_type" id="count_user_type" type="checkbox" name="count_user_type">
+        <label for="count_user_type">Count of User Type</label>
 
-    <!-- <input type="checkbox" id="count_monthly_registration" name="count_monthly_registration" [(ngModel)]="form.display.stat.count_monthly_registration"> <label for="count_daily_registration">Monthly count of Registration</label> -->
-    <input type="checkbox" name="count_domain" id="count_domain" [(ngModel)]="form.display.stat.count_domain">
-    <label for="count_domain">Count of domain</label>
-    <input type="checkbox" id="count_timezone" name="count_timezone" [(ngModel)]="form.display.stat.count_timezone">
-    <label for="count_timezone">Count of Timezone</label>
+        <!-- <input type="checkbox" id="count_monthly_registration" name="count_monthly_registration" [(ngModel)]="form.display.stat.count_monthly_registration"> <label for="count_daily_registration">Monthly count of Registration</label> -->
+        <input type="checkbox" name="count_domain" id="count_domain" [(ngModel)]="form.display.stat.count_domain">
+        <label for="count_domain">Count of domain</label>
+        <input type="checkbox" id="count_timezone" name="count_timezone" [(ngModel)]="form.display.stat.count_timezone">
+        <label for="count_timezone">Count of Timezone</label>
+    </div>
 
-
-    <hr>
-    <button type="submit">Search</button>
+    <div>
+        <button type="submit">Search</button>
+    </div>
 </form>
 <hr>
 

@@ -3,3 +3,55 @@ h1{
     font-size: 1.6em;
     font-weight: 200;
 }
+.result{
+    font-size: .85em;
+}
+
+form{
+    font-size: .9em;
+    &>div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: .5em 0;
+        input{
+            padding: .5em 1em;
+            font-size: .85em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.3);
+        }
+        .user-search{
+            width: 220px;
+        }
+        .user-type,.gender{
+            label,span{
+                margin-right: 1em;
+            }
+            label{
+                cursor: pointer;
+            }
+        }
+        .user-point{
+            width: 80px;
+        }
+        .bookable-time{
+            width: 50px;
+        }
+        .timezone{
+            width: 150px;
+        }
+        .reg-date{
+            width: 100px;
+        }
+        .grade{
+            width: 50px;
+        }
+        .domain{
+            width: 150px;
+        }
+        .limit,
+        .list-order{
+            width: 60px;
+        }
+    }
+}
