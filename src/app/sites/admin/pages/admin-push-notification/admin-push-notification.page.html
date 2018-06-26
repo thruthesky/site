@@ -60,12 +60,12 @@
             </select>
             /post/{{ form.postId }}
         </div>
-        <div>
-            Title:
+        <div class="text-area">
+            <label>Title:</label>
             <textarea class="post-input" type="text" name="title" [(ngModel)]="form.title"></textarea>
         </div>
-        <div>
-            Body:
+        <div class="text-area">
+            <label>Body:</label>
             <textarea class="post-input" type="text" name="body" [(ngModel)]="form.body"></textarea>
         </div>
 

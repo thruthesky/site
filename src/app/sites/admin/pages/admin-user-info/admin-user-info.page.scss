@@ -1,5 +1,11 @@
-
-//
-//.row {
-//    border: solid 1px blue;
-//}
+.profile-photo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 100px;
+    overflow: hidden;
+    img{
+        width: 100%
+    }
+}
