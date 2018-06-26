@@ -15,6 +15,32 @@ aside {
             font-size: .9em;
         }
     }
+    svg{
+        height: 1em;
+        width: 1em;
+    }
+
+    .link,
+    .open-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+            margin-left: .3em
+        }
+
+        &:hover{
+            font-weight: normal;
+        }
+    }
+
+    .open-button{
+        padding: .4em .2em;
+        border-radius: 2px;
+        background: #c9baa5;
+        font-size: .85em;
+    }
+
 
     h2 {
         margin: 0;
@@ -38,14 +64,14 @@ aside {
     .teacher-sessions {
         display: flex;
         flex-flow: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         padding: 1em 0;
         .teacher {
-            display: inline-block;
-            margin: 1em .25em .4em 0;
+            display: flex;
+            align-items: center;
+            margin: 1em .5em .4em .5em;
         }
         .name {
-            margin-right: .15em;
             padding: .25em;
             border-radius: 2px;
             background-color: white;
@@ -56,6 +82,14 @@ aside {
             border-radius: 2px;
             background-color: rgb(97, 65, 65);
             color: white;
+        }
+
+        .past{
+            margin-left: .1em;
+        }
+
+        .link{
+            text-decoration: none!important;
         }
     }
     .user-info-button {
@@ -100,10 +134,12 @@ aside {
                 display: flex;
                 justify-content: space-around;
                 text-align: center;
+                flex-direction: column;
                 padding-bottom: .75em;
             }
 
             .session {
+                margin: .2em 0;
                 .grade {
                     display: inline-block;
                     padding: .4em .7em;

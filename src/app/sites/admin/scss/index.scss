@@ -6,7 +6,6 @@ $submenu-height:45px;
 .custom-table{
     border-top: 1px solid rgba(125,125,125,0.2);
     font-size: .78rem!important;
-    overflow: auto;
     white-space: nowrap;
 
     table{
@@ -30,6 +29,11 @@ $submenu-height:45px;
             font-size: .77rem;
             cursor: pointer
         }
+    }
+
+    svg{
+        height: 1em;
+        width: 1em;
     }
 
 }
