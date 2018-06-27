@@ -223,7 +223,7 @@
                         </ng-container>
                     </td>
                     <td class="name">
-                        <a class="user-info" routerLink="/manager/user-info/{{user.ID}}">
+                        <a class="user-info" matTooltip="{{user.name}}" routerLink="/manager/user-info/{{user.ID}}">
                             {{ user.name.slice(0,8) }}<span *ngIf="user.name.length>8">...</span>
                         </a>
                         <a class="sched" *ngIf=" user.user_type == 'T' " routerLink="/manager/schedule-table/{{user.ID}}">

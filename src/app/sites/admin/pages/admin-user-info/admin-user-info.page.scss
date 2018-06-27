@@ -1,11 +1,294 @@
-.profile-photo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 120px;
-    width: 100px;
-    overflow: hidden;
-    img{
-        width: 100%
+@import '../../../../../theme/vars';
+.row{
+    &>div{
+        padding: 0
     }
+}
+
+h2{
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 100;
+}
+
+.user-edit{ 
+    margin-top: 1em;
+    .buttons{
+        margin: .3em 0;
+    }
+    input[type="text"],
+    input[type="number"]{
+        padding: .5em 1em;
+        font-size: .85em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+}
+
+.buttons{
+    .app-button{
+        margin: 0;
+        padding: .5em 1em;
+        background: gray;
+        &:first-child{
+            margin-right: 1em;
+        }
+    }
+}
+
+.user-stats{
+    margin: .5em 0;
+    font-size: .9em;
+    &>div{
+        margin: .5em 0;
+    }
+    b{
+        display: inline-block;
+        width: 20%;
+        color: #0867B0
+    }
+    span{
+        display: inline-block;
+        width: 75%;
+        margin-left: 1em;
+    }
+}
+
+.user-profile-form{
+    .point-edit{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: .5em 3em;
+        background: darkgreen;
+        color: #fff;
+        svg{
+            height: 1.2em;
+            width: 1.2em;
+            margin-left: .5em;
+        }
+    }
+
+    .point-edit-form{
+        margin: 1em 0;
+        padding: 1em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.2);
+        h2{
+            font-size: 1em;
+            color: darkgreen;
+            font-weight: bolder;
+        }
+        &>div{
+            font-size: .9em;
+            margin: .5em 0;
+        }
+        .app-button{
+            margin: 0;
+            margin-right: 1em;
+            padding: .5em 1em;
+        }
+        .note{
+            padding: .5em 0;
+            font-size: .9em;
+            color: darkblue
+        }
+        .label{
+            margin-right: 1em;
+            font-weight: bold;
+        }
+        label{
+            margin-right: .5em;
+        }
+        input[type="radio"],
+        label{
+            cursor: pointer;
+        }
+        .update{
+            background: dodgerblue;
+            color: #fff;
+        }
+        .cancel{
+            background: #eee;
+            color:darkred;
+        }
+
+    }
+}
+
+
+.profile-data-form{
+    margin:3em 0;
+
+    .primary-photo{
+        margin-bottom: 1.5em;
+        padding: 1em;
+        text-align: center;
+        border: 3px dashed rgba(125,125,125,0.3);
+        border-radius: 2px;
+        .label{
+            font-size: 1.2em;
+        }
+        label{
+            cursor:  pointer;
+        }
+        .profile-photo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            height: 120px;
+            width: 100px;
+            overflow: hidden;
+            img{
+                width: 100%
+            }
+        }
+
+        .update-photo{
+            display: flex;
+            justify-content: center;
+            span{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 1em;
+                padding: .5em;
+                background: dodgerblue;
+                color: #fff;
+                font-size: .9em;
+                width: 200px;
+    
+                svg{
+                    height: 1em;
+                    width: 1em;
+                    margin-left: .5em
+                }
+            }
+        }
+
+        .input-box{
+            position: absolute;
+            opacity: 0;
+        }
+
+    }
+
+    mat-form-field{
+        width: 100%;
+    }
+
+    .form-radio{
+        input[matInput]{
+            display: none;
+        }
+
+        label{
+            margin-right: 1em;
+            margin-left: .1em;
+        }
+    }
+
+    .app-button{
+        padding:1em;
+        width: 100%;
+    }
+}
+
+.payments-wrapper,
+.refund-request{
+    padding: 1em 1.5em;
+    padding-bottom: 0;
+    font-size: .8em;
+    @media (min-width:$md){
+        font-size: .9em;
+    }
+
+    table{
+        text-align: center;
+        border-collapse: collapse;
+        width: 100%;
+        td,
+        th{
+            padding: .75em;
+        }
+        tr{
+            border-bottom: 1px solid rgba(125,125,125,0.2);
+        }
+
+        tr:first-child{
+            border-top: 1px solid rgba(125,125,125,0.2);
+        }
+    }
+}
+
+.right-column{
+    @media (min-width:$md){
+        height: 100%;
+        margin-left: 1.5em;
+        background: #eff0f1;
+    }
+}
+
+.sessions-wrapper,
+.point-history{
+    font-size: .8em;
+    @media (min-width:$md) {
+        font-size: .9em;
+    }
+
+    .user-info{
+        font-size: .7em;
+        @media (min-width:$md) {
+            font-size: 1em;
+        }
+    }    
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+
+        tr{
+            &:first-child{
+                border-top: 1px solid rgba(125,125,125,0.2);  
+            }
+                border-bottom: 1px solid rgba(125,125,125,0.2);
+            &>*{
+                padding: .45em;
+                @media (min-width:$md){
+                    padding: .75em;
+                }
+            }
+        }
+    }
+}
+
+.sessions-wrapper{
+    .sessions-desc{
+        line-height: 1.8em;
+    }
+
+    .mini-stat{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1em;
+        span{
+            font-size: 1.3em;
+            margin-right: 1em;
+        }
+    }
+}
+
+.point-history{
+    h2{
+        margin-top: 3em;
+        margin-bottom: .5em;
+    } 
+
+}
+
+.loader{
+    margin-top: 3em;
 }

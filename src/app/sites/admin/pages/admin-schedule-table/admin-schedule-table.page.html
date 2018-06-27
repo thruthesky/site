@@ -14,8 +14,8 @@
         <div class="col col-md-2">Prere</div>
         <div class="col col-md-5">Days</div>
     </div>
-    <div class="no-sched" *ngIf=" schedules != null ">
-       NO SCHEDULE
+    <div class="no-sched" *ngIf=" schedules.length == 0 ">
+       NO SCHEDULE 
     </div>
     <div class="row" *ngFor="let s of schedules; let odd = odd;">
         <div class="col col-md-1">{{s.idx}}</div>
