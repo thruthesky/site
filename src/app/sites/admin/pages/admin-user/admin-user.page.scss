@@ -75,18 +75,44 @@ h1{
 
 .custom-table{// GLOBAL scss/index.scss
     .sched{
+        display: flex;
+        align-items: center;
+        margin-left: .5em;
+        font-size: .85em;
+        border-radius: 2px;
+        background: rgba(125,125,125,0.3);
         line-height: 0;
         svg{
             height: 1.2em;
             width: 1.2em;
-            margin-left: .5em;
+            margin: 0 .5em;
             color: darkorange;
+        }
+
+        &>span:first-child{
+            display: inline-block;
+            padding: .85em 0;
+            padding-left: .5em;
         }
     }
     .name{
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+
+.statistics{
+    .daily-registration{
+        width: 74%;    
+        overflow: auto
+    }
+    .stats{
+        width: 90%;
+        overflow: auto;
+        @media (min-width:$md) {
+            width: 23%;    
+        }
     }
 }
 

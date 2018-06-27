@@ -143,16 +143,21 @@ aside {
                 .grade {
                     display: inline-block;
                     padding: .4em .7em;
+                    width: 18%;
                     border-radius: 2px;
                     background-color: black;
                     color: white;
                 }
                 .reserved {
+                    display: inline-block;
                     padding: .4em .7em;
+                    width: 43%;
                     background-color: burlywood;
                 }
                 .past {
+                    display: inline-block;
                     padding: .4em .7em;
+                    width: 33%;
                     background-color: #eee;
                 }
             }

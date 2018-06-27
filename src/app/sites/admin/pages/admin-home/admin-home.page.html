@@ -28,17 +28,7 @@
 <div *ngIf=" a.isSuperManager ">    
     <div class="stats-summary container-fluid">
         <div class="row">
-            <div class="left col-sm-12 col-md-4">
-                <div class="table">
-                    <div class="table-title">
-                            <h2>Point Refund Request</h2>
-                    </div>
-                    <div class="table-content">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="middle col-sm-12 col-md-4">
+            <div class="left col-sm-12 col-md-8">
                 <div id="domain-change-application" class="table">
                         <div class="table-title">
                             <h2>List of domain change application</h2>
@@ -81,7 +71,7 @@
                         </div>
                     </div>
             </div>
-            <div class="left col-sm-12 col-md-4">
+            <div class="left col-sm-12 col-md-8">
                     <div id="latest-branches" class="table">
                         <div class="table-title">
                             <h2>Latest Branches</h2>
@@ -105,92 +95,17 @@
                         </div>
                     </div>
             </div>
-            <div class="middle col-sm-12 col-md-4">
+            <div class="right col-sm-12 col-md-4">
                 <div class="table">
                     <div class="table-title">
-                            <h2>User Registerd Today</h2>
+                            <h2>Point Refund Request</h2>
                     </div>
                     <div class="table-content">
                         
                     </div>
-                    </div>
-            </div>
-                <div class="right col-sm-12 col-md-4">
-                        <div class="table">
-                           <div class="table-title">
-                                <h2>Reservations</h2>
-                           </div>
-                           <div class="table-content">
-                            
-                            </div>
-                        </div>
                 </div>
-        </div>
+            </div>
     </div>
-
-    <!-- <div id="latest-branches" class="table">
-        <div class="table-title">
-            <h2>Latest Branches</h2>
-        </div>
-        <div class="table-content">
-            <div class="loader"  *ngIf=" !latestBranches.length "> Loading Branches</div>
-            <table cellspacing="0" *ngIf=" latestBranches.length ">
-                <tr class="table-header">
-                    <th>No.</th>
-                    <th>Domain</th>
-                    <th>Company Name</th>
-                    <th>Manager Name</th>
-                </tr>
-                <tr *ngFor=" let branch of latestBranches ">
-                    <td>{{ branch.idx }}</td>
-                    <td>{{ branch.domain }}</td>
-                    <td>{{ branch.company_name }}</td>
-                    <td>{{ branch['student']['name'] }}</td>
-                </tr>
-            </table>
-        </div>
-    </div> -->
-
-<!-- 
-    <div id="domain-change-application" class="table">
-        <div class="table-title-bordered">
-            <h2>List of domain change application</h2>
-            <div class="table-note">Note: subdomain of katalkenglish.com does not need to Nginx configuration. So, you can simply click Accept button.</div>
-        </div>
-        <div class="table-content">
-            <div class="loader" *ngIf=" loader.domainChangeApplication; else domainChangeApplication">Loaing domain change application</div>
-            <ng-template #domainChangeApplication>
-                <table *ngIf="domain_change_applications.length; else noDomainChangeApplication">
-                    <tr>
-                        <th>Current Domain</th>
-                        <th>New Domain</th>
-                        <th>Accept or Reject</th>
-                    </tr>
-                    <tr *ngFor=" let branch of domain_change_applications ">
-                        <td>{{ branch.domain }}</td>
-                        <td>=&gt; {{ branch.domain_change_application }}</td>
-                        <td>
-                            <button (click)="onClickDomainChangeApplicationAccept( branch )">Accept</button>
-                            <button (click)="onClickDomainChangeApplicationReject( branch )">Reject</button>
-                        </td>
-                    </tr>
-                </table>
-                <ng-template #noDomainChangeApplication>
-                    <div class="table-content-empty">
-                        <h2>There is no domain change application</h2>
-                    </div>
-                </ng-template>
-            </ng-template>
-        </div>
-    </div> -->
-    <!--/domain-change-application-->
-
-    <!-- <div>
-        Teachers who have bad internet connections
-    </div>
-    <div>
-        Teachers who do not use Camera
-    </div> -->
 </div>
 
 <div class="stats">
