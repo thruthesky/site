@@ -51,7 +51,7 @@ mat-tab-group{
         display: flex;
         .app-button{
             margin: 0;
-            padding: .5em 1em;
+            padding: .7em 1em!important;
             background: gray;
             &:first-child{
                 margin-right: 1em;
@@ -131,7 +131,7 @@ mat-tab-group{
         justify-content: center;
         align-items: center;
         margin: 0;
-        padding: .5em 3em;
+        padding: .7em 3em!important;
         background: darkgreen;
         color: #fff;
         svg{
