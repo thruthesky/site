@@ -2,3 +2,38 @@
 $page-width:1320px;
 $main-menu-height:60px;
 $submenu-height:45px;
+
+.custom-table{
+    border-top: 1px solid rgba(125,125,125,0.2);
+    font-size: .78rem!important;
+    white-space: nowrap;
+
+    table{
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        tr{
+            border-bottom: 1px solid rgba(125,125,125,0.2);
+            &>*{
+                padding: 1em .5em;
+            }
+            &:first-child{
+                background: #fff!important;
+            }
+            &:hover{
+                background: rgba(125,125,125,0.1);
+            }
+        }
+    
+        a,button{
+            font-size: .77rem;
+            cursor: pointer
+        }
+    }
+
+    svg{
+        height: 1em;
+        width: 1em;
+    }
+
+}

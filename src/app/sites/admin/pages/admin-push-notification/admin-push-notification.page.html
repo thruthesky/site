@@ -1,5 +1,5 @@
 <b style='color:darkred;'>todo: merge root domain with www sub domain.</b>
-How to use
+<h2>How to use</h2>
 <ol>
     <li>
         Choose one of user type or domain or email.
@@ -17,7 +17,7 @@ How to use
 </ol>
 <form (ngSubmit)="onSubmit( $event )">
     <div>
-        User type:
+        <label>User type:</label>
         <select name="user_type" [(ngModel)]="form.user_type">
             <option value=''>Select User Type</option>
             <option value="A">All user(including un-registered): {{ stat.no_of_user }}</option>
@@ -27,7 +27,7 @@ How to use
         </select>
     </div>
     <div>
-        Domain:
+        <label>Domain:</label>
         <select name="domain" [(ngModel)]="form.domain">
             <option value=''>Select Domain</option>
             <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
@@ -37,14 +37,15 @@ How to use
     </div>
 
     <div>
-        Email:
-        <input type="text" name="email" [(ngModel)]="form.email"> For test purpose. You can send push to only this use.
+        <label>Email:</label>
+        <input type="text" name="email" [(ngModel)]="form.email"> 
+        <span class="note">For test purpose. You can send push to only this use.</span>
     </div>
 
     <div>
-        Post No.:
+        <label>Post No.:</label>
         <input type="text" name="postId" [(ngModel)]="form.postId">
-        <button type="button" (click)="onClickCheck()">CHECK</button>
+        <button class="check-button" type="button" (click)="onClickCheck()">CHECK</button>
     </div>
 
     <ng-container *ngIf=" post?.id ">
@@ -59,18 +60,18 @@ How to use
             </select>
             /post/{{ form.postId }}
         </div>
-        <div>
-            Title:
+        <div class="text-area">
+            <label>Title:</label>
             <textarea class="post-input" type="text" name="title" [(ngModel)]="form.title"></textarea>
         </div>
-        <div>
-            Body:
+        <div class="text-area">
+            <label>Body:</label>
             <textarea class="post-input" type="text" name="body" [(ngModel)]="form.body"></textarea>
         </div>
 
     </ng-container>
     <div>
-        <button type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
+        <button class="submit-button" type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
         <div class="loader" *ngIf=" loader.send ">Sending...</div>
     </div>
 

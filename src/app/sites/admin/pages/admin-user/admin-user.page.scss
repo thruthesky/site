@@ -1,5 +1,226 @@
-
+@import '../../../../../theme/vars';
 h1{
-    font-size: 1.6em;
+    @media (min-width:$md){
+        margin: 0;
+        margin-top: 1em;
+    }
+    font-size: 1.4em;
     font-weight: 200;
+}
+.result{
+    font-size: .85em;
+}
+
+.statistics{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: .8em;
+    padding: 1em 0;
+    @media (min-width:$md){
+        flex-direction: row;
+        font-size: 1em;
+    }
+    .statistics{
+        @media (min-width:$md){
+            width:25%;
+       } 
+    }
+    .daily-registration{
+        @media (min-width:$md){
+            width:65%;
+       } 
+    }
+
+    .stats{
+        display: flex;
+        padding: 1em 0;
+        @media (min-width:$md){
+            flex-direction: column;
+        }
+        .stats-item{
+            margin: 0 .5em;
+            @media (min-width:$md){
+                margin: .2em 0;
+                width: 200px;
+            }
+            padding: 1em;
+            background: #eee;
+    
+        }
+    }
+
+    .daily-registration{
+        display: flex;
+        align-items: flex-end;
+    
+        .bar{
+            width: 40px;
+            @media (min-width:$md){
+                width: 80px;
+            }
+        }
+        .day{
+            text-align: center;
+            padding-top: .75em;
+        }
+        .date{
+            padding-top: .75em;
+            font-weight: bold;
+            color: gray;
+        }
+    }
+}
+
+.custom-table{// GLOBAL scss/index.scss
+    .sched{
+        display: flex;
+        align-items: center;
+        margin-left: .5em;
+        font-size: .85em;
+        border-radius: 2px;
+        background: rgba(125,125,125,0.3);
+        line-height: 0;
+        svg{
+            height: 1.2em;
+            width: 1.2em;
+            margin: 0 .5em;
+            color: darkorange;
+        }
+
+        &>span:first-child{
+            display: inline-block;
+            padding: .85em 0;
+            padding-left: .5em;
+        }
+    }
+    .name{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.statistics{
+    .daily-registration{
+        width: 74%;    
+        overflow: auto
+    }
+    .stats{
+        width: 90%;
+        overflow: auto;
+        @media (min-width:$md) {
+            width: 23%;    
+        }
+    }
+}
+
+form{
+    font-size: .8em;
+    @media (min-width:$md){
+        font-size: .9em
+    }
+    color: #0867B0;
+    .last{
+        justify-content: center;
+        padding: .5em 0;
+        @media (min-width:$md){
+            justify-content: space-around
+        }
+
+        label{
+            color: #0867B0
+        }
+
+        
+    }
+    input[type="checkbox"],label{
+        cursor: pointer;
+    }
+    select{
+        height: 25px;
+        width: 100px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+    label{
+        padding: .3em 0;
+        color: #000;
+    }
+
+    .display{
+        padding-top: .75em;
+        padding-bottom:.2em;
+    }
+    .stat{
+        padding-top:.2em;
+        padding-bottom: .75em
+    }
+    &>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1em 0;
+        @media (min-width:$md){
+            align-items: center;
+            flex-direction: row;
+            margin: .5em 0;
+        }
+
+        &>div{
+            margin: 1em;
+            @media (min-width:$md){
+                margin: 0;
+                margin-right: 2em;
+            }
+        }
+        &>span{
+            @media (min-width:$md){
+                margin-right: 1em;
+            }
+        }
+
+        input{
+            padding: .5em 1em;
+            font-size: .85em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.3);
+        }
+        .user-search{
+            width: 220px;
+        }
+        .user-type,.gender{
+            label,span{
+                margin-right: 1em;
+            }
+        }
+        .user-point{
+            width: 80px;
+        }
+        .bookable-time{
+            width: 50px;
+        }
+        .timezone{
+            width: 150px;
+        }
+        .reg-date{
+            width: 100px;
+        }
+        .grade{
+            width: 50px;
+        }
+        .domain{
+            width: 150px;
+        }
+        .limit,
+        .list-order{
+            width: 60px;
+        }
+
+        .app-button{
+            padding: .5em 2em;
+            width: 250px;
+            font-size: .9em;
+        }
+    }
 }

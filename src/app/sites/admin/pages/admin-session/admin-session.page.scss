@@ -1,0 +1,230 @@
+@import '../../../../../theme/vars';
+.custom-table{// GLOBAL scss/index.scss
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none!important;
+        line-height: 0;
+        font-weight: normal;
+
+        svg{
+            height: .85em;
+            width: .85em;
+            margin-left: .3em;
+        }
+    }
+}
+
+.timezone{
+    padding: 1em 0;
+
+    .note{
+        font-size: .9em;
+        color: darkred
+    }
+    .title{
+        font-weight: bold;
+    }
+}
+
+.future,
+.past{
+    background:green
+}
+
+.stat{
+    margin: 2em 0;
+    .stat-title{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        @media (min-width:$md){
+            flex-direction: row
+        }
+
+        b{
+            margin-right: 1em;
+        }
+    
+        .app-button{
+            display: flex;
+            align-items: center;
+            margin-top: .5em;
+            @media (min-width:$md){
+                margin-top: 0;
+            }
+            padding: .5em 1em;
+            border-radius: 2px;
+            font-size: .8em;
+    
+            svg{
+                height: 1.5em;
+                width: 1.5em;
+                margin-left: .5em;
+            }
+        }
+    
+        .open{
+            background: darkorange
+        }
+        .close{
+            background: gray;
+        }
+    }
+
+    .details{
+        margin: 1em 0;
+        font-size: .8em;
+        margin-top: .5em;
+        @media (min-width:$md){
+          font-size: 1em;
+        }
+
+        &>div{
+            padding: 1em;
+            border-bottom:1px solid rgba(125,125,125,0.2);
+        }
+
+        .teacher-reservations,
+        .student-reservations{
+            word-break: break-all;
+
+            .teacher-reservation,
+            .student-reservation{
+                display: inline-block;
+                padding: .5em 1em;
+
+                .student,
+                .teacher,
+                .no{
+                    display: inline-block;
+                    padding: .2em .5em;
+                    font-size: .9em;
+                }
+                .no{
+                    border: 1px solid darkgreen;
+                    background: darkgreen;
+                    color: #fff;
+                }
+                .student,
+                .teacher{
+                    border:1px solid rgba(125,125,125,0.2)
+                }
+            }
+        }
+    }
+}
+
+.time-zone{
+    margin:2em 0;
+}
+
+form{
+    font-size: .9em;
+    input{
+        margin: .5em 0;
+        @media (min-width:$md){
+            margin: 0
+        }
+        padding: .5em 1em;
+        font-size: .85em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+    .sm-width{
+        width: 110px;
+        @media (min-width:$md){
+            width: auto
+        }
+    }
+
+    &>div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: .5em;
+        flex-direction: column;
+        @media (min-width:$md){
+            flex-direction: row;
+            justify-content: flex-start
+        }
+
+        .app-button{
+            padding: .25em 1.25em;
+            font-size: .9em;
+        }
+
+        &>*{
+            margin-right: 1.8em;
+        }
+    }
+
+    input[type="checkbox"]{
+        margin-right: .3em;
+    }
+
+
+    select{
+        height: 25px;
+        width: 80px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+
+    .checkboxes-top,
+    .checkboxes-bottom{
+        &>*{
+            margin-right: 0;
+            padding-right: 3em;
+        }
+
+        span,label{
+            cursor: pointer;
+        }
+
+        span{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .checkboxes-top{
+        margin-top: 1.5em;
+        margin-bottom: .75em
+    }
+
+    .checkboxes-bottom{
+        margin-bottom: 1.5em;
+        margin-top: .75em
+    }
+
+    .display{
+        display: flex;
+        flex-wrap: wrap;
+
+        &>span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .25em 1em;
+            cursor: pointer
+        }
+
+        label{
+            cursor: pointer;
+        }
+    }
+
+    .search-button{
+        display: flex;
+        justify-content: center;
+        margin: 1em 0;
+        button{
+            padding: .75em 10em;
+            border:0;
+            border-radius: 2px;
+            background: darkblue;
+            color: #fff;
+        }   
+    }
+
+}
