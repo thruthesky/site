@@ -101,28 +101,28 @@
                                 </section>
                             </div>
                         </div>
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Email</mat-label>
                             <input matInput disabled value="{{ user.user_email }}" name="email">
                         </mat-form-field>
     
     
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Password</mat-label>
                             <input matInput value="{{ user.user_pass }}" [(ngModel)]=" user.user_pass " name="password">
                         </mat-form-field>
     
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Display Name</mat-label>
                             <input matInput value="{{ user.display_name }}" [(ngModel)]=" user.display_name " name="display_name">
                         </mat-form-field>
     
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Name</mat-label>
                             <input matInput value="{{ user.name }}" [(ngModel)]=" user.name " name="name">
                         </mat-form-field>
     
-                        <mat-form-field class="form-radio">
+                        <mat-form-field appearance="outline" class="form-radio">
                             <mat-label>Gender</mat-label>
                             <input matInput value=" ">
                             <div>
@@ -133,17 +133,17 @@
                             </div>
                         </mat-form-field>
     
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Phone Number</mat-label>
                             <input matInput value="{{ user.phone_number }}" [(ngModel)]=" user.phone_number " name="phone_number">
                         </mat-form-field>
     
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Kakaotalk ID</mat-label>
                             <input matInput value="{{  user.kakaotalk_id }}" [(ngModel)]=" user.kakaotalk_id " name="kakaotalk_id">
                         </mat-form-field>
             
-                        <mat-form-field>
+                        <mat-form-field appearance="outline">
                             <mat-label>Teacher Group</mat-label>
                             <input matInput value="{{  user.user_group }}" [(ngModel)]=" user.user_group " name="teacher_group">
                         </mat-form-field>
@@ -176,27 +176,27 @@
                                     </div>
                                 </label>
                             </div>
-                            <mat-form-field>
+                            <mat-form-field appearance="outline">
                                 <mat-label>Teacher Grade</mat-label>
                                 <input matInput value="{{  user.grade }}" [(ngModel)]=" user.grade " name="teacher_grade">
                             </mat-form-field>
             
-                            <mat-form-field>
+                            <mat-form-field appearance="outline">
                                 <mat-label>List Order</mat-label>
                                 <input matInput value="{{  user.list_order }}" [(ngModel)]=" user.list_order " name="list_order">
                             </mat-form-field>
             
-                            <mat-form-field>
+                            <mat-form-field appearance="outline">
                                 <mat-label>Bookable Time</mat-label>
                                 <input matInput value="{{  user.bookable_time }}"  [(ngModel)]=" user.bookable_time " name="bookable_time">
                             </mat-form-field>
                 
-                            <mat-form-field>
+                            <mat-form-field appearance="outline">
                                 <mat-label>Book Free class Until</mat-label>
                                 <input matInput value="{{  user.block_free_class_until}}" [(ngModel)]=" user.block_free_class_until " name="block_free_class_until">
                             </mat-form-field>
     
-                            <mat-form-field class="form-radio"  *ngIf="a.isSuperManager">
+                            <mat-form-field appearance="outline" class="form-radio"  *ngIf="a.isSuperManager">
                                 <mat-label>User Type</mat-label>
                                 <input matInput value=" ">
                                 <div>
@@ -207,17 +207,17 @@
                                 </div>
                             </mat-form-field>
                 
-                            <mat-form-field>
+                            <mat-form-field appearance="outline">
                                 <mat-label>Timezone</mat-label>
                                 <input matInput value="{{  user.timezone }}"  [(ngModel)]=" user.timezone " name="timezone">
                             </mat-form-field>
                 
-                            <mat-form-field  *ngIf="a.isSuperManager">
+                            <mat-form-field appearance="outline"  *ngIf="a.isSuperManager">
                                 <mat-label>Domain</mat-label>
                                 <input matInput value="{{  user.domain  }}"  [(ngModel)]=" user.domain " name="domain">
                             </mat-form-field>
             
-                            <mat-form-field  *ngIf="a.isSuperManager">
+                            <mat-form-field appearance="outline"  *ngIf="a.isSuperManager">
                                 <mat-label>Manager</mat-label>
                                 <input matInput value="{{  user.manager  }}"  [(ngModel)]=" user.manager " name="manager">
                             </mat-form-field>

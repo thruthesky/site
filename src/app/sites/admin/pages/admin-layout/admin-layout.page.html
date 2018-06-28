@@ -26,14 +26,12 @@
 
 
 <main [attr.path]=" router.url ">
-    <section class="container-fluid">
-        <div class="row">
-            <div class="layout-left col-md-4">
-                <admin-sidebar-component></admin-sidebar-component>
-            </div>
-            <div class="layout-right col-12 col-md-8">
-                <router-outlet></router-outlet>
-            </div>
+    <section class="layout">
+        <div class="layout-left">
+            <admin-sidebar-component></admin-sidebar-component>
+        </div>
+        <div class="layout-right">
+            <router-outlet></router-outlet>
         </div>
     </section>
 </main>

@@ -1,5 +1,5 @@
 @import '../../../../../theme/vars';
-.custom-table{// GLOBAL scss/index.scss
+.custom-table{
     .link{
         display: flex;
         align-items: center;
@@ -15,7 +15,6 @@
         }
     }
 }
-
 .timezone{
     padding: 1em 0;
 
@@ -66,7 +65,8 @@
         }
     
         .open{
-            background: darkorange
+            background: darkorange;
+            color: #000;
         }
         .close{
             background: gray;
@@ -135,7 +135,7 @@ form{
     .sm-width{
         width: 110px;
         @media (min-width:$md){
-            width: auto
+            width: 120px
         }
     }
 
@@ -156,7 +156,7 @@ form{
         }
 
         &>*{
-            margin-right: 1.8em;
+            margin-right: 1.7em;
         }
     }
 

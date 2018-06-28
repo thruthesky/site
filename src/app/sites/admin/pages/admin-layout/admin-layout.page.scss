@@ -11,8 +11,10 @@ body {
 }
 
 main{
-    &>.container-fluid{
+    &>.layout{
+        display: flex;
         max-width: $page-width;
+        margin: auto;
         padding: 0 .8em;
         @media (min-width:$md){
             padding: 0;
@@ -22,13 +24,16 @@ main{
             display: none;
             @media (min-width:$md){
                 display: block;
+                width: 33%;
             }
         }
 
         .layout-right{
-            padding-left:1em;
+            width: 100%;
             @media (min-width:$md){
+                width: 67%;
                 padding-right: 0;
+                padding-left:1em;
             }
         }
 
