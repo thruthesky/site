@@ -55,7 +55,7 @@ export class AdminHomePage implements OnInit {
             }
         }
         this.a.lms.branch_accept_domain_change_application(branch.idx).subscribe(re => {
-            console.log('branch_accept_domain_change_application: re: ', re);
+            // console.log('branch_accept_domain_change_application: re: ', re);
             this.modal.alert({ content: 'Domain change application has been done.' });
             this.loadDomainChangeApplications();
         }, e => this.a.toast(e));
@@ -68,7 +68,7 @@ export class AdminHomePage implements OnInit {
             sql: 'SELECT idx, domain, user_ID as idx_student, company_name FROM lms_branch ORDER BY idx DESC LIMIT 5',
             student_info: true
         }).subscribe( (re: Array<Branch>) => {
-            console.log('list branches: ', re);
+            // console.log('list branches: ', re);
             this.latestBranches = re;
         }, e => this.a.toast(e));
     }
