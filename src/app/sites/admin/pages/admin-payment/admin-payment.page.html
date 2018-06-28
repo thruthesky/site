@@ -87,7 +87,7 @@
                             <span class="daily" *ngFor="let date of stat.dailyDates">
                                 <span class="date">{{ date }} {{ stat.daily[date] | number }}</span>
                                 <span class="bar" [style.width]=" stat.daily[date] / 10000 + 'px' "
-                                    [style.backgroundColor]=" color(stat.daily[date]) ">.</span>
+                                    [style.backgroundColor]=" color(stat.daily[date]) ">&nbsp;</span>
                             </span>
                 </div>
         </div>

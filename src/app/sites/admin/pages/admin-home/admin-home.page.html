@@ -25,10 +25,10 @@
     </div>
 </div>
 
-<div *ngIf=" a.isSuperManager ">    
+<div>
     <div class="stats-summary container-fluid">
         <div class="row">
-            <div class="left col-sm-12 col-md-8">
+            <div class="left col-sm-12 col-md-8" *ngIf=" a.isSuperManager ">
                 <div id="domain-change-application" class="table">
                         <div class="table-title">
                             <h2>List of domain change application</h2>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
             </div>
-            <div class="left col-sm-12 col-md-8">
+            <div class="left col-sm-12 col-md-8" *ngIf=" a.isSuperManager ">
                     <div id="latest-branches" class="table">
                         <div class="table-title">
                             <h2>Latest Branches</h2>

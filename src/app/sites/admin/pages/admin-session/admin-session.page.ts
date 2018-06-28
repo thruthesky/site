@@ -488,7 +488,7 @@ export class AdminSessionPage implements OnInit {
         this.stat.nameOfTeacherRefundReject = Object.keys(this.stat.teacherRefundReject);
         this.stat.nameOfTeacherRefundDone = Object.keys(this.stat.teacherRefundDone);
 
-        // console.log('stat:', this.stat);
+        console.log('stat:', this.stat);
     }
 
     sanitize() {

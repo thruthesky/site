@@ -76,7 +76,7 @@ export class AdminSidebarComponent implements OnInit {
             route: 'lms.admin_stat',
             session_id: this.a.user.sessionId
         }).subscribe(re => {
-            console.log('stat: ', re);
+            // console.log('stat: ', re);
             this.stats = re;
             if (this.stats.stat.teachers) {
                 const teachers = this.stats.stat.teachers;

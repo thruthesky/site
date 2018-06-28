@@ -225,25 +225,25 @@
         
         <div class="daily-reservations">
             <b>Daily Reservations(UTC+0):</b>
-            <span class="daily-reservation" *ngFor="let date of stat.dateOfDailyReservation">
+            <span class="daily-reservation d-inline-block m-1 p-1 border" *ngFor="let date of stat.dateOfDailyReservation">
                 <span class="date">{{ date }}</span>
-                <span class="no" [style.min-width]=" stat.dailyReservation[date] + 'px' ">{{ stat.dailyReservation[date] }}</span>
+                <span class="no" [style.min-width]=" stat.dailyReservation[date] + 'px' ">[{{ stat.dailyReservation[date] }}]</span>
             </span>
         </div>
 
 
         <div class="daily-freeclasses">
             <b>Daily Freeclass(UTC+0):</b>
-            <span class="daily-freeclass" *ngFor="let date of stat.dateOfDailyFreeclass">
+            <span class="daily-freeclass  d-inline-block m-1 p-1 border" *ngFor="let date of stat.dateOfDailyFreeclass">
                 <span class="date">{{ date }}</span>
-                <span class="no">{{ stat.dailyFreeclass[date] }}</span>
+                <span class="no">[{{ stat.dailyFreeclass[date] }}]</span>
             </span>
         </div>
         <div class="daily-points">
             <b>Daily Point(UTC+0):</b>
-            <span class="daily-point" *ngFor="let date of stat.dateOfDailyPoint">
+            <span class="daily-point d-inline-block m-1 p-1 border" *ngFor="let date of stat.dateOfDailyPoint">
                 <span class="date">{{ date }}</span>
-                <span class="no">{{ stat.dailyPoint[date] | number }}</span>
+                <span class="no">[{{ stat.dailyPoint[date] | number }}]</span>
             </span>
         </div>
 
