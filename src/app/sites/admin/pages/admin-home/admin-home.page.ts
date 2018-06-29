@@ -34,7 +34,7 @@ export class AdminHomePage implements OnInit {
 
     loadAdminReports() {
         this.a.lms.admin_branch_record_get().subscribe( re => {
-            console.log(re);
+            // console.log('loadAdminReports', re);
             this.reports = re;
         }, e => {
             this.a.toast(e);
@@ -80,7 +80,7 @@ export class AdminHomePage implements OnInit {
     }
     onClickDomainChangeApplicationReject(branch: Branch) {
         this.a.lms.branch_cancel_domain_change_application(branch.idx).subscribe(re => {
-            console.log('cancel: re: ', re);
+            // console.log('cancel: re: ', re);
             this.modal.alert({ content: 'Domain change application has been cancelled.' });
             this.loadDomainChangeApplications();
         }, e => this.a.toast(e));
