@@ -204,7 +204,7 @@ export class AdminPaymentPage implements OnInit {
                 }
             }
         }
-        this.stat.dailyDates = Object.keys(this.stat.daily).sort();
+        this.stat.dailyDates = Object.keys(this.stat.daily).sort().reverse();
         this.stat.studentName = Object.keys(this.stat.student);
         if (this.stat.usd) {
             this.stat.usd = Math.round(this.stat.usd);

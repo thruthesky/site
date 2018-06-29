@@ -12,7 +12,7 @@ import { ADMIN_SUMMARY_REPORT, BOOK, Branch } from '../../../../modules/xapi/int
 export class AdminHomePage implements OnInit {
     latestBranches: Array<Branch> = [];
     domain_change_applications: Array<Branch> = [];
-    reports: ADMIN_SUMMARY_REPORT = {};
+    reports: ADMIN_SUMMARY_REPORT = <ADMIN_SUMMARY_REPORT>{};
     refundRequests: Array<BOOK> = [];
     loader = {
         domainChangeApplication: true

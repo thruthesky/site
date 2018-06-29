@@ -600,27 +600,27 @@ export interface TEACHER_LIST_RESPONSE {
 }
 
 export interface ADMIN_SUMMARY_REPORT {
-    no_of_past: string;
-    no_of_past_session_for_previous_30days: string;
-    no_of_past_session_this_month: string;
-    no_of_past_session_yesterday: string;
-    no_of_payment_previous_30days: string;
-    no_of_payment_this_month: string;
-    no_of_payment_today: string;
-    no_of_payment_yesterday: string;
-    no_of_point_refund_request: string;
-    no_of_registered_30day_ago: string;
-    no_of_registration_this_month: string;
-    no_of_registration_today: string;
-    no_of_registration_yesterday: string;
-    no_of_reservation: string;
-    no_of_reservation_for_next_30days: string;
-    no_of_reservation_this_month: string;
-    no_of_reservation_today: string;
-    no_of_reservation_tomorrow: string;
-    no_of_student: string;
-    no_of_student_didnt_reserve: string;
-    no_of_student_no_reservation: string;
-    no_of_student_who_paid: string;
-    no_of_student_with_freeclass: string;
+    no_of_past?: string;
+    no_of_past_session_for_previous_30days?: string;
+    no_of_past_session_this_month?: string;
+    no_of_past_session_yesterday?: string;
+    no_of_payment_previous_30days?: string;
+    no_of_payment_this_month?: string;
+    no_of_payment_today?: string;
+    no_of_payment_yesterday?: string;
+    no_of_point_refund_request?: string;
+    no_of_registered_30day_ago?: string;
+    no_of_registration_this_month?: string;
+    no_of_registration_today?: string;
+    no_of_registration_yesterday?: string;
+    no_of_reservation?: string;
+    no_of_reservation_for_next_30days?: string;
+    no_of_reservation_this_month?: string;
+    no_of_reservation_today?: string;
+    no_of_reservation_tomorrow?: string;
+    no_of_student?: string;
+    no_of_student_didnt_reserve?: string;
+    no_of_student_no_reservation?: string;
+    no_of_student_who_paid?: string;
+    no_of_student_with_freeclass?: string;
 }

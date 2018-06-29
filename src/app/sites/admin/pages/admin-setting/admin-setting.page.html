@@ -1,14 +1,14 @@
 <h2>Domain</h2>
-
+{{branch|json}}
 <div class="current-info">
     <span>
         <span>Branch Domain</span><span>{{ branch.domain }}</span>
     </span>
     <span>
-        <span>Branch Owner</span><span>{{ branch.owner?.name }}</span>
+        <span>Branch Owner</span><span>{{ branch?.manager_name }}</span>
     </span >
     <span>
-        <span>Email</span><span>{{ branch.owner?.email }}</span>
+        <span>Email</span><span>{{ branch?.manager_email }}</span>
     </span>
 </div>
 
