@@ -85,34 +85,6 @@
             padding: 1em;
             border-bottom:1px solid rgba(125,125,125,0.2);
         }
-
-        .teacher-reservations,
-        .student-reservations{
-            word-break: break-all;
-
-            .teacher-reservation,
-            .student-reservation{
-                display: inline-block;
-                padding: .5em 1em;
-
-                .student,
-                .teacher,
-                .no{
-                    display: inline-block;
-                    padding: .2em .5em;
-                    font-size: .9em;
-                }
-                .no{
-                    border: 1px solid darkgreen;
-                    background: darkgreen;
-                    color: #fff;
-                }
-                .student,
-                .teacher{
-                    border:1px solid rgba(125,125,125,0.2)
-                }
-            }
-        }
     }
 }
 
@@ -228,3 +200,54 @@ form{
     }
 
 }
+
+
+
+    .details{
+        b{
+            margin-right: .777em;
+        }
+        &>div{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            &>span{
+                display: flex;
+                align-items: center;
+                margin: .5em;
+                font-size: .85em;
+                border-radius: 2px;
+                span{
+                    display: inline-block;
+                    padding: .25em .5em;
+                    height: 100%;
+                    width: 90px;
+                    cursor: pointer;
+
+                    &:first-child{
+                        background: #fff;
+                        border: 1px solid rgba(125,125,125,0.2);
+                    }
+
+                    &:last-child{
+                        background: #614141;
+                        color: #fff;
+                        border: 1px solid #614141;
+                    }
+                }
+
+                .no{
+                    width: 40px;
+                    height: 100%;
+                    text-align: center;
+                    font-size: .9em;
+                }
+            }
+
+            .daily-point{
+                .no{
+                    width: 90px;
+                }
+            }
+        }
+    }
