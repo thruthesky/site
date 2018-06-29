@@ -691,7 +691,6 @@ export class XapiLMSService extends Base {
             idx: idx
         });
     }
-
     point_log_actions_get() {
         return this.x.post({
             route: 'lms.point_log_actions_get'
@@ -701,6 +700,13 @@ export class XapiLMSService extends Base {
         return this.x.post({
             route: 'lms.teacher_schedule_table_get',
             idx_teacher: idx_teacher
+        });
+    }
+
+    admin_branch_record_get(): Observable<any> {
+        return this.x.post({
+            route: 'lms.admin_branch_record_get',
+            session_id: this.user.sessionId
         });
     }
 }

@@ -255,3 +255,25 @@
         }
     }
 }
+
+
+.refund-request{
+
+
+    .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none!important;
+        svg{
+            height: 1em;
+            width: 1em;
+            margin-left: .3em
+        }
+
+        &:hover{
+            font-weight: normal;
+        }
+    }
+
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
-import { Branch } from '../../../../modules/xapi/lms.service';
 import { ModalService } from '../../../../providers/modal/modal.service';
+import { ADMIN_SUMMARY_REPORT, BOOK, Branch } from '../../../../modules/xapi/interfaces';
 
 @Component({
     selector: 'admin-home-page',
@@ -12,6 +12,8 @@ import { ModalService } from '../../../../providers/modal/modal.service';
 export class AdminHomePage implements OnInit {
     latestBranches: Array<Branch> = [];
     domain_change_applications: Array<Branch> = [];
+    reports: ADMIN_SUMMARY_REPORT = {};
+    refundRequests: Array<BOOK> = [];
     loader = {
         domainChangeApplication: true
     };
@@ -24,9 +26,20 @@ export class AdminHomePage implements OnInit {
         }
 
         this.loadLatestBranches();
+        this.loadAdminReports();
+        this.loadRefundRequest();
     }
 
     ngOnInit() { }
+
+    loadAdminReports() {
+        this.a.lms.admin_branch_record_get().subscribe( re => {
+            console.log(re);
+            this.reports = re;
+        }, e => {
+            this.a.toast(e);
+        });
+    }
 
     loadDomainChangeApplications() {
         this.loader.domainChangeApplication = true;
@@ -38,6 +51,32 @@ export class AdminHomePage implements OnInit {
             this.loader.domainChangeApplication = false;
             this.a.toast(e);
         });
+    }
+
+    loadRefundRequest() {
+        let sql = `SELECT r.* FROM lms_reservation as r, wp_users WHERE BRANCH AND wp_users.ID = r.idx_student`;
+
+        sql += ` AND ( (r.refund_request_at > 0) OR (r.refund_reject_at > 0) )
+                    AND refund_done_at = 0
+                    AND refund_settle_at = 0
+                    AND paid=0 `;
+        sql += ` ORDER BY r.date DESC, r.class_begin DESC`;
+        sql += ` LIMIT 5`;
+        // console.log('sql: ', sql);
+        this.a.lms.admin_query({
+            sql: sql,
+            student_info: true,
+            teacher_info: true
+        }).subscribe(re => {
+            // console.log('refund request: ', re);
+            this.refundRequests = re;
+            if (this.refundRequests && this.refundRequests.length) {
+                for (const s of this.refundRequests) {
+                    this.a.convertSessionIntoUserTime(s);
+                    s.date = s.date.substr(4);
+                }
+            }
+        }, e => this.a.toast(e));
     }
     onClickDomainChangeApplicationReject(branch: Branch) {
         this.a.lms.branch_cancel_domain_change_application(branch.idx).subscribe(re => {
