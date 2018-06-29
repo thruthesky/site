@@ -1,0 +1,123 @@
+@import '../../../../../theme/vars';
+form{
+    margin-top: 1.5em;
+    input{
+        padding: .5em 1em;
+        font-size: .85em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+
+    span,
+    b{
+        display: inline-block;
+        margin: .35em 1em;
+        margin-left: 0;
+    }
+
+    .submit-button{
+        border: 0;
+        border-radius: 2px;
+        background: darkblue;
+        color: #fff;
+        padding: .75em 2em;
+    }
+}
+
+.note{
+    font-size: .9em;
+    color:darkred;
+
+    line-height: 1.6em;
+}
+
+.data{
+    font-size: .9em;
+    b{
+        margin-right: .3em;
+    }
+    &>div{
+        margin: 1em 0;
+        padding: 1em 1.5em;
+        border-radius: 2px;
+        border:1px solid rgba(125,125,125,0.2);
+
+        &>div{
+            padding: .5em;
+        }
+    }
+
+    .info{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: column;
+        @media screen {
+            flex-direction: row;
+            align-items: center;
+        }
+        margin-bottom: 1em;
+        margin-top: .5em;
+
+        &>div{
+            display: flex;
+            
+        }
+
+        b{
+            color: #0867B0;
+        }
+    }
+
+    .link{
+        display: flex;
+        align-items: center;
+        font-weight: 100;
+        text-decoration:none;
+         svg{
+             height: 1em;
+             width: 1em;
+             margin-left: .3em;
+         }
+    }
+
+    .message-container{
+        display: block;
+        margin: .5em;
+        padding: 1.5em 2em!important;
+        border-radius: 2px;
+        background: #eff0f1;
+        font-size: .9em;
+
+        div{
+            margin-top: .75em;
+        }
+    }
+
+    .buttons{
+        text-align: center;
+        padding-bottom: 0!important;
+        svg{
+            height: 1em;
+            width: 1em;
+            margin-left: .3em;
+        }
+        .app-button{
+            display: inline-flex;
+            align-items: center;
+            margin: .5em;
+            padding:.5em 1em;
+            font-size: .85em;
+        }
+        .app-button:last-child{
+            background: 0;
+            color: darkred;
+        }
+    }
+}
+
+.result{
+    margin-top: 1.5em;
+    color: darkblue;
+    font-weight: bold;
+}
