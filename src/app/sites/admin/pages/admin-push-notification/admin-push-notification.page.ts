@@ -67,6 +67,10 @@ export class AdminPushNotificationPage implements OnInit {
             }
             this.stat = stat;
         });
+
+        if (!a.isSuperManager) {
+            this.form.domain = this.a.user.manager;
+        }
     }
 
     ngOnInit() { }
