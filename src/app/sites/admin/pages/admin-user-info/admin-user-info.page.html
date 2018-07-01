@@ -196,10 +196,11 @@
                                 <input matInput value="{{  user.block_free_class_until}}" [(ngModel)]=" user.block_free_class_until " name="block_free_class_until">
                             </mat-form-field>
     
-                            <mat-form-field appearance="outline" class="form-radio"  *ngIf="a.isSuperManager">
+                            <mat-form-field appearance="outline" class="form-radio">
                                 <mat-label>User Type</mat-label>
                                 <input matInput value=" ">
-                                <div>
+                                <div *ngIf="!a.isSuperManager">{{user.user_type =='T' ? 'Teacher' : 'Student'}}</div>
+                                <div *ngIf="a.isSuperManager">
                                     <input type='radio' id="user_type_student" name='user_type' [(ngModel)]=" user.user_type " [value]="'S'" [checked]=" user.user_type ">
                                     <label for="user_type_student">Student</label>
                                     <input type='radio' id="user_type_teacher" name='user_type' [(ngModel)]=" user.user_type " [value]="'T'" [checked]=" user.user_type ">
