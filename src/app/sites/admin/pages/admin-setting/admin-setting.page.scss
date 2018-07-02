@@ -9,17 +9,11 @@ h2{
     justify-content: center;
     margin-top: 2.5em;
     margin-bottom:2em;
-    .apply-change-button{
+    .app-button{
         display: inline-flex;
         align-items: center;
-        padding-inline-end: 1.5em 0;
-        border: 0;
-        border-radius: 2px;
-        background: #fff;
-        font-size: 1em;
-        &:hover{
-            color: dodgerblue;
-        }
+        padding: .25em .5em;
+        font-size: .9em;
         svg{
             height: 1.4em;
             width: 1.4em;
@@ -86,6 +80,7 @@ h2{
         font-size: .9em;
     }
     &>span{
+        display: flex;
         border-radius: 2px;
         span{
             display: inline-block;

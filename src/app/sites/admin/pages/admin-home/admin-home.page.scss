@@ -161,7 +161,7 @@
     h2{
         padding: .5em 1em;
         @media (min-width:$md){
-            padding: 1em 2em;
+            padding: 1em .1em;
         }
         margin: 0;
         color: #F08900;
@@ -187,7 +187,8 @@
             align-items: center;
             padding: .5em 1em;
             @media (min-width:$md){
-                padding: 1em 2em;
+                padding: 1em .1em;
+                padding-right: 5em;
             }
         }
     }

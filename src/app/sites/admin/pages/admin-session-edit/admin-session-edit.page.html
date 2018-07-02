@@ -1,31 +1,29 @@
 <h1>Session Edit</h1>
 <div>
-    Warning: You need to be very careful editing session information directly.
-    <br> For instance, if you add a big point on a session, the company will lose as the point.
-    <br> Do this with care.
-    <br> Use case
-    <br>
-    <ul>
-        <li>
-            You want to change teacher.
-            <br> For instance, teacher A cannot teach. And teacher B can teach. Normally, Teacher B create a schedule and Student
-            reserve. There might be some inconvience with it. What if the class begin time has almost started? In that case
-            you can quickly change teacher idx.
-        </li>
-        <li>
-            You want to share the session point between teacher and student.
-            <br> Class went wrong and decided to share half for teacher and half for student.
-            <br> You can deduct the point by half on the session. and add half of the point into student's account.
-        </li>
-        <li>
-            Teacher and student want to agree to have a make up class( which we prohibit though).
-            <br> You can simply change the date and class begin so, the class will be like 'undone'.
-        </li>
-        <li>
-            For some tests, you can freely change the ssion information.
-        </li>
-    </ul>
+    <div class="warning">Warning: You need to be very careful editing session information directly.</div>
+    <div class="example"> For instance, if you add a big point on a session, the company will lose as the point. Do this with care.</div>
 </div>
+<h2>Use case </h2>
+<ul>
+    <li>
+        You want to change teacher.
+        <br> For instance, teacher A cannot teach. And teacher B can teach. Normally, Teacher B create a schedule and Student
+        reserve. There might be some inconvience with it. What if the class begin time has almost started? In that case
+        you can quickly change teacher idx.
+    </li>
+    <li>
+        You want to share the session point between teacher and student.
+        <br> Class went wrong and decided to share half for teacher and half for student.
+        <br> You can deduct the point by half on the session. and add half of the point into student's account.
+    </li>
+    <li>
+        Teacher and student want to agree to have a make up class( which we prohibit though).
+        <br> You can simply change the date and class begin so, the class will be like 'undone'.
+    </li>
+    <li>
+        For some tests, you can freely change the ssion information.
+    </li>
+</ul>
 <h3>Warning: Date and Time must be in UTC+0</h3>
 <div class="loader" *ngIf=" loader.get ">Loading</div>
 <form (ngSubmit)=" onSubmit( $event ) ">
