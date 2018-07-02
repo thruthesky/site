@@ -1,34 +1,22 @@
 @import '../../../../../theme/vars';
 
 .login-info{
-    margin: 1.5em 0;
-    @media (min-width:$md){
-        margin-top: 1.5em;
-        margin-bottom: 3em;
-    }
+    margin: 0;
+    margin-top: 1.5em;
     .row{
         justify-content: space-between;
         align-items: stretch;
         font-size: .75em;
         @media (min-width:$md){
+            margin: 0 -1.5em;
             font-size: 1em;  
         }
-        .col-md-6{
-            padding: 0;
-        }  
-        .col-md-6:first-child{
-            padding-right: .5em;
-            @media (min-width:$md){
-                padding-right: .5em;
+        .col-sm-12{
+            padding: 1em 0;
+            @media screen {
+                padding: 0.5em;
             }
-        }
-        .col-md-6:last-child{
-            margin-top: 1em;
-            @media (min-width:$md){
-                padding-left: .5em;
-                margin: 0;
-            }
-        }   
+        }    
     }
     .notice{
         margin: 0;
@@ -94,7 +82,6 @@
 }
 
 .table{
-    height: 220px;
     border-radius: 2px;
     border: 1px solid rgba(125,125,125,0.2);
     font-size: 90%;
@@ -102,6 +89,9 @@
         font-size: 100%;
     }
     &-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 1em 1.5em;
         border-bottom: 1px solid rgba(125,125,125,0.2);
         @media (min-width:$md){
@@ -113,6 +103,16 @@
         &>h2{
             margin:0;
             font-size: 1em;
+        }
+
+        div{
+            line-height: 0;
+            svg{
+                color: darkred;
+                height: 1.3em;
+                width: 1.3em;
+                cursor: pointer;
+            }
         }
     }
 
@@ -129,15 +129,19 @@
     }
 
     &-content{
+        height: 137px;
         font-size: .9em;
         overflow: auto;
         table{
             width: 100%;
             text-align: center;
     
-            *{
-                padding: .75em 1em;
-                border-bottom: 1px solid rgba(125,125,125,0.2)
+            tr{
+                &>td,
+                &>th{
+                    padding: .75em 1em;
+                    // border-bottom: 1px solid rgba(125,125,125,0.2);
+                }
             }
         }
     }
@@ -200,29 +204,13 @@
     font-size: .9em;
 
     &>.row{
+        margin: 0 -1.5em!important;
         align-items: stretch;
     }
     .col-sm-12{
-        padding: 0;
+        padding: 0 .5em;
         &>*{
             margin-top: 1em;
-        }
-    }
-
-    .left{
-        @media (min-width:$md){
-            padding-right: .5em;
-        }
-    }
-    .middle{
-        @media (min-width:$md){
-            padding-right: .5em;
-            padding-left: .5em;
-        }
-    }
-    .right{
-        @media (min-width:$md){
-            padding-left: .5em;
         }
     }
 }
@@ -259,21 +247,18 @@
 
 
 .refund-request{
-
-
-    .link {
+    .link{
         display: flex;
         align-items: center;
         justify-content: center;
-        text-decoration: none!important;
         svg{
             height: 1em;
             width: 1em;
             margin-left: .3em
         }
-
         &:hover{
             font-weight: normal;
+            text-decoration: none;
         }
     }
 

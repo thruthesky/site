@@ -24,57 +24,67 @@
         For some tests, you can freely change the ssion information.
     </li>
 </ul>
-<h3>Warning: Date and Time must be in UTC+0</h3>
+<h3 class="warning">Warning: Date and Time must be in UTC+0</h3>
 <div class="loader" *ngIf=" loader.get ">Loading</div>
-<form (ngSubmit)=" onSubmit( $event ) ">
-    <table>
-        <tr>
-            <td>idx</td>
-            <td>{{ idx }}</td>
-        </tr>
-        <tr>
-            <td>idx_teacher</td>
-            <td><input type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>idx_student</td>
-            <td><input type="text" name="idx_student" [(ngModel)]="form.idx_student" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>date</td>
-            <td><input type="text" name="date" [(ngModel)]="form.date" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>class_begin</td>
-            <td><input type="text" name="class_begin" [(ngModel)]="form.class_begin" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>class_end</td>
-            <td><input type="text" name="class_end" [(ngModel)]="form.class_end" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>point</td>
-            <td><input type="text" name="point" [(ngModel)]="form.point" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>book_used</td>
-            <td><input type="text" name="book_used" [(ngModel)]="form.book_used" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>book_next</td>
-            <td><input type="text" name="book_next" [(ngModel)]="form.book_next" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>domain</td>
-            <td><input type="text" name="domain" [(ngModel)]="form.domain" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>alert</td>
-            <td><input type="text" name="alert" [(ngModel)]="form.alert" [disabled]="!a.isSuperManager"></td>
-        </tr>
-    </table>
+<form (ngSubmit)=" onSubmit( $event ) " *ngIf=" ! loader.get ">
+
+    <div>
+        <label>idx</label>
+        <input disabled value="{{ idx }}">
+    </div>
+
+    <div>
+        <label>idx_teacher</label>
+        <input type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" [disabled]="!a.isSuperManager">
+    </div>
+    
+    <div>
+        <label>idx_student</label>
+        <input type="text" name="idx_student" [(ngModel)]="form.idx_student" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>date</label>
+        <input type="text" name="date" [(ngModel)]="form.date" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>class_begin</label>
+        <input type="text" name="class_begin" [(ngModel)]="form.class_begin" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>class_end</label>
+        <input type="text" name="class_end" [(ngModel)]="form.class_end" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>point</label>
+        <input type="text" name="point" [(ngModel)]="form.point" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>book_used</label>
+        <input type="text" name="book_used" [(ngModel)]="form.book_used" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>book_next</label>
+        <input type="text" name="book_next" [(ngModel)]="form.book_next" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>domain</label>
+        <input type="text" name="domain" [(ngModel)]="form.domain" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>alert</label>
+        <input type="text" name="alert" [(ngModel)]="form.alert" [disabled]="!a.isSuperManager">
+    </div>
+
     <div  *ngIf="a.isSuperManager">
-        <button type="submit" *ngIf=" ! loader.save ">Submit</button>
+        <button class="app-button" type="submit" *ngIf=" ! loader.save ">Submit</button>
         <div class="loader" *ngIf=" loader.save ">Saving ...</div>
     </div>
 </form>
