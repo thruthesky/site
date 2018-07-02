@@ -1279,6 +1279,15 @@ export class AppService {
         return parseInt(count, 10);
     }
 
+    get lmsMaxFreeClass(): number {
+        const info: LMS_INFO = <any> this.get(KEY_LMS_INFO);
+        const no = info.MAX_FREE_CLASS;
+        if (!no) {
+            return 0;
+        }
+        return parseInt(no, 10);
+    }
+
     /**
      * @note don't call this method twice.
      *
