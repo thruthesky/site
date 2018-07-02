@@ -1,4 +1,5 @@
-<div class="loader" *ngIf=" show.loader.loadProfile ">
+<div class="loader" *ngIf=" show.loader.loadProfile ">    
+    <mat-spinner [diameter]="48"></mat-spinner>
     Loading user profile...
 </div>
 
@@ -96,7 +97,10 @@
                                     <div class="buttons">
                                         <button class="app-button update" type="button" (click)="onClickPointUpdate()" *ngIf=" ! show.loader.updatePoint ">Update Point</button>
                                         <button class="app-button cancel" type="button" (click)=" show.pointUpdateForm = false">Cancel</button>
-                                        <div class="loader" *ngIf=" show.loader.updatePoint ">Updating point...</div>
+                                        <div class="loader" *ngIf=" show.loader.updatePoint ">
+                                            <mat-spinner [diameter]="20"></mat-spinner>
+                                            Updating point...
+                                        </div>
                                     </div>
                                 </section>
                             </div>
@@ -229,8 +233,14 @@
                         <div class="form-buttons">
                             <div>
                                 <button class="app-button" type='button' (click)="onSubmitUserInfo()" *ngIf=" ! show.loader.updateProfile ">Update User Profile</button>
-                                <div class="loader" *ngIf=" show.loader.updateProfile ">Saving ...</div>
-                                <div class="loader" *ngIf=" show.loader.profileSaved ">Saved...</div>
+                                <div class="loader" *ngIf=" show.loader.updateProfile ">
+                                    <mat-spinner [diameter]="15"></mat-spinner>
+                                    Saving ...
+                                </div>
+                                <div class="loader" *ngIf=" show.loader.profileSaved ">
+                                    <mat-spinner [diameter]="15"></mat-spinner>
+                                    Saved...
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -245,6 +255,7 @@
         <section class="payments-wrapper">
                 <!-- <h2 class="title">Payment</h2> -->
                 <div class="loader" *ngIf=" show.loader.loadPayment ">
+                    <mat-spinner [diameter]="48"></mat-spinner>
                     Loading Payment Info...
                 </div>
                 <table class="payments" *ngIf=" ! show.loader.loadPayment && payments.length ">
@@ -316,7 +327,10 @@
                     <li>Today's class is listed on top.</li>
                     <li>Only {{ limit }} sessions are listed. Today might not be shown if there are too many reservations.</li>
                 </ul>
-                <div class="loader" *ngIf=" show.loader.loadSchedule ">Loading schedule</div>
+                <div class="loader" *ngIf=" show.loader.loadSchedule ">
+                    <mat-spinner [diameter]="48"></mat-spinner>
+                    Loading schedule
+                </div>
                 <div class="mini-stat">
                         <span><b>Reserved:</b> {{ count.session.future | number }}</span>
                         <span><b>Past:</b> {{ count.session.past | number }}</span>
@@ -379,6 +393,7 @@
                 <section>
     
                     <div class="loader" *ngIf=" show.loader.loadPointHistory ">
+                        <mat-spinner [diameter]="48"></mat-spinner>
                         Loading Payment Info...
                     </div>
                     <table *ngIf=" ! show.loader.loadPointHistory ">

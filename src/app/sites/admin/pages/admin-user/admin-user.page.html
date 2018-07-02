@@ -161,7 +161,10 @@
 </form>
 <hr>
 
-<h2 class="loader" *ngIf="show.loader">Loading...</h2>
+<h2 class="loader" *ngIf="show.loader">
+    <mat-spinner [diameter]="48"></mat-spinner>
+    Loading...
+</h2>
 <section class="result" *ngIf=" re ">
 
     <div class="statistics">

@@ -208,7 +208,10 @@
     </div>
 </form>
 
-<div class="loader" *ngIf=" show.loader ">Loading...</div>
+<div class="loader" *ngIf=" show.loader ">
+    <mat-spinner [diameter]="48"></mat-spinner>
+    Loading...
+</div>
 <section class="stat" *ngIf=" re.length ">
     <div class="stat-title">
         <b>No of searched Sessions: {{ re.length }}</b>

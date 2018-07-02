@@ -23,7 +23,10 @@
     </div>
 
 </form>
-
+<div class="loader" *ngIf=" !re.length">
+    <mat-spinner [diameter]="48"></mat-spinner>
+    loading...
+</div>
 <section class="result" *ngIf=" re.length ">
     No of Searched Record: {{ re.length }}
 </section>

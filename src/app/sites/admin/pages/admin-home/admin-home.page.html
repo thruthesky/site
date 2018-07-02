@@ -37,7 +37,10 @@
                             </div>
                         </div>
                         <div class="table-content">
-                            <div class="loader" *ngIf=" loader.domainChangeApplication; else domainChangeApplication">Loading domain change application</div>
+                            <div class="loader" *ngIf=" loader.domainChangeApplication; else domainChangeApplication">
+                                <mat-spinner [diameter]="48"></mat-spinner>
+                                Loading domain change application
+                            </div>
                             <ng-template #domainChangeApplication>
                                 <table cellspacing="0"  *ngIf="domain_change_applications.length; else noDomainChangeApplication">
                                     <tr>
@@ -79,7 +82,10 @@
                             <h2>Latest Branches</h2>
                         </div>
                         <div class="table-content">
-                            <div class="loader"  *ngIf=" !latestBranches.length "> Loading Branches</div>
+                            <div class="loader"  *ngIf=" !latestBranches.length "> 
+                                <mat-spinner [diameter]="48"></mat-spinner>
+                                Loading Branches
+                            </div>
                             <table cellspacing="0" *ngIf=" latestBranches.length ">
                                 <tr class="table-header">
                                     <th>No.</th>
@@ -103,7 +109,10 @@
                         <h2>Point Refund Request</h2>
                     </div>
                     <div class="table-content">
-                        <div class="loader"  *ngIf=" !refundRequests.length "> Loading Branches</div>
+                        <div class="loader"  *ngIf=" !refundRequests.length "> 
+                            <mat-spinner [diameter]="48"></mat-spinner>
+                            Loading Branches
+                        </div>
                         <table class="refund-request"  cellspacing="0"  *ngIf=" refundRequests.length ">
                             <tr>
                                 <th>Session ID</th>

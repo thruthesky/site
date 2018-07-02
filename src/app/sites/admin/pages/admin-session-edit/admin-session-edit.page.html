@@ -85,7 +85,10 @@
 
     <div  *ngIf="a.isSuperManager">
         <button class="app-button" type="submit" *ngIf=" ! loader.save ">Submit</button>
-        <div class="loader" *ngIf=" loader.save ">Saving ...</div>
+        <div class="loader" *ngIf=" loader.save ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            Saving ...
+        </div>
     </div>
 </form>
 

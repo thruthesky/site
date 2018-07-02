@@ -75,7 +75,10 @@
     </ng-container>
     <div>
         <button class="submit-button" type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
-        <div class="loader" *ngIf=" loader.send ">Sending...</div>
+        <div class="loader" *ngIf=" loader.send ">
+            <mat-spinner [diameter]="28"></mat-spinner>
+            Sending...
+        </div>
     </div>
 
 </form>

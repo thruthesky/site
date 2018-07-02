@@ -149,7 +149,10 @@
     
     <div class="submit-button">
         <button class="app-button" type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
-        <div class="loader" *ngIf=" loader.branchUpdate ">Updating branch info</div>
+        <div class="loader" *ngIf=" loader.branchUpdate ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            Updating branch info
+        </div>
     </div>
 </form>
 
