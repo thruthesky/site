@@ -1,5 +1,5 @@
-<b style='color:darkred;'>todo: merge root domain with www sub domain.</b>
-How to use
+<b class="d-block mt-3" style='color:darkred;'>todo: merge root domain with www sub domain.</b>
+<h2>How to use</h2>
 <ol>
     <li>
         Choose one of user type or domain or email.
@@ -16,8 +16,8 @@ How to use
     </li>
 </ol>
 <form (ngSubmit)="onSubmit( $event )">
-    <div>
-        User type:
+    <div *ngIf="a.isSuperManager">
+        <label>User type:</label>
         <select name="user_type" [(ngModel)]="form.user_type">
             <option value=''>Select User Type</option>
             <option value="A">All user(including un-registered): {{ stat.no_of_user }}</option>
@@ -26,25 +26,29 @@ How to use
             <option value="TEST">Test Users: {{ stat.no_of_test_user }}</option>
         </select>
     </div>
-    <div>
-        Domain:
+    <div *ngIf="a.isSuperManager">
+        <label>Domain:</label>
         <select name="domain" [(ngModel)]="form.domain">
-            <option value=''>Select Domain</option>
-            <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
-                {{ domain['domain'] ? domain['domain'] : 'No domain' }} : {{ domain['cnt'] }}
-            </option>
+            <ng-container *ngIf="a.isSuperManager">
+                <option value=''>Select Domain</option>
+                <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
+                    {{ domain['domain'] ? domain['domain'] : 'No domain' }} : {{ domain['cnt'] }}
+                </option>
+            </ng-container>
+            <option *ngIf="!a.isSuperManager" value="{{a.user.manager}}">{{a.user.manager}}</option>
         </select>
     </div>
 
-    <div>
-        Email:
-        <input type="text" name="email" [(ngModel)]="form.email"> For test purpose. You can send push to only this use.
+    <div *ngIf="a.isSuperManager">
+        <label>Email:</label>
+        <input type="text" name="email" [(ngModel)]="form.email"> 
+        <span class="note">For test purpose. You can send push to only this use.</span>
     </div>
 
     <div>
-        Post No.:
+        <label>Post No.:</label>
         <input type="text" name="postId" [(ngModel)]="form.postId">
-        <button type="button" (click)="onClickCheck()">CHECK</button>
+        <button class="check-button" type="button" (click)="onClickCheck()">CHECK</button>
     </div>
 
     <ng-container *ngIf=" post?.id ">
@@ -59,18 +63,18 @@ How to use
             </select>
             /post/{{ form.postId }}
         </div>
-        <div>
-            Title:
+        <div class="text-area">
+            <label>Title:</label>
             <textarea class="post-input" type="text" name="title" [(ngModel)]="form.title"></textarea>
         </div>
-        <div>
-            Body:
+        <div class="text-area">
+            <label>Body:</label>
             <textarea class="post-input" type="text" name="body" [(ngModel)]="form.body"></textarea>
         </div>
 
     </ng-container>
     <div>
-        <button type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
+        <button class="submit-button" type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
         <div class="loader" *ngIf=" loader.send ">Sending...</div>
     </div>
 

@@ -1,107 +1,142 @@
 <h1>
-    Paymnet List &amp; Search
+    Payment List &amp; Search
 </h1>
 
 <form (ngSubmit)="onSubmit()">
-    Date:
-    <input class="normal" type="date" name="date_begin" [(ngModel)]="form.date_begin"> ~
-    <input class="normal" type="date" name="date_end" [(ngModel)]="form.date_end">
+    <span>
+        Date:
+        <input class="normal" type="date" name="date_begin" [(ngModel)]="form.date_begin"> ~
+        <input class="normal" type="date" name="date_end" [(ngModel)]="form.date_end">
+    </span>
+
+    <span>
+        <input type="radio" id="all" name="state" [(ngModel)]="form.state" [value]="'all'">
+        <label for="success">All transaction</label>
+    </span>
+
+    <span>
+        <input type="radio" id="success" name="state" [(ngModel)]="form.state" [value]="'approved'">
+        <label for="success">Payment Success</label>
+    </span>
+
+    <span>
+        <input type="radio" id="fail" name="state" [(ngModel)]="form.state" [value]="'created'">
+        <label for="fail">Failure</label>
+    </span>
+
+    <span>
+        <input type="radio" id="refund" name="state" [(ngModel)]="form.state" [value]="'refund'">
+        <label for="refund">Refund</label>
+    </span>
+
+    <span>
+        <input class="normal" type="text" name="idx_student" [(ngModel)]="form.idx_student" placeholder="idx_student">
+    </span>
+
+    <span>
+            <input type="text" name="method" [(ngModel)]="form.payment_method" placeholder="Payment Method. paypal, etc.">
+    </span>
+
+    <span>
+        Order
+        <select name="order" [(ngModel)]="form.order">
+            <option value='stamp_begin'>Date</option>
+            <option value='point'>Point</option>
+            <option value='currency'>Currency</option>
+            <option value='payment_method'>Method</option>
+        </select>
+        By
+        <select name="by" [(ngModel)]="form.by">
+            <option value="ASC">ASC</option>
+            <option value="DESC">DESC</option>
+        </select>
+    </span>
 
 
-    <input class="normal" type="text" name="idx_student" [(ngModel)]="form.idx_student" placeholder="idx_student">
-    <input type="text" name="method" [(ngModel)]="form.payment_method" placeholder="Payment Method. paypal, etc.">
-
-    <input type="radio" id="success" name="state" [(ngModel)]="form.state" [value]="'approved'">
-    <label for="success">Payment Success</label>
-
-    <input type="radio" id="fail" name="state" [(ngModel)]="form.state" [value]="'created'">
-    <label for="fail">Failure</label>
-
-    <input type="radio" id="refund" name="state" [(ngModel)]="form.state" [value]="'refund'">
-    <label for="refund">Refund</label>
-
-
-    Order
-    <select name="order" [(ngModel)]="form.order">
-        <option value='stamp_begin'>Date</option>
-        <option value='point'>Point</option>
-        <option value='currency'>Currency</option>
-        <option value='payment_method'>Method</option>
-    </select>
-    By
-    <select name="by" [(ngModel)]="form.by">
-        <option value="ASC">ASC</option>
-        <option value="DESC">DESC</option>
-    </select>
-
-
-    Limit
-    <input class="narrow" type="text" name="limit" [(ngModel)]="form.limit">
+    <span>
+        Limit
+        <input class="narrow" type="text" name="limit" [(ngModel)]="form.limit">
+    </span>
 
 
     <button type="submit">Search</button>
 </form>
 
-No of success Payment: <span class="statNo">{{ stat.success | number }}</span>
-No of failure: <span class="statNo">{{ stat.fail | number }}</span>
+<div class="stats">
+    <div><span>No of success Payment:</span> <span class="statNo">{{ stat.success | number }}</span></div>
+    <div><span>No of failure:</span> <span class="statNo">{{ stat.fail | number }}</span></div>
+    
+    
+    <div><span>Total (success) Point:</span> <span class="statNo">{{ stat.point | number }}</span></div>
+    <div><span>Total (success) USD:</span> <span class="statNo">{{ stat.usd | number }}</span></div>
+    <div><span>Total (success) KWR:</span> <span class="statNo">{{ stat.kwr | number }}</span></div>
+    <div><span>Total refund point:</span> <span class="statNo">{{ stat.refund | number }}</span></div>
+    <div><span>No of student who (successfully) paid:</span> <span class="statNo">{{ stat.studentName.length }}</span></div>
+</div>
 
+<button class="app-button" (click)=" show.stat = true ">
+    Show Daily Payment and Student Payment Statistics
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg>
+</button>
 
-Total (success) Point: <span class="statNo">{{ stat.point | number }}</span>
-Total (success) USD: <span class="statNo">{{ stat.usd | number }}</span>
-Total (success) KWR: <span class="statNo">{{ stat.kwr | number }}</span>
-Total refund point: <span class="statNo">{{ stat.refund | number }}</span>
-No of student who (successfully) paid: <span class="statNo">{{ stat.studentName.length }}</span>
-
-<hr>
-<button class="app-button" (click)=" show.stat = true ">Show Daily Payment and Student Payment Statistics</button>
-
-<div *ngIf=" show.stat ">
-    Daily Successful Paymnet Point:
-    <div class="dailys">
-                <span class="daily" *ngFor="let date of stat.dailyDates">
-                    {{ date }} {{ stat.daily[date] | number }}
-                    <span class="bar" [style.width]=" stat.daily[date] / 10000 + 'px' "
-                          [style.backgroundColor]=" color(stat.daily[date]) ">.</span>
-                </span>
-    </div>
-    <hr>
-    Successful Payment of Student: If you click on student, you will see the payments of the student.
-    <div class="students">
-                <span class="student" *ngFor="let student of stat.studentName"
-                      (click)="onClickStudent( stat.student[student].idx )">
-                    <span class="name">{{ student }}</span>
-                    <span class="count"
-                          [attr.count]=" stat.student[student].count ">{{ stat.student[student].count }}</span>
-                    <span class="point">{{ this.stat.student[student].point | number }}</span>
-                </span>
+<div class="container-fluid" *ngIf=" show.stat ">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+                <div class="title"><b>Daily Successful Payment Point:</b></div>
+                <div class="dailys">
+                            <span class="daily" *ngFor="let date of stat.dailyDates">
+                                <span class="date">{{ date }} {{ stat.daily[date] | number }}</span>
+                                <span class="bar" [style.width]=" stat.daily[date] / 10000 + 'px' "
+                                    [style.backgroundColor]=" color(stat.daily[date]) ">&nbsp;</span>
+                            </span>
+                </div>
+        </div>
+        <div class="col-sm-12 col-md-8">
+                <div class="title"><b>Successful Payment of Student:</b> If you click on student, you will see the payments of the student.</div>
+                <div class="students">
+                        <span class="student" *ngFor="let student of stat.studentName"
+                            (click)="onClickStudent( stat.student[student].idx )">
+                            <span class="name" matTooltip="{{ student }}">
+                                {{ a.shortName(student,8) }}...
+                            </span>
+                            <span class="count"
+                                [attr.count]=" stat.student[student].count ">{{ stat.student[student].count }}</span>
+                            <span class="point">{{ this.stat.student[student].point | number }}</span>
+                        </span>
+                </div>
+        </div>
     </div>
 </div>
 
 
-<div *ngIf="show.loader"><h2>Loading...</h2></div>
-<table class="payments">
-    <tr>
-        <th>idx</th>
-        <th>Student</th>
-        <th>Point</th>
-        <th>Currency</th>
-        <th>Amount</th>
-        <th>Method</th>
-        <th>Status</th>
-        <th>Date</th>
-    </tr>
-    <tr *ngFor="let pay of re">
-        <td>{{ pay.idx }}</td>
-        <td>
-            <div class="link" routerLink="/manager/user-info/{{pay.student?.idx}}">{{ pay.student?.display_name }}({{
-                pay.student?.name}})
-                <button class="user-info-button">e</button>
-            </div>
+<div class="loader" *ngIf="show.loader">Loading...</div>
+
+<div class="custom-table">
+    <table class="payments">
+        <tr>
+            <th>idx</th>
+            <th>Student</th>
+            <th>Point</th>
+            <th>Currency</th>
+            <th>Amount</th>
+            <th>Method</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor="let pay of re">
+            <td>{{ pay.idx }}</td>
+            <td>
+                <a class="link" routerLink="/manager/user-info/{{pay.student?.idx}}">{{ pay.student?.display_name }}({{
+                    pay.student?.name}})({{pay.student?.idx}})
+                    <svg viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                </a>
         </td>
-        <td>{{ pay.point }}</td>
-        <td>{{ pay.currency }}</td>
-        <td>{{ pay.payment_method }}</td>
-        <td>{{ pay.state == 'approved' ? 'Success' : '' }}</td>
-        <td>{{ a.shortDate(pay.stamp_begin) }}</td>
-    </tr>
-</table>
+            <td>{{ pay.point }}</td>
+            <td>{{ pay.currency }}</td>
+            <td>{{ pay.amount }}</td>
+            <td>{{ pay.payment_method }}</td>
+            <td>{{ pay.state }}</td>
+            <td>{{ a.shortDate(pay.stamp_begin) }}</td>
+        </tr>
+    </table>
+</div>

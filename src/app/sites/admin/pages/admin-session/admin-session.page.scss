@@ -1,0 +1,253 @@
+@import '../../../../../theme/vars';
+.custom-table{
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none!important;
+        line-height: 0;
+        font-weight: normal;
+
+        svg{
+            height: .85em;
+            width: .85em;
+            margin-left: .3em;
+        }
+    }
+}
+.timezone{
+    padding: 1em 0;
+
+    .note{
+        font-size: .9em;
+        color: darkred
+    }
+    .title{
+        font-weight: bold;
+    }
+}
+
+.future,
+.past{
+    background:green
+}
+
+.stat{
+    margin: 2em 0;
+    .stat-title{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        @media (min-width:$md){
+            flex-direction: row
+        }
+
+        b{
+            margin-right: 1em;
+        }
+    
+        .app-button{
+            display: flex;
+            align-items: center;
+            margin-top: .5em;
+            @media (min-width:$md){
+                margin-top: 0;
+            }
+            padding: .5em 1em;
+            border-radius: 2px;
+            font-size: .8em;
+    
+            svg{
+                height: 1.5em;
+                width: 1.5em;
+                margin-left: .5em;
+            }
+        }
+    
+        .open{
+            background: darkorange;
+            color: #000;
+        }
+        .close{
+            background: gray;
+        }
+    }
+
+    .details{
+        margin: 1em 0;
+        font-size: .8em;
+        margin-top: .5em;
+        @media (min-width:$md){
+          font-size: 1em;
+        }
+
+        &>div{
+            padding: 1em;
+            border-bottom:1px solid rgba(125,125,125,0.2);
+        }
+    }
+}
+
+.time-zone{
+    margin:2em 0;
+}
+
+form{
+    font-size: .9em;
+    input{
+        margin: .5em 0;
+        @media (min-width:$md){
+            margin: 0
+        }
+        padding: .5em 1em;
+        font-size: .85em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+    .sm-width{
+        width: 110px;
+        @media (min-width:$md){
+            width: 120px
+        }
+    }
+
+    &>div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: .5em;
+        flex-direction: column;
+        @media (min-width:$md){
+            flex-direction: row;
+            justify-content: flex-start
+        }
+
+        .app-button{
+            padding: .25em 1.25em;
+            font-size: .9em;
+        }
+
+        &>*{
+            margin-right: 1.7em;
+        }
+    }
+
+    input[type="checkbox"]{
+        margin-right: .3em;
+    }
+
+
+    select{
+        height: 25px;
+        width: 80px;
+        border: 1px solid rgba(125,125,125,0.3);
+    }
+
+    .checkboxes-top,
+    .checkboxes-bottom{
+        &>*{
+            margin-right: 0;
+            padding-right: 3em;
+        }
+
+        span,label{
+            cursor: pointer;
+        }
+
+        span{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .checkboxes-top{
+        margin-top: 1.5em;
+        margin-bottom: .75em
+    }
+
+    .checkboxes-bottom{
+        margin-bottom: 1.5em;
+        margin-top: .75em
+    }
+
+    .display{
+        display: flex;
+        flex-wrap: wrap;
+
+        &>span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .25em 1em;
+            cursor: pointer
+        }
+
+        label{
+            cursor: pointer;
+        }
+    }
+
+    .search-button{
+        display: flex;
+        justify-content: center;
+        margin: 1em 0;
+        button{
+            padding: .75em 10em;
+            border:0;
+            border-radius: 2px;
+            background: darkblue;
+            color: #fff;
+        }   
+    }
+
+}
+
+
+
+    .details{
+        b{
+            margin-right: .777em;
+        }
+        &>div{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            &>span{
+                display: flex;
+                align-items: center;
+                margin: .5em;
+                font-size: .85em;
+                border-radius: 2px;
+                span{
+                    display: inline-block;
+                    padding: .25em .5em;
+                    height: 100%;
+                    width: 90px;
+                    cursor: pointer;
+
+                    &:first-child{
+                        background: #fff;
+                        border: 1px solid rgba(125,125,125,0.2);
+                    }
+
+                    &:last-child{
+                        background: #614141;
+                        color: #fff;
+                        border: 1px solid #614141;
+                    }
+                }
+
+                .no{
+                    width: 40px;
+                    height: 100%;
+                    text-align: center;
+                    font-size: .9em;
+                }
+            }
+
+            .daily-point{
+                .no{
+                    width: 90px;
+                }
+            }
+        }
+    }

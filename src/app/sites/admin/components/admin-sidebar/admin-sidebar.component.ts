@@ -27,6 +27,8 @@ export class AdminSidebarComponent implements OnInit {
         public router: Router
     ) {
 
+        // console.log( this.a.user.sessionId );
+
         this.loadPaymentInfo();
         // setInterval(() => this.loadPaymentInfo(), 30 * 60 * 1000); // 30 mins
         this.loadStatInfo();
@@ -65,7 +67,9 @@ export class AdminSidebarComponent implements OnInit {
         `;
         this.a.lms.admin_query({ sql: sqlToday }).subscribe(re => {
             // console.log('sum: ', re);
-            this.pointToday = re[0]['point'];
+            if (re && re.length && re[0]['point'] ) {
+                this.pointToday = re[0]['point'];
+            }
         }, e => this.a.toast(e));
     }
 

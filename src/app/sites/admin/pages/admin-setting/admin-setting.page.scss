@@ -1,10 +1,240 @@
+@import '../../../../../theme/vars';
+h2{
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.domain-change{
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5em;
+    margin-bottom:2em;
+    .apply-change-button{
+        display: inline-flex;
+        align-items: center;
+        padding-inline-end: 1.5em 0;
+        border: 0;
+        border-radius: 2px;
+        background: #fff;
+        font-size: 1em;
+        &:hover{
+            color: dodgerblue;
+        }
+        svg{
+            height: 1.4em;
+            width: 1.4em;
+            margin-left: 1em;
+        }
+    }
+    .form{
+        display: flex;
+        form{
+            label{
+                margin-right: 1em;
+                color: #0867B0;
+            }
+            input{
+                padding: .75em 1em;
+                font-size: .85em;
+                border-radius: 2px;
+                border: 1px solid rgba(125,125,125,0.3);
+                width: 300px
+            }
+            .app-button{
+                padding: 1em 4em;
+                margin-left: 1.5em;
+            }
+        }
+    }
+    .notice{
+        margin: .5em 0;
+        padding: 1em;
+        background: rgba(darkgreen,0.1);
+        color: darkgreen;
+
+        .cancel-button{
+
+            button{
+                display: inline-flex;
+                align-items: center;
+                margin-top: 1em;
+                padding: .5em 1.5em;
+                border: 0;
+                border-radius: 2px;
+                background: #fff;
+                color: darkred;
+                font-size: .9em;
+
+                svg{
+                    height: 1em;
+                    width: 1em;
+                    margin-left: .3em;
+                }
+            }
+        }
+    }
+
+}
+
+.current-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 1em 0;
+    font-size: .7em;
+    @media (min-width:$md){
+        font-size: .9em;
+    }
+    &>span{
+        border-radius: 2px;
+        span{
+            display: inline-block;
+            padding: .4em;
+            width: 99%;
+            @media (min-width:$md){
+                padding: .9em;
+                width: auto;
+            }
+
+            &:first-child{
+                border: 1px solid #0867B0;
+                background: #0867B0;
+                color: #fff;
+            }
+            &:last-child{
+                border: 1px solid rgba(125,125,125,0.3);
+                @media (min-width:$md){
+                    min-width: 120px;
+                }
+            }
+        }
+    }
+}
+
 .company-logo {
+    input{
+        position: absolute;
+        opacity: 0;
+    }
+    label{
+        position: relative;
+        height: 100px;
+        border: 3px dashed rgba(125,125,125,0.3);
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .progress-bar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        padding: 1em;
+    }
+
+    .placeholder{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-weight: lighter;
+        font-size: 1em;
+        text-align: center;
+
+        .update-file{
+            display: block;
+            margin-top: .5em;
+            color: #0867B0;
+        }
+    }
     .logo {
-        width: 84px;
-        height: 20px;
+        width: 200px;
+        height: 48px;
         overflow: hidden;
         img {
             width: 100%;
         }
+    }
+}
+
+.form-title{
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+
+.information-input{
+    display: flex;
+    flex-direction: column;
+    @media (min-width:$md) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &>div{
+        label,
+        .label{
+            display:block;
+            margin-left: .2em;
+            margin-bottom: .2em;
+            font-size: .9em;
+        }
+
+        &>div{
+            margin-top: 1em;
+        }
+
+        input[type="text"],
+        textarea{
+            padding: .75em 1em;
+            font-size: .85em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.3);
+        }
+
+        .note{
+            margin-left: .2em;
+            margin-top: .3em;
+            font-size: .85em;
+            color:#D27800
+        }
+    }
+    .website-information{
+        @media(min-width:$md){
+            width: 53%;
+        }
+
+        input,
+        textarea{
+            width: 100%;
+        }
+        textarea{
+            height: 80px;
+        }
+        label{
+            color:#0867B0
+        }
+    }
+    .company-information{
+        @media(min-width:$md){
+            width: 42%;
+        }
+        input{
+            width: 100%;
+        }
+    }
+}
+
+.submit-button{
+    text-align: center;
+    .app-button{
+        padding: 1em;
+    }
+}
+
+.reminder-popup{
+    .app-button{
+        margin: 1em 0;
+        padding:1em 2em;
     }
 }

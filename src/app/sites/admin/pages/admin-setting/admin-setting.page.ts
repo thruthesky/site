@@ -35,13 +35,13 @@ export class AdminSettingPage implements OnInit {
     ngOnInit() { }
     getBranchInformation() {
         this.a.lms.branch_get().subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.branch = re;
         }, e => this.a.toast(e));
     }
     onSubmitDomainChangeApplication() {
         this.a.lms.branch_domain_change_application(this.domain_change_application).subscribe(re => {
-            console.log('onSubmitDomainChangeApplication: re: ', re);
+            // console.log('onSubmitDomainChangeApplication: re: ', re);
             this.modal.alert({ content: this.a.ln.DOMAIN_CHANGE_APPLICATION, ok: this.a.ln.OK });
             this.getBranchInformation();
             this.show.domain_change_application = false;
@@ -49,17 +49,17 @@ export class AdminSettingPage implements OnInit {
     }
     onClickCancelDomainChangeApplication() {
         this.a.lms.branch_cancel_domain_change_application().subscribe(re => {
-            console.log('cancel: re: ', re);
+            // console.log('cancel: re: ', re);
             this.modal.alert({ content: this.a.ln.DOMAIN_CHANGE_APPLICATION_CANCELLED, ok: this.a.ln.OK });
             this.getBranchInformation();
         }, e => this.a.toast(e));
     }
     onSubmitBranchInformation() {
-        console.log(`onSubmitBranchInformation() `, this.branch);
+        // console.log(`onSubmitBranchInformation() `, this.branch);
         this.loader.branchUpdate = true;
         this.a.lms.branch_update(this.branch).subscribe(re => {
             this.loader.branchUpdate = false;
-            console.log('branch_update: re: ', re);
+            // console.log('branch_update: re: ', re);
             this.modal.alert({ content: this.a.ln.BRANCH_INFO_UPDATED, ok: this.a.ln.OK });
             this.branch = re;
         }, e => {
@@ -85,10 +85,10 @@ export class AdminSettingPage implements OnInit {
 
 
     updateCompanyLogo(file) {
-        console.log('file uploaded: ', file);
+        // console.log('file uploaded: ', file);
         this.branch.logo_url = file.url;
         this.a.lms.branch_update({ logo_url: this.branch.logo_url }).subscribe( re => {
-            console.log('branch_update logo: re:', re);
+            // console.log('branch_update logo: re:', re);
         }, e => this.a.toast(e));
     }
 

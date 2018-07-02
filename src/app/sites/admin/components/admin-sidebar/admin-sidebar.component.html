@@ -1,85 +1,127 @@
 <aside>
-    <table>
-        <tr valign="top">
+    <h2 class="payment-info-header">
+        <span>Payment Information</span>
+        <span class="total-points">
+            Today's Total Points: {{ pointToday | number }}
+        </span>
+    </h2>
+    <table class="aside-table">
+        <tr>
+            <th>Student</th>
+            <th>Points</th>
+            <th>Date Time</th>
+        </tr>
+        <tr class="payment" *ngFor="let payment of payments">
             <td>
-                <section class="payments">
-                    <h2>Paymnet Information</h2>
-                    Today's Total Point: {{ pointToday | number }}
-                    <table>
-                        <tr class="payment" *ngFor="let payment of payments">
-                            <td>
-                                <div class='link' routerLink="/manager/user-info/{{payment.student?.idx}}">{{ a.shortName( payment.student?.display_name ) }}<button class='user-info-button'>e</button></div>
-                            </td>
-                            <td>
-                                {{ payment.point | number }}
-                            </td>
-                            <td>
-                                {{ a.veryShortDate( payment.stamp_begin ) }}
-                            </td>
-                        </tr>
-                    </table>
-                </section>
+                <div class='link' routerLink="/manager/user-info/{{payment.student?.idx}}">
+                    {{ a.shortName( payment.student?.display_name ) }}
+                    <svg viewBox="0 0 576 512">
+                        <path fill="currentColor"
+                              d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                    </svg>
+                </div>
             </td>
             <td>
-
-                <section class="refund-request">
-                    <h2>Refund Request. Your timezone.</h2>
-                    <table>
-                        <tr>
-                            <th>Teacher</th>
-                            <th>Student</th>
-                            <th>Date Time</th>
-                            <th></th>
-                        </tr>
-                        <tr *ngFor=" let re of refundRequests ">
-                            <td><div class='link' routerLink="/manager/user-info/{{re.teacher?.idx}}">{{ re.teacher?.display_name }}<button class='user-info-button'>e</button></div></td>
-                            <td><div class='link' routerLink="/manager/user-info/{{re.student?.idx}}">{{ a.shortName( re.student?.display_name ) }}<button class='user-info-button'>e</button></div></td>
-                            <td>{{ re.date }} {{ re.class_begin }}</td>
-                            <td><button class='user-info-button' routerLink="/manager/point-refund/idx/{{re.idx}}">open</button></td>
-                        </tr>
-                    </table>
-                </section>
+                {{ payment.point | number }}
+            </td>
+            <td>
+                {{ a.veryShortDate( payment.stamp_begin ) }}
             </td>
         </tr>
     </table>
 
 
-    <h2>Reservation Stat</h2>
-    <hr>
-    <section class="stat" *ngIf="stats">
+    <h2>Refund Request. Your timezone.</h2>
+    <table class="aside-table">
+        <tr>
+            <th>Session ID</th>
+            <th>Teacher</th>
+            <th>Student</th>
+            <th>Date Time</th>
+        </tr>
+        <tr *ngFor=" let re of refundRequests ">
+            <td>
+                <a class="link" routerLink="/manager/point-refund/idx/{{re.idx}}">
+                    {{re.idx}}
+                    <svg viewBox="0 0 576 512">
+                        <path fill="currentColor"
+                              d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                    </svg>
+                </a>
+            </td>
+            <td>
+                <a class='link' routerLink="/manager/user-info/{{re.teacher?.idx}}">
+                    {{ re.teacher?.display_name }}
+                    <svg viewBox="0 0 576 512">
+                        <path fill="currentColor"
+                              d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                    </svg>
+                </a>
+            </td>
+            <td>
+                <a class='link' routerLink="/manager/user-info/{{re.student?.idx}}">
+                    {{ a.shortName( re.student?.display_name ) }}
+                    <svg viewBox="0 0 576 512">
+                        <path fill="currentColor"
+                              d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                    </svg>
+                </a>
+            </td>
+            <td>{{ re.date }} {{ re.class_begin }}</td>
+        </tr>
+    </table>
 
-        No. of Reservation: {{ stats['no_of_reservation'] }} No. of Past: {{ stats['no_of_past'] }}
-        <hr> No. of Sessions by Grade:
-        <span class='session'>
-            <span class='grade'>1</span>
-            <span class='reserved'>{{ stats['stat']['reserved']['1'] }}</span>
-            <span class='past'>{{ stats['stat']['past']['1'] }}</span>
-        </span>
-        <span class='session'>
-            <span class='grade'>2</span>
-            <span class='reserved'>{{ stats['stat']['reserved']['2'] }}</span>
-            <span class='past'>{{ stats['stat']['past']['2'] }}</span>
-        </span>
-        <span class='session'>
-            <span class='grade'>3</span>
-            <span class='reserved'>{{ stats['stat']['reserved']['3'] }}</span>
-            <span class='past'>{{ stats['stat']['past']['3'] }}</span>
-        </span>
-        <hr>
+
+    <h2>Reservation Stat</h2>
+    <section class="stat" *ngIf="stats">
+        <div class="top-info">
+            <div>
+                <span> No. of Reservation:</span>
+                <span>{{ stats['no_of_reservation'] }} </span>
+            </div>
+            <div>
+                <span> No. of Past: </span>
+                <span>{{ stats['no_of_past'] }}</span>
+            </div>
+        </div>
+        <div>
+            <div class="bottom-info">
+                <div> No. of Sessions by Grade:</div>
+                <div>
+                    <span class='session'>
+                        <span class='grade'>Grade: 1</span>
+                        <span class='reserved'>Reservations: {{ stats['stat']['reserved']['1'] }}</span>
+                        <span class='past'>Pasts: {{ stats['stat']['past']['1'] }}</span>
+                    </span>
+                    <span class='session'>
+                            <span class='grade'>Grade: 2</span>
+                            <span class='reserved'>Reservations: {{ stats['stat']['reserved']['2'] }}</span>
+                            <span class='past'>Pasts: {{ stats['stat']['past']['2'] }}</span>
+                        </span>
+                    <span class='session'>
+                            <span class='grade'>Grade: 3</span>
+                            <span class='reserved'>Reservations: {{ stats['stat']['reserved']['3'] }}</span>
+                            <span class='past'>Pasts: {{ stats['stat']['past']['3'] }}</span>
+                        </span>
+                </div>
+            </div>
+        </div>
         <div class="teacher-sessions">
             <!-- {{ stats.teachers | json }} -->
-            <span class='teacher' *ngFor="let teacher of stats.teachers">
-                <span class="link" routerLink="/manager/user-info/{{ teacher.idx }}" class="name">{{ teacher.name }}<button class="user-info-button">e</button></span>
-                <span class="reserved">{{ teacher.reserved }}</span>
-                <span class="past">{{ teacher.past }}</span>
-            </span>
+            <span class='teacher'  matTooltip="{{teacher.name}}" *ngFor="let teacher of stats.teachers">
+                    <a class="link name" routerLink="/manager/user-info/{{ teacher.idx }}">{{ a.shortName(teacher.name, 6) }}<svg
+                            viewBox="0 0 576 512"><path fill="currentColor"
+                                                        d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></a>
+                    <span class="reserved">{{ teacher.reserved }}</span>
+                    <span class="past">{{ teacher.past }}</span>
+                </span>
         </div>
-
     </section>
 
-    <h2>Sessions of on going. Timezone: {{ a.userTime }}</h2>
-    <hr>
-    <table class="sessions" *ngIf=" sessions.length ">
+
+    <h2>Sessions ongoing</h2>
+    <div class="timezone"> Timezone: {{ a.userTime }}</div>
+    <table class="aside-table" *ngIf=" sessions.length ">
         <tr>
             <th>idx</th>
             <th>Teacher</th>
@@ -90,14 +132,26 @@
             <th>Chk</th>
         </tr>
         <tr class="session" *ngFor="let session of sessions">
-            <td>{{ session.idx }}</td>
             <td>
-                <span class='link' routerLink="/manager/user-info/{{session.teacher?.idx}}">{{ session.teacher?.display_name }}</span>
-                <button class="user-info-button" routerLink="/manager/user-info/{{session.teacher?.idx}}">e</button>
+                <a class='link' routerLink="/manager/session-edit/{{session.idx}}">
+                        {{ session.idx }}
+                        <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                         d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                </a>
             </td>
             <td>
-                <span class='link' routerLink="/manager/user-info/{{session.student?.idx}}">{{ session.student?.display_name }}</span>
-                <button class="user-info-button" routerLink="/manager/user-info/{{session.student?.idx}}">e</button>
+                <a class='link' matTooltip="{{ session.teacher?.display_name }}" routerLink="/manager/user-info/{{session.teacher?.idx}}">
+                    {{ a.shortName(session.teacher?.display_name,8) }}
+                    <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                     d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                </a>
+            </td>
+            <td>
+                <a class='link' matTooltip="{{ session.student?.display_name }}" routerLink="/manager/user-info/{{session.student?.idx}}">
+                    {{ a.shortName(session.student?.display_name,8) }}
+                    <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                     d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                </a>
             </td>
             <td>{{ session.date }}</td>
             <td>{{ session.class_begin }}</td>
@@ -108,7 +162,8 @@
 
     <ul>
         <li>
-            When there is only one user found by `quick user search`, then it automatically transfers to '/manager/user-info'.
+            When there is only one user found by `quick user search`, then it automatically transfers to
+            '/manager/user-info'.
 
         </li>
     </ul>

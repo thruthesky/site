@@ -19,7 +19,8 @@ export class AdminSessionEditPage implements OnInit {
         point: '',
         book_used: '',
         book_next: '',
-        alert: ''
+        alert: '',
+        domain: ''
     };
     idx = '';
     loader = {

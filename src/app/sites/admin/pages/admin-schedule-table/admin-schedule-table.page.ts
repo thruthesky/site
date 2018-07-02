@@ -23,7 +23,7 @@ export class AdminScheduleTablePage implements OnInit {
             if (params.get('ID')) {
                 this.loading = true;
                 this.a.lms.teacher_schedule_table_get(params.get('ID')).subscribe( re => {
-                    console.log('teacher_schedule_table_get: ', re);
+                    // console.log('teacher_schedule_table_get: ', re);
                     this.schedules = re['schedules'];
                     this.teacher = re['teacher'];
                     this.loading = false;
