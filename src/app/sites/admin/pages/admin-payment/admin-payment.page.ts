@@ -104,7 +104,7 @@ export class AdminPaymentPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            // console.log('re: ', re);
+            console.log('re: ', re);
             this.show.loader = false;
             this.re = re;
             this.statistics();
