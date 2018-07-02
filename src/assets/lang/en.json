@@ -97,7 +97,7 @@
   "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
   "WELCOME_TITLE": "Welcome, #name.",
   "WELCOME_MESSAGE": "We are pleased to serve you the best qualified English Education with the lowest price in the world.",
-  "WELCOME_TRY": "You can reserve 5 trial classes now.",
+  "WELCOME_TRY": "You can reserve #MAX_FREE_CLASS trial classes now.",
   "PASSWORD": "Password",
   "NAME": "Name",
   "GENDER": "Gender",
@@ -419,7 +419,7 @@
   "ADV_CONTENT_14_1": "Twice a month is 10,000 won.",
   "ADV_CONTENT_14_2": "Because the teacher sets the tuition fee directly, not all classes are 10,000 won, but the tuition is very low.",
   "ADV_CONTENT_14_3": " ",
-  "ADV_CONTENT_15": "You can book 5 classes immediately after you join.",
+  "ADV_CONTENT_15": "You can book #MAX_FREE_CLASS classes immediately after you join.",
   "ADV_CONTENT_16": "Book your classes today",
 
   "SCHEDULE_AVAILABLE_PAGE_TITLE": "Available Teachers at This Time",

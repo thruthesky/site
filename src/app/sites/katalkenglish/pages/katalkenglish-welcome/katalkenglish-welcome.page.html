@@ -6,7 +6,7 @@
         <div (click)=" a.open('teacher-list') ">
             <img class="icon" src="assets/img/student-adv/4.png">
             <div class="message">{{ 'WELCOME_MESSAGE' | t }}</div>
-            <div class="try">{{ 'WELCOME_TRY' | t }}</div>
+            <div class="try">{{ 'WELCOME_TRY' | t:{MAX_FREE_CLASS: a.lmsMaxFreeClass } }}</div>
         </div>
     </section>
 </main>
