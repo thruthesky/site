@@ -620,7 +620,6 @@ export interface ADMIN_SUMMARY_REPORT {
     no_of_reservation_tomorrow?: string;
     no_of_student?: string;
     no_of_student_didnt_reserve?: string;
-    no_of_student_no_reservation?: string;
     no_of_student_who_paid?: string;
     no_of_student_with_freeclass?: string;
 }
