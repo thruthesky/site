@@ -247,10 +247,13 @@
 
 
 .refund-request{
+    table{
+        text-align: right;
+    }
     .link{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         svg{
             height: 1em;
             width: 1em;
