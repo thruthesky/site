@@ -4,11 +4,42 @@
 </div>
 
 <mat-tab-group mat-stretch-tabs  *ngIf=" !show.loader.loadProfile ">
-    <mat-tab label="Stat &amp; User Edit Form"> 
+    <mat-tab label="User Edit Form &amp; Sessions"> 
         <form class="user-profile-form" *ngIf=" ! show.loader.loadProfile ">
             <div class="profile-data-form container-fluid">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6">
+
+
+
+                    <div class="col-sm-12 col-md-5">
+                        <h2>User Edit Form</h2>
+                        <div class="primary-photo top-box">
+                                <label>
+                                    <div class="photo-upload">
+                                        <div class="photo-upload-button">
+                                            <div class="profile-photo">
+                                                <img src="{{ user.photoURL }}">
+                                            </div>
+                                        </div>
+                                        <input class="input-box" type="file" (change)="profilePhotoUpload.onChangeFile($event)">
+                                        <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">
+                                            <mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">
+                                            </mat-progress-bar>
+                                            <span>{{ profilePhotoUpload.progressPercentage}}%</span>
+                                        </div>
+                                        <xapi-file-upload-component #profilePhotoUpload 
+                                            [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
+                                            [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
+                                        </xapi-file-upload-component>
+                                        <div class="update-photo">
+                                            <span>
+                                                Photo Upload
+                                                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z" fill="currentColor"></path></svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </label>
+                        </div>
                         <div class="top-box">
                             <!-- <h2 class="title">Stat &amp; User Edit Form</h2> -->
                             <div class="user-stats">
@@ -105,11 +136,11 @@
                                 </section>
                             </div>
                         </div>
+
                         <mat-form-field appearance="outline">
                             <mat-label>Email</mat-label>
                             <input matInput disabled value="{{ user.user_email }}" name="email">
                         </mat-form-field>
-    
     
                         <mat-form-field appearance="outline">
                             <mat-label>Password</mat-label>
@@ -151,36 +182,8 @@
                             <mat-label>Teacher Group</mat-label>
                             <input matInput value="{{  user.user_group }}" [(ngModel)]=" user.user_group " name="teacher_group">
                         </mat-form-field>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                            <div class="primary-photo top-box">
-                                <label>
-                                    <div class="photo-upload">
-                                        <div class="photo-upload-button">
-                                            <div class="profile-photo">
-                                                <img src="{{ user.photoURL }}">
-                                            </div>
-                                        </div>
-                                        <input class="input-box" type="file" (change)="profilePhotoUpload.onChangeFile($event)">
-                                        <div class="progress-bar" *ngIf="profilePhotoUpload.progressPercentage > 0">
-                                            <mat-progress-bar mode="determinate" [value]="profilePhotoUpload.progressPercentage">
-                                            </mat-progress-bar>
-                                            <span>{{ profilePhotoUpload.progressPercentage}}%</span>
-                                        </div>
-                                        <xapi-file-upload-component #profilePhotoUpload 
-                                            [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
-                                            [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
-                                        </xapi-file-upload-component>
-                                        <div class="update-photo">
-                                            <span>
-                                                Photo Upload
-                                                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z" fill="currentColor"></path></svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                            <mat-form-field appearance="outline">
+
+                        <mat-form-field appearance="outline">
                                 <mat-label>Teacher Grade</mat-label>
                                 <input matInput value="{{  user.grade }}" [(ngModel)]=" user.grade " name="teacher_grade">
                             </mat-form-field>
@@ -226,23 +229,92 @@
                                 <mat-label>Manager</mat-label>
                                 <input matInput value="{{  user.manager  }}"  [(ngModel)]=" user.manager " name="manager">
                             </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-buttons">
-                            <div>
-                                <button class="app-button" type='button' (click)="onSubmitUserInfo()" *ngIf=" ! show.loader.updateProfile ">Update User Profile</button>
-                                <div class="loader" *ngIf=" show.loader.updateProfile ">
-                                    <mat-spinner [diameter]="15"></mat-spinner>
-                                    Saving ...
-                                </div>
-                                <div class="loader" *ngIf=" show.loader.profileSaved ">
-                                    <mat-spinner [diameter]="15"></mat-spinner>
-                                    Saved...
+                            <div class="form-buttons">
+                                <div>
+                                    <button class="app-button" type='button' (click)="onSubmitUserInfo()" *ngIf=" ! show.loader.updateProfile ">Update User Profile</button>
+                                    <div class="loader" *ngIf=" show.loader.updateProfile ">
+                                        <mat-spinner [diameter]="15"></mat-spinner>
+                                        Saving ...
+                                    </div>
+                                    <div class="loader" *ngIf=" show.loader.profileSaved ">
+                                        <mat-spinner [diameter]="15"></mat-spinner>
+                                        Saved...
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-12 col-md-7">
+                        <div class="sessions-wrapper">
+                                <h2>Sessions</h2>
+                                <ul class="sessions-desc">
+                                    <li>
+                                        Date and time is based on user timezone setting. Your timezone: {{ a.userTime }}</li>
+                                    <li>Today's class is listed on top.</li>
+                                    <li>Only {{ limit }} sessions are listed. Today might not be shown if there are too many reservations.</li>
+                                </ul>
+                                <div class="loader" *ngIf=" show.loader.loadSchedule ">
+                                    <mat-spinner [diameter]="48"></mat-spinner>
+                                    Loading schedule
+                                </div>
+                                <div class="mini-stat">
+                                        <span><b>Reserved:</b> {{ count.session.future | number }}</span>
+                                        <span><b>Past:</b> {{ count.session.past | number }}</span>
+                                </div>  
+                                <table *ngIf=" sessions.length ">
+                                    <tr>
+                                        <th>No.</th>
+                                        <th *ngIf="user.user_type != 'T' ">Teacher</th>
+                                        <th *ngIf="user.user_type == 'T' ">Student</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Point</th>
+                                    </tr>
+                                    <tr  class="top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
+                                        <td>{{ session.idx }}</td>
+                                        <td *ngIf="user.user_type != 'T' ">
+                                            <a class="user-info" routerLink="/manager/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                                                
+                                            </a>
+                                        </td>
+                                        <td *ngIf="user.user_type == 'T' ">
+                                            <a class="user-info" routerLink="/manager/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                                                
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <div>{{ session.date }}</div>
+                                        </td>
+                                        <td>{{ session.class_begin }}-{{ session.class_end }}</td>
+                                        <td>{{ session.point | number }}</td>
+                                    </tr>
+                                    <tr class="bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
+                                        <td>
+                                            <a class="user-info" routerLink="/manager/session-edit/{{session.idx}}">
+                                                {{ session.idx }}
+                                            </a>
+                                        </td>
+                                        <td *ngIf="user.user_type != 'T' ">
+                                            <a class="user-info" routerLink="/manager/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
+                                                
+                                            </a>
+                                        </td>
+                                        <td *ngIf="user.user_type == 'T' ">
+                                            <a class="user-info" routerLink="/manager/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
+                                                
+                                            </a>
+                                        </td>
+                                        <td>{{ session.date }}</td>
+                                        <td>{{ session.class_begin }}-{{ session.class_end }}</td>
+                                        <td>{{ session.point | number }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -314,78 +386,6 @@
                 </table>
             </section>
     </mat-tab>
-
-
-
-
-    <mat-tab label="Sessions"> 
-            <div class="sessions-wrapper">
-                <!-- <h2 class="title">Sessions</h2> -->
-                <ul class="sessions-desc">
-                    <li>
-                        Date and time is based on user timezone setting. Your timezone: {{ a.userTime }}</li>
-                    <li>Today's class is listed on top.</li>
-                    <li>Only {{ limit }} sessions are listed. Today might not be shown if there are too many reservations.</li>
-                </ul>
-                <div class="loader" *ngIf=" show.loader.loadSchedule ">
-                    <mat-spinner [diameter]="48"></mat-spinner>
-                    Loading schedule
-                </div>
-                <div class="mini-stat">
-                        <span><b>Reserved:</b> {{ count.session.future | number }}</span>
-                        <span><b>Past:</b> {{ count.session.past | number }}</span>
-                </div>  
-                <table *ngIf=" sessions.length ">
-                    <tr>
-                        <th>No.</th>
-                        <th *ngIf="user.user_type != 'T' ">Teacher</th>
-                        <th *ngIf="user.user_type == 'T' ">Student</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Point</th>
-                    </tr>
-                    <tr  class="top" [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
-                        <td>{{ session.idx }}</td>
-                        <td *ngIf="user.user_type != 'T' ">
-                            <a class="user-info" routerLink="/manager/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
-                                
-                            </a>
-                        </td>
-                        <td *ngIf="user.user_type == 'T' ">
-                            <a class="user-info" routerLink="/manager/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
-                                
-                            </a>
-                        </td>
-                        <td>
-                            <div>{{ session.date }}</div>
-                        </td>
-                        <td>{{ session.class_begin }}-{{ session.class_end }}</td>
-                        <td>{{ session.point | number }}</td>
-                    </tr>
-                    <tr class="bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
-                        <td>
-                            <a class="user-info" routerLink="/manager/session-edit/{{session.idx}}">
-                                {{ session.idx }}
-                            </a>
-                        </td>
-                        <td *ngIf="user.user_type != 'T' ">
-                            <a class="user-info" routerLink="/manager/user-info/{{ session.teacher?.idx }}">{{ a.shortName ( session.teacher?.display_name ) }}
-                                
-                            </a>
-                        </td>
-                        <td *ngIf="user.user_type == 'T' ">
-                            <a class="user-info" routerLink="/manager/user-info/{{ session.student?.idx }}">{{ a.shortName ( session.student?.display_name ) }}
-                                
-                            </a>
-                        </td>
-                        <td>{{ session.date }}</td>
-                        <td>{{ session.class_begin }}-{{ session.class_end }}</td>
-                        <td>{{ session.point | number }}</td>
-                    </tr>
-                </table>
-            </div>
-    </mat-tab>
-
 
     <mat-tab label="Point History">
         <div class="point-history-wrapper">
