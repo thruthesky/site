@@ -26,11 +26,10 @@ aside {
     .aside-table{
         width: 100%;
         border-collapse: collapse;
-        font-size: 1.1em;
+        font-size: 1em;
         text-align: center;
         td,th{
             padding: .25em .3em;
-            border: 1px solid rgba(125,125,125,0.4);
         }
         th{
             text-align: center!important;
@@ -40,6 +39,7 @@ aside {
         }
         .link{
             display: flex;
+            align-items: center;
             span:first-child{
                 width: 35%;
                 text-align: right;
@@ -63,14 +63,22 @@ aside {
                 font-size: .9em;
             }
         }
-
         .aside-table{
             table-layout: fixed!important;
+            td,
+            th{
+                border: 1px solid rgba(125,125,125,0.4);
+            }
         }
     }
     #refund-request{
         .aside-table{
             table-layout: fixed!important;
+            th,
+            td{
+                padding: .45em .3em;
+                border: 1px solid rgba(125,125,125,0.4);
+            }
         }
     }
     #reservation-stat{
@@ -179,6 +187,11 @@ aside {
         .timezone{
             font-size: 1.1em;
             padding: .5em .2em;
+        }
+        .aside-table{
+            td{
+                font-size: .9em;
+            }
         }
     }
 }

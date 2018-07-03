@@ -167,15 +167,15 @@ mat-tab-group{
         padding: 1em 1.5em;
         border-radius: 2px;
         border: 1px solid rgba(125,125,125,0.2);
+        font-size: .9em;
         h2{
-            margin-top: 0;
             font-size: 1em;
             color: darkgreen;
             font-weight: bolder;
         }
         &>div{
             font-size: .9em;
-            margin: .75em 0;
+            margin: 1em 0;
         }
         input{
             padding: .5em 1em;
@@ -189,7 +189,9 @@ mat-tab-group{
             color: darkblue
         }
         .label{
+            display: block;
             margin-right: 1em;
+            margin-bottom: .3em;
             font-weight: bold;
         }
         label{
