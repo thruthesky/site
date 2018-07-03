@@ -1,6 +1,6 @@
 @import '../../../../../theme/vars';
 
-.login-info{
+#login-info{
     margin: 0;
     margin-top: 1.5em;
     .row{
@@ -65,20 +65,89 @@
 
 }
 
-.notice{
-    display: flex;
-    align-items: center;
-    margin: 2em 0;
-    padding: 1em 2em;
-    border-radius: 2px;
-    color: #C69500;
-    background-color: rgba(#FFDF7E,0.15);
+#stats-summary{
+    font-size: .9em;
 
-    svg{
-        height: 1.5em;
-        width: 1.5em;
-        margin-right: .5em;
+    &>.row{
+        margin: 0 -1.5em!important;
+        align-items: stretch;
     }
+    .col-sm-12{
+        padding: 0 .5em;
+        &>*{
+            margin-top: 1em;
+        }
+    }
+}
+
+#stats{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1em -.5em;
+    .stats-card{
+        font-size: .85em;
+        width: 147px;
+        @media (min-width:$md){
+            width: 205px;
+            font-size: 1em;
+        }
+
+        margin: .5em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.2);
+        text-align: center;
+        .stats-title{
+            padding: 1em;
+            padding-top: .75em;
+            font-size: .9em;
+        }
+        .stats-content{
+            padding-top: 1em;
+            font-size: 1.3em;
+            font-weight: 100
+        }
+    }
+}
+
+#contact{
+    margin-top: 2em;
+    h2{
+        padding: .5em 1em;
+        @media (min-width:$md){
+            padding: 1em .1em;
+        }
+        margin: 0;
+        color: #F08900;
+        font-size: 1.3em;
+        font-weight: 100;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        @media (min-width:$md){
+            flex-direction: row;
+        }
+    
+        svg{
+            height: 2em;
+            width: 2em;
+            margin-right: .5em;
+        }
+    
+        .contact-item{
+            display: flex;
+            align-items: center;
+            padding: .5em 1em;
+            @media (min-width:$md){
+                padding: 1em .1em;
+                padding-right: 5em;
+            }
+        }
+    }
+
+
 }
 
 .table{
@@ -160,101 +229,30 @@
     }
 }
 
-.contact{
-    margin-top: 2em;
-    h2{
-        padding: .5em 1em;
-        @media (min-width:$md){
-            padding: 1em .1em;
-        }
-        margin: 0;
-        color: #F08900;
-        font-size: 1.3em;
-        font-weight: 100;
-    }
-
-    .content{
-        display: flex;
-        flex-direction: column;
-        @media (min-width:$md){
-            flex-direction: row;
-        }
-    
-        svg{
-            height: 2em;
-            width: 2em;
-            margin-right: .5em;
-        }
-    
-        .contact-item{
-            display: flex;
-            align-items: center;
-            padding: .5em 1em;
-            @media (min-width:$md){
-                padding: 1em .1em;
-                padding-right: 5em;
-            }
-        }
-    }
-
-
-}
-
-.stats-summary{
-    font-size: .9em;
-
-    &>.row{
-        margin: 0 -1.5em!important;
-        align-items: stretch;
-    }
-    .col-sm-12{
-        padding: 0 .5em;
-        &>*{
-            margin-top: 1em;
-        }
-    }
-}
-
-.stats{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 1em -.5em;
-    .stats-card{
-        font-size: .85em;
-        width: 147px;
-        @media (min-width:$md){
-            width: 205px;
-            font-size: 1em;
-        }
-
-        margin: .5em;
-        border-radius: 2px;
-        border: 1px solid rgba(125,125,125,0.2);
-        text-align: center;
-        .stats-title{
-            padding: 1em;
-            padding-top: .75em;
-            font-size: .9em;
-        }
-        .stats-content{
-            padding-top: 1em;
-            font-size: 1.3em;
-            font-weight: 100
-        }
-    }
-}
 
 
 .refund-request{
+    table{
+        text-align: right;
+    }
     .link{
         display: flex;
         align-items: center;
-        justify-content: center;
+        span{
+            line-height: 0;
+        }
+        span:first-child{
+            width: 35%;
+            text-align: right;
+        }
+        span:last-child{
+            width: 65%;
+            text-align: left;
+        }
         svg{
             height: 1em;
             width: 1em;
-            margin-left: .3em
+            margin-right: .3em
         }
         &:hover{
             font-weight: normal;

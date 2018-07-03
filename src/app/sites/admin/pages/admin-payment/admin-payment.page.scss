@@ -2,20 +2,20 @@
 .link{
     display: flex;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
     font-weight: normal;
-    line-height: 0;
-
     svg{
         height: .9em;
         width: .9em;
-        margin-left: .5em;
+        margin-right: .5em;
     }
 }
 
 .custom-table{
     margin-top: 1em;
+    .payments{
+        table-layout: fixed;
+    }
 }
 
 

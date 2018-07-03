@@ -5,14 +5,26 @@
         align-items: center;
         justify-content: center;
         text-decoration: none!important;
-        line-height: 0;
         font-weight: normal;
-
+        span{
+            line-height: 0;
+        }
+        span:first-child{
+            width: 35%;
+            text-align: right;
+        }
+        span:last-child{
+            width: 65%;
+            text-align: left;
+        }
         svg{
             height: .85em;
             width: .85em;
-            margin-left: .3em;
+            margin-right: .3em;
         }
+    }
+    table{
+        table-layout: fixed;
     }
 }
 .timezone{

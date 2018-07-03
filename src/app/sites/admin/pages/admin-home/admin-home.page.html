@@ -1,4 +1,4 @@
-<div class="login-info container-fluid" *ngIf=" ! a.isSuperManager">
+<section id="login-info" class="container-fluid" *ngIf=" ! a.isSuperManager">
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="item">
@@ -23,10 +23,11 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <div>
-    <div class="stats-summary container-fluid">
+
+    <section id="stats-summary"  class="container-fluid">
         <div class="row">
             <div class="left col-sm-12 col-md-6" *ngIf=" a.isSuperManager ">
                 <div id="domain-change-application" class="table">
@@ -123,29 +124,32 @@
                             <tr *ngFor=" let re of refundRequests ">
                                 <td>
                                     <a class="link" routerLink="/manager/point-refund/idx/{{re.idx}}">
-                                        {{re.idx}}
-                                        <svg viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                  d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
-                                        </svg>
+                                        <span>
+                                            <svg viewBox="0 0 576 512">
+                                                <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                                            </svg>
+                                        </span>
+                                        <span>{{re.idx}}</span>
                                     </a>
                                 </td>
                                 <td>
                                     <a class="link" routerLink="/manager/user-info/{{re.teacher?.idx}}">
-                                        {{ re.teacher?.display_name }}
-                                        <svg viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                  d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
-                                        </svg>
+                                        <span>
+                                            <svg viewBox="0 0 576 512">
+                                                <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                                            </svg>
+                                        </span>
+                                        <span>{{ re.teacher?.display_name }}</span>
                                     </a>
                                 </td>
                                 <td>
                                     <a class="link" routerLink="/manager/user-info/{{re.student?.idx}}">
-                                        {{ a.shortName( re.student?.display_name ) }}
-                                        <svg viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                  d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
-                                        </svg>
+                                        <span>
+                                            <svg viewBox="0 0 576 512">
+                                                <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                                            </svg>
+                                        </span>
+                                        <span>{{ a.shortName( re.student?.display_name ) }}</span>
                                     </a>
                                 </td>
                                 <td>{{ re.date }} {{ re.class_begin }}</td>
@@ -155,9 +159,9 @@
                 </div>
             </div>
     </div>
-</div>
+</section>
 
-<div class="stats">
+<section id="stats">
     <div class="stats-card">
         <div class="stats-content">
             {{reports.no_of_student}}
@@ -335,15 +339,12 @@
         </div>
     </div>
 
-</div>
+</section>
 <!-- no of student.<br> no of reservations.<br> no of past classes.<br> no of users registered today,<br> yesterday,<br> this month,<br> last 30 days.<br>
 no of users who have free class only.<br> no of users who have paid class.<br> no of users who have no classes at all.<br> no of reservation
 for today,<br> tomorow,<br> this month,<br> for the coming 30 days.<br> no of past classes for yester day,<br> this month,<br> last 30 days.<br> payment
 of today,<br> yester day,<br> this month,<br> last 30 days.<br> no of point refund request -->
-
-
-
-<div class="contact">
+<section id="contact">
     <h2>{{ a.ln.HEAD_OFFICE_CONTACTS }}</h2>
     <div class="content">
         <div>
@@ -370,4 +371,4 @@ of today,<br> yester day,<br> this month,<br> last 30 days.<br> no of point refu
             </div>
         </div>
     </div>
-</div>
+</section>
