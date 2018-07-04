@@ -73,7 +73,7 @@ h1{
     }
 }
 
-.custom-table{// GLOBAL scss/index.scss
+.custom-table{
     .sched{
         display: flex;
         align-items: center;
@@ -89,10 +89,10 @@ h1{
             color: darkorange;
         }
 
-        &>span:first-child{
+        &>span:last-child{
             display: inline-block;
             padding: .85em 0;
-            padding-left: .5em;
+            padding-right: .5em;
         }
     }
     .name{

@@ -1,12 +1,11 @@
 <h2>Domain</h2>
-{{branch|json}}
 <div class="current-info">
     <span>
         <span>Branch Domain</span><span>{{ branch.domain }}</span>
     </span>
     <span>
         <span>Branch Owner</span><span>{{ branch?.manager_name }}</span>
-    </span >
+    </span>
     <span>
         <span>Email</span><span>{{ branch?.manager_email }}</span>
     </span>
@@ -20,7 +19,7 @@
             <input type="text" name="domain_change_application" [(ngModel)]="domain_change_application">
             <button class="app-button" type="submit">Submit</button>
         </form>
-        <button class="apply-change-button" (click)=" show.domain_change_application = true " *ngIf=" !show.domain_change_application ">
+        <button class="app-button" (click)=" show.domain_change_application = true " *ngIf=" !show.domain_change_application ">
             Apply for Domain Change
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM32 80c0-8.8 7.2-16 16-16h48v64H32V80zm448 352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V160h448v272zm0-304H128V64h336c8.8 0 16 7.2 16 16v48z"></path></svg>
         </button>
@@ -150,12 +149,9 @@
     
     <div class="submit-button">
         <button class="app-button" type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
-        <div class="loader" *ngIf=" loader.branchUpdate ">Updating branch info</div>
+        <div class="loader" *ngIf=" loader.branchUpdate ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            Updating branch info
+        </div>
     </div>
 </form>
-
-<div class="reminder-popup">
-    <h2>Reminder Popup</h2>
-    <div> None</div>
-    <button class="app-button">Update Reminder Popup</button>
-</div>

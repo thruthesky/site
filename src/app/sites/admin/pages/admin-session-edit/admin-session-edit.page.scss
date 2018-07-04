@@ -1,0 +1,50 @@
+@import '../../../../../theme/vars';
+.warning{
+    margin: 1em 0;
+    color:darkred;
+}
+
+.example{
+    padding: 1em;
+    color: darkblue;
+    background: rgba(darkblue,0.1);
+}
+
+h2{
+    font-weight: 100;
+    font-size: 1.1em;
+}
+
+ul{
+    line-height: 1.6em;
+
+    li{
+        margin-bottom: 1.4em;
+    }
+}
+
+form{
+    &>div{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        label{
+            margin-left: .2em;
+            margin-bottom: .2em;
+            color: #0867B0
+        }
+        input{
+            padding: .75em 1em;
+            @media (min-width:$md) {
+                width: 50%;
+            }
+            font-size: 1em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.4);
+        }
+    }
+    .app-button{
+        width: 50%;
+        padding: 1em 2em;
+    }
+}

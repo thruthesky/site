@@ -1,34 +1,22 @@
 @import '../../../../../theme/vars';
 
-.login-info{
-    margin: 1.5em 0;
-    @media (min-width:$md){
-        margin-top: 1.5em;
-        margin-bottom: 3em;
-    }
+#login-info{
+    margin: 0;
+    margin-top: 1.5em;
     .row{
         justify-content: space-between;
         align-items: stretch;
         font-size: .75em;
         @media (min-width:$md){
+            margin: 0 -1.5em;
             font-size: 1em;  
         }
-        .col-md-6{
-            padding: 0;
-        }  
-        .col-md-6:first-child{
-            padding-right: .5em;
-            @media (min-width:$md){
-                padding-right: .5em;
+        .col-sm-12{
+            padding: 1em 0;
+            @media screen {
+                padding: 0.5em;
             }
-        }
-        .col-md-6:last-child{
-            margin-top: 1em;
-            @media (min-width:$md){
-                padding-left: .5em;
-                margin: 0;
-            }
-        }   
+        }    
     }
     .notice{
         margin: 0;
@@ -77,156 +65,22 @@
 
 }
 
-.notice{
-    display: flex;
-    align-items: center;
-    margin: 2em 0;
-    padding: 1em 2em;
-    border-radius: 2px;
-    color: #C69500;
-    background-color: rgba(#FFDF7E,0.15);
-
-    svg{
-        height: 1.5em;
-        width: 1.5em;
-        margin-right: .5em;
-    }
-}
-
-.table{
-    height: 220px;
-    border-radius: 2px;
-    border: 1px solid rgba(125,125,125,0.2);
-    font-size: 90%;
-    @media (min-width:$md){
-        font-size: 100%;
-    }
-    &-title{
-        padding: 1em 1.5em;
-        border-bottom: 1px solid rgba(125,125,125,0.2);
-        @media (min-width:$md){
-            padding:1em 2em;
-        }
-        color: #0867B0;
-        font-weight: 500;
-
-        &>h2{
-            margin:0;
-            font-size: 1em;
-        }
-    }
-
-    &-desc{
-        padding-top: .5em;
-        color: #616161;
-        font-size: .9em;
-    }
-
-    &-note{
-        padding-top: .5em;
-        color: #C63800;
-        font-size: .888em;
-    }
-
-    &-content{
-        font-size: .9em;
-        overflow: auto;
-        table{
-            width: 100%;
-            text-align: center;
-    
-            *{
-                padding: .75em 1em;
-                border-bottom: 1px solid rgba(125,125,125,0.2)
-            }
-        }
-    }
-
-    &-content-empty{
-        &>*{
-            font-size: 1em;
-            margin: 2em 1.5em;
-            @media (min-width:$md){
-                margin: 2em;
-                font-size: 1.3em;
-            }
-            text-align: center;
-            color: #C63800
-        }
-    }
-}
-
-.contact{
-    margin-top: 2em;
-    h2{
-        padding: .5em 1em;
-        @media (min-width:$md){
-            padding: 1em 2em;
-        }
-        margin: 0;
-        color: #F08900;
-        font-size: 1.3em;
-        font-weight: 100;
-    }
-
-    .content{
-        display: flex;
-        flex-direction: column;
-        @media (min-width:$md){
-            flex-direction: row;
-        }
-    
-        svg{
-            height: 2em;
-            width: 2em;
-            margin-right: .5em;
-        }
-    
-        .contact-item{
-            display: flex;
-            align-items: center;
-            padding: .5em 1em;
-            @media (min-width:$md){
-                padding: 1em 2em;
-            }
-        }
-    }
-
-
-}
-
-.stats-summary{
+#stats-summary{
     font-size: .9em;
 
     &>.row{
+        margin: 0 -1.5em!important;
         align-items: stretch;
     }
     .col-sm-12{
-        padding: 0;
+        padding: 0 .5em;
         &>*{
             margin-top: 1em;
         }
     }
-
-    .left{
-        @media (min-width:$md){
-            padding-right: .5em;
-        }
-    }
-    .middle{
-        @media (min-width:$md){
-            padding-right: .5em;
-            padding-left: .5em;
-        }
-    }
-    .right{
-        @media (min-width:$md){
-            padding-left: .5em;
-        }
-    }
 }
 
-.stats{
+#stats{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -256,23 +110,153 @@
     }
 }
 
+#contact{
+    margin-top: 2em;
+    h2{
+        padding: .5em 1em;
+        @media (min-width:$md){
+            padding: 1em .1em;
+        }
+        margin: 0;
+        color: #F08900;
+        font-size: 1.3em;
+        font-weight: 100;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        @media (min-width:$md){
+            flex-direction: row;
+        }
+    
+        svg{
+            height: 2em;
+            width: 2em;
+            margin-right: .5em;
+        }
+    
+        .contact-item{
+            display: flex;
+            align-items: center;
+            padding: .5em 1em;
+            @media (min-width:$md){
+                padding: 1em .1em;
+                padding-right: 5em;
+            }
+        }
+    }
+
+
+}
+
+.table{
+    border-radius: 2px;
+    border: 1px solid rgba(125,125,125,0.2);
+    font-size: 90%;
+    @media (min-width:$md){
+        font-size: 100%;
+    }
+    &-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 1.5em;
+        border-bottom: 1px solid rgba(125,125,125,0.2);
+        @media (min-width:$md){
+            padding:1em 2em;
+        }
+        color: #0867B0;
+        font-weight: 500;
+
+        &>h2{
+            margin:0;
+            font-size: 1em;
+        }
+
+        div{
+            line-height: 0;
+            svg{
+                color: darkred;
+                height: 1.3em;
+                width: 1.3em;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &-desc{
+        padding-top: .5em;
+        color: #616161;
+        font-size: .9em;
+    }
+
+    &-note{
+        padding-top: .5em;
+        color: #C63800;
+        font-size: .888em;
+    }
+
+    &-content{
+        height: 137px;
+        font-size: .9em;
+        overflow: auto;
+        table{
+            width: 100%;
+            text-align: center;
+    
+            tr{
+                &>td,
+                &>th{
+                    padding: .75em 1em;
+                    // border-bottom: 1px solid rgba(125,125,125,0.2);
+                }
+            }
+        }
+    }
+
+    &-content-empty{
+        &>*{
+            font-size: 1em;
+            margin: 2em 1.5em;
+            @media (min-width:$md){
+                margin: 2em;
+                font-size: 1.3em;
+            }
+            text-align: center;
+            color: #C63800
+        }
+    }
+}
+
+
 
 .refund-request{
-
-
-    .link {
+    table{
+        text-align: right;
+    }
+    .link{
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-decoration: none!important;
+        span{
+            line-height: 0;
+        }
+        span:first-child{
+            width: 35%;
+            text-align: right;
+        }
+        span:last-child{
+            width: 65%;
+            text-align: left;
+        }
         svg{
             height: 1em;
             width: 1em;
-            margin-left: .3em
+            margin-right: .3em
         }
-
         &:hover{
             font-weight: normal;
+            text-decoration: none;
         }
     }
 

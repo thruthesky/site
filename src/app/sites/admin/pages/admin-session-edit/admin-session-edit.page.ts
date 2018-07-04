@@ -32,6 +32,12 @@ export class AdminSessionEditPage implements OnInit {
         public a: AppService,
         public activated: ActivatedRoute
     ) {
+
+        if ( !a.isSuperManager ) {
+            this.a.toast('Access Denied.');
+            this.a.open('/manager');
+        }
+
         this.activated.paramMap.subscribe( params => {
             this.idx = params.get('idx');
             if ( this.idx ) {

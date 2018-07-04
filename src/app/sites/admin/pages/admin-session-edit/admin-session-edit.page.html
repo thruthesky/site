@@ -1,83 +1,94 @@
 <h1>Session Edit</h1>
 <div>
-    Warning: You need to be very careful editing session information directly.
-    <br> For instance, if you add a big point on a session, the company will lose as the point.
-    <br> Do this with care.
-    <br> Use case
-    <br>
-    <ul>
-        <li>
-            You want to change teacher.
-            <br> For instance, teacher A cannot teach. And teacher B can teach. Normally, Teacher B create a schedule and Student
-            reserve. There might be some inconvience with it. What if the class begin time has almost started? In that case
-            you can quickly change teacher idx.
-        </li>
-        <li>
-            You want to share the session point between teacher and student.
-            <br> Class went wrong and decided to share half for teacher and half for student.
-            <br> You can deduct the point by half on the session. and add half of the point into student's account.
-        </li>
-        <li>
-            Teacher and student want to agree to have a make up class( which we prohibit though).
-            <br> You can simply change the date and class begin so, the class will be like 'undone'.
-        </li>
-        <li>
-            For some tests, you can freely change the ssion information.
-        </li>
-    </ul>
+    <div class="warning">Warning: You need to be very careful editing session information directly.</div>
+    <div class="example"> For instance, if you add a big point on a session, the company will lose as the point. Do this with care.</div>
 </div>
-<h3>Warning: Date and Time must be in UTC+0</h3>
+<h2>Use case </h2>
+<ul>
+    <li>
+        You want to change teacher.
+        <br> For instance, teacher A cannot teach. And teacher B can teach. Normally, Teacher B create a schedule and Student
+        reserve. There might be some inconvience with it. What if the class begin time has almost started? In that case
+        you can quickly change teacher idx.
+    </li>
+    <li>
+        You want to share the session point between teacher and student.
+        <br> Class went wrong and decided to share half for teacher and half for student.
+        <br> You can deduct the point by half on the session. and add half of the point into student's account.
+    </li>
+    <li>
+        Teacher and student want to agree to have a make up class( which we prohibit though).
+        <br> You can simply change the date and class begin so, the class will be like 'undone'.
+    </li>
+    <li>
+        For some tests, you can freely change the ssion information.
+    </li>
+</ul>
+<h3 class="warning">Warning: Date and Time must be in UTC+0</h3>
 <div class="loader" *ngIf=" loader.get ">Loading</div>
-<form (ngSubmit)=" onSubmit( $event ) ">
-    <table>
-        <tr>
-            <td>idx</td>
-            <td>{{ idx }}</td>
-        </tr>
-        <tr>
-            <td>idx_teacher</td>
-            <td><input type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>idx_student</td>
-            <td><input type="text" name="idx_student" [(ngModel)]="form.idx_student" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>date</td>
-            <td><input type="text" name="date" [(ngModel)]="form.date" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>class_begin</td>
-            <td><input type="text" name="class_begin" [(ngModel)]="form.class_begin" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>class_end</td>
-            <td><input type="text" name="class_end" [(ngModel)]="form.class_end" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>point</td>
-            <td><input type="text" name="point" [(ngModel)]="form.point" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>book_used</td>
-            <td><input type="text" name="book_used" [(ngModel)]="form.book_used" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>book_next</td>
-            <td><input type="text" name="book_next" [(ngModel)]="form.book_next" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>domain</td>
-            <td><input type="text" name="domain" [(ngModel)]="form.domain" [disabled]="!a.isSuperManager"></td>
-        </tr>
-        <tr>
-            <td>alert</td>
-            <td><input type="text" name="alert" [(ngModel)]="form.alert" [disabled]="!a.isSuperManager"></td>
-        </tr>
-    </table>
+<form (ngSubmit)=" onSubmit( $event ) " *ngIf=" ! loader.get ">
+
+    <div>
+        <label>idx</label>
+        <input disabled value="{{ idx }}">
+    </div>
+
+    <div>
+        <label>idx_teacher</label>
+        <input type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" [disabled]="!a.isSuperManager">
+    </div>
+    
+    <div>
+        <label>idx_student</label>
+        <input type="text" name="idx_student" [(ngModel)]="form.idx_student" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>date</label>
+        <input type="text" name="date" [(ngModel)]="form.date" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>class_begin</label>
+        <input type="text" name="class_begin" [(ngModel)]="form.class_begin" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>class_end</label>
+        <input type="text" name="class_end" [(ngModel)]="form.class_end" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>point</label>
+        <input type="text" name="point" [(ngModel)]="form.point" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>book_used</label>
+        <input type="text" name="book_used" [(ngModel)]="form.book_used" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>book_next</label>
+        <input type="text" name="book_next" [(ngModel)]="form.book_next" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>domain</label>
+        <input type="text" name="domain" [(ngModel)]="form.domain" [disabled]="!a.isSuperManager">
+    </div>
+
+    <div>
+        <label>alert</label>
+        <input type="text" name="alert" [(ngModel)]="form.alert" [disabled]="!a.isSuperManager">
+    </div>
+
     <div  *ngIf="a.isSuperManager">
-        <button type="submit" *ngIf=" ! loader.save ">Submit</button>
-        <div class="loader" *ngIf=" loader.save ">Saving ...</div>
+        <button class="app-button" type="submit" *ngIf=" ! loader.save ">Submit</button>
+        <div class="loader" *ngIf=" loader.save ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            Saving ...
+        </div>
     </div>
 </form>
 

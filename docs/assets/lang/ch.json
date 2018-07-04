@@ -19,7 +19,7 @@
   "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
   "WELCOME_TITLE": "欢迎，#name。",
   "WELCOME_MESSAGE": "我们很高兴为您提供世界上最低价格的最优质的英语教育。",
-  "WELCOME_TRY": "你现在可以预定5个试验班。",
+  "WELCOME_TRY": "你现在可以预定#MAX_FREE_CLASS个试验班。",
   "PASSWORD": "密码",
   "NAME": "名称",
   "GENDER": "性别",
@@ -64,7 +64,7 @@
   "VERIFY_COURSE_EVALUATION": "课程评估的验证",
   "EASY_4_STEP": "轻松4步",
   "QUICK_MEMBERSHIP": "快速入会",
-  "5_FREE_TRIAL": "5次免费试用",
+  "5_FREE_TRIAL": "3次免费试用",
   "MY_OWN": "我自己的",
   "TUITION_AND_SCHEDULE": "学费和时间表",
   "ANYTIME_ANYWHERE": "随时随地",
@@ -350,7 +350,7 @@
   "ADV_CONTENT_14_1": "每月两次是10,000韩元。",
   "ADV_CONTENT_14_2": "由于老师直接设置学费，并不是所有班级都是10,000韩元，但学费很低。",
   "ADV_CONTENT_14_3": " ",
-  "ADV_CONTENT_15": "加入后，您可以立即预订5个班级。",
+  "ADV_CONTENT_15": "加入后，您可以立即预订#MAX_FREE_CLASS个班级。",
   "ADV_CONTENT_16": "今天预定你的课程",
 
   "SCHEDULE_AVAILABLE_PAGE_TITLE": "此时可用的教师",
@@ -576,7 +576,7 @@
   "_KIDDING": "你在开玩笑吧。",
   "_NO_WAY": "20场会议，只有10美元。",
   "_AFTER_REGISTRATION": "注册后，",
-  "_5_FREE_CLASS": "采取5免费课程。",
+  "_5_FREE_CLASS": "采取3免费课程。",
   "_10000_MONTH": "每月20次，只需10美元。",
 
 

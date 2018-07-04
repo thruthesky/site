@@ -21,44 +21,6 @@
 <section class="result" *ngIf=" re.length ">
     No of Searched Record: {{ re.length }}
 </section>
-<!-- <div class="list" *ngIf=" re ">
-    <table border='1'>
-        <tr>
-            <td>idx</td>
-            <td>teacher</td>
-            <td>student</td>
-            <td nowrap>session time</td>
-            <td>point</td>
-            <td>Teacher Class Comment</td>
-            <td nowrap>Student Refund Request Reason</td>
-            <td nowrap>Teacher Refund Reject Reason</td>
-            <td nowrap colspan="2" *ngIf="a.isSuperManager">Action</td>
-        </tr>
-        <tr class="" valign='top' *ngFor=" let s of re ">
-            <td class="item">{{ s.idx }}</td>
-            <td class="item">{{ s.teacherName }} ( {{ s.idx_teacher }} )<button class="user-info-button" routerLink="/manager/user-info/{{ s.idx_teacher }}">ES</button></td>
-            <td class="item">{{ s.studentName }} ( {{ s.idx_student }} )<button class="user-info-button" routerLink="/manager/user-info/{{ s.idx_student }}">ES</button></td>
-            <td>
-                <div>{{ s.date }}</div>
-                <div>{{ s.class_begin }}</div>
-            </td>
-            <td class="item">{{ s.point }}</td>
-            <td class="">{{ s.comment }}</td>
-            <td class="">
-                <div>At: {{ s.refund_request_at }}</div>
-                {{ s.refund_request_message }}
-            </td>
-            <td class="">
-                <div *ngIf=" s.refund_reject_at ">At: {{ s.refund_reject_at }}</div>
-                {{ s.refund_reject_message }}
-            </td>
-            <td class="item pointer" *ngIf="a.isSuperManager"><div class="app-button" (click)="onAccept(s.idx)">Accept</div></td>
-            <td class="item pointer" *ngIf="a.isSuperManager"><div class="app-button" (click)="onReject(s.idx)">Reject</div></td>
-        </tr>
-    </table>
-</div> -->
-
-
 <div class="data" *ngIf="re">
     <div *ngFor=" let s of re ">
         <div class="info">

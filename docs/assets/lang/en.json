@@ -97,7 +97,7 @@
   "PHP_ERROR": "Server program eror. Please notify this to admin immediately.",
   "WELCOME_TITLE": "Welcome, #name.",
   "WELCOME_MESSAGE": "We are pleased to serve you the best qualified English Education with the lowest price in the world.",
-  "WELCOME_TRY": "You can reserve 5 trial classes now.",
+  "WELCOME_TRY": "You can reserve #MAX_FREE_CLASS trial classes now.",
   "PASSWORD": "Password",
   "NAME": "Name",
   "GENDER": "Gender",
@@ -143,7 +143,7 @@
   "VERIFY_COURSE_EVALUATION": "Verify Evaluation",
   "EASY_4_STEP": "EASY 4 STEP",
   "QUICK_MEMBERSHIP": "Quick Membership",
-  "5_FREE_TRIAL": "5 Free Trial",
+  "5_FREE_TRIAL": "3 Free Trial",
   "MY_OWN": "My Own",
   "TUITION_AND_SCHEDULE": "Tution and Schedule",
   "ANYTIME_ANYWHERE": "Anytime, Anywhere",
@@ -419,7 +419,7 @@
   "ADV_CONTENT_14_1": "Twice a month is 10,000 won.",
   "ADV_CONTENT_14_2": "Because the teacher sets the tuition fee directly, not all classes are 10,000 won, but the tuition is very low.",
   "ADV_CONTENT_14_3": " ",
-  "ADV_CONTENT_15": "You can book 5 classes immediately after you join.",
+  "ADV_CONTENT_15": "You can book #MAX_FREE_CLASS classes immediately after you join.",
   "ADV_CONTENT_16": "Book your classes today",
 
   "SCHEDULE_AVAILABLE_PAGE_TITLE": "Available Teachers at This Time",
@@ -621,7 +621,7 @@
   "_KIDDING": "You are kidding.",
   "_NO_WAY": "20 sessions and only $10.",
   "_AFTER_REGISTRATION": "After registration,",
-  "_5_FREE_CLASS": "Take 5 free lessons.",
+  "_5_FREE_CLASS": "Take 3 free lessons.",
   "_10000_MONTH": "20 session a month with only $10.",
 
 
