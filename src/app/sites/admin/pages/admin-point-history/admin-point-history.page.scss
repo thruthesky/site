@@ -1,11 +1,11 @@
 @import '../../../../../theme/vars';
 .link{
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     font-weight: normal;
     text-decoration: none;
     svg{
-        margin-left: .5em;
+        margin-right: .5em;
     }
 }
 

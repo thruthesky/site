@@ -1,332 +1,298 @@
 @import '../../../../../theme/vars';
-mat-tab-group{
-    margin-top: 1em;
+.loader{
+    margin-top: 3em;
 }
-
-.profile-data-form,
-.refund-request-wrapper,
-.payments-wrapper,
-.point-history-wrapper{
-    margin: 1em 0;
-    @media (min-width:$md) {
-        margin:2em 0;
-    }
-}
-
-.user-stats{
-    margin: .5em 0;
-    font-size: .9em;
-    &>div{
-        margin-bottom: 1.25em;
-    }
-    b{
-        display: inline-block;
-        width: 30%;
-        @media (min-width:$md) {
-            width: 25%
-        }
-        color: #0867B0
-    }
-    span{
-        display: inline-block;
-        width: 65%;
-        margin-left: 1em;
-    }
-}
-
-.user-profile-form{
+#content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    min-height: 3400px;
+    background: #fff;
     h2{
-        margin-top: 0;
         font-size: 1.2em;
         font-weight: normal;
     }
-    .top-box{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-bottom: 1.5em;
-        min-height: 200px;
-    }
-
-    .buttons{
-        margin: 0;
-        margin-bottom: .5em;
-        display: flex;
-        .app-button{
-            margin: 0;
-            padding: .7em 1em!important;
-            background: gray;
-            &:first-child{
-                margin-right: 1em;
-            }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        text-align: center;
+        font-size: .75em;
+        @media (min-width:$md) {
+            font-size: .87em;   
         }
-    }
-    .profile-data-form{
-        padding: 0 .5em;
-        .row{
-            margin: 0;
-            width: 100%;
-            height: 100%;
+        th{
+            border-top:1px solid rgba(125,125,125,0.2);
         }
-        .col-md-6,
-        .col-md-5{
-            padding: 0;
-        }
-        .col-md-5{
-            padding-right: 1em;
-        }
-        .col-md-6{
-            padding-left: 1em;
-        }
-        .col{
-            padding: 0;
-        }
-        .primary-photo{
-            padding: 1em;
-            text-align: center;
-            border: 3px dashed rgba(125,125,125,0.3);
-            border-radius: 2px;
-            .label{
-                font-size: 1.2em;
-            }
-            label{
-                cursor:  pointer;
-            }
-            .profile-photo{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: auto;
-                height: 120px;
-                width: 100px;
-                overflow: hidden;
-                img{
-                    width: 100%
+        tr{
+            border-bottom: 1px solid rgba(125,125,125,0.2);
+            &>td{
+                padding: .45em .5em;
+                @media (min-width:$md){
+                    padding: .75em .5em;
                 }
             }
-            .update-photo{
+            &>th{
+                padding: .65em .5em;
+                @media (min-width:$md){
+                    padding: .95em .5em;
+                }
+            }
+            &:hover{
+                background: rgba(125,125,125,0.05);
+            }
+            &:first-child{
+                background: #fff;
+            }
+        }
+        .user-info{
+            font-size: .85em;
+        }
+    }
+
+    #user-profile-form{
+        .user-stats{
+            margin: .5em 0;
+            font-size: .9em;
+            &>div{
+                margin-bottom: 1.25em;
+            }
+            b{
+                display: inline-block;
+                width: 30%;
+                @media (min-width:$md) {
+                    width: 25%
+                }
+                color: #0867B0
+            }
+            span{
+                display: inline-block;
+                width: 65%;
+                margin-left: 1em;
+            }
+        }
+        form{
+            .primary-photo{
                 display: flex;
-                justify-content: center;
-                span{
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 1.5em;
+                min-height: 200px;
+                padding: 1em;
+                text-align: center;
+                border: 3px dashed rgba(125,125,125,0.3);
+                border-radius: 2px;
+                .label{
+                    font-size: 1.2em;
+                }
+                label{
+                    cursor:  pointer;
+                }
+                .profile-photo{
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    margin-top: 1em;
-                    padding: .4em 1em;
+                    margin: auto;
+                    height: 120px;
+                    width: 100px;
+                    overflow: hidden;
+                    img{
+                        width: 100%
+                    }
+                }
+                .update-photo-button{
+                    display: flex;
+                    justify-content: center;
+                    span{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 1em;
+                        padding: .4em 1em;
+                        border-radius: 2px;
+                        background: dodgerblue;
+                        color: #fff;
+                        font-size: .85em;
+            
+                        svg{
+                            height: 1em;
+                            width: 1em;
+                            margin-left: .5em
+                        }
+                    }
+                }
+                input{
+                    position: absolute;
+                    opacity: 0;
+                }
+            }
+            .mini-form{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 1.5em;
+                min-height: 200px;
+                .app-button{
+                    padding:1em;
+                    width: 100%;
+                }
+                .page-buttons{
+                    margin: 0;
+                    margin-bottom: .5em;
+                    display: flex;
+                    .app-button{
+                        margin: 0;
+                        padding: .7em 1em!important;
+                        background: gray;
+                        &:first-child{
+                            margin-right: 1em;
+                        }
+                    }
+                }
+                .point-edit-form{
+                    margin: 1em 0;
+                    padding: 1em 1.5em;
                     border-radius: 2px;
-                    background: dodgerblue;
-                    color: #fff;
-                    font-size: .85em;
-        
-                    svg{
-                        height: 1em;
-                        width: 1em;
-                        margin-left: .5em
+                    border: 1px solid rgba(125,125,125,0.2);
+                    font-size: .9em;
+                    h2{
+                        font-size: 1em;
+                        color: darkgreen;
+                        font-weight: bolder;
+                    }
+                    &>div{
+                        font-size: .9em;
+                        margin: 1em 0;
+                    }
+                    input{
+                        padding: .5em 1em;
+                        font-size: .85em;
+                        border-radius: 2px;
+                        border: 1px solid rgba(125,125,125,0.3);
+                    }
+                    .note{
+                        padding: .5em 0;
+                        font-size: .9em;
+                        color: darkblue
+                    }
+                    .label{
+                        display: block;
+                        margin-right: 1em;
+                        margin-bottom: .3em;
+                        font-weight: bold;
+                    }
+                    label{
+                        margin-right: .5em;
+                    }
+                    input[type="radio"],
+                    label{
+                        cursor: pointer;
+                    }
+            
+                    .buttons{
+                        display: flex;
+                        justify-content: space-around;
+                        margin-top: 1em;
+                        .app-button{
+                            padding: .5em 1em;
+                        }
+                        .update{
+                            margin-right: 1em;
+                            background: dodgerblue;
+                            color: #fff;
+                        }
+                        .cancel{
+                            margin-left: 1em;
+                            background: #eee;
+                            color:darkred;
+                        }
                     }
                 }
             }
-            .input-box{
-                position: absolute;
-                opacity: 0;
+            .profile-data-input{
+                &>div{
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: .9em;
+                    label{
+                        margin-left: .2em;
+                        margin-bottom: .2em;
+                        font-size: .9em;
+                        color: #0867B0;
+                    }
+                    input[disabled]{
+                        border: 0;
+                        background: rgba(125,125,125,0.2);
+                    }
+                    input,
+                    .form-radio{
+                        padding: .6em 1em;
+                        font-size: .9em;
+                        border-radius: 2px;
+                        border: 1px solid rgba(125,125,125,0.3);
+                    }
+                    .form-radio{
+                        input,
+                        label{
+                            cursor: pointer;
+                        }
+                        label{
+                            margin-right: 1em;
+                        }
+                    }
+                }
             }
-        }
-        mat-form-field{
-            width: 100%;
-            font-size: .85em;
-        }
-        .form-radio{
-            input[matInput]{
-                display: none;
-            }
-            label{
-                margin-right: 1em;
-                margin-left: .1em;
-            }
-        }
-        .app-button{
-            padding:1em;
-            width: 100%;
-        }
-    }
-    .point-edit-button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        padding: .7em 3em!important;
-        background: darkgreen;
-        color: #fff;
-        svg{
-            height: 1.2em;
-            width: 1.2em;
-            margin-left: .5em;
-        }
-    }
-    .point-edit-form{
-        margin: 1em 0;
-        padding: 1em 1.5em;
-        border-radius: 2px;
-        border: 1px solid rgba(125,125,125,0.2);
-        h2{
-            margin-top: 0;
-            font-size: 1em;
-            color: darkgreen;
-            font-weight: bolder;
-        }
-        &>div{
-            font-size: .9em;
-            margin: .75em 0;
-        }
-        input{
-            padding: .5em 1em;
-            font-size: .85em;
-            border-radius: 2px;
-            border: 1px solid rgba(125,125,125,0.3);
-        }
-        .note{
-            padding: .5em 0;
-            font-size: .9em;
-            color: darkblue
-        }
-        .label{
-            margin-right: 1em;
-            font-weight: bold;
-        }
-        label{
-            margin-right: .5em;
-        }
-        input[type="radio"],
-        label{
-            cursor: pointer;
-        }
-
-        .buttons{
-            display: flex;
-            justify-content: space-around;
-            margin-top: 1em;
-            .app-button{
-                padding: .5em 1em;
-            }
-            .update{
-                background: dodgerblue;
-                color: #fff;
-            }
-            .cancel{
-                background: #eee;
-                color:darkred;
-            }
-        }
-    }
-}
-
-.form-buttons{
-    margin-top: 1em;
-}
-
-
-
-.payments-wrapper,
-.refund-request-wrapper{
-    padding: 0;
-    font-size: .8em;
-    @media (min-width:$md){
-        font-size: .9em;
-    }
-
-    table{
-        text-align: center;
-        border-collapse: collapse;
-        width: 100%;
-        td,
-        th{
-            padding: .75em;
-        }
-        th{
-            background: gray;
-            color: #fff;
-        }
-        tr{
-            border-bottom: 1px solid rgba(125,125,125,0.2);
-        }
-    }
-}
-
-
-.sessions-wrapper,
-.point-history-wrapper{
-    font-size: .8em;
-    @media (min-width:$md) {
-        font-size: .9em;
-    }
-
-    .user-info{
-        font-size: .7em;
-        @media (min-width:$md) {
-            font-size: 1em;
-        }
-    }    
-
-    table{
-        width: 100%;
-        border-collapse: collapse;
-        text-align: center;
-        th{
-            background: gray;
-            color: #fff;
-        }
-
-        tr{
-            border-bottom: 1px solid rgba(125,125,125,0.2);
-            &>*{
-                padding: .45em;
-                @media (min-width:$md){
-                    padding: .75em;
+            .form-button{
+                .app-button{
+                    padding: .5em 1em;
                 }
             }
         }
-    }
-}
-
-.sessions-wrapper{
-    .sessions-desc{
-        margin-top: 0;
-        line-height: 1.8em;
-    }
-
-    h2{
-        margin-top: 0;
-        font-size: 1.4em;
-        font-weight: normal;
-    }
-
-    .mini-stat{
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 1em;
-        font-size: .8em;
-        span{
-            font-size: 1.3em;
-            margin-right: 1em;
-        }
-
-        b{
-            color: #0867B0;
+        .point-edit-button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: .7em 3em!important;
+            background: darkgreen;
+            color: #fff;
+            svg{
+                height: 1.2em;
+                width: 1.2em;
+                margin-left: .5em;
+            }
         }
     }
 
-    table{
-        font-size: .9em;
+
+    #point-history{
+        table{
+            table-layout: unset
+        }
     }
-}
+    #refund-request{
+        margin-top: 2em
+    }
+    #sessions{
+        margin-top: 2em;
+        .sessions-desc{
+            margin-top: 0;
+            line-height: 1.8em;
+            font-size: .9em;
+        }
+        .mini-stat{
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1em;
+            font-size: .9em;
+            span{
+                margin-right: 1em;
+            }
 
-.point-history{
-    h2{
-        margin-top: 3em;
-        margin-bottom: .5em;
-    } 
-
-}
-
-.loader{
-    margin-top: 3em;
+            b{
+                color: #0867B0;
+            }
+        }
+    }
 }
