@@ -34,7 +34,7 @@ section{
 
         .content{
             padding:0;
-            padding-left: 4em;
+            padding-left: 2em;
 
             @media screen and (max-width:$sm){
                 padding:2em 0;
@@ -44,27 +44,22 @@ section{
 
         .options{
             padding: 0;
+            border-right: 4px solid dodgerblue;
             &>a{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 1em;
-                border: 1px solid #e9ecef;
-                border-top: none;
+                padding: 1.25em 1.5em;
                 cursor: pointer;
     
                 &:hover{
-                    background: rgba(grey,0.1)
-                }
-
-                &:first-child{
-                    border-top: 1px solid #e9ecef;
+                    background: rgba(dodgerblue,0.13);
                 }
             }
     
             .active{
-                background: rgba(dodgerblue,0.1)!important;
-                color: dodgerblue!important;
+                background: dodgerblue;
+                color: #fff!important;
             }
 
             .arrow-icon{
@@ -74,13 +69,16 @@ section{
 
 
         .read{
-            padding: 2em;
-            background: rgba(grey,0.1);
+            padding: 1em;
+            padding-top: 2em;
             &>div:first-child{
-                margin: 0!important;
-                font-size: 1.8em;
-                font-weight: 300;
-                font-family: 'Times New Roman', Times, serif;
+                margin: 0;
+                margin-bottom: .5em;
+                background: transparent;
+                padding: 0;
+                font-size: 2em;
+                font-weight: 100;
+                letter-spacing: .07em;
 
                 @media screen and (max-width:$sm){
                     text-align: center;
@@ -89,7 +87,8 @@ section{
             }
 
             div{
-                margin-top:1.6em;
+                margin-top:1.5em;
+                font-size: 1em;
             }
 
             line-height: 1.6em;
