@@ -49,7 +49,7 @@ export class ApplyFranchiseComponent implements OnInit {
         return false;
     }
     onClickShowTermsAndConditions() {
-        console.log(this.t.ln);
+        // console.log(this.t.ln);
         this.modal.alert({content: '<pre>' + this.t.ln.terms_and_conditions + '<pre>' });
     }
 }
