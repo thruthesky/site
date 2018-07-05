@@ -16,8 +16,10 @@
         width: 1em;
         margin: 0 .3em;
     }
-
     &:hover{
         color: dodgerblue;
+        svg{
+            color: inherit;
+        }
     }
 }

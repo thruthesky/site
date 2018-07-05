@@ -29,13 +29,14 @@ section{
         .accordion{
             margin:.5em 0;
             border-radius: 2px;
-            border: 1px solid rgba(#000,0.1);
             cursor: pointer;
 
             .accord-on{
                 display: none;
             }
             .content{
+                padding: 1em 1.2em;
+                border: 1px solid #F1F1F1;
                 line-height: 1.8em;
                 font-weight: 200;
             }
@@ -43,16 +44,15 @@ section{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 1em;
-                background: rgba(0, 0, 0, 0.1);
+                padding: .8em 1em;
+                background: #F1F1F1;
                 border-radius: 2px;
-                font-size: 1.3em;
+                font-size: 1.1em;
                 font-weight: 500;
                 color:rgba(#000,0.9);
 
                 .icon{
                     height: 1em;
-                    color: grey;
                 }
 
                 .rotate-icon-on{
@@ -62,6 +62,9 @@ section{
 
                 .rotate-icon-off{
                     transition: all .1s ease-in-out;
+                }
+                &-active{
+                    background: #FFCB00;
                 }
             }
         }
