@@ -16,16 +16,15 @@
                 </div>
 
                 <div class="end col">
-                        <mat-form-field appearance="outline"  (click)="dpEnd.open()">
-                            <mat-label>{{ 'DATE_END' | t}}</mat-label>
-                            <input name="date" [(ngModel)]="date_end" matInput
-                                    [matDatepicker]="dpEnd"
-                                    (dateChange)="onChangeSearchOption()">
-                            <mat-datepicker #dpEnd touchUi="true" disabled="false"></mat-datepicker>
-                        </mat-form-field>
+                    <mat-form-field appearance="outline"  (click)="dpEnd.open()">
+                        <mat-label>{{ 'DATE_END' | t}}</mat-label>
+                        <input name="date" [(ngModel)]="date_end" matInput
+                                [matDatepicker]="dpEnd"
+                                (dateChange)="onChangeSearchOption()">
+                        <mat-datepicker #dpEnd touchUi="true" disabled="false"></mat-datepicker>
+                    </mat-form-field>
                 </div>
             </div>
-
         </div>
 
         <div class="teachers container-fluid" *ngIf=" my_teachers ">
