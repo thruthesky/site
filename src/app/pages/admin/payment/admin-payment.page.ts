@@ -186,7 +186,7 @@ export class AdminPaymentPage implements OnInit {
                             idx: pay.student.idx
                         };
                     }
-                    const date = this.a.shortDate(pay.stamp_begin);
+                    const date = this.a.shortDate(pay.stamp_begin, true);
                     if (this.stat.daily[date]) {
                         this.stat.daily[date] += parseInt(pay.point, 10);
                     } else {

@@ -218,8 +218,8 @@ export class AppService {
     DEFAULT_DAYS_TO_SHOW_ON_PAST_PAGE = 90; // 90 days.
 
     kakaoUrls = {
-        student_kakaoplus_url: 'http://pf.kakao.com/_eIxgAC',
-        student_kakaoplus_deeplink: 'kakaoplus://plusfriend/home/@katalkenglish',
+        student_kakaoplus_url: 'http://pf.kakao.com/_eIxgAC/chat', // 'http://pf.kakao.com/_eIxgAC',
+        student_kakaoplus_deeplink: 'http://pf.kakao.com/_eIxgAC/chat', // 'kakaoplus://plusfriend/home/@katalkenglish',
         teacher_kakaoplus_url: 'http://pf.kakao.com/_RcxbRC',
         teacher_kakaoplus_deeplink: 'kakaoplus://plusfriend/home/@ontue'
     };
@@ -313,9 +313,12 @@ export class AppService {
          * Latest Edge partly supports Push API. It supports Web Notification. But not Push notification.
          * We simply block all IE and Edge for Push.
          */
-        if (this.isIeEdge() || this.isSafari()) {
-        } else {
-            this.firebase.messaging = firebase.messaging();
+        if (this.isPushNotificationSupported()) {
+            try {
+                this.firebase.messaging = firebase.messaging();
+            } catch (e) {
+                console.log('Handling push error', e);
+            }
         }
 
         // this.language.setUserLanguage();
@@ -1280,7 +1283,7 @@ export class AppService {
     }
 
     get lmsMaxFreeClass(): number {
-        const info: LMS_INFO = <any> this.get(KEY_LMS_INFO);
+        const info: LMS_INFO = <any>this.get(KEY_LMS_INFO);
         const no = info.MAX_FREE_CLASS;
         if (!no) {
             return 0;
@@ -1302,53 +1305,53 @@ export class AppService {
 
 
     initWebPushMessage() {
-        if (this.isIeEdge() || this.isSafari()) {
+        if (!this.isPushNotificationSupported() || !this.firebase.messaging) {
             return;
         }
-        if ('Notification' in window) {
-            // console.log('initWebPushMessage', this.firebase);
-            this.firebase.messaging.requestPermission()
-                .then(() => { /// User accepted 'push notification alert'
-                    this.firebase.messaging.getToken()
-                        .then(currentToken => { /// Got token
-                            this.pushToken = currentToken;
-                            // console.log("Got token: ", this.pushToken);
-                            this.updatePushToken();
-                        })
-                        .catch(err => {
-                            // Failed to get token.
-                            console.error('An error occurred while retrieving token. ', err);
-                        });
-                })
-                .catch(err => { /// If failed to get permission.
-                    console.error('User rejected/blocked push notification. ', err);
-                });
 
-
-            // Callback fired if Instance ID token is updated.
-            this.firebase.messaging.onTokenRefresh(() => {
+        // // console.log('initWebPushMessage', this.firebase);
+        this.firebase.messaging.requestPermission()
+            .then(() => { /// User accepted 'push notification alert'
                 this.firebase.messaging.getToken()
-                    .then(refreshedToken => { // Token refreshed
-                        this.pushToken = refreshedToken;
-                        // console.log("Token Refreshed: ", this.pushToken);
+                    .then(currentToken => { /// Got token
+                        this.pushToken = currentToken;
+                        // console.log("Got token: ", this.pushToken);
                         this.updatePushToken();
                     })
                     .catch(err => {
-                        // console.log('Unable to retrieve refreshed token ', err);
+                        // Failed to get token.
+                        console.error('An error occurred while retrieving token. ', err);
                     });
+            })
+            .catch(err => { /// If failed to get permission.
+                console.error('User rejected/blocked push notification. ', err);
             });
 
-            // When the user is on the site(opened the site), the user will not get push notification.
-            // Instead, you can do whatever in this handler.
-            this.firebase.messaging.onMessage(payload => {
-                // console.log("Message received. ", payload);
-                // ...
-                const notification = payload['notification'];
-                // const title = notification['title'];
-                const body = notification['body'];
-                this.toast(body);
-            });
-        }
+
+        // Callback fired if Instance ID token is updated.
+        this.firebase.messaging.onTokenRefresh(() => {
+            this.firebase.messaging.getToken()
+                .then(refreshedToken => { // Token refreshed
+                    this.pushToken = refreshedToken;
+                    // console.log("Token Refreshed: ", this.pushToken);
+                    this.updatePushToken();
+                })
+                .catch(err => {
+                    // console.log('Unable to retrieve refreshed token ', err);
+                });
+        });
+
+        // When the user is on the site(opened the site), the user will not get push notification.
+        // Instead, you can do whatever in this handler.
+        this.firebase.messaging.onMessage(payload => {
+            // console.log("Message received. ", payload);
+            // ...
+            const notification = payload['notification'];
+            // const title = notification['title'];
+            const body = notification['body'];
+            this.toast(body);
+        });
+
     }
 
 
@@ -1357,7 +1360,7 @@ export class AppService {
      * @param token push token string
      */
     updatePushToken() {
-        if (this.isIeEdge() || this.isSafari()) {
+        if (!this.isPushNotificationSupported()) {
             // console.log('return because it is ie or edge or safari.');
             return;
         }
@@ -1589,8 +1592,8 @@ export class AppService {
             if (this.isMobile()) {
                 document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
             } else {
-                this.toast(this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
-                // window.open(this.kakaoUrls.student_kakaoplus_url);
+                // this.toast(this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
+                window.open(this.kakaoUrls.student_kakaoplus_url);
             }
         }
 
@@ -1600,16 +1603,18 @@ export class AppService {
     }
 
 
-
     /**
      * Display short date
      * @param stamp unix timestamp
+     * @param full - true return full shorten date today
+     *        full - false return time of today
+     * @returns mixed - return may be date or time.
      */
-    shortDate(stamp) {
+    shortDate(stamp, full = false) {
         const d = new Date(stamp * 1000);
         const today = new Date();
         let dt;
-        if (d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()) {
+        if (!full && d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()) {
             dt = d.toLocaleString();
             dt = dt.substring(dt.indexOf(',') + 2).toLowerCase();
             dt = dt.replace(/\:\d\d /, ' ');
@@ -1647,6 +1652,16 @@ export class AppService {
      */
     isSafari() {
         return !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+    }
+    isPushNotificationSupported(): boolean {
+
+        if ('Notification' in window) {
+            // API supported
+            return true;
+        } else {
+            // API not supported
+            return false;
+        }
     }
     /**
      * Returns true if the user is using browser on mobile/tablet.
