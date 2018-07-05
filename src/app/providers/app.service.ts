@@ -386,7 +386,7 @@ export class AppService {
         if ( ! user.domain ) {
             user.domain = 'www.katalkenglish.com';
         }
-        user.domain = 'www.katalkenglish.com';
+        // user.domain = 'localhost:4200';
         return `http://${user.domain}/menu?login_session_id=${user.session_id}`;
     }
 
