@@ -6,60 +6,60 @@
     <main>
 
         <div class="accordion" (click)="accord.on1=!accord.on1">
-            <div class="toggle">
+            <div class="toggle" [class.toggle-active]="!accord.on1">
                 <span>Important Tips</span>
                 <span [class.rotate-icon-on]="!accord.on1" [class.rotate-icon-off]="accord.on1">
                     <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                 </span>
             </div>
-            <ul class="content" [class.accord-on]="accord.on1">
-                <li>Teacher must add student using smart phone.</li>
-                <li>There is no way to add friend in kakao with desktop software.</li>
-                <li>Teacher without grade will not be shown in the list of Recommended teacher.</li>
-                <li>But they will be shown if the option "Show all teachers" is selected.</li>
-            </ul>
+            <div class="content" [class.accord-on]="accord.on1">
+                <div>Teacher must add student using smart phone.</div>
+                <div>There is no way to add friend in kakao with desktop software.</div>
+                <div>Teacher without grade will not be shown in the list of Recommended teacher.</div>
+                <div>But they will be shown if the option "Show all teachers" is selected.</div>
+            </div>
         </div>
 
 
         <div class="accordion"  (click)="accord.on2=!accord.on2">
-            <div class="toggle">
+            <div class="toggle" [class.toggle-active]="!accord.on2">
                 <span>Graded Teacher's must have Promotion Schedule</span>
                 <span [class.rotate-icon-on]="!accord.on2" [class.rotate-icon-off]="accord.on2">
                     <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                 </span>
             </div>
-            <ul class="content" [class.accord-on]="accord.on2" >
-                <li>1 schedule with 10mins duration and 500points</li>
-                <li>1 schedule with 20mins duration and 1000points</li>
-            </ul>
+            <div class="content" [class.accord-on]="accord.on2" >
+                <div>1 schedule with 10mins duration and 500points</div>
+                <div>1 schedule with 20mins duration and 1000points</div>
+            </div>
         </div>
 
         <div class="accordion"  (click)="accord.on3=!accord.on3">
-            <div class="toggle">
+            <div class="toggle" [class.toggle-active]="!accord.on3">
                 <span>Teacher's Guideline</span>
                 <span [class.rotate-icon-on]="!accord.on3" [class.rotate-icon-off]="accord.on3">
                     <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                 </span>
             </div>
-            <ul class="content" [class.accord-on]="accord.on3">
-                <li>Nickname should be less than or equal to 8 letters.</li>
-                <li>Profile image is best fit on 100px of width and 120px of height.</li>
-            </ul>
+            <div class="content" [class.accord-on]="accord.on3">
+                <div>Nickname should be less than or equal to 8 letters.</div>
+                <div>Profile image is best fit on 100px of width and 120px of height.</div>
+            </div>
         </div>
 
         <div class="accordion"  (click)="accord.on4=!accord.on4">
-            <div class="toggle">
+            <div class="toggle" [class.toggle-active]="!accord.on4">
                 <span>Bad Student's Guideline</span>
                 <span [class.rotate-icon-on]="!accord.on4" [class.rotate-icon-off]="accord.on4">
                     <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                 </span>
             </div>
-            <ul  class="content" [class.accord-on]="accord.on4">
-                <li>If Student don't behave, talk to them in a nice way.</li>
-                <li>If Student doing other things, tell them to focus on your class in a nice way</li>
-                <li>If Student doing naughty things, tell them that we don't entertain those kind of activity.</li>
-                <li>If Student doing that is not right, take a screen shot and end the class. Inform the admin immediately by providing proper evidence.</li>
-            </ul>
+            <div  class="content" [class.accord-on]="accord.on4">
+                <div>If Student don't behave, talk to them in a nice way.</div>
+                <div>If Student doing other things, tell them to focus on your class in a nice way</div>
+                <div>If Student doing naughty things, tell them that we don't entertain those kind of activity.</div>
+                <div>If Student doing that is not right, take a screen shot and end the class. Inform the admin immediately by providing proper evidence.</div>
+            </div>
         </div>
 
     </main>

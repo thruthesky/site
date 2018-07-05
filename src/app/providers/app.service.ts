@@ -1603,16 +1603,18 @@ export class AppService {
     }
 
 
-
     /**
      * Display short date
      * @param stamp unix timestamp
+     * @param full - true return full shorten date today
+     *        full - false return time of today
+     * @returns mixed - return may be date or time.
      */
-    shortDate(stamp) {
+    shortDate(stamp, full = false) {
         const d = new Date(stamp * 1000);
         const today = new Date();
         let dt;
-        if (d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()) {
+        if (!full && d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()) {
             dt = d.toLocaleString();
             dt = dt.substring(dt.indexOf(',') + 2).toLowerCase();
             dt = dt.replace(/\:\d\d /, ' ');
