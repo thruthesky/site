@@ -201,6 +201,7 @@
         <table  class="users">
                 <tr>
                     <th *ngIf=" form.display.ID ">ID</th>
+                    <th>(L)</th>
                     <th>Display Name</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -217,6 +218,7 @@
                 </tr>
                 <tr class="user" *ngFor=" let user of re ">
                     <td class="id" *ngIf=" form.display.ID ">{{ user.ID }}</td>
+                    <td><a href='{{ a.userLoginUrl(user) }}' target='_blank'>(L)</a></td>
                     <td class="display_name">
                         {{ a.shortName( user.display_name ) }}
                         <ng-container *ngIf="user.no_of_future && user.no_of_past">

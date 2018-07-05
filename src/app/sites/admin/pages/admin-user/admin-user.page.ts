@@ -129,7 +129,8 @@ export class AdminUserPage implements OnInit {
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
-            no_of_reservations: true
+            no_of_reservations: true,
+            session_id: true
         }).subscribe(re => {
             this.show.loader = false;
             this.re = re;
@@ -293,6 +294,7 @@ export class AdminUserPage implements OnInit {
         }
         return 'red';
     }
+
 }
 
 

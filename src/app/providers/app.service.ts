@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { LanguageService } from './language.service';
-import { Router, NavigationExtras, NavigationStart, NavigationEnd } from '@angular/router';
+import { Router, NavigationExtras, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
 // import { Base, FireService } from '../modules/firelibrary/core';
 import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '../modules/xapi/xapi.module';
 
@@ -227,9 +227,9 @@ export class AppService {
     constructor(
         public ngZone: NgZone,
         public router: Router,
+        public activated: ActivatedRoute,
         public domSanitizer: DomSanitizer,
         public snackBar: MatSnackBar,
-        // public readonly fire: FireService,
         public readonly language: LanguageService,
         public readonly xapi: XapiService,
         public readonly user: XapiUserService,
@@ -338,6 +338,9 @@ export class AppService {
 
 
         this.listenActivityLog();
+
+        //
+        this.adminLoginUser();
     }
 
     get ln(): any {
@@ -357,6 +360,36 @@ export class AppService {
     get isLogin() {
         return this.user.isLogin;
     }
+
+    /**
+     * If there is 'login_session_id' in HTTP parameter, then it logs into that account.
+     */
+    adminLoginUser() {
+        this.activated.queryParamMap.subscribe( params => {
+            if ( params.get('login_session_id') ) {
+                this.user.loadProfile( params.get('login_session_id') ).subscribe( re => {
+                    console.log('user logged in as email: ', this.user.email);
+                }, e => this.toast(e));
+            }
+        });
+    }
+
+    /**
+     * Returns a url to login as student.
+     *
+     * Use this to the combination of adminUserLogin
+     *
+     * @param user User info from backend using 'admin_query'
+     */
+    userLoginUrl( user ) {
+        console.log('user: ', user);
+        if ( ! user.domain ) {
+            user.domain = 'www.katalkenglish.com';
+        }
+        user.domain = 'localhost:4200';
+        return `http://${user.domain}/menu?login_session_id=${user.session_id}`;
+    }
+
 
     get isLogout() {
         return this.user.isLogout;
