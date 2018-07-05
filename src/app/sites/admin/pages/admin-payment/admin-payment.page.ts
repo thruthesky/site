@@ -35,7 +35,7 @@ export class AdminPaymentPage implements OnInit {
     form = {
         date_begin: '',
         date_end: '',
-        state: 'all',
+        state: 'approved',
         idx_student: '',
         payment_method: '',
         order: 'stamp_begin',
@@ -187,7 +187,8 @@ export class AdminPaymentPage implements OnInit {
                             idx: pay.student.idx
                         };
                     }
-                    const date = this.a.shortDate(pay.stamp_begin);
+                    const date = this.a.shortDate(pay.stamp_begin, true);
+                    console.log('pay.stamp_begin', pay.stamp_begin, date);
                     if (this.stat.daily[date]) {
                         this.stat.daily[date] += parseInt(pay.point, 10);
                     } else {
@@ -204,6 +205,7 @@ export class AdminPaymentPage implements OnInit {
                 }
             }
         }
+        console.log('this.stat.daily::' , this.stat.daily);
         this.stat.dailyDates = Object.keys(this.stat.daily).sort().reverse();
         this.stat.studentName = Object.keys(this.stat.student);
         if (this.stat.usd) {
