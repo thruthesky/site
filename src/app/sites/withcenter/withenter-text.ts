@@ -862,6 +862,12 @@ This Agreement will be effective from June 20, 2018.`,
         ch: `更多描述`,
         jp: `説明を見る`
     },
+    view_terms_and_conditions: {
+        ko: `약관보기 `,
+        en: `View Terms and Conditions`,
+        ch: `更多描述`,
+        jp: `説明を見る`
+    },
     apply_info: {
         ko: `가맹사는 창업을 위해서 단 돈 1원도 쓸 필요가 없으며 창업 방법이 너무 쉬워 따로 설명이나 상담을 하지 않습니다. 가맹사 등록 후, 관리자 페이지에서 본사와 상담을 할 수 있는 연락처가 제공됩니다. 그리고 가맹사 관리자 페이지에서 회사 정보나 로고 등 자세한 정보를 입력 할 수 있습니다.`,
         en: `You do not need to spend 1 won for a start-up business. After registering as a member, you will be provided with a contact page for consulting with the head office on the administrator page. And you can enter detailed information such as company information or logos on the Member's Admin page.`,
