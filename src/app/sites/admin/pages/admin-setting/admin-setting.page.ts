@@ -5,6 +5,11 @@ import { ModalService } from '../../../../providers/modal/modal.service';
 import { FILES } from '../../../../modules/xapi/interfaces';
 import { XapiFileUploadComponent } from '../../../../components/xapi-file-upload/xapi-file-upload.component';
 
+interface Form {
+    classPushNotification: '';
+}
+
+
 @Component({
     selector: 'admin-setting-page',
     templateUrl: 'admin-setting.page.html',
@@ -16,10 +21,13 @@ export class AdminSettingPage implements OnInit {
         domain_change_application: false
     };
     loader = {
-        branchUpdate: false
+        branchUpdate: false,
+        get: false,
+        save: false
     };
     branch: Branch = <any>{};
 
+    form: Form = <any>{};
 
     domain_change_application = '';
 
@@ -90,6 +98,22 @@ export class AdminSettingPage implements OnInit {
         this.a.lms.branch_update({ logo_url: this.branch.logo_url }).subscribe( re => {
             // console.log('branch_update logo: re:', re);
         }, e => this.a.toast(e));
+    }
+
+
+    onSubmitPushNotificatioTime(event?: Event) {
+        if (event) {
+            event.preventDefault();
+        }
+        this.loader.save = true;
+        this.a.lms.admin_save_settings(this.form).subscribe(res => {
+            this.loader.save = false;
+            // console.log('admin_settings(): ', res);
+        }, e => {
+            this.loader.save = false;
+            this.a.toast(e);
+        });
+        return false;
     }
 
 }

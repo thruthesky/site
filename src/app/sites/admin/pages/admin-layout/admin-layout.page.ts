@@ -21,15 +21,15 @@ export class AdminLayoutPage implements OnInit {
         public router: Router,
         public a: AppService
     ) {
-        console.log('AdminLayoutPage::construction()');
+        // console.log('AdminLayoutPage::construction()');
 
         activated.queryParamMap.subscribe(params => {
             if (params.get('session_id')) {
                 const session_id = params.get('session_id');
-                console.log('session_id: ', session_id);
-                console.log('user email: ', this.a.user.email);
+                // console.log('session_id: ', session_id);
+                // console.log('user email: ', this.a.user.email);
                 this.a.user.loadProfile( session_id ).subscribe( re => {
-                    console.log('user logged in as email: ', this.a.user.email);
+                    // console.log('user logged in as email: ', this.a.user.email);
                 }, e => this.a.toast(e));
             } else {
                 if (a.isLogout) {

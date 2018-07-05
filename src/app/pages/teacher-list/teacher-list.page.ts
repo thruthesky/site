@@ -57,7 +57,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
             .distinctUntilChanged() // only emit if value is different from previous value
             // .map(v => console.log('v: ', v))
             .subscribe((v) => {
-                console.log('v: ', v);
+                // console.log('v: ', v);
                 if ( v !== '' && v.length < 2 ) {
                     return;
                 }
