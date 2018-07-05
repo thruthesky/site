@@ -9,169 +9,186 @@ header{
 }
 
 main{
-    padding: 1em 3em;
     background: #fff;
-    text-align: center;
-
-    @media screen and (max-width:$sm) {
-       padding: 1em;
-    }
-
-    .radio-group{
-        margin: 2em auto;
-        width: 85%;
-        @media screen and (max-width:$sm) {
-            width: 95%
+    display: flex;
+    justify-content: center;
+    .content-resize{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        @media (min-width:$md){
+            width: 85%;
         }
-
-        .custom-radio{
+        padding: 1em 3em;
+    
+        @media screen and (max-width:$sm) {
+           padding: 1em;
+        }
+        mat-form-field{
+            width: 100%;
+        }
+        .custom-input-form{
             input{
-                position: absolute;
-                opacity: 0;
+                width: 100%;
+                border: 1px solid rgba(125,125,125,0.2);
+                padding: 1em 2em;
+                font-size: 1em;
+            }
+            label{
+                display: inline-block;
+                margin-left: .2em;
+                margin-bottom: .3em;
+            }
+            .input-note{
+                margin-left: .2em;
+                margin-top: .1em;
+                font-size: .8em;
+                color: gray;
+            }
+        }
+    
+        .radio-group{
+            margin: 2em auto;
+            .custom-radio{
+                input{
+                    position: absolute;
+                    opacity: 0;
+                }
+        
+                .radio-selected{
+                    &+span{
+                        border-color: dodgerblue;
+                        background: rgba(dodgerblue,0.1);
+                        color: dodgerblue;
+                    }
+                }
+                span{
+                    display: inline-block;
+                    margin: .2em;
+                    padding: .6em 1.8em;
+                    border-radius: 2px;
+                    border: 1px solid #e2e2e2;
+                    color: rgba(#000,0.8);
+                    font-size: 90%;
+                    cursor: pointer;
+                }
+            }
+            .col-md-2,.col-md10{
+                padding: 0;
+            }
+            .col-md-2{
+                display: flex;
+                align-items: center;
+            }
+            .col-md-12{
+                padding: 0;
+                margin: .2em 0;
             }
     
-            .radio-selected{
-                &+span{
-                    border-color: dodgerblue;
-                    background: rgba(dodgerblue,0.1);
-                    color: dodgerblue;
-                }
+            .title{
+                text-align: left;
+                white-space: nowrap;
             }
+    
+            .hint{
+                font-size: 80%;
+                text-align: left;
+                color: gray;
+            }
+        }
+    
+        mat-checkbox{
             span{
-                display: inline-block;
-                margin: .2em;
-                padding: .6em 1.8em;
-                border-radius: 2px;
-                border: 1px solid #e2e2e2;
-                color: rgba(#000,0.8);
-                font-size: 90%;
-                cursor: pointer;
+                font-size: .9em;
+                margin-left:.5em;
+                color: grey;
             }
         }
-        .col-md-2,.col-md10{
-            padding: 0;
-        }
-        .col-md-2{
-            display: flex;
-            align-items: center;
-        }
-        .col-md-12{
-            padding: 0;
-            margin: .2em 0;
-        }
-
-        .title{
+    
+        .checkboxes{
             text-align: left;
-            white-space: nowrap;
-        }
-
-        .hint{
-            font-size: 80%;
-            text-align: left;
-            color: gray;
-        }
-    }
-
-    mat-form-field{
-        width: 90%;
-
-        @media screen and (max-width:$sm) {
-            width: 95%
-        }
-    }
-
-    mat-checkbox{
-        span{
-            font-size: .9em;
-            margin-left:.5em;
-            color: grey;
-        }
-    }
-
-    .checkboxes{
-        margin: 2em auto;
-        width: 90%;
-        text-align: left;
-
-        @media screen and (max-width:$sm) {
-            width: 95%
-        }
-
-        &>div{
-            margin: 1em 0;
-
+    
             @media screen and (max-width:$sm) {
-                span{
-                    display: block;
+                width: 95%
+            }
+    
+            &>div{
+                margin: 1em 0;
+    
+                @media screen and (max-width:$sm) {
+                    span{
+                        display: block;
+                    }
                 }
             }
         }
-    }
-
-
-    .submit{
-        display: flex;
-        justify-content: center;
-        margin:4em;
-
-        @media screen and (max-width:$sm) {
-            margin:2em;
-        }
-
-        button{
+    
+    
+        .submit{
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 1em 3em;
+            margin:4em;
+    
+            @media screen and (max-width:$sm) {
+                margin:2em;
+            }
+    
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1em 3em;
+                border-radius: 2px;
+                border:none;
+                background: dodgerblue;
+                color: #fff;
+                font-size: .9em;
+    
+            }
+    
+        }
+    
+    
+        .warning{
+            padding: 1em;
+            border: 1px solid darkred;
             border-radius: 2px;
-            border:none;
-            background: dodgerblue;
-            color: #fff;
-            font-size: .9em;
-
+            background: rgba(darkred,0.1);
+            font-weight: 200;
+            line-height: 1.6em;
         }
-
-    }
-
-
-    .warning{
-        width: 90%;
-        margin: auto;
-        padding: 1em;
-        border: 1px solid darkred;
-        border-radius: 2px;
-        background: rgba(darkred,0.1);
-        font-weight: 200;
-        line-height: 1.6em;
-    }
-
-    &>div{
-        margin-bottom: 1.5em;
-    }
-    .info{
-        display: flex;
-        width: 80%;
-        margin:auto;
-        margin-bottom: 2em;
-        text-align: left;
-
-        @media screen and (max-width:$sm) {
-            flex-direction: column;
-            margin:auto;
-            margin-bottom: 1em;
+    
+        &>div{
+            margin-bottom: 1.5em;
         }
-
-        &>div{   
-            width: 100%;
-            div{
-                margin: 2em;
-                padding: 1em;
-                border-bottom: 1px solid black;
-                @media screen and (max-width:$sm) {
-                    margin: .5em;
-                    padding: .5em;
+        .info{
+            display: flex;
+            justify-content: space-around;
+            margin: 2em 0;
+            font-size: 1.1em;
+    
+            @media screen and (max-width:$sm) {
+                margin: 0 .5em;
+                flex-direction: column;
+                div{
+                    margin-bottom: .5em;
                 }
-
+            }
+    
+            &>div{
+                b{
+                    color: darkblue
+                }
+                div{
+                    margin-top: 1em;
+                    padding: 1em;
+                    @media screen and (max-width:$sm) {
+                        margin: .5em;
+                        padding: .5em;
+                    }
+    
+                }
             }
         }
     }

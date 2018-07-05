@@ -2,177 +2,169 @@
     <h1>{{ 'EVALUATE' | t }}</h1>
 </header>
 <main>
-
-    <div class="info">
-        <div>
-            <div><b>Name: </b> {{student_name}}</div>
-    
-            <div><b>Session No: </b>{{ idx }}</div>
-        </div>
-        <div>
-            <div><b>Point: </b>{{point}}</div>
-    
-            <div><b>Level of the session: </b>{{level}}</div>
-        </div>
-    </div>
-
-
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Book(Page) from the recent session</mat-label>
-            <input type="text" matInput placeholder="Book" [(ngModel)]="book_used">
-            <mat-hint>book used for today session</mat-hint>
-        </mat-form-field>
-    </div>
-
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Book(Page) for the next session:</mat-label>
-            <input type="text" matInput placeholder="Book"  [(ngModel)]="book_next">
-            <mat-hint>book you will use for the next session</mat-hint>
-        </mat-form-field>
-    </div>
-    
-    <section  class="radio-group container-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-2">
-                <span class="title">Grammar :</span>
+<section class="content-resize">
+        <div class="info">
+                <div><b>Name: </b> {{student_name}}</div>
+                <div><b>Session No: </b>{{ idx }}</div>
+                <div><b>Point: </b>{{point}}</div>
+                <div><b>Level of the session: </b>{{level}}</div>
             </div>
-            <div class="col-sm-12 col-md-10">
-                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-                    <input type="radio" 
-                            [(ngModel)]="grammar"
-                            name="grammar"
-                            [value]="i"
-                            (change)="onChangeChecklevel()"
-                            [class.radio-selected]="grammar==i">
-                    <span>{{ i }}</span>
-                </label>
+        
+        
+            <div class="custom-input-form">
+                <label>Book(Page) from the recent session</label>
+                <input type="text" matInput placeholder="Book" [(ngModel)]="book_used">
+                <div class="input-note">book used for today session</div>
             </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="hint">Rate on student grammar</div>
+        
+            <div class="custom-input-form">
+                <label>Book(Page) for the next session:</label>
+                <input type="text" matInput placeholder="Book"  [(ngModel)]="book_next">
+                <div class="input-note">book you will use for the next session</div>
             </div>
-        </div>
-    </section>
-
-
-    <section  class="radio-group container-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-2">
-                <span class="title">Expression:</span>
+            
+            <section  class="radio-group container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+                        <span class="title">Grammar :</span>
+                    </div>
+                    <div class="col-sm-12 col-md-10">
+                        <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                            <input type="radio" 
+                                    [(ngModel)]="grammar"
+                                    name="grammar"
+                                    [value]="i"
+                                    (change)="onChangeChecklevel()"
+                                    [class.radio-selected]="grammar==i">
+                            <span>{{ i }}</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="hint">Rate on student grammar</div>
+                    </div>
+                </div>
+            </section>
+        
+        
+            <section  class="radio-group container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+                        <span class="title">Expression:</span>
+                    </div>
+                    <div class="col-sm-12 col-md-10">
+                        <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                            <input type="radio" 
+                                    [(ngModel)]="expression"
+                                    name="expression"
+                                    [value]="i"
+                                    (change)="onChangeChecklevel()"
+                                    [class.radio-selected]="expression==i">
+                            <span>{{ i }}</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="hint">Rate how well the student can express</div>
+                    </div>
+                </div>
+            </section>
+        
+        
+            <section  class="radio-group container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+                        <span class="title">Vocabulary: </span>
+                    </div>
+                    <div class="col-sm-12 col-md-10">
+                        <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                            <input type="radio" 
+                                    [(ngModel)]="vocabulary"
+                                    name="vocabulary"
+                                    [value]="i"
+                                    (change)="onChangeChecklevel()"
+                                    [class.radio-selected]="vocabulary==i">
+                            <span>{{ i }}</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="hint">Rate if the student use proper words, cluases</div>
+                    </div>
+                </div>
+            </section>
+        
+            <section  class="radio-group container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+                        <span class="title">Pronunciation: </span>
+                    </div>
+                    <div class="col-sm-12 col-md-10">
+                        <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                            <input type="radio" 
+                                    [(ngModel)]="pronunciation"
+                                    name="pronunciation"
+                                    [value]="i"
+                                    (change)="onChangeChecklevel()"
+                                    [class.radio-selected]="pronunciation==i">
+                            <span>{{ i }}</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="hint">Rate on student accent and intonation</div>
+                    </div>
+                </div>
+            </section>
+        
+            <section  class="radio-group container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-2">
+                        <span class="title">Speed of Speach:</span>
+                    </div>
+                    <div class="col-sm-12 col-md-10">
+                        <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                            <input type="radio" 
+                                    [(ngModel)]="speed"
+                                    name="speed"
+                                    [value]="i"
+                                    (change)="onChangeChecklevel()"
+                                    [class.radio-selected]="speed==i">
+                            <span>{{ i }}</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="hint">Rate on how fast and fluently the student speaks</div>
+                    </div>
+                </div>
+            </section>
+        
+            <div class="warning" *ngIf=" student_absent ">
+                    <b>Warning:</b> when you check on 'student was absent' box,
+                    You must input some comment on comment box or else the session may not be paid.
+                    If you have nothing to comment, then just type "Student was absent at hour:time on Month/Day".
+                </div>
+            
+            <div class="checkboxes">
+                <div>
+                    <mat-checkbox color="warn" [(ngModel)]="student_absent">Student was absent<span>(Click the Box if the Student is Absent)</span></mat-checkbox>
+                </div>
+                <div>    
+                    <mat-checkbox [(ngModel)]="unsuccessful">Class was unsuccessful<span>(Any Problem in the Class?)</span></mat-checkbox>            
+                </div>
             </div>
-            <div class="col-sm-12 col-md-10">
-                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-                    <input type="radio" 
-                            [(ngModel)]="expression"
-                            name="expression"
-                            [value]="i"
-                            (change)="onChangeChecklevel()"
-                            [class.radio-selected]="expression==i">
-                    <span>{{ i }}</span>
-                </label>
+        
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Comment:</mat-label>
+                    <textarea matInput rows="10" [(ngModel)]="comment"></textarea>
+                    <mat-hint> Leave comment of the session. Or Leave any message if the class was unsuccessful.</mat-hint>
+                </mat-form-field>
             </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="hint">Rate how well the student can express</div>
+        
+            <div class="submit">
+                <button (click)="onClickSubmitEvaluation()">
+                    <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
+                    SUBMIT
+                </button>
             </div>
-        </div>
-    </section>
-
-
-    <section  class="radio-group container-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-2">
-                <span class="title">Vocabulary: </span>
-            </div>
-            <div class="col-sm-12 col-md-10">
-                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-                    <input type="radio" 
-                            [(ngModel)]="vocabulary"
-                            name="vocabulary"
-                            [value]="i"
-                            (change)="onChangeChecklevel()"
-                            [class.radio-selected]="vocabulary==i">
-                    <span>{{ i }}</span>
-                </label>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="hint">Rate if the student use proper words, cluases</div>
-            </div>
-        </div>
-    </section>
-
-    <section  class="radio-group container-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-2">
-                <span class="title">Pronunciation: </span>
-            </div>
-            <div class="col-sm-12 col-md-10">
-                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-                    <input type="radio" 
-                            [(ngModel)]="pronunciation"
-                            name="pronunciation"
-                            [value]="i"
-                            (change)="onChangeChecklevel()"
-                            [class.radio-selected]="pronunciation==i">
-                    <span>{{ i }}</span>
-                </label>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="hint">Rate on student accent and intonation</div>
-            </div>
-        </div>
-    </section>
-
-    <section  class="radio-group container-fluid">
-        <div class="row">
-            <div class="col-sm-12 col-md-2">
-                <span class="title">Speed of Speach:</span>
-            </div>
-            <div class="col-sm-12 col-md-10">
-                <label class="custom-radio"  *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
-                    <input type="radio" 
-                            [(ngModel)]="speed"
-                            name="speed"
-                            [value]="i"
-                            (change)="onChangeChecklevel()"
-                            [class.radio-selected]="speed==i">
-                    <span>{{ i }}</span>
-                </label>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="hint">Rate on how fast and fluently the student speaks</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="warning" *ngIf=" student_absent ">
-            <b>Warning:</b> when you check on 'student was absent' box,
-            You must input some comment on comment box or else the session may not be paid.
-            If you have nothing to comment, then just type "Student was absent at hour:time on Month/Day".
-        </div>
-    
-    <div class="checkboxes">
-        <div>
-            <mat-checkbox color="warn" [(ngModel)]="student_absent">Student was absent<span>(Click the Box if the Student is Absent)</span></mat-checkbox>
-        </div>
-        <div>    
-            <mat-checkbox [(ngModel)]="unsuccessful">Class was unsuccessful<span>(Any Problem in the Class?)</span></mat-checkbox>            
-        </div>
-    </div>
-
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Comment:</mat-label>
-            <textarea matInput rows="10" [(ngModel)]="comment"></textarea>
-            <mat-hint> Leave comment of the session. Or Leave any message if the class was unsuccessful.</mat-hint>
-        </mat-form-field>
-    </div>
-
-    <div class="submit">
-        <button (click)="onClickSubmitEvaluation()">
-            <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
-            SUBMIT
-        </button>
-    </div>
-
+        
+</section>
+   
 </main>

@@ -14,7 +14,10 @@
 .custom-table{
     margin-top: 1em;
     .payments{
-        table-layout: fixed;
+        table-layout: unset;
+        @media (min-width:$md) {
+            table-layout: fixed!important;
+        }
     }
 }
 
