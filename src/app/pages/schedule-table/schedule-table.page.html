@@ -96,9 +96,7 @@
                 <div *ngIf=" a.user.isLogin ">
                     {{ session_time( sessions ) }}
                 </div>
-                <div>
-                    {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }}
-                </div>
+                <div> {{ session_duration( sessions ) }} {{ 'MINUTE SHORT' | t }} </div>
                 <div class="teacher-name" *ngIf=" isAllTeacher ">
                     {{ teacher_name( sessions ) }}
                 </div>

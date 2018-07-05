@@ -17,6 +17,9 @@ main{
     font-weight: 200;
     font-size: 1.1em;
     line-height: 1.7em;
+    &>div{
+      margin-bottom: 1em;
+    }
   }
   
   .books{
