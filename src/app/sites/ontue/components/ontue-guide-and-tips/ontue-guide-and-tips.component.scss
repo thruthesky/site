@@ -22,6 +22,7 @@ section{
     }
 
     main{
+        display: block;
         padding: 2em 4em;
         @media screen and (max-width:$sm){
             padding: 1em;
