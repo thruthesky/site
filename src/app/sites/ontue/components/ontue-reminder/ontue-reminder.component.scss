@@ -78,7 +78,8 @@
         .icon{
           margin-top:.6em;
           height: 4.5em;
-          animation: colorAnimate 7s ease-in-out infinite
+          color: #1F7979;
+          // animation: colorAnimate 7s ease-in-out infinite
         }
 
         .title{
@@ -118,64 +119,64 @@
     background-position: top;
   }
 
-  @keyframes colorAnimate {
-    0%{
-      transform: rotateZ(0deg);
-      color: #009600;
-    }
+  // @keyframes colorAnimate {
+  //   0%{
+  //     transform: rotateZ(0deg);
+  //     color: #009600;
+  //   }
 
 
-    26%{
-      color: #BC5500;
-      transform: rotateZ(0deg);
-    }
-    27%{
-      transform: rotateZ(8deg);
-    }
+  //   26%{
+  //     color: #BC5500;
+  //     transform: rotateZ(0deg);
+  //   }
+  //   27%{
+  //     transform: rotateZ(8deg);
+  //   }
 
-    28%{
-      transform: rotateZ(0deg);
-    }
+  //   28%{
+  //     transform: rotateZ(0deg);
+  //   }
 
-    29%{
-      transform: rotateZ(8deg);
-    }
+  //   29%{
+  //     transform: rotateZ(8deg);
+  //   }
 
-    30%{
-      transform: rotateZ(0deg);
-    }
+  //   30%{
+  //     transform: rotateZ(0deg);
+  //   }
 
-    31%{
-      transform: rotateZ(8deg);
-    }
+  //   31%{
+  //     transform: rotateZ(8deg);
+  //   }
 
-    32%{
-      transform: rotateZ(0deg);
-    }
+  //   32%{
+  //     transform: rotateZ(0deg);
+  //   }
 
-    33%{
-      transform: rotateZ(5deg);
-    }
+  //   33%{
+  //     transform: rotateZ(5deg);
+  //   }
 
-    40%{
-      transform: rotateZ(0deg);
-      color: #007171;
-    }
+  //   40%{
+  //     transform: rotateZ(0deg);
+  //     color: #007171;
+  //   }
 
 
-    54%{
-      transform: rotateZ(0deg);
-      color: #BC5500;
-    }
+  //   54%{
+  //     transform: rotateZ(0deg);
+  //     color: #BC5500;
+  //   }
 
-    80%{
-      transform: rotateZ(0deg);
-      color: #009600;
-    }
+  //   80%{
+  //     transform: rotateZ(0deg);
+  //     color: #009600;
+  //   }
 
-    100%{
-      color: #007171;
-      transform: rotateZ(0deg);
-    }
-  }
+  //   100%{
+  //     color: #007171;
+  //     transform: rotateZ(0deg);
+  //   }
+  // }
 
