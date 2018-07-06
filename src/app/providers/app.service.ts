@@ -317,7 +317,7 @@ export class AppService {
             try {
                 this.firebase.messaging = firebase.messaging();
             } catch (e) {
-                console.log('Handling push error', e);
+                // console.log('Handling push error', e);
             }
         }
 
@@ -368,7 +368,7 @@ export class AppService {
         this.activated.queryParamMap.subscribe( params => {
             if ( params.get('login_session_id') ) {
                 this.user.loadProfile( params.get('login_session_id') ).subscribe( re => {
-                    console.log('user logged in as email: ', this.user.email);
+                    // console.log('user logged in as email: ', this.user.email);
                 }, e => this.toast(e));
             }
         });
@@ -382,11 +382,11 @@ export class AppService {
      * @param user User info from backend using 'admin_query'
      */
     userLoginUrl( user ) {
-        console.log('user: ', user);
+        // console.log('user: ', user);
         if ( ! user.domain ) {
             user.domain = 'www.katalkenglish.com';
         }
-        user.domain = 'localhost:4200';
+        // user.domain = 'localhost:4200';
         return `http://${user.domain}/menu?login_session_id=${user.session_id}`;
     }
 

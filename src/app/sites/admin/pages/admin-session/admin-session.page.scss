@@ -24,7 +24,10 @@
         }
     }
     table{
-        table-layout: fixed;
+        table-layout: unset;
+        @media (min-width:$md) {
+            table-layout: fixed!important;
+        }
     }
 }
 .timezone{

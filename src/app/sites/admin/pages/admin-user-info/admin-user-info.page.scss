@@ -10,13 +10,26 @@
     min-height: 3400px;
     background: #fff;
     h2{
+        display: flex;
+        align-items: center;
         font-size: 1.2em;
         font-weight: normal;
+        color: #FF9200;
+        line-height: 0;
+
+        svg{
+            height: 1em;
+            width: 1em;
+            margin-right: .2em;
+        }
     }
     table{
         width: 100%;
         border-collapse: collapse;
-        table-layout: fixed;
+        table-layout: unset;
+        @media (min-width:$md) {
+            table-layout: fixed!important;
+        }
         text-align: center;
         font-size: .75em;
         @media (min-width:$md) {

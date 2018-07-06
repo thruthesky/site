@@ -104,7 +104,7 @@ export class AdminPaymentPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.show.loader = false;
             this.re = re;
             this.statistics();
@@ -188,7 +188,7 @@ export class AdminPaymentPage implements OnInit {
                         };
                     }
                     const date = this.a.shortDate(pay.stamp_begin, true);
-                    console.log('pay.stamp_begin', pay.stamp_begin, date);
+                    // console.log('pay.stamp_begin', pay.stamp_begin, date);
                     if (this.stat.daily[date]) {
                         this.stat.daily[date] += parseInt(pay.point, 10);
                     } else {
@@ -205,7 +205,7 @@ export class AdminPaymentPage implements OnInit {
                 }
             }
         }
-        console.log('this.stat.daily::' , this.stat.daily);
+        // console.log('this.stat.daily::' , this.stat.daily);
         this.stat.dailyDates = Object.keys(this.stat.daily).sort().reverse();
         this.stat.studentName = Object.keys(this.stat.student);
         if (this.stat.usd) {

@@ -59,7 +59,7 @@
   "MY_ENGLISH_LEVEL": "私の英語のレベル",
   "MESSAGE": "メッセージ",
   "KATALKENGLISH_MENU_WELCOME_MESSAGE": "気になる点がございましたら、いつでもカトクで質問してください!",
-  "PROFILE": "Profile",
+  "PROFILE": "プロフィール",
   "SIGN_UP": "会員登録",
   "SCHEDULE_A_CLASS": "授業の予約",
   "CLASS_WITH_KATOK": "カトクで授業",
@@ -118,6 +118,9 @@
   "STUDENT_HELP_PAGE_HEADER_10": "質問と回答",
   "STUDENT_HELP_PAGE_SUB_HEADER_10": "私たちは、カカオトークを通じて多くのサービスをしており、質問と回答ヨクシカカオトークで行われます。",
   "STUDENT_HELP_PAGE_CONTENT_10_1": "カトク、英語をぜひ友達に追加してください。",
+  "STUDENT_HELP_PAGE_HEADER_12": "授業料の払い戻しとポイントの有効期限",
+  "STUDENT_HELP_PAGE_SUB_HEADER_12": "決済したスオプリョグァポイントがいつまで使用可能である説明します。",
+
   "POINT_EXPIRE": "ポイントは、支払い日後3年間有効です。 ポイントは有効期限が切れ、有効期限が切れた後は使用されなくなります。",
   "MY_POINT_PAGE_TITLE": "気になる点がございましたら、いつでもカトクで質問してください！",
   "MY_POINT_PAGE_USER_POINT": "#USER_NAME会員のポイントは#POINTです。",
@@ -281,7 +284,7 @@
   "RECOMMENDED_TEACHER": "おすすめの教師",
   "TEACHER_LIST_REMINDER": "このページには、主に学生から見える推奨教師が表示されます。 他の教師のプロフィールは検索で入手できます。",
   "RECOMMENDATION": "評価",
-  "PARTICIPATED": "参加した人々",
+  "PARTICIPATED": "予約",
   "INSTRUCTOR_MORE": "もっとインストラクター",
   "PAYMENT_PAGE_TITLE": "あなたが望むだけの金額を支払って、あなたが望むだけ多くのクラスを作ってください。",
   "SELECT_AMOUNT": "金額を選択",
@@ -335,7 +338,7 @@
   "SCHEDULE_AVAILABLE_PAGE_DESC_1": "すぐ下のクラスが始まります。 下記のクラスを予約する場合は、数分以内にクラスに参加する必要があります。",
   "SCHEDULE_AVAILABLE_PAGE_DESC_2": "あっ！ログインをしなければならが、授業時間を確認して予約することができます。",
   "POINTS": "ポイント",
-  "RESERVE_NOW": "今すぐ予約する",
+  "RESERVE_NOW": "予約する",
   "IN_RESERVING": "予約",
   "PAYMENT_RESULT_PAGE_TITLE": "支払い結果",
   "PAYMENT_SUCCES": "支払い完了",
@@ -526,6 +529,7 @@
   "TODAY": "今日",
   "NEXT WEEK": "来週",
   "NEXT MONTH": "来月",
+  "TERMS_AND_CONDITIONS": "利用規約",
 
   "_ONE_TO_ONE_VIDEO_ENGLISH": "1:1ビデオ英語レッスン",
   "_10000_PER_MONTH": "$10月",
@@ -540,6 +544,15 @@
   "_AFTER_REGISTRATION": "登録後、",
   "_5_FREE_CLASS": "3回の無料レッスンを受けましょう。",
   "_10000_MONTH": "10ドルで月20セッション。",
+
+  "WOORIBANK_PAYMENT_TITLE": "韓国銀行取引",
+  "WOORIBANK_PAYMENT_DESC_1": "あなたが韓国人なら、ウリバンクの取引で支払うことができます。",
+  "WOORIBANK_PAYMENT_DESC_2": "付加価値税にはさらに#VAT％を支払う必要があります。",
+  "ACCOUNT_HOLDER_NAME": "口座名義",
+  "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
+  "ACCOUNT_NO": "アカウントなし",
+  "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
+  "WOORIBANK_NAME": "ウリバンク",
 
 
 

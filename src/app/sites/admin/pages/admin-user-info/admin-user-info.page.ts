@@ -98,6 +98,7 @@ export class AdminUserInfoPage implements OnInit {
         const sql = `SELECT * FROM wp_users WHERE BRANCH AND ID=${ID}`;
         this.a.lms.admin_query({
             sql: sql,
+            session_id: true
         }).subscribe(re => {
             this.show.loader.loadProfile = false;
             if (re && re.length) {

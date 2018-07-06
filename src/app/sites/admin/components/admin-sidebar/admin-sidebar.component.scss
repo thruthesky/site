@@ -1,3 +1,4 @@
+@import '../../../../../theme/vars';
 aside {
     padding:.5em 1em;
     display: block;
@@ -45,8 +46,10 @@ aside {
                 text-align: right;
             }
             span:last-child{
+                display: inline-block;
                 width: 65%;
                 text-align: left;
+                text-transform: lowercase;
             }
         }
     }
@@ -65,6 +68,9 @@ aside {
         }
         .aside-table{
             table-layout: fixed!important;
+            @media (min-width:$md) {
+                table-layout: auto!important;
+            }
             td,
             th{
                 border: 1px solid rgba(125,125,125,0.3);
@@ -74,6 +80,9 @@ aside {
     #refund-request{
         .aside-table{
             table-layout: fixed!important;
+            @media (min-width:$md) {
+                table-layout: auto!important;
+            }
             th,
             td{
                 padding: .45em .3em;

@@ -52,7 +52,7 @@ export class WithcenterHomePage {
 
   onChangeLanguageCode() {
     this.t.setLanguageCode( this.languageCode );
-    console.log('ln saved: ', this.t.getLanguageCode() );
+    // console.log('ln saved: ', this.t.getLanguageCode() );
     setTimeout(() => document.location.reload(true), 200);
   }
 }
