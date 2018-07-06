@@ -15,7 +15,6 @@
             color: #FFCB00;
           }
         }
-
         .top-earner{
           display: flex;
           align-items: center;
@@ -62,26 +61,21 @@
           }
       }
     }
-      
-
       .col{
         padding: 0;
       }
-
       .reminder{
         height: 225px;
         margin-top: 1.2em;
         outline: 1px solid rgba(125,125,125,0.1);
         background: #fff;
         text-align: center;
-
         .icon{
           margin-top:.6em;
           height: 4.5em;
           color: #1F7979;
           // animation: colorAnimate 7s ease-in-out infinite
         }
-
         .title{
           margin: 0;
           padding: .7em;
@@ -110,7 +104,6 @@
         }
       }
   }
-  
   
   .banner-bg-1{
     background:linear-gradient(to bottom, rgba(#494949,0.63),  rgba(#494949,0.63)),

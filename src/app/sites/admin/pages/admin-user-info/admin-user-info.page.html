@@ -8,9 +8,7 @@
         <div class="col-sm-12 col-md-3">
             <section  id="user-profile-form">
                 <form>
-                    <h2>
-                        User Edit Form
-                    </h2>
+                    <h2>User Edit Form</h2>
                     <div class="primary-photo">
                         <label>
                             <div class="profile-photo">
@@ -243,9 +241,7 @@
         </div>
         <div class="col-sm-12 col-md-4">
             <section id="payments" *ngIf="user.user_type == 'S' ">
-                <h2>
-                    Payment
-                </h2>
+                <h2>Payment</h2>
                 <div class="loader" *ngIf=" show.loader.loadPayment ">
                     <mat-spinner [diameter]="48"></mat-spinner>
                     Loading Payment Info...
@@ -274,9 +270,7 @@
             </section>
                         
             <section id="refund-request" [class.margin-as-teacher]=" user.user_type == 'T' ">
-                <h2>
-                    Refund Request
-                </h2>
+                <h2>Refund Request</h2>
                 <table>
                     <tr>
                         <th>Teacher</th>
@@ -315,9 +309,7 @@
             </section>
                 
             <section id="sessions">
-                <h2>
-                    Sessions
-                </h2>
+                <h2>Sessions</h2>
                 <ul class="sessions-desc">
                     <li>
                         Date and time is based on user timezone setting. Your timezone: {{ a.userTime }}</li>
@@ -400,9 +392,7 @@
 
         <div class="col-sm-12 col-md-5">
             <section id="point-history">
-                <h2>
-                    Point History
-                </h2>
+                <h2>Point History</h2>
                 <div class="loader" *ngIf=" show.loader.loadPointHistory ">
                     <mat-spinner [diameter]="48"></mat-spinner>
                     Loading Payment Info...
