@@ -1,15 +1,17 @@
 <h2>Settings</h2>
-<div *ngIf="a.isSuperManager">
+
+<div class="push-notif-form" *ngIf="a.isSuperManager">
     <div>
         <h2>Class push notification</h2>
         <form (ngSubmit)="onSubmitPushNotificatioTime($event)">
-            <input type="text" name="classPushNotification" [(ngModel)]="form.classPushNotification"> Unit:
-            minutes. For example) 5 minutes.<br>
-            input number only. if empty or 0, then it will not send push notification. It must be less than or
-            equal to 1439 ( which is 24 hours. )
+            <input type="text" name="classPushNotification" [(ngModel)]="form.classPushNotification"> 
+            <label>Minutes ( Put 5 for 5 minutes )</label>
             <button type="submit" *ngIf=" ! loader.save ">Submit</button>
             <div class="loader" *ngIf=" loader.save ">Saving...</div>
         </form>
+        <div class="note">
+            Input number only. If empty or 0, then it will not send push notification. It must be less than or equal to 1439 ( which is 24 hours. )
+        </div>
     </div>
     <div class="loader" *ngIf=" loader.get ">
         <div class="loader" *ngIf=" loader.branchUpdate ">

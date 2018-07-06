@@ -4,6 +4,41 @@ h2{
     font-weight: lighter;
 }
 
+.push-notif-form{
+    h2{
+        font-size: 1em;
+        color: #0867B0;
+    }
+    input{
+        padding: .75em 1em;
+        font-size: .85em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+        width: 150px
+    }
+    label{
+        margin: 0 1em;
+        font-size: .9em;
+        color: #D27800;
+    }
+    .note{
+        margin-top: 1em;
+        padding: 1em 1.5em;
+        border-radius: 2px;
+        background: rgba(dodgerblue,0.1);
+        color: darkblue;
+        font-size: .9em;
+    }
+    button{
+        border: 0;
+        border-radius: 2px;
+        background: darkblue;
+        padding: .5em 1.5em;
+        font-size: .85em;
+        color: #fff;
+    }
+}
+
 .domain-change{
     display: flex;
     justify-content: center;

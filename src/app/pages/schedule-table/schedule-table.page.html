@@ -11,7 +11,6 @@
 
     <schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
 
-
     <div class="schedule-loader" *ngIf=" show.schedule_loader ">
         <mat-spinner [diameter]="48" name="circles"></mat-spinner>
         <span>{{ 'SCHEDULE_TABLE_LOADING' | t }}</span>
@@ -20,7 +19,6 @@
     <div class="schedule-table-empty" *ngIf="re && (!re.table || !re.table.length) ">
         {{ 'NO_SCHEDULE_TRY_SEARCH' | t }}
     </div>
-
 
     <div class="schedule-navigation"  *ngIf="re && re.table && re.table.length ">
         <div class="nav">
@@ -52,7 +50,7 @@
     <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
 
 
-        <div class="help-ani-reserve" (click)=" showHelpReserve = false " *ngIf=" showHelpReserve ">
+        <div class="help-ani-reserve" (click)=" showHelpReserve = false " *ngIf=" showHelpReserve && a.isStudent ">
             <ng-container *ngIf=" !isFreeClassBlock ">
                 <div class="gif">
                     <img src="assets/video/reserve.gif">
