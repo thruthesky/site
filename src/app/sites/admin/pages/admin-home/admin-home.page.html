@@ -108,7 +108,7 @@
                         <h2>Point Refund Request</h2>
                     </div>
                     <div class="table-content">
-                        <div class="loader"  *ngIf=" !refundRequests.length "> 
+                        <div class="loader"  *ngIf=" loader.refundRequests ">
                             <mat-spinner [diameter]="48"></mat-spinner>
                             Loading Branches
                         </div>
