@@ -15,7 +15,8 @@ export class AdminHomePage implements OnInit {
     reports: ADMIN_SUMMARY_REPORT = <ADMIN_SUMMARY_REPORT>{};
     refundRequests: Array<BOOK> = [];
     loader = {
-        domainChangeApplication: true
+        domainChangeApplication: true,
+        refundRequests:false
     };
     constructor(
         public a: AppService,
@@ -63,6 +64,7 @@ export class AdminHomePage implements OnInit {
         sql += ` ORDER BY r.date DESC, r.class_begin DESC`;
         sql += ` LIMIT 5`;
         // console.log('sql: ', sql);
+        this.loader.refundRequests = true;
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,
@@ -76,7 +78,11 @@ export class AdminHomePage implements OnInit {
                     s.date = s.date.substr(4);
                 }
             }
-        }, e => this.a.toast(e));
+            this.loader.refundRequests = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.refundRequests = false;
+        });
     }
     onClickDomainChangeApplicationReject(branch: Branch) {
         this.a.lms.branch_cancel_domain_change_application(branch.idx).subscribe(re => {

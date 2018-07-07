@@ -384,7 +384,11 @@ export class AppService {
     userLoginUrl( user ) {
         // console.log('user: ', user);
         if ( ! user.domain ) {
-            user.domain = 'www.katalkenglish.com';
+            if (user.type === 'T') {
+                user.domain = 'www.ontue.com';
+            } else {
+                user.domain =  'www.katalkenglish.com';
+            }
         }
         // user.domain = 'localhost:4200';
         return `http://${user.domain}/menu?login_session_id=${user.session_id}`;
