@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../../providers/app.service';
-import { BOOK } from './../../../modules/xapi/interfaces';
+import { BOOK } from '../../../modules/xapi/interfaces';
 
 interface STAT {
     dateOfDailyReservation: string[];

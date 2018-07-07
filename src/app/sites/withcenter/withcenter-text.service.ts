@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { texts } from './withenter-text';
-import { Library as _ } from './../../etc/library';
+import { Library as _ } from '../../etc/library';
 
 export const WITHCENTER_LANGUAGE_CODE = 'withcenterLanguageCode';
 @Injectable()

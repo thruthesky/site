@@ -86,6 +86,15 @@ export interface SESSION {
     teacherName?: string;
 }
 
+export interface PAYMENT_RATE {
+    NEW_EXCHANGE_BUYER_RATE: string;
+    NEW_EXCHANGE_SELLER_RATE: string;
+    USD_TO_KRW: string;
+    USD_TO_JPY: string;
+    USD_TO_CNY: string;
+    VAT: string;
+}
+
 
 @Injectable()
 export class XapiLMSService extends Base {
@@ -454,7 +463,10 @@ export class XapiLMSService extends Base {
         });
     }
 
-    payment_rate() {
+    /**
+     * @todo should be commented out? Is this method being used anywhere?
+     */
+    payment_rate(): Observable<PAYMENT_RATE> {
         return this.x.post({ route: 'lms.payment_rate' });
     }
 

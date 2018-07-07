@@ -1,43 +1,48 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { AppService } from '../../../../providers/app.service';
+import { AppService } from '../../providers/app.service';
+import { PAYMENT_RATE } from '../../modules/xapi/lms.service';
+
 
 @Component({
-    selector: 'katalkenglish-payment-page',
-    templateUrl: 'katalkenglish-payment.page.html',
-    styleUrls: ['katalkenglish-payment.page.scss']
+    selector: 'new-payment-page',
+    templateUrl: 'new-payment.page.html',
+    styleUrls: ['new-payment.page.scss']
 })
-export class KatalkEnglishPaymentPage implements AfterViewInit {
+export class NewPaymentPage implements AfterViewInit {
+
 
 
     /**
      * default amount to be selected.
      */
-    amount = 50000;
+    amount = 0;
 
 
     paypalReady = false;
 
     php_error = null;
-    payment_rate = {
-        usd_exchange_rate: 0,
-        paypal_student_fee: 0
-    };
+
 
     inputAmount = false;
     inLoadingPaymentRate = true;
 
 
+    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = '';
+
+    paymentRate: PAYMENT_RATE = null;
     constructor(
         public a: AppService
     ) {
 
         /**
          * Get payment information. Exchange rate, etc.
+         *
+         * @note it needs to get real time data from server since exchange rate changes every minutes.
          */
         a.lms.payment_rate().subscribe(re => {
             this.inLoadingPaymentRate = false;
-            this.payment_rate = <any>re;
-            // console.log(this.payment_rate);
+            this.paymentRate = re;
+            console.log('paymentRate: ', this.paymentRate);
         }, () => { });
     }
 
@@ -67,14 +72,38 @@ export class KatalkEnglishPaymentPage implements AfterViewInit {
      */
     get errorOnExchangeRate() {
 
-        const r = this.a.intval(this.payment_rate.usd_exchange_rate);
-
-        // console.log(r);
-        if (r && r < 1000) {
+        if (!this.paymentRate) {
             return true;
-        } else {
-            return false;
         }
+        /**
+         * For Korean rate,
+         *      KWR should be bigger than 900 and smaller than 1300. Or else it is an error.
+         */
+        const usdKwr = this.a.floatval(this.paymentRate.USD_TO_KRW);
+        if (usdKwr < 900 || usdKwr > 1300) {
+            return true;
+        }
+
+        /**
+         * For Japanese Yen rate,
+         *     JYP should be bigger than 90 and smaller than 130.
+         */
+        const usdJyp = this.a.floatval(this.paymentRate.USD_TO_JPY);
+        if (usdJyp < 90 || usdJyp > 130) {
+            return true;
+        }
+        /**
+         * For Chinese Renminbi rate,
+         *      CNY should be bigger 5 and smaller than 9.
+         */
+        const usdCny = this.a.floatval(this.paymentRate.USD_TO_CNY);
+        if (usdCny < 5 || usdJyp > 9) {
+            return true;
+        }
+
+        //
+        return false;
+
 
     }
 
@@ -188,30 +217,53 @@ export class KatalkEnglishPaymentPage implements AfterViewInit {
     }
 
 
+    get usdWithVat() {
+        const vatRate = this.a.floatval(this.paymentRate.VAT);
+        const vat = this.amount * vatRate / 100;
+        const usdWithVat = (this.amount + vat) / 1000;
+        return usdWithVat;
+    }
+    /**
+     * No buyer rate in USD.
+     */
     amount_in_usd_with_tax() {
-        const exchange = this.a.floatval(this.payment_rate.usd_exchange_rate);
-        if (!exchange) {
+        if (!this.paymentRate) {
             return;
         }
-        const kwr = this.a.intval(this.amount);
-        const usd = kwr / exchange;
-
-        const usd_with_tax = usd + usd * this.payment_rate.paypal_student_fee / 100;
-        // return usd_with_tax.toFixed(2);
-
-        return Math.round(usd_with_tax * 100) / 100;
-
-
-
-
-
-        // return a + a * u / 100;
-
-        //  + this.amount * this.payment_rate.usd_exchange_rate / 100;
-        // 총 결제 금액: {{ a.toInt(amount) + amount * tax / 100 | number }} 원 결제 금액({{ amount
-        //     | number }}) + 세금( {{ amount * tax / 100 | number }} )
+        return Math.round(this.usdWithVat * 100) / 100;
     }
 
+    amount_in_krw_with_tax() {
+        if (!this.paymentRate) {
+            return;
+        }
+        const kwr = this.usdWithVat * this.a.floatval(this.paymentRate.USD_TO_KRW);
+        return Math.round(kwr);
+    }
+
+    amount_in_cny_with_tax() {
+        if (!this.paymentRate) {
+            return;
+        }
+        const cny = this.usdWithVat * this.a.floatval(this.paymentRate.USD_TO_CNY);
+        return Math.round(cny * 100) / 100;
+    }
+
+    amount_in_jpy_with_tax() {
+        if (!this.paymentRate) {
+            return;
+        }
+        const jpy = this.usdWithVat * this.a.floatval(this.paymentRate.USD_TO_JPY);
+        return Math.round(jpy * 100) / 100;
+    }
+
+
+    onSelectBankTransaction() {
+        this.paymentMethod = 'bank';
+    }
+    onSelectPaypalPayment() {
+        this.paymentMethod = 'paypal';
+    }
 
 }
 

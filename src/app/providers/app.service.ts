@@ -10,12 +10,12 @@ import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_
 /**
  * Firebase initialization.
  */
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 import 'firebase/firestore';
 import 'firebase/messaging';
 firebase.initializeApp(environment['firebaseConfig']);
 
-import { environment } from './../../environments/environment';
+import { environment } from '../../environments/environment';
 import { SCHEDULE_TABLE, LMS_INFO } from '../modules/xapi/interfaces';
 
 /**
@@ -1228,7 +1228,7 @@ export class AppService {
             this.info = <LMS_INFO>{};
         }
         this.lms.info(this.getDomain()).subscribe(re => {
-            // console.log('lms.info: ', re);
+            console.log('lms.info: ', re);
             this.set(KEY_LMS_INFO, re);
             this.info = this.get(KEY_LMS_INFO);
             if (this.info['user'] !== void 0) {
@@ -1327,6 +1327,16 @@ export class AppService {
         }
         return parseInt(no, 10);
     }
+
+    get vat(): any {
+        const info: LMS_INFO = <any>this.get(KEY_LMS_INFO);
+        const no = info.VAT;
+        if (!no) {
+            return 0;
+        }
+        return this.floatval( no );
+    }
+
 
     /**
      * @note don't call this method twice.

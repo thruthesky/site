@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment/katalkenglish-payment.page.module#KatalkEnglishPaymentPageModule'
   },
   {
+    path: 'new-payment',
+    loadChildren: './pages/new-payment/new-payment.page.module#NewPaymentPageModule'
+  },
+  {
     path: 'payment-result',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-result/katalkenglish-payment-result.page.module#KatalkEnglishPaymentResultPageModule'
   },

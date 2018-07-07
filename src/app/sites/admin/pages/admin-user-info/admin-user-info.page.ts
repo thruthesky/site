@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { XapiFileUploadComponent } from '../../../../components/xapi-file-upload/xapi-file-upload.component';
 import { FILES, USER_DATA_RESPONSE, BOOK } from '../../../../modules/xapi/interfaces';
 import { AppService } from '../../../../providers/app.service';
+import { PAYMENT_RATE } from '../../../../modules/xapi/lms.service';
 
 interface SHOW {
     loader: {
@@ -15,6 +16,7 @@ interface SHOW {
         loadPointHistory: boolean;
     };
     pointUpdateForm: boolean;
+    newPointUpdateForm: boolean;
 
 }
 @Component({
@@ -43,6 +45,8 @@ export class AdminUserInfoPage implements OnInit {
 
     pointHistory = [];
 
+
+    paymentRate: PAYMENT_RATE = null;
     constructor(
         public active: ActivatedRoute,
         public router: Router,
@@ -55,6 +59,10 @@ export class AdminUserInfoPage implements OnInit {
             this.loadInfo(ID);
             this.loadPayment(ID);
         });
+        a.lms.payment_rate().subscribe(re => {
+            this.paymentRate = re;
+            console.log('paymentRate: ', this.paymentRate);
+        }, () => { });
 
     }
 
@@ -73,7 +81,8 @@ export class AdminUserInfoPage implements OnInit {
                 loadPayment: false,
                 loadPointHistory: false
             },
-            pointUpdateForm: false
+            pointUpdateForm: false,
+            newPointUpdateForm: false
         };
         this.pointForm = {
             idx_student: 0,
@@ -366,9 +375,53 @@ export class AdminUserInfoPage implements OnInit {
     updatePrimaryPhoto(file) {
         // console.log('file uploaded: ', file);
         this.user.photoURL = file.url;
-        this.a.lms.admin_user_profile_photo_update({ ID: this.user.ID, photo_guid: file.url }).subscribe( re => {
+        this.a.lms.admin_user_profile_photo_update({ ID: this.user.ID, photo_guid: file.url }).subscribe(re => {
             // console.log('admin_user_profile_update: re:', re);
         }, e => this.a.toast(e));
+    }
+
+    onClickAutoCompute(): number {
+        if (!this.pointForm.payment_method) {
+            this.a.toast('Please select payment method.');
+            return;
+        }
+        if (!this.pointForm.currency) {
+            this.a.toast('Please select currency by selecting payment method');
+            return;
+        }
+        if (!this.pointForm.amount) {
+            this.a.toast('Please amount');
+            return;
+        }
+        if (!this.paymentRate) {
+            this.a.toast('Error: payment_rate information is null');
+        }
+
+        const amount = <any>(<string>this.pointForm.amount).replace(',', '').replace(',', '').trim();
+        let usd = 0;
+        if (this.pointForm.currency === 'USD') {
+            /**
+             * No buyer rate
+             */
+            usd = amount * ( 100 / (100 + this.a.floatval( this.paymentRate.VAT)) );
+        }
+
+        if (this.pointForm.currency === 'KRW') {
+            const krw = amount * ( 100 / (100 + this.a.floatval( this.paymentRate.VAT)) );
+            usd = krw / this.a.floatval(this.paymentRate.USD_TO_KRW);
+        }
+
+        if (this.pointForm.currency === 'CNY') {
+            const cny = amount * ( 100 / (100 + this.a.floatval( this.paymentRate.VAT)) );
+            console.log('cny: ', cny);
+            usd = cny / this.a.floatval(this.paymentRate.USD_TO_CNY);
+        }
+        if (this.pointForm.currency === 'JPY') {
+            const jpy = amount * ( 100 / (100 + this.a.floatval( this.paymentRate.VAT)) );
+            usd = jpy / this.a.floatval(this.paymentRate.USD_TO_JPY);
+        }
+
+        this.pointForm.point = Math.round(usd * 1000);
     }
 
 }
