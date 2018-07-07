@@ -11,6 +11,12 @@ h1{
     font-size: .85em;
 }
 
+.login-as-user{
+    svg{
+        color:#162EAE;
+    }
+}
+
 .statistics{
     display: flex;
     justify-content: space-between;
@@ -128,12 +134,9 @@ form{
         @media (min-width:$md){
             justify-content: space-around
         }
-
         label{
             color: #0867B0
         }
-
-        
     }
     input[type="checkbox"],label{
         cursor: pointer;
@@ -147,7 +150,6 @@ form{
         padding: .3em 0;
         color: #000;
     }
-
     .display{
         padding-top: .75em;
         padding-bottom:.2em;
@@ -166,7 +168,6 @@ form{
             flex-direction: row;
             margin: .5em 0;
         }
-
         &>div{
             margin: 1em;
             @media (min-width:$md){
@@ -179,7 +180,6 @@ form{
                 margin-right: 1em;
             }
         }
-
         input{
             padding: .5em 1em;
             font-size: .85em;
@@ -216,7 +216,6 @@ form{
         .list-order{
             width: 60px;
         }
-
         .app-button{
             padding: .5em 2em;
             width: 250px;

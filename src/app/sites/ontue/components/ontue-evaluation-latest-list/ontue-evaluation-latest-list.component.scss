@@ -23,6 +23,7 @@ section{
     }
 
     main{
+        display: block;
         padding: 3em 4em;
 
         @media screen and (max-width:$sm){

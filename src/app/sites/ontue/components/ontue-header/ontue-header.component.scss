@@ -55,14 +55,15 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        padding-left: 2em;
+        padding-right: 0;
 
         .menu-icon{
-            padding-left: 2em;
-            height: 1.5em;
-        }
 
-        a{
-            padding: 0!important;
+            svg{
+                height: 1.5em;
+                width: 1.5em;
+            }
         }
     }
 

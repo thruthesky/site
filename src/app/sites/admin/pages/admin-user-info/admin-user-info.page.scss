@@ -9,19 +9,20 @@
     top: 60px;
     min-height: 3400px;
     background: #fff;
+    @media (min-width:$md) {
+        &>.row{
+            &>div{
+                padding: .5em 1.25em;
+            }
+            &>div:nth-child(odd){
+                background: rgba(125,125,125,0.03)
+            }
+        }   
+    }
     h2{
-        display: flex;
-        align-items: center;
         font-size: 1.2em;
         font-weight: normal;
         color: #FF9200;
-        line-height: 0;
-
-        svg{
-            height: 1em;
-            width: 1em;
-            margin-right: .2em;
-        }
     }
     table{
         width: 100%;
@@ -78,6 +79,16 @@
                     width: 25%
                 }
                 color: #0867B0
+            }
+            .login-as-user{
+                display: inline-flex;
+
+                svg{
+                    height: 1em;
+                    width: 1em;
+                    color: #162EAE;
+                    margin-left: .3em;
+                }
             }
             span{
                 display: inline-block;
@@ -277,18 +288,19 @@
             }
         }
     }
-
-
     #point-history{
         table{
             table-layout: unset
         }
     }
     #refund-request{
-        margin-top: 2em
+        margin-top: 3.5em
+    }
+    .margin-as-teacher{
+        margin-top: 0!important;
     }
     #sessions{
-        margin-top: 2em;
+        margin-top: 3.5em;
         .sessions-desc{
             margin-top: 0;
             line-height: 1.8em;
