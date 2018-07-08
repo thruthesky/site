@@ -469,6 +469,12 @@ export class XapiLMSService extends Base {
     payment_rate(): Observable<PAYMENT_RATE> {
         return this.x.post({ route: 'lms.payment_rate' });
     }
+    payment_bank_country_selection(req) {
+        req['route'] = 'lms.payment_bank_country_selection';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
 
     /**
      * Gets lms information.

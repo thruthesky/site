@@ -133,3 +133,58 @@ main {
         margin-left: 1em;
     }
 }
+
+
+.warning {
+    padding: 4em 1.6em;
+    background-color: #970303;
+    color: white;
+}
+
+.select-payment-method {
+    padding: 1.6em;
+    color: blue;
+    background-color: #eee;
+
+    .buttons {
+        button {
+            border: 0;
+            padding: 1em;
+            font-size: 1em;
+
+            &.bank {
+                background-color: #e4e101;
+            }
+            &.paypal {
+                background-color: blue;
+                color: white;
+            }
+        }
+    }
+}
+
+.select-bank {
+    .buttons {
+        display: flex;
+        .country {
+            padding: .5em 1em;
+            cursor: pointer;
+            &.korea {
+                background-color: #cee3ff;
+            }
+            &.china {
+                background-color: #ffcece;
+            }
+            &.japan {
+                background-color: #fcffce;
+            }
+        }
+        .country-name {
+            font-size: .8em;
+        }
+        .bank-name {
+            font-size: 1.1em;
+        }
+    }
+}
+

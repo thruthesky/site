@@ -366,11 +366,11 @@
   "PARTICIPATED": "Sessions",
   "INSTRUCTOR_MORE": "More Instructor",
 
-  "PAYMENT_PAGE_TITLE": "Pay as much as you want and make as many classes as you want.",
+  "PAYMENT_PAGE_TITLE": "POINT Payment",
   "SELECT_AMOUNT": "Select amount",
   "LOADING_PAYMENT_INFORMATION": "Loading billing information. Please wait.",
-  "ERROR_ON_EXCHANGE_RATE": "Well, I can not make payments due to problems with the exchange rate policy. Please let your supervisor know.",
-  "SELECT_AMOUNT_DESC": "Select the amount and click the Buy button.",
+  "ERROR_ON_EXCHANGE_RATE": "Error: There is exchange rate problem. Please inform this to admin.",
+  "SELECT_AMOUNT_DESC": "Select the amount first.",
   "10_THOUSAND_POINT": "10K Point",
   "20_THOUSAND_POINT": "20K Point",
   "30_THOUSAND_POINT": "30K Point",
@@ -385,7 +385,7 @@
   "PAYPAL_DESC": "PayPal is the most widely used credit card payment in the world and is very safe and convenient.",
   "PAYMENT_DIFFICULT": "If payment is difficult, please ask Katok.",
   "REFUND_POLICY": "Refund Policy. 1/3 of the points left seven days before the settlement date. Half of the points left 15 days before the settlement date. After 15 days from the payment date, no refund will be made.",
-  "VAT_1": "You have selected #AMOUNT Point (VAT #VAT% Exclusive).",
+  "VAT_1": "You have selected #AMOUNT Point.",
   "VAT_2": "Total: #USD (Inclusive VAT #VAT%) Point: #AMOUNT will be charged",
   "PAYMENT_HISTORY_PAGE_TITLE": "Payment History",
   "PAYMENT_HISTORY_PAGE_DESC": "You Can View Your Payment History",
@@ -705,5 +705,8 @@
   "JAPANESE_BANK_NAME": "Nissan",
   "JAPANESE_BANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "JAPANESE_BANK_ACCOUNT_NO": "XYZ-0123-45678",
-  "JAPANESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)"
+  "JAPANESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
+
+  "CANCEL_RESELECT_AMOUNT": "Change point",
+  "SELECT_BANK_COUNTRY": "Select your country bank"
 }

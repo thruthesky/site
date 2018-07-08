@@ -15,7 +15,10 @@ export class NewPaymentPage implements AfterViewInit {
     /**
      * default amount to be selected.
      */
-    amount = 0;
+    amount = 10000; // should 0.
+
+    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = 'bank';
+
 
 
     paypalReady = false;
@@ -26,8 +29,6 @@ export class NewPaymentPage implements AfterViewInit {
     inputAmount = false;
     inLoadingPaymentRate = true;
 
-
-    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = '';
 
     paymentRate: PAYMENT_RATE = null;
     constructor(
@@ -75,6 +76,8 @@ export class NewPaymentPage implements AfterViewInit {
         if (!this.paymentRate) {
             return true;
         }
+
+
         /**
          * For Korean rate,
          *      KWR should be bigger than 900 and smaller than 1300. Or else it is an error.
@@ -97,7 +100,7 @@ export class NewPaymentPage implements AfterViewInit {
          *      CNY should be bigger 5 and smaller than 9.
          */
         const usdCny = this.a.floatval(this.paymentRate.USD_TO_CNY);
-        if (usdCny < 5 || usdJyp > 9) {
+        if (usdCny < 5 || usdCny > 9) {
             return true;
         }
 
@@ -218,6 +221,9 @@ export class NewPaymentPage implements AfterViewInit {
 
 
     get usdWithVat() {
+        if (!this.amount) {
+            return 0;
+        }
         const vatRate = this.a.floatval(this.paymentRate.VAT);
         const vat = this.amount * vatRate / 100;
         const usdWithVat = (this.amount + vat) / 1000;
@@ -265,6 +271,44 @@ export class NewPaymentPage implements AfterViewInit {
         this.paymentMethod = 'paypal';
     }
 
+
+    getCurrency(): string {
+        if (this.paymentMethod === 'koreanBank') {
+            return 'KRW';
+        } else if (this.paymentMethod === 'chineseBank') {
+            return 'CNY';
+        } else if (this.paymentMethod === 'japaneseBank') {
+            return 'JPY';
+        } else {
+            return '';
+        }
+    }
+    getAmount(): number {
+        switch (this.getCurrency()) {
+            case 'KRW': return this.amount_in_krw_with_tax();
+            case 'CNY': return this.amount_in_cny_with_tax();
+            case 'JPY': return this.amount_in_jpy_with_tax();
+            default: return 0;
+        }
+    }
+    onSelectBankCountry(bankCountry) {
+        this.paymentMethod = bankCountry;
+        const req = {
+            point: this.amount,
+            amount: this.getAmount(),
+            currency: this.getCurrency()
+        };
+        this.a.lms.payment_bank_country_selection(req).subscribe(re => {
+            console.log('payment_bank_country_selection: ', re);
+        }, e => {
+            console.log('error on payment_bank_country_selection(): ', e);
+        });
+    }
+    onConfirmManualAmountInput(value) {
+        this.inputAmount = false;
+        console.log('amount value: ', value);
+        this.amount = parseInt(value, 10);
+    }
 }
 
 
