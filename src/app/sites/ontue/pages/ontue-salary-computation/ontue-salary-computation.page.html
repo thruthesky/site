@@ -66,7 +66,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div>Teacher Share Points (88%)</div>
+                    <div>Teacher Share Points ({{payment_computation.teacher_share}}%)</div>
                 </div>
                 <div class="col">
                     <div>{{ teacher_share }}</div>
@@ -74,7 +74,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div>Transaction Fee(4.2%)</div>
+                    <div>Transaction Fee({{payment_computation.transaction_fee_teacher_share}}%)</div>
                 </div>
                 <div class="col">
                     <div>{{ paypal_charges }}</div>
@@ -82,10 +82,10 @@
             </div>
             <div class="row"  *ngIf="payment_information['payment_method'] !== 'paypal' ">
                 <div class="col">
-                    <div>Conversion Rate(3.1%)</div>
+                    <div>Conversion Rate({{ payment_computation['NEW_EXCHANGE_SELLER_RATE'] }}%)</div>
                 </div>
                 <div class="col">
-                    <div>{{ buying_rate }}</div>
+                    <div>{{ selling_rate }}</div>
                 </div>
             </div>
             <div class="row">
@@ -112,16 +112,16 @@
             <b>*Total Points:</b> This is the total accumulated points you earn every paid class for a certain cutoff.
         </div>
         <div class="mb-3">
-            <b>*Teacher Share Points:</b> Teacher share is 88% of the total accumulated points.
+            <b>*Teacher Share Points:</b> Teacher share is {{payment_computation?.teacher_share}}% of the total accumulated points.
         </div>
         <div class="mb-3">
-            <b>*Paypal Charges:</b> When the student buy points, paypal deduct a total of 4.7% from the total amount
+            <b>*Paypal Charges:</b> When the student buy points, paypal deduct a total of {{ payment_computation?.transaction_fee_paypal }}% from the total amount
             they pay.
-            But we still give the full amount of points to student, that's why we deduct the 4.7% to the teacher and
-            company share.
-            Company and teacher will share with this deduction. Since teacher share is 88% then we deduct 4.2% to
+            But we still give the full amount of points to student, that's why we need to deduct the {{ payment_computation?.transaction_fee_paypal }}% to the teacher, branch
+            and company share.
+            Company, branch and teacher will share with this deduction. Since teacher share is {{payment_computation?.teacher_share}}% then we deduct {{payment_computation?.transaction_fee_teacher_share}}% to
             teacher points.
-            And since the company share is 12% we deduct 0.5% to company points.
+            And the remaining will be deducted to the company ({{payment_computation?.transaction_fee_office_share}}%) and branch ({{payment_computation?.transaction_fee_branch_share}}%).
         </div>
         <div class="mb-3">
             <b>*Conversion Rate Fee:</b> Paypal charge this fee when we transfer the money from paypal to local banks.

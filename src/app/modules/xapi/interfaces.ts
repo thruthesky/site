@@ -557,8 +557,6 @@ export interface Branch {
 
 
 export interface LMS_INFO {
-    // BUYER_RATE: string;
-    // SELLER_RATE: string;
     usd_exchange_rate: string;
     php_exchange_rate: string;
     PAYPAL_STUDENT_FEE: string;
@@ -577,8 +575,8 @@ export interface LMS_INFO {
     leveltest: string;
     branch: Branch;
     VAT: string;
-    NEW_EXCHANGE_BUYER_RATE: string;
-    NEW_EXCHANGE_SELLER_RATE: string;
+    NEW_EXCHANGE_BUYER_RATE: string; // student
+    NEW_EXCHANGE_SELLER_RATE: string; // teacher
 }
 
 
