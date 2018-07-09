@@ -543,7 +543,6 @@
   "ACCOUNT_HOLDER_NAME": "예금주",
   "WOORIBANK_ACCOUNT_HOLDER_NAME": "송재호",
   "ACCOUNT_NO": "계좌번호",
-  "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
   "WOORIBANK_NAME": "우리은행",
   "CONTACT": "연락처",
 
@@ -671,11 +670,15 @@
   "CHINESE_BANK": "중국은행",
   "JAPANESE_BANK": "일본은행",
   "KOREAN_BANK_NAME": "우리은행",
-  "CHINESE_BANK_NAME": "신화은행",
   "JAPANESE_BANK_NAME": "니산은행",
 
+  "PAYPAL_PAYMENT": "페이팔 신용카드 결제",
 
 
-  "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
+  "CHINESE_BANK_NAME": "신화은행",
+  "CHINESE_BANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
+  "CHINESE_BANK_ACCOUNT_NO": "XY-0123-4321",
   "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)"
+
+  
 }

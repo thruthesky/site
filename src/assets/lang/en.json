@@ -573,7 +573,6 @@
   "ACCOUNT_HOLDER_NAME": "Account Holder Name",
   "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "Account No",
-  "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
   "WOORIBANK_NAME": "Wooribank",
   "CONTACT": "Contact",
 
@@ -695,8 +694,8 @@
   "POINT_REFUND_REQUEST_DESC": "Please input the reason why you want to get your point back",
   "HEAD_OFFICE_CONTACTS": "Withcenter head office contacts",
 
-  "CHINESE_BANK_DESC_1": "MinWha Bank",
-  "CHINESE_BANK_NAME": "MinWha",
+  
+  "CHINESE_BANK_NAME": "SinWha",
   "CHINESE_BANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "CHINESE_BANK_ACCOUNT_NO": "XY-0123-4321",
   "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
@@ -713,5 +712,6 @@
   "SELECT_PAYMENT_METHOD": "Select Payment Method",
   "BANK_TRANSACTION": "Bank Transaction",
   "PAYPAL_CREDIT": "Credit Card",
-  "CHANGE_TO_PAYPAL": "Change to Paypal"
+  "CHANGE_TO_PAYPAL": "Change to Paypal",
+  "PAYPAL_PAYMENT": "Paypal Credit Card Payment"
 }

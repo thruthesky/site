@@ -101,7 +101,7 @@
 
 
         <div class="paypal-payment" [ngClass]="{ selected: paymentMethod == 'paypal' && amount }">
-            <h1>Paypal Credit Card Payment</h1>
+            <h1>{{ 'PAYPAL_PAYMENT' | t }}</h1>
             <!-- <button (click)=" onSelectBankTransaction() ">Change to Bank Transaction</button> -->
             <div class="paypal-button">
                 <div>
@@ -111,7 +111,7 @@
                 <div id="paypal-button"></div>
 
                 <div>{{ 'PAYPAL_DESC' | t }}</div>
-                
+
             </div>
         </div>
 
@@ -152,11 +152,15 @@
                             </div>
                             <div class="row">
                                 <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
-                                <div class="col"><b>{{ 'WOORIBANK_ACCOUNT_HOLDER_NAME' | t }}</b></div>
+                                <div class="col">
+                                    <b>{{ 'WOORIBANK_ACCOUNT_HOLDER_NAME' | t }}</b>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
-                                <div class="col"><b>{{ 'WOORIBANK_ACCOUNT_NO' | t }}</b></div>
+                                <div class="col">
+                                    <b>1005-103-328421</b>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
@@ -170,7 +174,6 @@
                 </div>
             </div>
             <div class="korean-bank" *ngIf=" paymentMethod == 'chineseBank' ">
-                <div>{{ 'CHINESE_BANK_DESC_1' | t }}</div>
                 <div>
                     <b>{{ 'CHINESE_BANK_NAME' | t }}</b>
                     <div>
@@ -182,11 +185,15 @@
                         <b>{{ 'CHINESE_BANK_ACCOUNT_NO' | t }}</b>
                     </div>
                 </div>
-                <div>{{ 'CHINESE_BANK_DESC_2' | t:{ 'amount': amount_in_cny_with_tax() | number, 'VAT': paymentRate?.VAT} }}</div>
+
+                <div class="">
+                    <div class="">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                    <div class="">{{ amount_in_cny_with_tax() | number }} {{ 'RENMINBI' | t }}</div>
+                </div>
+                
             </div>
 
             <div class="korean-bank" *ngIf=" paymentMethod == 'japaneseBank' ">
-                <div>{{ 'JAPANESE_BANK_DESC_1' | t }}</div>
                 <div>
                     <b>{{ 'JAPANESE_BANK_NAME' | t }}</b>
                     <div>
@@ -202,9 +209,7 @@
             </div>
         </div>
 
-        <div class="change-point" (click)=" amount = 0; paymentMethod='' "
-        *ngIf=" paymentMethod == 'paypal' || paymentMethod == 'koreanBank' || paymentMethod =='chineseBank' || paymentMethod == 'japaneseBank' "
-        >{{ 'CHANGE_POINT_AMOUNT' | t }}</div>
+        <div class="change-point" (click)=" amount = 0; paymentMethod='' " *ngIf=" paymentMethod == 'paypal' || paymentMethod == 'koreanBank' || paymentMethod =='chineseBank' || paymentMethod == 'japaneseBank' ">{{ 'CHANGE_POINT_AMOUNT' | t }}</div>
 
         <footer class="payment-footer">
             <div class="refund-policy">{{ 'REFUND_POLICY' | t }}</div>
