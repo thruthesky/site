@@ -167,6 +167,10 @@ main {
 
 .select-payment-method {
     padding: 1.6em;
+    padding-top: 2em;
+    @media (min-width:$md) {
+        padding-top: 4em; 
+    }
     border-bottom:  1px solid rgba(125,125,125,0.2);
 
     .title{
@@ -183,8 +187,8 @@ main {
         flex-direction: column;
         @media (min-width:$md) {
             flex-direction: row;
+            margin-top: .5em;
         }
-        margin-top: .5em;
         button {
             display: inline-flex;
             align-items: center;
@@ -199,10 +203,10 @@ main {
             border-radius: 2px;
             font-size: 1em;
             &.bank {
-                background-color: #FFFF00;
+                background-color: rgba(#FFFF00,0.8);
             }
             &.paypal {
-                background-color: #FFD300;
+                background-color: rgba(#FFD300,0.8);
             }
         }
 
@@ -323,7 +327,7 @@ footer.payment-footer {
         font-size: 1em;
     }
     .korean-bank-title {
-        margin-bottom: .5em;
+        margin: .5em 1em;
         @media (min-width:$md) {
             margin: 1em;
             font-size: 1.1em;
@@ -358,9 +362,19 @@ footer.payment-footer {
 }
 .exchange-vat-desc, 
 .leave-a-message-after-deposit {
-    margin: 1em;
     padding: 1em;
     background-color: #fff3cd;
     color: #856404;
     font-size: .85em;
+}
+
+.leave-a-message-after-deposit{
+    margin: 1em;
+}
+
+.exchange-vat-desc{
+    margin: 1em 1.3em;
+    @media (min-width:$md) {
+        margin: 1em;
+    }
 }
