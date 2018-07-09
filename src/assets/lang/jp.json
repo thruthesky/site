@@ -629,5 +629,7 @@
   "BANK_TRANSACTION": "銀行取引",
   "PAYPAL_CREDIT": "カード払い",
   "CHANGE_TO_PAYPAL": "クレジットカード決済への変更",
-  "WOORIBANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。"
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。",
+  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。"
+
 }

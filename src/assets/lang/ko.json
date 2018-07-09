@@ -678,7 +678,9 @@
   "CHINESE_BANK_NAME": "신화은행",
   "CHINESE_BANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "CHINESE_BANK_ACCOUNT_NO": "XY-0123-4321",
-  "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)"
+  "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
+
+  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "위 금액은 #point 포인트(#usd 달러)를 위안화로 환산하고 부가세 #VAT% 를 포함한 금액입니다."
 
   
 }

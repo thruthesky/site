@@ -656,6 +656,6 @@
   "PAYPAL_CREDIT": "信用卡付款",
   "CHANGE_TO_PAYPAL": "更改为信用卡付款",
   "CHANGE_POINT_AMOUNT": "变更金额",
-  "WOORIBANK_PAYMENT_AMOUNT_DESC": "以上金额由#usd美元换算，含增值税＃VAT％。"
-
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "以上金额由#usd美元换算，含增值税＃VAT％。",
+  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "以上金额由#usd美元换算，含增值税＃VAT％。"
 }

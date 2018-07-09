@@ -15,9 +15,9 @@ export class NewPaymentPage implements AfterViewInit {
     /**
      * default amount to be selected.
      */
-    amount = 0; // should 0.
+    amount = 30000; // should 0.
 
-    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = ''; // should be empty
+    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = 'japaneseBank'; // should be empty
 
 
 
