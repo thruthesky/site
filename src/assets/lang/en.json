@@ -713,5 +713,6 @@
   "BANK_TRANSACTION": "Bank Transaction",
   "PAYPAL_CREDIT": "Credit Card",
   "CHANGE_TO_PAYPAL": "Change to Paypal",
-  "PAYPAL_PAYMENT": "Paypal Credit Card Payment"
+  "PAYPAL_PAYMENT": "Paypal Credit Card Payment",
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "The above amount is converted from #usd dollar including VAT #VAT%."
 }
