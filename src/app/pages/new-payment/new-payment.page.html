@@ -202,9 +202,9 @@
                         <div class="col">{{ amount_in_cny_with_tax() | number }} {{ 'RENMINBI' | t }}</div>
                     </div>
                 </div>
+                <div class="exchange-vat-desc">{{ 'CHINESE_BANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
+                    } }} </div>
             </div>
-            <div class="exchange-vat-desc">{{ 'CHINESE_BANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
-                } }} </div>
         </div>
 
         <div class="japanese-bank" *ngIf=" paymentMethod == 'japaneseBank' ">
