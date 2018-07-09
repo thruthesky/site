@@ -1228,7 +1228,7 @@ export class AppService {
             this.info = <LMS_INFO>{};
         }
         this.lms.info(this.getDomain()).subscribe(re => {
-            console.log('lms.info: ', re);
+            // console.log('lms.info: ', re);
             this.set(KEY_LMS_INFO, re);
             this.info = this.get(KEY_LMS_INFO);
             if (this.info['user'] !== void 0) {

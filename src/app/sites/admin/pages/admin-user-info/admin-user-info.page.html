@@ -413,8 +413,7 @@
                     </tr>
                 </table>
             </section>
-            {{user.user_type}}
-            <section id="failed-payment" [class.margin-as-teacher]=" user.user_type != 'T' ">
+            <section id="failed-payment" *ngIf=" user.user_type != 'T' ">
                 <div class="d-flex justify-content-between">
                     <h2>Failed Payment</h2>
                     <div class="p-3 failed-payment-click-to-open" (click)=" show.failedPayments = true ">Click to Open</div>

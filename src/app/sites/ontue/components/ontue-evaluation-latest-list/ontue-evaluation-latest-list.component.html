@@ -1,13 +1,19 @@
-<section>
+<section id="recent-evaluation">
     <header>
         <h2>Recent Evaluation</h2>
     </header>
 
     <main>
+        <div class="loader" *ngIf=" loader.comment  ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
+        </div>
+        <ng-container *ngIf="!loader.comment">
             <div class="eval-wrapper" *ngFor="let teacher_comment of evaluations; let i=index">
                 <div class="container-fluid">
                     <div class="info row">
-                        <div class="col-sm-12 col-md-6" *ngIf="teacher_comment['teacher_photoURL'] || teacher_comment['student_photoURL']">
+                        <div class="col-sm-12 col-md-6"
+                             *ngIf="teacher_comment['teacher_photoURL'] || teacher_comment['student_photoURL']">
                             <div class="photos">
                                 <div>
                                     <span class="teacher-photo" *ngIf="teacher_comment['teacher_photoURL']">
@@ -30,23 +36,27 @@
                 </div>
                 <div class="comment">
                     <div>
-                        <span *ngIf="!teacher_comment['more']">{{teacher_comment.comment.slice(0,200)}}<span *ngIf="teacher_comment.comment.length>200"> ...</span></span>
+                    <span *ngIf="!teacher_comment['more']">{{teacher_comment.comment.slice(0,200)}}<span
+                            *ngIf="teacher_comment.comment.length>200"> ...</span></span>
                         <span *ngIf="teacher_comment['more']">{{teacher_comment.comment}}</span>
                     </div>
                     <ng-container *ngIf="teacher_comment.comment.length>200">
-                        <a class="view-more"  color="blue" (click)="teacher_comment['more'] = !teacher_comment['more']"> {{teacher_comment['more']? 'View Less' : 'View More'}}</a>
+                        <a class="view-more" color="blue" (click)="teacher_comment['more'] = !teacher_comment['more']">
+                            {{teacher_comment['more']? 'View Less' : 'View More'}}</a>
                     </ng-container>
                 </div>
             </div>
-            <div class="pagination">
-                <page-navigator-component
-                                [no_of_total_items]=" pageOption['totalRecord'] "
-                                [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
-                                [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
-                                [no_of_current_page]=" pageOption['currentPage'] "
-                                [show_prev_next]=" true "
-                                (pageClick)="onPostPageClick($event)">
-                </page-navigator-component>
-            </div>
+        </ng-container>
+        <div class="pagination">
+            <page-navigator-component
+                    [no_of_total_items]=" pageOption['totalRecord'] "
+                    [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
+                    [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
+                    [no_of_current_page]=" pageOption['currentPage'] "
+                    [show_prev_next]=" true "
+                    [scoll_to_element_Id] = "'recent-evaluation'"
+                    (pageClick)="onPostPageClick($event)">
+            </page-navigator-component>
+        </div>
     </main>
 </section>
