@@ -549,7 +549,6 @@
   "WOORIBANK_PAYMENT_DESC_1": "あなたが韓国人なら、ウリバンクの取引で支払うことができます。",
   "WOORIBANK_PAYMENT_DESC_2": "付加価値税にはさらに#VAT％を支払う必要があります。",
   "ACCOUNT_HOLDER_NAME": "口座名義",
-  "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "アカウントなし",
   "WOORIBANK_NAME": "ウリバンク",
 
@@ -629,5 +628,9 @@
   "BANK_TRANSACTION": "銀行取引",
   "PAYPAL_CREDIT": "カード払い",
   "CHANGE_TO_PAYPAL": "クレジットカード決済への変更",
-  "WOORIBANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。"
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。",
+  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。",
+  "RENMINBI": "人民元",
+  "YEN": "円"
+
 }
