@@ -173,7 +173,7 @@
                         } }} </div>
                 </div>
             </div>
-            <div class="korean-bank" *ngIf=" paymentMethod == 'chineseBank' ">
+            <div class="chinese-bank" *ngIf=" paymentMethod == 'chineseBank' ">
                 <div>
                     <b>{{ 'CHINESE_BANK_NAME' | t }}</b>
                     <div>
@@ -190,10 +190,12 @@
                     <div class="">{{ 'AMOUNT_TO_PAY' | t }}</div>
                     <div class="">{{ amount_in_cny_with_tax() | number }} {{ 'RENMINBI' | t }}</div>
                 </div>
-                
+
+                <div class="exchange-vat-desc">{{ 'CHINESE_BANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
+                    } }} </div>
             </div>
 
-            <div class="korean-bank" *ngIf=" paymentMethod == 'japaneseBank' ">
+            <div class="japanese-bank" *ngIf=" paymentMethod == 'japaneseBank' ">
                 <div>
                     <b>{{ 'JAPANESE_BANK_NAME' | t }}</b>
                     <div>
@@ -205,7 +207,15 @@
                         <b>{{ 'JAPANESE_BANK_ACCOUNT_NO' | t }}</b>
                     </div>
                 </div>
-                <div>{{ 'JAPANESE_BANK_DESC_2' | t:{ 'amount': amount_in_jpy_with_tax() | number, 'VAT': paymentRate?.VAT} }}</div>
+
+                <div class="">
+                    <div class="">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                    <div class="">{{ amount_in_jpy_with_tax() | number }} {{ 'YEN' | t }}</div>
+                </div>
+
+                <div class="exchange-vat-desc">{{ 'JAPANESE_BANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
+                    } }} </div>
+
             </div>
         </div>
 
