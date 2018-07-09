@@ -40,11 +40,11 @@ export class WithcenterHomePage {
     }, 9000);
   }
 
-  scrollIntoView(id: string) {
-    const element = document.getElementById(id);
-    element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-    return true;
-  }
+  // scrollIntoView(id: string) {
+  //   const element = document.getElementById(id);
+  //   element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+  //   return true;
+  // }
   onClickHome() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera

@@ -2105,4 +2105,10 @@ export class AppService {
         }
         return '';
     }
+
+    scrollIntoViewById(id: string) {
+        const element = document.getElementById(id);
+        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+        return true;
+    }
 }
