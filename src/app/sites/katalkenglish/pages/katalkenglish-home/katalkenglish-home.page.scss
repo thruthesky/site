@@ -157,18 +157,20 @@ main {
     .my-own-plan {
         padding: 1.5em .5em;
         line-height: 1.25em;
+        font-size: .9em;
         @media screen and (min-width: $md) {
             padding: 1.5em;
         }
         background-color: #FFD600;
         .container-fluid {
-            .col-6 {
+            .col-4,
+            .col-8 {
                 padding: 0 .5em;
                 @media screen and (min-width: $md) {
-                    padding: 0 .7em;
+                    padding: 0 15px;
                 }
             }
-            .col-6:first-child {
+            .col-4:first-child {
                 display: flex;
                 align-items: center;
             }
@@ -188,15 +190,24 @@ main {
         .view-more {
             font-size: .8em;
             @media screen and (min-width: $md) {
-                font-size: 90%;
+                font-size: 1em;
             }
         }
         .calendar-img {
             width: 100%;
         }
         .view-more {
-            margin: .5em 0;
-            cursor: pointer
+            display: block;
+            span{
+                display: inline-block;
+                margin: .5em 0;
+                // padding: .1em 2.5em;
+                border-radius: 2px;
+                // background: #3C13AF;
+                // font-size: .65em;
+                // color: #fff;
+                cursor: pointer
+            }
         }
         .myOwnPlan-wrapper {
             padding-top: .8em;
@@ -233,13 +244,13 @@ main {
             padding: 2em;
             margin: 0;
             margin-top: 1em;
-            font-size: 90%;
+            font-size: .85em;
         }
         background-color: #fff;
         font-size: 80%;
         line-height: 1.5em;
         img {
-            width: 100%;
+            width: 97%;
         }
         .col-9 {
             padding: .3em;
@@ -247,7 +258,7 @@ main {
         .col-4 {
             padding: 0;
             @media screen and (min-width: $md) {
-                padding-right: .5em;
+                padding-right: .8em;
             }
         }
         .desc {
@@ -265,9 +276,17 @@ main {
             }
         }
         .show-more {
-            margin-top: .5em;
             display: block;
-            cursor: pointer;
+            span{
+                display: inline-block;
+                margin-top: .5em;
+                // padding: .1em 2.5em;
+                border-radius: 2px;
+                // background: #FDEA00;
+                // font-size: .65em;
+                color: #000;
+                cursor: pointer;
+            }
         }
     }
     .more-about-katalkenglish {
