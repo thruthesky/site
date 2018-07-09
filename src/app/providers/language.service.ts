@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Library as _ } from './../etc/library';
+import { Library as _ } from '../etc/library';
 
-import { environment } from './../../environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 

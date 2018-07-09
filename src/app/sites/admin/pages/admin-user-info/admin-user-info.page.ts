@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { XapiFileUploadComponent } from '../../../../components/xapi-file-upload/xapi-file-upload.component';
 import { FILES, USER_DATA_RESPONSE, BOOK } from '../../../../modules/xapi/interfaces';
 import { AppService } from '../../../../providers/app.service';
+import { PAYMENT_RATE } from '../../../../modules/xapi/lms.service';
 
 interface SHOW {
     loader: {
@@ -12,9 +13,12 @@ interface SHOW {
         profileSaved: boolean;
         loadSchedule: boolean;
         loadPayment: boolean;
+        loadFailedPayment: boolean;
         loadPointHistory: boolean;
     };
     pointUpdateForm: boolean;
+    newPointUpdateForm: boolean;
+    failedPayments: boolean;
 
 }
 @Component({
@@ -37,12 +41,15 @@ export class AdminUserInfoPage implements OnInit {
         }
     };
     payments = [];
+    failedPayments = [];
     show: SHOW = null;
     pointForm = null;
     limit = 500;
 
     pointHistory = [];
 
+
+    paymentRate: PAYMENT_RATE = null;
     constructor(
         public active: ActivatedRoute,
         public router: Router,
@@ -55,6 +62,10 @@ export class AdminUserInfoPage implements OnInit {
             this.loadInfo(ID);
             this.loadPayment(ID);
         });
+        a.lms.payment_rate().subscribe(re => {
+            this.paymentRate = re;
+            console.log('paymentRate: ', this.paymentRate);
+        }, () => { });
 
     }
 
@@ -71,9 +82,12 @@ export class AdminUserInfoPage implements OnInit {
                 profileSaved: false,
                 loadSchedule: false,
                 loadPayment: false,
+                loadFailedPayment: false,
                 loadPointHistory: false
             },
-            pointUpdateForm: false
+            pointUpdateForm: false,
+            newPointUpdateForm: false,
+            failedPayments: false
         };
         this.pointForm = {
             idx_student: 0,
@@ -285,6 +299,26 @@ export class AdminUserInfoPage implements OnInit {
             this.show.loader.loadPayment = false;
             this.payments = re;
         }, e => this.a.toast(e));
+
+
+        sql = `SELECT p.idx, p.amount, p.currency, p.idx_student, p.payment_method, p.point_requested as point, p.stamp_begin, p.state
+            FROM lms_payment as p, wp_users
+            WHERE BRANCH AND wp_users.ID=${ID} AND p.idx_student=${ID}`;
+        sql += ` AND (state<>'approved' AND state<>'refund') `;
+        sql += ` ORDER BY stamp_begin DESC`;
+        sql += ` LIMIT 20`;
+        // console.log(sql);
+        this.show.loader.loadFailedPayment = true;
+        this.a.lms.admin_query({
+            sql: sql,
+            student_info: true,
+            teacher_info: true
+        }).subscribe(re => {
+            // console.log('payments: ', re);
+            this.show.loader.loadFailedPayment = false;
+            this.failedPayments = re;
+        }, e => this.a.toast(e));
+
     }
     loadPointHistory() {
 
@@ -366,10 +400,123 @@ export class AdminUserInfoPage implements OnInit {
     updatePrimaryPhoto(file) {
         // console.log('file uploaded: ', file);
         this.user.photoURL = file.url;
-        this.a.lms.admin_user_profile_photo_update({ ID: this.user.ID, photo_guid: file.url }).subscribe( re => {
+        this.a.lms.admin_user_profile_photo_update({ ID: this.user.ID, photo_guid: file.url }).subscribe(re => {
             // console.log('admin_user_profile_update: re:', re);
         }, e => this.a.toast(e));
     }
 
+    onClickAutoCompute(): number {
+        if (!this.pointForm.payment_method) {
+            this.a.toast('Please select payment method.');
+            return;
+        }
+        if (!this.pointForm.currency) {
+            this.a.toast('Please select currency by selecting payment method');
+            return;
+        }
+        if (!this.pointForm.amount) {
+            this.a.toast('Please input amount');
+            return;
+        }
+        if (!this.paymentRate) {
+            this.a.toast('Error: payment_rate information is null');
+        }
+
+        const amount = <any>(<string>this.pointForm.amount).replace(',', '').replace(',', '').trim();
+        let usd = 0;
+        if (this.pointForm.currency === 'USD') {
+            /**
+             * No buyer rate
+             */
+            usd = amount * (100 / (100 + this.a.floatval(this.paymentRate.VAT)));
+        }
+
+        if (this.pointForm.currency === 'KRW') {
+            const krw = amount * (100 / (100 + this.a.floatval(this.paymentRate.VAT)));
+            usd = krw / this.a.floatval(this.paymentRate.USD_TO_KRW);
+        }
+
+        if (this.pointForm.currency === 'CNY') {
+            const cny = amount * (100 / (100 + this.a.floatval(this.paymentRate.VAT)));
+            console.log('cny: ', cny);
+            usd = cny / this.a.floatval(this.paymentRate.USD_TO_CNY);
+        }
+        if (this.pointForm.currency === 'JPY') {
+            const jpy = amount * (100 / (100 + this.a.floatval(this.paymentRate.VAT)));
+            usd = jpy / this.a.floatval(this.paymentRate.USD_TO_JPY);
+        }
+
+        this.pointForm.point = Math.round(usd * 1000);
+    }
+
+    onClickAutoRefundCompute() {
+        if (!this.pointForm.point) {
+            this.a.toast('Please input point');
+            return;
+        }
+        if (!this.pointForm.payment_method) {
+            this.a.toast('Please select payment method.');
+            return;
+        }
+        if (!this.pointForm.currency) {
+            this.a.toast('Please select currency by selecting payment method');
+            return;
+        }
+        if (!this.paymentRate) {
+            this.a.toast('Error: payment_rate information is null');
+        }
+
+        const point = this.pointForm.point;
+
+        let amount = 0;
+        const usd = point / 1000;
+        if (this.pointForm.currency === 'USD') {
+            /**
+             * No buyer rate
+             */
+            amount = usd + usd * this.a.floatval(this.paymentRate.VAT) / 100;
+        }
+
+        if (this.pointForm.currency === 'KRW') {
+            const krw = usd * this.a.floatval(this.paymentRate.USD_TO_KRW);
+            amount = krw + krw * this.a.floatval(this.paymentRate.VAT) / 100;
+            amount = Math.round(amount);
+        }
+
+        if (this.pointForm.currency === 'CNY') {
+            const cny = usd * this.a.floatval(this.paymentRate.USD_TO_CNY);
+            amount = cny + cny * this.a.floatval(this.paymentRate.VAT) / 100;
+            amount = Math.round(amount * 100) / 100;
+        }
+        if (this.pointForm.currency === 'JPY') {
+            const jpy = usd * this.a.floatval(this.paymentRate.USD_TO_JPY);
+            amount = jpy + jpy * this.a.floatval(this.paymentRate.VAT) / 100;
+            amount = Math.round(amount * 100) / 100;
+        }
+
+        this.pointForm.amount = amount;
+    }
+
+    onClickFailedAmount(pay) {
+        this.pointForm.apply = 'payment';
+        this.pointForm.amount = pay.amount;
+        this.pointForm.currency = pay.currency;
+        switch (this.pointForm.currency) {
+            case 'USD': this.pointForm.payment_method = 'paypal'; break;
+            case 'KRW': this.pointForm.payment_method = 'wooribank'; break;
+            case 'CNY': this.pointForm.payment_method = 'chinesebank'; break;
+            case 'JPY': this.pointForm.payment_method = 'japanesebank'; break;
+            default: return '';
+        }
+        this.show.newPointUpdateForm = true;
+        this.onClickAutoCompute();
+    }
+
+    onUserInfoFormSubmit( event ) {
+        alert('hi');
+        event.preventDefault();
+
+        return false;
+    }
 }
 

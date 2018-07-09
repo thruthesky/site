@@ -1,0 +1,218 @@
+<main>
+
+    <header>
+        <h1>{{ 'PAYMENT_PAGE_TITLE' | t }}</h1>
+    </header>
+
+
+    <div class="loader" *ngIf=" loader.paymentRate  ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'LOADING_PAYMENT_INFORMATION' | t }}</span>
+    </div>
+
+    <section class="warning exchange-rate" *ngIf=" loader.paymentRate == false && errorOnExchangeRate; else noExchangeError ">
+        {{ 'ERROR_ON_EXCHANGE_RATE' | t}}
+    </section>
+
+
+    <ng-template #noExchangeError>
+
+        <div *ngIf=" a.user.isLogin; else loginFirst ">
+            <div class="payment-select" *ngIf=" ! amount ">
+
+                <div class="select-amount">
+                    <div class="title">{{'SELECT_AMOUNT'| t}}</div>
+                    <div class="desc"> {{ 'SELECT_AMOUNT_DESC' | t }}</div>
+                </div>
+
+
+                <div class="amounts" *ngIf="!inputAmount">
+                    <!-- <div>
+                        <input id="a2000" type="radio" name="amount" [(ngModel)]="amount" [value]="2000">
+                        <label for="a2000">2천 원</label>
+                    </div> -->
+                    <div>
+                        <input id="a10000" type="radio" name="amount" [(ngModel)]="amount" [value]="10000">
+                        <label for="a10000"> {{'10_THOUSAND_POINT' | t}}</label>
+                    </div>
+                    <div class="hidden">
+                        <input id="a20000" type="radio" name="amount" [(ngModel)]="amount" [value]="20000">
+                        <label for="a20000">{{'20_THOUSAND_POINT' | t}}</label>
+                    </div>
+                    <div>
+                        <input id="a30000" type="radio" name="amount" [(ngModel)]="amount" [value]="30000">
+                        <label for="a30000"> {{'30_THOUSAND_POINT' | t}}</label>
+                    </div>
+                    <div>
+                        <input id="a50000" type="radio" name="amount" [(ngModel)]="amount" [value]="50000">
+                        <label for="a50000"> {{'50_THOUSAND_POINT' | t}}</label>
+                    </div>
+                    <div>
+                        <input id="a100000" type="radio" name="amount" [(ngModel)]="amount" [value]="100000">
+                        <label for="a100000"> {{'100_THOUSAND_POINT' | t}}</label>
+                    </div>
+                    <div class="hidden">
+                        <input id="a150000" type="radio" name="amount" [(ngModel)]="amount" [value]="150000">
+                        <label for="a150000"> {{'150_THOUSAND_POINT' | t}}</label>
+                    </div>
+                    <div>
+                        <input id="a200000" type="radio" name="amount" [(ngModel)]="amount" [value]="200000">
+                        <label for="a200000"> {{'200_THOUSAND_POINT' | t}}</label>
+                    </div>
+                </div>
+
+                <div class="manual-amount-input">
+                    <div class="header" (click)=" inputAmount = true " *ngIf=" ! inputAmount ">
+                        {{ 'ENTER_AMOUNT_MANUALLY' | t}}
+                    </div>
+                    <div class="input-amount" *ngIf=" inputAmount ">
+                        <span>{{ 'ENTER_PAYMENT_AMOUNT' | t }}</span>
+                        <input type="number" name="amount" #manualAmountInputBox>
+                        <button class="confirm-button" (click)="onConfirmManualAmountInput( manualAmountInputBox.value )">{{ 'CONFIRM' | t}}</button>
+                        <span class="cancel-button" (click)="inputAmount=false">{{ 'CANCEL' | t}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="desc" *ngIf=" amount_in_usd_with_tax() ">
+
+            <div>{{ 'VAT_1' | t:{ 'AMOUNT': amount | number } }}</div>
+            <div class="change-point" (click)=" amount = 0; paymentMethod='' ">{{ 'CHANGE_POINT_AMOUNT' | t }}</div>
+
+        </div>
+
+        <ng-template #loginFirst>
+            <div class="login-first" (click)=" a.open('login') ">
+                {{ 'LOGIN_FIRST' | t }}
+            </div>
+        </ng-template>
+
+
+        <div class="select-payment-method" *ngIf=" amount && paymentMethod == '' ">
+            <div class="title">{{ 'SELECT_PAYMENT_METHOD' | t }}</div>
+            <div class="buttons">
+                <button class="bank" (click)=" onSelectBankTransaction() ">{{ 'BANK_TRANSACTION' | t }}</button>
+                <button class="paypal" (click)=" onSelectPaypalPayment() ">{{ 'PAYPAL_CREDIT' | t }}</button>
+            </div>
+        </div>
+
+
+
+        <div class="paypal-payment" [ngClass]="{ selected: paymentMethod == 'paypal' && amount }">
+            <h1>Paypal Credit Card Payment</h1>
+            <!-- <button (click)=" onSelectBankTransaction() ">Change to Bank Transaction</button> -->
+            <div class="paypal-button">
+                <div>
+                    {{ 'VAT_2' | t:{ 'AMOUNT': amount | number , 'USD': amount_in_usd_with_tax(), 'VAT': a.vat } }}
+                </div>
+
+                <div id="paypal-button"></div>
+
+                <div>{{ 'PAYPAL_DESC' | t }}</div>
+                
+            </div>
+        </div>
+
+
+        <div class="select-bank" *ngIf=" amount && paymentMethod == 'bank' ">
+
+            <div class="title">{{ 'SELECT_BANK_COUNTRY' | t }}</div>
+            <div>
+                <!-- <button (click)=" onSelectPaypalPayment() ">{{ 'CHANGE_TO_PAYPAL' | t }}</button> -->
+            </div>
+            <div class="buttons">
+                <div class="country korea" (click)=" onSelectBankCountry('koreanBank'); ">
+                    <div class="country-name">{{ 'KOREAN_BANK' | t }}</div>
+                    <div class="bank-name">{{ 'KOREAN_BANK_NAME' | t }}</div>
+                </div>
+                <div class="country china" (click)=" onSelectBankCountry('chineseBank'); ">
+                    <div class="country-name">{{ 'CHINESE_BANK' | t }}</div>
+                    <div class="bank-name">{{ 'CHINESE_BANK_NAME' | t }}</div>
+                </div>
+                <div class="country japan" (click)=" onSelectBankCountry('japaneseBank'); ">
+                    <div class="country-name">{{ 'JAPANESE_BANK' | t }}</div>
+                    <div class="bank-name">{{ 'JAPANESE_BANK_NAME' | t }}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="banks">
+
+            <div class="korean-bank" *ngIf=" paymentMethod == 'koreanBank' ">
+                <div class="korean-bank-title">{{ 'WOORIBANK_PAYMENT_TITLE' | t }}</div>
+                <div class="korean-bank-desc">
+                    <div class="leave-a-message-after-deposit">{{ 'WOORIBANK_PAYMENT_DESC_1' | t }}</div>
+                    <div class="bank-transaction-information">
+                        <div class="container">
+                            <div class="row">
+                                <b>{{ 'WOORIBANK_NAME' | t }}</b>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
+                                <div class="col"><b>{{ 'WOORIBANK_ACCOUNT_HOLDER_NAME' | t }}</b></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
+                                <div class="col"><b>{{ 'WOORIBANK_ACCOUNT_NO' | t }}</b></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                                <div class="col">{{ amount_in_krw_with_tax() | number }} {{ 'WON' | t }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exchange-vat-desc">{{ 'WOORIBANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
+                        } }} </div>
+                </div>
+            </div>
+            <div class="korean-bank" *ngIf=" paymentMethod == 'chineseBank' ">
+                <div>{{ 'CHINESE_BANK_DESC_1' | t }}</div>
+                <div>
+                    <b>{{ 'CHINESE_BANK_NAME' | t }}</b>
+                    <div>
+                        {{ 'ACCOUNT_HOLDER_NAME' | t }}
+                        <b>{{ 'CHINESE_BANK_ACCOUNT_HOLDER_NAME' | t }}</b>
+                    </div>
+                    <div>
+                        {{ 'ACCOUNT_NO' | t }}
+                        <b>{{ 'CHINESE_BANK_ACCOUNT_NO' | t }}</b>
+                    </div>
+                </div>
+                <div>{{ 'CHINESE_BANK_DESC_2' | t:{ 'amount': amount_in_cny_with_tax() | number, 'VAT': paymentRate?.VAT} }}</div>
+            </div>
+
+            <div class="korean-bank" *ngIf=" paymentMethod == 'japaneseBank' ">
+                <div>{{ 'JAPANESE_BANK_DESC_1' | t }}</div>
+                <div>
+                    <b>{{ 'JAPANESE_BANK_NAME' | t }}</b>
+                    <div>
+                        {{ 'ACCOUNT_HOLDER_NAME' | t }}
+                        <b>{{ 'JAPANESE_BANK_ACCOUNT_HOLDER_NAME' | t }}</b>
+                    </div>
+                    <div>
+                        {{ 'ACCOUNT_NO' | t }}
+                        <b>{{ 'JAPANESE_BANK_ACCOUNT_NO' | t }}</b>
+                    </div>
+                </div>
+                <div>{{ 'JAPANESE_BANK_DESC_2' | t:{ 'amount': amount_in_jpy_with_tax() | number, 'VAT': paymentRate?.VAT} }}</div>
+            </div>
+        </div>
+
+        <div class="change-point" (click)=" amount = 0; paymentMethod='' "
+        *ngIf=" paymentMethod == 'paypal' || paymentMethod == 'koreanBank' || paymentMethod =='chineseBank' || paymentMethod == 'japaneseBank' "
+        >{{ 'CHANGE_POINT_AMOUNT' | t }}</div>
+
+        <footer class="payment-footer">
+            <div class="refund-policy">{{ 'REFUND_POLICY' | t }}</div>
+            <div class="help">
+                <a class="app-button" (click)=" a.onClickContactAdmin() ">{{ 'PAYMENT_DIFFICULT' | t}}</a>
+            </div>
+        </footer>
+    </ng-template>
+
+
+</main>

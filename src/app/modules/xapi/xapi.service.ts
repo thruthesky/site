@@ -44,7 +44,7 @@ export class XapiService extends Base {
     post(data): Observable<any> {
 
         const q = this.httpBuildQuery(data);
-        // console.log('xapi.service::post() url: ', this.serverUrl + '?' + q);
+        console.log('xapi.service::post() url: ', this.serverUrl + '?' + q);
         if (!this.serverUrl) {
             console.error(`Error. Server URL is not set.`);
         }

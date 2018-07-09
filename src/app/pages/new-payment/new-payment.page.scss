@@ -1,0 +1,241 @@
+@import './../../../theme/vars';
+main {
+    padding-bottom: 5em;
+    background: #fff;
+}
+
+.loader {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.select-amount {
+    padding: 2em;
+    padding-top: 5em;
+    .title {
+        color: blue;
+    }
+    @media screen and (max-width:544px) {
+        padding-top: 2.5em;
+    }
+    .desc {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+}
+
+.amounts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2em;
+    background-color: #1862c5;
+    color: white;
+    font-size: 85%;
+    &>div {
+        display: flex;
+        align-items: center;
+        margin: 0 .2em;
+    }
+    input {
+        cursor: pointer;
+    }
+    label {
+        padding-left: .3em;
+        cursor: pointer;
+    }
+    @media screen and (max-width:544px) {
+        padding: 2em .5em;
+        .hidden {
+            display: none;
+        }
+    }
+}
+
+.manual-amount-input {
+    text-align: center;
+    cursor: pointer;
+    .header {
+        margin: 2em auto;
+        @media (min-width: $md) {
+            margin-top: 4em;
+        }
+    }
+    .header,
+    .cancel-button {
+        color: #8b0000 !important;
+    }
+    input {
+        padding: .7em 1em;
+        margin: 0 .5em;
+    }
+}
+
+.login-first {
+    margin-top: 4em;
+    text-align: center;
+}
+
+.paypal-ready {
+    padding: 4em;
+    text-align: center;
+    .spinner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        mat-spinner {
+            margin-bottom: .5em;
+        }
+    }
+}
+
+.paypal-payment {
+    visibility: hidden;
+    height: 10px;
+    overflow: hidden;
+    &.selected {
+        visibility: visible;
+        height: auto;
+        overflow: auto;
+    }
+}
+
+.app-button {
+    padding: .3em 1em;
+}
+
+.desc {
+    padding: 1em;
+    background-color: #d9dde8;
+    font-size: 85%;
+    &>div {
+        padding: 0 1em;
+        padding-top: 1em;
+        padding-bottom: .5em;
+    }
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    mat-spinner {
+        margin: .5em;
+    }
+}
+
+.warning {
+    padding: 4em 1.6em;
+    background-color: #970303;
+    color: white;
+}
+
+.select-payment-method {
+    padding: 1.6em;
+    color: blue;
+    background-color: #eee;
+    .buttons {
+        margin-top: .5em;
+        button {
+            border: 0;
+            padding: 1em 2em;
+            font-size: 1em;
+            &.bank {
+                background-color: #e4e101;
+            }
+            &.paypal {
+                background-color: blue;
+                color: white;
+            }
+        }
+    }
+}
+
+.select-bank {
+    .title {
+        padding: .6em 1.6em;
+    }
+    .buttons {
+        display: flex;
+        .country {
+            padding: .5em 1em;
+            width: 33.33%;
+            cursor: pointer;
+            &.korea {
+                background-color: #cee3ff;
+            }
+            &.china {
+                background-color: #ffcece;
+            }
+            &.japan {
+                background-color: #fcffce;
+            }
+        }
+        .country-name {
+            font-size: .8em;
+        }
+        .bank-name {
+            font-size: 1.1em;
+        }
+    }
+}
+
+footer.payment-footer {
+    margin-top: 1em;
+    padding: 0 1.6em;
+    @media (min-width: $md) { padding: 0; }
+    font-size: .8em;
+    .refund-policy {
+        padding: .6em;
+        background-color: #e1eeff;
+    }
+    .help {
+        margin-top: 1em;
+        .app-button {
+            margin: 0;
+        }
+    }
+}
+
+.change-point {
+    font-size: .85em;
+    cursor: pointer;
+}
+
+
+
+.banks {
+    .bottom-buttons {
+        padding: .6em 1.6em;
+        background-color: white;
+        font-size: .85em;
+        button {
+            border: 0;
+        }
+    }
+}
+
+
+
+.korean-bank {
+    line-height: 150%;
+    .korean-bank-title {
+        margin-bottom: 0.5em;
+        padding: 1em;
+        border: 0;
+        background-color: #cee3ff;
+        color: black;
+    }
+}
+
+
+.bank-transaction-information {
+    padding: 1.6em;
+    background-color: #bdbeae;
+}
+.exchange-vat-desc, .leave-a-message-after-deposit {
+    font-size: .8em;
+}

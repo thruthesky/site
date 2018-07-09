@@ -174,7 +174,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             setTimeout(() => {
                 // console.log(this.re);
                 /**
-                 * When option changed in the middle of displaying,
+                 * When (schedule table search) option changed in the middle of displaying,
                  * `this.re` becomes null
                  * And load schedule again
                  * Meaning, it will stop and destroy previous display data and display new data.

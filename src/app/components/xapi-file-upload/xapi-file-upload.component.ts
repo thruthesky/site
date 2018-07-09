@@ -4,7 +4,7 @@
  */
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AppService } from './../../providers/app.service';
+import { AppService } from '../../providers/app.service';
 import { FILES, FILE, FILE_DELETE } from '../../modules/xapi/interfaces';
 
 declare var Camera;

@@ -23,7 +23,7 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
     usd_to_kwr;
     share_teacher;
     transaction_fee;
-    buyer_rate;
+    NEW_EXCHANGE_SELLER_RATE;
     max_point_per_minute;
 
 
@@ -66,12 +66,12 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
                 });
             }
             this.a.lms.my_schedule_info().subscribe(re => {
-                // console.log('my_schedule_info', re);
+                console.log('my_schedule_info', re);
                 this.php_to_kwr = re['php_to_kwr'];
                 this.usd_to_kwr = re['usd_to_kwr'];
                 this.share_teacher = re['share_teacher'];
                 this.transaction_fee = re['transaction_fee'];
-                this.buyer_rate = re['buyer_rate'];
+                this.NEW_EXCHANGE_SELLER_RATE = re['NEW_EXCHANGE_SELLER_RATE'];
                 this.max_point_per_minute = re['max_point_per_minute'];
             }, e => this.a.toast(e));
         });

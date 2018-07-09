@@ -1,13 +1,14 @@
-<div class="loader" *ngIf=" show.loader.loadProfile ">    
+<div class="loader" *ngIf=" show.loader.loadProfile ">
     <mat-spinner [diameter]="48"></mat-spinner>
     Loading user profile...
 </div>
 
+
 <section id="content" class="container-fluid" *ngIf=" !show.loader.loadProfile ">
     <div class="row">
         <div class="col-sm-12 col-md-3">
-            <section  id="user-profile-form">
-                <form>
+            <section id="user-profile-form">
+                <form (ngSubmit)=" onUserInfoFormSubmit( $event ) ">
                     <h2>User Edit Form</h2>
                     <div class="primary-photo">
                         <label>
@@ -20,69 +21,74 @@
                                 </mat-progress-bar>
                                 <span>{{ profilePhotoUpload.progressPercentage}}%</span>
                             </div>
-                            <xapi-file-upload-component #profilePhotoUpload 
-                                [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
+                            <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
                                 [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
                             </xapi-file-upload-component>
                             <div class="update-photo-button">
                                 <span>
                                     Photo Upload
-                                    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z" fill="currentColor"></path></svg>
+                                    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"
+                                            fill="currentColor"></path>
+                                    </svg>
                                 </span>
                             </div>
                         </label>
                     </div>
                     <div class="mini-form">
                         <div class="user-stats">
-                                <div>
-                                    <b>User ID</b>
-                                    <span class="login-as-user" *ngIf="a.isSuperManager">
-                                        {{ user.ID }}
-                                        <a href='{{ a.userLoginUrl(user) }}' target='_blank'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z"/></svg>
-                                        </a>
-                                    </span>
-                                </div>
-                                <div>
-                                    <b>Login</b>
-                                    <span>{{ user.user_login }}</span>
-                                </div>
-                                <div>
-                                    <b>User Point</b>
-                                    <span>{{ user.point | number }}</span>
-                                </div>
+                            <div>
+                                <b>User ID</b>
+                                <span class="login-as-user" *ngIf="a.isSuperManager">
+                                    {{ user.ID }}
+                                    <a href='{{ a.userLoginUrl(user) }}' target='_blank'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor" d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z"
+                                            />
+                                        </svg>
+                                    </a>
+                                </span>
+                            </div>
+                            <div>
+                                <b>Login</b>
+                                <span>{{ user.user_login }}</span>
+                            </div>
+                            <div>
+                                <b>User Point</b>
+                                <span>{{ user.point | number }}</span>
+                            </div>
                         </div>
                         <div class="page-buttons">
-                            <button class="app-button" routerLink="/manager/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
-                            <button class="app-button" routerLink="/manager/payment/{{ user.ID }}">Payment Detail Page</button>
+                            <button type="button" class="app-button" routerLink="/manager/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
+                            <button type="button" class="app-button" routerLink="/manager/payment/{{ user.ID }}">Payment Detail Page</button>
                         </div>
-                        <div *ngIf="a.isSuperManager">
+
+                        <!--old point update-->
+                        <!-- <div *ngIf="a.isSuperManager">
                             <button type='button' class="app-button point-edit-button" (click)="show.pointUpdateForm = true" *ngIf=" ! show.pointUpdateForm ">
                                 <span>Point Edit</span>
-                                <svg viewBox="0 0 576 512"><path fill="currentColor" d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"></path></svg>
+                                <svg viewBox="0 0 576 512">
+                                    <path fill="currentColor" d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"></path>
+                                </svg>
                             </button>
                             <section class="point-edit-form" *ngIf=" show.pointUpdateForm ">
                                 <h2>Point Update</h2>
                                 <div>
                                     <div class="label">Apply :</div>
                                     <label for="apply_payment">
-                                        <input type='radio' id='apply_payment' name='apply' [(ngModel)]="pointForm.apply" [value]="'payment'">
-                                        Payment
+                                        <input type='radio' id='apply_payment' name='apply' [(ngModel)]="pointForm.apply" [value]="'payment'"> Payment
                                     </label>
-                    
+
                                     <label for="apply_add">
-                                        <input type='radio' id='apply_add' name='apply' [(ngModel)]="pointForm.apply" [value]="'add'">
-                                        Add
+                                        <input type='radio' id='apply_add' name='apply' [(ngModel)]="pointForm.apply" [value]="'add'"> Add
                                     </label>
-                    
+
                                     <label for="apply_deduct">
-                                        <input type='radio' id='apply_deduct' name='apply' [(ngModel)]="pointForm.apply" [value]="'deduct'">
-                                        Deduct
+                                        <input type='radio' id='apply_deduct' name='apply' [(ngModel)]="pointForm.apply" [value]="'deduct'"> Deduct
                                     </label>
-                    
+
                                     <label for="apply_refund">
-                                        <input type='radio' id='apply_refund' name='apply' [(ngModel)]="pointForm.apply" [value]="'refund'">
-                                        Refund
+                                        <input type='radio' id='apply_refund' name='apply' [(ngModel)]="pointForm.apply" [value]="'refund'"> Refund
                                     </label>
                                 </div>
                                 <div>
@@ -97,20 +103,17 @@
                                     <div>
                                         <span class="label">Payment Method:</span>
                                         <label for="payment_method_paypal">
-                                            <input type="radio" id="payment_method_paypal" name="payment_method" [(ngModel)]="pointForm.payment_method" [value]="'paypal'">
-                                            Paypal
+                                            <input type="radio" id="payment_method_paypal" name="payment_method" [(ngModel)]="pointForm.payment_method" [value]="'paypal'"> Paypal
                                         </label>
-                    
+
                                         <label for="payment_method_wooribank">
                                             <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" [(ngModel)]="pointForm.payment_method"
-                                                [value]="'wooribank'">
-                                            Woori Bank
+                                                [value]="'wooribank'"> Woori Bank
                                         </label>
-                    
                                     </div>
                                     <div>
                                         <span class="label">Amount:</span>
-                                        <input type="text" name="amount" [(ngModel)]="pointForm.amount"> 
+                                        <input type="text" name="amount" [(ngModel)]="pointForm.amount">
                                         <div class="note">How much was paid to buy the point?</div>
                                     </div>
                                     <div>
@@ -130,78 +133,225 @@
                                     </div>
                                 </div>
                             </section>
+                        </div> -->
+                        <!--/old point update-->
+
+
+                        <div class="new-point-edit mt-1" *ngIf="a.isSuperManager">
+                            <button type='button' class="app-button point-edit-button" (click)="show.newPointUpdateForm = true" *ngIf=" ! show.newPointUpdateForm ">
+                                <span>New Point Edit</span>
+                                <svg viewBox="0 0 576 512">
+                                    <path fill="currentColor" d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"></path>
+                                </svg>
+                            </button>
+                            <section class="point-edit-form" *ngIf=" show.newPointUpdateForm ">
+                                <h2>Point Update</h2>
+                                <div>
+                                    <div class="label">Apply :</div>
+                                    <label for="apply_payment">
+                                        <input type='radio' id='apply_payment' name='apply' [(ngModel)]="pointForm.apply" [value]="'payment'"> Payment
+                                    </label>
+
+                                    <label for="apply_add">
+                                        <input type='radio' id='apply_add' name='apply' [(ngModel)]="pointForm.apply" [value]="'add'"> Add
+                                    </label>
+
+                                    <label for="apply_deduct">
+                                        <input type='radio' id='apply_deduct' name='apply' [(ngModel)]="pointForm.apply" [value]="'deduct'"> Deduct
+                                    </label>
+
+                                    <label for="apply_refund">
+                                        <input type='radio' id='apply_refund' name='apply' [(ngModel)]="pointForm.apply" [value]="'refund'"> Refund
+                                    </label>
+                                </div>
+
+                                <div *ngIf=" pointForm.apply == 'payment' ">
+                                        <ul>
+                                            <li>For payment, you can open failed payments and select the payment amount to auto compute.</li>
+                                            <li>
+                                                <b>Warning:</b> Exchange rate changes very often. By the time you charge the point, the point may differ from the point student applied.
+                                                Mostly there are small differences. Try to complete manually editing the point to complete in thousand unit.
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                <div *ngIf=" pointForm.apply == 'refund' ">
+                                        <ul>
+                                            <li>When you refund the total amount, then simply refund the exact amount that was deposited to the bank or paypal.</li>
+                                            <li>When you refund only partially or left point from use, then use 'auto computation' but double check the amount.</li>
+                                        </ul>
+                                    </div>
+
+                                <div *ngIf="pointForm.apply">
+
+                                    <div *ngIf=" pointForm.apply == 'payment' ">
+                                        <div>
+                                            <span class="label">Amount:</span>
+                                            <input type="text" name="amount" [(ngModel)]="pointForm.amount" (ngModelChange)=" pointForm.payment_method = ''; pointForm.point = 0; pointForm.currency = '' ">
+                                            <button type="button" (click)=" onClickAutoCompute() ">Auto Compute</button>
+                                            <div class="note">How much was paid to buy the point?</div>
+                                            <div class="note">Click 'Auto compute' and it will deduct Buy Rate and VAT from the amount and
+                                                set the converted point.</div>
+                                        </div>
+                                        <div>
+                                            <span class="label">Payment Method:</span>
+                                            <label for="payment_method_paypal">
+                                                <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
+                                                    [value]="'paypal'"> Paypal
+                                            </label>
+
+                                            <label for="payment_method_wooribank">
+                                                <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW' "
+                                                    [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
+                                            </label>
+                                            <label for="payment_method_chinese_bank">
+                                                <input type="radio" type="radio" id="payment_method_chinese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'CNY' "
+                                                    [(ngModel)]="pointForm.payment_method" [value]="'chinesebank'"> Chinese Bank
+                                            </label>
+                                            <label for="payment_method_japanese_bank">
+                                                <input type="radio" type="radio" id="payment_method_japanese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'JPY' "
+                                                    [(ngModel)]="pointForm.payment_method" [value]="'japanesebank'"> Japanese Bank
+                                            </label>
+                                        </div>
+
+                                        <div *ngIf=" pointForm?.currency ">
+                                            <span class="label">Currency:</span>
+                                            {{ pointForm?.currency }}
+                                        </div>
+
+                                    </div>
+
+                                    <div>
+                                        <span class="label">POINT :</span>
+                                        <button type="button" (click)=" onClickAutoRefundCompute() ">Auto Compute</button>
+                                        <input type="number" name="pointForm_point" [(ngModel)]="pointForm.point">
+                                    </div>
+                                    <div>
+                                        <span class="label">Reason:</span>
+                                        <input class="reason" type="text" name="pointForm_reason" [(ngModel)]="pointForm.reason">
+                                    </div>
+
+                                    <ng-container *ngIf=" pointForm.apply == 'refund' ">
+
+                                        <div>
+                                            <span class="label">Payment Method:</span>
+                                            <label for="payment_method_paypal">
+                                                <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
+                                                    [value]="'paypal'"> Paypal
+                                            </label>
+
+                                            <label for="payment_method_wooribank">
+                                                <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW'; pointForm.amount = 0 "
+                                                    [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
+                                            </label>
+                                            <label for="payment_method_chinese_bank">
+                                                <input type="radio" type="radio" id="payment_method_chinese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'CNY'; pointForm.amount = 0 "
+                                                    [(ngModel)]="pointForm.payment_method" [value]="'chinesebank'"> Chinese Bank
+                                            </label>
+                                            <label for="payment_method_japanese_bank">
+                                                <input type="radio" type="radio" id="payment_method_japanese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'JPY'; pointForm.amount = 0 "
+                                                    [(ngModel)]="pointForm.payment_method" [value]="'japanesebank'"> Japanese Bank
+                                            </label>
+                                        </div>
+
+                                        <div *ngIf=" pointForm?.currency ">
+                                            <span class="label">Currency:</span>
+                                            {{ pointForm?.currency }}
+                                        </div>
+
+                                        <div>
+                                            <span class="label">Amount:</span>
+                                            <input type="text" name="amount" [(ngModel)]="pointForm.amount">
+                                            <button type="button" (click)=" onClickAutoRefundCompute() ">Auto Compute</button>
+                                            <div class="note">How much was paid to buy the point?</div>
+                                        </div>
+
+                                    </ng-container>
+                                    <div class="buttons">
+                                        <button class="app-button update" type="button" (click)="onClickPointUpdate()" *ngIf=" ! show.loader.updatePoint ">Update Point</button>
+                                        <button class="app-button cancel" type="button" (click)=" show.newPointUpdateForm = false">Cancel</button>
+                                        <div class="loader" *ngIf=" show.loader.updatePoint ">
+                                            <mat-spinner [diameter]="20"></mat-spinner>
+                                            Updating point...
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </section>
                         </div>
+                        <!--/new-point-edit-->
+
                     </div>
-        
+
                     <div class="profile-data-input">
                         <div>
                             <label>Email</label>
                             <input disabled value="{{ user.user_email }}" name="email">
                         </div>
-            
+
                         <div>
                             <label>Password</label>
                             <input value="{{ user.user_pass }}" [(ngModel)]=" user.user_pass " name="password">
                         </div>
-            
+
                         <div>
                             <label>Display Name</label>
                             <input value="{{ user.display_name }}" [(ngModel)]=" user.display_name " name="display_name">
                         </div>
-            
+
                         <div>
                             <label>Name</label>
                             <input value="{{ user.name }}" [(ngModel)]=" user.name " name="name">
                         </div>
-            
+
                         <div>
                             <label>Gender</label>
-                            <div  class="form-radio">
+                            <div class="form-radio">
                                 <input type='radio' id="gender_male" name='gender' [(ngModel)]=" user.gender " [value]="'M'" [checked]=" user.gender ">
                                 <label for="gender_male">Male</label>
                                 <input type='radio' id="gender_female" name='gender' [(ngModel)]=" user.gender " [value]="'F'" [checked]=" user.gender ">
                                 <label for="gender_female">Female</label>
                             </div>
                         </div>
-            
+
                         <div>
                             <label>Phone Number</label>
                             <input value="{{ user.phone_number }}" [(ngModel)]=" user.phone_number " name="phone_number">
                         </div>
-            
+
                         <div>
                             <label>Kakaotalk ID</label>
                             <input value="{{  user.kakaotalk_id }}" [(ngModel)]=" user.kakaotalk_id " name="kakaotalk_id">
                         </div>
-            
+
                         <div>
                             <label>Teacher Group</label>
                             <input value="{{  user.user_group }}" [(ngModel)]=" user.user_group " name="teacher_group">
                         </div>
-            
+
                         <div>
                             <label>Teacher Grade</label>
                             <input value="{{  user.grade }}" [(ngModel)]=" user.grade " name="teacher_grade">
                         </div>
-            
+
                         <div>
                             <label>List Order</label>
                             <input value="{{  user.list_order }}" [(ngModel)]=" user.list_order " name="list_order">
                         </div>
-            
+
                         <div>
                             <label>Bookable Time</label>
-                            <input value="{{  user.bookable_time }}"  [(ngModel)]=" user.bookable_time " name="bookable_time">
+                            <input value="{{  user.bookable_time }}" [(ngModel)]=" user.bookable_time " name="bookable_time">
                         </div>
-            
+
                         <div>
                             <label>Book Free class Until</label>
                             <input value="{{  user.block_free_class_until}}" [(ngModel)]=" user.block_free_class_until " name="block_free_class_until">
                         </div>
-            
+
                         <div>
                             <label>User Type</label>
-                            <input  *ngIf="!a.isSuperManager" disabled value="{{user.user_type =='T' ? 'Teacher' : 'Student'}}">
+                            <input *ngIf="!a.isSuperManager" disabled value="{{user.user_type =='T' ? 'Teacher' : 'Student'}}">
                             <div class="form-radio" *ngIf="a.isSuperManager">
                                 <input type='radio' id="user_type_student" name='user_type' [(ngModel)]=" user.user_type " [value]="'S'" [checked]=" user.user_type ">
                                 <label for="user_type_student">Student</label>
@@ -209,31 +359,31 @@
                                 <label for="user_type_teacher">Teacher</label>
                             </div>
                         </div>
-                
+
                         <div>
                             <label>Timezone</label>
-                            <input value="{{  user.timezone }}"  [(ngModel)]=" user.timezone " name="timezone">
+                            <input value="{{  user.timezone }}" [(ngModel)]=" user.timezone " name="timezone">
                         </div>
-            
-                        <div  *ngIf="a.isSuperManager">
+
+                        <div *ngIf="a.isSuperManager">
                             <label>Domain</label>
-                            <input value="{{  user.domain  }}"  [(ngModel)]=" user.domain " name="domain">
+                            <input value="{{  user.domain  }}" [(ngModel)]=" user.domain " name="domain">
                         </div>
-            
-                        <div  *ngIf="a.isSuperManager">
+
+                        <div *ngIf="a.isSuperManager">
                             <label>Manager</label>
-                            <input value="{{  user.manager  }}"  [(ngModel)]=" user.manager " name="manager">
+                            <input value="{{  user.manager  }}" [(ngModel)]=" user.manager " name="manager">
                         </div>
                         <div class="form-button">
-                                <button class="app-button" type='button' (click)="onSubmitUserInfo()" *ngIf=" ! show.loader.updateProfile ">Update User Profile</button>
-                                <div class="loader" *ngIf=" show.loader.updateProfile ">
-                                    <mat-spinner [diameter]="15"></mat-spinner>
-                                    Saving ...
-                                </div>
-                                <div class="loader" *ngIf=" show.loader.profileSaved ">
-                                    <mat-spinner [diameter]="15"></mat-spinner>
-                                    Saved...
-                                </div>
+                            <button class="app-button" type='button' (click)="onSubmitUserInfo()" *ngIf=" ! show.loader.updateProfile ">Update User Profile</button>
+                            <div class="loader" *ngIf=" show.loader.updateProfile ">
+                                <mat-spinner [diameter]="15"></mat-spinner>
+                                Saving ...
+                            </div>
+                            <div class="loader" *ngIf=" show.loader.profileSaved ">
+                                <mat-spinner [diameter]="15"></mat-spinner>
+                                Saved...
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -248,27 +398,53 @@
                 </div>
                 <table *ngIf=" ! show.loader.loadPayment && payments.length ">
                     <tr>
-                        <!-- <th>idx</th> -->
-                        <!-- <th>Student</th> -->
                         <th>Point</th>
+                        <th>Amount</th>
                         <th>Currency</th>
-                        <!-- <th>Amount</th> -->
                         <th>Method</th>
-                        <th>Status</th>
                         <th>Date</th>
                     </tr>
                     <tr *ngFor="let pay of payments">
-                        <!-- <td>{{ pay.idx }}</td> -->
-                        <!-- <td>{{ pay.student?.display_name }}({{ pay.student?.name}})</td> -->
                         <td>{{ pay.point | number }}</td>
+                        <td>{{ pay.amount | number }}</td>
                         <td>{{ pay.currency }}</td>
                         <td>{{ pay.payment_method }}</td>
-                        <td>{{ pay.state }}</td>
                         <td nowrap>{{ a.veryShortDate(pay.stamp_begin) }}</td>
                     </tr>
                 </table>
             </section>
-                        
+
+            <section id="failed-payment" [class.margin-as-teacher]=" user.user_type != 'T' ">
+                <div class="d-flex justify-content-between">
+                    <h2>Failed Payment</h2>
+                    <div class="p-3 failed-payment-click-to-open" (click)=" show.failedPayments = true ">Click to Open</div>
+                </div>
+                <div>
+                    Bank transaction record will be listed here. You can click [C] to auto compute the POINT of the transaction. But be careful.
+                    Always double check.
+                </div>
+                <div class="loader" *ngIf=" show.loader.loadFailedPayment ">
+                    <mat-spinner [diameter]="48"></mat-spinner>
+                    Loading Failed Payment Info...
+                </div>
+                <table *ngIf=" ! show.loader.loadFailedPayment && show.failedPayments && failedPayments.length ">
+                    <tr>
+                        <th>Point</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>Method</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr *ngFor="let pay of failedPayments">
+                        <td>{{ pay.point | number }}</td>
+                        <td class="failed-payment-auto-compute" (click)="onClickFailedAmount( pay )">{{ pay.amount | number }}[C]</td>
+                        <td>{{ pay.currency }}</td>
+                        <td>{{ pay.payment_method }}</td>
+                        <td nowrap>{{ a.veryShortDate(pay.stamp_begin) }}</td>
+                    </tr>
+                </table>
+            </section>
+
             <section id="refund-request" [class.margin-as-teacher]=" user.user_type == 'T' ">
                 <h2>Refund Request</h2>
                 <table>
@@ -298,7 +474,7 @@
                         <td>{{ re.date }} {{ re.class_begin }}</td>
                         <td>
                             <a class='user-info' routerLink="/manager/point-refund/idx/{{re.idx}}">
-                            <svg viewBox="0 0 576 512">
+                                <svg viewBox="0 0 576 512">
                                     <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
                                 </svg>
                                 open
@@ -307,7 +483,7 @@
                     </tr>
                 </table>
             </section>
-                
+
             <section id="sessions">
                 <h2>Sessions</h2>
                 <ul class="sessions-desc">
@@ -321,9 +497,11 @@
                     Loading schedule
                 </div>
                 <div class="mini-stat">
-                        <span><b>Reserved:</b> {{ count.session.future | number }}</span>
-                        <span><b>Past:</b> {{ count.session.past | number }}</span>
-                </div>  
+                    <span>
+                        <b>Reserved:</b> {{ count.session.future | number }}</span>
+                    <span>
+                        <b>Past:</b> {{ count.session.past | number }}</span>
+                </div>
                 <table *ngIf=" sessions.length ">
                     <tr>
                         <th>No.</th>
@@ -406,7 +584,7 @@
                         <th>idx reservation</th>
                         <th>Action Time</th>
                     </tr>
-        
+
                     <tr *ngFor=" let log of pointHistory ">
                         <td>
                             <a class="user-info" *ngIf="log?.teacher?.display_name" matTooltip="{{ log.teacher?.display_name }}" routerLink="/manager/user-info/{{ log.teacher?.idx }}">
@@ -448,4 +626,3 @@
     </div>
 
 </section>
-

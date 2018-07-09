@@ -18,9 +18,13 @@ const routes: Routes = [
   //   path: 'install',
   //   loadChildren: './sites/katalkenglish/pages/katalkenglish-install/katalkenglish-install.page.module#KatalkEnglishInstallPageModule'
   // },
+  // {
+  //   path: 'payment',
+  //   loadChildren: './sites/katalkenglish/pages/katalkenglish-payment/katalkenglish-payment.page.module#KatalkEnglishPaymentPageModule'
+  // },
   {
     path: 'payment',
-    loadChildren: './sites/katalkenglish/pages/katalkenglish-payment/katalkenglish-payment.page.module#KatalkEnglishPaymentPageModule'
+    loadChildren: './pages/new-payment/new-payment.page.module#NewPaymentPageModule'
   },
   {
     path: 'payment-result',
