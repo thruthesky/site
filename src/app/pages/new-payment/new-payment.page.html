@@ -5,12 +5,12 @@
     </header>
 
 
-    <div class="loader" *ngIf=" inLoadingPaymentRate  ">
+    <div class="loader" *ngIf=" loader.paymentRate  ">
         <mat-spinner [diameter]="48"></mat-spinner>
         <span>{{ 'LOADING_PAYMENT_INFORMATION' | t }}</span>
     </div>
 
-    <section class="warning exchange-rate" *ngIf=" errorOnExchangeRate; else noExchangeError ">
+    <section class="warning exchange-rate" *ngIf=" loader.paymentRate == false && errorOnExchangeRate; else noExchangeError ">
         {{ 'ERROR_ON_EXCHANGE_RATE' | t}}
     </section>
 
@@ -21,8 +21,8 @@
             <div class="payment-select" *ngIf=" ! amount ">
 
                 <div class="select-amount">
-                    <div class="header">{{'SELECT_AMOUNT'| t}}</div>
-                    <div> {{ 'SELECT_AMOUNT_DESC' | t }}</div>
+                    <div class="title">{{'SELECT_AMOUNT'| t}}</div>
+                    <div class="desc"> {{ 'SELECT_AMOUNT_DESC' | t }}</div>
                 </div>
 
 
@@ -60,7 +60,7 @@
                         <label for="a200000"> {{'200_THOUSAND_POINT' | t}}</label>
                     </div>
                 </div>
-                
+
                 <div class="manual-amount-input">
                     <div class="header" (click)=" inputAmount = true " *ngIf=" ! inputAmount ">
                         {{ 'ENTER_AMOUNT_MANUALLY' | t}}
@@ -79,7 +79,7 @@
         <div class="desc" *ngIf=" amount_in_usd_with_tax() ">
 
             <div>{{ 'VAT_1' | t:{ 'AMOUNT': amount | number } }}</div>
-            <div (click)=" amount = 0; paymentMethod='' ">{{ 'CANCEL_RESELECT_AMOUNT' | t }}</div>
+            <div class="change-point" (click)=" amount = 0; paymentMethod='' ">{{ 'CHANGE_POINT_AMOUNT' | t }}</div>
 
         </div>
 
@@ -91,54 +91,49 @@
 
 
         <div class="select-payment-method" *ngIf=" amount && paymentMethod == '' ">
-            <div class="title">Select Payment Method</div>
+            <div class="title">{{ 'SELECT_PAYMENT_METHOD' | t }}</div>
             <div class="buttons">
-                <button class="bank" (click)=" onSelectBankTransaction() ">Bank Transaction</button>
-                <button class="paypal" (click)=" onSelectPaypalPayment() ">Paypal Credit Card</button>
+                <button class="bank" (click)=" onSelectBankTransaction() ">{{ 'BANK_TRANSACTION' | t }}</button>
+                <button class="paypal" (click)=" onSelectPaypalPayment() ">{{ 'PAYPAL_CREDIT' | t }}</button>
             </div>
         </div>
 
 
 
-        <!-- <div class="paypal-ready" *ngIf=" ! paypalReady ">
-            <div class="spinner">
-                <mat-spinner [diameter]="30"></mat-spinner> {{ 'INITIALIZING_PAYPAL' | t}}</div>
-            <div> {{ 'PLEASE_WAIT' | t}}</div>
-        </div> -->
+        <div class="paypal-payment" [ngClass]="{ selected: paymentMethod == 'paypal' && amount }">
+            <h1>Paypal Credit Card Payment</h1>
+            <!-- <button (click)=" onSelectBankTransaction() ">Change to Bank Transaction</button> -->
+            <div class="paypal-button">
+                <div>
+                    {{ 'VAT_2' | t:{ 'AMOUNT': amount | number , 'USD': amount_in_usd_with_tax(), 'VAT': a.vat } }}
+                </div>
 
-        <div class="paypal-button" [ngClass]="{ selected: paymentMethod == 'paypal' && amount }">
-            <div>
-                {{ 'VAT_2' | t:{ 'AMOUNT': amount | number , 'USD': amount_in_usd_with_tax(), 'VAT': a.vat } }}
+                <div id="paypal-button"></div>
+
+                <div>{{ 'PAYPAL_DESC' | t }}</div>
+                
             </div>
-
-            <div id="paypal-button"></div>
-
-            <div>
-                <button (click)=" onSelectBankTransaction() ">Change to Bank Transaction</button>
-                <button (click)=" amount = 0; paymentMethod='' ">Change point amount</button>
-            </div>
-
-
-            <div>{{ 'PAYPAL_DESC' | t }}</div>
-
         </div>
 
-        <div class="select-bank" *ngIf=" amount && paymentMethod != '' && paymentMethod != 'paypal' ">
 
-            <div>{{ 'SELECT_BANK_COUNTRY' | t }}</div>
+        <div class="select-bank" *ngIf=" amount && paymentMethod == 'bank' ">
+
+            <div class="title">{{ 'SELECT_BANK_COUNTRY' | t }}</div>
+            <div>
+                <!-- <button (click)=" onSelectPaypalPayment() ">{{ 'CHANGE_TO_PAYPAL' | t }}</button> -->
+            </div>
             <div class="buttons">
-
                 <div class="country korea" (click)=" onSelectBankCountry('koreanBank'); ">
-                    <div class="country-name">Korea</div>
-                    <div class="bank-name">Woori Bank</div>
+                    <div class="country-name">{{ 'KOREAN_BANK' | t }}</div>
+                    <div class="bank-name">{{ 'KOREAN_BANK_NAME' | t }}</div>
                 </div>
                 <div class="country china" (click)=" onSelectBankCountry('chineseBank'); ">
-                    <div class="country-name">China</div>
-                    <div class="bank-name">China Bank</div>
+                    <div class="country-name">{{ 'CHINESE_BANK' | t }}</div>
+                    <div class="bank-name">{{ 'CHINESE_BANK_NAME' | t }}</div>
                 </div>
                 <div class="country japan" (click)=" onSelectBankCountry('japaneseBank'); ">
-                    <div class="country-name">Japan</div>
-                    <div class="bank-name">Japanese Bank</div>
+                    <div class="country-name">{{ 'JAPANESE_BANK' | t }}</div>
+                    <div class="bank-name">{{ 'JAPANESE_BANK_NAME' | t }}</div>
                 </div>
             </div>
         </div>
@@ -149,15 +144,29 @@
             <div class="korean-bank" *ngIf=" paymentMethod == 'koreanBank' ">
                 <div class="korean-bank-title">{{ 'WOORIBANK_PAYMENT_TITLE' | t }}</div>
                 <div class="korean-bank-desc">
-                    <div>{{ 'WOORIBANK_PAYMENT_DESC_1' | t }}</div>
-                    <div>
-                        <b>{{ 'WOORIBANK_NAME' | t }}</b> {{ 'ACCOUNT_HOLDER_NAME' | t }}
-                        <b>{{ 'WOORIBANK_ACCOUNT_HOLDER_NAME' | t }}</b> {{ 'ACCOUNT_NO' | t }}
-                        <b>{{ 'WOORIBANK_ACCOUNT_NO' | t }}</b>
+                    <div class="leave-a-message-after-deposit">{{ 'WOORIBANK_PAYMENT_DESC_1' | t }}</div>
+                    <div class="bank-transaction-information">
+                        <div class="container">
+                            <div class="row">
+                                <b>{{ 'WOORIBANK_NAME' | t }}</b>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
+                                <div class="col"><b>{{ 'WOORIBANK_ACCOUNT_HOLDER_NAME' | t }}</b></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
+                                <div class="col"><b>{{ 'WOORIBANK_ACCOUNT_NO' | t }}</b></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                                <div class="col">{{ amount_in_krw_with_tax() | number }} {{ 'WON' | t }}</div>
+                            </div>
+                        </div>
                     </div>
-                    <div>{{ 'WOORIBANK_PAYMENT_DESC_2' | t:{ 'amount': amount_in_krw_with_tax() | number, 'VAT': paymentRate?.VAT}
-                        }}
-                    </div>
+
+                    <div class="exchange-vat-desc">{{ 'WOORIBANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
+                        } }} </div>
                 </div>
             </div>
             <div class="korean-bank" *ngIf=" paymentMethod == 'chineseBank' ">
@@ -191,19 +200,18 @@
                 </div>
                 <div>{{ 'JAPANESE_BANK_DESC_2' | t:{ 'amount': amount_in_jpy_with_tax() | number, 'VAT': paymentRate?.VAT} }}</div>
             </div>
-            <div *ngIf=" paymentMethod != '' && paymentMethod != 'paypal' ">
-                <button (click)=" onSelectPaypalPayment() ">Change to Paypal</button>
-                <button (click)=" amount = 0; paymentMethod='' ">Change point amount</button>
+        </div>
+
+        <div class="change-point" (click)=" amount = 0; paymentMethod='' "
+        *ngIf=" paymentMethod == 'paypal' || paymentMethod == 'koreanBank' || paymentMethod =='chineseBank' || paymentMethod == 'japaneseBank' "
+        >{{ 'CHANGE_POINT_AMOUNT' | t }}</div>
+
+        <footer class="payment-footer">
+            <div class="refund-policy">{{ 'REFUND_POLICY' | t }}</div>
+            <div class="help">
+                <a class="app-button" (click)=" a.onClickContactAdmin() ">{{ 'PAYMENT_DIFFICULT' | t}}</a>
             </div>
-        </div>
-
-
-        <div>{{ 'REFUND_POLICY' | t }}</div>
-
-
-        <div>
-            <a class="app-button" (click)=" a.onClickContactAdmin() ">{{ 'PAYMENT_DIFFICULT' | t}}</a>
-        </div>
+        </footer>
     </ng-template>
 
 
