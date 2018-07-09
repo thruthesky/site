@@ -628,5 +628,6 @@
   "CHANGE_POINT_AMOUNT": "支払い方法の選択",
   "BANK_TRANSACTION": "銀行取引",
   "PAYPAL_CREDIT": "カード払い",
-  "CHANGE_TO_PAYPAL": "クレジットカード決済への変更"
+  "CHANGE_TO_PAYPAL": "クレジットカード決済への変更",
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。"
 }
