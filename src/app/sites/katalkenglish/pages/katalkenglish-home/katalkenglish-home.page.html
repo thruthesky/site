@@ -12,17 +12,16 @@
                 <div class="my-own-plan">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <img class="calendar-img" src="assets/img/my-own-calendar.png">
                             </div>
-                            <div class="desc col-6" (click)=" showMoreMyOwnPlan() ">
+                            <div class="desc col-8" (click)=" showMoreMyOwnPlan() ">
                                 <h2>{{ a.ln._IF_CAN_KATALK }}</h2>
                                 <div class="text">
                                     {{ a.ln._WHENEVER_WHEREVER }}
                                 </div>
-
                                 <div class="view-more" *ngIf=" ! showMoreMyOwnPlan_1 ">
-                                    {{ a.ln.MORE }}...
+                                    <span>{{ a.ln.MORE }}</span>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +50,7 @@
                                     <div>
                                         {{ a.ln._NO_COMPARE }}
                                         <span class="show-more" *ngIf=" ! moreAbout1 ">
-                                            {{ a.ln.MORE }}...
+                                            <span>{{ a.ln.MORE }}</span>
                                         </span>
                                     </div>
                                 </div>
