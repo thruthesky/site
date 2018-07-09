@@ -15,9 +15,9 @@ export class NewPaymentPage implements AfterViewInit {
     /**
      * default amount to be selected.
      */
-    amount = 10000; // should 0.
+    amount = 0; // should 0.
 
-    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = 'bank';
+    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = ''; // should be empty
 
 
 
@@ -27,10 +27,11 @@ export class NewPaymentPage implements AfterViewInit {
 
 
     inputAmount = false;
-    inLoadingPaymentRate = true;
-
 
     paymentRate: PAYMENT_RATE = null;
+    loader = {
+        paymentRate: true
+    };
     constructor(
         public a: AppService
     ) {
@@ -41,7 +42,7 @@ export class NewPaymentPage implements AfterViewInit {
          * @note it needs to get real time data from server since exchange rate changes every minutes.
          */
         a.lms.payment_rate().subscribe(re => {
-            this.inLoadingPaymentRate = false;
+            this.loader.paymentRate = false;
             this.paymentRate = re;
             console.log('paymentRate: ', this.paymentRate);
         }, () => { });
@@ -261,6 +262,14 @@ export class NewPaymentPage implements AfterViewInit {
         }
         const jpy = this.usdWithVat * this.a.floatval(this.paymentRate.USD_TO_JPY);
         return Math.round(jpy * 100) / 100;
+    }
+
+    amount_in_usd() {
+        if (!this.amount) {
+            return 0;
+        }
+        const amount = this.amount / 1000;
+        return Math.round( amount * 100 ) / 100;
     }
 
 

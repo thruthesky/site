@@ -624,5 +624,10 @@
   "DOMAIN_CHANGE_APPLICATION_CANCELLED": "ドメイン変更アプリケーションがキャンセルされました。",
   "BRANCH_INFO_UPDATED": "ブランチ情報が更新されました。",
   "POINT_REFUND_REQUEST_DESC": "ポイントを取得したい理由を入力してください",
-  "HEAD_OFFICE_CONTACTS": "本社の連絡先を控えて"
+  "HEAD_OFFICE_CONTACTS": "本社の連絡先を控えて",
+  "CONFIRM": "確認",
+  "CHANGE_POINT_AMOUNT": "支払い方法の選択",
+  "BANK_TRANSACTION": "銀行取引",
+  "PAYPAL_CREDIT": "カード払い",
+  "CHANGE_TO_PAYPAL": "クレジットカード決済への変更"
 }

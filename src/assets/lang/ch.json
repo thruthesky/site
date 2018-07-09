@@ -650,6 +650,12 @@
   "DOMAIN_CHANGE_APPLICATION_CANCELLED": "您的域名更改应用程序已被取消。",
   "BRANCH_INFO_UPDATED": "您的分行信息已更新。",
   "POINT_REFUND_REQUEST_DESC": "请输入您想要回复的原因",
-  "HEAD_OFFICE_CONTACTS": "Withcenter总部联系人"
+  "HEAD_OFFICE_CONTACTS": "Withcenter总部联系人",
+  "CONFIRM": "确认",
+  "SELECT_PAYMENT_METHOD": "选择付款方式",
+  "BANK_TRANSACTION": "银行交易",
+  "PAYPAL_CREDIT": "信用卡付款",
+  "CHANGE_TO_PAYPAL": "更改为信用卡付款",
+  "CHANGE_POINT_AMOUNT": "变更金额"
 
 }

@@ -304,7 +304,7 @@
   "PARTICIPATED": "명 참여",
   "INSTRUCTOR_MORE": "강사 더보기",
 
-  "PAYMENT_PAGE_TITLE": "원하는 만큼 결제하고 원하는 만큼 수업하세요.",
+  "PAYMENT_PAGE_TITLE": "포인트 구매",
   "SELECT_AMOUNT": "포인트 선택",
   "LOADING_PAYMENT_INFORMATION": "결제 정보를 로드 중. 잠시만 기다려주세요.",
   "ERROR_ON_EXCHANGE_RATE": "앗, 환율 책정 문제 발생하여 결제를 할 수 없습니다. 관리자에게 알려주세요.",
@@ -536,8 +536,10 @@
 
 
   "WOORIBANK_PAYMENT_TITLE": "우리은행 무통장 입금 안내",
-  "WOORIBANK_PAYMENT_DESC_1": "한국 회원님의 경우 아래와 같이 무통장 입금을 하실 수 있습니다.",
-  "WOORIBANK_PAYMENT_DESC_2": "포인트 결제를 하실 때 부가세 #VAT% 를 추가로 납부해야합니다.",
+  "WOORIBANK_PAYMENT_DESC_1": "입금하시고 상담게시판에 입금자명을 남겨주세요.",
+  "AMOUNT_TO_PAY": "결제하실 금액",
+  "WON": "원",
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "위 금액은 #point 포인트(#usd 달러)를 원으로 환산하고 부가세 #VAT% 를 포함한 금액입니다.",
   "ACCOUNT_HOLDER_NAME": "예금주",
   "WOORIBANK_ACCOUNT_HOLDER_NAME": "송재호",
   "ACCOUNT_NO": "계좌번호",
@@ -658,6 +660,22 @@
   "POINT_REFUND_REQUEST_DESC": "포인트 복구 신청 사유를 적어주세요.",
   "HEAD_OFFICE_CONTACTS": "위세너 본사 연락처",
 
-  "CANCEL_RESELECT_AMOUNT": "포인트 변경하기",
-  "SELECT_BANK_COUNTRY": "입금 국가와 은행을 선택하세요."
+  "CHANGE_POINT_AMOUNT": "취소하고 포인트 선택 새로하기",
+  "SELECT_BANK_COUNTRY": "입금 은행을 선택하세요.",
+  "CONFIRM": "확인",
+  "SELECT_PAYMENT_METHOD": "결제 방법 선택",
+  "BANK_TRANSACTION": "무통장 입금",
+  "PAYPAL_CREDIT": "신용카드 결제",
+  "CHANGE_TO_PAYPAL": "신용카드 결제로 변경하기",
+  "KOREAN_BANK": "한국은행",
+  "CHINESE_BANK": "중국은행",
+  "JAPANESE_BANK": "일본은행",
+  "KOREAN_BANK_NAME": "우리은행",
+  "CHINESE_BANK_NAME": "신화은행",
+  "JAPANESE_BANK_NAME": "니산은행",
+
+
+
+  "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
+  "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)"
 }

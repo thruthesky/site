@@ -707,6 +707,11 @@
   "JAPANESE_BANK_ACCOUNT_NO": "XYZ-0123-45678",
   "JAPANESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
 
-  "CANCEL_RESELECT_AMOUNT": "Change point",
-  "SELECT_BANK_COUNTRY": "Select your country bank"
+  "CHANGE_POINT_AMOUNT": "Change point",
+  "SELECT_BANK_COUNTRY": "Select your country bank",
+  "CONFIRM": "Confirm",
+  "SELECT_PAYMENT_METHOD": "Select Payment Method",
+  "BANK_TRANSACTION": "무통장 입금",
+  "PAYPAL_CREDIT": "신용카드 결제",
+  "CHANGE_TO_PAYPAL": "Change to Paypal"
 }

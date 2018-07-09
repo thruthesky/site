@@ -1,5 +1,4 @@
 @import './../../../theme/vars';
-
 main {
     padding-bottom: 5em;
     background: #fff;
@@ -13,11 +12,16 @@ main {
 .select-amount {
     padding: 2em;
     padding-top: 5em;
-    .header {
+    .title {
         color: blue;
     }
     @media screen and (max-width:544px) {
         padding-top: 2.5em;
+    }
+    .desc {
+        margin: 0;
+        padding: 0;
+        background-color: white;
     }
 }
 
@@ -34,8 +38,12 @@ main {
         align-items: center;
         margin: 0 .2em;
     }
+    input {
+        cursor: pointer;
+    }
     label {
         padding-left: .3em;
+        cursor: pointer;
     }
     @media screen and (max-width:544px) {
         padding: 2em .5em;
@@ -49,7 +57,7 @@ main {
     text-align: center;
     cursor: pointer;
     .header {
-        margin-top: 2em;
+        margin: 2em auto;
         @media (min-width: $md) {
             margin-top: 4em;
         }
@@ -83,7 +91,7 @@ main {
     }
 }
 
-.paypal-button {
+.paypal-payment {
     visibility: hidden;
     height: 10px;
     overflow: hidden;
@@ -119,22 +127,6 @@ main {
     }
 }
 
-.korean-bank {
-    line-height: 150%;
-    .korean-bank-title {
-        margin-bottom: 0.5em;
-        padding: .25em .5em;
-        border: 0;
-        border-radius: 3px;
-        background-color: #5a1616;
-        color: white;
-    }
-    .korean-bank-desc {
-        margin-left: 1em;
-    }
-}
-
-
 .warning {
     padding: 4em 1.6em;
     background-color: #970303;
@@ -145,13 +137,12 @@ main {
     padding: 1.6em;
     color: blue;
     background-color: #eee;
-
     .buttons {
+        margin-top: .5em;
         button {
             border: 0;
-            padding: 1em;
+            padding: 1em 2em;
             font-size: 1em;
-
             &.bank {
                 background-color: #e4e101;
             }
@@ -164,10 +155,14 @@ main {
 }
 
 .select-bank {
+    .title {
+        padding: .6em 1.6em;
+    }
     .buttons {
         display: flex;
         .country {
             padding: .5em 1em;
+            width: 33.33%;
             cursor: pointer;
             &.korea {
                 background-color: #cee3ff;
@@ -188,3 +183,59 @@ main {
     }
 }
 
+footer.payment-footer {
+    margin-top: 1em;
+    padding: 0 1.6em;
+    @media (min-width: $md) { padding: 0; }
+    font-size: .8em;
+    .refund-policy {
+        padding: .6em;
+        background-color: #e1eeff;
+    }
+    .help {
+        margin-top: 1em;
+        .app-button {
+            margin: 0;
+        }
+    }
+}
+
+.change-point {
+    font-size: .85em;
+    cursor: pointer;
+}
+
+
+
+.banks {
+    .bottom-buttons {
+        padding: .6em 1.6em;
+        background-color: white;
+        font-size: .85em;
+        button {
+            border: 0;
+        }
+    }
+}
+
+
+
+.korean-bank {
+    line-height: 150%;
+    .korean-bank-title {
+        margin-bottom: 0.5em;
+        padding: 1em;
+        border: 0;
+        background-color: #cee3ff;
+        color: black;
+    }
+}
+
+
+.bank-transaction-information {
+    padding: 1.6em;
+    background-color: #bdbeae;
+}
+.exchange-vat-desc, .leave-a-message-after-deposit {
+    font-size: .8em;
+}
