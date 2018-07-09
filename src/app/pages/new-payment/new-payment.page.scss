@@ -307,51 +307,49 @@ footer.payment-footer {
 
 
 .banks {
+    .bank-item {
+        font-size: .85em;
+        line-height: 150%;
+        @media (min-width:$md) {
+            margin: 1em;
+            font-size: 1em;
+        }
+        .bank-title {
+            margin: .5em 1em;
+            @media (min-width:$md) {
+                margin: 1em;
+                font-size: 1.1em;
+            }
+            color: blue
+        }
+        .bank-name{
+            color: darkblue;
+            margin-bottom: 1em;
+            font-weight: bold
+        }
+        .container-fluid{
+            border: 1px solid rgba(125,125,125,0.2);
+            .row{
+                border-bottom: 1px solid rgba(125,125,125,0.2);
+                &:last-child{
+                    border-bottom: 0;
+                }
+                .col{
+                    padding: .5em 1em;
+                    &:first-child{
+                        border-right: 1px solid rgba(125,125,125,0.2)
+                    }
+                }
+            }
+        }
+    }
+
     .bottom-buttons {
         padding: .6em 1.6em;
         background-color: white;
         font-size: .85em;
         button {
             border: 0;
-        }
-    }
-}
-
-
-
-.korean-bank {
-    font-size: .85em;
-    line-height: 150%;
-    @media (min-width:$md) {
-        margin: 1em;
-        font-size: 1em;
-    }
-    .korean-bank-title {
-        margin: .5em 1em;
-        @media (min-width:$md) {
-            margin: 1em;
-            font-size: 1.1em;
-        }
-        color: blue
-    }
-    .wooribank-name{
-        color: darkblue;
-        margin-bottom: 1em;
-        font-weight: bold
-    }
-    .container-fluid{
-        border: 1px solid rgba(125,125,125,0.2);
-        .row{
-            border-bottom: 1px solid rgba(125,125,125,0.2);
-            &:last-child{
-                border-bottom: 0;
-            }
-            .col{
-                padding: .5em 1em;
-                &:first-child{
-                    border-right: 1px solid rgba(125,125,125,0.2)
-                }
-            }
         }
     }
 }
