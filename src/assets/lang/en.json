@@ -711,7 +711,7 @@
   "SELECT_BANK_COUNTRY": "Select your country bank",
   "CONFIRM": "Confirm",
   "SELECT_PAYMENT_METHOD": "Select Payment Method",
-  "BANK_TRANSACTION": "무통장 입금",
-  "PAYPAL_CREDIT": "신용카드 결제",
+  "BANK_TRANSACTION": "Bank Transaction",
+  "PAYPAL_CREDIT": "Credit Card",
   "CHANGE_TO_PAYPAL": "Change to Paypal"
 }
