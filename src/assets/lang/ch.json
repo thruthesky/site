@@ -525,7 +525,6 @@
   "WOORIBANK_PAYMENT_DESC_1": "如果您是韩国人，您可以使用Wooribank交易付款。",
   "WOORIBANK_PAYMENT_DESC_2": "您需要支付增值税的附加＃增值税％。",
   "ACCOUNT_HOLDER_NAME": "账户持有人姓名",
-  "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "户口号码",
   "WOORIBANK_NAME": "Wooribank",
   "TERMS_AND_CONDITIONS": "附带条约",
@@ -657,5 +656,7 @@
   "CHANGE_TO_PAYPAL": "更改为信用卡付款",
   "CHANGE_POINT_AMOUNT": "变更金额",
   "WOORIBANK_PAYMENT_AMOUNT_DESC": "以上金额由#usd美元换算，含增值税＃VAT％。",
-  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "以上金额由#usd美元换算，含增值税＃VAT％。"
+  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "以上金额由#usd美元换算，含增值税＃VAT％。",
+  "RENMINBI": "人民币",
+  "YEN": "日元"
 }
