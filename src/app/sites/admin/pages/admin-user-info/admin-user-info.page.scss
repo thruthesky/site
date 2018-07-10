@@ -87,7 +87,25 @@
                     height: 1em;
                     width: 1em;
                     color: #162EAE;
-                    margin-left: .3em;
+                    margin-left: 1em;
+                }
+                .sched{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 2px;
+                    background: rgba(125,125,125,0.2);
+                    margin-left: 1em;
+                    padding: .2em .75em;
+                    font-size: .75em;
+                    svg{
+                        margin-left: .5em;
+                        color: darkorange;
+                    }
+                }
+                span{
+                    margin: 0;
+                    line-height: 0;
                 }
             }
             span{
@@ -296,6 +314,44 @@
     #refund-request,
     #failed-payment{
         margin-top: 3.5em
+    }
+    #failed-payment{
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .failed-payment-click-to-open{
+            display: flex;
+            align-items: center;
+            padding: 0 2em;
+            font-size: .9em;
+            color: darkblue;
+            svg{
+                height: 1.3em;
+                width: 1.3em;
+                margin-left: .3em;
+            }
+        }
+        .note{
+            margin-bottom: 1em;
+            padding: 1em;
+            background-color: #d6d8d9;
+            color: #1b1e21;
+            font-size: .9em;
+            line-height: 1.6em;
+        }
+        .calc-icon{
+            color: darkred;
+            svg{
+                margin: 0 .2em;
+                height: 1.2em;
+                width: 1.2em;
+            }
+        }
+        .failed-payment-auto-compute{
+            display: flex;
+        }
     }
     .margin-as-teacher{
         margin-top: 0!important;
