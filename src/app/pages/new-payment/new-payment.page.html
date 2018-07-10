@@ -20,7 +20,7 @@
         <div *ngIf=" a.user.isLogin; else loginFirst ">
             <div class="payment-select" *ngIf=" ! amount ">
 
-                <div class="select-amount" >
+                <div class="select-amount">
                     <div class="title">{{'SELECT_AMOUNT'| t}}</div>
                     <div class="desc"> {{ 'SELECT_AMOUNT_DESC' | t }}</div>
                 </div>
@@ -99,7 +99,9 @@
                 </button>
 
                 <button class="bank" (click)=" onSelectBankTransaction() ">
-                    <svg viewBox="0 0 640 512"><path fill="currentColor" d="M624 32H16C7.16 32 0 39.16 0 48v400c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V48c0-8.84-7.16-16-16-16zm-16 416H32V160h576v288zm0-320H32V64h576v64zM104 384h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm288 0h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H392c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm-288-96h208c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm296 0h128c8.84 0 16-7.16 16-16v-64c0-8.84-7.16-16-16-16H400c-8.84 0-16 7.16-16 16v64c0 8.84 7.16 16 16 16zm16-64h96v32h-96v-32z"></path></svg>
+                    <svg viewBox="0 0 640 512">
+                        <path fill="currentColor" d="M624 32H16C7.16 32 0 39.16 0 48v400c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V48c0-8.84-7.16-16-16-16zm-16 416H32V160h576v288zm0-320H32V64h576v64zM104 384h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm288 0h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H392c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm-288-96h208c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm296 0h128c8.84 0 16-7.16 16-16v-64c0-8.84-7.16-16-16-16H400c-8.84 0-16 7.16-16 16v64c0 8.84 7.16 16 16 16zm16-64h96v32h-96v-32z"></path>
+                    </svg>
                     {{ 'BANK_TRANSACTION' | t }}
                 </button>
 
@@ -162,26 +164,26 @@
                         <!-- <div class="bank-name">{{ 'WOORIBANK_NAME' | t }}</div> -->
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
-                                <div class="col">
+                                <div class="col-5 col-md-3">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
+                                <div class="col-7 col-md-9">
                                     <b>송재호</b>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
-                                <div class="col">
+                                <div class="col-5 col-md-3">{{ 'ACCOUNT_NO' | t }}</div>
+                                <div class="col-7 col-md-9">
                                     <b>1005-103-328421</b>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
-                                <div class="col">{{ amount_in_krw_with_tax() | number }} {{ 'WON' | t }}</div>
+                                <div class="col-5 col-md-3">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                                <div class="col-7 col-md-9" data-role="bank-transaction-amount"><b>{{ amount_in_krw_with_tax() | number }} {{ 'WON' | t }}</b></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="exchange-vat-desc">
-                        {{ 'WOORIBANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount | number, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT } }} </div>
+                        {{ 'WOORIBANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount | number, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT, 'amount': amount_in_krw_with_tax() | number } }} </div>
                 </div>
             </div>
 
@@ -263,14 +265,14 @@
 
         <footer class="payment-footer">
             <div class="refund-policy">{{ 'REFUND_POLICY' | t }}</div>
-            <div class="help">
-                <a class="app-button" (click)=" a.onClickContactAdmin() ">
-                    {{ 'PAYMENT_DIFFICULT' | t}}
+            <a class="help" (click)=" a.onClickContactAdmin() ">
+                <div class="text-and-icon">
+                    <span class="text">{{ 'PAYMENT_DIFFICULT' | t}}</span>
                     <svg viewBox="0 0 576 512">
                         <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
                     </svg>
-                </a>
-            </div>
+                </div>
+            </a>
         </footer>
 
 
