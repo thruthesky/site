@@ -76,11 +76,9 @@
 
         </div>
 
-        <div class="desc" *ngIf=" amount_in_usd_with_tax() ">
-
+        <div class="amount-selected" *ngIf=" amount_in_usd_with_tax() ">
             <div>{{ 'VAT_1' | t:{ 'AMOUNT': amount | number } }}</div>
             <div class="change-point" (click)=" amount = 0; paymentMethod='' ">{{ 'CHANGE_POINT_AMOUNT' | t }}</div>
-
         </div>
 
         <ng-template #loginFirst>
@@ -93,16 +91,20 @@
         <div class="select-payment-method" *ngIf=" amount && paymentMethod == '' ">
             <div class="title">{{ 'SELECT_PAYMENT_METHOD' | t }}</div>
             <div class="buttons">
-                <button class="bank" (click)=" onSelectBankTransaction() ">
-                    <svg viewBox="0 0 640 512" ><path fill="currentColor" d="M624 32H16C7.16 32 0 39.16 0 48v400c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V48c0-8.84-7.16-16-16-16zm-16 416H32V160h576v288zm0-320H32V64h576v64zM104 384h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm288 0h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H392c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm-288-96h208c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm296 0h128c8.84 0 16-7.16 16-16v-64c0-8.84-7.16-16-16-16H400c-8.84 0-16 7.16-16 16v64c0 8.84 7.16 16 16 16zm16-64h96v32h-96v-32z"></path></svg>
-                    {{ 'BANK_TRANSACTION' | t }}
-                </button>
                 <button class="paypal" (click)=" onSelectPaypalPayment() ">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM48 64h480c8.8 0 16 7.2 16 16v48H32V80c0-8.8 7.2-16 16-16zm480 384H48c-8.8 0-16-7.2-16-16V224h512v208c0 8.8-7.2 16-16 16zm-336-84v8c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v8c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z"></path>
                     </svg>
                     {{ 'PAYPAL_CREDIT' | t }}
                 </button>
+
+                <button class="bank" (click)=" onSelectBankTransaction() ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path fill="currentColor" d="M472 440h-8v-56c0-13.255-10.745-24-24-24h-16V208h-48v152h-48V208h-48v152h-48V208h-48v152h-48V208H88v152H72c-13.255 0-24 10.745-24 24v56h-8c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zm-56 0H96v-32h320v32zm72.267-322.942L271.179 26.463a48.004 48.004 0 0 0-30.358 0L23.733 117.058A11.999 11.999 0 0 0 16 128.274V156c0 6.627 5.373 12 12 12h20v12c0 6.627 5.373 12 12 12h392c6.627 0 12-5.373 12-12v-12h20c6.627 0 12-5.373 12-12v-27.726c0-4.982-3.077-9.445-7.733-11.216zM64 144l192-72 192 72H64z"></path>
+                    </svg>
+                    {{ 'BANK_TRANSACTION' | t }}
+                </button>
+
             </div>
         </div>
 
@@ -111,17 +113,21 @@
         <div class="paypal-payment" [ngClass]="{ selected: paymentMethod == 'paypal' && amount }">
             <div class="title">{{ 'PAYPAL_PAYMENT' | t }}</div>
             <!-- <button (click)=" onSelectBankTransaction() ">Change to Bank Transaction</button> -->
-            <div class="paypal-button">
+            <div class="paypal-button-wrapper">
                 <div class="vat">
-                    {{ 'VAT_2' | t:{ 'AMOUNT': amount | number , 'USD': amount_in_usd_with_tax(), 'VAT': a.vat } }}
+                    {{ 'VAT_2' | t:{ 'USD': amount_in_usd_with_tax(), 'VAT': a.vat } }}
                 </div>
 
                 <div class="paypal-button">
                     <div id="paypal-button"></div>
                 </div>
 
-                <div class="paypal-desc">{{ 'PAYPAL_DESC' | t }}</div>
+                <!-- <div class="paypal-desc">{{ 'PAYPAL_DESC' | t }}</div> -->
 
+
+                <div class="paypal-payment-amount-description">
+                    {{ 'PAYPAL_PAYMENT_DESC' | t:{ 'point': amount | number , 'usd': amount_in_usd(), 'vat': a.vat } }}
+                </div>
             </div>
         </div>
 
@@ -149,14 +155,13 @@
         </div>
 
 
-        <div class="banks">
+        <div class="banks" *ngIf=" bankSelected ">
 
             <div class="bank-item" *ngIf=" paymentMethod == 'koreanBank' ">
                 <div class="bank-title">{{ 'WOORIBANK_PAYMENT_TITLE' | t }}</div>
                 <div class="bank-desc">
-                    <div class="leave-a-message-after-deposit">{{ 'WOORIBANK_PAYMENT_DESC_1' | t }}</div>
                     <div class="bank-transaction-information">
-                        <div class="bank-name">{{ 'WOORIBANK_NAME' | t }}</div>
+                        <!-- <div class="bank-name">{{ 'WOORIBANK_NAME' | t }}</div> -->
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
@@ -214,41 +219,48 @@
             <div class="bank-item" *ngIf=" paymentMethod == 'japaneseBank' ">
 
                 <div class="bank-transaction-information">
-                <div class="bank-name">{{ 'JAPANESE_BANK_NAME' | t }}</div>
-                <div class="container-fluid">
-        
+                    <div class="bank-name">{{ 'JAPANESE_BANK_NAME' | t }}</div>
+                    <div class="container-fluid">
+
                         <div class="row">
                             <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
                             <div class="col">
                                 <b>JaeHo Song</b>
                             </div>
                         </div>
-        
+
                         <div class="row">
                             <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
                             <div class="col">
                                 <b>726-3184-321808</b>
                             </div>
                         </div>
-        
+
                         <div class="row">
                             <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
                             <div class="col">{{ amount_in_jpy_with_tax() | number }} {{ 'YEN' | t }}</div>
                         </div>
+                    </div>
+
+                </div>
+
+
+                <div class="exchange-vat-desc">{{ 'JAPANESE_BANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount | number, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
+                    } }}
                 </div>
 
             </div>
 
-            <div class="exchange-vat-desc">{{ 'JAPANESE_BANK_PAYMENT_AMOUNT_DESC' | t:{ 'point': amount | number, 'usd': amount_in_usd(), 'VAT': paymentRate?.VAT
-                } }}
-            </div>
+            <div class="leave-a-message-after-deposit" *ngIf=" bankSelected ">{{ 'BANK_TRANSACTION_DESC' | t }}</div>
 
-            </div>
         </div>
 
 
-        <div class="change-point" (click)=" amount = 0; paymentMethod='' " *ngIf=" paymentMethod == 'paypal' || paymentMethod == 'koreanBank' || paymentMethod =='chineseBank' || paymentMethod == 'japaneseBank' ">
-            <span class="app-button">{{ 'CHANGE_POINT_AMOUNT' | t }}</span>
+
+        <div class="payment-selected-bottom-description">
+            <div class="change-point" (click)=" amount = 0; paymentMethod='' " *ngIf=" paymentMethod == 'paypal' || bankSelected ">
+                {{ 'CHANGE_POINT_AMOUNT' | t }}
+            </div>
         </div>
 
         <footer class="payment-footer">
