@@ -341,13 +341,16 @@ footer.payment-footer {
 
 .banks {
     padding: $padding $padding 0;
+    @media (min-width:$md) {
+        padding: $padding $padding*2;
+    }
     .bank-item {
         line-height: 150%;
         @media (min-width: $md) {
-            margin: 1em;
+            margin: 1em 0;
         }
         .bank-title {
-            margin: 0;
+            margin-bottom: $padding;
             @media (min-width: $md) {
                 font-size: $fs-lg;
             }
@@ -360,6 +363,7 @@ footer.payment-footer {
         }
         .container-fluid {
             border: 1px solid rgba(125, 125, 125, 0.2);
+            font-size: $fs-normal;
             .row {
                 border-bottom: 1px solid rgba(125, 125, 125, 0.2);
                 &:last-child {
@@ -385,7 +389,7 @@ footer.payment-footer {
         color: #856404;
         font-size: $fs-small;
         @media (min-width: $md) {
-            margin: $line-spacing;
+            margin: $line-spacing 0;
         }
     }
 }
