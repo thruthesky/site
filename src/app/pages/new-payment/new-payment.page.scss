@@ -1,4 +1,10 @@
 @import './../../../theme/vars';
+$padding: 1.2em;
+$line-spacing: 1em;
+$fs-small: .75em;
+$fs-normal: .9em;
+$fs-defualt: 1em;
+$fs-lg: 1.2em;
 main {
     padding-bottom: 5em;
     background: #fff;
@@ -10,17 +16,17 @@ main {
 }
 
 .select-amount {
-    padding: 2em;
+    padding: $padding;
+    @media (min-width: $md) {
+        padding: $padding*2;
+    }
     padding-top: 5em;
     .title {
         color: blue;
     }
-    @media screen and (max-width:544px) {
-        padding-top: 2.5em;
-    }
     .desc {
         margin: 0;
-        padding: 0;
+        padding: $padding/3 0;
         background-color: white;
     }
 }
@@ -54,7 +60,12 @@ main {
 }
 
 .manual-amount-input {
+    padding: 0 $padding;
     text-align: center;
+    font-size: $fs-normal;
+    @media (min-width: $md) {
+        font-size: $fs-defualt;
+    }
     cursor: pointer;
     .header {
         margin: 2em auto;
@@ -68,12 +79,27 @@ main {
     }
     input {
         padding: .7em 1em;
+        margin: $padding .5em;
+        border:1px solid rgba(125, 125, 125, 0.3);
+        border-radius: 2px;
+    }
+    .cancel-button{
         margin: 0 .5em;
+        font-size: .85em;
+    }
+
+    .confirm-button{
+        margin: 0 .5em;
+        padding: .7em 1.2em;
+        border: 0;
+        border-radius: 2px;
+        background: dodgerblue;
+        color: #fff;
     }
 }
 
 .login-first {
-    margin-top: 4em;
+    margin: 6em 0;
     text-align: center;
 }
 
@@ -93,30 +119,62 @@ main {
 
 .paypal-payment {
     visibility: hidden;
-    height: 10px;
+    height: 1px;
     overflow: hidden;
+    .title {
+        font-size: $fs-lg;
+        color: blue;
+    }
+    .paypal-button-wrapper {
+        .vat {
+            margin: $line-spacing*1.5 0 $line-spacing/2;
+            @media (min-width: $md) {
+                margin-top: $line-spacing;
+            }
+            color: darkred;
+        }
+        .paypal-payment-amount-description {
+            margin: $line-spacing*2 0 $line-spacing;
+            font-size: $fs-small;
+            @media (min-width:$md) {
+                font-size: $fs-defualt
+            }
+        }
+    }
     &.selected {
         visibility: visible;
         height: auto;
         overflow: auto;
-    }
+        padding: $padding;
+        @media (min-width:$md) {
+            padding: $padding*2;
+        }
+    } // .paypal-desc {
+    //     margin: 1em .8em;
+    //     @media (min-width: $md) {
+    //         margin: 1em 1.5em;
+    //     }
+    // }
 }
 
-.app-button {
-    padding: .3em 1em;
-}
-
-.desc {
-    padding: 1em;
+// .app-button {
+//     padding: .3em 1em;
+// }
+.amount-selected {
+    padding: $padding;
     background-color: #d9dde8;
-    font-size: 85%;
-    &>div {
-        padding: 0 1em;
-        padding-top: 1em;
-        padding-bottom: .5em;
-    }
 }
 
+// .desc {
+//     padding: 1em;
+//     background-color: #d9dde8;
+//     font-size: 85%;
+//     &>div {
+//         padding: 0 1em;
+//         padding-top: 1em;
+//         padding-bottom: .5em;
+//     }
+// }
 .loader {
     display: flex;
     flex-direction: column;
@@ -134,44 +192,92 @@ main {
 }
 
 .select-payment-method {
-    padding: 1.6em;
-    color: blue;
-    background-color: #eee;
+    padding: $padding;
+    padding-top: 2em;
+    @media (min-width: $md) {
+        padding: $padding*2;
+        padding-top: 4em;
+    }
+    border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+    .title {
+        margin-bottom: 1.1em;
+        color: blue;
+        font-weight: 200;
+    }
     .buttons {
-        margin-top: .5em;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-direction: column;
+        @media (min-width: $md) {
+            flex-direction: row;
+            margin-top: .5em;
+        }
         button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            margin-top: 1em;
+            font-size: $fs-normal;
+            @media (min-width: $md) {
+                margin: 0 2em;
+            }
+            padding: 1.5em 4.5em;
             border: 0;
-            padding: 1em 2em;
-            font-size: 1em;
+            border-radius: 2px;
             &.bank {
-                background-color: #e4e101;
+                background-color: rgba(225, 218, 243, 0.52);
             }
             &.paypal {
-                background-color: blue;
-                color: white;
+                background-color: rgba(#FFD300, 0.8);
             }
+        }
+        svg {
+            height: 2.5em;
+            width: 2.5em;
+            margin-right: .5em;
         }
     }
 }
 
 .select-bank {
+    padding-top: $padding*2;
     .title {
-        padding: .6em 1.6em;
+        margin: .5em 0;
+        padding: .6em $padding;
+        @media ( min-width: $md) {
+            padding: .6em $padding*2;
+        }
+        font-weight: 200;
+        color: blue;
     }
     .buttons {
         display: flex;
+        padding: $padding;
+        @media (min-width: $md) {
+            margin: 0;
+            margin-bottom: 2em;
+        }
         .country {
-            padding: .5em 1em;
+            padding: .5em;
+            @media (min-width: $md) {
+                padding: 1em 2em;
+                margin: 0 1em!important;
+            }
             width: 33.33%;
             cursor: pointer;
             &.korea {
-                background-color: #cee3ff;
+                background-color: rgba(#C6C600, 0.5);
+                margin-right: .25em;
             }
             &.china {
-                background-color: #ffcece;
+                background-color: rgba(#FFD300, 0.5);
+                margin: 0 .25em;
             }
             &.japan {
-                background-color: #fcffce;
+                background-color: rgba(#8E01DC, 0.5);
+                margin-left: .25em;
             }
         }
         .country-name {
@@ -184,58 +290,119 @@ main {
 }
 
 footer.payment-footer {
-    margin-top: 1em;
-    padding: 0 1.6em;
-    @media (min-width: $md) { padding: 0; }
-    font-size: .8em;
+    margin-top: $line-spacing;
+    padding: 0 $padding;
+    @media (min-width: $md) {
+        padding: 0;
+    }
+    font-weight: 200;
+    line-height: 1.6em;
     .refund-policy {
-        padding: .6em;
+        padding: 1em;
+        font-size: $fs-normal;
+        @media (min-width: $md) {
+            padding: 1em $padding*2;
+            font-size: $fs-defualt
+        }
         background-color: #e1eeff;
     }
     .help {
-        margin-top: 1em;
-        .app-button {
+        margin-top: $line-spacing;
+        padding: 0;
+        @media (min-width: $md) {
+            padding-left: $padding*2;
+            font-size: $fs-defualt
+        }
+        a{
+            display: inline-flex;
+            align-items: center;
             margin: 0;
+            padding: 0 $padding/2;
+            background: #eee;
+            color: #000;
+            font-size: $fs-normal;
+
+            svg{
+                height: 1em;
+                width: 1em;
+                margin-left: $padding/6;
+            }
         }
     }
 }
 
 .change-point {
-    font-size: .85em;
+    font-size: $fs-small;
+    @media (min-width:$md) {
+        font-size: $fs-normal
+    }
     cursor: pointer;
 }
 
-
-
 .banks {
-    .bottom-buttons {
-        padding: .6em 1.6em;
-        background-color: white;
-        font-size: .85em;
-        button {
-            border: 0;
+    padding: $padding $padding 0;
+    @media (min-width:$md) {
+        padding: $padding $padding*2;
+    }
+    .bank-item {
+        line-height: 150%;
+        @media (min-width: $md) {
+            margin: 1em 0;
+        }
+        .bank-title {
+            margin-bottom: $padding;
+            @media (min-width: $md) {
+                font-size: $fs-lg;
+            }
+            color: blue
+        }
+        .bank-name {
+            color: darkblue;
+            margin-bottom: 1em;
+            font-weight: bold
+        }
+        .container-fluid {
+            border: 1px solid rgba(125, 125, 125, 0.2);
+            font-size: $fs-normal;
+            .row {
+                border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+                &:last-child {
+                    border-bottom: 0;
+                }
+                .col {
+                    padding: .5em 1em;
+                    &:first-child {
+                        border-right: 1px solid rgba(125, 125, 125, 0.2)
+                    }
+                }
+            }
+        }
+    }
+    .leave-a-message-after-deposit {
+        margin-top: $line-spacing;
+        font-size: $fs-small;
+        @media (min-width:$md) {
+            margin-top: $line-spacing*2;
+            font-size: $fs-normal
+        }
+    }
+    .exchange-vat-desc {
+        margin-top: $line-spacing;
+        padding: 1em;
+        background-color: #fff3cd;
+        color: #856404;
+        font-size: $fs-small;
+        @media (min-width: $md) {
+            margin: $line-spacing 0;
+            font-size: $fs-normal
         }
     }
 }
 
-
-
-.korean-bank {
-    line-height: 150%;
-    .korean-bank-title {
-        margin-bottom: 0.5em;
-        padding: 1em;
-        border: 0;
-        background-color: #cee3ff;
-        color: black;
+.payment-selected-bottom-description {
+    padding: $padding/2  $padding;
+    @media (min-width:$md) {
+        padding: 0 $padding*2;
     }
-}
-
-
-.bank-transaction-information {
-    padding: 1.6em;
-    background-color: #bdbeae;
-}
-.exchange-vat-desc, .leave-a-message-after-deposit {
-    font-size: .8em;
+    color: darkred;
 }

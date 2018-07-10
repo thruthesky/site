@@ -302,7 +302,6 @@
   "ENTER_PAYMENT_AMOUNT": "支払い額を入力してください",
   "INITIALIZING_PAYPAL": "Paypalのクレジットカードによる支払いが初期化されています。",
   "PLEASE_WAIT": "お待ちください.",
-  "PAYPAL_DESC": "PayPalは世界で最も広く使用されているクレジットカード決済であり、非常に安全で便利です。 PayPalは登録せずに直接支払いを行うことができます。",
   "PAYMENT_DIFFICULT": "支払いが困難な場合は、Katokにお尋ねください。",
   "REFUND_POLICY": "代金返却方針。 決済日の7日前に残ったポイントの1/3。 決済日の15日前に残ったポイントの半分。 支払日から15日後、払い戻しは行われません。",
   "VAT_1": "#AMOUNTウォン決済（VAT #RATE％別途）を選択しました。",
@@ -546,12 +545,10 @@
   "_10000_MONTH": "10ドルで月20セッション。",
 
   "WOORIBANK_PAYMENT_TITLE": "韓国銀行取引",
-  "WOORIBANK_PAYMENT_DESC_1": "あなたが韓国人なら、ウリバンクの取引で支払うことができます。",
+  "BANK_TRANSACTION_DESC": "あなたの銀行取引については、管理者にメッセージを送信してください。",
   "WOORIBANK_PAYMENT_DESC_2": "付加価値税にはさらに#VAT％を支払う必要があります。",
   "ACCOUNT_HOLDER_NAME": "口座名義",
-  "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "アカウントなし",
-  "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
   "WOORIBANK_NAME": "ウリバンク",
 
 
@@ -629,5 +626,10 @@
   "CHANGE_POINT_AMOUNT": "支払い方法の選択",
   "BANK_TRANSACTION": "銀行取引",
   "PAYPAL_CREDIT": "カード払い",
-  "CHANGE_TO_PAYPAL": "クレジットカード決済への変更"
+  "CHANGE_TO_PAYPAL": "クレジットカード決済への変更",
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。",
+  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。",
+  "RENMINBI": "人民元",
+  "YEN": "円"
+
 }

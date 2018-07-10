@@ -269,13 +269,18 @@ export class NewPaymentPage implements AfterViewInit {
             return 0;
         }
         const amount = this.amount / 1000;
-        return Math.round( amount * 100 ) / 100;
+        return Math.round(amount * 100) / 100;
     }
 
 
     onSelectBankTransaction() {
-        this.paymentMethod = 'bank';
+        if ( this.a.site.katalkenglish ) {
+            this.paymentMethod = 'koreanBank';
+        } else {
+            this.paymentMethod = 'bank';
+        }
     }
+
     onSelectPaypalPayment() {
         this.paymentMethod = 'paypal';
     }
@@ -317,6 +322,10 @@ export class NewPaymentPage implements AfterViewInit {
         this.inputAmount = false;
         console.log('amount value: ', value);
         this.amount = parseInt(value, 10);
+    }
+
+    get bankSelected(): boolean {
+        return this.paymentMethod === 'koreanBank' || this.paymentMethod === 'chineseBank' || this.paymentMethod === 'japaneseBank';
     }
 }
 

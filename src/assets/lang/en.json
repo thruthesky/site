@@ -382,7 +382,6 @@
   "ENTER_PAYMENT_AMOUNT": "Enter payment amount",
   "INITIALIZING_PAYPAL": "Paypal credit card payment is being initialized.",
   "PLEASE_WAIT": "Please wait.",
-  "PAYPAL_DESC": "PayPal is the most widely used credit card payment in the world and is very safe and convenient.",
   "PAYMENT_DIFFICULT": "If payment is difficult, please ask Katok.",
   "REFUND_POLICY": "Refund Policy. 1/3 of the points left seven days before the settlement date. Half of the points left 15 days before the settlement date. After 15 days from the payment date, no refund will be made.",
   "VAT_1": "You have selected #AMOUNT Point.",
@@ -568,12 +567,10 @@
 
 
   "WOORIBANK_PAYMENT_TITLE": "Korean Bank Transaction",
-  "WOORIBANK_PAYMENT_DESC_1": "Korean Woori-Bank Transation",
+  "BANK_TRANSACTION_DESC": "Please send a message to admin for your bank transactoin.",
   "WOORIBANK_PAYMENT_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
   "ACCOUNT_HOLDER_NAME": "Account Holder Name",
-  "WOORIBANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "ACCOUNT_NO": "Account No",
-  "WOORIBANK_ACCOUNT_NO": "1005-103-328421",
   "WOORIBANK_NAME": "Wooribank",
   "CONTACT": "Contact",
 
@@ -695,10 +692,9 @@
   "POINT_REFUND_REQUEST_DESC": "Please input the reason why you want to get your point back",
   "HEAD_OFFICE_CONTACTS": "Withcenter head office contacts",
 
-  "CHINESE_BANK_DESC_1": "MinWha Bank",
-  "CHINESE_BANK_NAME": "MinWha",
+  
+  "CHINESE_BANK_NAME": "SinWha",
   "CHINESE_BANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
-  "CHINESE_BANK_ACCOUNT_NO": "XY-0123-4321",
   "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
 
   "JAPANESE_BANK_DESC_1": "Nissan Bank",
@@ -711,7 +707,12 @@
   "SELECT_BANK_COUNTRY": "Select your country bank",
   "CONFIRM": "Confirm",
   "SELECT_PAYMENT_METHOD": "Select Payment Method",
-  "BANK_TRANSACTION": "무통장 입금",
-  "PAYPAL_CREDIT": "신용카드 결제",
-  "CHANGE_TO_PAYPAL": "Change to Paypal"
+  "BANK_TRANSACTION": "Bank Transaction",
+  "PAYPAL_CREDIT": "Credit Card",
+  "CHANGE_TO_PAYPAL": "Change to Paypal",
+  "PAYPAL_PAYMENT": "Paypal Credit Card Payment",
+  "WOORIBANK_PAYMENT_AMOUNT_DESC": "The above amount is converted from #usd dollar including VAT #VAT%.",
+  "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "The above amount is converted from #usd dollar including VAT #VAT%.",
+  "RENMINBI": "Renminbi",
+  "YEN": "Yen"
 }

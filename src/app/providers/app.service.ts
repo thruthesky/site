@@ -55,6 +55,7 @@ export interface SITE {
     ontue: boolean;
     withcenter: boolean;
     katalkenglish: boolean;
+    englishas: boolean;
     admin: boolean;
 }
 
@@ -132,6 +133,7 @@ export class AppService {
     site: SITE = {
         ontue: false,
         katalkenglish: false,
+        englishas: false,
         withcenter: false,
         admin: false
     };
@@ -365,9 +367,9 @@ export class AppService {
      * If there is 'login_session_id' in HTTP parameter, then it logs into that account.
      */
     adminLoginUser() {
-        this.activated.queryParamMap.subscribe( params => {
-            if ( params.get('login_session_id') ) {
-                this.user.loadProfile( params.get('login_session_id') ).subscribe( re => {
+        this.activated.queryParamMap.subscribe(params => {
+            if (params.get('login_session_id')) {
+                this.user.loadProfile(params.get('login_session_id')).subscribe(re => {
                     // console.log('user logged in as email: ', this.user.email);
                 }, e => this.toast(e));
             }
@@ -381,13 +383,13 @@ export class AppService {
      *
      * @param user User info from backend using 'admin_query'
      */
-    userLoginUrl( user ) {
+    userLoginUrl(user) {
         // console.log('user: ', user);
-        if ( ! user.domain ) {
+        if (!user.domain) {
             if (user.type === 'T') {
                 user.domain = 'www.ontue.com';
             } else {
-                user.domain =  'www.katalkenglish.com';
+                user.domain = 'www.katalkenglish.com';
             }
         }
         // user.domain = 'localhost:4200';
@@ -1330,11 +1332,13 @@ export class AppService {
 
     get vat(): any {
         const info: LMS_INFO = <any>this.get(KEY_LMS_INFO);
-        const no = info.VAT;
-        if (!no) {
+        if (info === void 0 || !info) {
             return 0;
         }
-        return this.floatval( no );
+        if (info.VAT === void 0 || !info.VAT) {
+            return 0;
+        }
+        return this.floatval(info.VAT);
     }
 
 

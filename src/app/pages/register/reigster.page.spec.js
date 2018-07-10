@@ -6,7 +6,7 @@ const email = chance.email();
 const password = 'my-password-123a'
 const kakaotalk_id = 'mykatalkid123a'
 
-const url = 'http://katalkenglish.org:4200/';
+const url = '/';
 context('Actions', () => {
     before(() => {})
     after(() => {})
