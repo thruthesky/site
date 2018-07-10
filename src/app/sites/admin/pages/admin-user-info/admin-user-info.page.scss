@@ -252,6 +252,18 @@
             table-layout: unset
         }
     }
+    #payments{
+        .scroll-content{
+            max-height: 230px;
+            overflow: auto;
+        }
+    }
+    #failed-payment{
+        .scroll-content{
+            max-height: 255px;
+            overflow: auto;
+        }
+    }
     #refund-request,
     #failed-payment{
         margin-top: 2.5em;
@@ -330,7 +342,7 @@
     cursor: pointer;
 }
 
-.new-point-edit{
+.point-edit{
     &>div{
         margin-bottom: 1em;
     }
