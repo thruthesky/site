@@ -152,10 +152,19 @@
 
 
 .table-content {
-    padding: .5em .5em 0;
     .info-wrapper {
-        padding: 0.5em;
-        border-bottom: 1px solid lightgrey;
+        border-bottom: 1px solid rgba(125,125,125,0.2);
+        .teacher-info{
+            padding: 1em;
+            padding-top: .5em;
+            padding-bottom: .1em;
+        }
+        .extra{
+            padding: 1em;
+            padding-top: .1em;
+            padding-bottom: .5em;
+        }
+        .teacher-info,
         .teacher-info{
             display: flex;
             justify-content: space-between;
