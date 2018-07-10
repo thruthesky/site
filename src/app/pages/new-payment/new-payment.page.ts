@@ -274,8 +274,13 @@ export class NewPaymentPage implements AfterViewInit {
 
 
     onSelectBankTransaction() {
-        this.paymentMethod = 'bank';
+        if ( this.a.site.katalkenglish ) {
+            this.paymentMethod = 'koreanBank';
+        } else {
+            this.paymentMethod = 'bank';
+        }
     }
+
     onSelectPaypalPayment() {
         this.paymentMethod = 'paypal';
     }
