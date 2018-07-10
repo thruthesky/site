@@ -16,7 +16,17 @@ export class AdminHomePage implements OnInit {
     refundRequests: Array<BOOK> = [];
     loader = {
         domainChangeApplication: true,
-        refundRequests:false
+        refundRequests: false,
+        teacherEquipment: false
+    };
+
+    comments = [];
+
+    pageOption = {
+        limitPerPage: 100,
+        currentPage: 1,
+        limitPerNavigation: 5,
+        totalRecord: 0
     };
     constructor(
         public a: AppService,
@@ -29,6 +39,7 @@ export class AdminHomePage implements OnInit {
         this.loadLatestBranches();
         this.loadAdminReports();
         this.loadRefundRequest();
+        this.loadClassComment();
     }
 
     ngOnInit() { }
@@ -116,6 +127,25 @@ export class AdminHomePage implements OnInit {
             // console.log('list branches: ', re);
             this.latestBranches = re;
         }, e => this.a.toast(e));
+    }
+
+    loadClassComment() {
+        this.loader.teacherEquipment = true;
+        this.a.lms.get_latest_student_comment_to_teachers({
+            limit: this.pageOption['limitPerPage'],
+            page: this.pageOption['currentPage']
+        }).subscribe(res => {
+            // console.log('loadClassComment:: ', res);
+            this.comments = res['comments'];
+            this.pageOption.currentPage = res['page'];
+            this.pageOption.limitPerPage = res['limit'];
+            this.pageOption.totalRecord = res['total'];
+            this.loader.teacherEquipment = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.teacherEquipment = false;
+        });
+
     }
 }
 

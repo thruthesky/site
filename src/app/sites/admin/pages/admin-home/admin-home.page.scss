@@ -150,6 +150,51 @@
 
 }
 
+
+.table-content {
+    padding: .5em .5em 0;
+    .info-wrapper {
+        padding: 0.5em;
+        border-bottom: 1px solid lightgrey;
+        .teacher-info{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .teacher-name{
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                color:dodgerblue;
+
+                span{
+                    margin-left: .2em;
+                }
+            }
+
+            .rating{
+                color: darkorange;
+
+                span{
+                    margin: 0 .1em;
+                }
+            }
+
+        }
+
+        .extra {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        svg{
+            height: 1em;
+            width: 1em;
+        }
+    }
+
+}
+
 .table{
     border-radius: 2px;
     border: 1px solid rgba(125,125,125,0.2);

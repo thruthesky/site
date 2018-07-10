@@ -6,9 +6,9 @@
             </div>
             <div class="mobile-alignment">
                   <div class='menu'>
-                        <span (click)=" scrollIntoView( 'franchise-about' ) ">{{ t.ln.franchise }}</span>
-                        <span (click)=" scrollIntoView( 'franchise-service' ) ">{{ t.ln.videoenglish }}</span>
-                        <span (click)=" scrollIntoView( 'franchise-start' ) ">{{ t.ln.startup }}</span>
+                        <span (click)=" a.scrollIntoViewById( 'franchise-about' ) ">{{ t.ln.franchise }}</span>
+                        <span (click)=" a.scrollIntoViewById( 'franchise-service' ) ">{{ t.ln.videoenglish }}</span>
+                        <span (click)=" a.scrollIntoViewById( 'franchise-start' ) ">{{ t.ln.startup }}</span>
                         <div class="flags">
                               <img class="custom-icon" *ngIf="languageCode=='en'" src="../../../../../assets/img/language-flags/en-desktop.png" alt="">
                               <img class="custom-icon ko-icon" *ngIf="languageCode=='ko'" src="../../../../../assets/img/language-flags/ko-desktop.png"
@@ -35,21 +35,21 @@
                   </div>
             </div>
             <div class="mobile-menu" *ngIf="showMobileMenu">
-                  <div (click)=" showMobileMenu=!scrollIntoView( 'franchise-about' ) ">
+                  <div (click)=" showMobileMenu=!a.scrollIntoViewById( 'franchise-about' ) ">
                         <span>{{ t.ln.franchise }}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                               <path fill="currentColor" d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z"
                               />
                         </svg>
                   </div>
-                  <div (click)=" showMobileMenu=!scrollIntoView( 'franchise-service' ) ">
+                  <div (click)=" showMobileMenu=!a.scrollIntoViewById( 'franchise-service' ) ">
                         <span>{{ t.ln.videoenglish }}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                               <path fill="currentColor" d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z"
                               />
                         </svg>
                   </div>
-                  <div (click)=" showMobileMenu=!scrollIntoView( 'franchise-start' ) ">
+                  <div (click)=" showMobileMenu=!a.scrollIntoViewById( 'franchise-start' ) ">
                         <span>{{ t.ln.startup }}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                               <path fill="currentColor" d="M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z"
@@ -82,7 +82,7 @@
                         <div class="text" no="3"> {{ t.ln.text_group_2_4 }}</div>
                   </div>
                   <nav class="buttons">
-                        <button class="withcenter-button" (click)=" scrollIntoView( 'franchise-start' ) ">{{ t.ln.open_branch_in_one_minute }}</button>
+                        <button class="withcenter-button" (click)=" a.scrollIntoViewById( 'franchise-start' ) ">{{ t.ln.open_branch_in_one_minute }}</button>
                   </nav>
                   <div class="banner">
                         <img src="assets/withcenter/img/main-title.jpg">
