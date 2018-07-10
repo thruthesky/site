@@ -124,9 +124,6 @@ main {
     .title {
         font-size: $fs-lg;
         color: blue;
-        @media (min-width: $md) {
-            padding: 1em 2em;
-        }
     }
     .paypal-button-wrapper {
         .vat {
@@ -139,6 +136,9 @@ main {
         .paypal-payment-amount-description {
             margin: $line-spacing*2 0 $line-spacing;
             font-size: $fs-small;
+            @media (min-width:$md) {
+                font-size: $fs-defualt
+            }
         }
     }
     &.selected {
@@ -146,6 +146,9 @@ main {
         height: auto;
         overflow: auto;
         padding: $padding;
+        @media (min-width:$md) {
+            padding: $padding*2;
+        }
     } // .paypal-desc {
     //     margin: 1em .8em;
     //     @media (min-width: $md) {
@@ -192,12 +195,12 @@ main {
     padding: $padding;
     padding-top: 2em;
     @media (min-width: $md) {
+        padding: $padding*2;
         padding-top: 4em;
     }
     border-bottom: 1px solid rgba(125, 125, 125, 0.2);
     .title {
         margin-bottom: 1.1em;
-        padding: 0 .5em;
         color: blue;
         font-weight: 200;
     }
@@ -239,21 +242,19 @@ main {
 }
 
 .select-bank {
-    @media (min-width: $md) {
-        padding: 0 1em;
-    }
+    padding-top: $padding*2;
     .title {
         margin: .5em 0;
-        padding: .6em 1em;
+        padding: .6em $padding;
         @media ( min-width: $md) {
-            padding: .6em 1em;
+            padding: .6em $padding*2;
         }
         font-weight: 200;
         color: blue;
     }
     .buttons {
         display: flex;
-        margin: 1em;
+        padding: $padding;
         @media (min-width: $md) {
             margin: 0;
             margin-bottom: 2em;
@@ -262,18 +263,21 @@ main {
             padding: .5em;
             @media (min-width: $md) {
                 padding: 1em 2em;
-                margin: 0 1em;
+                margin: 0 1em!important;
             }
             width: 33.33%;
             cursor: pointer;
             &.korea {
                 background-color: rgba(#C6C600, 0.5);
+                margin-right: .25em;
             }
             &.china {
                 background-color: rgba(#FFD300, 0.5);
+                margin: 0 .25em;
             }
             &.japan {
                 background-color: rgba(#8E01DC, 0.5);
+                margin-left: .25em;
             }
         }
         .country-name {
@@ -298,6 +302,7 @@ footer.payment-footer {
         font-size: $fs-normal;
         @media (min-width: $md) {
             padding: 1em $padding*2;
+            font-size: $fs-defualt
         }
         background-color: #e1eeff;
     }
@@ -306,6 +311,7 @@ footer.payment-footer {
         padding: 0;
         @media (min-width: $md) {
             padding-left: $padding*2;
+            font-size: $fs-defualt
         }
         a{
             display: inline-flex;
@@ -327,6 +333,9 @@ footer.payment-footer {
 
 .change-point {
     font-size: $fs-small;
+    @media (min-width:$md) {
+        font-size: $fs-defualt
+    }
     cursor: pointer;
 }
 
@@ -338,9 +347,9 @@ footer.payment-footer {
             margin: 1em;
         }
         .bank-title {
+            margin: 0;
             @media (min-width: $md) {
-                margin: 1em;
-                font-size: 1.1em;
+                font-size: $fs-lg;
             }
             color: blue
         }
@@ -383,4 +392,7 @@ footer.payment-footer {
 
 .payment-selected-bottom-description {
     padding: 0 $padding;
+    @media (min-width:$md) {
+        padding: 0 $padding*2;
+    }
 }
