@@ -382,6 +382,7 @@ footer.payment-footer {
         margin-top: $line-spacing;
         font-size: $fs-small;
         @media (min-width:$md) {
+            margin-top: $line-spacing*2;
             font-size: $fs-normal
         }
     }
