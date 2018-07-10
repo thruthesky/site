@@ -414,7 +414,7 @@
                 </table>
             </section>
 
-            <section id="failed-payment" [class.margin-as-teacher]=" user.user_type != 'T' ">
+            <section id="failed-payment" [class.margin-as-teacher]=" user.user_type == 'T' ">
                 <div class="d-flex justify-content-between">
                     <h2>Failed Payment</h2>
                     <div class="p-3 failed-payment-click-to-open" (click)=" show.failedPayments = true ">Click to Open</div>
@@ -445,7 +445,7 @@
                 </table>
             </section>
 
-            <section id="refund-request" [class.margin-as-teacher]=" user.user_type == 'T' ">
+            <section id="refund-request">
                 <h2>Refund Request</h2>
                 <table>
                     <tr>
