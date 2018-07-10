@@ -19,6 +19,9 @@ export class OntueEvaluationLatestListComponent {
     };
 
     commentCount = 1;
+    loader = {
+        comment: false
+    };
 
 
 
@@ -30,10 +33,14 @@ export class OntueEvaluationLatestListComponent {
 
 
     loadEvaluations() {
+        if (this.loader.comment) {
+            return;
+        }
         const data = {
             limit: this.pageOption.limitPerPage,
             page: this.pageOption.currentPage
         };
+        this.loader.comment = true;
         this.a.lms.get_teacher_evaluations_to_student(data).subscribe(res => {
             // console.log(res);
             this.evaluations = res['comments'];
@@ -41,8 +48,10 @@ export class OntueEvaluationLatestListComponent {
             this.pageOption.limitPerPage = res['limit'];
             this.pageOption.totalRecord = res['total'];
             this.commentCount = res['page'];
+            this.loader.comment = false;
         }, error => {
-            this.a.alert(error);
+            this.a.toast(error);
+            this.loader.comment = false;
         });
     }
 

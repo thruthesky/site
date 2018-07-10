@@ -2,6 +2,8 @@
 $padding: 1.2em;
 $line-spacing: 1em;
 $fs-small: .75em;
+$fs-normal: .9em;
+$fs-defualt: 1em;
 $fs-lg: 1.2em;
 main {
     padding-bottom: 5em;
@@ -14,17 +16,17 @@ main {
 }
 
 .select-amount {
-    padding: 2em;
+    padding: $padding;
+    @media (min-width: $md) {
+        padding: $padding*2;
+    }
     padding-top: 5em;
     .title {
         color: blue;
     }
-    @media screen and (max-width:544px) {
-        padding-top: 2.5em;
-    }
     .desc {
         margin: 0;
-        padding: 0;
+        padding: $padding/3 0;
         background-color: white;
     }
 }
@@ -58,7 +60,12 @@ main {
 }
 
 .manual-amount-input {
+    padding: 0 $padding;
     text-align: center;
+    font-size: $fs-normal;
+    @media (min-width: $md) {
+        font-size: $fs-defualt;
+    }
     cursor: pointer;
     .header {
         margin: 2em auto;
@@ -72,7 +79,22 @@ main {
     }
     input {
         padding: .7em 1em;
+        margin: $padding .5em;
+        border:1px solid rgba(125, 125, 125, 0.3);
+        border-radius: 2px;
+    }
+    .cancel-button{
         margin: 0 .5em;
+        font-size: .85em;
+    }
+
+    .confirm-button{
+        margin: 0 .5em;
+        padding: .7em 1.2em;
+        border: 0;
+        border-radius: 2px;
+        background: dodgerblue;
+        color: #fff;
     }
 }
 
@@ -97,15 +119,11 @@ main {
 
 .paypal-payment {
     visibility: hidden;
-    height: 10px;
+    height: 1px;
     overflow: hidden;
-    padding: $padding;
     .title {
         font-size: $fs-lg;
         color: blue;
-        @media (min-width: $md) {
-            padding: 1em 2em;
-        }
     }
     .paypal-button-wrapper {
         .vat {
@@ -118,12 +136,19 @@ main {
         .paypal-payment-amount-description {
             margin: $line-spacing*2 0 $line-spacing;
             font-size: $fs-small;
+            @media (min-width:$md) {
+                font-size: $fs-defualt
+            }
         }
     }
     &.selected {
         visibility: visible;
         height: auto;
         overflow: auto;
+        padding: $padding;
+        @media (min-width:$md) {
+            padding: $padding*2;
+        }
     } // .paypal-desc {
     //     margin: 1em .8em;
     //     @media (min-width: $md) {
@@ -167,15 +192,15 @@ main {
 }
 
 .select-payment-method {
-    padding: 1.6em;
+    padding: $padding;
     padding-top: 2em;
     @media (min-width: $md) {
+        padding: $padding*2;
         padding-top: 4em;
     }
     border-bottom: 1px solid rgba(125, 125, 125, 0.2);
     .title {
         margin-bottom: 1.1em;
-        padding: 0 .5em;
         color: blue;
         font-weight: 200;
     }
@@ -194,6 +219,7 @@ main {
             justify-content: center;
             margin: 0;
             margin-top: 1em;
+            font-size: $fs-normal;
             @media (min-width: $md) {
                 margin: 0 2em;
             }
@@ -216,21 +242,19 @@ main {
 }
 
 .select-bank {
-    @media (min-width: $md) {
-        padding: 0 1em;
-    }
+    padding-top: $padding*2;
     .title {
         margin: .5em 0;
-        padding: .6em 1em;
+        padding: .6em $padding;
         @media ( min-width: $md) {
-            padding: .6em 1em;
+            padding: .6em $padding*2;
         }
         font-weight: 200;
         color: blue;
     }
     .buttons {
         display: flex;
-        margin: 1em;
+        padding: $padding;
         @media (min-width: $md) {
             margin: 0;
             margin-bottom: 2em;
@@ -239,18 +263,21 @@ main {
             padding: .5em;
             @media (min-width: $md) {
                 padding: 1em 2em;
-                margin: 0 1em;
+                margin: 0 1em!important;
             }
             width: 33.33%;
             cursor: pointer;
             &.korea {
                 background-color: rgba(#C6C600, 0.5);
+                margin-right: .25em;
             }
             &.china {
                 background-color: rgba(#FFD300, 0.5);
+                margin: 0 .25em;
             }
             &.japan {
                 background-color: rgba(#8E01DC, 0.5);
+                margin-left: .25em;
             }
         }
         .country-name {
@@ -264,7 +291,7 @@ main {
 
 footer.payment-footer {
     margin-top: $line-spacing;
-    padding: 0 1em;
+    padding: 0 $padding;
     @media (min-width: $md) {
         padding: 0;
     }
@@ -272,8 +299,10 @@ footer.payment-footer {
     line-height: 1.6em;
     .refund-policy {
         padding: 1em;
+        font-size: $fs-normal;
         @media (min-width: $md) {
-            padding: 1em 2em;
+            padding: 1em $padding*2;
+            font-size: $fs-defualt
         }
         background-color: #e1eeff;
     }
@@ -281,36 +310,49 @@ footer.payment-footer {
         margin-top: $line-spacing;
         padding: 0;
         @media (min-width: $md) {
-            padding-left: 2em;
-        } // .app-button {
-        //     display: block;
-        //     background: rgb(240, 242, 243);
-        //     color: #000;
-        //     @media (min-width: $md) {
-        //         margin-top: 1em;
-        //         display: inline-block;
-        //     }
-        //     margin: 0;
-        // }
+            padding-left: $padding*2;
+            font-size: $fs-defualt
+        }
+        a{
+            display: inline-flex;
+            align-items: center;
+            margin: 0;
+            padding: 0 $padding/2;
+            background: #eee;
+            color: #000;
+            font-size: $fs-normal;
+
+            svg{
+                height: 1em;
+                width: 1em;
+                margin-left: $padding/6;
+            }
+        }
     }
 }
 
 .change-point {
     font-size: $fs-small;
+    @media (min-width:$md) {
+        font-size: $fs-normal
+    }
     cursor: pointer;
 }
 
 .banks {
     padding: $padding $padding 0;
+    @media (min-width:$md) {
+        padding: $padding $padding*2;
+    }
     .bank-item {
         line-height: 150%;
         @media (min-width: $md) {
-            margin: 1em;
+            margin: 1em 0;
         }
         .bank-title {
+            margin-bottom: $padding;
             @media (min-width: $md) {
-                margin: 1em;
-                font-size: 1.1em;
+                font-size: $fs-lg;
             }
             color: blue
         }
@@ -321,6 +363,7 @@ footer.payment-footer {
         }
         .container-fluid {
             border: 1px solid rgba(125, 125, 125, 0.2);
+            font-size: $fs-normal;
             .row {
                 border-bottom: 1px solid rgba(125, 125, 125, 0.2);
                 &:last-child {
@@ -338,6 +381,10 @@ footer.payment-footer {
     .leave-a-message-after-deposit {
         margin-top: $line-spacing;
         font-size: $fs-small;
+        @media (min-width:$md) {
+            margin-top: $line-spacing*2;
+            font-size: $fs-normal
+        }
     }
     .exchange-vat-desc {
         margin-top: $line-spacing;
@@ -346,11 +393,15 @@ footer.payment-footer {
         color: #856404;
         font-size: $fs-small;
         @media (min-width: $md) {
-            margin: $line-spacing;
+            margin: $line-spacing 0;
+            font-size: $fs-normal
         }
     }
 }
 
 .payment-selected-bottom-description {
     padding: 0 $padding;
+    @media (min-width:$md) {
+        padding: 0 $padding*2;
+    }
 }

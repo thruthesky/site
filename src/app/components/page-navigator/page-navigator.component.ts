@@ -11,6 +11,7 @@ export class PageNavigatorComponent implements OnChanges {
     no_of_total_pages = 0;
     currentDisplay = 0;
 
+    @Input() scoll_to_element_Id: string = null;
     @Input() no_of_total_items: number = null;
     @Input() no_of_items_in_one_page: number = null;
     @Input() no_of_pages_in_navigator: number = null;
@@ -59,23 +60,35 @@ export class PageNavigatorComponent implements OnChanges {
     nextPage() {
         const nextPage = (this.currentDisplay + 1) * this.no_of_pages_in_navigator + 1;
         this.pageClick.emit(nextPage);
+        this.scrollToView();
     }
 
     previousPage() {
         const prevPage = (this.currentDisplay) * this.no_of_pages_in_navigator;
         this.pageClick.emit(prevPage);
+        this.scrollToView();
     }
 
     gotoPage(page) {
         this.pageClick.emit(page);
+        this.scrollToView();
     }
 
     gotoLast() {
         this.pageClick.emit(this.no_of_total_pages);
+        this.scrollToView();
     }
 
     gotoFirst() {
         this.pageClick.emit(1);
+        this.scrollToView();
+    }
+
+    scrollToView() {
+        if (this.scoll_to_element_Id) {
+            const element = document.getElementById(this.scoll_to_element_Id);
+            element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+        }
     }
 
 }
