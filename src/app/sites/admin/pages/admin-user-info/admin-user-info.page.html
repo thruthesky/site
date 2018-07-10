@@ -57,6 +57,10 @@
                                 <b>User Point</b>
                                 <span>{{ user.point | number }}</span>
                             </div>
+                            <div>
+                                <b>Point Paid</b>
+                                <span>{{ total_point_paid | number }}</span>
+                            </div>
                         </div>
                         <div class="page-buttons">
                             <button type="button" class="app-button" routerLink="/manager/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
