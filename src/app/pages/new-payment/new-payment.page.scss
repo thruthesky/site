@@ -334,7 +334,7 @@ footer.payment-footer {
 .change-point {
     font-size: $fs-small;
     @media (min-width:$md) {
-        font-size: $fs-defualt
+        font-size: $fs-normal
     }
     cursor: pointer;
 }
@@ -381,6 +381,9 @@ footer.payment-footer {
     .leave-a-message-after-deposit {
         margin-top: $line-spacing;
         font-size: $fs-small;
+        @media (min-width:$md) {
+            font-size: $fs-normal
+        }
     }
     .exchange-vat-desc {
         margin-top: $line-spacing;
@@ -390,6 +393,7 @@ footer.payment-footer {
         font-size: $fs-small;
         @media (min-width: $md) {
             margin: $line-spacing 0;
+            font-size: $fs-normal
         }
     }
 }
