@@ -55,6 +55,7 @@ export interface SITE {
     ontue: boolean;
     withcenter: boolean;
     katalkenglish: boolean;
+    englishas: boolean;
     admin: boolean;
 }
 
@@ -132,6 +133,7 @@ export class AppService {
     site: SITE = {
         ontue: false,
         katalkenglish: false,
+        englishas: false,
         withcenter: false,
         admin: false
     };
