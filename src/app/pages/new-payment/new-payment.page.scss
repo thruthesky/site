@@ -400,7 +400,7 @@ footer.payment-footer {
 }
 
 .payment-selected-bottom-description {
-    padding: 0 $padding;
+    padding: $padding/2  $padding;
     @media (min-width:$md) {
         padding: 0 $padding*2;
     }
