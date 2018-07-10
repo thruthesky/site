@@ -146,35 +146,23 @@ main {
         height: auto;
         overflow: auto;
         padding: $padding;
+        padding-bottom: 0;
         @media (min-width:$md) {
             padding: $padding*2;
+            padding-bottom: 0;
         }
-    } // .paypal-desc {
-    //     margin: 1em .8em;
-    //     @media (min-width: $md) {
-    //         margin: 1em 1.5em;
-    //     }
-    // }
+    } 
 }
 
-// .app-button {
-//     padding: .3em 1em;
-// }
 .amount-selected {
     padding: $padding;
+    @media (min-width:$md) {
+        padding: $padding $padding*2;
+        line-height: $line-spacing*1.5
+    }
     background-color: #d9dde8;
 }
 
-// .desc {
-//     padding: 1em;
-//     background-color: #d9dde8;
-//     font-size: 85%;
-//     &>div {
-//         padding: 0 1em;
-//         padding-top: 1em;
-//         padding-bottom: .5em;
-//     }
-// }
 .loader {
     display: flex;
     flex-direction: column;
@@ -228,9 +216,21 @@ main {
             border-radius: 2px;
             &.bank {
                 background-color: rgba(225, 218, 243, 0.52);
+                transition: all .2s ease-in-out;
+                &:hover{
+                    background: #fff;
+                    outline: 1px solid dodgerblue;
+                    color: dodgerblue;
+                }
             }
             &.paypal {
                 background-color: rgba(#FFD300, 0.8);
+                transition: all .2s ease-in-out;
+                &:hover{
+                    background: #fff;
+                    outline: 1px solid dodgerblue;
+                    color: dodgerblue;
+                }
             }
         }
         svg {
@@ -400,9 +400,9 @@ footer.payment-footer {
 }
 
 .payment-selected-bottom-description {
-    padding: $padding/2  $padding;
+    padding: $padding/6  $padding;
     @media (min-width:$md) {
         padding: 0 $padding*2;
     }
-    color: darkred;
+    color: darkblue;
 }
