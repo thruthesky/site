@@ -1,4 +1,8 @@
 @import './../../../theme/vars';
+$padding: 1.2em;
+$line-spacing: 1em;
+$fs-small: .75em;
+$fs-lg: 1.2em;
 main {
     padding-bottom: 5em;
     background: #fff;
@@ -95,60 +99,57 @@ main {
     visibility: hidden;
     height: 10px;
     overflow: hidden;
-    
-    .title{
+    padding: $padding;
+    .title {
+        font-size: $fs-lg;
         color: blue;
-        padding: 1em;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding: 1em 2em;
         }
     }
-    .paypal-button{
-        padding: 0 .5em;
-    }
-    .vat{
-        margin: .5em; 
-        margin-bottom: 1em; 
-        @media (min-width:$md) {
-            margin: 2em 1.5em;
-            margin-top: 1em;   
+    .paypal-button-wrapper {
+        .vat {
+            margin: $line-spacing*1.5 0 $line-spacing/2;
+            @media (min-width: $md) {
+                margin-top: $line-spacing;
+            }
+            color: darkred;
         }
-        color: darkred;
+        .paypal-payment-amount-description {
+            margin: $line-spacing*2 0 $line-spacing;
+            font-size: $fs-small;
+        }
     }
     &.selected {
         visibility: visible;
         height: auto;
         overflow: auto;
-    }
-    .paypal-desc{
-        margin:1em .8em;
-        @media (min-width:$md){
-            margin: 1em 1.5em;   
-        }
-    }
+    } // .paypal-desc {
+    //     margin: 1em .8em;
+    //     @media (min-width: $md) {
+    //         margin: 1em 1.5em;
+    //     }
+    // }
 }
 
-.app-button {
-    padding: .3em 1em;
-}
-
-.change-point{
-    text-align: center;
-    font-size: .9em;
-
-}
-
-.desc {
-    padding: 1em;
+// .app-button {
+//     padding: .3em 1em;
+// }
+.amount-selected {
+    padding: $padding;
     background-color: #d9dde8;
-    font-size: 85%;
-    &>div {
-        padding: 0 1em;
-        padding-top: 1em;
-        padding-bottom: .5em;
-    }
 }
 
+// .desc {
+//     padding: 1em;
+//     background-color: #d9dde8;
+//     font-size: 85%;
+//     &>div {
+//         padding: 0 1em;
+//         padding-top: 1em;
+//         padding-bottom: .5em;
+//     }
+// }
 .loader {
     display: flex;
     flex-direction: column;
@@ -168,16 +169,14 @@ main {
 .select-payment-method {
     padding: 1.6em;
     padding-top: 2em;
-    @media (min-width:$md) {
-        padding-top: 4em; 
+    @media (min-width: $md) {
+        padding-top: 4em;
     }
-    border-bottom:  1px solid rgba(125,125,125,0.2);
-
-    .title{
+    border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+    .title {
         margin-bottom: 1.1em;
         padding: 0 .5em;
         color: blue;
-        font-size: 1em;
         font-weight: 200;
     }
     .buttons {
@@ -185,7 +184,7 @@ main {
         justify-content: center;
         align-items: stretch;
         flex-direction: column;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             flex-direction: row;
             margin-top: .5em;
         }
@@ -195,66 +194,63 @@ main {
             justify-content: center;
             margin: 0;
             margin-top: 1em;
-            @media (min-width:$md) {
+            @media (min-width: $md) {
                 margin: 0 2em;
             }
             padding: 1.5em 4.5em;
             border: 0;
             border-radius: 2px;
-            font-size: 1em;
             &.bank {
-                background-color: rgba(#FFFF00,0.8);
+                background-color: rgba(225, 218, 243, 0.52);
             }
             &.paypal {
-                background-color: rgba(#FFD300,0.8);
+                background-color: rgba(#FFD300, 0.8);
             }
         }
-
-        svg{
+        svg {
             height: 2.5em;
-            width:2.5em;
+            width: 2.5em;
             margin-right: .5em;
         }
     }
 }
 
 .select-bank {
-    @media (min-width:$md) {
+    @media (min-width: $md) {
         padding: 0 1em;
     }
     .title {
         margin: .5em 0;
         padding: .6em 1em;
-        @media ( min-width:$md ) {
+        @media ( min-width: $md) {
             padding: .6em 1em;
         }
-        font-size: 1em; 
         font-weight: 200;
         color: blue;
     }
     .buttons {
         display: flex;
         margin: 1em;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             margin: 0;
             margin-bottom: 2em;
         }
         .country {
             padding: .5em;
-            @media (min-width:$md) {
+            @media (min-width: $md) {
                 padding: 1em 2em;
                 margin: 0 1em;
             }
             width: 33.33%;
             cursor: pointer;
             &.korea {
-                background-color: rgba(#C6C600,0.5);
+                background-color: rgba(#C6C600, 0.5);
             }
             &.china {
-                background-color: rgba(#FFD300,0.5);
+                background-color: rgba(#FFD300, 0.5);
             }
             &.japan {
-                background-color: rgba(#8E01DC,0.5);
+                background-color: rgba(#8E01DC, 0.5);
             }
         }
         .country-name {
@@ -267,112 +263,94 @@ main {
 }
 
 footer.payment-footer {
-    margin-top: 1em;
+    margin-top: $line-spacing;
     padding: 0 1em;
-    @media (min-width: $md) { padding: 0; }
-    font-size: 1em;
+    @media (min-width: $md) {
+        padding: 0;
+    }
     font-weight: 200;
     line-height: 1.6em;
     .refund-policy {
         padding: 1em;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding: 1em 2em;
         }
         background-color: #e1eeff;
     }
     .help {
-        margin-top: 1em;
+        margin-top: $line-spacing;
         padding: 0;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding-left: 2em;
-        }
-        .app-button {
-            display: block;
-            background: darkorange;
-            color: #fff;
-            @media (min-width:$md) {
-                margin-top: 1em;
-                display: inline-block;
-            }
-            margin: 0;
-        }
+        } // .app-button {
+        //     display: block;
+        //     background: rgb(240, 242, 243);
+        //     color: #000;
+        //     @media (min-width: $md) {
+        //         margin-top: 1em;
+        //         display: inline-block;
+        //     }
+        //     margin: 0;
+        // }
     }
 }
 
 .change-point {
-    font-size: .85em;
+    font-size: $fs-small;
     cursor: pointer;
 }
 
-
-
 .banks {
+    padding: $padding $padding 0;
     .bank-item {
-        font-size: .85em;
         line-height: 150%;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             margin: 1em;
-            font-size: 1em;
         }
         .bank-title {
-            margin: .5em 1em;
-            @media (min-width:$md) {
+            @media (min-width: $md) {
                 margin: 1em;
                 font-size: 1.1em;
             }
             color: blue
         }
-        .bank-name{
+        .bank-name {
             color: darkblue;
             margin-bottom: 1em;
             font-weight: bold
         }
-        .container-fluid{
-            border: 1px solid rgba(125,125,125,0.2);
-            .row{
-                border-bottom: 1px solid rgba(125,125,125,0.2);
-                &:last-child{
+        .container-fluid {
+            border: 1px solid rgba(125, 125, 125, 0.2);
+            .row {
+                border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+                &:last-child {
                     border-bottom: 0;
                 }
-                .col{
+                .col {
                     padding: .5em 1em;
-                    &:first-child{
-                        border-right: 1px solid rgba(125,125,125,0.2)
+                    &:first-child {
+                        border-right: 1px solid rgba(125, 125, 125, 0.2)
                     }
                 }
             }
         }
     }
-
-    .bottom-buttons {
-        padding: .6em 1.6em;
-        background-color: white;
-        font-size: .85em;
-        button {
-            border: 0;
+    .leave-a-message-after-deposit {
+        margin-top: $line-spacing;
+        font-size: $fs-small;
+    }
+    .exchange-vat-desc {
+        margin-top: $line-spacing;
+        padding: 1em;
+        background-color: #fff3cd;
+        color: #856404;
+        font-size: $fs-small;
+        @media (min-width: $md) {
+            margin: $line-spacing;
         }
     }
 }
 
-
-.bank-transaction-information {
-    padding: 1.6em 1em;
-}
-.exchange-vat-desc, 
-.leave-a-message-after-deposit {
-    padding: 1em;
-    background-color: #fff3cd;
-    color: #856404;
-    font-size: .85em;
-}
-
-.leave-a-message-after-deposit{
-    margin: 1em;
-}
-
-.exchange-vat-desc{
-    margin: 1em 1.3em;
-    @media (min-width:$md) {
-        margin: 1em;
-    }
+.payment-selected-bottom-description {
+    padding: 0 $padding;
 }

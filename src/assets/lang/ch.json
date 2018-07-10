@@ -314,7 +314,6 @@
   "ENTER_PAYMENT_AMOUNT": "输入付款金额",
   "INITIALIZING_PAYPAL": "贝宝信用卡付款正在初始化。",
   "PLEASE_WAIT": "请稍等片刻。",
-  "PAYPAL_DESC": "PayPal是世界上使用最广泛的信用卡支付系统，非常安全方便。 PayPal可以直接付款而无需注册。",
   "PAYMENT_DIFFICULT": "如果付款困难，请询问Katok。",
   "REFUND_POLICY": "退款政策。 在结算日期前七天离开的点数的1/3。 在结算日期前15天剩余一半的积分。 自付款日期起15天后，将不予退款。",
   "VAT_1": "#AMOUNT赢得结算（单独增值税#RATE％）被选中。",
@@ -522,7 +521,7 @@
 
 
   "WOORIBANK_PAYMENT_TITLE": "韩国银行交易",
-  "WOORIBANK_PAYMENT_DESC_1": "如果您是韩国人，您可以使用Wooribank交易付款。",
+  "BANK_TRANSACTION_DESC": "请向您的银行交易发送消息给管理员。",
   "WOORIBANK_PAYMENT_DESC_2": "您需要支付增值税的附加＃增值税％。",
   "ACCOUNT_HOLDER_NAME": "账户持有人姓名",
   "ACCOUNT_NO": "户口号码",

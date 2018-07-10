@@ -15,9 +15,9 @@ export class NewPaymentPage implements AfterViewInit {
     /**
      * default amount to be selected.
      */
-    amount = 0; // should 0.
+    amount = 100000; // should 0.
 
-    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = ''; // should be empty
+    paymentMethod: '' | 'paypal' | 'bank' | 'koreanBank' | 'chineseBank' | 'japaneseBank' = 'paypal'; // should be empty
 
 
 
@@ -269,7 +269,7 @@ export class NewPaymentPage implements AfterViewInit {
             return 0;
         }
         const amount = this.amount / 1000;
-        return Math.round( amount * 100 ) / 100;
+        return Math.round(amount * 100) / 100;
     }
 
 
@@ -317,6 +317,10 @@ export class NewPaymentPage implements AfterViewInit {
         this.inputAmount = false;
         console.log('amount value: ', value);
         this.amount = parseInt(value, 10);
+    }
+
+    get bankSelected(): boolean {
+        return this.paymentMethod === 'koreanBank' || this.paymentMethod === 'chineseBank' || this.paymentMethod === 'japaneseBank';
     }
 }
 
