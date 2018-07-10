@@ -1,5 +1,5 @@
 
-<main>
+<main id="teacher-review-page">
     <header >
         <h1>{{ 'CLASS_COMMENTS_PAGE_TITLE' | t }}</h1>
         <p> {{ 'CLASS_COMMENTS_PAGE_DESC' | t }}</p>
@@ -76,6 +76,7 @@
                                     [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
                                     [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
                                     [no_of_current_page]=" pageOption['currentPage'] "
+                                    [scoll_to_element_Id]="'teacher-review-page'"
                                     [show_prev_next]=" true " (pageClick)="onPostPageClick($event)">
         </page-navigator-component>
     </div>

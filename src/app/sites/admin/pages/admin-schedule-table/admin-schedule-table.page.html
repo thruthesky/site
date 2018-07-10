@@ -2,7 +2,7 @@
 
 <div class="teacher-info">
     <div class="teacher-photo" *ngIf="teacher && teacher.photoURL"><img src="{{teacher?.photoURL}}"></div>
-    <div class="teacher-name" *ngIf="teacher && teacher.name">Teacher: {{teacher.name}}</div>
+    <div class="teacher-name" *ngIf="teacher && teacher.name"><a routerLink="/manager/user-info/{{teacher.idx}}">Teacher: {{teacher.name}}</a></div>
 </div>
 
 <div class="sched container-fluid" *ngIf=" schedules ">
