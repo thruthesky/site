@@ -140,7 +140,7 @@
                         <!--/old point update-->
 
 
-                        <div class="new-point-edit mt-1" *ngIf="a.isSuperManager">
+                        <div class="new-point-edit" *ngIf="a.isSuperManager">
                             <button type='button' class="app-button point-edit-button" (click)="show.newPointUpdateForm = true" *ngIf=" ! show.newPointUpdateForm ">
                                 <span>New Point Edit</span>
                                 <svg viewBox="0 0 576 512">
@@ -169,20 +169,20 @@
                                 </div>
 
                                 <div *ngIf=" pointForm.apply == 'payment' ">
-                                        <ul>
-                                            <li>For payment, you can open failed payments and select the payment amount to auto compute.</li>
-                                            <li>
-                                                <b>Warning:</b> Exchange rate changes very often. By the time you charge the point, the point may differ from the point student applied.
+                                        <div class="info">
+                                            <div>For payment, you can open failed payments and select the payment amount to auto compute.</div>
+                                            <div>
+                                                <b class="warning">Warning:</b> Exchange rate changes very often. By the time you charge the point, the point may differ from the point student applied.
                                                 Mostly there are small differences. Try to complete manually editing the point to complete in thousand unit.
-                                            </li>
-                                        </ul>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 <div *ngIf=" pointForm.apply == 'refund' ">
-                                        <ul>
-                                            <li>When you refund the total amount, then simply refund the exact amount that was deposited to the bank or paypal.</li>
-                                            <li>When you refund only partially or left point from use, then use 'auto computation' but double check the amount.</li>
-                                        </ul>
+                                        <div class="info">
+                                            <div>When you refund the total amount, then simply refund the exact amount that was deposited to the bank or paypal.</div>
+                                            <div>When you refund only partially or left point from use, then use 'auto computation' but double check the amount.</div>
+                                        </div>
                                     </div>
 
                                 <div *ngIf="pointForm.apply">
@@ -191,30 +191,38 @@
                                         <div>
                                             <span class="label">Amount:</span>
                                             <input type="text" name="amount" [(ngModel)]="pointForm.amount" (ngModelChange)=" pointForm.payment_method = ''; pointForm.point = 0; pointForm.currency = '' ">
-                                            <button type="button" (click)=" onClickAutoCompute() ">Auto Compute</button>
+                                            <button class="auto-compute-button" type="button" (click)=" onClickAutoCompute() ">Auto Compute</button>
                                             <div class="note">How much was paid to buy the point?</div>
                                             <div class="note">Click 'Auto compute' and it will deduct Buy Rate and VAT from the amount and
                                                 set the converted point.</div>
                                         </div>
-                                        <div>
+                                        <div class="margin-top">
                                             <span class="label">Payment Method:</span>
-                                            <label for="payment_method_paypal">
-                                                <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
-                                                    [value]="'paypal'"> Paypal
-                                            </label>
-
-                                            <label for="payment_method_wooribank">
-                                                <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW' "
-                                                    [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
-                                            </label>
-                                            <label for="payment_method_chinese_bank">
-                                                <input type="radio" type="radio" id="payment_method_chinese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'CNY' "
-                                                    [(ngModel)]="pointForm.payment_method" [value]="'chinesebank'"> Chinese Bank
-                                            </label>
-                                            <label for="payment_method_japanese_bank">
-                                                <input type="radio" type="radio" id="payment_method_japanese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'JPY' "
-                                                    [(ngModel)]="pointForm.payment_method" [value]="'japanesebank'"> Japanese Bank
-                                            </label>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <label for="payment_method_paypal">
+                                                            <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
+                                                                [value]="'paypal'"> Paypal
+                                                        </label>
+            
+                                                        <label for="payment_method_wooribank">
+                                                            <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW' "
+                                                                [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <label for="payment_method_chinese_bank">
+                                                            <input type="radio" type="radio" id="payment_method_chinese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'CNY' "
+                                                                [(ngModel)]="pointForm.payment_method" [value]="'chinesebank'"> Chinese Bank
+                                                        </label>
+                                                        <label for="payment_method_japanese_bank">
+                                                            <input type="radio" type="radio" id="payment_method_japanese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'JPY' "
+                                                                [(ngModel)]="pointForm.payment_method" [value]="'japanesebank'"> Japanese Bank
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div *ngIf=" pointForm?.currency ">
@@ -224,37 +232,46 @@
 
                                     </div>
 
-                                    <div>
+                                    <div class="margin-top">
                                         <span class="label">POINT :</span>
-                                        <button type="button" (click)=" onClickAutoRefundCompute() ">Auto Compute</button>
                                         <input type="number" name="pointForm_point" [(ngModel)]="pointForm.point">
+                                        <button class="auto-compute-button" type="button" (click)=" onClickAutoRefundCompute() ">Auto Compute</button>
+                                        
                                     </div>
-                                    <div>
+                                    <div class="margin-top">
                                         <span class="label">Reason:</span>
                                         <input class="reason" type="text" name="pointForm_reason" [(ngModel)]="pointForm.reason">
                                     </div>
 
                                     <ng-container *ngIf=" pointForm.apply == 'refund' ">
 
-                                        <div>
+                                        <div class="margin-top">
                                             <span class="label">Payment Method:</span>
-                                            <label for="payment_method_paypal">
-                                                <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
-                                                    [value]="'paypal'"> Paypal
-                                            </label>
-
-                                            <label for="payment_method_wooribank">
-                                                <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW'; pointForm.amount = 0 "
-                                                    [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
-                                            </label>
-                                            <label for="payment_method_chinese_bank">
-                                                <input type="radio" type="radio" id="payment_method_chinese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'CNY'; pointForm.amount = 0 "
-                                                    [(ngModel)]="pointForm.payment_method" [value]="'chinesebank'"> Chinese Bank
-                                            </label>
-                                            <label for="payment_method_japanese_bank">
-                                                <input type="radio" type="radio" id="payment_method_japanese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'JPY'; pointForm.amount = 0 "
-                                                    [(ngModel)]="pointForm.payment_method" [value]="'japanesebank'"> Japanese Bank
-                                            </label>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-5">
+                                                        <label for="payment_method_paypal">
+                                                            <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
+                                                                [value]="'paypal'"> Paypal
+                                                        </label>
+            
+                                                        <label for="payment_method_wooribank">
+                                                            <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW'; pointForm.amount = 0 "
+                                                                [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <label for="payment_method_chinese_bank">
+                                                            <input type="radio" type="radio" id="payment_method_chinese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'CNY'; pointForm.amount = 0 "
+                                                                [(ngModel)]="pointForm.payment_method" [value]="'chinesebank'"> Chinese Bank
+                                                        </label>
+                                                        <label for="payment_method_japanese_bank">
+                                                            <input type="radio" type="radio" id="payment_method_japanese_bank" name="payment_method" (ngModelChange)=" pointForm.currency = 'JPY'; pointForm.amount = 0 "
+                                                                [(ngModel)]="pointForm.payment_method" [value]="'japanesebank'"> Japanese Bank
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div *ngIf=" pointForm?.currency ">
@@ -262,10 +279,10 @@
                                             {{ pointForm?.currency }}
                                         </div>
 
-                                        <div>
+                                        <div class="margin-top">
                                             <span class="label">Amount:</span>
                                             <input type="text" name="amount" [(ngModel)]="pointForm.amount">
-                                            <button type="button" (click)=" onClickAutoRefundCompute() ">Auto Compute</button>
+                                            <button class="auto-compute-button" type="button" (click)=" onClickAutoRefundCompute() ">Auto Compute</button>
                                             <div class="note">How much was paid to buy the point?</div>
                                         </div>
 
@@ -399,7 +416,7 @@
                     <mat-spinner [diameter]="48"></mat-spinner>
                     Loading Payment Info...
                 </div>
-                <table *ngIf=" ! show.loader.loadPayment && payments.length ">
+                <table *ngIf=" ! show.loader.loadPayment ">
                     <tr>
                         <th>Point</th>
                         <th>Amount</th>
