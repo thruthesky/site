@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-const url = 'http://katalkenglish.org:4200/';
+const url = '/';
 context('Actions', () => {
     before(() => {})
     after(() => {})

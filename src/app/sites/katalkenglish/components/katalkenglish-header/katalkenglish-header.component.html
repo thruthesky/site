@@ -9,7 +9,7 @@
                     <img class="resized" src="{{ a.info?.branch?.logo_url }}" alt="Logo" *ngIf=" ! a.isStudentMainSite && a.info && a.info.branch && a.info.branch.logo_url">
 
             </a>
-            <a routerLink="/login" *ngIf="a.isLogout" [class.adjusted]="selectedLanguage=='ko'">
+            <a class="login" routerLink="/login" *ngIf="a.isLogout" [class.adjusted]="selectedLanguage=='ko'">
                 {{ a.ln.LOGIN }}
             </a>
             <a routerLink="/register" *ngIf="a.isLogout" [class.adjusted]="selectedLanguage=='ko'">
@@ -68,7 +68,7 @@
                 </svg>
                 <span>{{ a.ln.STUDENT_ADV_MENU_TEXT }}</span>
             </a>
-            <a routerLink="/login" *ngIf="a.isLogout">
+            <a class="login" routerLink="/login" *ngIf="a.isLogout">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M184 83.5l164.5 164c4.7 4.7 4.7 12.3 0 17L184 428.5c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l132-131.4H12c-6.6 0-12-5.4-12-12v-10c0-6.6 5.4-12 12-12h279.9L160 107.6c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.6-4.7 12.2-4.7 16.9 0zM512 400V112c0-26.5-21.5-48-48-48H332c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h132c8.8 0 16 7.2 16 16v288c0 8.8-7.2 16-16 16H332c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h132c26.5 0 48-21.5 48-48z"
                     />
@@ -140,7 +140,7 @@
                 </svg>
                 <span>{{ a.ln.SESSION_PAST }}</span>
             </a>
-            <a routerLink="/payment">
+            <a class="payment" routerLink="/payment">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM48 64h480c8.8 0 16 7.2 16 16v48H32V80c0-8.8 7.2-16 16-16zm480 384H48c-8.8 0-16-7.2-16-16V224h512v208c0 8.8-7.2 16-16 16zm-336-84v8c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v8c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z"
                     />
