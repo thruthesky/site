@@ -4,6 +4,7 @@ import { XapiFileUploadComponent } from '../../../../components/xapi-file-upload
 import { FILES, USER_DATA_RESPONSE, BOOK } from '../../../../modules/xapi/interfaces';
 import { AppService } from '../../../../providers/app.service';
 import { PAYMENT_RATE } from '../../../../modules/xapi/lms.service';
+import { validate } from 'codelyzer/walkerFactory/walkerFn';
 
 interface SHOW {
     loader: {
@@ -50,6 +51,11 @@ export class AdminUserInfoPage implements OnInit {
 
 
     paymentRate: PAYMENT_RATE = null;
+
+    total_point_paid = 0;
+    total_point_refunded = 0;
+    total_point_reserve = 0;
+
     constructor(
         public active: ActivatedRoute,
         public router: Router,
@@ -295,9 +301,16 @@ export class AdminUserInfoPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            // console.log('payments: ', re);
+            console.log('payments: ', re);
             this.show.loader.loadPayment = false;
-            this.payments = re;
+            if ( re ) {
+                this.payments = re;
+                this.payments.map(v => {
+                    if (v.state === 'approved') {
+                        this.total_point_paid += parseInt(v.point, 10);
+                    }
+                });
+            }
         }, e => this.a.toast(e));
 
 

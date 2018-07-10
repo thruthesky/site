@@ -1,8 +1,8 @@
 @import './../../../theme/vars';
 $padding: 1.2em;
 $line-spacing: 1em;
-$fs-small: .75em;
-$fs-normal: .9em;
+$fs-sm: .8em;
+$fs-md: .9em;
 $fs-defualt: 1em;
 $fs-lg: 1.2em;
 main {
@@ -27,6 +27,7 @@ main {
     .desc {
         margin: 0;
         padding: $padding/3 0;
+        font-size: $fs-sm;
         background-color: white;
     }
 }
@@ -62,7 +63,7 @@ main {
 .manual-amount-input {
     padding: 0 $padding;
     text-align: center;
-    font-size: $fs-normal;
+    font-size: $fs-md;
     @media (min-width: $md) {
         font-size: $fs-defualt;
     }
@@ -80,15 +81,14 @@ main {
     input {
         padding: .7em 1em;
         margin: $padding .5em;
-        border:1px solid rgba(125, 125, 125, 0.3);
+        border: 1px solid rgba(125, 125, 125, 0.3);
         border-radius: 2px;
     }
-    .cancel-button{
+    .cancel-button {
         margin: 0 .5em;
         font-size: .85em;
     }
-
-    .confirm-button{
+    .confirm-button {
         margin: 0 .5em;
         padding: .7em 1.2em;
         border: 0;
@@ -135,8 +135,8 @@ main {
         }
         .paypal-payment-amount-description {
             margin: $line-spacing*2 0 $line-spacing;
-            font-size: $fs-small;
-            @media (min-width:$md) {
+            font-size: $fs-sm;
+            @media (min-width: $md) {
                 font-size: $fs-defualt
             }
         }
@@ -146,8 +146,7 @@ main {
         height: auto;
         overflow: auto;
         padding: $padding;
-        padding-bottom: 0;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding: $padding*2;
             padding-bottom: 0;
         }
@@ -180,9 +179,9 @@ main {
 }
 
 .select-payment-method {
-    padding: $padding;
-    padding-top: 2em;
+    padding: 2em $padding;
     @media (min-width: $md) {
+        margin-bottom: 1em;
         padding: $padding*2;
         padding-top: 4em;
     }
@@ -207,11 +206,11 @@ main {
             justify-content: center;
             margin: 0;
             margin-top: 1em;
-            font-size: $fs-normal;
+            font-size: $fs-md;
             @media (min-width: $md) {
                 margin: 0 2em;
             }
-            padding: 1.5em 4.5em;
+            padding: 1.5em 6em;
             border: 0;
             border-radius: 2px;
             &.bank {
@@ -236,7 +235,7 @@ main {
         svg {
             height: 2.5em;
             width: 2.5em;
-            margin-right: .5em;
+            margin-right: 1.5em;
         }
     }
 }
@@ -263,7 +262,7 @@ main {
             padding: .5em;
             @media (min-width: $md) {
                 padding: 1em 2em;
-                margin: 0 1em!important;
+                margin: 0 1em !important;
             }
             width: 33.33%;
             cursor: pointer;
@@ -298,50 +297,33 @@ footer.payment-footer {
     font-weight: 200;
     line-height: 1.6em;
     .refund-policy {
-        padding: 1em;
-        font-size: $fs-normal;
-        @media (min-width: $md) {
-            padding: 1em $padding*2;
-            font-size: $fs-defualt
-        }
+        padding: $padding;
+        font-size: $fs-md;
         background-color: #e1eeff;
     }
-    .help {
+    a.help {}
+    .text-and-icon {
+        display: flex;
         margin-top: $line-spacing;
-        padding: 0;
-        @media (min-width: $md) {
-            padding-left: $padding*2;
-            font-size: $fs-defualt
-        }
-        a{
-            display: inline-flex;
-            align-items: center;
-            margin: 0;
-            padding: 0 $padding/2;
-            background: #eee;
-            color: #000;
-            font-size: $fs-normal;
-
-            svg{
-                height: 1em;
-                width: 1em;
-                margin-left: $padding/6;
-            }
+        padding: $padding / 2;
+        background-color: #eee;
+        font-size: $fs-sm;
+        svg {
+            margin: .475em 0 0 .35em;
+            height: 1em;
+            width: 1em;
         }
     }
 }
 
 .change-point {
-    font-size: $fs-small;
-    @media (min-width:$md) {
-        font-size: $fs-normal
-    }
+    font-size: $fs-sm;
     cursor: pointer;
 }
 
 .banks {
     padding: $padding $padding 0;
-    @media (min-width:$md) {
+    @media (min-width: $md) {
         padding: $padding $padding*2;
     }
     .bank-item {
@@ -363,27 +345,34 @@ footer.payment-footer {
         }
         .container-fluid {
             border: 1px solid rgba(125, 125, 125, 0.2);
-            font-size: $fs-normal;
+            font-size: $fs-md;
             .row {
                 border-bottom: 1px solid rgba(125, 125, 125, 0.2);
                 &:last-child {
                     border-bottom: 0;
                 }
-                .col {
-                    padding: .5em 1em;
+                &>div {
+                    padding: 1em;
                     &:first-child {
                         border-right: 1px solid rgba(125, 125, 125, 0.2)
                     }
                 }
             }
         }
+        [data-role='bank-transaction-amount'] {
+            color: #8b0000;
+            font-size: 1.1em;
+        }
+        b {
+            font-weight: 600;
+        }
     }
     .leave-a-message-after-deposit {
         margin-top: $line-spacing;
-        font-size: $fs-small;
-        @media (min-width:$md) {
+        font-size: $fs-sm;
+        @media (min-width: $md) {
             margin-top: $line-spacing*2;
-            font-size: $fs-normal
+            font-size: $fs-md
         }
     }
     .exchange-vat-desc {
@@ -391,17 +380,17 @@ footer.payment-footer {
         padding: 1em;
         background-color: #fff3cd;
         color: #856404;
-        font-size: $fs-small;
+        font-size: $fs-sm;
         @media (min-width: $md) {
             margin: $line-spacing 0;
-            font-size: $fs-normal
+            font-size: $fs-md
         }
     }
 }
 
 .payment-selected-bottom-description {
-    padding: $padding/6  $padding;
-    @media (min-width:$md) {
+    padding: $padding/2 $padding;
+    @media (min-width: $md) {
         padding: 0 $padding*2;
     }
     color: darkblue;

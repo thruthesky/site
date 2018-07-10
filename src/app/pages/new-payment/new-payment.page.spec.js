@@ -31,7 +31,7 @@ context('Payment', () => {
         it('selecting korean bank', () => {
             cy.get('#a100000').check();
             cy.get('.select-payment-method').find('.bank').click();
-            cy.get('.select-bank').find('.korea').click();
+            // cy.get('.select-bank').find('.korea').click();
             cy.get("[data-bank-country='korea']");
         })
         it('cancel bank and select paypal payment', () => {
