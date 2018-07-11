@@ -1,5 +1,14 @@
 <footer id="katalkenglish-footer">
     <section>
+        <div class="copyright">
+            <div *ngIf=" a.info && a.info.branch && a.info.branch.copyright; else MainCopyright " [innerHTML]=" a.safeHtml(a.info.branch?.copyright) ">
+            </div>
+            <ng-template #MainCopyright>
+                <div>
+                    © 2006-{{ year }} Withcenter, Inc., Pampanga Philippines.
+                </div>
+            </ng-template>
+        </div>
         <div class="menu">
             <div>
                 <a routerLink="/termsAndConditions">{{ a.ln.TERMS_AND_CONDITIONS }}</a>
@@ -10,15 +19,6 @@
             <div>
                 <a routerLink="/help">{{ a.ln.HELP }}</a>
             </div>
-        </div>
-        <div class="copyright">
-            <div *ngIf=" a.info && a.info.branch && a.info.branch.copyright; else MainCopyright " [innerHTML]=" a.safeHtml(a.info.branch?.copyright) ">
-            </div>
-            <ng-template #MainCopyright>
-                <div>
-                    © 2006-{{ year }} Withcenter, Inc., Pampanga Philippines.
-                </div>
-            </ng-template>
         </div>
             <div class="language">
                 <select text-center [(ngModel)]="selectedLanguage" (change)=" onChangeLanguage() " placeholder="Select Your Language">
