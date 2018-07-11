@@ -6,16 +6,21 @@ footer {
     background-color: #f3f5fa;
     color: #777;
     @media (min-width: $md ) {
-      display: flex;
-      justify-content: space-around;
-      .copyright {
+        display: flex;
+        justify-content: space-around;
+        .copyright {
         max-width: 260px;
-      }
+        }
     }
     .contact {
         cursor: pointer;
     }
     & > div {
         margin: 0 0 1em;
+    }
+
+    select{
+        border: 1px solid rgba(125,125,125,0.4);
+        background: #fff;
     }
 }
