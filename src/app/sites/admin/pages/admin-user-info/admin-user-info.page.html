@@ -225,10 +225,10 @@
                                     <div class="buttons">
                                         <button class="app-button update" type="button" (click)="onClickPointUpdate()" *ngIf=" ! show.loader.updatePoint ">Update Point</button>
                                         <button class="app-button cancel" type="button" (click)=" show.newPointUpdateForm = false">Cancel</button>
-                                        <div class="loader" *ngIf=" show.loader.updatePoint ">
-                                            <mat-spinner [diameter]="20"></mat-spinner>
-                                            Updating point...
-                                        </div>
+                                    </div>
+                                    <div class="point-edit-loader" *ngIf=" show.loader.updatePoint ">
+                                        <mat-spinner [diameter]="40"></mat-spinner>
+                                        Updating point...
                                     </div>
                                 </div>
 

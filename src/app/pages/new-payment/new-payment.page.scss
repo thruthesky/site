@@ -37,26 +37,32 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 2em;
+    padding: 0 .5em;
     background-color: #1862c5;
     color: white;
     font-size: 85%;
-    &>div {
+    &>label {
         display: flex;
         align-items: center;
+        justify-content: center;
         margin: 0 .2em;
+        height: 5em;
+        width: 100%;
+        cursor: pointer;
+        span{
+            margin-left: .3em;
+        }
     }
-    input {
+    input{
         cursor: pointer;
     }
-    label {
-        padding-left: .3em;
-        cursor: pointer;
+    .hidden {
+        display: none;
     }
-    @media screen and (max-width:544px) {
-        padding: 2em .5em;
+    @media (min-width:$md) {
+        padding: 0 2em;
         .hidden {
-            display: none;
+            display: flex;
         }
     }
 }
@@ -382,6 +388,7 @@ footer.payment-footer {
                 &>div {
                     padding: 1em;
                     &:first-child {
+                        background: rgba(125,125,125, 0.04);
                         border-right: 1px solid rgba(125, 125, 125, 0.2)
                     }
                     &:last-child {
