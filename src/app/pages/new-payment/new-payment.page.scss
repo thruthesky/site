@@ -142,7 +142,7 @@ main {
                 margin-top: $line-spacing;
                 margin-bottom: 4em;
             }
-            color: gray;
+            color: #6c757d;
         }
         .paypal-payment-amount-description {
             margin: 2.25em 0 0;
@@ -417,7 +417,7 @@ footer.payment-footer {
         margin-top: $line-spacing;
         padding: 1em 0;
         font-size: $fs-sm;
-        color: #616161;
+        color: #6c757d;
         @media (min-width: $md) {
             margin: $line-spacing 0;
             margin-top: 0;
