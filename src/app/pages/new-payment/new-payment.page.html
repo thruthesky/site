@@ -224,21 +224,23 @@
                     <div class="bank-name" data-bank-country="china">{{ 'CHINESE_BANK_NAME' | t }}</div>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>JaeHo Song</b>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_NO' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>89124-0384-9874</b>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
-                            <div class="col">{{ amount_in_cny_with_tax() | number }} {{ 'RENMINBI' | t }}</div>
+                            <div  class="col-5 col-md-3">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                            <div  class="col-7 col-md-9" data-role="bank-transaction-amount">
+                                <b>{{ amount_in_cny_with_tax() | number }} {{ 'RENMINBI' | t }}</b>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,22 +256,22 @@
                     <div class="container-fluid">
 
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>JaeHo Song</b>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_NO' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>726-3184-321808</b>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
-                            <div class="col">{{ amount_in_jpy_with_tax() | number }} {{ 'YEN' | t }}</div>
+                            <div class="col-5 col-md-3">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                            <div class="col-7 col-md-9" data-role="bank-transaction-amount">{{ amount_in_jpy_with_tax() | number }} {{ 'YEN' | t }}</div>
                         </div>
                     </div>
 
