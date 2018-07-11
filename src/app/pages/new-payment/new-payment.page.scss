@@ -292,7 +292,7 @@ footer.payment-footer {
     margin-top: $line-spacing;
     padding: $padding;
     @media (min-width: $md) {
-        padding: 0;
+        padding:$padding $padding*2;
     }
     background-color: #eee;
     font-weight: 200;
