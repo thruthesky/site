@@ -135,7 +135,7 @@ export class AdminUserInfoPage implements OnInit {
                  * since it needs user type.
                  */
                 if (this.user.user_type === 'S') {
-                    this.loadPointReserved(ID);
+                    this.loadPointReserved();
                 }
                 this.loadSchedule(ID);
                 this.loadPointHistory();
