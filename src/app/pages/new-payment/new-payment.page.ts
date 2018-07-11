@@ -44,7 +44,7 @@ export class NewPaymentPage implements AfterViewInit {
         a.lms.payment_rate().subscribe(re => {
             this.loader.paymentRate = false;
             this.paymentRate = re;
-            console.log('paymentRate: ', this.paymentRate);
+            // console.log('paymentRate: ', this.paymentRate);
         }, () => { });
     }
 
@@ -276,6 +276,7 @@ export class NewPaymentPage implements AfterViewInit {
     onSelectBankTransaction() {
         if ( this.a.site.katalkenglish ) {
             this.paymentMethod = 'koreanBank';
+            this.onSelectBankCountry( this.paymentMethod );
         } else {
             this.paymentMethod = 'bank';
         }
@@ -313,7 +314,7 @@ export class NewPaymentPage implements AfterViewInit {
             currency: this.getCurrency()
         };
         this.a.lms.payment_bank_country_selection(req).subscribe(re => {
-            console.log('payment_bank_country_selection: ', re);
+            // console.log('payment_bank_country_selection: ', re);
         }, e => {
             console.log('error on payment_bank_country_selection(): ', e);
         });
