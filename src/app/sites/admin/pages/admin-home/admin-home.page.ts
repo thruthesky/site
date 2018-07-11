@@ -174,7 +174,7 @@ export class AdminHomePage implements OnInit {
         return Object.keys( obj );
     }
     barHeight( no ) {
-        return no + 'px';
+        return (no / 2) + 'px';
     }
 }
 
