@@ -177,11 +177,14 @@ export class AdminHomePage implements OnInit {
         if ( !no ) {
             return '1px';
         }
+        if ( no < 0 ) {
+            no = Math.abs(no);
+        }
         if ( max ) {
             return Math.floor(no / max * 100) + 'px';
         }
 
-        return (no / 2) + 'px';
+        return no + 'px';
     }
 }
 
