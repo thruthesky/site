@@ -310,8 +310,16 @@ footer.payment-footer {
 }
 
 .change-point {
+    display: flex;
+    align-items: center;
     font-size: $fs-sm;
     cursor: pointer;
+    svg{
+        height: 1em;
+        width: 1em;
+        margin-left: .3em;
+        margin-bottom: .205em;
+    }
 }
 
 .banks {
