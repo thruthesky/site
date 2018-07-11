@@ -89,7 +89,8 @@ export class AdminUserInfoPage implements OnInit {
                 loadSchedule: false,
                 loadPayment: false,
                 loadFailedPayment: false,
-                loadPointHistory: false
+                loadPointHistory: false,
+                totalPointReserved: false
             },
             pointUpdateForm: false,
             newPointUpdateForm: false,
