@@ -1,21 +1,42 @@
 @import './../../../../../theme/vars.scss';
+@import './../../../../../theme/variables-katalkenglish';
 footer {
     font-size: .85em;
     line-height: 160%;
     text-align: center;
     background-color: #f3f5fa;
-    color: #777;
-    @media (min-width: $md ) {
-      display: flex;
-      justify-content: space-around;
-      .copyright {
-        max-width: 260px;
-      }
-    }
-    .contact {
-        cursor: pointer;
-    }
-    & > div {
-        margin: 0 0 1em;
+    color: #888;
+    section{
+        margin: auto;
+        padding: 3.5em 0;
+        @media (min-width: $md ) {
+            display: flex;
+            justify-content: space-between;
+            max-width: $katalkenglish-page-width;
+            .copyright {
+            max-width: 260px;
+            }
+        }
+        .contact {
+            cursor: pointer;
+        }
+        & > div {
+            margin: 0 0 1em;
+        }
+    
+        select{
+            border: 1px solid rgba(125,125,125,0.4);
+            background: #fff;
+            text-align-last: center;
+            padding-left: 1em;
+        }
+
+        .menu{
+            &>div{
+                &:hover{
+                    color: #000;
+                }
+            }
+        }
     }
 }
