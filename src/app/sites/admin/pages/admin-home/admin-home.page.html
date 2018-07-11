@@ -38,6 +38,10 @@
     </form>
     <div class="stat no-of-reservations">
         <h2>No of Reservations</h2>
+
+        <div *ngIf=" stats ">
+        Total: {{ stats.total_no_of_reservations | number }}, Total Point: {{ 0 | number }}
+        </div>
         <table *ngIf=" stats && stats['no_of_reservations'] ">
             <tr>
                 <td *ngFor="let date of keys(stats['no_of_reservations'])">
@@ -54,6 +58,9 @@
 
     <div class="stat no_of_reservations_of_withcenter_teachers">
             <h2>No of Reservations Of Withcenter Teachers</h2>
+            <div *ngIf=" stats ">
+                    Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ 0 | number }}
+            </div>
             <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
                 <tr>
                     <td *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
