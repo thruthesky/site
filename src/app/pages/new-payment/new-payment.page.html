@@ -25,40 +25,39 @@
                     <div class="desc"> {{ 'SELECT_AMOUNT_DESC' | t }}</div>
                 </div>
 
-
                 <div class="amounts" *ngIf="!inputAmount">
                     <!-- <div>
                         <input id="a2000" type="radio" name="amount" [(ngModel)]="amount" [value]="2000">
                         <label for="a2000">2천 원</label>
                     </div> -->
-                    <div>
+                    <label>
                         <input id="a10000" type="radio" name="amount" [(ngModel)]="amount" [value]="10000">
-                        <label for="a10000"> {{'10_THOUSAND_POINT' | t}}</label>
-                    </div>
-                    <div class="hidden">
+                        <span> {{'10_THOUSAND_POINT' | t}}</span>
+                    </label>
+                    <label class="hidden">
                         <input id="a20000" type="radio" name="amount" [(ngModel)]="amount" [value]="20000">
-                        <label for="a20000">{{'20_THOUSAND_POINT' | t}}</label>
-                    </div>
-                    <div>
+                        <span>{{'20_THOUSAND_POINT' | t}}</span>
+                    </label>
+                    <label>
                         <input id="a30000" type="radio" name="amount" [(ngModel)]="amount" [value]="30000">
-                        <label for="a30000"> {{'30_THOUSAND_POINT' | t}}</label>
-                    </div>
-                    <div>
+                        <span> {{'30_THOUSAND_POINT' | t}}</span>
+                    </label>
+                    <label>
                         <input id="a50000" type="radio" name="amount" [(ngModel)]="amount" [value]="50000">
-                        <label for="a50000"> {{'50_THOUSAND_POINT' | t}}</label>
-                    </div>
-                    <div>
+                        <span> {{'50_THOUSAND_POINT' | t}}</span>
+                    </label>
+                    <label>
                         <input id="a100000" type="radio" name="amount" [(ngModel)]="amount" [value]="100000">
-                        <label for="a100000"> {{'100_THOUSAND_POINT' | t}}</label>
-                    </div>
-                    <div class="hidden">
+                        <span> {{'100_THOUSAND_POINT' | t}}</span>
+                    </label>
+                    <label class="hidden">
                         <input id="a150000" type="radio" name="amount" [(ngModel)]="amount" [value]="150000">
-                        <label for="a150000"> {{'150_THOUSAND_POINT' | t}}</label>
-                    </div>
-                    <div>
+                        <span> {{'150_THOUSAND_POINT' | t}}</span>
+                    </label>
+                    <label>
                         <input id="a200000" type="radio" name="amount" [(ngModel)]="amount" [value]="200000">
-                        <label for="a200000"> {{'200_THOUSAND_POINT' | t}}</label>
-                    </div>
+                        <span> {{'200_THOUSAND_POINT' | t}}</span>
+                    </label>
                 </div>
 
                 <div class="manual-amount-input">
@@ -79,8 +78,10 @@
         <div class="amount-selected" *ngIf=" amount_in_usd_with_tax() ">
             <div>{{ 'VAT_1' | t:{ 'AMOUNT': amount | number } }}</div>
             <div class="change-point" (click)=" amount = 0; paymentMethod='' ">
+                <span>
+                    <svg viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm16 400c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h352c8.8 0 16 7.2 16 16v352zm-97.2-245.3L249.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L224 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z"></path></svg>
+                </span>
                 <span>{{ 'CHANGE_POINT_AMOUNT' | t }}</span>
-                <svg viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-7x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"></path></svg>
             </div>
         </div>
 
@@ -95,17 +96,42 @@
             <div class="title">{{ 'SELECT_PAYMENT_METHOD' | t }}</div>
             <div class="buttons">
                 <button class="paypal" (click)=" onSelectPaypalPayment() ">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                        <path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM48 64h480c8.8 0 16 7.2 16 16v48H32V80c0-8.8 7.2-16 16-16zm480 384H48c-8.8 0-16-7.2-16-16V224h512v208c0 8.8-7.2 16-16 16zm-336-84v8c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v8c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z"></path>
-                    </svg>
-                    {{ 'PAYPAL_CREDIT' | t }}
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5 col-md-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM48 64h480c8.8 0 16 7.2 16 16v48H32V80c0-8.8 7.2-16 16-16zm480 384H48c-8.8 0-16-7.2-16-16V224h512v208c0 8.8-7.2 16-16 16zm-336-84v8c0 6.6-5.4 12-12 12h-72c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12zm192 0v8c0 6.6-5.4 12-12 12H236c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12z"></path>
+                                </svg>
+                            </div>
+                            <div class="col-7 col-md-6">
+                                    <span>{{ 'PAYPAL_CREDIT' | t }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </button>
 
                 <button class="bank" (click)=" onSelectBankTransaction() ">
-                    <svg viewBox="0 0 640 512">
-                        <path fill="currentColor" d="M624 32H16C7.16 32 0 39.16 0 48v400c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V48c0-8.84-7.16-16-16-16zm-16 416H32V160h576v288zm0-320H32V64h576v64zM104 384h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm288 0h144c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H392c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm-288-96h208c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8H104c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8zm296 0h128c8.84 0 16-7.16 16-16v-64c0-8.84-7.16-16-16-16H400c-8.84 0-16 7.16-16 16v64c0 8.84 7.16 16 16 16zm16-64h96v32h-96v-32z"></path>
-                    </svg>
-                    {{ 'BANK_TRANSACTION' | t }}
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5 col-md-5">
+                                    <svg viewBox="0 0 512 512">
+                                    <g fill="currentColor">
+                                        <path d="M0,68.125v330.66c0,24.852,20.238,45.09,45.086,45.09H466.91c24.851,0,45.09-20.238,45.09-45.09V68.125H0z    M219.058,304.691L219.058,304.691h0.16v-29.027v-0.09l0,0v-0.161H29.278v-145.41v-0.286H481.5l1.218,0.004v145.691H457.32v29.278   h25.398v94.094c0,8.711-7.062,15.813-15.808,15.813H45.086c-8.71,0-15.808-7.102-15.808-15.813v-94.094h189.203H219.058z"/>
+                                        <path d="M100.422,189.851c-0.621-0.66-1.281-1.21-1.938-1.683c-0.515-0.367-1.304-0.84-2.234-1.344   c-0.168-0.121-0.309-0.211-0.493-0.348c5.082-2.89,7.664-7.266,7.664-13.242c0-2.637-0.472-4.977-1.351-7.098   c-0.914-2.126-2.195-3.918-3.879-5.418c-1.683-1.465-3.699-2.637-6.113-3.442c-2.379-0.839-5.051-1.242-7.977-1.242H59.23h-0.074   l0,0h-0.164v62.542H85.16c2.93,0,5.562-0.437,7.942-1.281c2.379-0.84,4.394-2.047,6.039-3.586c1.683-1.574,2.965-3.441,3.843-5.636   c0.879-2.196,1.317-4.684,1.317-7.43c0-2.23-0.328-4.206-0.914-5.965C102.766,192.926,101.778,191.312,100.422,189.851z    M71.18,181.324v-14.382h11.934c2.523,0,4.5,0.621,5.926,1.902c1.465,1.317,2.16,3.074,2.16,5.27c0,2.23-0.695,3.989-2.16,5.27   c-1.426,1.317-3.402,1.942-5.926,1.942H71.18z M89.883,194.316c1.465,1.352,2.195,3.219,2.195,5.633   c0,2.418-0.73,4.286-2.195,5.676c-1.466,1.351-3.442,2.047-5.966,2.047H71.18v-15.371h12.738   C86.442,192.301,88.418,192.996,89.883,194.316z"/>
+                                        <path d="M130.836,156.035l-16.809,46.254l-5.918,16.129h0.058l-0.058,0.16h12.734l3.77-11.09h22.214l3.695,11.09   h12.738l-22.84-62.542H130.836z M143.554,197.242h-11.726l-3.758-0.05l7.886-22.711l5.805,17.27L143.554,197.242z"/>
+                                        <polygon points="206.129,156.035 206.129,156.035 205.969,156.035 205.969,176.742 205.836,194.109 181.195,156.035    170.481,156.035 170.446,156.035 170.446,156.035 170.289,156.035 170.289,218.578 182.512,218.578 182.512,197.554    182.641,180.39 207.289,218.578 218.156,218.578 218.156,156.035 206.164,156.035  "/>
+                                        <polygon points="234.078,218.418 234.078,218.578 246.266,218.578 246.266,199.77 252.34,192.508 254.379,190.156    270.418,218.578 284.656,218.578 262.442,180.882 275.019,165.793 283.156,156.191 283.019,156.191 283.152,156.035    268.297,156.035 255.871,171.39 246.266,183.066 246.266,156.035 234.274,156.035 234.234,156.035 234.234,156.035    234.078,156.035 234.078,218.226 234.078,218.418  "/>
+                                        <polygon points="289.484,304.691 289.484,275.414 289.484,271.023 249.492,248.805 230.359,238.086 230.359,238.175    230.195,238.086 230.195,275.414 230.195,304.691 230.195,356.66 289.484,389.598  "/>
+                                        <polygon points="367.914,304.691 367.914,275.414 367.914,235.164 368.031,205.218 367.914,205.351 367.914,205.109    308.625,271.023 308.625,275.414 308.625,304.691 308.625,389.598 367.914,323.687  "/>
+                                        <polygon points="446.344,304.691 446.344,275.414 446.344,224.91 401.309,209.871 387.215,205.113 387.215,205.164    387.054,205.109 387.054,275.414 387.054,304.691 387.054,323.687 446.344,343.488  "/>
+                                    </g>
+                                    </svg>
+                            </div>
+                            <div class="col-7 col-md-6">
+                                <span>{{ 'BANK_TRANSACTION' | t }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </button>
 
             </div>
@@ -180,7 +206,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-5 col-md-3">{{ 'AMOUNT_TO_PAY' | t }}</div>
-                                <div class="col-7 col-md-9" data-role="bank-transaction-amount"><b>{{ amount_in_krw_with_tax() | number }} {{ 'WON' | t }}</b></div>
+                                <div class="col-7 col-md-9" data-role="bank-transaction-amount">
+                                    <b>{{ amount_in_krw_with_tax() | number }} {{ 'WON' | t }}</b>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -196,21 +224,23 @@
                     <div class="bank-name" data-bank-country="china">{{ 'CHINESE_BANK_NAME' | t }}</div>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>JaeHo Song</b>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_NO' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>89124-0384-9874</b>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
-                            <div class="col">{{ amount_in_cny_with_tax() | number }} {{ 'RENMINBI' | t }}</div>
+                            <div  class="col-5 col-md-3">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                            <div  class="col-7 col-md-9" data-role="bank-transaction-amount">
+                                <b>{{ amount_in_cny_with_tax() | number }} {{ 'RENMINBI' | t }}</b>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -226,22 +256,22 @@
                     <div class="container-fluid">
 
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_HOLDER_NAME' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>JaeHo Song</b>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col">{{ 'ACCOUNT_NO' | t }}</div>
-                            <div class="col">
+                            <div class="col-5 col-md-3">{{ 'ACCOUNT_NO' | t }}</div>
+                            <div class="col-7 col-md-9">
                                 <b>726-3184-321808</b>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col">{{ 'AMOUNT_TO_PAY' | t }}</div>
-                            <div class="col">{{ amount_in_jpy_with_tax() | number }} {{ 'YEN' | t }}</div>
+                            <div class="col-5 col-md-3">{{ 'AMOUNT_TO_PAY' | t }}</div>
+                            <div class="col-7 col-md-9" data-role="bank-transaction-amount">{{ amount_in_jpy_with_tax() | number }} {{ 'YEN' | t }}</div>
                         </div>
                     </div>
 
@@ -262,8 +292,10 @@
 
         <div class="payment-selected-bottom-description">
             <div class="change-point" (click)=" amount = 0; paymentMethod='' " *ngIf=" paymentMethod == 'paypal' || bankSelected ">
+                <span>
+                    <svg viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm16 400c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V80c0-8.8 7.2-16 16-16h352c8.8 0 16 7.2 16 16v352zm-97.2-245.3L249.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L224 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z"></path></svg>
+                </span>
                 <span>{{ 'CHANGE_POINT_AMOUNT' | t }}</span>
-                <svg viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-7x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"></path></svg>
             </div>
         </div>
 
