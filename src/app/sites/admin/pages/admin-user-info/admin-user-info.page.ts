@@ -16,6 +16,7 @@ interface SHOW {
         loadPayment: boolean;
         loadFailedPayment: boolean;
         loadPointHistory: boolean;
+        totalPointReserved: boolean;
     };
     pointUpdateForm: boolean;
     newPointUpdateForm: boolean;
@@ -88,7 +89,8 @@ export class AdminUserInfoPage implements OnInit {
                 loadSchedule: false,
                 loadPayment: false,
                 loadFailedPayment: false,
-                loadPointHistory: false
+                loadPointHistory: false,
+                totalPointReserved: false
             },
             pointUpdateForm: false,
             newPointUpdateForm: false,
@@ -135,7 +137,7 @@ export class AdminUserInfoPage implements OnInit {
                  * since it needs user type.
                  */
                 if (this.user.user_type === 'S') {
-                    this.loadPointReserved(ID);
+                    this.loadPointReserved();
                 }
                 this.loadSchedule(ID);
                 this.loadPointHistory();
