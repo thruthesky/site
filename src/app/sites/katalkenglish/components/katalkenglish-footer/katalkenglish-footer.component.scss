@@ -27,6 +27,8 @@ footer {
         select{
             border: 1px solid rgba(125,125,125,0.4);
             background: #fff;
+            text-align-last: center;
+            padding-left: 1em;
         }
 
         .menu{
@@ -40,6 +42,9 @@ footer {
             }
             &>div{
                 margin: 0 2em;
+                &:hover{
+                    color: #000;
+                }
             }
         }
     }
