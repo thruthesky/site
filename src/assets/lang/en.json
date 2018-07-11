@@ -589,9 +589,6 @@
 
 
   "YOU_ARE_TO_AGREE": "Please, click the Agree button of Terms and Conditions to sign up.",
-  "WITHCENTER_TEACHER_DESC_1": "Please be reminded that this teacher may cancel her reservations.",
-  "WITHCENTER_TEACHER_DESC_2": "You can reserve fixed schedules with this teacher without cancellation. 25 minutes a day for 1 month. 75,000 KRW.",
-  "WITHCENTER_TEACHER_RESERVE_REMINDER": "Please be reminded that this teacher may cancel reservation.",
   "TOC_AGREE": "By registering, I agree to",
   "TOC_TITLE": "the Terms and Conditions.",
   "VIDEO_RESERVE_TITLE": "Video) How to reserve",
@@ -714,5 +711,6 @@
   "WOORIBANK_PAYMENT_AMOUNT_DESC": "The above amount is converted from #usd dollar including VAT #VAT%.",
   "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "The above amount is converted from #usd dollar including VAT #VAT%.",
   "RENMINBI": "Renminbi",
-  "YEN": "Yen"
+  "YEN": "Yen",
+  "LOADING_TEACHER_INFO_AND_SCHEDULE": "Loading teacher information and schedule."
 }

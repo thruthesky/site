@@ -28,11 +28,16 @@ export class AdminHomePage implements OnInit {
         limitPerNavigation: 5,
         totalRecord: 0
     };
+
+
+    stat_date_begin = 0;
+    stat_date_end = 0;
+    stats = null;
     constructor(
         public a: AppService,
         public modal: ModalService
     ) {
-        if ( a.isSuperManager ) {
+        if (a.isSuperManager) {
             this.loadDomainChangeApplications();
         }
 
@@ -40,12 +45,29 @@ export class AdminHomePage implements OnInit {
         this.loadAdminReports();
         this.loadRefundRequest();
         this.loadClassComment();
+
+        const d = new Date();
+        this.stat_date_begin = parseInt(d.getFullYear() + a.add0((d.getMonth() + 1)) + a.add0(1), 10);
+
+        const today = new Date();
+        const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        this.stat_date_end = parseInt(d.getFullYear() + a.add0((d.getMonth() + 1)) + lastDayOfMonth.getDate(), 10);
+        this.loadAdminStatistics();
     }
 
     ngOnInit() { }
 
+
+    loadAdminStatistics() {
+
+        this.a.lms.admin_statistics({ date_begin: this.stat_date_begin, date_end: this.stat_date_end }).subscribe(res => {
+            console.log('admin statistics: ', res);
+            this.stats = res;
+        }, e => this.a.toast(e));
+    }
+
     loadAdminReports() {
-        this.a.lms.admin_branch_record_get().subscribe( re => {
+        this.a.lms.admin_branch_record_get().subscribe(re => {
             // console.log('loadAdminReports', re);
             this.reports = re;
         }, e => {
@@ -103,10 +125,10 @@ export class AdminHomePage implements OnInit {
         }, e => this.a.toast(e));
     }
     async onClickDomainChangeApplicationAccept(branch: Branch) {
-        if ( branch.domain_change_application.indexOf('katalkenglish.com') === -1 ) {
-            const re = await this.modal.confirm({ content: `<b style='color: red;'>Warning: This is not a subdomain of katalkenglsih. Have you done nginx server work?</b>`})
-            .toPromise();
-            if ( ! re ) {
+        if (branch.domain_change_application.indexOf('katalkenglish.com') === -1) {
+            const re = await this.modal.confirm({ content: `<b style='color: red;'>Warning: This is not a subdomain of katalkenglsih. Have you done nginx server work?</b>` })
+                .toPromise();
+            if (!re) {
                 return;
             }
         }
@@ -117,13 +139,13 @@ export class AdminHomePage implements OnInit {
         }, e => this.a.toast(e));
     }
     loadLatestBranches() {
-        if ( ! this.a.isSuperManager ) {
+        if (!this.a.isSuperManager) {
             return;
         }
         this.a.lms.admin_query({
             sql: 'SELECT idx, domain, user_ID as idx_student, company_name FROM lms_branch ORDER BY idx DESC LIMIT 5',
             student_info: true
-        }).subscribe( (re: Array<Branch>) => {
+        }).subscribe((re: Array<Branch>) => {
             // console.log('list branches: ', re);
             this.latestBranches = re;
         }, e => this.a.toast(e));
@@ -146,6 +168,13 @@ export class AdminHomePage implements OnInit {
             this.loader.teacherEquipment = false;
         });
 
+    }
+
+    keys( obj ) {
+        return Object.keys( obj );
+    }
+    barHeight( no ) {
+        return no + 'px';
     }
 }
 

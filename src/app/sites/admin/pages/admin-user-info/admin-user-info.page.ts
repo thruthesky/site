@@ -53,7 +53,6 @@ export class AdminUserInfoPage implements OnInit {
     paymentRate: PAYMENT_RATE = null;
 
     total_point_paid = 0;
-    total_point_refunded = 0;
     total_point_reserve = 0;
 
     constructor(
@@ -135,9 +134,13 @@ export class AdminUserInfoPage implements OnInit {
                  * after loading user information.
                  * since it needs user type.
                  */
+                if (this.user.user_type === 'S') {
+                    this.loadPointReserved(ID);
+                }
                 this.loadSchedule(ID);
                 this.loadPointHistory();
                 this.loadRefundRequest();
+
             } else {
                 this.a.toast('You are not Manager of this user.');
             }
@@ -530,6 +533,28 @@ export class AdminUserInfoPage implements OnInit {
         event.preventDefault();
 
         return false;
+    }
+
+    loadPointReserved() {
+        // console.log(this.user);
+        const sql = `SELECT sum(point) as points
+                     FROM lms_reservation
+                     WHERE BRANCH AND idx_student=${this.user.ID}
+                     GROUP BY idx_student
+                     `;
+        this.show.loader.totalPointReserved = true;
+        this.a.lms.admin_query({
+            sql: sql
+        }).subscribe(re => {
+            // console.log('payments: ', re);
+            this.show.loader.totalPointReserved = false;
+            if ( re && re.length ) {
+                this.total_point_reserve = re[0].points;
+            }
+        }, e => {
+            this.a.toast(e);
+            this.show.loader.totalPointReserved = false;
+        });
     }
 }
 

@@ -183,16 +183,16 @@
 
 
 
-    <div class="withcenter-teachers" *ngIf=" re.teacher.user_group == 'withcenter' " (click)="openModalPromo()">
+    <!-- <div class="withcenter-teachers" *ngIf=" re.teacher.user_group == 'withcenter' " (click)="openModalPromo()">
         <div>{{ a.ln.WITHCENTER_TEACHER_DESC_1 }}</div>
         <div>{{ a.ln.WITHCENTER_TEACHER_DESC_2 }}</div>
-    </div>
+    </div> -->
 
     <ng-template #singleTeacherLoader>
 
         <div class="alert">
-            <div>선생님 정보와 수업 시간표 정보를 로드중입니다.</div>
-            <div>잠시만 기다려주세요.</div>
+            <div>{{ 'LOADING_TEACHER_INFO_AND_SCHEDULE' | t }}</div>
+            <div>{{ 'PLEASE_WAIT' | t }}</div>
         </div>
 
     </ng-template>
