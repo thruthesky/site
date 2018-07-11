@@ -40,8 +40,9 @@
         <h2>No of Reservations</h2>
 
         <div *ngIf=" stats ">
-        Total: {{ stats.total_no_of_reservations | number }}, Total Point: {{ 0 | number }}
-        </div>
+            Total: {{ stats.total_no_of_reservations | number }}, Total Point: {{ 0 | number }}
+        </div>.
+
         <table *ngIf=" stats && stats['no_of_reservations'] ">
             <tr>
                 <td *ngFor="let date of keys(stats['no_of_reservations'])">
@@ -54,12 +55,12 @@
             </tr>
         </table>
     </div>
-    
+
 
     <div class="stat no_of_reservations_of_withcenter_teachers">
-            <h2>No of Reservations Of Withcenter Teachers</h2>
+            <h2>No of Reservations Of Homebased Teachers</h2>
             <div *ngIf=" stats ">
-                    Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ 0 | number }}
+                Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ 0 | number }}
             </div>
             <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
                 <tr>
@@ -73,8 +74,26 @@
                 </tr>
             </table>
         </div>
-    
-        
+
+    <div class="stat no_of_reservations_of_withcenter_teachers">
+        <h2>No of Reservations Of Withcenter Teachers</h2>
+        <div *ngIf=" stats ">
+            Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ 0 | number }}
+        </div>
+        <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
+            <tr>
+                <td *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
+                    <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
+                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date] ) ">
+                            <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
 </section>
 
 <section id="stats-summary" class="container-fluid">
