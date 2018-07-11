@@ -290,24 +290,20 @@ main {
 
 footer.payment-footer {
     margin-top: $line-spacing;
-    padding: 0 $padding;
+    padding: $padding;
     @media (min-width: $md) {
         padding: 0;
     }
+    background-color: #eee;
     font-weight: 200;
     line-height: 1.6em;
     .refund-policy {
-        padding: $padding;
         font-size: $fs-md;
-        background-color: #e1eeff;
     }
-    a.help {}
-    .text-and-icon {
+    a.help {
         display: flex;
-        margin-top: $line-spacing;
-        padding: $padding / 2;
-        background-color: #eee;
         font-size: $fs-sm;
+        padding-top: $padding;
         svg {
             margin: .475em 0 0 .35em;
             height: 1em;
