@@ -16,6 +16,7 @@ interface SHOW {
         loadPayment: boolean;
         loadFailedPayment: boolean;
         loadPointHistory: boolean;
+        totalPointReserved: boolean;
     };
     pointUpdateForm: boolean;
     newPointUpdateForm: boolean;
