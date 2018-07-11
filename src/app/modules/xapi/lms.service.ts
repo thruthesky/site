@@ -482,7 +482,7 @@ export class XapiLMSService extends Base {
      */
     info(domain?): Observable<LMS_INFO> {
         const req = { route: 'lms.info', session_id: this.user.sessionId };
-        if ( domain ) {
+        if (domain) {
             req['domain'] = domain;
         }
         return this.x.post(req);
@@ -685,7 +685,7 @@ export class XapiLMSService extends Base {
         });
     }
     branch_cancel_domain_change_application(idx?: number): Observable<any> {
-        if ( ! idx ) {
+        if (!idx) {
             idx = 0;
         }
         return this.x.post({
@@ -714,7 +714,7 @@ export class XapiLMSService extends Base {
             route: 'lms.point_log_actions_get'
         });
     }
-    teacher_schedule_table_get( idx_teacher ): Observable<any> {
+    teacher_schedule_table_get(idx_teacher): Observable<any> {
         return this.x.post({
             route: 'lms.teacher_schedule_table_get',
             idx_teacher: idx_teacher
@@ -726,5 +726,9 @@ export class XapiLMSService extends Base {
             route: 'lms.admin_branch_record_get',
             session_id: this.user.sessionId
         });
+    }
+    admin_statistics(req): Observable<any> {
+        req['route'] = 'lms.admin_statistics';
+        return this.x.post(req);
     }
 }
