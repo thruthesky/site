@@ -57,12 +57,16 @@
                                 <span>{{ user.user_login }}</span>
                             </div>
                             <div>
-                                <b>User Point</b>
+                                <b>Point left</b>
                                 <span>{{ user.point | number }}</span>
                             </div>
                             <div>
                                 <b>Point Paid</b>
                                 <span>{{ total_point_paid | number }}</span>
+                            </div>
+                            <div *ngIf="user && user.user_type == 'S'">
+                                <b>Point Reserved</b>
+                                <span>{{ total_point_reserve | number }}</span>
                             </div>
                         </div>
                         <div class="page-buttons">
@@ -342,7 +346,13 @@
         </div>
         <div class="col-sm-12 col-md-4">
             <section id="payments" *ngIf="user.user_type == 'S' ">
-                <h2>Payment</h2>
+                <div class="header">
+                    <h2>Payment</h2>
+                    <div>
+                        <b>Total: </b>
+                        <span>{{ total_point_paid | number }}</span> points
+                    </div>
+                </div>
                 <div class="loader" *ngIf=" show.loader.loadPayment ">
                     <mat-spinner [diameter]="48"></mat-spinner>
                     Loading Payment Info...

@@ -253,6 +253,11 @@
         }
     }
     #payments{
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .scroll-content{
             max-height: 230px;
             overflow: auto;
