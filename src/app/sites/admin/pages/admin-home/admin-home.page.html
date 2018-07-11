@@ -45,7 +45,7 @@
 
         <table *ngIf=" stats && stats['no_of_reservations'] ">
             <tr>
-                <td *ngFor="let date of keys(stats['no_of_reservations'])">
+                <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations'])">
                     <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations'][date] }}">
                         <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date] ) ">
                             <span class="no">{{ stats['no_of_reservations'][date] }}</span>
@@ -64,7 +64,7 @@
             </div>
             <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
                 <tr>
-                    <td *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
+                    <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
                         <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
                             <div class='bar' [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date] ) ">
                                 <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
@@ -82,7 +82,7 @@
         </div>
         <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
             <tr>
-                <td *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
+                <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
                     <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
                         <div class='bar' [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date] ) ">
                             <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
