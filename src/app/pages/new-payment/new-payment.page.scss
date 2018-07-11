@@ -100,8 +100,12 @@ main {
 }
 
 .login-first {
-    margin: 6em 0;
+    padding: 6em 0;
     text-align: center;
+    &:hover{
+        color: dodgerblue;
+        cursor: pointer;
+    }
 }
 
 .paypal-ready {
@@ -252,6 +256,8 @@ main {
             height: 2.5em;
             width: 2.5em;
             margin-right: 1.2em;
+            top: .125em;
+            position: relative;
         }
     }
 }
@@ -334,9 +340,11 @@ footer.payment-footer {
     font-size: $fs-sm;
     cursor: pointer;
     svg{
-        height: 1.15em;
-        width: 1.15em;
-        margin-left: .3em;
+        height: 1em;
+        width: 1em;
+        margin-right: .3em;
+        top: 0.125em;
+        position: relative;
     }
 }
 
