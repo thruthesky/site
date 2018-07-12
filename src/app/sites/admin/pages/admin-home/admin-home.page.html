@@ -42,14 +42,14 @@
         <h2>No of Reservations</h2>
 
         <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations | number }}, Total Point: {{ 0 | number }}
+            Total: {{ stats.total_no_of_reservations | number }}, Total Point: Total Point: {{ stats.total_point_of_reservation | number }}
         </div>
 
         <table *ngIf=" stats && stats['no_of_reservations'] ">
             <tr>
                 <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations'])">
                     <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations'][date] }}">
-                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date] ) ">
+                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date], stats.highest_no_of_reservation ) ">
                             <span class="no">{{ stats['no_of_reservations'][date] }}</span>
                         </div>
                     </div>
@@ -57,18 +57,37 @@
             </tr>
         </table>
     </div>
-
+    
+    <div class="stat no_of_reservations_of_withcenter_teachers">
+        <h2>No of Reservations Of Withcenter Teachers</h2>
+        <div *ngIf=" stats ">
+            Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}
+        </div>
+        <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
+            <tr>
+                <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
+                    <div class='bar-wrapper'
+                         title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
+                        <div class='bar'
+                             [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation - stats.highest_no_of_reservation_for_withcenter_teacher  ) ">
+                            <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <div class="stat no_of_reservations_of_homebase_teachers">
         <h2>No of Reservations Of Homebased Teachers</h2>
         <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ 0 | number }}
+            Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}
         </div>
         <table *ngIf=" stats && stats['no_of_reservations'] ">
             <tr>
                 <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations'])">
                     <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}">
-                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date] -stats['no_of_reservations_of_withcenter_teachers'][date] ) ">
+                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation - stats.highest_no_of_reservation_for_withcenter_teacher ) ">
                             <span class="no">{{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
                         </div>
                     </div>
@@ -77,19 +96,81 @@
         </table>
     </div>
 
-    <div class="stat no_of_reservations_of_withcenter_teachers">
-        <h2>No of Reservations Of Withcenter Teachers</h2>
+    <div class="stat no_of_reservations_teacher_grade">
+        <h2>No of Reservations per Teacher Grade</h2>
         <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ 0 | number }}
+            <span *ngFor="let g of [1,2,3,4,5]" class="grade-{{g}}">Grade {{g}}</span>
         </div>
-        <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
+        <table class="pb-1" *ngIf=" stats && stats['no_of_reservations_per_teacher_grade'] ">
             <tr>
-                <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
+                <ng-container *ngFor="let date of keys(stats['no_of_reservations_per_teacher_grade'])">
+                <td valign="bottom" *ngFor=" let grade of keys(stats['no_of_reservations_per_teacher_grade'][date]) ">
                     <div class='bar-wrapper'
-                         title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
+                         title="{{ date }} : {{ grade }}">
+                        <div class='bar grade-{{grade}}'
+                             [style.height]=" barHeight( stats['no_of_reservations_per_teacher_grade'][date][grade] ) ">
+                            <span class="no">{{ stats['no_of_reservations_per_teacher_grade'][date][grade] }}</span>
+                        </div>
+                    </div>
+                </td>
+                </ng-container>
+            </tr>
+        </table>
+    </div>
+
+    <div class="stat point_of_reservations">
+        <h2>Points of per Day Reservation</h2>
+        <div *ngIf=" stats ">
+            Total Point: {{ stats.total_point_of_reservation | number }}
+        </div>
+        <table *ngIf=" stats && stats['point_of_reservations'] ">
+            <tr>
+                <td valign="bottom" *ngFor="let date of keys(stats['point_of_reservations'])">
+                    <div class='bar-wrapper'
+                         title="{{ date }} : {{ stats['point_of_reservations'][date] }}">
                         <div class='bar'
-                             [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date] ) ">
-                            <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
+                             [style.height]=" barHeight( stats['point_of_reservations'][date] ,stats.highest_no_of_point ) ">
+                            <span class="no">{{ stats['point_of_reservations'][date] }}</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="stat point_of_reservation_for_withcenter_teachers">
+        <h2>Points of Reservation for Withcenter Teacher</h2>
+        <div *ngIf=" stats ">
+            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teacher | number }}
+        </div>
+        <table *ngIf=" stats && stats['point_of_withcenter_teachers'] ">
+            <tr>
+                <td valign="bottom" *ngFor="let date of keys(stats['point_of_withcenter_teachers'])">
+                    <div class='bar-wrapper'
+                         title="{{ date }} : {{ stats['point_of_withcenter_teachers'][date] }}">
+                        <div class='bar'
+                             [style.height]=" barHeight( stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point_for_withcenter_teacher ) ">
+                            <span class="no">{{ stats['point_of_withcenter_teachers'][date] }}</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="stat point_of_reservation_for_homebase_teachers">
+        <h2>Points of Reservation for Homebase Teacher</h2>
+        <div *ngIf=" stats ">
+            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teacher | number }}
+        </div>
+        <table *ngIf=" stats && stats['point_of_reservations'] ">
+            <tr>
+                <td valign="bottom" *ngFor="let date of keys(stats['point_of_reservations'])">
+                    <div class='bar-wrapper'
+                         title="{{ date }} : {{  stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}">
+                        <div class='bar'
+                             [style.height]=" barHeight( stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point - stats.highest_no_of_point_for_withcenter_teacher  ) ">
+                            <span class="no">{{ stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}</span>
                         </div>
                     </div>
                 </td>
