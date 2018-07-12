@@ -296,10 +296,10 @@ const routes: Routes = [
   //   path: 'category',
   //   loadChildren: './pages/category/category.page.module#CategoryPageModule'
   // },
-  {
-    path: 'admin',
-    loadChildren: './pages/admin/admin-page.module#AdminPageModule'
-  },
+  // {
+  //   path: 'admin',
+  //   loadChildren: './pages/admin/admin-page.module#AdminPageModule'
+  // },
 
   /**
    * New admin pages and branch pages.

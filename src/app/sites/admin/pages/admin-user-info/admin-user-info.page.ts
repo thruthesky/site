@@ -313,6 +313,8 @@ export class AdminUserInfoPage implements OnInit {
                 this.payments.map(v => {
                     if (v.state === 'approved') {
                         this.total_point_paid += parseInt(v.point, 10);
+                    } else if (v.state === 'refund') {
+                        this.total_point_paid -= parseInt(v.point, 10);
                     }
                 });
             }
