@@ -382,8 +382,12 @@ $por-homebased:#1414BD;
     }
     &-header{
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        flex-direction: column;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
         .bar-graph-title{
             margin: 0;
             font-size: 1.1em;
@@ -392,6 +396,10 @@ $por-homebased:#1414BD;
         .bar-graph-subtitle{
             font-size: .9em;
             &>*{
+                display: block;
+                @media (min-width:$md) {
+                    display: inline-block;
+                }
                 margin-right: 3em;
                 &:last-child{
                     margin: 0;
@@ -412,11 +420,9 @@ $por-homebased:#1414BD;
 
         .bar-item{
             position: relative;
-            margin: 0 1px;
-            @media (min-width:$md) {
-                margin: 0;
-            }
-            width: 2em;
+            margin: 0 2px;
+            min-width:2em;
+            min-height: 1px;
             border-top-left-radius: 2px;
             border-top-right-radius: 2px;
             border-bottom: .5px solid gray;
@@ -425,6 +431,7 @@ $por-homebased:#1414BD;
             .item-no{
                 position: relative;
                 bottom: 1.2em; 
+                padding: 0 2px;
                 // comment out this class to see the original position
                 // added 1.2em so it will be at the top of the bar-item
             }
