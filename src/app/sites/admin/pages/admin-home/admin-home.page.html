@@ -38,6 +38,7 @@
         <input type="number" name="date_end" [(ngModel)]="stat_date_end">
         <button type="submit">SUBMIT</button>
     </form>
+
     <div class="total-point-share" *ngIf="stats">
         <h2>
            Point Shares
@@ -52,29 +53,32 @@
                 <th>Share In Peso</th>
             </tr>
             <tr>
-                <td>Office{{stats.office_percent}}</td>
-                <td>{{stats.office_share}}%</td>
+                <td>Office</td>
+                <td>{{stats.office_percent}}%</td>
+                <td>{{stats.office_share}}</td>
                 <td>{{stats.office_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.office_share_in_usd | number : '1.2-2'}}</td>
                 <td>{{stats.office_share_in_peso | number : '1.2-2'}}</td>
             </tr>
             <tr>
-                <td>Branch{{stats.branch_percent}}</td>
-                <td>{{stats.branch_share}}%</td>
+                <td>Branch</td>
+                <td>{{stats.branch_percent}}%</td>
+                <td>{{stats.branch_share}}</td>
                 <td>{{stats.branch_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.branch_share_in_usd | number : '1.2-2'}}</td>
                 <td>{{stats.branch_share_in_peso | number : '1.2-2'}}</td>
             </tr>
             <tr>
-                <td>Teacher{{stats.teacher_percent}}</td>
-                <td>{{stats.teacher_share}}%</td>
+                <td>Teacher</td>
+                <td>{{stats.teacher_percent}}%</td>
+                <td>{{stats.teacher_share}}</td>
                 <td>{{stats.teacher_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_usd | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_peso | number : '1.2-2'}}</td>
             </tr>
         </table>
     </div>
-    <div class="total-point-share" *ngIf="stats">
+    <div class="total-point-share comparison mb-3" *ngIf="stats">
         <h2>
            Point Share Comparison
         </h2>
@@ -98,7 +102,7 @@
             <tr>
                 <td>Teacher Withcenter</td>
                 <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}</td>
-                <td>{{stats.teacher_share_withcenter}}</td>
+                <td>{{stats.teacher_share_withcenter}}%</td>
                 <td>{{stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}</td>
@@ -106,176 +110,168 @@
             <tr>
                 <td>Teacher HomeBase</td>
                 <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}</td>
-                <td>{{stats.teacher_share - stats.teacher_share_withcenter}}</td>
+                <td>{{stats.teacher_share - stats.teacher_share_withcenter}}%</td>
                 <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}</td>
             </tr>
         </table>
         <div>
-            <small>Note: 100% of Teacher share is the {{stats.teacher_share}}% from the total accumulated points.</small>
+            <small>Note: 100% of Teacher share is the {{stats.teacher_percent}}% from the total accumulated points of {{stats.total_point_of_reservation}}.</small>
         </div>
     </div>
-    <div class="stat no-of-reservations">
-        <h2>No of Reservations</h2>
-
-        <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations | number }}, Total Point: {{ stats.total_point_of_reservation | number }},
-            Point In USD: {{stats.total_point_in_usd | number : '1.2-2'}},
-            Point In PHP: {{stats.teacher_point_in_peso | number : '1.2-2'}}
+    <div id="overall-reservations-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
+        <div class="bar-graph-header">
+            <h2 class="bar-graph-title">All Reservations</h2>
+            <div class="bar-graph-subtitle" *ngIf=" stats ">
+                Total: {{ stats.total_no_of_reservations | number }},
+                Points: {{ stats.total_point_of_reservation | number }},
+                $: {{stats.total_point_in_usd | number : '1.2-2'}},
+                ₱: {{stats.teacher_point_in_peso | number : '1.2-2'}}
+            </div>
         </div>
+        <div class="bar-graph-content" >
+            <div *ngFor="let date of keys(stats['no_of_reservations'])">
+                <div class="bar-item" title="{{ date }} : {{ stats['no_of_reservations'][date] }}"
+                    [style.height]=" barHeight( stats['no_of_reservations'][date], stats.highest_no_of_reservation ) ">
+                    <div class="item-no">{{ stats['no_of_reservations'][date] }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <table *ngIf=" stats && stats['no_of_reservations'] ">
-            <tr>
-                <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations'])">
-                    <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations'][date] }}">
-                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date], stats.highest_no_of_reservation ) ">
-                            <span class="no">{{ stats['no_of_reservations'][date] }}</span>
-                        </div>
+    <div id="withcenter-teachers-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers']  ">
+        <div class="bar-graph-header">
+            <h2 class="bar-graph-title">Reservations Of Withcenter Teachers</h2>
+            <div class="bar-graph-subtitle" *ngIf=" stats ">
+                Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}(Percentage: {{ stats.total_no_of_reservations_of_withcenter_teachers / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%)
+                Points: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
+                $: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
+                ₱: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
+            </div>
+        </div>
+        <div class="bar-graph-content" >
+            <div *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
+                <div class="bar-item" title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}"
+                [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation  ) ">
+                    <div class="item-no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="homebased-teachers-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
+        <div class="bar-graph-header">
+            <h2 class="bar-graph-title">Reservations Of Homebased Teachers</h2>
+            <div class="bar-graph-subtitle" *ngIf=" stats ">
+                Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }}({{ (stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers) / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%),
+                Points: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
+                $: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
+                ₱: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
+            </div>
+        </div>
+        <div class="bar-graph-content">
+            <div *ngFor="let date of keys(stats['no_of_reservations'])">
+                <div class="bar-item" title="{{ date }} : {{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}"
+                    [style.height]=" barHeight( stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation )  ">
+                    <div class="item-no">{{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="no-of-reservations-teacher-grade-graph" class="bar-graph-container" *ngIf=" stats && stats['no_of_reservations_per_teacher_grade'] ">
+            <div class="bar-graph-header">
+                <h2 class="bar-graph-title">No of Reservations per Teacher Grade</h2>
+                <div class="bar-graph-subtitle" *ngIf=" stats ">
+                    <div *ngFor="let g of [1,2,3,4,5]">
+                        <span>Grade {{g}}</span>
+                        <span class="grade-{{g}}">&nbsp;</span>
                     </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="stat no_of_reservations_of_withcenter_teachers">
-        <h2>No of Reservations Of Withcenter Teachers</h2>
-        <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }},
-            Percentage: {{ stats.total_no_of_reservations_of_withcenter_teachers / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%,
-            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
-            Point In USD: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
-            Point In PHP: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
-        </div>
-        <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
-            <tr>
-                <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
-                    <div class='bar-wrapper'
-                         title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
-                        <div class='bar'
-                             [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation  ) ">
-                            <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
-                        </div>
+                </div>
+            </div>
+            <div class="bar-graph-content">
+                <div class="bar-item-group" *ngFor="let date of keys(stats['no_of_reservations_per_teacher_grade'])">
+                    <div>
+                        <ng-container *ngFor=" let grade of keys(stats['no_of_reservations_per_teacher_grade'][date]) ">
+                            <div class="bar-item grade-{{ grade }}" title="{{ date }} : {{ grade }}"
+                                [style.height]=" barHeight( stats['no_of_reservations_per_teacher_grade'][date][grade], stats.highest_no_of_reservation_per_grade ) ">
+                                <div class="item-no">{{ stats['no_of_reservations_per_teacher_grade'][date][grade] }}</div>
+                            </div>
+                        </ng-container>
                     </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="stat no_of_reservations_of_homebase_teachers">
-        <h2>No of Reservations Of Homebased Teachers</h2>
-        <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }},
-            Percentage: {{ (stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers) / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%,
-            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
-            Point In USD: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
-            Point In PHP: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
         </div>
-        <table *ngIf=" stats && stats['no_of_reservations'] ">
-            <tr>
-                <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations'])">
-                    <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}">
-                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation ) ">
-                            <span class="no">{{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
 
-    <div class="stat no_of_reservations_teacher_grade">
-        <h2>No of Reservations per Teacher Grade</h2>
-        <div *ngIf=" stats ">
-            <span *ngFor="let g of [1,2,3,4,5]" class="grade-{{g}}">Grade {{g}}</span>
+
+    <div id="points-per-day-reservations-graph" class="bar-graph-container"  *ngIf=" stats && stats['point_of_reservations'] ">
+        <div class="bar-graph-header">
+            <h2 class="bar-graph-title">Points of per Day Reservation</h2>
+            <div class="bar-graph-subtitle" *ngIf=" stats ">
+                Total Point: {{ stats.total_point_of_reservation | number }},
+                $: {{stats.total_point_in_usd | number : '1.2-2'}},
+                ₱: {{stats.teacher_point_in_peso | number : '1.2-2'}}
+            </div>
         </div>
-        <table class="pb-1" *ngIf=" stats && stats['no_of_reservations_per_teacher_grade'] ">
-            <tr>
-                <ng-container *ngFor="let date of keys(stats['no_of_reservations_per_teacher_grade'])">
-                <td valign="bottom" *ngFor=" let grade of keys(stats['no_of_reservations_per_teacher_grade'][date]) ">
-                    <div class='bar-wrapper'
-                         title="{{ date }} : {{ grade }}">
-                        <div class='bar grade-{{grade}}'
-                             [style.height]=" barHeight( stats['no_of_reservations_per_teacher_grade'][date][grade], stats.highest_no_of_reservation_per_grade ) ">
-                            <span class="no">{{ stats['no_of_reservations_per_teacher_grade'][date][grade] }}</span>
-                        </div>
-                    </div>
-                </td>
-                </ng-container>
-            </tr>
-        </table>
-    </div>
-
-    <div class="stat point_of_reservations">
-        <h2>Points of per Day Reservation</h2>
-        <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation | number }},
-            Point In USD: {{stats.total_point_in_usd | number : '1.2-2'}},
-            Point In PHP: {{stats.teacher_point_in_peso | number : '1.2-2'}}
+        <div class="bar-graph-content">
+            <div *ngFor="let date of keys(stats['point_of_reservations'])">
+                <div class="bar-item" title="{{ date }} : {{ stats['point_of_reservations'][date] }}"
+                    [style.height]=" barHeight( stats['point_of_reservations'][date], stats.highest_no_of_point ) ">
+                    <div class="item-no">{{ stats['point_of_reservations'][date] }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
         </div>
-        <table *ngIf=" stats && stats['point_of_reservations'] ">
-            <tr>
-                <td valign="bottom" *ngFor="let date of keys(stats['point_of_reservations'])">
-                    <div class='bar-wrapper'
-                         title="{{ date }} : {{ stats['point_of_reservations'][date] }}">
-                        <div class='bar'
-                             [style.height]=" barHeight( stats['point_of_reservations'][date] ,stats.highest_no_of_point ) ">
-                            <span class="no">{{ stats['point_of_reservations'][date] }}</span>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
     </div>
 
-    <div class="stat point_of_reservation_for_withcenter_teachers">
-        <h2>Points of Reservation for Withcenter Teacher</h2>
-        <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
-            Percentage: {{ stats.total_point_of_reservation_for_withcenter_teachers / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%,
-            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
-            Point In USD: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
-            Point In PHP: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
+
+    <div id="por-withcenter-graph" class="bar-graph-container" *ngIf=" stats && stats['point_of_withcenter_teachers'] ">
+        <div class="bar-graph-header">
+            <h2 class="bar-graph-title">Points of Reservation for Withcenter Teacher</h2>
+            <div class="bar-graph-subtitle" *ngIf=" stats ">
+                Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}({{ stats.total_point_of_reservation_for_withcenter_teachers / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%),
+                $: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
+                ₱: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
+            </div>
         </div>
-        <table *ngIf=" stats && stats['point_of_withcenter_teachers'] ">
-            <tr>
-                <td valign="bottom" *ngFor="let date of keys(stats['point_of_withcenter_teachers'])">
-                    <div class='bar-wrapper'
-                         title="{{ date }} : {{ stats['point_of_withcenter_teachers'][date] }}">
-                        <div class='bar'
-                             [style.height]=" barHeight( stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point ) ">
-                            <span class="no">{{ stats['point_of_withcenter_teachers'][date] }}</span>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="stat point_of_reservation_for_homebase_teachers">
-        <h2>Points of Reservation for Homebase Teacher</h2>
-        <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
-            Percentage: {{ (stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers) / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%,
-            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
-            Point In USD: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
-            Point In PHP: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
+        <div class="bar-graph-content">
+            <div *ngFor="let date of keys(stats['point_of_withcenter_teachers'])">
+                <div class="bar-item" title="{{ date }} : {{ stats['point_of_withcenter_teachers'][date] }}"
+                    [style.height]=" barHeight( stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point ) ">
+                    <div class="item-no">{{ stats['point_of_withcenter_teachers'][date] }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
         </div>
-        <table *ngIf=" stats && stats['point_of_reservations'] ">
-            <tr>
-                <td valign="bottom" *ngFor="let date of keys(stats['point_of_reservations'])">
-                    <div class='bar-wrapper'
-                         title="{{ date }} : {{  stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}">
-                        <div class='bar'
-                             [style.height]=" barHeight( stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point  ) ">
-                            <span class="no">{{ stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}</span>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
     </div>
 
+    <div id="por-homebased-graph" class="bar-graph-container" *ngIf=" stats && stats['point_of_reservations'] ">
+        <div class="bar-graph-header">
+            <h2 class="bar-graph-title">Points of Reservation for Homebased Teacher</h2>
+            <div class="bar-graph-subtitle" *ngIf=" stats ">
+                Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}({{ (stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers) / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%),
+                $: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
+                ₱: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
+            </div>
+        </div>
+        <div class="bar-graph-content">
+            <div *ngFor="let date of keys(stats['point_of_reservations'])">
+                <div class="bar-item" title="{{ date }} : {{  stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}"
+                    [style.height]="  barHeight( stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point - stats.highest_no_of_point_for_withcenter_teacher  ) ">
+                    <div class="item-no">{{ stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </section>
 
