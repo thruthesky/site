@@ -49,8 +49,8 @@
                 <th>Percentage</th>
                 <th>Share</th>
                 <th>Share After Deduction</th>
-                <th>Share In USD</th>
-                <th>Share In Peso</th>
+                <th>USD</th>
+                <th>PHP</th>
             </tr>
             <tr>
                 <td>Office</td>
@@ -58,7 +58,7 @@
                 <td>{{stats.office_share}}</td>
                 <td>{{stats.office_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.office_share_in_usd | number : '1.2-2'}}</td>
-                <td>{{stats.office_share_in_peso | number : '1.2-2'}}</td>
+                <td>{{stats.office_share_in_php | number : '1.2-2'}}</td>
             </tr>
             <tr>
                 <td>Branch</td>
@@ -66,7 +66,7 @@
                 <td>{{stats.branch_share}}</td>
                 <td>{{stats.branch_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.branch_share_in_usd | number : '1.2-2'}}</td>
-                <td>{{stats.branch_share_in_peso | number : '1.2-2'}}</td>
+                <td>{{stats.branch_share_in_php | number : '1.2-2'}}</td>
             </tr>
             <tr>
                 <td>Teacher</td>
@@ -74,7 +74,7 @@
                 <td>{{stats.teacher_share}}</td>
                 <td>{{stats.teacher_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_usd | number : '1.2-2'}}</td>
-                <td>{{stats.teacher_share_in_peso | number : '1.2-2'}}</td>
+                <td>{{stats.teacher_share_in_php | number : '1.2-2'}}</td>
             </tr>
         </table>
     </div>
@@ -88,32 +88,32 @@
                 <th>Percentage</th>
                 <th>Share</th>
                 <th>Share After Deduction</th>
-                <th>Share In USD</th>
-                <th>Share In Peso</th>
+                <th>USD</th>
+                <th>PHP</th>
             </tr>
             <tr>
                 <td>Teacher</td>
                 <td>100%</td>
                 <td>{{stats.teacher_share}}</td>
-                <td>{{stats.teacher_share_after_deduction | number : '1.2-2'}}</td>
-                <td>{{stats.teacher_share_in_usd | number : '1.2-2'}}</td>
-                <td>{{stats.teacher_share_in_peso | number : '1.2-2'}}</td>
+                <td>{{stats.teacher_share_after_deduction | number}}</td>
+                <td>{{stats.teacher_share_in_usd | number}}</td>
+                <td>{{stats.teacher_share_in_php | number}}</td>
             </tr>
             <tr>
                 <td>Teacher Withcenter</td>
-                <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}</td>
-                <td>{{stats.teacher_share_withcenter}}%</td>
-                <td>{{stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
-                <td>{{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
-                <td>{{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}</td>
+                <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
+                <td>{{stats.teacher_share_withcenter}}</td>
+                <td>{{stats.teacher_share_withcenter_after_deduction | number}}</td>
+                <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
+                <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
             </tr>
             <tr>
                 <td>Teacher HomeBase</td>
-                <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}</td>
-                <td>{{stats.teacher_share - stats.teacher_share_withcenter}}%</td>
-                <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
-                <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
-                <td>{{stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}</td>
+                <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}%</td>
+                <td>{{stats.teacher_share - stats.teacher_share_withcenter}}</td>
+                <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number}}</td>
+                <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number}}</td>
+                <td>{{stats.teacher_share_in_php - stats.teacher_share_withcenter_in_php | number}}</td>
             </tr>
         </table>
         <div>
@@ -126,8 +126,8 @@
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 Total: {{ stats.total_no_of_reservations | number }},
                 Points: {{ stats.total_point_of_reservation | number }},
-                $: {{stats.total_point_in_usd | number : '1.2-2'}},
-                ₱: {{stats.teacher_point_in_peso | number : '1.2-2'}}
+                $: {{stats.total_point_in_usd | number}},
+                ₱: {{stats.teacher_point_in_php | number}}
             </div>
         </div>
         <div class="bar-graph-content" >
@@ -145,10 +145,10 @@
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Reservations Of Withcenter Teachers</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
-                Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}(Percentage: {{ stats.total_no_of_reservations_of_withcenter_teachers / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%)
+                Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}(Percentage: {{ stats.total_no_of_reservations_of_withcenter_teachers / stats.total_no_of_reservations * 100 | number }}%)
                 Points: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
-                $: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
-                ₱: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
+                $: {{stats.teacher_share_withcenter_in_usd | number}},
+                ₱: {{stats.teacher_share_withcenter_in_php | number}}
             </div>
         </div>
         <div class="bar-graph-content" >
@@ -168,10 +168,10 @@
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Reservations Of Homebased Teachers</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
-                Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }}({{ (stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers) / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%),
+                Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }}({{ (stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers) / stats.total_no_of_reservations * 100 | number }}%),
                 Points: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
-                $: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
-                ₱: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
+                $: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number }},
+                ₱: {{ stats.teacher_share_in_php - stats.teacher_share_withcenter_in_php | number }}
             </div>
         </div>
         <div class="bar-graph-content">
@@ -217,8 +217,8 @@
             <h2 class="bar-graph-title">Points of per Day Reservation</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 Total Point: {{ stats.total_point_of_reservation | number }},
-                $: {{stats.total_point_in_usd | number : '1.2-2'}},
-                ₱: {{stats.teacher_point_in_peso | number : '1.2-2'}}
+                $: {{stats.total_point_in_usd | number}},
+                ₱: {{stats.teacher_point_in_php | number}}
             </div>
         </div>
         <div class="bar-graph-content">
@@ -237,9 +237,9 @@
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Points of Reservation for Withcenter Teacher</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
-                Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}({{ stats.total_point_of_reservation_for_withcenter_teachers / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%),
-                $: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
-                ₱: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
+                Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}({{ stats.total_point_of_reservation_for_withcenter_teachers / stats.total_point_of_reservation * 100 | number }}%),
+                $: {{stats.teacher_share_withcenter_in_usd | number}},
+                ₱: {{stats.teacher_share_withcenter_in_php | number}}
             </div>
         </div>
         <div class="bar-graph-content">
@@ -257,9 +257,9 @@
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Points of Reservation for Homebased Teacher</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
-                Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}({{ (stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers) / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%),
-                $: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
-                ₱: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
+                Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}({{ (stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers) / stats.total_point_of_reservation * 100 | number }}%),
+                $: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number }},
+                ₱: {{ stats.teacher_share_in_php - stats.teacher_share_withcenter_in_php | number }}
             </div>
         </div>
         <div class="bar-graph-content">
