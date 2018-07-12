@@ -316,6 +316,11 @@
     }
     #sessions{
         margin-top: 2.5em;
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         h2{
             display: inline-block;
         }

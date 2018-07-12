@@ -60,14 +60,6 @@
                                 <b>Point left</b>
                                 <span>{{ user.point | number }}</span>
                             </div>
-                            <div>
-                                <b>Point Paid</b>
-                                <span>{{ total_point_paid | number }}</span>
-                            </div>
-                            <div *ngIf="user && user.user_type == 'S'">
-                                <b>Point Reserved</b>
-                                <span>{{ total_point_reserve | number }}</span>
-                            </div>
                         </div>
                         <div class="page-buttons">
                             <button type="button" class="app-button" routerLink="/manager/session/{{ user.user_type == 'T' ? 'teacher' : 'student' }}/{{ user.ID }}">Session Detail Page</button>
@@ -140,7 +132,7 @@
                                                             <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
                                                                 [value]="'paypal'"> Paypal
                                                         </label>
-            
+
                                                         <label for="payment_method_wooribank">
                                                             <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW' "
                                                                 [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
@@ -171,7 +163,7 @@
                                         <span class="label">POINT :</span>
                                         <input type="number" name="pointForm_point" [(ngModel)]="pointForm.point">
                                         <button class="auto-compute-button" type="button" (click)=" onClickAutoRefundCompute() " *ngIf=" pointForm.apply == 'payment' || pointForm.apply == 'refund' ">Auto Compute</button>
-                                        
+
                                     </div>
                                     <div class="margin-top">
                                         <span class="label">Reason:</span>
@@ -189,7 +181,7 @@
                                                             <input type="radio" id="payment_method_paypal" name="payment_method" (ngModelChange)=" pointForm.currency = 'USD' " [(ngModel)]="pointForm.payment_method"
                                                                 [value]="'paypal'"> Paypal
                                                         </label>
-            
+
                                                         <label for="payment_method_wooribank">
                                                             <input type="radio" type="radio" id="payment_method_wooribank" name="payment_method" (ngModelChange)=" pointForm.currency = 'KRW'; pointForm.amount = 0 "
                                                                 [(ngModel)]="pointForm.payment_method" [value]="'wooribank'"> Woori Bank
@@ -358,8 +350,19 @@
                     Loading Payment Info...
                 </div>
                 <div class="scroll-content">
+                    <div>
+                        <span class="mr-1">
+                            <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"/></svg>
+                            Approved
+                        </span>
+                        <span>
+                            <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-54.4 289.1c4.7 4.7 4.7 12.3 0 17L306 377.6c-4.7 4.7-12.3 4.7-17 0L224 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L102.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L280 256l65.6 65.1z"/></svg>
+                            Refunded
+                        </span>
+                    </div>
                     <table *ngIf=" ! show.loader.loadPayment ">
                             <tr>
+                                <th width="1%"></th>
                                 <th>Point</th>
                                 <th>Amount</th>
                                 <th>Currency</th>
@@ -367,14 +370,20 @@
                                 <th>Date</th>
                             </tr>
                             <tr *ngFor="let pay of payments">
+                                <td width="1%">
+                                    <svg *ngIf="pay.state == 'approved'" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"/></svg>
+                                    <svg *ngIf="pay.state == 'refund'" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-54.4 289.1c4.7 4.7 4.7 12.3 0 17L306 377.6c-4.7 4.7-12.3 4.7-17 0L224 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L102.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L280 256l65.6 65.1z"/></svg>
+                                </td>
                                 <td>{{ pay.point | number }}</td>
                                 <td>{{ pay.amount | number }}</td>
                                 <td>{{ pay.currency }}</td>
-                                <td>{{ pay.payment_method }}</td>
+                                <td>
+                                    {{ pay.payment_method }}
+                                </td>
                                 <td nowrap>{{ a.veryShortDate(pay.stamp_begin) }}</td>
                             </tr>
                     </table>
-                </div>    
+                </div>
             </section>
             <section id="failed-payment" *ngIf=" user.user_type != 'T' ">
                 <div class="header">
@@ -384,8 +393,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48H48C21.49 32 0 53.49 0 80zm240-16v176H32V80c0-8.837 7.163-16 16-16h192zM32 432V272h208v176H48c-8.837 0-16-7.163-16-16zm240 16V272h208v160c0 8.837-7.163 16-16 16H272zm208-208H272V64h192c8.837 0 16 7.163 16 16v160z"></path></svg>
                     </div>
                 </div>
+
                 <div class="note">
-                    Bank transaction record will be listed here. You can click 
+                    Bank transaction record will be listed here. You can click
                     <span class="calc-icon">
                         <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M336 0H48C21.49 0 0 21.49 0 48v416c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zM48 32h288c8.822 0 16 7.178 16 16v80H32V48c0-8.822 7.178-16 16-16zm288 448H48c-8.822 0-16-7.178-16-16V160h320v304c0 8.822-7.178 16-16 16zM128 204v40c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12zm96 0v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12zm96 0v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12zm-192 96v40c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12zm96 0v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12zm96 0v136c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V300c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12zm-192 96v40c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12zm96 0v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12z"></path></svg>
                     </span>
@@ -422,7 +432,9 @@
             </section>
 
             <section id="refund-request" [class.margin-as-teacher]="user.user_type == 'T'">
-                <h2>Refund Request</h2>
+                <div class="header">
+                    <h2>Refund Request</h2>
+                </div>
                 <table>
                     <tr>
                         <th>Teacher</th>
@@ -461,7 +473,13 @@
             </section>
 
             <section id="sessions">
-                <h2>Sessions</h2>
+                <div class="header">
+                    <h2>Sessions</h2>
+                    <div *ngIf="user && user.user_type == 'S'">
+                        <b>Point Reserved: </b>
+                        <span>{{ total_point_reserve | number }}</span>
+                    </div>
+                </div>
                 <ul class="sessions-desc">
                     <li>
                         Date and time is based on user timezone setting. Your timezone: {{ a.userTime }}</li>

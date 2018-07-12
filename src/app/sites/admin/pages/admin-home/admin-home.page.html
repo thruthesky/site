@@ -69,7 +69,7 @@
                     <div class='bar-wrapper'
                          title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
                         <div class='bar'
-                             [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation - stats.highest_no_of_reservation_for_withcenter_teacher  ) ">
+                             [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation_for_withcenter_teacher  ) ">
                             <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
     <div class="stat point_of_reservation_for_withcenter_teachers">
         <h2>Points of Reservation for Withcenter Teacher</h2>
         <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teacher | number }}
+            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}
         </div>
         <table *ngIf=" stats && stats['point_of_withcenter_teachers'] ">
             <tr>
@@ -161,7 +161,7 @@
     <div class="stat point_of_reservation_for_homebase_teachers">
         <h2>Points of Reservation for Homebase Teacher</h2>
         <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teacher | number }}
+            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}
         </div>
         <table *ngIf=" stats && stats['point_of_reservations'] ">
             <tr>
