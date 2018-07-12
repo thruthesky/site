@@ -423,7 +423,28 @@ env['reloadTag'] = (new Date).getTime();
 
 ## English As Student Site
 
-* Started working on July 12, 2018 in `englishas` branch.
-* Language Translation https://docs.google.com/spreadsheets/d/1tdYbpSErJZw-NuMYbocKyq7DIaN1YyxZADEkrxw66zQ/edit#gid=0
+* 브랜치 기본 도메인이 katalkenglish.com 에서 englishas.com 으로 변경.
+  왜냐? katalkenglish 도메인은 한국 한생에게만 사용 가능.
+  즉, 더 이상 katalkenglish 로는 브랜치를 받지 않음.
 
+* xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
+* 브랜치 설정에서 기본 메신저를 정할 수 있음. 따라서 회원은 그냥 아이디만 입력하면 됨.
+
+
+* Started working on July 12, 2018
+  * `englishas` branch of github.com/thruthesky/site
+  * `englishas` branch on `xapi` of my macbook. the `englishas` is not even on github server.
+    * later after work, you will need to merge it into master of xapi and push.
+    * need to copy 'kakaotalk_id' to 'class_software' = 'kakotalk' | 'skype', 'class_id' = 'id'.
+
+* The theme(site) desing is same as `katalkenglish`.
+* Language Translation https://docs.google.com/spreadsheets/d/1tdYbpSErJZw-NuMYbocKyq7DIaN1YyxZADEkrxw66zQ/edit#gid=0
+  * SELECT_CLASS_SOFTWARE
+  * SELECT_CLASS_SOFTWARE_ID
+  * CHOOSE_CLASS_SOFTWARE
+  * KAKAOTALK
+  * SKYPE
+  * WECHAT
+  * LINE
+  * QnA page
 * @see git issues

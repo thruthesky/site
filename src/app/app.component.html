@@ -1,6 +1,6 @@
 <div class="layout" [attr.path]=" a.routeUrl ">
 
-  <section id="ontue" *ngIf=" a.site.ontue ">
+  <section id="ontue" *ngIf=" a.site.is.ontue ">
     <ontue-header></ontue-header>
     <section class="page">
       <div class="page-inner">
@@ -9,7 +9,8 @@
     </section>
     <ontue-footer></ontue-footer>
   </section>
-  <section id="katalkenglish" *ngIf=" a.site.katalkenglish ">
+
+  <section id="katalkenglish" *ngIf=" a.site.is.katalkenglish || a.site.is.englishas ">
     <katalkenglish-header></katalkenglish-header>
     <section class="page">
       <div class="page-inner">
@@ -18,10 +19,12 @@
     </section>
     <katalkenglish-footer></katalkenglish-footer>
   </section>
-  <section id="withcenter" *ngIf=" a.site.withcenter ">
+
+  <section id="withcenter" *ngIf=" a.site.is.withcenter ">
     <router-outlet></router-outlet>
   </section>
-  <section id="admin" *ngIf=" a.site.admin ">
+
+  <section id="admin" *ngIf=" a.site.is.admin ">
     <router-outlet></router-outlet>
   </section>
 

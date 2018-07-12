@@ -7,6 +7,7 @@ import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-
 import { LoaderService } from '../../providers/loader/loader.service';
 import { ModalService, ModalData } from '../../providers/modal/modal.service';
 import { ForumService } from '../../providers/forum/forum.service.module';
+import { CLASS_SOFTWARE_KAKAOTALK } from '../../providers/defines';
 
 
 @Component({
@@ -138,7 +139,7 @@ export class RegisterPage implements OnInit {
 
             /// Check if QR Mark converting has been failed.
             ///
-            this.form.kakaotalk_id = userData.kakaotalk_id;
+            this.form.class_software_id = userData.class_software_id;
             this.form['kakao_qrmark_string'] = userData.kakao_qrmark_string;
             if (this.form.kakao_qrmark_URL && !this.form.kakao_qrmark_string) {
                 this.a.lms.update_kakao_qrmark_string().subscribe(re => {
@@ -211,8 +212,19 @@ export class RegisterPage implements OnInit {
         if (!this.form.phone_number) {
             return this.a.toast('PHONE NUMBER REQUIRED');
         }
-        if (!this.form.kakaotalk_id) {
-            return this.a.toast('KAKAOTALK ID REQUIRED');
+        if (this.a.site.is.katalkenglish) {
+            if (!this.form.class_software_id) {
+                return this.a.toast('KAKAOTALK ID REQUIRED');
+            } else {
+                this.form.class_software = CLASS_SOFTWARE_KAKAOTALK;
+            }
+        } else {
+            if (!this.form.class_software) {
+                return this.a.toast('SELECT_CLASS_SOFTWARE');
+            }
+            if (!this.form.class_software_id) {
+                return this.a.toast('SELECT_CLASS_SOFTWARE_ID');
+            }
         }
 
         this.form.photoURL = this.files.length ? this.files[0].url : '';
@@ -329,7 +341,7 @@ export class RegisterPage implements OnInit {
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
             this.show.updateLoader = false;
-            this.a.toast( this.a.ln.USER_PROFILE_UPDATED );
+            this.a.toast(this.a.ln.USER_PROFILE_UPDATED);
             this.a.onUserProfileUpdate();
             this.loadData();
         }, err => {

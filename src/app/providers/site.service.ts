@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SITE_KATALKENGLISH, SITE_ONTUE, SITE_WITHCENTER, SITE, SITE_ADMIN } from './defines';
+import { SITE_KATALKENGLISH, SITE_ONTUE, SITE_WITHCENTER, SITE, SITE_ADMIN, SITE_ENGLISHAS } from './defines';
 
 @Injectable()
 export class SiteService {
@@ -48,6 +48,10 @@ export class SiteService {
 
     private isKatalkenglishDomain() {
         return this.getDomain().indexOf(SITE_KATALKENGLISH) !== -1;
+    }
+
+    private isEnglishasDomain() {
+        return this.getDomain().indexOf(SITE_ENGLISHAS) !== -1;
     }
 
     private isOntueDomain() {
@@ -101,6 +105,8 @@ export class SiteService {
             return SITE_WITHCENTER;
         } else if (this.isKatalkenglishDomain()) {
             return SITE_KATALKENGLISH;
+        } else if (this.isEnglishasDomain()) {
+            return SITE_ENGLISHAS;
         } else if (this.isOntueDomain()) {
             return SITE_ONTUE;
         } else {

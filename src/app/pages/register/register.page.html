@@ -90,9 +90,10 @@
                 </div>
             </div>
 
-            <mat-form-field class="katalk-id" appearance="outline">
+
+            <mat-form-field class="katalk-id" appearance="outline" *ngIf=" a.site.is.katalkenglish ">
                 <mat-label>{{ a.ln.KAKAOTALK_ID_SHORT }}</mat-label>
-                <input matInput id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
+                <input matInput id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.class_software_id">
                 <mat-hint>
                     <a class="hint" (click)=" onClickKakaoIDHelp() ">
                         <span>{{ a.ln['FIND KAKAOTALK ID'] }}</span>
@@ -104,6 +105,15 @@
                     </a>
                 </mat-hint>
             </mat-form-field>
+
+            <div class="" data-role="choose-class-id" *ngIf=" a.site.is.englishas || a.site.is.ontue">
+                <div>{{ 'CHOOSE_CLASS_SOFTWARE' | t }}</div>
+                <input type="radio" name="class_software" [(ngModel)]="form.class_software" value="kakaotalk"> {{ 'KAKAOTALK' | t }}
+                <input type="radio" name="class_software" [(ngModel)]="form.class_software" value="skype"> {{ 'SKYPE' | t }}
+                <input type="radio" name="class_software" [(ngModel)]="form.class_software" value="wechat"> {{ 'WECHAT' | t }}
+                <input type="radio" name="class_software" [(ngModel)]="form.class_software" value="line"> {{ 'LINE' | t }}
+            </div>
+
 
 
 
@@ -233,7 +243,6 @@
                     <button class="app-button" [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
                 </div>
             </div>
-
 
         </form>
     </section>

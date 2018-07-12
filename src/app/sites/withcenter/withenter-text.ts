@@ -525,10 +525,10 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `オンチュwww.ontue.com先生が利用するホームページです。`
     },
     about_franchise_katalk_desc: {
-        ko: `카톡영어 www.katalkenglish.com 는 학생들이 사용하는 홈페이지입니다. 가맹사로 등록하면 디자인은 동일하지만, 회사명, 로고, 전화번호, 주소 등을 변경해서 사용합니다.`,
-        en: `Katok English www.katalkenglish.com is the homepage used by students. When you register as a registered member, the design is the same, but the company name, logo, phone number, address, etc. are changed and used.`,
-        ch: `Katok英语www.katalkenglish.com是学生使用的主页。 当您注册为注册会员时，设计是相同的，但公司名称，标识，电话号码，地址等被更改和使用。`,
-        jp: `カトク、英語www.katalkenglish.comは、学生が使用するホームページです。加盟社に登録すると、デザインは同じですが、会社名、ロゴ、電話番号、住所などを変更して使用します。`
+        ko: `잉글리시애즈 www.englishas.com 는 학생들이 사용하는 홈페이지입니다. 가맹사로 등록하면 디자인은 동일하지만, 도메인, 회사명, 로고, 전화번호, 주소 등을 변경해서 사용합니다.`,
+        en: `English As www.englishas.com is student site. When you begin a branch site, the design will be the same, but the domain, company name, logo, phone number, address, etc. can be changed.`,
+        ch: `英语www.englishas.com是学生网站。 当您开始分支站点时，设计将是相同的，但域名，公司名称，徽标，电话号码，地址等可以更改。`,
+        jp: `英語としてwww.englishas.comは学生サイトです。 ブランチサイトを開始すると、デザインは同じになりますが、ドメイン、会社名、ロゴ、電話番号、住所などを変更することができます。`
     },
     about_franchise_withcenter_content: {
         ko: `위세너는 2008년 필리핀 마닐라에서 화상영어 전문 교육 학원 Online English OnTue.COM, Inc. 를 설립하였으며 이후, 2010 년 클락으로 이전하였으며 2015년 법인명을 Withcenter, Inc. 로 변경하였습니다. 여러분들이 이 글을 읽고 있는 지금 이 순간에도 여러 나라의 선생님과 학생들이 위세너와 가맹사를 통해 영어 수업을 하고 있습니다.`,
@@ -1011,6 +1011,18 @@ This Agreement will be effective from June 20, 2018.`,
         en: `Advertisements for student recruitment should be conducted by branches, but we will give tips on advertising through meetings or online video conferences. Try first on Facebook and Blogs. If possible, try Google adwords.`,
         ch: `招生广告应由分支机构进行，但我们会通过会议或在线视频会议提供有关广告的提示。 首先在Facebook和博客上尝试。 如果可能，请尝试使用Google Adwords。`,
         jp: `学生募集の広告は支店で実施する必要がありますが、会議やオンラインビデオ会議を通じて広告に関するヒントを提供します。 まずはFacebookやブログで試してみてください。 可能であれば、Google AdWordsを試してみてください。`
+    },
+    branch_domain: {
+        ko: `도메인 변경`,
+        en: `Domain Change`,
+        ch: `域名变更`,
+        jp: `ドメイン変更`
+    },
+    branch_domain_desc: {
+        ko: `많은 가맹사에서 도메인 변경에 대해서 물어오십니다. 특히, 본사의 서브 도메인 대신 여러분의 도메인을 사용 할 수 있습니다. 도메인을 소유하고 계시거나 직접 구매하신 후 저희에게 알려주시면 됩니다.`,
+        en: `If you own a domain ( or you could by one ), we let us know. we will set your domain for the site.`,
+        ch: `如果您拥有域名（或者您可以拥有域名），我们会通知您。 我们将为该网站设置您的域名。`,
+        jp: `あなたがドメインを所有している（またはあなたがそれをすることができる）場合、私たちはそれを知らせます。 サイトのドメインを設定します。`
     }
 
 };

@@ -82,7 +82,9 @@ export interface USER_REGISTER extends REQUEST {
     birthday?: string;
     landline?: string;
     photoURL?: string; // This is used for registration and update only.
-    kakaotalk_id?: string;
+    // kakaotalk_id?: string;
+    class_software?: string;
+    class_software_id?: string;
     kakao_qrmark_URL?: string;
     kakao_qrmark_string?: string;
     primary_photo?: FILE; // This is used on backend response only
