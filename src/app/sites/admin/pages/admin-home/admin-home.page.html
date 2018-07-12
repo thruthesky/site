@@ -39,15 +39,15 @@
         <button type="submit">SUBMIT</button>
     </form>
 
-    <div id="overall-reservations-graph" class="bar-graph-container">
+    <div id="overall-reservations-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
         <div class="bar-graph-header">
-            <h2 class="bar-graph-title">Overall Reservations</h2>
+            <h2 class="bar-graph-title">All Reservations</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 <span>Total Reservations: {{ stats.total_no_of_reservations | number }}</span> 
                 <span>Total Point: {{ stats.total_point_of_reservation | number }}</span>
             </div>
         </div>
-        <div class="bar-graph-content"  *ngIf=" stats && stats['no_of_reservations'] ">
+        <div class="bar-graph-content" >
             <div *ngFor="let date of keys(stats['no_of_reservations'])">
                 <div class="bar-item" title="{{ date }} : {{ stats['no_of_reservations'][date] }}"
                     [style.height]=" barHeight( stats['no_of_reservations'][date], stats.highest_no_of_reservation ) ">
@@ -78,7 +78,7 @@
         </table>
     </div> -->
 
-    <div id="withcenter-teachers-graph" class="bar-graph-container">
+    <div id="withcenter-teachers-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers']  ">
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Reservations Of Withcenter Teachers</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
@@ -86,7 +86,7 @@
                 <span>Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}</span>
             </div>
         </div>
-        <div class="bar-graph-content"  *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers']  ">
+        <div class="bar-graph-content" >
             <div *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
                 <div class="bar-item" title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}"
                 [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation_for_withcenter_teacher  ) ">
@@ -118,7 +118,7 @@
     </div> -->
 
 
-    <div id="homebased-teachers-graph" class="bar-graph-container">
+    <div id="homebased-teachers-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Reservations Of Homebased Teachers</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
@@ -126,7 +126,7 @@
                 <span>Total Point: Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}</span>
             </div>
         </div>
-        <div class="bar-graph-content"  *ngIf=" stats && stats['no_of_reservations'] ">
+        <div class="bar-graph-content">
             <div *ngFor="let date of keys(stats['no_of_reservations'])">
                 <div class="bar-item" title="{{ date }} : {{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}"
                     [style.height]=" barHeight( stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation - stats.highest_no_of_reservation_for_withcenter_teacher )  ">
@@ -155,7 +155,32 @@
         </table>
     </div> -->
 
-    <div class="stat no_of_reservations_teacher_grade">
+    <div id="no-of-reservations-teacher-grade-graph" class="bar-graph-container" *ngIf=" stats && stats['no_of_reservations_per_teacher_grade'] ">
+            <div class="bar-graph-header">
+                <h2 class="bar-graph-title">No of Reservations per Teacher Grade</h2>
+                <div class="bar-graph-subtitle" *ngIf=" stats ">
+                    <div *ngFor="let g of [1,2,3,4,5]">
+                        <span>Grade {{g}}</span>
+                        <span class="grade-{{g}}">&nbsp;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bar-graph-content">
+                <div class="bar-item-group" *ngFor="let date of keys(stats['no_of_reservations_per_teacher_grade'])">
+                    <div>
+                        <ng-container *ngFor=" let grade of keys(stats['no_of_reservations_per_teacher_grade'][date]) ">
+                            <div class="bar-item grade-{{ grade }}" title="{{ date }} : {{ grade }}"
+                                [style.height]=" barHeight( stats['no_of_reservations_per_teacher_grade'][date][grade] ) ">
+                                <div class="item-no">{{ stats['no_of_reservations_per_teacher_grade'][date][grade] }}</div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                </div>
+            </div>
+        </div>
+
+    <!-- <div class="stat no_of_reservations_teacher_grade">
         <h2>No of Reservations per Teacher Grade</h2>
         <div *ngIf=" stats ">
             <span *ngFor="let g of [1,2,3,4,5]" class="grade-{{g}}">Grade {{g}}</span>
@@ -175,16 +200,16 @@
                 </ng-container>
             </tr>
         </table>
-    </div>
+    </div> -->
 
-    <div id="points-per-day-reservations-graph" class="bar-graph-container">
+    <div id="points-per-day-reservations-graph" class="bar-graph-container"  *ngIf=" stats && stats['point_of_reservations'] ">
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Points of per Day Reservation</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 <span>Total Point: {{ stats.total_point_of_reservation | number }}</span>
             </div>
         </div>
-        <div class="bar-graph-content" *ngIf=" stats && stats['point_of_reservations'] ">
+        <div class="bar-graph-content">
             <div *ngFor="let date of keys(stats['point_of_reservations'])">
                 <div class="bar-item" title="{{ date }} : {{ stats['point_of_reservations'][date] }}"
                     [style.height]=" barHeight( stats['point_of_reservations'][date] ,stats.highest_no_of_point ) ">
@@ -215,14 +240,14 @@
         </table>
     </div> -->
 
-    <div id="por-withcenter-graph" class="bar-graph-container">
+    <div id="por-withcenter-graph" class="bar-graph-container" *ngIf=" stats && stats['point_of_withcenter_teachers'] ">
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Points of Reservation for Withcenter Teacher</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 <span>Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}</span>
             </div>
         </div>
-        <div class="bar-graph-content" *ngIf=" stats && stats['point_of_withcenter_teachers'] ">
+        <div class="bar-graph-content">
             <div *ngFor="let date of keys(stats['point_of_withcenter_teachers'])">
                 <div class="bar-item" title="{{ date }} : {{ stats['point_of_withcenter_teachers'][date] }}"
                     [style.height]=" barHeight( stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point_for_withcenter_teacher ) ">
@@ -253,14 +278,14 @@
         </table>
     </div> -->
 
-    <div id="por-homebased-graph" class="bar-graph-container">
+    <div id="por-homebased-graph" class="bar-graph-container" *ngIf=" stats && stats['point_of_reservations'] ">
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">Points of Reservation for Homebased Teacher</h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 <span>Total Point:  {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}</span>
             </div>
         </div>
-        <div class="bar-graph-content" *ngIf=" stats && stats['point_of_reservations'] ">
+        <div class="bar-graph-content">
             <div *ngFor="let date of keys(stats['point_of_reservations'])">
                 <div class="bar-item" title="{{ date }} : {{  stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}"
                     [style.height]="  barHeight( stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point - stats.highest_no_of_point_for_withcenter_teacher  ) ">
