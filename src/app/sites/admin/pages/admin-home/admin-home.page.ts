@@ -155,7 +155,8 @@ export class AdminHomePage implements OnInit {
         this.loader.teacherEquipment = true;
         this.a.lms.get_latest_student_comment_to_teachers({
             limit: this.pageOption['limitPerPage'],
-            page: this.pageOption['currentPage']
+            page: this.pageOption['currentPage'],
+            sort: true
         }).subscribe(res => {
             // console.log('loadClassComment:: ', res);
             this.comments = res['comments'];

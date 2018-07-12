@@ -286,11 +286,20 @@
         }
     }
 }
+.total-point-share {
+    table {
+        width: 100%;
+        text-align: center;
+    }
+}
 
 .stat {
     overflow-y: auto;
     font-size: 0.8rem;
     background-color: aliceblue;
+    table {
+        height:100px;
+    }
 
     .bar-wrapper {
         width: 20px;
