@@ -6,7 +6,6 @@ import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '.
 
 import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID, CODE_LOGIN_FIRST } from '../modules/xapi/error';
 
-
 /**
  * Firebase initialization.
  */
