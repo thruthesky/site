@@ -32,16 +32,7 @@ footer {
         }
 
         .menu{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            @media ( min-width:$md){
-                flex-direction: row;
-                align-items: flex-start
-            }
             &>div{
-                margin: 0 2em;
                 &:hover{
                     color: #000;
                 }
