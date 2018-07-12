@@ -39,6 +39,56 @@
         <button type="submit">SUBMIT</button>
     </form>
 
+    <div class="total-point-share" *ngIf="stats">
+            <h2>
+               Point Shares
+            </h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Share</th>
+                    <th>Share After Deduction</th>
+                    <th>Share In USD</th>
+                    <th>Share In Peso</th>
+                </tr>
+                <tr>
+                    <td>Branch</td>
+                    <td>{{stats.branch_share}}</td>
+                    <td>{{stats.branch_share_after_deduction | number : '1.2-2'}}</td>
+                    <td>{{stats.branch_share_in_usd | number : '1.2-2'}}</td>
+                    <td>{{stats.branch_share_in_peso | number : '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Office</td>
+                    <td>{{stats.office_share}}</td>
+                    <td>{{stats.office_share_after_deduction | number : '1.2-2'}}</td>
+                    <td>{{stats.office_share_in_usd | number : '1.2-2'}}</td>
+                    <td>{{stats.office_share_in_peso | number : '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Teacher</td>
+                    <td>{{stats.teacher_share}}</td>
+                    <td>{{stats.teacher_share_after_deduction | number : '1.2-2'}}</td>
+                    <td>{{stats.teacher_share_in_usd | number : '1.2-2'}}</td>
+                    <td>{{stats.teacher_share_in_peso | number : '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Teacher Withcenter</td>
+                    <td>{{stats.teacher_share_withcenter}}</td>
+                    <td>{{stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
+                    <td>{{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
+                    <td>{{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Teacher HomeBase</td>
+                    <td>{{stats.teacher_share - stats.teacher_share_withcenter}}</td>
+                    <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
+                    <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
+                    <td>{{stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}</td>
+                </tr>
+            </table>
+        </div>
+
     <div id="overall-reservations-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">All Reservations</h2>
@@ -59,6 +109,7 @@
     </div>
 
     <!-- <div class="stat no-of-reservations">
+    <div class="stat no-of-reservations">
         <h2>No of Reservations</h2>
 
         <div *ngIf=" stats ">
@@ -108,7 +159,7 @@
                     <div class='bar-wrapper'
                          title="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}">
                         <div class='bar'
-                             [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation_for_withcenter_teacher  ) ">
+                             [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation  ) ">
                             <span class="no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
                         </div>
                     </div>
@@ -146,7 +197,7 @@
             <tr>
                 <td valign="bottom" *ngFor="let date of keys(stats['no_of_reservations'])">
                     <div class='bar-wrapper' title="{{ date }} : {{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}">
-                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation - stats.highest_no_of_reservation_for_withcenter_teacher ) ">
+                        <div class='bar' [style.height]=" barHeight( stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation ) ">
                             <span class="no">{{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}</span>
                         </div>
                     </div>
@@ -192,7 +243,7 @@
                     <div class='bar-wrapper'
                          title="{{ date }} : {{ grade }}">
                         <div class='bar grade-{{grade}}'
-                             [style.height]=" barHeight( stats['no_of_reservations_per_teacher_grade'][date][grade] ) ">
+                             [style.height]=" barHeight( stats['no_of_reservations_per_teacher_grade'][date][grade], stats.highest_no_of_reservation_per_grade ) ">
                             <span class="no">{{ stats['no_of_reservations_per_teacher_grade'][date][grade] }}</span>
                         </div>
                     </div>
@@ -269,7 +320,7 @@
                     <div class='bar-wrapper'
                          title="{{ date }} : {{ stats['point_of_withcenter_teachers'][date] }}">
                         <div class='bar'
-                             [style.height]=" barHeight( stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point_for_withcenter_teacher ) ">
+                             [style.height]=" barHeight( stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point ) ">
                             <span class="no">{{ stats['point_of_withcenter_teachers'][date] }}</span>
                         </div>
                     </div>
@@ -307,7 +358,7 @@
                     <div class='bar-wrapper'
                          title="{{ date }} : {{  stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}">
                         <div class='bar'
-                             [style.height]=" barHeight( stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point - stats.highest_no_of_point_for_withcenter_teacher  ) ">
+                             [style.height]=" barHeight( stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point  ) ">
                             <span class="no">{{ stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}</span>
                         </div>
                     </div>
@@ -638,10 +689,18 @@
     </div>
     <div class="stats-card">
         <div class="stats-content">
-            {{reports.no_of_student_who_paid}}
+            {{reports.no_of_student_with_paid_class}}
         </div>
         <div class="stats-title">
             Users who have Paid Class.
+        </div>
+    </div>
+    <div class="stats-card">
+        <div class="stats-content">
+            {{reports.no_of_student_who_paid}}
+        </div>
+        <div class="stats-title">
+            Users who have Paid.
         </div>
     </div>
     <div class="stats-card">
