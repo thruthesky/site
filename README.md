@@ -420,3 +420,10 @@ env['reloadTag'] = (new Date).getTime();
 ## Resources
 
 * logo icon svg is on tmp folder.
+
+## English As Student Site
+
+* Started working on July 12, 2018 in `englishas` branch.
+* Language Translation https://docs.google.com/spreadsheets/d/1tdYbpSErJZw-NuMYbocKyq7DIaN1YyxZADEkrxw66zQ/edit#gid=0
+
+* @see git issues

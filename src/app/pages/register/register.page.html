@@ -10,7 +10,7 @@
             <span>{{ 'IN LOADING' | t}}</span>
         </div>
 
-        <div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
+        <div class="photo-upload" *ngIf=" a.site.teacherTheme || a.user.isLogin ">
             <input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">
             <div class="photo-upload-button">
                 <div class="photo">
@@ -39,7 +39,7 @@
 
         <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
 
-            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme ">
+            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.site.teacherTheme ">
                 <!-- <mat-label>{{ 'TIMEZONE' | t }}</mat-label> -->
                 <mat-select id="timezone" [(ngModel)]="timezoneOffset" name="timezone" placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset]?.name }}">
                     <mat-option *ngFor="let t of keysTimezone()" value="{{ t }}">
@@ -73,8 +73,8 @@
 
 
             <div class="container-fluid">
-                <div class="row" [class.removed-padding]="!a.teacherTheme">
-                    <div class="col" *ngIf=" a.teacherTheme ">
+                <div class="row" [class.removed-padding]="!a.site.teacherTheme">
+                    <div class="col" *ngIf=" a.site.teacherTheme ">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label>
                             <input matInput id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
@@ -107,7 +107,7 @@
 
 
 
-            <div class="container-fluid" *ngIf=" a.teacherTheme ">
+            <div class="container-fluid" *ngIf=" a.site.teacherTheme ">
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="gender" appearance="outline">
@@ -162,7 +162,7 @@
                 </div>
             </div>
 
-            <mat-form-field class="upload-qr" *ngIf=" a.teacherTheme " appearance="outline">
+            <mat-form-field class="upload-qr" *ngIf=" a.site.teacherTheme " appearance="outline">
                 <mat-label>{{qrmarks.length? 'UPDATE': 'UPLOAD'}} Kakaotalk QR MARK</mat-label>
 
                 <label>

@@ -176,7 +176,7 @@ export class RegisterPage implements OnInit {
         if (event) {
             event.preventDefault();
         }
-        this.form.domain = this.a.getDomain();
+        this.form.domain = this.a.site.getDomain();
 
         if (!this.form.user_email || !this.form.user_email.length) {
             return this.a.toast('EMAIL REQUIRED');
@@ -190,7 +190,7 @@ export class RegisterPage implements OnInit {
         if (!this.form.display_name || !this.form.display_name.length) {
             return this.a.toast('NICKNAME REQUIRED');
         }
-        if (this.a.teacherTheme) {
+        if (this.a.site.teacherTheme) {
             if (!this.month || !this.month.length) {
                 return this.a.toast('Birth month is required.');
             }
@@ -262,7 +262,7 @@ export class RegisterPage implements OnInit {
                 this.form.user_pass = null;
                 this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {      // set timezone.
                     this.onRegisterSuccess();
-                    if (this.a.site.katalkenglish) {
+                    if (this.a.site.is.katalkenglish) {
                         this.a.open('/welcome');
                     } else {
 
@@ -418,9 +418,12 @@ export class RegisterPage implements OnInit {
     onClickKakaoIDHelp() {
 
         let content = '';
-        if (this.a.studentTheme) {
+        if (this.a.site.studentTheme) {
+            /**
+             * @todo a.site.studentTheme is working on string???
+             */
             content = `
-            <section class="content" *ngIf="a.studentTheme">
+            <section class="content" *ngIf="a.site.studentTheme">
                 <div class="kakaotalk-id-find-box">
                         <img src="assets/img/find-kakaotalk-id.jpg" style="width: 100%;">
                 </div>

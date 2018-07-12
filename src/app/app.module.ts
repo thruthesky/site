@@ -18,6 +18,8 @@ import { XapiModule, XapiService, XapiUserService, XapiLMSService, XapiFileServi
 import { KatalkEnglishFooterComponentModule } from './sites/katalkenglish/components/katalkenglish-footer/katalkenglish-footer.component.module';
 import { OntueFooterComponentModule } from './sites/ontue/components/ontue-footer/ontue-footer.component.module';
 import { RedirectPage } from './app.redirect';
+import { SiteService } from './providers/site.service';
+import { UrlService } from './providers/url.service';
 // import { TranslatePipe } from './pipes/translate/translate.pipe';
 // import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
 
@@ -44,6 +46,8 @@ import { RedirectPage } from './app.redirect';
     // FireService,
     AppService,
     LanguageService,
+    SiteService,
+    UrlService,
     XapiService, XapiUserService, XapiFileService, XapiLMSService
   ],
   bootstrap: [AppComponent]

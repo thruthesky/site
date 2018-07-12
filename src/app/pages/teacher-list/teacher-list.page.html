@@ -78,7 +78,7 @@
 
     <section class="page-desc">
 
-        <div *ngIf=" re && a.studentTheme ">
+        <div *ngIf=" re && a.site.studentTheme ">
             <div *ngIf="a.user.isLogin ">
                 <div>{{'TEACHER_LIST_IS_LOGIN' | t : { 'USERNAME' : a.user.name, 'TOTAL' : re.total, 'RESERVATIONS' :a.lmsInfoUserNoOfReservation,
                     'PASTS' :a.lmsInfoUserNoOfPast } }}
@@ -93,7 +93,7 @@
 
 
 
-        <div *ngIf=" a.teacherTheme ">
+        <div *ngIf=" a.site.teacherTheme ">
             {{ 'TEACHER_LIST_REMINDER' | t}}
         </div>
 
