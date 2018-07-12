@@ -45,27 +45,51 @@
         <table>
             <tr>
                 <th></th>
+                <th>Percentage</th>
                 <th>Share</th>
                 <th>Share After Deduction</th>
                 <th>Share In USD</th>
                 <th>Share In Peso</th>
             </tr>
             <tr>
-                <td>Branch</td>
-                <td>{{stats.branch_share}}</td>
-                <td>{{stats.branch_share_after_deduction | number : '1.2-2'}}</td>
-                <td>{{stats.branch_share_in_usd | number : '1.2-2'}}</td>
-                <td>{{stats.branch_share_in_peso | number : '1.2-2'}}</td>
-            </tr>
-            <tr>
-                <td>Office</td>
-                <td>{{stats.office_share}}</td>
+                <td>Office{{stats.office_percent}}</td>
+                <td>{{stats.office_share}}%</td>
                 <td>{{stats.office_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.office_share_in_usd | number : '1.2-2'}}</td>
                 <td>{{stats.office_share_in_peso | number : '1.2-2'}}</td>
             </tr>
             <tr>
+                <td>Branch{{stats.branch_percent}}</td>
+                <td>{{stats.branch_share}}%</td>
+                <td>{{stats.branch_share_after_deduction | number : '1.2-2'}}</td>
+                <td>{{stats.branch_share_in_usd | number : '1.2-2'}}</td>
+                <td>{{stats.branch_share_in_peso | number : '1.2-2'}}</td>
+            </tr>
+            <tr>
+                <td>Teacher{{stats.teacher_percent}}</td>
+                <td>{{stats.teacher_share}}%</td>
+                <td>{{stats.teacher_share_after_deduction | number : '1.2-2'}}</td>
+                <td>{{stats.teacher_share_in_usd | number : '1.2-2'}}</td>
+                <td>{{stats.teacher_share_in_peso | number : '1.2-2'}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="total-point-share" *ngIf="stats">
+        <h2>
+           Point Share Comparison
+        </h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>Percentage</th>
+                <th>Share</th>
+                <th>Share After Deduction</th>
+                <th>Share In USD</th>
+                <th>Share In Peso</th>
+            </tr>
+            <tr>
                 <td>Teacher</td>
+                <td>100%</td>
                 <td>{{stats.teacher_share}}</td>
                 <td>{{stats.teacher_share_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_usd | number : '1.2-2'}}</td>
@@ -73,6 +97,7 @@
             </tr>
             <tr>
                 <td>Teacher Withcenter</td>
+                <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}</td>
                 <td>{{stats.teacher_share_withcenter}}</td>
                 <td>{{stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
@@ -80,18 +105,24 @@
             </tr>
             <tr>
                 <td>Teacher HomeBase</td>
+                <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}</td>
                 <td>{{stats.teacher_share - stats.teacher_share_withcenter}}</td>
                 <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2'}}</td>
                 <td>{{stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}</td>
             </tr>
         </table>
+        <div>
+            <small>Note: 100% of Teacher share is the {{stats.teacher_share}}% from the total accumulated points.</small>
+        </div>
     </div>
     <div class="stat no-of-reservations">
         <h2>No of Reservations</h2>
 
         <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations | number }}, Total Point: Total Point: {{ stats.total_point_of_reservation | number }}
+            Total: {{ stats.total_no_of_reservations | number }}, Total Point: {{ stats.total_point_of_reservation | number }},
+            Point In USD: {{stats.total_point_in_usd | number : '1.2-2'}},
+            Point In PHP: {{stats.teacher_point_in_peso | number : '1.2-2'}}
         </div>
 
         <table *ngIf=" stats && stats['no_of_reservations'] ">
@@ -110,7 +141,11 @@
     <div class="stat no_of_reservations_of_withcenter_teachers">
         <h2>No of Reservations Of Withcenter Teachers</h2>
         <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}
+            Total: {{ stats.total_no_of_reservations_of_withcenter_teachers | number }},
+            Percentage: {{ stats.total_no_of_reservations_of_withcenter_teachers / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%,
+            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
+            Point In USD: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
+            Point In PHP: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
         </div>
         <table *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers'] ">
             <tr>
@@ -130,7 +165,11 @@
     <div class="stat no_of_reservations_of_homebase_teachers">
         <h2>No of Reservations Of Homebased Teachers</h2>
         <div *ngIf=" stats ">
-            Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }}, Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}
+            Total: {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }},
+            Percentage: {{ (stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers) / stats.total_no_of_reservations * 100 | number : '1.2-2' }}%,
+            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
+            Point In USD: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
+            Point In PHP: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
         </div>
         <table *ngIf=" stats && stats['no_of_reservations'] ">
             <tr>
@@ -170,7 +209,9 @@
     <div class="stat point_of_reservations">
         <h2>Points of per Day Reservation</h2>
         <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation | number }}
+            Total Point: {{ stats.total_point_of_reservation | number }},
+            Point In USD: {{stats.total_point_in_usd | number : '1.2-2'}},
+            Point In PHP: {{stats.teacher_point_in_peso | number : '1.2-2'}}
         </div>
         <table *ngIf=" stats && stats['point_of_reservations'] ">
             <tr>
@@ -190,7 +231,11 @@
     <div class="stat point_of_reservation_for_withcenter_teachers">
         <h2>Points of Reservation for Withcenter Teacher</h2>
         <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}
+            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
+            Percentage: {{ stats.total_point_of_reservation_for_withcenter_teachers / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%,
+            Total Point: {{ stats.total_point_of_reservation_for_withcenter_teachers | number }},
+            Point In USD: {{stats.teacher_share_withcenter_in_usd | number : '1.2-2'}},
+            Point In PHP: {{stats.teacher_share_withcenter_in_peso | number : '1.2-2'}}
         </div>
         <table *ngIf=" stats && stats['point_of_withcenter_teachers'] ">
             <tr>
@@ -210,7 +255,11 @@
     <div class="stat point_of_reservation_for_homebase_teachers">
         <h2>Points of Reservation for Homebase Teacher</h2>
         <div *ngIf=" stats ">
-            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}
+            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
+            Percentage: {{ (stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers) / stats.total_point_of_reservation * 100 | number : '1.2-2' }}%,
+            Total Point: {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }},
+            Point In USD: {{ stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number : '1.2-2' }},
+            Point In PHP: {{ stats.teacher_share_in_peso - stats.teacher_share_withcenter_in_peso | number : '1.2-2' }}
         </div>
         <table *ngIf=" stats && stats['point_of_reservations'] ">
             <tr>
