@@ -20,8 +20,12 @@ import { OntueFooterComponentModule } from './sites/ontue/components/ontue-foote
 import { RedirectPage } from './app.redirect';
 import { SiteService } from './providers/site.service';
 import { UrlService } from './providers/url.service';
+import { BranchService } from './providers/branch.service';
 // import { TranslatePipe } from './pipes/translate/translate.pipe';
 // import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
+
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -48,12 +52,16 @@ import { UrlService } from './providers/url.service';
     LanguageService,
     SiteService,
     UrlService,
+    BranchService,
     XapiService, XapiUserService, XapiFileService, XapiLMSService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  public constructor() {
+  public constructor(
+    public readonly xapi: XapiService,
+  ) {
+    xapi.setServerUrl(environment['urlBackend']);
 
   }
 }

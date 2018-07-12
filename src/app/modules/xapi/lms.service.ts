@@ -662,6 +662,9 @@ export class XapiLMSService extends Base {
     branch_get(): Observable<Branch> {
         return this.x.post({ route: 'lms.branch_get', session_id: this.user.sessionId });
     }
+    branch_information(domain): Observable<Branch> {
+        return this.x.post({ route: 'lms.branch_information', domain: domain });
+    }
     /**
      * Update branch information.
      * @param req request data to update on branch information. It can be only one key and value to update only one field.

@@ -37,7 +37,8 @@ export class RegisterPage implements OnInit {
 
     show = {
         dataLoader: false,
-        updateLoader: false
+        updateLoader: false,
+        updateClassSoftware: false
     };
 
     user_type: '' | 'S' | 'T';
@@ -48,6 +49,8 @@ export class RegisterPage implements OnInit {
 
     year_now = new Date().getFullYear();
 
+    backup_class_software = '';
+    backup_class_software_id = '';
     constructor(public a: AppService,
         public loader: LoaderService,
         public modal: ModalService,
@@ -121,6 +124,15 @@ export class RegisterPage implements OnInit {
             this.form.kakao_qrmark_URL = userData.kakao_qrmark_URL;
             this.form.bookable_time = userData.bookable_time;
             this.user_type = userData.user_type;
+
+
+            /**
+             * software
+             */
+            this.form.class_software = userData.class_software;
+            this.form.class_software_id = userData.class_software_id;
+
+
             if (userData.birthday.length > 0) {
                 this.year = userData.birthday.substr(0, 4);
                 this.month = userData.birthday.substr(4, 2);
@@ -212,6 +224,9 @@ export class RegisterPage implements OnInit {
         if (!this.form.phone_number) {
             return this.a.toast('PHONE NUMBER REQUIRED');
         }
+        /**
+         * If the site is katalkenglish.com, then it always uses kakaotalk
+         */
         if (this.a.site.is.katalkenglish) {
             if (!this.form.class_software_id) {
                 return this.a.toast('KAKAOTALK ID REQUIRED');
@@ -219,9 +234,22 @@ export class RegisterPage implements OnInit {
                 this.form.class_software = CLASS_SOFTWARE_KAKAOTALK;
             }
         } else {
-            if (!this.form.class_software) {
-                return this.a.toast('SELECT_CLASS_SOFTWARE');
+            /**
+             * If it's not *.katalkenglish.com site.
+             */
+
+
+            /**
+             * Registeration?
+             */
+            if (this.a.user.isLogout) {
+                this.form.class_software = this.a.branch.defaultClassSoftware;
+            } else {
+                /**
+                 * Update?
+                 */
             }
+
             if (!this.form.class_software_id) {
                 return this.a.toast('SELECT_CLASS_SOFTWARE_ID');
             }
@@ -232,6 +260,7 @@ export class RegisterPage implements OnInit {
         this.form.user_type = this.user_type;
 
 
+        console.log('form: ', this.form);
         if (this.a.user.isLogin) { // UPDATE
             // console.log('GOING TO UPDATE');
             this.updateWordpressBackend();
@@ -274,25 +303,11 @@ export class RegisterPage implements OnInit {
                 this.form.user_pass = null;
                 this.a.lms.timezone_set(this.timezoneOffset).subscribe(() => {      // set timezone.
                     this.onRegisterSuccess();
-                    if (this.a.site.is.katalkenglish) {
+                    if (this.a.site.studentTheme) {
                         this.a.open('/welcome');
                     } else {
 
                     }
-
-                    // this.registerFirebase(re, () => {           // register into firebase.
-                    //     // registration is complete by here.
-
-                    //     this.onRegisterSuccess();
-                    //     /**
-                    //      * If the user is a student, then show welcome page.
-                    //      */
-                    //     if (this.a.site.katalkenglish) {
-                    //         this.a.open('/welcome');
-                    //     } else {
-
-                    //     }
-                    // });
                 }, () => {
                 });
             }, e => {
@@ -300,44 +315,11 @@ export class RegisterPage implements OnInit {
             });
     }
 
-    // registerFirebase(res: USER_REGISTER_RESPONSE, callback) {
-    //     console.log('registerFirebase(res): ', res);
-    //     const data: USER = {
-    //         email: this.a.getFirebaseLoginEmail(res.ID),
-    //         password: this.a.getFirebaseLoginPassword(res.ID)
-    //     };
-    //     this.a.fire.user.register(data).then(() => {
-    //         console.log('Firebase: user registered successfully: ');
-    //         this.a.fire.auth.onAuthStateChanged(user => {
-    //             if (user) {
-    //                 const profile: USER = {
-    //                     email: res.user_email,
-    //                     displayName: res.display_name,
-    //                     name: res.name
-    //                 };
-    //                 profile['ID'] = res.ID;
-    //                 this.a.fire.user.create(profile).then(re => {
-    //                     /**
-    //                      * Hereby, user registration has completed.
-    //                      */
-    //                     console.log('Firebase. user data document created successfully: ', re);
-    //                     // this.a.openProfile();
-    //                     callback();
-    //                 }).catch(e => {
-    //                     console.log('register.page .registerFirebase > onAuthState.Changed > fire.user.create() failed()', this.form);
-    //                     this.onRegisterFailure(e);
-    //                 });
-    //             }
-    //         });
-    //     })
-    //         .catch(e => this.onRegisterFailure(e));
-
-    // }
-
 
     updateWordpressBackend() {
         delete this.form.kakao_qrmark_string;
         this.show.updateLoader = true;
+        this.show.updateClassSoftware = false;
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
             this.show.updateLoader = false;
@@ -503,4 +485,17 @@ export class RegisterPage implements OnInit {
         });
     }
 
+
+    onClickUpdateClassSoftware() {
+        this.show.updateClassSoftware = true;
+        this.backup_class_software = this.form.class_software;
+        this.backup_class_software_id = this.form.class_software_id;
+        this.form.class_software = '';
+        this.form.class_software_id = '';
+    }
+    onCancelUpdateClassSoftware() {
+        this.show.updateClassSoftware = false;
+        this.form.class_software = this.backup_class_software;
+        this.form.class_software_id = this.backup_class_software_id;
+    }
 }

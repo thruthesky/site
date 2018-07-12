@@ -22,3 +22,11 @@ export interface SITE {
     admin: boolean;
 }
 
+
+
+export const SKYPE = 'skype';
+export const KAKAOTALK = 'kakaotalk';
+export const WECHAT = 'wechat';
+export const LINE = 'line';
+
+export const DEFAULT_CLASS_SOFTWARE = SKYPE;

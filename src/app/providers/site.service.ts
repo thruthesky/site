@@ -9,7 +9,10 @@ export class SiteService {
      * Use this whenever you need to determin if the user is using Stduent site or Teacher site
      *      and inside template whenever you need site code.
      *
-     * This will not recompute anything and it's good to use in template.
+     * This will not recompute anything and it's good to use in template
+     *
+     * @description katalkenglish and englishas will be true when user access its subdomains.
+     *
      * @code
      *      <section id="ontue" *ngIf=" a.site.ontue ">
      *      if ( this.a.site.katalkenglish ) { ... }
@@ -74,6 +77,7 @@ export class SiteService {
      * Returns true if the theme that the user is using is student's theme.
      *
      * @description student's theme may have more than one site/domain.
+     *  It returns true as long as the site is not ontue or withcenter.
      */
     get studentTheme() {
         if (this.teacherTheme) {

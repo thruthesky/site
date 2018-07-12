@@ -27,6 +27,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UrlService } from './url.service';
 import { SiteService } from './site.service';
+import { SKYPE, KAKAOTALK, LINE, WECHAT } from './defines';
+import { BranchService } from './branch.service';
 
 
 export const KEY_SCHEDULES = 'key-schedules';
@@ -86,6 +88,15 @@ const firestoreLogCollection = 'user-activity-log';
 export class AppService {
 
     environment: Environment = environment;
+
+
+    classSoftware = {
+        skype: SKYPE,
+        kakaotalk: KAKAOTALK,
+        line: LINE,
+        wechat: WECHAT
+    };
+
 
     // color: string = null;
 
@@ -199,7 +210,8 @@ export class AppService {
         public readonly file: XapiFileService,
         public readonly lms: XapiLMSService,
         public readonly url: UrlService,
-        public readonly site: SiteService
+        public readonly site: SiteService,
+        public readonly branch: BranchService
     ) {
 
         // console.log(`AppService::constructor()`);
@@ -303,6 +315,7 @@ export class AppService {
 
         //
         this.adminLoginUser();
+
     }
 
     get ln(): any {

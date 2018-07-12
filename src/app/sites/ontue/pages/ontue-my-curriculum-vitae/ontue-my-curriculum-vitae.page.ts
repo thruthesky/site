@@ -73,7 +73,10 @@ export class OntueMyCurriculumVitaePage {
             this.account.experience = userData.experience;
             this.account.introduction = userData.introduction;
             this.account['display_name'] = userData['display_name'];
-            this.account.kakaotalk_id = userData.kakaotalk_id;
+            this.account.kakaotalk = userData.kakaotalk;
+            this.account.skype = userData.skype;
+            this.account.wechat = userData.wechat;
+            this.account.line = userData.line;
 
 
             if (userData.youtube_video_url) {

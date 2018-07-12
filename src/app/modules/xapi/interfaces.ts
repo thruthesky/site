@@ -106,6 +106,10 @@ export interface USER_REGISTER extends REQUEST {
     timezone?: string;
     manager?: string;
     point?: string;
+    skype?: string;
+    kakaotalk?: string;
+    wechat?: string;
+    line?: string;
 }
 
 export type USER_UPDATE = USER_REGISTER;
@@ -545,6 +549,7 @@ export interface Branch {
     html_header: string;
     html_footer: string;
     copyright: string;
+    class_software: string;
     no_of_students: string;
     stamp_register: string;
     stamp_update: string;
