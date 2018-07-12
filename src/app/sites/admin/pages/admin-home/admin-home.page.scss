@@ -1,4 +1,12 @@
 @import '../../../../../theme/vars';
+//graph colors
+$overall: #00B96A;
+$withcenter-teachers:#FF9200;
+$homebased-teachers:#1414BD;
+$points-per-day-reservations:#00B96A;
+$por-withcenter:#FF9200;
+$por-homebased:#1414BD;
+
 #login-info {
     margin: 0;
     margin-top: 1.5em;
@@ -366,4 +374,106 @@
             background-color: rgb(0, 0, 255);
         }
     }
+}
+
+.bar-graph{
+    &-container{
+        margin-bottom: 2em;
+    }
+    &-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .bar-graph-title{
+            margin: 0;
+            font-size: 1.1em;
+            color: #0867B0;
+        }
+        .bar-graph-subtitle{
+            font-size: .9em;
+            &>*{
+                margin-right: 3em;
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+    }
+    &-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin:1em 0;
+        padding: 3.2em 1.5em 7em 1.5em;
+        border:1px solid rgba(125, 125, 125, 0.3);
+        border-radius: 2px;
+        font-size: .75em;
+        overflow: auto;
+
+        .bar-item{
+            position: relative;
+            margin: 0 1px;
+            @media (min-width:$md) {
+                margin: 0;
+            }
+            width: 2em;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            border-bottom: .5px solid gray;
+            background-color: gray;
+            text-align: center;
+            .item-no{
+                position: relative;
+                bottom: 1.2em; 
+                // comment out this class to see the original position
+                // added 1.2em so it will be at the top of the bar-item
+            }
+            .item-date{
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                margin-top: 4em;
+                transform: rotate(-87deg);
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+#overall-reservations-graph{
+   .bar-item{
+        border-bottom: .5px solid $overall;
+        background-color: $overall;
+   }
+}
+#withcenter-teachers-graph{
+    .bar-item{
+        border-color: $withcenter-teachers;
+        background-color: $withcenter-teachers;
+   }
+}
+#homebased-teachers-graph{
+    .bar-item{
+        border-color: $homebased-teachers;
+        background-color: $homebased-teachers;
+   }
+}
+#points-per-day-reservations-graph{
+    .bar-item{
+        border-color: $points-per-day-reservations;
+        background-color: $points-per-day-reservations;
+   }
+}
+#por-withcenter-graph{
+    .bar-item{
+        border-color: $por-withcenter;
+        background-color: $por-withcenter;
+   }
+}
+#por-homebased-graph{
+    .bar-item{
+        border-color: $por-homebased;
+        background-color: $por-homebased;
+   }
 }
