@@ -429,39 +429,6 @@ export class AppService {
         return window.location.hostname;
     }
 
-    /**
-     * Returns user domain.
-     * If the domain is 'localhost', then it returns 'localhost.com'
-     */
-    // getDomainAsEmailDomain() {
-    //     const domain = this.getDomain();
-    //     if (domain === 'localhost') {
-    //         return 'localhost.com';
-    //     } else {
-    //         this.getDomain();
-    //     }
-    // }
-
-    /**
-     * Returns an email address of the user ID.
-     * @param ID User ID of WordPress Backend
-     */
-    // getFirebaseLoginEmail(ID): string {
-    //     return 'user' + ID + '@php-wordpress-backend-server.com';
-    // }
-    /**
-     * It returns simple password.
-     *
-     * It does not care the security.
-     * @see README ## Registration and ## Login
-     *
-     * @param ID User UID of backend
-     */
-    // getFirebaseLoginPassword(ID): string {
-    //     return 'password-' + ID;
-    // }
-
-
     private isKatalkenglishDomain() {
         return this.getDomain().indexOf(SITE_KATALKENGLISH) !== -1;
     }
@@ -505,7 +472,6 @@ export class AppService {
         return this.site.withcenter;
     }
 
-
     /**
      * Returns site code.
      *
@@ -526,16 +492,30 @@ export class AppService {
     }
 
     /**
-     * Returns true if the user is accessing student's main site like `katalkenglish.com` or `www.katalkenglish.com`
-     *  sub domains of katalkenglish.com or other domains returns false.
+     * Returns true if the user is accessing kakaotalk main domain
+     *      like `katalkenglish.com` or `www.katalkenglish.com`.
+     * Sub domains of katalkenglish.com or other domains returns false.
+     *
+     * @example Use this method to do something that is only related with katalkenglish.com root domain.
      *
      *  Aside katalkenglish, there might be another student domain like 'englishas.com'.
      *
-     *  It only returns true if the user is accessing main office site.
+     *  But it only returns true if the user is accessing 'katalkenglish' main domain.
      */
-    get isStudentMainSite(): boolean {
+    get katalkEnglishRootDomain(): boolean {
         const d = this.getDomain();
         if (d.indexOf('katalkenglish') === 0 || d.indexOf('www.katalkenglish') === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    /**
+     * Returns true if the user is accessing 'englishas.com' or 'www.englishas.com'.
+     */
+    get englishAsRootDomain(): boolean {
+        const d = this.getDomain();
+        if (d.indexOf('englishas') === 0 || d.indexOf('www.englishas') === 0) {
             return true;
         } else {
             return false;

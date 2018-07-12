@@ -5,8 +5,8 @@
                 <img class="resized" src="assets/img/menu-icon.png" alt="">
             </a>
             <a routerLink="/">
-                    <img class="resized" src="assets/img/logo/katalk-english.png" alt="Logo" *ngIf=" a.isStudentMainSite ">
-                    <img class="resized" src="{{ a.info?.branch?.logo_url }}" alt="Logo" *ngIf=" ! a.isStudentMainSite && a.info && a.info.branch && a.info.branch.logo_url">
+                    <img class="resized" src="assets/img/logo/katalk-english.png" alt="Logo" *ngIf=" a.katalkEnglishRootDomain ">
+                    <img class="resized" src="{{ a.info?.branch?.logo_url }}" alt="Logo" *ngIf=" ! a.katalkEnglishRootDomain && a.info && a.info.branch && a.info.branch.logo_url">
 
             </a>
             <a class="login" routerLink="/login" *ngIf="a.isLogout" [class.adjusted]="selectedLanguage=='ko'">
