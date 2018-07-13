@@ -1975,4 +1975,7 @@ export class AppService {
         element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
         return true;
     }
+
+
+
 }

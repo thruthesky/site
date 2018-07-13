@@ -139,6 +139,7 @@ export class RegisterPage implements OnInit {
             this.form.qq = userData.qq;
 
 
+
             if (userData.birthday.length > 0) {
                 this.year = userData.birthday.substr(0, 4);
                 this.month = userData.birthday.substr(4, 2);
@@ -248,8 +249,10 @@ export class RegisterPage implements OnInit {
             this.updateWordpressBackend();
         } else { // REGISTER
             // A student is going to register?
-            if (this.a.isStudent) {
-                this.form.class_software = this.a.branch.defaultClassSoftware;
+            if (this.a.site.studentTheme) {
+                if (!this.form.class_software) {
+                    this.form.class_software = this.a.branch.defaultClassSoftware;
+                }
                 if (!this.form.class_software_id) {
                     return this.a.toast('SELECT_CLASS_SOFTWARE_ID');
                 }
@@ -485,5 +488,19 @@ export class RegisterPage implements OnInit {
         this.show.updateClassSoftware = false;
         this.form.class_software = this.backup_class_software;
         this.form.class_software_id = this.backup_class_software_id;
+    }
+
+    myClassSoftware(name) {
+        if (this.form.class_software) {
+            if (this.form.class_software === name) {
+                return true;
+            } else {
+                return false;
+            }
+        } else if (this.a.branch.defaultClassSoftware === name) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

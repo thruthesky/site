@@ -133,11 +133,11 @@
 
             <div class="student-class-software-id" *ngIf=" a.site.is.englishas ">
                 <div *ngIf=" ! show.updateClassSoftware ">
-                    <div class="desc-input-skype-id" *ngIf=" form.class_software == a.classSoftware.skype ">{{ 'INPUT_SKYPE_ID' | t }}</div>
-                    <div class="desc-input-kakaotalk-id" *ngIf=" form.class_software == a.classSoftware.kakaotalk ">{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
-                    <div class="desc-input-wechat-id" *ngIf=" form.class_software == a.classSoftware.wechat ">{{ 'INPUT_WECHAT_ID' | t }}</div>
-                    <div class="desc-input-line-id" *ngIf=" form.class_software == a.classSoftware.line ">{{ 'INPUT_LINE_ID' | t }}</div>
-                    <div class="desc-input-qq-id" *ngIf=" form.class_software == a.classSoftware.qq ">{{ 'INPUT_QQ_ID' | t }}</div>
+                    <div class="desc-input-skype-id" *ngIf=" myClassSoftware( a.classSoftware.skype ) ">{{ 'INPUT_SKYPE_ID' | t }}</div>
+                    <div class="desc-input-kakaotalk-id" *ngIf=" myClassSoftware( a.classSoftware.kakaotalk ) ">{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
+                    <div class="desc-input-wechat-id" *ngIf=" myClassSoftware( a.classSoftware.wechat ) ">{{ 'INPUT_WECHAT_ID' | t }}</div>
+                    <div class="desc-input-line-id" *ngIf=" myClassSoftware( a.classSoftware.line ) ">{{ 'INPUT_LINE_ID' | t }}</div>
+                    <div class="desc-input-qq-id" *ngIf=" myClassSoftware( a.classSoftware.qq ) ">{{ 'INPUT_QQ_ID' | t }}</div>
                     <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                 </div>
 
