@@ -471,10 +471,18 @@ $por-homebased: #FFBF00;
 }
 #no-of-reservations-teacher-grade-graph{
     .bar-graph-header{
-        padding: 0 1.25em;
+        padding: 1.25em;
+        @media (min-width:$md) {
+            padding: 0 1.25em;
+        }
         line-height: unset;
 
         .bar-graph-subtitle{
+            display: flex;
+            flex-wrap: wrap;
+            @media (min-width:$md) {
+                display: block;
+            }
             &>div{
                 margin-right: 1em;
                 &:last-child{
