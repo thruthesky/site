@@ -274,7 +274,7 @@ export class NewPaymentPage implements AfterViewInit {
 
 
     onSelectBankTransaction() {
-        if ( this.a.site.katalkenglish ) {
+        if ( this.a.site.is.katalkenglish ) {
             this.paymentMethod = 'koreanBank';
             this.onSelectBankCountry( this.paymentMethod );
         } else {

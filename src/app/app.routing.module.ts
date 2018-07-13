@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: './pages/new-payment/new-payment.page.module#NewPaymentPageModule'
   },
   {
+    path: 'qna',
+    loadChildren: './pages/qna/qna.page.module#QnAPageModule'
+  },
+  {
     path: 'payment-result',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-result/katalkenglish-payment-result.page.module#KatalkEnglishPaymentResultPageModule'
   },
@@ -296,10 +300,10 @@ const routes: Routes = [
   //   path: 'category',
   //   loadChildren: './pages/category/category.page.module#CategoryPageModule'
   // },
-  {
-    path: 'admin',
-    loadChildren: './pages/admin/admin-page.module#AdminPageModule'
-  },
+  // {
+  //   path: 'admin',
+  //   loadChildren: './pages/admin/admin-page.module#AdminPageModule'
+  // },
 
   /**
    * New admin pages and branch pages.

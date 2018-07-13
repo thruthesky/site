@@ -40,9 +40,10 @@ export class ApplyFranchiseComponent implements OnInit {
             return;
         }
         this.a.lms.branch_register(this.form).subscribe(re => {
-            this.modal.alert({ content: this.t.ln.registered, ok: this.t.ln.ok }).subscribe(() => {
+            // sucess
+            this.modal.alert({ content: this.t.ln.registered, ok: this.t.ln.ok }).subscribe(() => { // success
                 this.a.openAdminPage(re['user']['manager'], re['session_id']);
-            }, e => {
+            }, e => { // and success
                 this.a.openAdminPage(re['user']['manager'], re['session_id']);
             });
         }, e => this.a.toast(e));

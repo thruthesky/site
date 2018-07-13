@@ -1,117 +1,98 @@
 @import '../../../../../theme/vars.scss';
-
-.loader{
+.loader {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 2em 0;
-    
-    mat-spinner{
-    margin: .5em;
+    mat-spinner {
+        margin: .5em;
     }
 }
 
-main{
+main {
     padding-bottom: 3em;
     min-height: 540px;
     font-size: 90%;
-
-    .container-fluid{
-        @media screen and (min-width:$md){
+    .container-fluid {
+        @media screen and (min-width: $md) {
             padding-top: 1em;
         }
-
-        .row{
+        .row {
             margin: 0 -1.5em;
             padding: .5em 0;
             justify-content: space-around;
         }
-
-        .col-auto{
-            @media screen and (max-width:$sm) {
+        .col-auto {
+            @media screen and (max-width: $sm) {
                 padding: 0;
             }
             margin: .5em 0;
             padding: 0 .2em;
         }
     }
-
-    .teacher{
+    .teacher {
         margin: auto;
         width: 100px;
-        outline: 1px solid rgba(125,125,125,0.1);
+        outline: 1px solid rgba(125, 125, 125, 0.1);
         text-align: center;
-
-        .teacher-profile-photo{
+        .teacher-profile-photo {
             height: 120px;
             width: 100px;
             overflow: hidden;
-
-            img{
+            img {
                 width: 100%;
             }
         }
-
-
-        .teacher-info{
+        .teacher-info {
             padding: 0 .3em;
             background: #fff;
         }
-
-        .teacher-name{
+        .teacher-name {
             padding: .2em 0;
             padding-top: .6em;
             text-transform: uppercase;
             font-weight: normal;
             font-size: .85em;
         }
-
         .reservations,
         .class-duration,
-        .point{
+        .point {
             font-weight: 300;
             font-size: 85%;
             padding: .1em 0;
         }
-
-        .class-duration{
+        .class-duration {
             color: #3016B0;
         }
-
-        .grade{
-            span{
+        .grade {
+            span {
                 display: inline-block;
             }
         }
-
-        .reservations{
-            color:#607d8b;
+        .reservations {
+            color: #607d8b;
             padding-top: .4em;
         }
-
-        .point{
+        .point {
             padding-bottom: .6em;
             color: #9B3F00
         }
-
-        .grade{
+        .grade {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             font-size: .75em;
-
-            .title{
+            .title {
                 margin-top: .1em;
             }
-
-            .star{
+            .star {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-left: .2em;
-                svg{
+                svg {
                     height: 1em;
                     width: 1em;
                 }
@@ -132,8 +113,6 @@ main{
         .grade[grade="1"] {
             color: #272727;
         }
-
-
         .reserve-button {
             padding: .8em;
             border: 1px solid orange;
@@ -144,18 +123,22 @@ main{
             cursor: pointer;
             font-size: 85%;
             transition: .2s all ease-in-out;
-
-            &:hover{
+            &:hover {
                 border: 1px solid darkorange;
                 background: #fff;
                 color: darkorange
             }
         }
-        
-        .reserve-loader{
+        .reserve-loader {
             padding: .3em;
             font-size: 90%;
         }
     }
-
+    .login-first {
+        h2 {
+            padding: 1.8em;
+            background-color: #eff3f7;
+            font-weight: 100;
+        }
+    }
 }

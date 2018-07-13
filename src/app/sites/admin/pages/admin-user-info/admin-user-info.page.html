@@ -162,8 +162,8 @@
                                     <div class="margin-top">
                                         <span class="label">POINT :</span>
                                         <input type="number" name="pointForm_point" [(ngModel)]="pointForm.point">
-                                        <button class="auto-compute-button" type="button" (click)=" onClickAutoRefundCompute() " *ngIf=" pointForm.apply == 'payment' || pointForm.apply == 'refund' ">Auto Compute</button>
-
+                                        <button class="auto-compute-button" type="button" (click)=" onClickAutoCompute() " *ngIf=" pointForm.apply == 'payment' ">Auto Compute</button>
+                                        <button class="auto-compute-button" type="button" (click)=" onClickAutoRefundCompute() " *ngIf=" pointForm.apply == 'refund' ">Auto Compute</button>
                                     </div>
                                     <div class="margin-top">
                                         <span class="label">Reason:</span>
@@ -268,7 +268,7 @@
 
                         <div>
                             <label>Kakaotalk ID</label>
-                            <input value="{{  user.kakaotalk_id }}" [(ngModel)]=" user.kakaotalk_id " name="kakaotalk_id">
+                            <input value="{{  user.class_software_id }}" [(ngModel)]=" user.class_software_id " name="class_software_id">
                         </div>
 
                         <div>

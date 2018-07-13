@@ -10,7 +10,7 @@
             <span>{{ 'IN LOADING' | t}}</span>
         </div>
 
-        <div class="photo-upload" *ngIf=" a.teacherTheme || a.user.isLogin ">
+        <div class="photo-upload" *ngIf=" a.site.teacherTheme || a.user.isLogin ">
             <input class="input-box" type="file" (change)="fileUpload.onChangeFile($event)">
             <div class="photo-upload-button">
                 <div class="photo">
@@ -39,7 +39,7 @@
 
         <form (ngSubmit)=" onSubmitRegisterForm( $event ) ">
 
-            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.teacherTheme ">
+            <mat-form-field class="timezone" appearance="outline" *ngIf=" a.site.teacherTheme ">
                 <!-- <mat-label>{{ 'TIMEZONE' | t }}</mat-label> -->
                 <mat-select id="timezone" [(ngModel)]="timezoneOffset" name="timezone" placeholder="{{ formatTimeCode(timezoneOffset)}} {{timezones[timezoneOffset]?.name }}">
                     <mat-option *ngFor="let t of keysTimezone()" value="{{ t }}">
@@ -73,8 +73,8 @@
 
 
             <div class="container-fluid">
-                <div class="row" [class.removed-padding]="!a.teacherTheme">
-                    <div class="col" *ngIf=" a.teacherTheme ">
+                <div class="row" [class.removed-padding]="!a.site.teacherTheme">
+                    <div class="col" *ngIf=" a.site.teacherTheme ">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label>
                             <input matInput id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
@@ -90,9 +90,10 @@
                 </div>
             </div>
 
-            <mat-form-field class="katalk-id" appearance="outline">
+            <!-- for katalkenglish.com site, only katalk is being used. -->
+            <mat-form-field class="katalk-id" appearance="outline" *ngIf=" a.site.is.katalkenglish || a.branch.info.class_software == a.classSoftware.kakaotalk ">
                 <mat-label>{{ a.ln.KAKAOTALK_ID_SHORT }}</mat-label>
-                <input matInput id="kakaotalk_id" type="text" name="kakaotalk_id" [(ngModel)]="form.kakaotalk_id">
+                <input matInput id="class_software_id" type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                 <mat-hint>
                     <a class="hint" (click)=" onClickKakaoIDHelp() ">
                         <span>{{ a.ln['FIND KAKAOTALK ID'] }}</span>
@@ -105,9 +106,46 @@
                 </mat-hint>
             </mat-form-field>
 
+            <div class="input-class-software-id" data-role="input-class-software-id" *ngIf=" a.site.is.englishas ">
+                <div *ngIf=" ! show.updateClassSoftware ">
+                        <div *ngIf=" form.class_software == a.classSoftware.skype ">{{ 'INPUT_SKYPE_ID' | t }}</div>
+                        <div *ngIf=" form.class_software == a.classSoftware.kakaotalk ">{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
+                    <div *ngIf=" form.class_software == a.classSoftware.wechat ">{{ 'INPUT_WECHAT_ID' | t }}</div>
+                    <div *ngIf=" form.class_software == a.classSoftware.line ">{{ 'INPUT_LINE_ID' | t }}</div>
+                    <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
+                </div>
+
+                <div class="update-class-software">
+                    <div class="app-button update-class-software-button" (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
+                        Choose another messenger app
+                    </div>
+                    <div class="select-class-software" *ngIf=" show.updateClassSoftware ">
+                        <div>
+                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype" [checked]="form.class_software"> {{ 'SKYPE' | t }}
+                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.kakaotalk"
+                                [checked]="form.class_software"> {{ 'KAKAOTALK' | t }}
+                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.wechat" [checked]="form.class_software"> {{ 'WECHAT' | t }}
+                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.line" [checked]="form.class_software"> {{ 'LINE' | t }}
+                        </div>
+                        <div class="input-class-software-id" *ngIf=" form.class_software ">
+                            <div>Please Input {{ form.class_software | t }} ID.</div>
+                            <div>
+                                <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
+                            </div>
+                        </div>
+
+                        <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
+                            Cancel
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 
-            <div class="container-fluid" *ngIf=" a.teacherTheme ">
+
+
+            <div class="container-fluid" *ngIf=" a.site.teacherTheme ">
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="gender" appearance="outline">
@@ -162,7 +200,7 @@
                 </div>
             </div>
 
-            <mat-form-field class="upload-qr" *ngIf=" a.teacherTheme " appearance="outline">
+            <mat-form-field class="upload-qr" *ngIf=" a.site.teacherTheme " appearance="outline">
                 <mat-label>{{qrmarks.length? 'UPDATE': 'UPLOAD'}} Kakaotalk QR MARK</mat-label>
 
                 <label>
@@ -233,7 +271,6 @@
                     <button class="app-button" [routerLink]="'/'" *ngIf="!a.user.isLogin">{{ 'CANCEL' | t }}</button>
                 </div>
             </div>
-
 
         </form>
     </section>

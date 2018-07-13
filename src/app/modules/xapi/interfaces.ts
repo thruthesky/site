@@ -82,7 +82,9 @@ export interface USER_REGISTER extends REQUEST {
     birthday?: string;
     landline?: string;
     photoURL?: string; // This is used for registration and update only.
-    kakaotalk_id?: string;
+    // kakaotalk_id?: string;
+    class_software?: string;
+    class_software_id?: string;
     kakao_qrmark_URL?: string;
     kakao_qrmark_string?: string;
     primary_photo?: FILE; // This is used on backend response only
@@ -104,6 +106,10 @@ export interface USER_REGISTER extends REQUEST {
     timezone?: string;
     manager?: string;
     point?: string;
+    skype?: string;
+    kakaotalk?: string;
+    wechat?: string;
+    line?: string;
 }
 
 export type USER_UPDATE = USER_REGISTER;
@@ -543,6 +549,7 @@ export interface Branch {
     html_header: string;
     html_footer: string;
     copyright: string;
+    class_software: string;
     no_of_students: string;
     stamp_register: string;
     stamp_update: string;

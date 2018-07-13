@@ -2,7 +2,7 @@
     <header>
         <h1>{{ 'REVIEW LIST TITLE' | t:{name: a.preTeacherName(teacher_name)} }}</h1>
         <div>
-            <a class="menu" *ngIf="a.user.isLogin && a.studentTheme" routerLink="/teacher-review-create"
+            <a class="menu" *ngIf="a.user.isLogin && a.site.studentTheme" routerLink="/teacher-review-create"
                [queryParams]="{idx_teacher:idx_teacher}">
                 <svg class="icon" aria-hidden="true" data-icon="edit" role="img" xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 576 512" data-fa-i2svg="">

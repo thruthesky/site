@@ -6,7 +6,6 @@ import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '.
 
 import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID, CODE_LOGIN_FIRST } from '../modules/xapi/error';
 
-
 /**
  * Firebase initialization.
  */
@@ -26,19 +25,10 @@ import { SCHEDULE_TABLE, LMS_INFO } from '../modules/xapi/interfaces';
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-
-
-/**
- * If the domain contains `katalkenglish`, then it is considered as katalkenglish.com website
- *  except the domain does not contain `withcenter`. like `withcenterxxxx.katalkenglish.com` will be withcenter site.
- */
-export const SITE_KATALKENGLISH = 'katalkenglish';
-export const SITE_ONTUE = 'ontue';
-/**
- * If the domain contains `withcenter`, then it is considered as withcenter.com website.
- */
-export const SITE_WITHCENTER = 'withcenter';
-export const SITE_ADMIN = 'admin';
+import { UrlService } from './url.service';
+import { SiteService } from './site.service';
+import { SKYPE, KAKAOTALK, LINE, WECHAT } from './defines';
+import { BranchService } from './branch.service';
 
 
 export const KEY_SCHEDULES = 'key-schedules';
@@ -49,16 +39,6 @@ export const KEY_WEEKEND = 'key-weekend';
 export const KEY_DAYS = 'key-days';
 export const KEY_TEACHER_LIST = 'key-teacher-list';
 export const KEY_LMS_INFO = 'lms-info';
-
-
-
-export interface SITE {
-    ontue: boolean;
-    withcenter: boolean;
-    katalkenglish: boolean;
-    englishas: boolean;
-    admin: boolean;
-}
 
 
 export interface SCHEDULE_OPTIONS {
@@ -109,6 +89,15 @@ export class AppService {
 
     environment: Environment = environment;
 
+
+    classSoftware = {
+        skype: SKYPE,
+        kakaotalk: KAKAOTALK,
+        line: LINE,
+        wechat: WECHAT
+    };
+
+
     // color: string = null;
 
     // ln;
@@ -120,24 +109,6 @@ export class AppService {
      * @since 2018-05-09 no more 'showHeader'
      */
     // showHeader = true;
-
-    /**
-     * It prepares site code on booting. So, it won't be computed again on run time.
-     * Use this whenever you need to determin if the user is using Stduent site or Teacher site
-     *      and inside template whenever you need site code.
-     *
-     * This will not recompute anything and it's good to use in template.
-     * @code
-     *      <section id="ontue" *ngIf=" a.site.ontue ">
-     *      if ( this.a.site.katalkenglish ) { ... }
-     */
-    site: SITE = {
-        ontue: false,
-        katalkenglish: false,
-        englishas: false,
-        withcenter: false,
-        admin: false
-    };
 
     /**
      * It holds the url path of the current page.
@@ -237,11 +208,11 @@ export class AppService {
         public readonly xapi: XapiService,
         public readonly user: XapiUserService,
         public readonly file: XapiFileService,
-        public readonly lms: XapiLMSService) {
-
-        // Base.collectionDomain = 'database';
-        this.site[this.getSite()] = true;
-
+        public readonly lms: XapiLMSService,
+        public readonly url: UrlService,
+        public readonly site: SiteService,
+        public readonly branch: BranchService
+    ) {
 
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
@@ -252,7 +223,7 @@ export class AppService {
         let languageCode = language.getUserSelectedLanguage();
         if (!languageCode) {
             // console.log('You did not choose a  language yet.');
-            if (this.studentTheme) {
+            if (this.site.studentTheme) {
                 // console.log('You are using student theme, So we set Korean');
                 languageCode = 'ko';
             } else {
@@ -344,6 +315,7 @@ export class AppService {
 
         //
         this.adminLoginUser();
+
     }
 
     get ln(): any {
@@ -415,140 +387,14 @@ export class AppService {
     //     // console.log(`Color has been set to ${this.color}`);
     // }
 
-    /**
-     * Returns a domain of the site including sub-domain
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/hostname
-     *
-     * @return string
-     *      abc.com
-     *      www.abc.com
-     *      subdomain.rootdomain.com
-     */
-    getDomain() {
-        return window.location.hostname;
-    }
-
-    /**
-     * Returns user domain.
-     * If the domain is 'localhost', then it returns 'localhost.com'
-     */
-    // getDomainAsEmailDomain() {
-    //     const domain = this.getDomain();
-    //     if (domain === 'localhost') {
-    //         return 'localhost.com';
-    //     } else {
-    //         this.getDomain();
-    //     }
-    // }
-
-    /**
-     * Returns an email address of the user ID.
-     * @param ID User ID of WordPress Backend
-     */
-    // getFirebaseLoginEmail(ID): string {
-    //     return 'user' + ID + '@php-wordpress-backend-server.com';
-    // }
-    /**
-     * It returns simple password.
-     *
-     * It does not care the security.
-     * @see README ## Registration and ## Login
-     *
-     * @param ID User UID of backend
-     */
-    // getFirebaseLoginPassword(ID): string {
-    //     return 'password-' + ID;
-    // }
-
-
-    private isKatalkenglishDomain() {
-        return this.getDomain().indexOf(SITE_KATALKENGLISH) !== -1;
-    }
-
-    private isOntueDomain() {
-        return this.getDomain().indexOf(SITE_ONTUE) !== -1;
-    }
-
-    private isWithcenterDomain() {
-        return this.getDomain().indexOf(SITE_WITHCENTER) !== -1;
-    }
-    private isAdminPath() {
-        if (document && document.location && document.location.pathname) {
-            if (document.location.pathname.indexOf('/manager') !== -1) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Returns true if the theme that the user is using is student's theme.
-     *
-     * @description student's theme may have more than one site/domain.
-     */
-    get studentTheme() {
-        if (this.teacherTheme) {
-            return false;
-        } else if (this.withcenterTheme) {
-            return false;
-        } else {
-            return true;
-        }
-        // return this.site.katalkenglish;
-    }
-
-    get teacherTheme() {
-        return this.site.ontue;
-    }
-    get withcenterTheme() {
-        return this.site.withcenter;
-    }
-
-
-    /**
-     * Returns site code.
-     *
-     * It determins which site you are in.
-     */
-    getSite(): string {
-        if (this.isAdminPath()) {
-            return SITE_ADMIN;
-        } else if (this.isWithcenterDomain()) {
-            return SITE_WITHCENTER;
-        } else if (this.isKatalkenglishDomain()) {
-            return SITE_KATALKENGLISH;
-        } else if (this.isOntueDomain()) {
-            return SITE_ONTUE;
-        } else {
-            return SITE_KATALKENGLISH;
-        }
-    }
-
-    /**
-     * Returns true if the user is accessing student's main site like `katalkenglish.com` or `www.katalkenglish.com`
-     *  sub domains of katalkenglish.com or other domains returns false.
-     *
-     *  Aside katalkenglish, there might be another student domain like 'englishas.com'.
-     *
-     *  It only returns true if the user is accessing main office site.
-     */
-    get isStudentMainSite(): boolean {
-        const d = this.getDomain();
-        if (d.indexOf('katalkenglish') === 0 || d.indexOf('www.katalkenglish') === 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 
     get homeUrl() {
-        if (this.site.katalkenglish) {
+        if (this.site.is.katalkenglish) {
             return '/';
-        } else if (this.site.ontue) {
+        } else if (this.site.is.ontue) {
             return '/teacher';
-        } else if (this.site.withcenter) {
+        } else if (this.site.is.withcenter) {
             return 'franchise';
         } else {
             return '/';
@@ -636,6 +482,8 @@ export class AppService {
      * @param params Params to deliver
      *
      * @example this.a.open('payment-result', { result: false, message: '결제를 취소하였습니다. You have cancelled the payment.' });
+     *
+     * @todo move to url.service.ts
      */
     open(url: string, params?) {
         const navigationExtras: NavigationExtras = {
@@ -683,6 +531,7 @@ export class AppService {
         // console.log(url);
         document.location.href = url;
     }
+
 
     openProfile() {
         this.open('/profile');
@@ -824,7 +673,7 @@ export class AppService {
     }
 
     get isMyBranch() {
-        return this.user.manager && this.user.manager === this.getDomain();
+        return this.user.manager && this.user.manager === this.site.getDomain();
     }
 
     get isTeacher(): boolean {
@@ -1230,7 +1079,7 @@ export class AppService {
         if (!this.info) {
             this.info = <LMS_INFO>{};
         }
-        this.lms.info(this.getDomain()).subscribe(re => {
+        this.lms.info(this.site.getDomain()).subscribe(re => {
             // console.log('lms.info: ', re);
             this.set(KEY_LMS_INFO, re);
             this.info = this.get(KEY_LMS_INFO);
@@ -1526,7 +1375,7 @@ export class AppService {
 
     listenActivityLog() {
 
-        if (!this.teacherTheme) {
+        if (!this.site.teacherTheme) {
             return;
         }
         const db = this.firebase.db;
@@ -1628,6 +1477,12 @@ export class AppService {
     }
 
 
+    /**
+     *
+     * @todo open each user's software.
+     *
+     * @param event Click event
+     */
     onClickContactAdmin(event?: Event) {
         //
         if (event) {
@@ -1641,12 +1496,15 @@ export class AppService {
                 window.open(this.kakaoUrls.teacher_kakaoplus_url);
             }
         } else {
+            /**
+             * If student,
+             */
             if (this.isMobile()) {
                 document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
             } else {
-                // this.toast(this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
                 window.open(this.kakaoUrls.student_kakaoplus_url);
             }
+            this.open('qna');
         }
 
 

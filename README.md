@@ -74,6 +74,15 @@ rm package-lock.json
 npm i
 ````
 
+### Test
+
+```` bash
+npm run e2e                         ; base url is localhost:4200
+npm run e2e:gitpage                 ; base url is gitpage
+npm run e2e:katalk                  ; base url is www.katalkenglish.com
+npm run e2e:englishas               ; base url is www.englishas.com
+````
+
 ## Run
 
 ```` bash
@@ -420,3 +429,65 @@ env['reloadTag'] = (new Date).getTime();
 ## Resources
 
 * logo icon svg is on tmp folder.
+
+## English As Student Site
+
+
+* Started working on July 12, 2018
+  * `englishas` branch of github.com/thruthesky/site
+  * `englishas` branch on `xapi` of my macbook. the `englishas` is not even on github server.
+    * later after work, you will need to merge it into master of xapi and push.
+    * need to copy 'kakaotalk_id' to 'class_software' = 'kakotalk' | 'skype', 'class_id' = 'id'.
+
+### TODO for English As
+
+* @done 브랜치 기본 도메인이 katalkenglish.com 에서 englishas.com 으로 변경.
+  왜냐? katalkenglish 도메인은 한국 한생에게만 사용 가능.
+  즉, 더 이상 katalkenglish 로는 브랜치를 받지 않음.
+
+* @done 브랜치 설정에서 기본 메신저를 정할 수 있음. 따라서 회원은 그냥 아이디만 입력하면 됨.
+
+* @done 학생 회원 가입 할 때, 가맹사에서 지정한 메신저 아이디를 입력해야 함. 여러 아이디 선택을 하지 않음. 혼동을 피하기 위해서.
+
+* @done 학생 수정 할 때에는 여러 메신저 중 하나를 사용 할 수 있음.
+
+* 학생 회원 가입, 메신저 아이디 변경 테스트.
+
+* 강사는 회원 가입/수정에서
+  스카이프, 위쳇, 라인, 카톡 아이디가 모두 다 필요 함.
+  wp_users.skype, wechat, kakaotalk, line 필드를 만들고 조정해야 함.
+
+* 강사 프로필에서, 학생이 사용하는 메신저에 따른 메신저 아이콘과 아이디를 표시.
+* 학생이 보는 수업 시간표에서, 학생이 사용하는 메신저에 따른 강사의 메신저 아이콘과 아이디를 표시.
+* 강사가 보는 수업 시간표에서, 학생이 이용하는 메신저의 아이콘과 아이디 표시.
+
+* katalkenglish-header.html 에서 mobileh-header 에서 engliash 전용 로고 작성.
+
+* 언어 변환. 우선 아래의 것만 json 파일에서 직접 수정한다.
+  * SELECT_CLASS_SOFTWARE
+  * SELECT_CLASS_SOFTWARE_ID
+  * CHOOSE_CLASS_SOFTWARE
+  * KAKAOTALK
+  * SKYPE
+  * WECHAT
+  * LINE
+  * INPUT_SKYPE_ID
+  * QnA page
+* @see git issues
+
+* xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
+
+* 마무리
+  * https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
+  * 가맹사 생성 테스트.
+  * php 에서 번역을 4개 국어로 해야하고,
+    * CODE_EMPTY_CLASS_SOFTWARE, CODE_EMPTY_CLASS_SOFTWARE_ID 에 대해서, 스카이프, 카톡, 위쳇, 라인 앱 이름을 정확히 명시해야 한다.
+
+* 마무리 한 다음. English As 오픈 후.
+  * 보다 편리한 언어 변환. 구글 drive 를 사용하는 것보다 직접 만들면 더 편리함. 직접 만드는 것이 좋을 것 같음.
+    * 구글 drive 를 활용하는 경우.
+    기존의 json 파일들을 모두 CSV 파일로 쏟아 부어서, 아래의 파일로 저장한다. 그래서 여러 사람들이 수정하게 한 다음,
+    * Google Language Translation Doc
+  https://docs.google.com/spreadsheets/d/1tdYbpSErJZw-NuMYbocKyq7DIaN1YyxZADEkrxw66zQ/edit#gid=0
+
+    * 다시, json 파일로 변환한다.
