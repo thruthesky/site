@@ -631,4 +631,5 @@ export interface ADMIN_SUMMARY_REPORT {
     no_of_student_didnt_reserve?: string;
     no_of_student_who_paid?: string;
     no_of_student_with_freeclass?: string;
+    no_of_student_with_paid_class?: string;
 }
