@@ -110,6 +110,7 @@ export interface USER_REGISTER extends REQUEST {
     kakaotalk?: string;
     wechat?: string;
     line?: string;
+    qq?: string;
 }
 
 export type USER_UPDATE = USER_REGISTER;

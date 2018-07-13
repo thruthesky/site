@@ -1023,6 +1023,38 @@ This Agreement will be effective from June 20, 2018.`,
         en: `If you own a domain ( or you could by one ), we let us know. we will set your domain for the site.`,
         ch: `如果您拥有域名（或者您可以拥有域名），我们会通知您。 我们将为该网站设置您的域名。`,
         jp: `あなたがドメインを所有している（またはあなたがそれをすることができる）場合、私たちはそれを知らせます。 サイトのドメインを設定します。`
+    },
+    branch_etc: {
+        ko: `기타 안내`,
+        en: `Other Information`,
+        ch: `其他信息`,
+        jp: `その他のご案内`
+    },
+    branch_etc_desc: {
+        ko: `
+        (1) 가맹사 수익(마진)율을 직접 변경 하실 수 있습니다.
+        (2) 가맹사가 원하는 강사(또는 가맹사가 고용한 강사)만 홈페이지에 표시 할 수 있습니다.
+        (3) 학원이나 학교 학생을 대상으로 화상영어 수업을 할 수 있습니다.
+        (4) 월 매출이 300 달러이하로, 6개월 이상 지속되는 경우, 본사에서 가맹 계약을 해지 할 수 있습니다.
+        `,
+        en: `
+(1) You can change the profit margin rate on branch settings page.
+         (2) You can choose your own teachers. Or you can shown your own employed teachers on the site.
+         (3) You can teach English to Academy and School students.
+         (4) If branch's monthly sales less than $300 lasts more than six months, we may terminate the franchise agreement.
+        `,
+        ch: `
+        （1）您可以在分支设置页面上更改利润率。
+（2）您可以选择自己的老师。 或者您可以在网站上展示自己的就业老师。
+（3）您可以向学院和学校的学生教授英语。
+（4）如果分支机构的月销售额低于300美元，则持续时间超过六个月，我们可以终止特许经营协议。
+        `,
+        jp: `
+        （1）支店設定ページで利益率を変更することができます。
+（2）自分の教師を選ぶことができます。 あるいは、自分の雇用先の教師をサイトに掲載することもできます。
+（3）アカデミーとスクールの学生に英語を教えることができます。
+（4）月額300ドル未満の支店の月間売上が6ヶ月以上続く場合、フランチャイズ契約を終了することができます。
+`
     }
 
 };

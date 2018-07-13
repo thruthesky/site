@@ -106,12 +106,38 @@
                 </mat-hint>
             </mat-form-field>
 
-            <div class="input-class-software-id" data-role="input-class-software-id" *ngIf=" a.site.is.englishas ">
+
+            <div class="teacher-class-software-and-id" *ngIf=" a.site.is.ontue ">
+                <div>
+                    <label>Skype ID</label>
+                    <input type="text" name="skype" [(ngModel)]=" form.skype ">
+                </div>
+                <div>
+                    <label>Input Kakaotalk ID</label>
+                    <input type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
+                </div>
+                <div>
+                    <label>Input WeChat ID</label>
+                    <input type="text" name="wechat" [(ngModel)]=" form.wechat ">
+                </div>
+                <div>
+                    <label>Input Line ID</label>
+                    <input type="text" name="line" [(ngModel)]=" form.line ">
+                </div>
+                <div>
+                    <label>Input QQ ID</label>
+                    <input type="text" name="qq" [(ngModel)]=" form.qq ">
+                </div>
+            </div>
+
+
+            <div class="student-class-software-id" *ngIf=" a.site.is.englishas ">
                 <div *ngIf=" ! show.updateClassSoftware ">
-                        <div *ngIf=" form.class_software == a.classSoftware.skype ">{{ 'INPUT_SKYPE_ID' | t }}</div>
-                        <div *ngIf=" form.class_software == a.classSoftware.kakaotalk ">{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
-                    <div *ngIf=" form.class_software == a.classSoftware.wechat ">{{ 'INPUT_WECHAT_ID' | t }}</div>
-                    <div *ngIf=" form.class_software == a.classSoftware.line ">{{ 'INPUT_LINE_ID' | t }}</div>
+                    <div class="desc-input-skype-id" *ngIf=" myClassSoftware( a.classSoftware.skype ) ">{{ 'INPUT_SKYPE_ID' | t }}</div>
+                    <div class="desc-input-kakaotalk-id" *ngIf=" myClassSoftware( a.classSoftware.kakaotalk ) ">{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
+                    <div class="desc-input-wechat-id" *ngIf=" myClassSoftware( a.classSoftware.wechat ) ">{{ 'INPUT_WECHAT_ID' | t }}</div>
+                    <div class="desc-input-line-id" *ngIf=" myClassSoftware( a.classSoftware.line ) ">{{ 'INPUT_LINE_ID' | t }}</div>
+                    <div class="desc-input-qq-id" *ngIf=" myClassSoftware( a.classSoftware.qq ) ">{{ 'INPUT_QQ_ID' | t }}</div>
                     <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                 </div>
 
@@ -121,11 +147,16 @@
                     </div>
                     <div class="select-class-software" *ngIf=" show.updateClassSoftware ">
                         <div>
-                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype" [checked]="form.class_software"> {{ 'SKYPE' | t }}
-                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.kakaotalk"
+                            <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype"
+                                [checked]="form.class_software"> {{ 'SKYPE' | t }}
+                            <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.kakaotalk"
                                 [checked]="form.class_software"> {{ 'KAKAOTALK' | t }}
-                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.wechat" [checked]="form.class_software"> {{ 'WECHAT' | t }}
-                            <input type='radio' name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.line" [checked]="form.class_software"> {{ 'LINE' | t }}
+                            <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.wechat"
+                                [checked]="form.class_software"> {{ 'WECHAT' | t }}
+                            <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.line"
+                                [checked]="form.class_software"> {{ 'LINE' | t }}
+                            <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.qq"
+                                [checked]="form.class_software"> {{ 'QQ' | t }}
                         </div>
                         <div class="input-class-software-id" *ngIf=" form.class_software ">
                             <div>Please Input {{ form.class_software | t }} ID.</div>
@@ -133,12 +164,10 @@
                                 <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                             </div>
                         </div>
-
                         <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
                             Cancel
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -260,7 +289,7 @@
 
             <div>
                 <div class="buttons">
-                    <button class="app-button" type="submit">
+                    <button class="submit-button app-button" type="submit">
                         <mat-spinner *ngIf=" show.updateLoader " color="accent" [diameter]="15"></mat-spinner>
                         <span *ngIf=" show.updateLoader ">{{ a.ln.IN_UPDATING_PROFILE }}</span>
                         <ng-container *ngIf="  !show.updateLoader ">

@@ -28,5 +28,5 @@ export const SKYPE = 'skype';
 export const KAKAOTALK = 'kakaotalk';
 export const WECHAT = 'wechat';
 export const LINE = 'line';
-
+export const QQ = 'qq';
 export const DEFAULT_CLASS_SOFTWARE = SKYPE;
