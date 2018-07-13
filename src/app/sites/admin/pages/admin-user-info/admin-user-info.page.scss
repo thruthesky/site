@@ -300,7 +300,7 @@
             line-height: 1.6em;
         }
         .calc-icon{
-            color: darkred;
+            color: darkblue;
             svg{
                 margin: 0 .2em;
                 height: 1.2em;
@@ -451,4 +451,29 @@
             }
         }
     }
+}
+
+.payment-status{
+    display: flex;
+    padding-bottom: .5em;
+    &>div{
+        display: flex;
+        align-items: center;
+        margin-right: 1em;
+    }
+}
+
+.payment-approved,
+.payment-refunded{
+    position: relative;
+    top: 0.125em;
+    height: 1em;
+    width: 1em;
+    margin-right: .2em;
+}
+.payment-approved{
+    color:darkgreen;
+}
+.payment-refunded{
+    color:darkred;
 }

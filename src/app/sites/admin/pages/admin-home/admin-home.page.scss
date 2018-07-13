@@ -1,4 +1,12 @@
 @import '../../../../../theme/vars';
+//graph colors
+$overall: #00B96A;
+$withcenter-teachers:#FF9200;
+$homebased-teachers:#1414BD;
+$points-per-day-reservations:  #A32E00;
+$por-withcenter: dodgerblue;
+$por-homebased: #FFBF00;
+
 #login-info {
     margin: 0;
     margin-top: 1.5em;
@@ -238,7 +246,7 @@
             tr {
                 &>td,
                 &>th {
-                    padding: .75em 1em; // border-bottom: 1px solid rgba(125,125,125,0.2);
+                    padding: .75em 1em;
                 }
             }
         }
@@ -286,84 +294,249 @@
         }
     }
 }
-
-.stat {
-    overflow-y: auto;
-    font-size: 0.8rem;
-    background-color: aliceblue;
-
-    .bar-wrapper {
-        width: 20px;
-    }
-    .bar {
-        position: relative;
-    }
-    .no {
-        position: absolute;
-        display: block;
-        bottom: 0;
-        width: 100%;
-        //color: white;
-        font-size: .7rem;
+#statistics-graph{
+    form{
+        margin: 2em 0;
         text-align: center;
-    }
-    &.no-of-reservations {
-        .bar {
-            background-color: rgb(0, 71, 126);
+        input{
+            margin-right: .5em;
+            padding: .6em .5em;
+            font-size: .8em;
+            @media (min-width:$md) {
+                margin-right: 2em;
+                padding: .6em 1em;
+                font-size: .9em;   
+            }
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.4);
         }
-    }
-    &.no_of_reservations_of_homebase_teachers {
-        .bar {
-            background-color: rgb(119, 48, 0);
-        }
-    }
-    &.no_of_reservations_of_withcenter_teachers {
-        .bar {
-            background-color: rgb(4, 119, 26);
-        }
-    }
-    &.point_of_reservations {
-        .bar {
-            background-color: rgb(0, 184, 255);
-            .no {
-                word-break: break-all;
+        button{
+            margin-top: 1em;
+            text-align: center;
+            padding: .75em 3em;
+            border: 0;
+            border-radius: 2px;
+            background: #0867B0;
+            color: #fff;
+            @media (min-width:$md) {
+                margin: 0;
             }
         }
     }
-
-    &.point_of_reservation_for_withcenter_teachers {
-        .bar {
-            background-color: rgb(255, 140, 0);
-            .no {
-                word-break: break-all;
+}
+.total-point-share {
+    margin-bottom: 1.75em;
+    width: 100%;
+    overflow: auto;
+    h2{
+        margin: 0;
+        margin-bottom: .3em;
+        margin-left: .1em;
+        font-size: .9em;
+        color: #0867B0;
+    }
+    table {
+        width: 100%;
+        font-size: .8em;
+        border-spacing: 0;
+        border-radius: 2px;
+        border: 1px solid rgba(125, 125, 125, 0.3);
+        border-bottom: 0;
+        th,
+        td{
+            padding: .75em 1em;
+            border-bottom: 1px solid rgba(125, 125, 125, 0.3);
+            border-right: 1px solid rgba(125, 125, 125, 0.3);
+            text-align: left;
+            &:last-child{
+                border-right: 0;
             }
         }
     }
+    .note{
+        margin-top: .5em;
+        margin-left: .1em;
+        font-size: .9em;
+    }
+}
 
-    &.point_of_reservation_for_homebase_teachers {
-        .bar {
-            background-color: rgb(253, 27, 255);
-            .no {
-                word-break: break-all;
+.bar-graph{
+    &-container{
+        margin-bottom: 1.75em;
+        border-radius: 2px;
+        border:1px solid rgba(125, 125, 125, 0.3);
+    }
+    &-header{
+        display: flex;
+        flex-direction: column;
+        padding: 1.25em;
+        border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+        background: #eee;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 0;
+        }
+        .bar-graph-title{
+            margin: 0;
+            font-size: .9em;
+            color: #0867B0;
+        }
+        .bar-graph-subtitle{
+            font-size: .8em;
+            &>*{
+                display: block;
+                @media (min-width:$md) {
+                    display: inline-block;
+                }
+                margin-right: 3em;
+                &:last-child{
+                    margin: 0;
+                }
             }
         }
     }
+    &-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 3.2em 1.5em 7em 1em;
+        font-size: .75em;
+        overflow: auto;
 
-    &.no_of_reservations_teacher_grade {
-        .grade-1 {
-            background-color: rgb(4, 119, 26);
+        .bar-item{
+            position: relative;
+            margin: 0 2px;
+            min-width:2em;
+            min-height: 1px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            border-bottom: .5px solid gray;
+            background-color: gray;
+            text-align: center;
+            .item-no{
+                position: relative;
+                bottom: 1.2em; 
+                padding: 0 2px;
+            }
+            .item-date{
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                margin-top: 4em;
+                transform: rotate(-87deg);
+                white-space: nowrap;
+            }
         }
-        .grade-2 {
-            background-color: rgb(0, 161, 247);
+    }
+}
+
+#overall-reservations-graph{
+   .bar-item{
+        border-bottom: .5px solid $overall;
+        background-color: $overall;
+   }
+}
+#withcenter-teachers-graph{
+    .bar-item{
+        border-color: $withcenter-teachers;
+        background-color: $withcenter-teachers;
+   }
+}
+#homebased-teachers-graph{
+    .bar-item{
+        border-color: $homebased-teachers;
+        background-color: $homebased-teachers;
+   }
+}
+#points-per-day-reservations-graph{
+    .bar-item{
+        border-color: $points-per-day-reservations;
+        background-color: $points-per-day-reservations;
+   }
+}
+#por-withcenter-graph{
+    .bar-item{
+        border-color: $por-withcenter;
+        background-color: $por-withcenter;
+   }
+}
+#por-homebased-graph{
+    .bar-item{
+        border-color: $por-homebased;
+        background-color: $por-homebased;
+   }
+}
+#no-of-reservations-teacher-grade-graph{
+    .bar-graph-header{
+        padding: 1.25em;
+        @media (min-width:$md) {
+            padding: 0 1.25em;
         }
-        .grade-3 {
-            background-color: rgb(255, 110, 0);
+        line-height: unset;
+
+        .bar-graph-subtitle{
+            display: flex;
+            flex-wrap: wrap;
+            @media (min-width:$md) {
+                display: block;
+            }
+            &>div{
+                margin-right: 1em;
+                &:last-child{
+                    margin-right: 0;
+                }
+                span{
+                    display: inline-block;
+                    margin:.5em 0;
+                    padding: .5em;
+                }
+                span:first-child{
+                   border-radius: 2px;
+                   background: #fff;
+                }
+                span:last-child{
+                    width: 20px;
+                }
+            }
         }
-        .grade-4 {
-            background-color: rgb(255, 0, 103);
+    }
+    .bar-graph-content{
+        padding-bottom: 1em;
+    }
+    .grade-1 {
+        border-color: #00ABA9;
+        background-color: #00ABA9;
+    }
+    .grade-2 {
+        border-color: #91D500;
+        background-color: #91D500;
+    }
+    .grade-3 {
+        border-color: #89D1FD;
+        background-color: #89D1FD;
+    }
+    .grade-4 {
+        border-color: #009CE0;
+        background-color: #009CE0;
+    }
+    .grade-5 {
+        border-color: #38578A;
+        background-color: #38578A;
+    }
+    .bar-item-group{
+        margin-right: 2.5em;
+        &>div:first-child{
+            display: flex;
+            align-items: flex-end
         }
-        .grade-5 {
-            background-color: rgb(0, 0, 255);
+
+        .item-date{
+            margin-top: .5em;
+            text-align: center;
+            font-size: 1.2em;
         }
     }
 }

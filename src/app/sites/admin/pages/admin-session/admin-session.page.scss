@@ -25,9 +25,6 @@
     }
     table{
         table-layout: unset;
-        @media (min-width:$md) {
-            table-layout: fixed!important;
-        }
     }
 }
 .timezone{
@@ -44,7 +41,7 @@
 
 .future,
 .past{
-    background:green
+    background:gray
 }
 
 .stat{
