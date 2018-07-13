@@ -137,7 +137,7 @@
                 <div class="bar-item" matTooltip="{{ date }} : {{ stats['no_of_reservations'][date] }}"
                     [style.height]=" barHeight( stats['no_of_reservations'][date], stats.highest_no_of_reservation ) ">
                     <div class="item-no">{{ stats['no_of_reservations'][date] }}</div>
-                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</div>
                 </div>
             </div>
         </div>
@@ -160,7 +160,7 @@
                 <div class="bar-item" matTooltip="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}"
                 [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation  ) ">
                     <div class="item-no">{{ stats['no_of_reservations_of_withcenter_teachers'][date] }}</div>
-                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</div>
                 </div>
             </div>
         </div>
@@ -185,7 +185,7 @@
                 <div class="bar-item" matTooltip="{{ date }} : {{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}"
                     [style.height]=" barHeight( stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation )  ">
                     <div class="item-no">{{ stats['no_of_reservations'][date] - stats['no_of_reservations_of_withcenter_teachers'][date] }}</div>
-                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</div>
                 </div>
             </div>
         </div>
@@ -212,7 +212,7 @@
                             </div>
                         </ng-container>
                     </div>
-                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</div>
                 </div>
             </div>
         </div>
@@ -234,7 +234,7 @@
                 <div class="bar-item" matTooltip="{{ date }} : {{ stats['point_of_reservations'][date] }}"
                     [style.height]=" barHeight( stats['point_of_reservations'][date], stats.highest_no_of_point ) ">
                     <div class="item-no">{{ stats['point_of_reservations'][date] }}</div>
-                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</div>
                 </div>
             </div>
         </div>
@@ -257,7 +257,7 @@
                 <div class="bar-item" matTooltip="{{ date }} : {{ stats['point_of_withcenter_teachers'][date] }}"
                     [style.height]=" barHeight( stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point ) ">
                     <div class="item-no">{{ stats['point_of_withcenter_teachers'][date] }}</div>
-                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</div>
                 </div>
             </div>
         </div>
@@ -279,7 +279,7 @@
                 <div class="bar-item" matTooltip="{{ date }} : {{  stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}"
                     [style.height]="  barHeight( stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date], stats.highest_no_of_point - stats.highest_no_of_point_for_withcenter_teacher  ) ">
                     <div class="item-no">{{ stats['point_of_reservations'][date] - stats['point_of_withcenter_teachers'][date] }}</div>
-                    <div class="item-date">{{ date.slice(0,4) }}/{{ date.slice(4,6) }}/{{ date.slice(6,8) }}</div>
+                    <div class="item-date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</div>
                 </div>
             </div>
         </div>
