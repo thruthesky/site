@@ -35,6 +35,7 @@ aside {
         }
         th{
             text-align: center!important;
+            border-bottom: 1px solid rgba(125,125,125,0.3);
         }
         svg{
             margin-right: .3em;
@@ -68,13 +69,28 @@ aside {
             }
         }
         .aside-table{
+            padding-top: 1em;
             table-layout: fixed!important;
+            border-radius: 5px;
             @media (min-width:$md) {
                 table-layout: auto!important;
             }
             td,
             th{
-                border: 1px solid rgba(125,125,125,0.3);
+                &:nth-child(odd){
+                    background: #fff;
+                }
+                &:nth-child(even){
+                    background:  #eee;
+                }
+            }
+            th{
+                padding-top: .7em;
+            }
+            tr:last-child{
+                td{
+                    padding-bottom: .7em;
+                }
             }
         }
     }
@@ -84,10 +100,34 @@ aside {
             @media (min-width:$md) {
                 table-layout: auto!important;
             }
-            th,
-            td{
-                padding: .45em .3em;
-                border: 1px solid rgba(125,125,125,0.3);
+        }
+    }
+    #refund-request,
+    #payment-info{
+        .aside-table{
+            td,
+            th{
+                &:nth-child(odd){
+                    background: #fff;
+                }
+                &:nth-child(even){
+                    background:  #eee;
+                }
+            }
+            th{
+                padding-top: .7em;
+            }
+            tr:last-child{
+                td{
+                    padding-bottom: .7em;
+                }
+            }
+            tbody{
+                tr:first-child{
+                    td{
+                        padding-top: .7em;
+                    }
+                }
             }
         }
     }
@@ -202,6 +242,9 @@ aside {
         .aside-table{
             td{
                 font-size: .9em;
+            }
+            th{
+                border: 0;
             }
         }
     }

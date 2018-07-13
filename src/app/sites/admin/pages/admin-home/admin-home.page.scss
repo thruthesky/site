@@ -246,7 +246,7 @@ $por-homebased: #FFBF00;
             tr {
                 &>td,
                 &>th {
-                    padding: .75em 1em; // border-bottom: 1px solid rgba(125,125,125,0.2);
+                    padding: .75em 1em;
                 }
             }
         }
@@ -294,116 +294,75 @@ $por-homebased: #FFBF00;
         }
     }
 }
-.total-point-share {
-    table {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-// .stat {
-//     overflow-y: auto;
-//     font-size: 0.8rem;
-//     background-color: aliceblue;
-
-//     .bar-wrapper {
-//         width: 20px;
-//     }
-//     .bar {
-//         position: relative;
-//     }
-//     .no {
-//         position: absolute;
-//         display: block;
-//         bottom: 0;
-//         width: 100%;
-//         //color: white;
-//         font-size: .7rem;
-//         text-align: center;
-//     }
-//     &.no-of-reservations {
-//         .bar {
-//             background-color: rgb(0, 71, 126);
-//         }
-//     }
-//     &.no_of_reservations_of_homebase_teachers {
-//         .bar {
-//             background-color: rgb(119, 48, 0);
-//         }
-//     }
-//     &.no_of_reservations_of_withcenter_teachers {
-//         .bar {
-//             background-color: rgb(4, 119, 26);
-//         }
-//     }
-//     &.point_of_reservations {
-//         .bar {
-//             background-color: rgb(0, 184, 255);
-//             .no {
-//                 word-break: break-all;
-//             }
-//         }
-//     }
-
-//     &.point_of_reservation_for_withcenter_teachers {
-//         .bar {
-//             background-color: rgb(255, 140, 0);
-//             .no {
-//                 word-break: break-all;
-//             }
-//         }
-//     }
-
-//     &.point_of_reservation_for_homebase_teachers {
-//         .bar {
-//             background-color: rgb(253, 27, 255);
-//             .no {
-//                 word-break: break-all;
-//             }
-//         }
-//     }
-
-//     &.no_of_reservations_teacher_grade {
-//         .grade-1 {
-//             background-color: rgb(4, 119, 26);
-//         }
-//         .grade-2 {
-//             background-color: rgb(0, 161, 247);
-//         }
-//         .grade-3 {
-//             background-color: rgb(255, 110, 0);
-//         }
-//         .grade-4 {
-//             background-color: rgb(255, 0, 103);
-//         }
-//         .grade-5 {
-//             background-color: rgb(0, 0, 255);
-//         }
-//     }
-// }
 #statistics-graph{
     form{
         margin: 2em 0;
         text-align: center;
         input{
-            margin-right: 2em;
-            padding: .6em 1em;
-            font-size: .9em;
+            margin-right: .5em;
+            padding: .6em .5em;
+            font-size: .8em;
+            @media (min-width:$md) {
+                margin-right: 2em;
+                padding: .6em 1em;
+                font-size: .9em;   
+            }
             border-radius: 2px;
             border: 1px solid rgba(125,125,125,0.4);
         }
         button{
+            margin-top: 1em;
+            text-align: center;
             padding: .75em 3em;
             border: 0;
             border-radius: 2px;
             background: #0867B0;
             color: #fff;
+            @media (min-width:$md) {
+                margin: 0;
+            }
         }
     }
 }
+.total-point-share {
+    margin-bottom: 1.75em;
+    width: 100%;
+    overflow: auto;
+    h2{
+        margin: 0;
+        margin-bottom: .3em;
+        margin-left: .1em;
+        font-size: .9em;
+        color: #0867B0;
+    }
+    table {
+        width: 100%;
+        font-size: .8em;
+        border-spacing: 0;
+        border-radius: 2px;
+        border: 1px solid rgba(125, 125, 125, 0.3);
+        border-bottom: 0;
+        th,
+        td{
+            padding: .75em 1em;
+            border-bottom: 1px solid rgba(125, 125, 125, 0.3);
+            border-right: 1px solid rgba(125, 125, 125, 0.3);
+            text-align: left;
+            &:last-child{
+                border-right: 0;
+            }
+        }
+    }
+    .note{
+        margin-top: .5em;
+        margin-left: .1em;
+        font-size: .9em;
+    }
+}
+
 .bar-graph{
     &-container{
-        margin-bottom: 2em;
+        margin-bottom: 1.75em;
         border-radius: 2px;
         border:1px solid rgba(125, 125, 125, 0.3);
     }
@@ -460,8 +419,6 @@ $por-homebased: #FFBF00;
                 position: relative;
                 bottom: 1.2em; 
                 padding: 0 2px;
-                // comment out this class to see the original position
-                // added 1.2em so it will be at the top of the bar-item
             }
             .item-date{
                 position: absolute;
@@ -517,10 +474,18 @@ $por-homebased: #FFBF00;
 }
 #no-of-reservations-teacher-grade-graph{
     .bar-graph-header{
-        padding: 0 1.25em;
+        padding: 1.25em;
+        @media (min-width:$md) {
+            padding: 0 1.25em;
+        }
         line-height: unset;
 
         .bar-graph-subtitle{
+            display: flex;
+            flex-wrap: wrap;
+            @media (min-width:$md) {
+                display: block;
+            }
             &>div{
                 margin-right: 1em;
                 &:last-child{
