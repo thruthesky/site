@@ -132,6 +132,12 @@ export class RegisterPage implements OnInit {
             this.form.class_software = userData.class_software;
             this.form.class_software_id = userData.class_software_id;
 
+            this.form.skype = userData.skype;
+            this.form.kakaotalk = userData.kakaotalk;
+            this.form.wechat = userData.wechat;
+            this.form.line = userData.line;
+            this.form.qq = userData.qq;
+
 
             if (userData.birthday.length > 0) {
                 this.year = userData.birthday.substr(0, 4);
@@ -228,31 +234,7 @@ export class RegisterPage implements OnInit {
          * If the site is katalkenglish.com, then it always uses kakaotalk
          */
         if (this.a.site.is.katalkenglish) {
-            if (!this.form.class_software_id) {
-                return this.a.toast('KAKAOTALK ID REQUIRED');
-            } else {
-                this.form.class_software = CLASS_SOFTWARE_KAKAOTALK;
-            }
-        } else {
-            /**
-             * If it's not *.katalkenglish.com site.
-             */
-
-
-            /**
-             * Registeration?
-             */
-            if (this.a.user.isLogout) {
-                this.form.class_software = this.a.branch.defaultClassSoftware;
-            } else {
-                /**
-                 * Update?
-                 */
-            }
-
-            if (!this.form.class_software_id) {
-                return this.a.toast('SELECT_CLASS_SOFTWARE_ID');
-            }
+            this.form.class_software = CLASS_SOFTWARE_KAKAOTALK;
         }
 
         this.form.photoURL = this.files.length ? this.files[0].url : '';
@@ -265,7 +247,13 @@ export class RegisterPage implements OnInit {
             // console.log('GOING TO UPDATE');
             this.updateWordpressBackend();
         } else { // REGISTER
-            // console.log('GOING TO REGISTER');
+            // A student is going to register?
+            if (this.a.isStudent) {
+                this.form.class_software = this.a.branch.defaultClassSoftware;
+                if (!this.form.class_software_id) {
+                    return this.a.toast('SELECT_CLASS_SOFTWARE_ID');
+                }
+            }
             if (!this.agree) {
                 this.modal.alert({ content: this.a.ln.YOU_ARE_TO_AGREE });
                 return;
@@ -319,10 +307,10 @@ export class RegisterPage implements OnInit {
     updateWordpressBackend() {
         delete this.form.kakao_qrmark_string;
         this.show.updateLoader = true;
-        this.show.updateClassSoftware = false;
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
             this.show.updateLoader = false;
+            this.show.updateClassSoftware = false;
             this.a.toast(this.a.ln.USER_PROFILE_UPDATED);
             this.a.onUserProfileUpdate();
             this.loadData();

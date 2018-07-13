@@ -56,5 +56,40 @@ context('Actions', () => {
             cy.get('#desktop-header').find('.menu').click();
             cy.get('.menu-profile').click();
         })
+        it('edit messenger to skype', () => {
+            cy.get('.update-class-software-button').click();
+            cy.get('.radio-skype').check();
+            cy.get("[name='class_software_id']").type( chance.string({length: 5, pool: 'abcdefgh'}))
+            cy.get('.submit-button').click();
+            cy.get('.desc-input-skype-id');
+        })
+        it('edit messenger to kakaotalk', () => {
+            cy.get('.update-class-software-button').click();
+            cy.get('.radio-kakaotalk').check();
+            cy.get("[name='class_software_id']").type( chance.string({length: 5, pool: 'abcdefgh'}))
+            cy.get('.submit-button').click();
+            cy.get('.desc-input-kakaotalk-id');
+        })
+        it('edit messenger to wechat', () => {
+            cy.get('.update-class-software-button').click();
+            cy.get('.radio-wechat').check();
+            cy.get("[name='class_software_id']").type( chance.string({length: 5, pool: 'abcdefgh'}))
+            cy.get('.submit-button').click();
+            cy.get('.desc-input-wechat-id');
+        })
+        it('edit messenger to line', () => {
+            cy.get('.update-class-software-button').click();
+            cy.get('.radio-line').check();
+            cy.get("[name='class_software_id']").type( chance.string({length: 5, pool: 'abcdefgh'}))
+            cy.get('.submit-button').click();
+            cy.get('.desc-input-line-id');
+        })
+        it('edit messenger to qq', () => {
+            cy.get('.update-class-software-button').click();
+            cy.get('.radio-qq').check();
+            cy.get("[name='class_software_id']").type( chance.string({length: 5, pool: 'abcdefgh'}))
+            cy.get('.submit-button').click();
+            cy.get('.desc-input-qq-id');
+        })
     })
 })

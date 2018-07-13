@@ -27,7 +27,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UrlService } from './url.service';
 import { SiteService } from './site.service';
-import { SKYPE, KAKAOTALK, LINE, WECHAT } from './defines';
+import { SKYPE, KAKAOTALK, LINE, WECHAT, QQ } from './defines';
 import { BranchService } from './branch.service';
 
 
@@ -94,7 +94,8 @@ export class AppService {
         skype: SKYPE,
         kakaotalk: KAKAOTALK,
         line: LINE,
-        wechat: WECHAT
+        wechat: WECHAT,
+        qq: QQ
     };
 
 

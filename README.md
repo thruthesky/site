@@ -441,6 +441,8 @@ env['reloadTag'] = (new Date).getTime();
 
 ### TODO for English As
 
+* 아래의 수정에 대한, 디자인, 언어 번역을 모두 해야 함.
+
 * @done 브랜치 기본 도메인이 katalkenglish.com 에서 englishas.com 으로 변경.
   왜냐? katalkenglish 도메인은 한국 한생에게만 사용 가능.
   즉, 더 이상 katalkenglish 로는 브랜치를 받지 않음.
@@ -451,7 +453,7 @@ env['reloadTag'] = (new Date).getTime();
 
 * @done 학생 수정 할 때에는 여러 메신저 중 하나를 사용 할 수 있음.
 
-* 학생 회원 가입, 메신저 아이디 변경 테스트.
+* @done 학생 회원 가입, 메신저 아이디 변경 테스트.
 
 * 강사는 회원 가입/수정에서
   스카이프, 위쳇, 라인, 카톡 아이디가 모두 다 필요 함.
@@ -477,11 +479,18 @@ env['reloadTag'] = (new Date).getTime();
 
 * xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
 
-* 마무리
+* 오픈을 위한 마무리
   * https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
   * 가맹사 생성 테스트.
   * php 에서 번역을 4개 국어로 해야하고,
     * CODE_EMPTY_CLASS_SOFTWARE, CODE_EMPTY_CLASS_SOFTWARE_ID 에 대해서, 스카이프, 카톡, 위쳇, 라인 앱 이름을 정확히 명시해야 한다.
+
+  * 테스트. 모든 페이지 다 테스트. 회원가입, 글 읽기, 수업 예약, 예약 확인, 취소, 즉시예약 등.
+  * 디자인.
+    * 회원 가입/수정.
+  * 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
+    * 학생의 경우, 기존의 kakaotalk_id 를 class_software=kakaotalk, class_software_id=카톡아이디로 복사.
+    * 강사의 경우, kakaotalk 으로 변경.
 
 * 마무리 한 다음. English As 오픈 후.
   * 보다 편리한 언어 변환. 구글 drive 를 사용하는 것보다 직접 만들면 더 편리함. 직접 만드는 것이 좋을 것 같음.
@@ -491,3 +500,7 @@ env['reloadTag'] = (new Date).getTime();
   https://docs.google.com/spreadsheets/d/1tdYbpSErJZw-NuMYbocKyq7DIaN1YyxZADEkrxw66zQ/edit#gid=0
 
     * 다시, json 파일로 변환한다.
+
+  * 온튜 풀어야 할 과제.
+    https://docs.google.com/document/d/1sjvKRhYRoYqhQwxrlhLnZK_7xMmJ0KzNPtgIvYCr8Fw/edit#heading=h.wge93zpyb08h
+  
