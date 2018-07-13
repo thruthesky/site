@@ -16,6 +16,8 @@ export class AdminLayoutPage implements OnInit {
      * quick search
      */
     uid = '';
+
+    refund_request_count = 0;
     constructor(
         public activated: ActivatedRoute,
         public router: Router,
@@ -37,6 +39,14 @@ export class AdminLayoutPage implements OnInit {
                     this.a.open('/manager/login');
                 }
             }
+        });
+
+        a.lms.admin_get_refund_request_count().subscribe( re => {
+            if (re) {
+                this.refund_request_count = re;
+            }
+        }, e => {
+            this.a.toast(e);
         });
     }
 

@@ -33,6 +33,7 @@ export class AdminHomePage implements OnInit {
     stat_date_begin = 0;
     stat_date_end = 0;
     stats = null;
+    today = null;
     constructor(
         public a: AppService,
         public modal: ModalService
@@ -40,7 +41,7 @@ export class AdminHomePage implements OnInit {
         if (a.isSuperManager) {
             this.loadDomainChangeApplications();
         }
-
+        this.today = a.getYmd();
         this.loadLatestBranches();
         this.loadAdminReports();
         this.loadRefundRequest();
@@ -49,8 +50,7 @@ export class AdminHomePage implements OnInit {
         const d = new Date();
         this.stat_date_begin = parseInt(d.getFullYear() + a.add0((d.getMonth() + 1)) + a.add0(1), 10);
 
-        const today = new Date();
-        const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        const lastDayOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
         this.stat_date_end = parseInt(d.getFullYear() + a.add0((d.getMonth() + 1)) + lastDayOfMonth.getDate(), 10);
         this.loadAdminStatistics();
     }
@@ -186,6 +186,10 @@ export class AdminHomePage implements OnInit {
         }
 
         return no + 'px';
+    }
+
+    formatDate(date) {
+        return date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(6, 8);
     }
 }
 

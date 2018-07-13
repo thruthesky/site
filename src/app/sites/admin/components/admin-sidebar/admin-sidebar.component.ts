@@ -11,12 +11,16 @@ import { AppService } from '../../../../providers/app.service';
 export class AdminSidebarComponent implements OnInit {
 
     pointToday = 0;
+    pointThisMonth = 0;
+    currentMonth = null;
     payments = [];
     stats = null;
 
     sessions: Array<BOOK> = [];
     refundRequests: Array<BOOK> = [];
-
+    today = new Date();
+    monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
     /**
      * quick search
@@ -27,6 +31,7 @@ export class AdminSidebarComponent implements OnInit {
         public router: Router
     ) {
 
+        this.currentMonth = this.monthNames[this.today.getMonth()];
         // console.log( this.a.user.sessionId );
 
         this.loadPaymentInfo();
@@ -69,6 +74,24 @@ export class AdminSidebarComponent implements OnInit {
             // console.log('sum: ', re);
             if (re && re.length && re[0]['point'] ) {
                 this.pointToday = re[0]['point'];
+            }
+        }, e => this.a.toast(e));
+
+        const date_begin = new Date(this.today.getFullYear(), this.today.getMonth(), 1);
+        const date_end = new Date(this.today.getFullYear(), this.today.getMonth() + 1, 1);
+        const _date_begin = this.a.getStamp(date_begin);
+        const _date_end = this.a.getStamp(date_end);
+        // console.log('date_begin', _date_begin);
+        // console.log('date_end', _date_end);
+        const sqlThisMonth = `
+        SELECT sum(p.point) as point
+        FROM lms_payment as p, wp_users
+        WHERE BRANCH and wp_users.ID=p.idx_student AND p.state='approved' AND stamp_begin BETWEEN ${_date_begin} AND ${_date_end}
+        `;
+        this.a.lms.admin_query({ sql: sqlThisMonth }).subscribe(re => {
+            console.log('sum: ', re);
+            if (re && re.length && re[0]['point'] ) {
+                this.pointThisMonth = re[0]['point'];
             }
         }, e => this.a.toast(e));
     }

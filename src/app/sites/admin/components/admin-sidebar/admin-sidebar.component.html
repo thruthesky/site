@@ -4,7 +4,8 @@
         <h2 class="payment-info-header">
             <span>Payment Information</span>
             <span class="total-points">
-                Today's Total Points: {{ pointToday | number }}
+                <span *ngIf="pointThisMonth">{{currentMonth}}: {{a.shortNumber(pointThisMonth)}}</span>
+                Today: {{ a.shortNumber(pointToday) }}
             </span>
         </h2>
         <table class="aside-table">
@@ -28,7 +29,7 @@
                     {{ payment.point | number }}
                 </td>
                 <td>
-                    {{ a.veryShortDate( payment.stamp_begin ) }}
+                    {{ a.shortDate( payment.stamp_begin ) }}
                 </td>
             </tr>
         </table>
