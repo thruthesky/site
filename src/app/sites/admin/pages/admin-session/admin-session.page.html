@@ -6,7 +6,10 @@
         <input class="narrow" type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" placeholder="idx_teacher">
         <input class="narrow" type="text" name="idx_student" [(ngModel)]="form.idx_student" placeholder="idx_student">
         <input class="narrow" type="text" name="idx_schedule" [(ngModel)]="form.idx_schedule" placeholder="idx_schedule">
-
+    </div>
+    <div>
+        <input class="narrow" type="text" name="user_group" [(ngModel)]="form.user_group" placeholder="user_group">
+        <input class="narrow" type="text" name="grade" [(ngModel)]="form.grade" placeholder="grade">
         <span class="app-button future" (click)="onClickFuture()">Future</span>
         <span class="app-button past" (click)="onClickPast()">Past</span>
     </div>
@@ -243,7 +246,7 @@
             </span>
         </div>
         <div class="daily-points">
-            <b>Daily Point(UTC+0):</b>
+            <b>Daily Point(UTC+0): {{stat.dailyPointTotal}}</b>
             <span class="daily-point" *ngFor="let date of stat.dateOfDailyPoint">
                 <span class="date">{{ date.slice(0,4) }}-{{ date.slice(4,6) }}-{{ date.slice(6,8) }}</span>
                 <span class="no">{{ stat.dailyPoint[date] | number }}</span>

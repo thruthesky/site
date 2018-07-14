@@ -18,8 +18,12 @@ main{
             }
             border-bottom:1px solid #e9ecef!important;
 
-            .col{
+            div{
                 padding: 0;
+
+                &.paymentId {
+                    word-break: break-all;
+                }
             }
 
         }
