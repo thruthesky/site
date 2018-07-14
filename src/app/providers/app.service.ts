@@ -1684,6 +1684,7 @@ export class AppService {
         if (this.user.isLogin) {
             this.loadMyPoint(p => {
                 this.userPoint = p;
+                this.rerender();
             });
         }
     }

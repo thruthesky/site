@@ -6,12 +6,12 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="py-4" class="col">{{ 'PAYMENT_NO' | t }}</div>
-            <div class="py-4" class="col">transaction ID</div>
-            <div class="py-4" class="col">{{ 'DATE' | t }}</div>
-            <div class="py-4" class="col">{{ 'PAYMENT_METHOD_SHORT' | t }}</div>
-            <div class="py-4" class="col">{{ 'AMOUNT' | t }}</div>
-            <div class="py-4" class="col">{{ 'POINT' | t }}</div>
+            <div class="col-1">{{ 'PAYMENT_NO' | t }}</div>
+            <div class="col-3">transaction ID</div>
+            <div class="col-2">{{ 'DATE' | t }}</div>
+            <div class="col-2">{{ 'PAYMENT_METHOD_SHORT' | t }}</div>
+            <div class="col-2">{{ 'AMOUNT' | t }}</div>
+            <div class="col-2">{{ 'POINT' | t }}</div>
         </div>
         <div class="loader" *ngIf=" showLoader ">
             <mat-spinner [diameter]="48"></mat-spinner>
@@ -19,12 +19,12 @@
         </div>
 
         <div class="row" *ngFor="let payment of payments; even as o">
-            <div class="col">{{ payment.idx }}</div>
-            <div class="col">{{ payment.paymentID }</div>
-            <div class="col">{{ a.shortDate( payment.stamp_end ) }}</div>
-            <div class="col">{{ payment.payment_method }}</div>
-            <div class="col">{{ payment.amount }} {{ payment.currency | lowercase }}</div>
-            <div class="col">{{ payment.point }}</div>
+            <div class="col-1">{{ payment.idx }}</div>
+            <div class="col-3 paymentId">{{ payment.paymentID }}</div>
+            <div class="col-2">{{ a.shortDate( payment.stamp_end ) }}</div>
+            <div class="col-2">{{ payment.payment_method }}</div>
+            <div class="col-2">{{ payment.amount }} {{ payment.currency | lowercase }}</div>
+            <div class="col-2">{{ payment.point }}</div>
         </div>
     </div>
 </main>

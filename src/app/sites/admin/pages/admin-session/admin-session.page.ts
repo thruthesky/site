@@ -11,6 +11,7 @@ interface STAT {
     dailyFreeclass: {};
     dateOfDailyPoint: string[];
     dailyPoint: {};
+    dailyPointTotal: number;
     nameOfTeacherReservation: string[];
     teacherReservation: {};
     nameOfStudentReservation: string[];
@@ -52,6 +53,8 @@ export class AdminSessionPage implements OnInit {
         idx_teacher: '',
         idx_student: '',
         idx_schedule: '',
+        user_group: '',
+        grade: '',
         stamp_reserve: '',
         paid: false,
         refund_request_at: false,
@@ -133,6 +136,7 @@ export class AdminSessionPage implements OnInit {
             dailyFreeclass: {},
             dateOfDailyPoint: [],
             dailyPoint: {},
+            dailyPointTotal: 0,
             nameOfTeacherReservation: [],
             teacherReservation: {},
             nameOfStudentReservation: [],
@@ -154,15 +158,19 @@ export class AdminSessionPage implements OnInit {
             event.preventDefault();
         }
         // console.log('form:', this.form);
+        let idMatch = 'u.ID = r.idx_student';
+        if (this.form.user_group || this.form.grade) {
+            idMatch = 'u.ID = r.idx_teacher';
+        }
 
-        let sql = `SELECT r.* FROM lms_reservation as r, wp_users WHERE BRANCH AND wp_users.ID = r.idx_student`;
+        let sql = `SELECT r.*,u.user_group FROM lms_reservation as r, wp_users as u WHERE BRANCH AND ${idMatch}`;
         const where = this.getWhere();
         if (where) {
             sql += ` AND ${where}`;
         }
         sql += this.getOrderBy();
         sql += ` LIMIT ${this.form.limit}`;
-        // console.log(sql);
+        console.log(sql);
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
@@ -196,6 +204,12 @@ export class AdminSessionPage implements OnInit {
 
         if (this.form.idx_schedule) {
             where.push(`r.idx_schedule=${this.form.idx_schedule}`);
+        }
+        if (this.form.user_group) {
+            where.push(`u.user_group='${this.form.user_group}'`);
+        }
+        if (this.form.grade) {
+            where.push(`u.grade=${this.form.grade}`);
         }
 
 
@@ -424,8 +438,10 @@ export class AdminSessionPage implements OnInit {
             //
             if (this.stat.dailyPoint[session.date]) {
                 this.stat.dailyPoint[session.date] += parseInt(session.point, 10);
+                this.stat.dailyPointTotal += parseInt(session.point, 10);
             } else {
                 this.stat.dailyPoint[session.date] = parseInt(session.point, 10);
+                this.stat.dailyPointTotal += parseInt(session.point, 10);
             }
             if (session.teacher) {
                 if (this.stat.teacherReservation[session.teacher.display_name]) {

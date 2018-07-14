@@ -73,7 +73,6 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         public a: AppService
     ) {
 
-        a.updateUserPoint();
         this.showHelpReserve = !a.lmsInfoUserNoOfTotalSessions;
 
         if (a.isDesktopView()) {
@@ -91,7 +90,8 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             }
             this.loadScheduleAndDisplay(this.form);
         });
-
+        a.updateUserPoint();
+        // setTimeout( () => { a.updateUserPoint(); }, 1000);
 
     }
 
