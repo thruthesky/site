@@ -12,19 +12,20 @@ const chance = new Chance();
 const messengers = ['skype', 'kakaotalk', 'wechat', 'line', 'qq'];
 const url = config.url.englishas;
 console.log('url: ', url);
-context('Actions', () => {
+context('EnglishAs Register', () => {
     before(() => {
-        cy.login(config.url.englishas);
+        // cy.login(config.url.englishas);
+        cy.visit( config.url.englishas )
     })
     after(() => {})
     beforeEach(() => {})
     afterEach(() => {})
-    describe('Register Test', () => {
+    describe('EngliashAs Register Test', () => {
         it('openning register page', () => {
             cy.get('#desktop-header').find('.register').click();
             cy.get('app-component-register').find('form').find("[name='email']")
         })
-        it('register test', () => {
+        it('EnglishAs register test', () => {
             cy.get("[name='name']").type(chance.name());
             cy.get("[name='display_name']").type(chance.name());
             cy.get("[name='email']").type(chance.email());
@@ -42,7 +43,7 @@ context('Actions', () => {
         })
     })
 
-    describe('Register with different messengers.', () => {
+    describe('EnglishAs register with different messengers.', () => {
         for (const messenger of messengers) {
             it('logout', () => {
                 cy.get('#desktop-header').find('.menu').click();
@@ -82,7 +83,6 @@ context('Actions', () => {
             cy.get('#desktop-header').find('.menu').click();
             cy.get('.menu-profile').click();
         })
-
 
         for (const messenger of messengers) {
             it('edit messenger to ' + messenger, () => {

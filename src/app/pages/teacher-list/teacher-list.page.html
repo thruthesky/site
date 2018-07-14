@@ -1,4 +1,4 @@
-<main>
+<main data-role="teacher-list-page">
 
 
     <header [class.display-option-true]="display_options">
@@ -8,7 +8,7 @@
                 <ng-container *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</ng-container>
             </div>
         </h1>
-        <span class="option-icon" (click)=" onClickSearchOptions() " *ngIf=" ! display_options ">
+        <span data-button="teacher-list-search" class="option-icon" (click)=" onClickSearchOptions() " *ngIf=" ! display_options ">
             <div class="text">{{ a.ln.TEACHER_LIST_OPTION_BUTTON }}</div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
                 <path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
@@ -60,7 +60,7 @@
                 <div class="col">
                     <mat-form-field>
                         <mat-label>{{ a.ln.TEACHER_NAME }}</mat-label>
-                        <input matInput type="text" name="country" id="name" [(ngModel)]="teacher_name" (keyup)=" nameChange($event)">
+                        <input matInput type="text" name="name" id="name" [(ngModel)]="teacher_name" (keyup)=" nameChange($event)">
                     </mat-form-field>
                 </div>
                 <div class="col">
@@ -105,7 +105,7 @@
         <div class="teachers">
             <div class="container-fluid" *ngIf=" re ">
                 <div class="row">
-                    <a class="col-auto" *ngFor="let teacher of teachers" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
+                    <a  *ngFor="let teacher of teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-auto" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
                         <div class="profile-wrapper hover-img-effect">
                             <div class="hover-cover">
                                 <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="external-link-square" role="img" xmlns="http://www.w3.org/2000/svg"

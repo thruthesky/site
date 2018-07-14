@@ -1,4 +1,5 @@
 const server = Cypress.env('server');
+export const MESSENGERS = [ 'skype', 'kakaotalk', 'wechat', 'line', 'qq' ];
 var url = {
     englishas: '',
     katalkenglish: '',
@@ -34,6 +35,9 @@ export const config = {
 };
 
 
+/**
+ * It will first visits the site.
+ */
 Cypress.Commands.add('login', url => {
     cy.visit(url);
     cy.get("[data-button='desktop-login']").click();
@@ -42,3 +46,19 @@ Cypress.Commands.add('login', url => {
     cy.get("[data-button='login']").click();
     cy.get("[data-button='desktop-session-past']");
 });
+
+/**
+ * It does not visit the site.
+ * 
+ * @description
+ *      1. It simply open the menu page and clicks the menu button.
+ *      2. It checks if checker appears.
+ * 
+ * @param page - [data-button='xxx'] in page menu.
+ * @param checker - is the [data-role='xxxx'] in the opened page.
+ */
+Cypress.Commands.add('open', (page, checker) => {
+    cy.get('[data-button="menu"]').click();
+    cy.get("[data-button='"+page+"'").click();
+    cy.get("[data-role='"+checker+"']")
+})
