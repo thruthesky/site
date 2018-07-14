@@ -326,3 +326,71 @@ main{
         cursor: pointer;
     }
 }
+
+$skype-color:#00aff0;
+$wechat-color:#7bb32e;
+$line-color:#00c300;
+$qq-color:#000;
+$kakaotalk-color:#FCD411;
+.student-class-software-id{
+    input{
+        padding: .75em 1em;
+        font-size: .85em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.4);
+        text-align: center;
+    }
+    svg,
+    img{
+        height: 5em;
+        width: 5em;
+    }
+    .desc-input-skype-id{
+        svg{
+            color: $skype-color;
+        }
+    }
+    .desc-input-wechat-id{
+        svg{
+            color: $wechat-color;
+        }
+    }
+    .desc-input-line-id{
+        svg{
+            color: $line-color;
+        }
+    }
+
+    .input-software-id{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2em 0;
+        &>div{
+            div:last-child{
+                margin: .5em;
+            }
+        }
+        .app-button{
+            margin: 1em;
+            padding: .5em 1em;
+            font-size: .8em;
+            background: #eee;
+            color: #000
+        }
+    }
+}
+
+.update-class-software{
+    label{
+        display: inline-block;
+        padding: 2em;
+        cursor: pointer;
+
+        input{
+            position: relative;
+            top:-.12em;
+            margin-right: .5em;
+        }
+    }
+}

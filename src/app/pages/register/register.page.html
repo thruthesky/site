@@ -132,31 +132,62 @@
 
 
             <div class="student-class-software-id" *ngIf=" a.site.is.englishas ">
-                <div *ngIf=" ! show.updateClassSoftware ">
-                    <div class="desc-input-skype-id" *ngIf=" myClassSoftware( a.classSoftware.skype ) ">{{ 'INPUT_SKYPE_ID' | t }}</div>
-                    <div class="desc-input-kakaotalk-id" *ngIf=" myClassSoftware( a.classSoftware.kakaotalk ) ">{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
-                    <div class="desc-input-wechat-id" *ngIf=" myClassSoftware( a.classSoftware.wechat ) ">{{ 'INPUT_WECHAT_ID' | t }}</div>
-                    <div class="desc-input-line-id" *ngIf=" myClassSoftware( a.classSoftware.line ) ">{{ 'INPUT_LINE_ID' | t }}</div>
-                    <div class="desc-input-qq-id" *ngIf=" myClassSoftware( a.classSoftware.qq ) ">{{ 'INPUT_QQ_ID' | t }}</div>
+                <div class="input-software-id" *ngIf=" ! show.updateClassSoftware ">
+                    <div class="desc-input-skype-id" *ngIf=" myClassSoftware( a.classSoftware.skype ) ">
+                        <div>{{ 'INPUT_SKYPE_ID' | t }}</div>
+                        <div><svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 448 512"><path fill="currentColor" d="M424.7 299.8c2.9-14 4.7-28.9 4.7-43.8 0-113.5-91.9-205.3-205.3-205.3-14.9 0-29.7 1.7-43.8 4.7C161.3 40.7 137.7 32 112 32 50.2 32 0 82.2 0 144c0 25.7 8.7 49.3 23.3 68.2-2.9 14-4.7 28.9-4.7 43.8 0 113.5 91.9 205.3 205.3 205.3 14.9 0 29.7-1.7 43.8-4.7 19 14.6 42.6 23.3 68.2 23.3 61.8 0 112-50.2 112-112 .1-25.6-8.6-49.2-23.2-68.1zm-194.6 91.5c-65.6 0-120.5-29.2-120.5-65 0-16 9-30.6 29.5-30.6 31.2 0 34.1 44.9 88.1 44.9 25.7 0 42.3-11.4 42.3-26.3 0-18.7-16-21.6-42-28-62.5-15.4-117.8-22-117.8-87.2 0-59.2 58.6-81.1 109.1-81.1 55.1 0 110.8 21.9 110.8 55.4 0 16.9-11.4 31.8-30.3 31.8-28.3 0-29.2-33.5-75-33.5-25.7 0-42 7-42 22.5 0 19.8 20.8 21.8 69.1 33 41.4 9.3 90.7 26.8 90.7 77.6 0 59.1-57.1 86.5-112 86.5z"></path></svg></div>
+                    </div>
+                    <div class="desc-input-kakaotalk-id" *ngIf=" myClassSoftware( a.classSoftware.kakaotalk ) ">
+                        <div>{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
+                        <div><img src="../../../assets/img/kakao-chat.png" alt="kakaotalk-logo"></div>
+                    </div>
+                    <div class="desc-input-wechat-id" *ngIf=" myClassSoftware( a.classSoftware.wechat ) ">
+                        <div>{{ 'INPUT_WECHAT_ID' | t }}</div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z"></path></svg></div>
+                    </div>
+                    <div class="desc-input-line-id" *ngIf=" myClassSoftware( a.classSoftware.line ) ">
+                        <div>{{ 'INPUT_LINE_ID' | t }}</div>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M272.1 204.2v71.1c0 1.8-1.4 3.2-3.2 3.2h-11.4c-1.1 0-2.1-.6-2.6-1.3l-32.6-44v42.2c0 1.8-1.4 3.2-3.2 3.2h-11.4c-1.8 0-3.2-1.4-3.2-3.2v-71.1c0-1.8 1.4-3.2 3.2-3.2H219c1 0 2.1.5 2.6 1.4l32.6 44v-42.2c0-1.8 1.4-3.2 3.2-3.2h11.4c1.8-.1 3.3 1.4 3.3 3.1zm-82-3.2h-11.4c-1.8 0-3.2 1.4-3.2 3.2v71.1c0 1.8 1.4 3.2 3.2 3.2h11.4c1.8 0 3.2-1.4 3.2-3.2v-71.1c0-1.7-1.4-3.2-3.2-3.2zm-27.5 59.6h-31.1v-56.4c0-1.8-1.4-3.2-3.2-3.2h-11.4c-1.8 0-3.2 1.4-3.2 3.2v71.1c0 .9.3 1.6.9 2.2.6.5 1.3.9 2.2.9h45.7c1.8 0 3.2-1.4 3.2-3.2v-11.4c0-1.7-1.4-3.2-3.1-3.2zM332.1 201h-45.7c-1.7 0-3.2 1.4-3.2 3.2v71.1c0 1.7 1.4 3.2 3.2 3.2h45.7c1.8 0 3.2-1.4 3.2-3.2v-11.4c0-1.8-1.4-3.2-3.2-3.2H301v-12h31.1c1.8 0 3.2-1.4 3.2-3.2V234c0-1.8-1.4-3.2-3.2-3.2H301v-12h31.1c1.8 0 3.2-1.4 3.2-3.2v-11.4c-.1-1.7-1.5-3.2-3.2-3.2zM448 113.7V399c-.1 44.8-36.8 81.1-81.7 81H81c-44.8-.1-81.1-36.9-81-81.7V113c.1-44.8 36.9-81.1 81.7-81H367c44.8.1 81.1 36.8 81 81.7zm-61.6 122.6c0-73-73.2-132.4-163.1-132.4-89.9 0-163.1 59.4-163.1 132.4 0 65.4 58 120.2 136.4 130.6 19.1 4.1 16.9 11.1 12.6 36.8-.7 4.1-3.3 16.1 14.1 8.8 17.4-7.3 93.9-55.3 128.2-94.7 23.6-26 34.9-52.3 34.9-81.5z"></path></svg></div>
+                    </div>
+                    <div class="desc-input-qq-id" *ngIf=" myClassSoftware( a.classSoftware.qq ) ">
+                        <div>{{ 'INPUT_QQ_ID' | t }}</div>
+                        <div><svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg></div>
+                    </div>
                     <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
+                    <div class="app-button" (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
+                        Choose another messenger app
+                    </div>
                 </div>
 
                 <div class="update-class-software">
-                    <div class="app-button update-class-software-button" (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
-                        Choose another messenger app
-                    </div>
                     <div class="select-class-software" *ngIf=" show.updateClassSoftware ">
                         <div>
-                            <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype"
-                                [checked]="form.class_software"> {{ 'SKYPE' | t }}
-                            <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.kakaotalk"
-                                [checked]="form.class_software"> {{ 'KAKAOTALK' | t }}
-                            <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.wechat"
-                                [checked]="form.class_software"> {{ 'WECHAT' | t }}
-                            <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.line"
-                                [checked]="form.class_software"> {{ 'LINE' | t }}
-                            <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.qq"
-                                [checked]="form.class_software"> {{ 'QQ' | t }}
+                            <label>
+                                <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software"
+                                       [value]="a.classSoftware.skype" [checked]="form.class_software"> 
+                                <span>{{ 'SKYPE' | t }}</span>
+                            </label>
+                            <label>
+                            <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software" 
+                                   [value]="a.classSoftware.kakaotalk" [checked]="form.class_software"> 
+                                   <span>{{ 'KAKAOTALK' | t }}</span>
+                            </label>
+                            <label>
+                            <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software" 
+                                   [value]="a.classSoftware.wechat" [checked]="form.class_software"> 
+                                   <span>{{ 'WECHAT' | t }}</span>
+                            </label>
+                            <label>
+                            <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software" 
+                                   [value]="a.classSoftware.line" [checked]="form.class_software"> 
+                                   <span>{{ 'LINE' | t }}</span>
+                            </label>
+                            <label>
+                            <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software" 
+                                   [value]="a.classSoftware.qq" [checked]="form.class_software"> 
+                                   <span>{{ 'QQ' | t }}</span>
+                            </label>
+                            
                         </div>
                         <div class="input-class-software-id" *ngIf=" form.class_software ">
                             <div>Please Input {{ form.class_software | t }} ID.</div>
