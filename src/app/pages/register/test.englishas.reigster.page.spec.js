@@ -2,20 +2,25 @@
 import {
     Chance
 } from 'chance';
+import {
+    config
+} from '../../../../cypress';
 const chance = new Chance();
 
 
+
 const messengers = ['skype', 'kakaotalk', 'wechat', 'line', 'qq'];
-const url = '/';
+const url = config.url.englishas;
+console.log('url: ', url);
 context('Actions', () => {
-    before(() => {})
+    before(() => {
+        cy.login(config.url.englishas);
+    })
     after(() => {})
     beforeEach(() => {})
     afterEach(() => {})
     describe('Register Test', () => {
         it('openning register page', () => {
-            cy.visit('/');
-            // cy.visit(url + 'register')
             cy.get('#desktop-header').find('.register').click();
             cy.get('app-component-register').find('form').find("[name='email']")
         })
@@ -36,22 +41,6 @@ context('Actions', () => {
             cy.get(".try");
         })
     })
-    // describe('Logout', () => {
-    //     it('logout', () => {
-    //         cy.get('#desktop-header').find('.menu').click();
-    //         cy.get('.menu-logout').click();
-    //     })
-    // })
-    // describe('Login Test', () => {
-    //     it('open login page', () => {
-    //         cy.get('#desktop-header').find('.login').click();
-    //         cy.get("[name='email']").type(email);
-    //         cy.get("[name='password']").type(password);
-    //         cy.get("[type='submit']").click();
-    //         cy.get('.session-past');
-    //     })
-    // })
-
 
     describe('Register with different messengers.', () => {
         for (const messenger of messengers) {
@@ -69,7 +58,7 @@ context('Actions', () => {
                     length: 8
                 }));
                 cy.get("[name='phone_number'").type(chance.phone());
-                cy.get('.update-class-software-button').click();
+                cy.get("[data-role='choose-another-messenger-app']").click();
                 cy.get('.radio-' + messenger).check();
                 cy.get("[name='class_software_id']").type(chance.string({
                     length: 8,
@@ -97,7 +86,7 @@ context('Actions', () => {
 
         for (const messenger of messengers) {
             it('edit messenger to ' + messenger, () => {
-                cy.get('.update-class-software-button').click();
+                cy.get("[data-role='choose-another-messenger-app']").click();
                 cy.get('.radio-' + messenger).check();
                 cy.get("[name='class_software_id']").type(chance.string({
                     length: 5,

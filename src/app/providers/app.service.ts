@@ -1174,11 +1174,11 @@ export class AppService {
 
     get lmsMaxFreeClass(): number {
         const info: LMS_INFO = <any>this.get(KEY_LMS_INFO);
-        const no = info.MAX_FREE_CLASS;
-        if (!no) {
+
+        if ( info === null || info.MAX_FREE_CLASS === void 0 || !info.MAX_FREE_CLASS) {
             return 0;
         }
-        return parseInt(no, 10);
+        return parseInt(info.MAX_FREE_CLASS, 10);
     }
 
     get vat(): any {
@@ -1535,7 +1535,7 @@ export class AppService {
         return dt;
     }
     veryShortDate(stamp) {
-        return this.shortDate(stamp).substr(3);
+        return this.shortDate(stamp, true).substr(3);
     }
     shortDateTime(stamp: any): string {
         const d = new Date(stamp * 1000);
@@ -1976,6 +1976,18 @@ export class AppService {
         return true;
     }
 
-
-
+    shortNumber(n: any) {
+        if (typeof n === 'string') {
+            n = parseInt(n, 10);
+        }
+        if (n < 1000) {
+            return n;
+        } else if (n < 1000000) {
+            return (n / 1000).toPrecision(3) + 'K';
+        } else if (n < 1000000000) {
+            return (n / 1000000).toPrecision(3) + 'M';
+        } else if (n < 1000000000000) {
+            return (n / 1000000000).toPrecision(3) + 'B';
+        }
+    }
 }

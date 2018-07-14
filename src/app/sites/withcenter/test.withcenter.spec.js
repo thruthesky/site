@@ -1,5 +1,6 @@
 /// <reference types="Cypress" />
 import { Chance } from 'chance';
+import { config } from '../../../../cypress';
 const chance = new Chance();
 context('Actions', () => {
     before(() => {})
@@ -9,7 +10,7 @@ context('Actions', () => {
     afterEach(() => {})
     describe('Withcenter Franchise Site Test', () => {
         it('withcenter page open', () => {
-            cy.visit( '/franchise' )
+            cy.visit( config.url.withcenter )
             cy.get('#company-info');
         })
         it('Creating a branch', () => {

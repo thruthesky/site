@@ -10,7 +10,7 @@
     </header>
     <section class="content">
         <div class="form">
-            <form (ngSubmit)=" onSubmitLoginForm( $event ) ">
+            <form data-role="login-form" (ngSubmit)=" onSubmitLoginForm( $event ) ">
                 <mat-form-field appearance="outline">
                     <mat-label>{{ 'EMAIL' | t }}</mat-label>
                     <input matInput type="email" name="email" [(ngModel)]="form.user_email">
@@ -21,7 +21,7 @@
                     <input matInput name="password" type="password" [(ngModel)]="form.user_pass">
                 </mat-form-field>
 
-                <button type="submit">
+                <button data-button="login" type="submit">
                     <span *ngIf=" !loader.submit ">{{ 'LOGIN' | t }}</span>
                     <div class="confirm-loader" *ngIf=" loader.submit ">
                         <mat-spinner color="accent" [diameter]="20"></mat-spinner>

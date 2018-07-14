@@ -1,4 +1,7 @@
 /// <reference types="Cypress" />
+
+import { config } from "../../../../../../cypress";
+
 context('Actions', () => {
     before(() => {})
     after(() => {})
@@ -7,14 +10,9 @@ context('Actions', () => {
     afterEach(() => {})
     describe('KatalkEnglish Test', () => {
         it('Katalk homepage open', () => {
-            cy.visit( '/' )
+            cy.visit( config.url.katalkenglish );
             cy.get('#katalkenglish').find('header');
+            cy.get('#student-comments');
         })
-        it('Help Page', () => {
-            cy.visit( '/' + 'help' );
-            cy.get('#katalkenglish');
-            cy.get('#katalkenglish').find('header');
-            cy.get('#katalkenglish').find('header').find('h1');
-        });
     })
 })

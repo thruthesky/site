@@ -122,6 +122,13 @@ aside {
                     padding-bottom: .7em;
                 }
             }
+            tbody{
+                tr:first-child{
+                    td{
+                        padding-top: .7em;
+                    }
+                }
+            }
         }
     }
     #reservation-stat{

@@ -16,7 +16,7 @@
             <a routerLink="./payment">Payment</a>
         </div>
         <div class='sub-menu'>
-            <a routerLink="./point-refund">Point Refund</a>
+            <a class="refund-request" routerLink="./point-refund">Point Refund<span class="badge" *ngIf="refund_request_count">{{refund_request_count}}</span></a>
             <a routerLink="./point-history">Point History</a>
             <a routerLink="./push-notification">Push notification</a>
             <a routerLink="./setting">Settings</a>

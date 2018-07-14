@@ -428,6 +428,9 @@ $por-homebased: #FFBF00;
                 margin-top: 4em;
                 transform: rotate(-87deg);
                 white-space: nowrap;
+                &.today {
+                    font-weight: bold;
+                }
             }
         }
     }

@@ -225,9 +225,9 @@ export class RegisterPage implements OnInit {
             this.user_type = 'T';
         }
 
-        if (this.a.user.isLogin && this.user_type === 'T' && !this.qrmarks.length) {
-            return this.a.toast('Teacher must upload QR Mark...');
-        }
+        // if (this.a.user.isLogin && this.user_type === 'T' && !this.qrmarks.length) {
+        //     return this.a.toast('Teacher must upload QR Mark...');
+        // }
         if (!this.form.phone_number) {
             return this.a.toast('PHONE NUMBER REQUIRED');
         }

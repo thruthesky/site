@@ -110,7 +110,7 @@
                     </div>
                 </button>
 
-                <button class="bank" (click)=" onSelectBankTransaction() ">
+                <button data-button='bank' class="bank" (click)=" onSelectBankTransaction() ">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-5 col-md-5">
@@ -161,22 +161,22 @@
         </div>
 
 
-        <div class="select-bank" *ngIf=" amount && paymentMethod == 'bank' ">
+        <div data-button="select-bank" class="select-bank" *ngIf=" amount && paymentMethod == 'bank' ">
 
             <div class="title">{{ 'SELECT_BANK_COUNTRY' | t }}</div>
             <div>
                 <!-- <button (click)=" onSelectPaypalPayment() ">{{ 'CHANGE_TO_PAYPAL' | t }}</button> -->
             </div>
             <div class="buttons">
-                <div class="country korea" (click)=" onSelectBankCountry('koreanBank'); ">
+                <div data-button="country-korea" class="country korea" (click)=" onSelectBankCountry('koreanBank'); ">
                     <div class="country-name">{{ 'KOREAN_BANK' | t }}</div>
                     <div class="bank-name">{{ 'KOREAN_BANK_NAME' | t }}</div>
                 </div>
-                <div class="country china" (click)=" onSelectBankCountry('chineseBank'); ">
+                <div data-button="country-china" class="country china" (click)=" onSelectBankCountry('chineseBank'); ">
                     <div class="country-name">{{ 'CHINESE_BANK' | t }}</div>
                     <div class="bank-name">{{ 'CHINESE_BANK_NAME' | t }}</div>
                 </div>
-                <div class="country japan" (click)=" onSelectBankCountry('japaneseBank'); ">
+                <div data-button="country-japan" class="country japan" (click)=" onSelectBankCountry('japaneseBank'); ">
                     <div class="country-name">{{ 'JAPANESE_BANK' | t }}</div>
                     <div class="bank-name">{{ 'JAPANESE_BANK_NAME' | t }}</div>
                 </div>
@@ -186,7 +186,7 @@
 
         <div class="banks" *ngIf=" bankSelected ">
 
-            <div class="bank-item" *ngIf=" paymentMethod == 'koreanBank' ">
+            <div data-role='koreaBank' class="bank-item" *ngIf=" paymentMethod == 'koreanBank' ">
                 <div class="bank-title" data-bank-country="korea">{{ 'WOORIBANK_PAYMENT_TITLE' | t }}</div>
                 <div class="bank-desc">
                     <div class="bank-transaction-information">
@@ -218,7 +218,7 @@
                 </div>
             </div>
 
-            <div class="bank-item" *ngIf=" paymentMethod == 'chineseBank' ">
+            <div data-role='chinaBank' class="bank-item" *ngIf=" paymentMethod == 'chineseBank' ">
 
                 <div class="bank-transaction-information">
                     <div class="bank-name" data-bank-country="china">{{ 'CHINESE_BANK_NAME' | t }}</div>
@@ -249,7 +249,7 @@
                     } }} </div>
             </div>
 
-            <div class="bank-item" *ngIf=" paymentMethod == 'japaneseBank' ">
+            <div data-role='japanBank' class="bank-item" *ngIf=" paymentMethod == 'japaneseBank' ">
 
                 <div class="bank-transaction-information">
                     <div class="bank-name" data-bank-country="japan">{{ 'JAPANESE_BANK_NAME' | t }}</div>

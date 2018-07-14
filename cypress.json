@@ -1,5 +1,1 @@
-{
-    "integrationFolder": "src",
-    "testFiles": "**/*.spec.js",
-    "baseUrl": "http://localhost:4200/"
-}
+{}
