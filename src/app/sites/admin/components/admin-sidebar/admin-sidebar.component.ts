@@ -89,7 +89,7 @@ export class AdminSidebarComponent implements OnInit {
         WHERE BRANCH and wp_users.ID=p.idx_student AND p.state='approved' AND stamp_begin BETWEEN ${_date_begin} AND ${_date_end}
         `;
         this.a.lms.admin_query({ sql: sqlThisMonth }).subscribe(re => {
-            console.log('sum: ', re);
+            // console.log('sum: ', re);
             if (re && re.length && re[0]['point'] ) {
                 this.pointThisMonth = re[0]['point'];
             }
