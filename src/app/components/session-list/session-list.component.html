@@ -330,8 +330,8 @@
                                     </ng-container>
 
 
-                                    <ng-container *ngIf=" settled(book) " (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
-                                        <button class="point-refund-rejected">
+                                    <ng-container *ngIf=" settled(book) ">
+                                        <button class="point-refund-rejected"  (click)="a.open( 'session-refund-reject', {idx: book.idx} )">
                                             {{ 'POINT_REFUND_SETTLED' | t }}
                                         </button>
                                     </ng-container>

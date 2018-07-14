@@ -1655,7 +1655,7 @@ export class AppService {
         return dt;
     }
     veryShortDate(stamp) {
-        return this.shortDate(stamp).substr(3);
+        return this.shortDate(stamp, true).substr(3);
     }
     shortDateTime(stamp: any): string {
         const d = new Date(stamp * 1000);
@@ -2094,5 +2094,20 @@ export class AppService {
         const element = document.getElementById(id);
         element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
         return true;
+    }
+
+    shortNumber(n: any) {
+        if (typeof n === 'string') {
+            n = parseInt(n, 10);
+        }
+        if (n < 1000) {
+            return n;
+        } else if (n < 1000000) {
+            return (n / 1000).toPrecision(3) + 'K';
+        } else if (n < 1000000000) {
+            return (n / 1000000).toPrecision(3) + 'M';
+        } else if (n < 1000000000000) {
+            return (n / 1000000000).toPrecision(3) + 'B';
+        }
     }
 }

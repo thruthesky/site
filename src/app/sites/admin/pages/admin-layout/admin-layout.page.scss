@@ -85,6 +85,21 @@ header{
                 height: $main-menu-height;
                 background-color: transparent;
             }
+
+            .refund-request {
+                position: relative;
+                .badge {
+                    position: absolute;
+                    height: 20px;
+                    width: 20px;
+                    padding: .5em;
+                    top: 13px;
+                    right: 0;
+                    background: red;
+                    border-radius: 50%;
+                    line-height: 5px;
+                }
+            }
         }
         .main-menu{
             height: $main-menu-height;

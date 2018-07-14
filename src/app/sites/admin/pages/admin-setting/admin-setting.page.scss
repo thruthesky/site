@@ -5,6 +5,10 @@ h2{
 }
 
 .push-notif-form{
+    text-align: center;
+    @media ( min-width:$md ) {
+        text-align: left
+    }
     h2{
         font-size: 1em;
         color: #0867B0;
@@ -17,7 +21,12 @@ h2{
         width: 150px
     }
     label{
-        margin: 0 1em;
+        display: block;
+        margin:1em;
+        @media screen {
+            display: inline-block;
+            margin: 0 1em;
+        }
         font-size: .9em;
         color: #D27800;
     }

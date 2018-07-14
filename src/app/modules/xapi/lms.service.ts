@@ -731,4 +731,11 @@ export class XapiLMSService extends Base {
         req['route'] = 'lms.admin_statistics';
         return this.x.post(req);
     }
+
+    admin_get_refund_request_count() {
+        return this.x.post({
+            route: 'lms.admin_get_refund_request_count',
+            session_id: this.user.sessionId
+        });
+    }
 }

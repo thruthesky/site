@@ -146,7 +146,7 @@ export class AdminUserInfoPage implements OnInit {
             } else {
                 this.a.toast('You are not Manager of this user.');
             }
-            // console.log(re);
+            // console.log('loadInfo', re);
 
             // this.onClickPointUpdate();
         }, e => this.a.toast(e));
