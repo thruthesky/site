@@ -41,7 +41,7 @@
 
     <div class="total-point-share" *ngIf="stats">
         <h2>
-           Point Shares
+           Shares Computation
         </h2>
         <table>
             <tr>
@@ -80,7 +80,7 @@
     </div>
     <div class="total-point-share comparison" *ngIf="stats">
         <h2>
-           Point Share Comparison
+           Share Comparison Office and Homebase
         </h2>
         <table>
             <tr>
@@ -117,7 +117,7 @@
             </tr>
         </table>
         <div class="note">
-            <small><b>Note:</b> 100% of Teacher share is the {{stats.teacher_percent}}% from the total accumulated points of {{stats.total_point_of_reservation}}.</small>
+            <small><b>Note:</b> 100% is the {{stats.teacher_percent}}% Teacher Share</small>
         </div>
     </div>
     <div id="overall-reservations-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
