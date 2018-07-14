@@ -16,6 +16,7 @@ export class ScheduleTableProfileComponent {
     @Input() re: SCHEDULE_TABLE = null;
     @Input() teacherName = null;
 
+    myClassSoftware = '';
 
     /**
      * Teacher's youtube URL with dom sanitizing.
@@ -29,8 +30,14 @@ export class ScheduleTableProfileComponent {
         public modal: ModalService,
     ) {
         //
+        this.myClassSoftware = this.a.lmsInfo('user.class_software');
+        console.log('myClassSoftware: ', this.myClassSoftware);
     }
 
+
+    /**
+     * @todo remove this method. It is not used.
+     */
     onClickAddKakao() {
         const url = this.re.teacher.kakao_qrmark_string;
         // console.log("kakao::url:: ", url);
@@ -41,6 +48,12 @@ export class ScheduleTableProfileComponent {
         }
     }
 
+    /**
+     *
+     */
+    onClickAddMessenger() {
+
+    }
     playTeacherYoutube() {
         const ID = this.a.getYoutubeID(this.re.teacher.youtube_video_url);
         if (!ID) {
@@ -59,7 +72,7 @@ export class ScheduleTableProfileComponent {
     openModalPromo() {
         this.forum.getPostBySlug('withcenter-teacher-75000-promo', this.a.language.getLanguage()).subscribe((posts: any) => {
             // console.log('posts', posts);
-            if ( posts && posts.length) {
+            if (posts && posts.length) {
                 this.modal.alert({ content: posts[0].content.rendered });
             } else {
                 this.modal.alert({ content: 'Ooh! No information about this promo. Please inform this to Admin immediately.' });

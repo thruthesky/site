@@ -38,7 +38,8 @@ export class RegisterPage implements OnInit {
     show = {
         dataLoader: false,
         updateLoader: false,
-        updateClassSoftware: false
+        updateClassSoftware: false,
+        updated: false
     };
 
     user_type: '' | 'S' | 'T';
@@ -112,7 +113,7 @@ export class RegisterPage implements OnInit {
     }
 
 
-    loadData() {
+    loadData(callback?) {
         this.show.dataLoader = true;
         this.a.user.data().subscribe((userData: USER_DATA_RESPONSE) => {
             this.show.dataLoader = false;
@@ -170,6 +171,9 @@ export class RegisterPage implements OnInit {
             }
             /// eo
 
+            if ( callback ) {
+                callback();
+            }
 
         }, e => {
             this.show.dataLoader = false;
@@ -310,13 +314,17 @@ export class RegisterPage implements OnInit {
     updateWordpressBackend() {
         delete this.form.kakao_qrmark_string;
         this.show.updateLoader = true;
+        this.show.updated = false;
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
             this.show.updateLoader = false;
             this.show.updateClassSoftware = false;
             this.a.toast(this.a.ln.USER_PROFILE_UPDATED);
             this.a.onUserProfileUpdate();
-            this.loadData();
+            this.loadData(() => {
+                this.show.updated = true;
+                setTimeout(() => this.show.updated = false, 10000);
+            });
         }, err => {
             this.show.updateLoader = false;
             this.a.toast(err);

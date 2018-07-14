@@ -1,88 +1,96 @@
+<ng-template #classSoftware>
+    <div class="class-software">
+        <ng-container *ngFor="let messenger of a.keys( a.classSoftware ) ">
+            <div [attr.data-class-software]="messenger" *ngIf=" myClassSoftware == messenger ">
+                <button class="add-friend-button" (click)=" onClickAddMessenger( messenger ) ">
+                    <div class="icon">
+                        <img src="assets/img/add-friend-{{ messenger }}.png">
+                    </div>
+                    <div class="text">{{ 'ADD ' + messenger | t }}</div>
+                </button>
+            </div>
+        </ng-container>
+    </div>
+</ng-template>
+
 <ng-container *ngIf=" isSingleTeacher && re && re.teacher ">
 
     <!-- MOBILE VIEW ONLY -->
-        <div class="mobile-profile-row" *ngIf=" isLoadComplete; else singleTeacherLoader">
-            <div class="top container-fluid">
-                <div class="row">
-                    <div class="col-4">
-                            <div class="teacher-profile-photo">
-                                <img src="{{ re.teacher.photoURL }}">
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="bio">
-                                <div>
-                                    <span class="teacher-name">{{ teacherName }}</span>
-                                    <span class="grade" [attr.grade]=" re.teacher.grade ">
-                                        <svg *ngFor="let i of a.countStar( re.teacher.grade )" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 576 512" data-fa-i2svg="">
-                                            <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                        </svg>
-                                    </span>
-                                </div>
-                
-                
-                                <div>
-                                    <span>{{ re.teacher.nationality }}</span>
-                                    {{ 'AGE_GENDER' | t:{ age: re.teacher.age , gender: re.teacher.gender | t } }}
-                
-                                    <!-- <ng-container *ngIf=" a.isKorean; else English ">{{ teacher_age() }}세 ({{ teacher_gender() | t }})</ng-container>
-                                            <ng-template #English>{{ teacher_age() }}/{{ teacher_gender() | t }}</ng-template> -->
-                                </div>
-                
-                
-                                <div>
-                                    {{ 'TAKEN' | t }}: {{ re.teacher.total_reservation }} {{ 'HAD SESSIONS' | t }}
-                                </div>
-                
-                                <div>
-                                    <button class="kakaotalk-add-friend-button" (click)=" onClickAddKakao() ">
-                                        <div class="icon">
-                                            <img src="assets/img/add-friend.png">
-                                        </div>
-                                        <div class="text">{{ 'ADD KAKAO' | t }}</div>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>            
-                </div>
-            </div>    
-                <div class="buttons container-fluid">
-                    <div class="row">
-                        <div class="video-button col-4 col-md-12" [class.video-button-off]="!re.teacher.youtube_video_url">
-                            <button class="app-button" (click)=" playTeacherYoutube(); ">
-                                <ng-container *ngIf="re.teacher.youtube_video_url">
-                                    <span>{{ 'VIDEO' | t }}</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                        <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
-                                        />
-                                    </svg>
-                                </ng-container>
-                                <span *ngIf="!re.teacher.youtube_video_url">{{ 'NO_VIDEO' | t }}</span>
-                            </button>
-                        </div>
-                        <div class=" review-button col-4 col-md-12">
-                            <button class="app-button" routerLink="/teacher-review-list" [queryParams]="{idx_teacher: re.teacher.ID}">
-                                <!--<div class="pointer p-2" *ngIf="a.user.isLogin" (click)="onClickCommentCreate()">{{ 'WRITE REVIEW' | t }}</div>-->
-                                {{ 'OPEN REVIEW' | t }}
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                    <path d="M448 279.196V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h248a24 24 0 0 1 16.97 7.029l16 16C344.09 102.149 333.382 128 312 128H64v320h320V295.196c0-6.365 2.529-12.47 7.029-16.971l16-16C422.148 247.106 448 257.814 448 279.196zM576 37.333C576 16.715 559.285 0 538.667 0H380c-15.464 0-28 12.536-28 28v17.885c0 15.766 13.011 28.424 28.772 27.989l67.203-1.906L199.09 319.09c-9.429 9.363-9.457 24.605-.061 34.001l23.879 23.879c9.396 9.396 24.639 9.369 34.001-.06l247.122-248.885-1.906 67.203c-.434 15.76 12.224 28.772 27.99 28.772H548c15.464 0 28-12.536 28-28V37.333z"
-                                    />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="resume-button col-4 col-md-12">
-                            <button class="app-button" routerLink="/teacher-curriculum-vitae-view" [queryParams]="{idx_teacher: re.teacher.ID}">
-                                {{ 'CURRICULUM VITAE' | t }}
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                    <path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z"
-                                    />
-                                </svg>
-                            </button>
-                        </div>
+    <div class="mobile-profile-row" *ngIf=" isLoadComplete; else singleTeacherLoader">
+        <div class="top container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    <div class="teacher-profile-photo">
+                        <img src="{{ re.teacher.photoURL }}">
                     </div>
                 </div>
+                <div class="col-8">
+                    <div class="bio">
+                        <div>
+                            <span class="teacher-name">{{ teacherName }}</span>
+                            <span class="grade" [attr.grade]=" re.teacher.grade ">
+                                <svg *ngFor="let i of a.countStar( re.teacher.grade )" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 576 512" data-fa-i2svg="">
+                                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div>
+                            <span>{{ re.teacher.nationality }}</span>
+                            {{ 'AGE_GENDER' | t:{ age: re.teacher.age , gender: re.teacher.gender | t } }}
+
+                            <!-- <ng-container *ngIf=" a.isKorean; else English ">{{ teacher_age() }}세 ({{ teacher_gender() | t }})</ng-container>
+                                            <ng-template #English>{{ teacher_age() }}/{{ teacher_gender() | t }}</ng-template> -->
+                        </div>
+
+
+                        <div>
+                            {{ 'TAKEN' | t }}: {{ re.teacher.total_reservation }} {{ 'HAD SESSIONS' | t }}
+                        </div>
+
+                        <ng-container *ngTemplateOutlet="classSoftware"></ng-container>
+
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="buttons container-fluid">
+            <div class="row">
+                <div class="video-button col-4 col-md-12" [class.video-button-off]="!re.teacher.youtube_video_url">
+                    <button class="app-button" (click)=" playTeacherYoutube(); ">
+                        <ng-container *ngIf="re.teacher.youtube_video_url">
+                            <span>{{ 'VIDEO' | t }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
+                                />
+                            </svg>
+                        </ng-container>
+                        <span *ngIf="!re.teacher.youtube_video_url">{{ 'NO_VIDEO' | t }}</span>
+                    </button>
+                </div>
+                <div class=" review-button col-4 col-md-12">
+                    <button class="app-button" routerLink="/teacher-review-list" [queryParams]="{idx_teacher: re.teacher.ID}">
+                        <!--<div class="pointer p-2" *ngIf="a.user.isLogin" (click)="onClickCommentCreate()">{{ 'WRITE REVIEW' | t }}</div>-->
+                        {{ 'OPEN REVIEW' | t }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path d="M448 279.196V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h248a24 24 0 0 1 16.97 7.029l16 16C344.09 102.149 333.382 128 312 128H64v320h320V295.196c0-6.365 2.529-12.47 7.029-16.971l16-16C422.148 247.106 448 257.814 448 279.196zM576 37.333C576 16.715 559.285 0 538.667 0H380c-15.464 0-28 12.536-28 28v17.885c0 15.766 13.011 28.424 28.772 27.989l67.203-1.906L199.09 319.09c-9.429 9.363-9.457 24.605-.061 34.001l23.879 23.879c9.396 9.396 24.639 9.369 34.001-.06l247.122-248.885-1.906 67.203c-.434 15.76 12.224 28.772 27.99 28.772H548c15.464 0 28-12.536 28-28V37.333z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <div class="resume-button col-4 col-md-12">
+                    <button class="app-button" routerLink="/teacher-curriculum-vitae-view" [queryParams]="{idx_teacher: re.teacher.ID}">
+                        {{ 'CURRICULUM VITAE' | t }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- END OF MOBILE VIEW -->
 
 
@@ -90,98 +98,87 @@
     <!-- DESKTOP VIEW ONLY -->
 
     <div class="desktop-profile-row" *ngIf=" isLoadComplete; else singleTeacherLoader">
-            <div class="teacher-profile-photo">
-                <img src="{{ re.teacher.photoURL }}">
+        <div class="teacher-profile-photo">
+            <img src="{{ re.teacher.photoURL }}">
+        </div>
+        <div class="bio">
+            <div>
+                <span class="teacher-name">{{ teacherName }}</span>
+                <span class="grade" [attr.grade]=" re.teacher.grade ">
+                    <svg *ngFor="let i of a.countStar( re.teacher.grade )" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                    </svg>
+                </span>
             </div>
-            <div class="bio">
-                <div>
-                    <span class="teacher-name">{{ teacherName }}</span>
-                    <span class="grade" [attr.grade]=" re.teacher.grade ">
-                        <svg *ngFor="let i of a.countStar( re.teacher.grade )" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                        </svg>
-                    </span>
-                </div>
 
+            <div>
+                <span>{{ re.teacher.nationality }}</span>
+                {{ 'AGE_GENDER' | t:{ age: re.teacher.age , gender: re.teacher.gender | t } }}
 
-                <div>
-                    <span>{{ re.teacher.nationality }}</span>
-                    {{ 'AGE_GENDER' | t:{ age: re.teacher.age , gender: re.teacher.gender | t } }}
-
-                    <!-- <ng-container *ngIf=" a.isKorean; else English ">{{ teacher_age() }}세 ({{ teacher_gender() | t }})</ng-container>
+                <!-- <ng-container *ngIf=" a.isKorean; else English ">{{ teacher_age() }}세 ({{ teacher_gender() | t }})</ng-container>
                             <ng-template #English>{{ teacher_age() }}/{{ teacher_gender() | t }}</ng-template> -->
+            </div>
+
+            <div>
+                {{ 'TAKEN' | t }}: {{ re.teacher.total_reservation }} {{ 'HAD SESSIONS' | t }}
+            </div>
+
+            <ng-container *ngTemplateOutlet=" classSoftware "></ng-container>
+        </div>
+
+        <div class="teacher-intro">
+            <div routerLink="/teacher-curriculum-vitae-view" [queryParams]="{idx_teacher: re.teacher.ID}">
+                <span *ngIf=" re.teacher.introduction">
+                    <svg class="quote-left" aria-hidden="true" data-prefix="fas" data-icon="quote-left" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M0 432V304C0 166.982 63.772 67.676 193.827 32.828 209.052 28.748 224 40.265 224 56.027v33.895c0 10.057-6.228 19.133-15.687 22.55C142.316 136.312 104 181.946 104 256h72c26.51 0 48 21.49 48 48v128c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48zm336 48h128c26.51 0 48-21.49 48-48V304c0-26.51-21.49-48-48-48h-72c0-74.054 38.316-119.688 104.313-143.528C505.772 109.055 512 99.979 512 89.922V56.027c0-15.762-14.948-27.279-30.173-23.199C351.772 67.676 288 166.982 288 304v128c0 26.51 21.49 48 48 48z"></path>
+                    </svg>
+                    {{ re.teacher.introduction.slice(0,145)}} ...
+                    <svg class="quote-right" aria-hidden="true" data-prefix="fas" data-icon="quote-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M512 80v128c0 137.018-63.772 236.324-193.827 271.172-15.225 4.08-30.173-7.437-30.173-23.199v-33.895c0-10.057 6.228-19.133 15.687-22.55C369.684 375.688 408 330.054 408 256h-72c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h128c26.51 0 48 21.49 48 48zM176 32H48C21.49 32 0 53.49 0 80v128c0 26.51 21.49 48 48 48h72c0 74.054-38.316 119.688-104.313 143.528C6.228 402.945 0 412.021 0 422.078v33.895c0 15.762 14.948 27.279 30.173 23.199C160.228 444.324 224 345.018 224 208V80c0-26.51-21.49-48-48-48z"></path>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="buttons container-fluid">
+            <div class="row">
+                <div class="video-button col-4 col-md-12" [class.video-button-off]="!re.teacher.youtube_video_url">
+                    <button class="app-button" (click)=" playTeacherYoutube(); ">
+                        <ng-container *ngIf="re.teacher.youtube_video_url">
+                            <span>{{ 'VIDEO' | t }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
+                                />
+                            </svg>
+                        </ng-container>
+                        <span *ngIf="!re.teacher.youtube_video_url">{{ 'NO_VIDEO' | t }}</span>
+                    </button>
                 </div>
-
-
-                <div>
-                    {{ 'TAKEN' | t }}: {{ re.teacher.total_reservation }} {{ 'HAD SESSIONS' | t }}
+                <div class=" review-button col-4 col-md-12">
+                    <button class="app-button" routerLink="/teacher-review-list" [queryParams]="{idx_teacher: re.teacher.ID}">
+                        <!--<div class="pointer p-2" *ngIf="a.user.isLogin" (click)="onClickCommentCreate()">{{ 'WRITE REVIEW' | t }}</div>-->
+                        {{ 'OPEN REVIEW' | t }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path d="M448 279.196V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h248a24 24 0 0 1 16.97 7.029l16 16C344.09 102.149 333.382 128 312 128H64v320h320V295.196c0-6.365 2.529-12.47 7.029-16.971l16-16C422.148 247.106 448 257.814 448 279.196zM576 37.333C576 16.715 559.285 0 538.667 0H380c-15.464 0-28 12.536-28 28v17.885c0 15.766 13.011 28.424 28.772 27.989l67.203-1.906L199.09 319.09c-9.429 9.363-9.457 24.605-.061 34.001l23.879 23.879c9.396 9.396 24.639 9.369 34.001-.06l247.122-248.885-1.906 67.203c-.434 15.76 12.224 28.772 27.99 28.772H548c15.464 0 28-12.536 28-28V37.333z"
+                            />
+                        </svg>
+                    </button>
                 </div>
-
-                <div>
-                    <button class="kakaotalk-add-friend-button" (click)=" onClickAddKakao() ">
-                        <div class="icon">
-                            <img src="assets/img/add-friend.png">
-                        </div>
-                        <div class="text">{{ 'ADD KAKAO' | t }}</div>
+                <div class="resume-button col-4 col-md-12">
+                    <button class="app-button" routerLink="/teacher-curriculum-vitae-view" [queryParams]="{idx_teacher: re.teacher.ID}">
+                        {{ 'CURRICULUM VITAE' | t }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z"
+                            />
+                        </svg>
                     </button>
                 </div>
             </div>
-
-            <div class="teacher-intro">
-                <div routerLink="/teacher-curriculum-vitae-view" [queryParams]="{idx_teacher: re.teacher.ID}">
-                    <span *ngIf=" re.teacher.introduction">
-                        <svg class="quote-left" aria-hidden="true" data-prefix="fas" data-icon="quote-left" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M0 432V304C0 166.982 63.772 67.676 193.827 32.828 209.052 28.748 224 40.265 224 56.027v33.895c0 10.057-6.228 19.133-15.687 22.55C142.316 136.312 104 181.946 104 256h72c26.51 0 48 21.49 48 48v128c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48zm336 48h128c26.51 0 48-21.49 48-48V304c0-26.51-21.49-48-48-48h-72c0-74.054 38.316-119.688 104.313-143.528C505.772 109.055 512 99.979 512 89.922V56.027c0-15.762-14.948-27.279-30.173-23.199C351.772 67.676 288 166.982 288 304v128c0 26.51 21.49 48 48 48z"></path>
-                        </svg>
-                        {{ re.teacher.introduction.slice(0,145)}} ...
-                        <svg class="quote-right" aria-hidden="true" data-prefix="fas" data-icon="quote-right" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M512 80v128c0 137.018-63.772 236.324-193.827 271.172-15.225 4.08-30.173-7.437-30.173-23.199v-33.895c0-10.057 6.228-19.133 15.687-22.55C369.684 375.688 408 330.054 408 256h-72c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h128c26.51 0 48 21.49 48 48zM176 32H48C21.49 32 0 53.49 0 80v128c0 26.51 21.49 48 48 48h72c0 74.054-38.316 119.688-104.313 143.528C6.228 402.945 0 412.021 0 422.078v33.895c0 15.762 14.948 27.279 30.173 23.199C160.228 444.324 224 345.018 224 208V80c0-26.51-21.49-48-48-48z"></path>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-            <div class="buttons container-fluid">
-                <div class="row">
-                    <div class="video-button col-4 col-md-12" [class.video-button-off]="!re.teacher.youtube_video_url">
-                        <button class="app-button" (click)=" playTeacherYoutube(); ">
-                            <ng-container *ngIf="re.teacher.youtube_video_url">
-                                <span>{{ 'VIDEO' | t }}</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
-                                    />
-                                </svg>
-                            </ng-container>
-                            <span *ngIf="!re.teacher.youtube_video_url">{{ 'NO_VIDEO' | t }}</span>
-                        </button>
-                    </div>
-                    <div class=" review-button col-4 col-md-12">
-                        <button class="app-button" routerLink="/teacher-review-list" [queryParams]="{idx_teacher: re.teacher.ID}">
-                            <!--<div class="pointer p-2" *ngIf="a.user.isLogin" (click)="onClickCommentCreate()">{{ 'WRITE REVIEW' | t }}</div>-->
-                            {{ 'OPEN REVIEW' | t }}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path d="M448 279.196V464c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h248a24 24 0 0 1 16.97 7.029l16 16C344.09 102.149 333.382 128 312 128H64v320h320V295.196c0-6.365 2.529-12.47 7.029-16.971l16-16C422.148 247.106 448 257.814 448 279.196zM576 37.333C576 16.715 559.285 0 538.667 0H380c-15.464 0-28 12.536-28 28v17.885c0 15.766 13.011 28.424 28.772 27.989l67.203-1.906L199.09 319.09c-9.429 9.363-9.457 24.605-.061 34.001l23.879 23.879c9.396 9.396 24.639 9.369 34.001-.06l247.122-248.885-1.906 67.203c-.434 15.76 12.224 28.772 27.99 28.772H548c15.464 0 28-12.536 28-28V37.333z"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="resume-button col-4 col-md-12">
-                        <button class="app-button" routerLink="/teacher-curriculum-vitae-view" [queryParams]="{idx_teacher: re.teacher.ID}">
-                            {{ 'CURRICULUM VITAE' | t }}
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                <path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+        </div>
     </div>
     <!-- END OF DESKTOP VIEW -->
-
-
 
     <!-- <div class="withcenter-teachers" *ngIf=" re.teacher.user_group == 'withcenter' " (click)="openModalPromo()">
         <div>{{ a.ln.WITHCENTER_TEACHER_DESC_1 }}</div>
@@ -199,7 +196,10 @@
 
     <div class="attention-no-star-teacher" *ngIf=" isSingleTeacher && re.teacher.grade < 1 ">
         <div>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"
+                />
+            </svg>
         </div>
         <div class="text">
             {{ a.ln.WARNING_NOT_RECOMMENDED_TEACHER }}

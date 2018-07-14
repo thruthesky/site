@@ -56,6 +56,17 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
      * Display 'reserve' help gif ani if the user has no reservation.
      */
     showHelpReserve = false;
+
+
+    /**
+     * Set true if the logged in user is a student.
+     *
+     * @description The reason why it does not use `a.isStudent` is to avoid ExpressionChangedAfterItHasBeenChecked erorr
+     *      on cypress. Somehow cypress makes this error.
+     */
+    isStudent = false;
+
+    //
     constructor(
         public router: Router,
         public active: ActivatedRoute,
@@ -100,6 +111,9 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
                 this.a.toast(this.a.t('LOGIN_FIRST_TO_SEE_SCHEDULE_TABLE_TIME'));
             }, 500);
         }
+        setTimeout(() => {
+            this.isStudent = this.a.isStudent;
+        }, 300);
     }
     ngOnDestroy() {
         this.re = null;

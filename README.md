@@ -475,6 +475,8 @@ env['reloadTag'] = (new Date).getTime();
   * LINE
   * INPUT_SKYPE_ID
   * QnA page
+  * PROFILE_UPDATED
+  * schedule table profile add messengers
 * @see git issues
 
 * xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.

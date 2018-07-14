@@ -1,4 +1,4 @@
-<main>
+<main data-role="schedule-table-page">
     <schedule-table-profile-component *ngIf=" re " [isSingleTeacher]="isSingleTeacher" [isLoadComplete]="isLoadComplete" [re]=" re "
                                       [teacherName]=" teacher_name(re?.table[0]) "></schedule-table-profile-component>
 
@@ -40,7 +40,7 @@
             </a>
         </div>
 
-        <div class="student-info" *ngIf="a.isLogin && a.isStudent ">
+        <div class="student-info" *ngIf=" isStudent ">
                 {{ 'STUDENT_PONT_ON_SCHEDULE_TABLE' | t:{name: a.user.name, point: a.userPoint } }}
         </div>
 
@@ -50,7 +50,7 @@
     <div class="table schedule-table" *ngIf="re && re.table && re.table.length ">
 
 
-        <div class="help-ani-reserve" (click)=" showHelpReserve = false " *ngIf=" showHelpReserve && a.isStudent ">
+        <div class="help-ani-reserve" (click)=" showHelpReserve = false " *ngIf=" showHelpReserve && isStudent ">
             <ng-container *ngIf=" !isFreeClassBlock ">
                 <div class="gif">
                     <img src="assets/video/reserve.gif">

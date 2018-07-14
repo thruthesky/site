@@ -298,9 +298,14 @@ export class AppService {
 
         // this.language.setUserLanguage();
 
+
+        /**
+         * Gets point from server only one time.
+         */
         setTimeout(() => {
             this.updateUserPoint();
         }, 1000);
+
         /**
          * Update user time
          */
@@ -1053,19 +1058,35 @@ export class AppService {
 
 
     /**
+     * Gets LMS information from backend and saves into localStorage.
      *
-     *      Gets LMS information from backend and saves into localStorage.
+     * Use this method to get user information like class_software and class_software_id.
+     * It is like updating/getting user information from server.
      *
-     *      And initialize LMS information.
+     * @description It gets lms information every time
+     *      - app boots
+     *      - register
+     *      - login
+     *      - update profile
      *
-     *          - Runs timer for local timzeone.
+     * @description Flowchart
+     *      - get stored data in localStorage.
+     *          to make it instantly usable.
+     *      - get data from server
+     *          and save it into localStorage.
+     *      - save 'no_of_total_sessions', 'no_of_reservation', 'no_of_past'
+     *          for easy access.
+     *
+     * @description When user makes reservations and cancellations,
+     *      - it only update 'no_of_total_sessions', 'no_of_reservation', 'no_of_past'.
+     *      - not lmsInfo of localStorage.
      *
      *
-     * @note to get LMS information after loading from backend, use
+     * @description to get LMS information after loading from backend, use
      *      - this.lmsInfoUserNoOfTotalSessions
      *      - this.lmsInfoUserNoOfReservation
      *      - this.lmsInfoUserNoOfTotalPast
-     *      - this.lmsInfo('SELLER_RATE')
+     *      - this.lmsInfo('...')
      *
      * @param callback - You can use callback to get the result data from backend.
      *
@@ -1098,9 +1119,40 @@ export class AppService {
             if (callback) {
                 callback(re);
             }
+
         }, e => {
             console.error(e);
         });
+    }
+
+    /**
+     * Gets lmsInfo
+     *
+     * @param key string key
+     *
+     * @example
+            console.log('lms abc', this.lmsInfo('abc')); // returns null
+            console.log('lms user', this.lmsInfo('user')); // return user object.
+            console.log('lms user.class_software_id', this.lmsInfo('user.class_software_id')); // returns user.class_software_id
+     */
+    lmsInfo(key = '') {
+        const info = this.get(KEY_LMS_INFO);
+        if (!this.info) {
+            return null;
+        }
+
+        if (this.info[key]) {
+            return this.info[key];
+        }
+
+        if (key.indexOf('.') !== -1) {
+            const k = key.split('.');
+            if (info[k[0]] !== void 0 && info[k[0]][k[1]] !== void 0) {
+                return info[k[0]][k[1]];
+            }
+        }
+
+        return null;
     }
 
 
@@ -1175,7 +1227,7 @@ export class AppService {
     get lmsMaxFreeClass(): number {
         const info: LMS_INFO = <any>this.get(KEY_LMS_INFO);
 
-        if ( info === null || info.MAX_FREE_CLASS === void 0 || !info.MAX_FREE_CLASS) {
+        if (info === null || info.MAX_FREE_CLASS === void 0 || !info.MAX_FREE_CLASS) {
             return 0;
         }
         return parseInt(info.MAX_FREE_CLASS, 10);
@@ -1635,6 +1687,7 @@ export class AppService {
             });
         }
     }
+
     getUserTimezone() {
 
         const info = this.get(KEY_LMS_INFO);
@@ -1989,5 +2042,16 @@ export class AppService {
         } else if (n < 1000000000000) {
             return (n / 1000000000).toPrecision(3) + 'B';
         }
+    }
+
+
+
+
+    //
+    keys( obj ): Array<string> {
+        if ( ! obj ) {
+            return [];
+        }
+        return Object.keys( obj );
     }
 }

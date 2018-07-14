@@ -12,22 +12,20 @@ context('Teacher List Page', () => {
     before(() => {
         cy.login( config.url.englishas )
     })
-    after(() => {})
-    beforeEach(() => {
-    })
-    afterEach(() => {})
     describe('Teacher Profile - Messenger Change Test', () => {
         for( const messenger of MESSENGERS ) {
             it('Change messenger to ' + messenger, () => {
                 cy.open('profile', 'register-page')
                 cy.get("[data-role='choose-another-messenger-app']").click();
                 cy.get('.radio-' + messenger).check();
+                cy.get('.radio-' + messenger).should('be.checked');
                 cy.get("[name='class_software_id']").type(chance.string({
                     length: 5,
                     pool: 'abcdefgh'
                 }))
                 cy.get('.submit-button').click();
-                cy.get('.desc-input-' + messenger + '-id');
+                // cy.get('.desc-input-' + messenger + '-id');
+                cy.get("[data-role='profile-update-indicator']")
 
                 cy.open('teacher-list', 'teacher-list-page');
                 cy.get("[data-button='teacher-list-search']").click();
@@ -35,6 +33,9 @@ context('Teacher List Page', () => {
                 cy.get("[data-teacher-name='"+teacherName+"']");
 
                 cy.get("[data-button='teacher']").should('have.length', 1);
+                cy.get("[data-button='teacher']").click();
+                cy.get("[data-role='schedule-table-page']");
+                cy.get("[data-class-software='"+messenger+"']")
             })
         }
     })
