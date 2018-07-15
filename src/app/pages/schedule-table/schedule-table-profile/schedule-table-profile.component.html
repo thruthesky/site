@@ -2,7 +2,7 @@
     <div class="class-software">
         <ng-container *ngFor="let messenger of a.keys( a.classSoftware ) ">
             <div [attr.data-class-software]="messenger" *ngIf=" myClassSoftware == messenger ">
-                <button class="add-friend-button" (click)=" onClickAddMessenger( messenger ) ">
+                <button class="add-friend-button" (click)=" onClickAddMessenger() ">
                     <div class="icon">
                         <img src="../../../../assets/img/messengers/{{ messenger }}.png">
                     </div>

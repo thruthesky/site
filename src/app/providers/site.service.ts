@@ -139,6 +139,7 @@ export class SiteService {
     }
     /**
      * Returns true if the user is accessing 'englishas.com' or 'www.englishas.com'.
+     * If subdomain, it returns false.
      */
     get englishAsRootDomain(): boolean {
         const d = this.getDomain();

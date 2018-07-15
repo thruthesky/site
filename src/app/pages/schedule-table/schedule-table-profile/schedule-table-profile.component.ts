@@ -50,9 +50,14 @@ export class ScheduleTableProfileComponent {
 
     /**
      *
+     * @todo put each kakaotalk qr string
      */
     onClickAddMessenger() {
-
+        this.a.addMessenger({
+            class_software: this.myClassSoftware,
+            class_software_id: this.re.teacher[ this.myClassSoftware ],
+            url: this.re.teacher.kakao_qrmark_string
+        });
     }
     playTeacherYoutube() {
         const ID = this.a.getYoutubeID(this.re.teacher.youtube_video_url);

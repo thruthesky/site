@@ -6,6 +6,7 @@
             </a>
             <a routerLink="/">
                 <img class="resized" src="assets/img/logo/katalk-english.png" alt="Logo" *ngIf=" a.site.katalkEnglishRootDomain ">
+                <img class="resized" src="assets/img/logo/englishas.png" alt="Logo" *ngIf=" a.site.englishAsRootDomain ">
                 <img class="resized" src="{{ a.info?.branch?.logo_url }}" alt="Logo" *ngIf=" ! a.site.katalkEnglishRootDomain && a.info && a.info.branch && a.info.branch.logo_url">
             </a>
             <a class="login" routerLink="/login" *ngIf="a.isLogout" [class.adjusted]="selectedLanguage=='ko'">

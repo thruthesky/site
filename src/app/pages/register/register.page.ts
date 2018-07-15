@@ -255,7 +255,7 @@ export class RegisterPage implements OnInit {
             // A student is going to register?
             if (this.a.site.studentTheme) {
                 if (!this.form.class_software) {
-                    this.form.class_software = this.a.branch.defaultClassSoftware;
+                    this.form.class_software = this.a.branch.info.class_software;
                 }
                 if (!this.form.class_software_id) {
                     return this.a.toast('SELECT_CLASS_SOFTWARE_ID');
@@ -505,7 +505,7 @@ export class RegisterPage implements OnInit {
             } else {
                 return false;
             }
-        } else if (this.a.branch.defaultClassSoftware === name) {
+        } else if (this.a.branch.info.class_software === name) {
             return true;
         } else {
             return false;

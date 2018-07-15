@@ -20,7 +20,7 @@ import { OntueFooterComponentModule } from './sites/ontue/components/ontue-foote
 import { RedirectPage } from './app.redirect';
 import { SiteService } from './providers/site.service';
 import { UrlService } from './providers/url.service';
-import { BranchService } from './providers/branch.service';
+// import { BranchService } from './providers/branch.service';
 // import { TranslatePipe } from './pipes/translate/translate.pipe';
 // import { TranslatePipeModule } from './pipes/translate/translate.pipe.module';
 
@@ -52,7 +52,7 @@ import { environment } from '../environments/environment';
     LanguageService,
     SiteService,
     UrlService,
-    BranchService,
+    // BranchService,
     XapiService, XapiUserService, XapiFileService, XapiLMSService
   ],
   bootstrap: [AppComponent]

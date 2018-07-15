@@ -27,8 +27,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UrlService } from './url.service';
 import { SiteService } from './site.service';
-import { SKYPE, KAKAOTALK, LINE, WECHAT, QQ } from './defines';
-import { BranchService } from './branch.service';
+import { SKYPE, KAKAOTALK, LINE, WECHAT, QQ, DEFAULT_CLASS_SOFTWARE } from './defines';
+// import { BranchService } from './branch.service';
 
 
 export const KEY_SCHEDULES = 'key-schedules';
@@ -130,8 +130,7 @@ export class AppService {
 
     /**
      * LMS information from backend.
-     * @note this is being called once very boot.
-     * @attention this must be the only variable to be used to display LMS information.
+     * @see updateLMSInfo() for details.
      */
     info: LMS_INFO = null;
 
@@ -211,8 +210,8 @@ export class AppService {
         public readonly file: XapiFileService,
         public readonly lms: XapiLMSService,
         public readonly url: UrlService,
-        public readonly site: SiteService,
-        public readonly branch: BranchService
+        public readonly site: SiteService
+        // public readonly branch: BranchService
     ) {
 
         // console.log(`AppService::constructor()`);
@@ -1095,6 +1094,8 @@ export class AppService {
      *          BUT also it saves into localStorage.
      *
      * @note if you only want to get user point, consider using "loadMyPoint()". It's more convenient to only get point.
+     *
+     *
      */
     updateLMSInfo(callback = null) {
         this.info = this.get(KEY_LMS_INFO);
@@ -2071,5 +2072,17 @@ export class AppService {
             }
         }
 
+    }
+
+    get branch() {
+        let defaultClassSoftware = DEFAULT_CLASS_SOFTWARE;
+        if ( this.info && this.info.branch !== void 0 && this.info.branch.class_software !== void 0 ) {
+            defaultClassSoftware = this.info.branch.class_software;
+        }
+        return {
+            info: {
+                class_software: defaultClassSoftware
+            }
+        };
     }
 }

@@ -403,6 +403,11 @@ export interface TEACHER {
     age: number;
     grade: number;
     gender: string;
+    skype: string;
+    kakaotalk: string;
+    wechat: string;
+    line: string;
+    qq: string;
     kakao_qrmark_string: string;
     youtube_video_url?: string;
     nationality?: string;

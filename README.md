@@ -464,10 +464,10 @@ env['reloadTag'] = (new Date).getTime();
 
 * @done 강사 프로필에서, 수업 예약 학생이 사용하는 메신저에 따른 메신저 아이콘과 아이디를 표시.
 * @reject 강사 이력서에는 모든 메신저 정보를 표시한다. (학생이 혼동할 수 있음)
-* 학생이 보는 수업 시간표에서, 학생이 사용하는 메신저에 따른 강사의 메신저 아이콘과 아이디를 표시.
-* 강사가 보는 수업 시간표에서, 학생이 이용하는 메신저의 아이콘과 아이디 표시.
+* @done 학생이 보는 수업 시간표에서, 학생이 사용하는 메신저에 따른 강사의 메신저 아이콘과 아이디를 표시.
+* @done 강사가 보는 수업 시간표에서, 학생이 이용하는 메신저의 아이콘과 아이디 표시.
 
-* katalkenglish-header.html 에서 mobileh-header 에서 engliash 전용 로고 작성.
+* @done katalkenglish-header.html 에서 mobileh-header 에서 engliash 전용 로고 작성.
 
 * 관리자가 회원 정보 수정에서, 학생의 class-software 와 id 를 수정 할 수 있도록 한다.
 
@@ -541,3 +541,7 @@ env['reloadTag'] = (new Date).getTime();
   * 온튜 풀어야 할 과제.
     https://docs.google.com/document/d/1sjvKRhYRoYqhQwxrlhLnZK_7xMmJ0KzNPtgIvYCr8Fw/edit#heading=h.wge93zpyb08h
   
+  * 관리자 페이지에, 각 branch 별 목록 및 정보 수정을 할 수 있도록 한다.
+    * www.englishas.com 도 브랜치를 만든다.
+    * 그리고 englishas.com 은 그냥 www.englishas.com 으로 해서, 설정을 할 수 있도록 한다.
+    * www.englishas.com 자체도 로고 등을 변경하여 사용 할 수 있다.
