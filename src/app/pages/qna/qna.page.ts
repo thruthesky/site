@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
+import { SKYPE, KAKAOTALK } from '../../providers/defines';
 
 
 @Component({

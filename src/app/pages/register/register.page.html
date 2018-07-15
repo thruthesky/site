@@ -165,7 +165,7 @@
                     </div>
                     <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                     <div data-role='choose-another-messenger-app' class="app-button" (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
-                        Choose another messenger app
+                        {{ 'CHOOSE_ANOTHER_MESSENGER' | t }}
                     </div>
                 </div>
 
@@ -200,13 +200,13 @@
 
                         </div>
                         <div [attr.data-selected-class-software]="form.class_software" class="input-class-software-id" *ngIf=" form.class_software ">
-                            <div>Please Input {{ form.class_software | t }} ID.</div>
+                            <div>{{ 'INPUT_' + form.class_software + '_ID' | t }}</div>
                             <div>
                                 <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                             </div>
                         </div>
                         <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
-                            Cancel
+                            {{ 'CANCEL' | t }}
                         </div>
                     </div>
                 </div>
@@ -344,7 +344,7 @@
             </div>
 
             <div data-role="profile-update-indicator" *ngIf=" show.updated ">
-                {{ 'PROFILE_UPDATED' | t }}
+                {{ 'USER_PROFILE_UPDATED' | t }}
             </div>
 
         </form>

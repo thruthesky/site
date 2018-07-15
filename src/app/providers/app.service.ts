@@ -1561,10 +1561,25 @@ export class AppService {
             this.open('qna');
         }
 
-
-
         return false;
     }
+
+
+    /**
+     * Add manager's messenger.
+     * @param messenger class software
+     */
+    studentAddManagerMessenger(messenger) {
+        let o = {};
+        if (messenger === KAKAOTALK ) {
+            o = {
+                class_software: messenger,
+                url: this.kakaoUrls.student_kakaoplus_deeplink
+            };
+        }
+        this.addMessenger(o);
+    }
+
 
 
     /**
@@ -2071,7 +2086,6 @@ export class AppService {
                 }
             }
         }
-
     }
 
     get branch() {

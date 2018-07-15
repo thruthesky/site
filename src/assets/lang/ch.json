@@ -123,7 +123,6 @@
 
   "TAKEN": "会议",
   "HAD SESSIONS": " ",
-  "ADD KAKAO": "添加Kakao朋友",
   "VIDEO": "视频",
   "OPEN REVIEW": "注释",
   "CURRICULUM VITAE": "出版物",
@@ -551,7 +550,6 @@
   "VIDEO_RESERVE_TITLE": "视频）如何保留",
   "VIDEO_RESERVE_DESC": "请注意如何预订课程。",
   "REDIRECTING": "重定向...",
-  "ADD_KAKAOTALK": "添加好友",
   "TEACHER_LIST_OPTION_BUTTON": "搜索",
   "PAGE_NOT_FOUND_TITLE": "找不到网页",
   "PAGE_NOT_FOUND_DESC": "哦，你有访问错误的路线。 请转到首页。",
@@ -655,5 +653,42 @@
   "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "以上金额由#usd美元换算，含增值税＃VAT％。",
   "RENMINBI": "人民币",
   "YEN": "日元",
-  "LOADING_TEACHER_INFO_AND_SCHEDULE": "加载教师信息和日程安排。"
+  "LOADING_TEACHER_INFO_AND_SCHEDULE": "加载教师信息和日程安排。",
+
+
+
+
+  "NAME_REQUIRED": "请输入姓名。",
+  "NICKNAME_REQUIRED": "请输入昵称。",
+  "PHONE_NUMBER_REQUIRED": "请输入电话号码。",
+
+  "KAKAOTALK": "Kakaotalk",
+  "SKYPE": "Skype",
+  "WECHAT": "WeChat",
+  "LINE": "Line",
+  "QQ": "QQ",
+  "INPUT_KAKAOTALK_ID": "请输入Kakaotalk ID。",
+  "INPUT_SKYPE_ID": "请输入Skype ID。",
+  "INPUT_WECHAT_ID": "请输入微信ID。",
+  "INPUT_LINE_ID": "请输入行ID。",
+  "INPUT_QQ_ID": "请输入QQ ID。",
+
+  "CHOOSE_ANOTHER_MESSENGER": "请输入QQ ID。您可以选择其他信使。",
+
+  "ADD_FRIEND": "添加好友",
+
+  "QNA_PAGE_TITLE": "往来",
+  "QNA_PAGE_TEXT_1": "我们使用您的Messenger应用程序即时响应。",
+  "QNA_PAGE_TEXT_2": "あなたのメッセンジャーアプリに私たちを追加して、アシスタントを求めてください。",
+  "QNA_PAGE_SKYPE_DESC": "请单击Skype图标添加好友或复制Skype ID并添加我们。",
+  "QNA_PAGE_SKYPE_ID": "Skype ID: thruthesky",
+  "QNA_PAGE_WECHAT_DESC": "请扫描二维码或复制微信ID并将其粘贴到添加联系人。",
+  "QNA_PAGE_WECHAT_ID": "WeChat ID: thruthesky",
+  "QNA_PAGE_KAKAOTALK_DESC": "请点击Kakaotalk图标或复制Kakaotalk ID并添加我们。",
+  "QNA_PAGE_KAKAOTALK_ID": "Kakaotalk ID: thruthesky2",
+  "QNA_PAGE_LINE_DESC": "请复制线路ID并添加我们。",
+  "QNA_PAGE_LINE_ID": "Line ID: thruthesky",
+  "QNA_PAGE_QQ_DESC": "请复制QQ号码并加我们。",
+  "QNA_PAGE_QQ_ID": "QQ Number: 3483204772"
+
 }

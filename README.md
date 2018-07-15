@@ -469,27 +469,27 @@ env['reloadTag'] = (new Date).getTime();
 
 * @done katalkenglish-header.html 에서 mobileh-header 에서 engliash 전용 로고 작성.
 
-* 관리자가 회원 정보 수정에서, 학생의 class-software 와 id 를 수정 할 수 있도록 한다.
+* @done 관리자가 회원 정보 수정에서, 학생의 class-software 와 id 를 수정 할 수 있도록 한다.
 
-* 언어 변환. 우선 아래의 것만 json 파일에서 직접 수정한다.
-  * SELECT_CLASS_SOFTWARE
-  * SELECT_CLASS_SOFTWARE_ID
-  * CHOOSE_CLASS_SOFTWARE
-  * KAKAOTALK
-  * SKYPE
-  * WECHAT
-  * LINE
-  * ADD_[KAKAOTALK|WECHAT|...]
-  * INPUT_[KAKAOTALK|WECHAT|...]_ID
-  * QnA page
-  * PROFILE_UPDATED
-  * schedule table profile add messengers
+* @done 언어 변환. 우선 아래의 것만 json 파일에서 직접 수정한다.
+  * @done SELECT_CLASS_SOFTWARE
+  * @done SELECT_CLASS_SOFTWARE_ID
+  * @done CHOOSE_CLASS_SOFTWARE
+  * @done KAKAOTALK,SKYPE,WECHAT,LINE
+  * @done ADD_[KAKAOTALK|WECHAT|...] => ADD FRIEND
+  * @done INPUT_[KAKAOTALK|WECHAT|...]_ID
+  * @done QnA page
+  * @done PROFILE_UPDATED
+  * @done schedule table profile add messengers
 
 * 강사 수업 시간표아 예약된 수업 목록에서 각 메신저 별 친구 추가가 잘 되는지 확인.
-
-* @see git issues
+  * deeplink 등을 추가.
 
 * xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
+
+* @see other git issues
+
+#### TODO for openning
 
 * 오픈을 위한 마무리
   * https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
@@ -545,3 +545,9 @@ env['reloadTag'] = (new Date).getTime();
     * www.englishas.com 도 브랜치를 만든다.
     * 그리고 englishas.com 은 그냥 www.englishas.com 으로 해서, 설정을 할 수 있도록 한다.
     * www.englishas.com 자체도 로고 등을 변경하여 사용 할 수 있다.
+    * branch 별로 상담 카톡, 스카이프, 위쳇, 큐큐, 라인 아이디를 둔다.
+    * 질문 답변 페이지를 업데이트해야한다.
+  * 모든 강사에게 스카이프와 위쳇을 설치하라고 한다.
+    * 위쳇 QR 코드를 등록해야 한다.
+    * 라인과 큐큐는 나중에.
+    * 그리고 학생이 위쳇으로 수업하면, 선생님 사진 옆에, QR 마크를 화면에 표시해야 한다.

@@ -176,7 +176,12 @@ export class AdminUserInfoPage implements OnInit {
             block_free_class_until: u.block_free_class_until,
             timezone: u.timezone,
             domain: u.domain,
-            manager: u.manager
+            manager: u.manager,
+            skype: u.skype,
+            kakaotalk: u.kakaotalk,
+            wechat: u.wechat,
+            line: u.line,
+            qq: u.qq
         };
         this.show.loader.updateProfile = true;
         this.a.xapi.post(up).subscribe(re => {

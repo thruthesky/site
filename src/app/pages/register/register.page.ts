@@ -202,17 +202,18 @@ export class RegisterPage implements OnInit {
         }
         this.form.domain = this.a.site.getDomain();
 
-        if (!this.form.user_email || !this.form.user_email.length) {
-            return this.a.toast('EMAIL REQUIRED');
-        }
-        if (this.a.user.isLogout && (!this.form.user_pass || !this.form.user_pass.length)) {
-            return this.a.toast('PASSWORD REQUIRED');
-        }
+
         if (!this.form.name || !this.form.name.length) {
-            return this.a.toast('NAME REQUIRED');
+            return this.a.toast(this.a.t('NAME_REQUIRED'));
         }
         if (!this.form.display_name || !this.form.display_name.length) {
-            return this.a.toast('NICKNAME REQUIRED');
+            return this.a.toast(this.a.t('NICKNAME_REQUIRED'));
+        }
+        if (!this.form.user_email || !this.form.user_email.length) {
+            return this.a.toast(this.a.t('EMAIL_REQUIRED'));
+        }
+        if (this.a.user.isLogout && (!this.form.user_pass || !this.form.user_pass.length)) {
+            return this.a.toast(this.a.t('PASSWORD_REQUIRED'));
         }
         if (this.a.site.teacherTheme) {
             if (!this.month || !this.month.length) {
@@ -233,7 +234,7 @@ export class RegisterPage implements OnInit {
         //     return this.a.toast('Teacher must upload QR Mark...');
         // }
         if (!this.form.phone_number) {
-            return this.a.toast('PHONE NUMBER REQUIRED');
+            return this.a.toast(this.a.t('PHONE_NUMBER_REQUIRED'));
         }
         /**
          * If the site is katalkenglish.com, then it always uses kakaotalk
@@ -258,7 +259,7 @@ export class RegisterPage implements OnInit {
                     this.form.class_software = this.a.branch.info.class_software;
                 }
                 if (!this.form.class_software_id) {
-                    return this.a.toast('SELECT_CLASS_SOFTWARE_ID');
+                    return this.a.toast(this.a.t('INPUT_' + this.form.class_software + '_ID'));
                 }
             }
             if (!this.agree) {

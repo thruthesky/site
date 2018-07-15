@@ -128,7 +128,6 @@
   "GOTO_PAYMENT_HISTORY": "お支払い履歴ページへ移動",
   "TAKEN": "セッション",
   "HAD SESSIONS": " ",
-  "ADD KAKAO": "カカオフレンドを追加",
   "VIDEO": "ビデオ",
   "OPEN REVIEW": "コメント",
   "CURRICULUM VITAE": "出版",
@@ -518,7 +517,6 @@
   "VIDEO_RESERVE_TITLE": "ビデオ）予約方法",
   "VIDEO_RESERVE_DESC": "クラスを予約する方法を見てください。",
   "REDIRECTING": "リダイレクト...",
-  "ADD_KAKAOTALK": "友人を追加する ",
   "TEACHER_LIST_OPTION_BUTTON": "サーチ",
   "PAGE_NOT_FOUND_TITLE": "ページが見つかりません",
   "PAGE_NOT_FOUND_DESC": "あなたは間違ったルートにアクセスしています。 前のページに移動してください。",
@@ -629,6 +627,43 @@
   "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "上記の金額は、VAT＃VAT％を含む#usdドルから換算されます。",
   "RENMINBI": "人民元",
   "YEN": "円",
-  "LOADING_TEACHER_INFO_AND_SCHEDULE": "教師の情報とスケジュールを読み込む。"
+  "LOADING_TEACHER_INFO_AND_SCHEDULE": "教師の情報とスケジュールを読み込む。",
+
+
+
+
+  "NAME_REQUIRED": "名前を入力してください。",
+  "NICKNAME_REQUIRED": "ニックネームを入力してください。",
+  "PHONE_NUMBER_REQUIRED": "電話番号を入力してください。",
+
+  "KAKAOTALK": "Kakaotalk",
+  "SKYPE": "Skype",
+  "WECHAT": "WeChat",
+  "LINE": "Line",
+  "QQ": "QQ",
+  "INPUT_KAKAOTALK_ID": "カカオトークIDを入力してください。",
+  "INPUT_SKYPE_ID": "Skype IDを入力してください。",
+  "INPUT_WECHAT_ID": "WeChat IDを入力してください。",
+  "INPUT_LINE_ID": "行IDを入力してください。",
+  "INPUT_QQ_ID": "QQ IDを入力してください。",
+
+  "CHOOSE_ANOTHER_MESSENGER": "QQ IDを入力してください。別のメッセンジャーを選択できます。",
+
+  "ADD_FRIEND": "友人を追加する",
+
+  "QNA_PAGE_TITLE": "連絡先",
+  "QNA_PAGE_TEXT_1": "あなたのメッセンジャーアプリを即座に活発に使用します。",
+  "QNA_PAGE_TEXT_2": "あなたのメッセンジャーアプリに私たちを追加して、アシスタントを求めてください。",
+  "QNA_PAGE_SKYPE_DESC": "Skypeアイコンをクリックして、Skype IDをコピーまたは追加してください。",
+  "QNA_PAGE_SKYPE_ID": "Skype ID: thruthesky",
+  "QNA_PAGE_WECHAT_DESC": "QRコードをスキャンしたり、WeChat IDをコピーして連絡先を追加してください。",
+  "QNA_PAGE_WECHAT_ID": "WeChat ID: thruthesky",
+  "QNA_PAGE_KAKAOTALK_DESC": "カカオトークアイコンをクリックするか、カカオトークIDをコピーして追加してください。",
+  "QNA_PAGE_KAKAOTALK_ID": "Kakaotalk ID: thruthesky2",
+  "QNA_PAGE_LINE_DESC": "ラインIDをコピーして追加してください。",
+  "QNA_PAGE_LINE_ID": "Line ID: thruthesky",
+  "QNA_PAGE_QQ_DESC": "QQ番号をコピーして私たちを追加してください。",
+  "QNA_PAGE_QQ_ID": "QQ Number: 3483204772"
+
 
 }

@@ -1,2 +1,17 @@
 @import '../../../theme/variables-katalkenglish.scss';
 @import '../../../theme/vars.scss';
+
+
+
+.wechat {
+    .icon {
+        img {
+            width: 128px;
+        }
+    }
+    .text {
+        img {
+            width: 24px;
+        }
+    }
+}

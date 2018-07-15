@@ -72,6 +72,7 @@ export interface USER_REGISTER extends REQUEST {
     user_pass?: string;
     user_login?: string;
     user_type?: '' | 'S' | 'T';
+    user_registered?: string;
     name?: string;
     fullname?: string;
     display_name?: string;
