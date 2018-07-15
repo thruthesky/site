@@ -2055,4 +2055,21 @@ export class AppService {
         }
         return Object.keys( obj );
     }
+
+    /**
+     * Adds friend to user's Messenger
+     *
+     * @param o options
+     */
+    addMessenger(o) {
+
+        if ( o.class_software === KAKAOTALK ) {
+            if ( o.url !== void 0 ) {
+                if ( this.isMobileView() ) {
+                    window.open(o.url, '_blank');
+                }
+            }
+        }
+
+    }
 }

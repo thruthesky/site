@@ -479,10 +479,14 @@ env['reloadTag'] = (new Date).getTime();
   * SKYPE
   * WECHAT
   * LINE
-  * INPUT_SKYPE_ID
+  * ADD_[KAKAOTALK|WECHAT|...]
+  * INPUT_[KAKAOTALK|WECHAT|...]_ID
   * QnA page
   * PROFILE_UPDATED
   * schedule table profile add messengers
+
+* 강사 수업 시간표아 예약된 수업 목록에서 각 메신저 별 친구 추가가 잘 되는지 확인.
+
 * @see git issues
 
 * xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.

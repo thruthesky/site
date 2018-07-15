@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService, KEY_SCHEDULES, SHARE_SESSION_LIST } from '../../providers/app.service';
 import { ModalData, ModalService } from '../../providers/modal/modal.service';
+import { KAKAOTALK } from '../../providers/defines';
 
 @Component({
   selector: 'session-list-component',
@@ -39,9 +40,12 @@ export class SessionListComponent implements OnInit {
     loadingRefundRequest = false;
     loadingOnSearch = true;
 
+    myClassSoftware = '';
+
     constructor(public a: AppService,
                 public modal: ModalService
     ) {
+        this.myClassSoftware = this.a.lmsInfo('user.class_software');
 
         if ( this.a.isLogout ) {
             this.a.open('login');
@@ -314,11 +318,25 @@ export class SessionListComponent implements OnInit {
 
     }
 
-    onClickKakaoQRMarkString(url) {
-        if ( !this.a.isMobileView() ) {
-            return;
-        }
-        window.open(url, '_blank');
-    }
 
+    /**
+     * It is called when student clicks on teacher's messenger ID to add click.
+     *
+     * @todo Try to do deeplink for messenger apps.
+     */
+    onClickTeacherMessengerID( book ) {
+        /**
+         * Teacher messenger ID which is the same kind of student's messenger.
+         */
+        const messengerId = this.my_teachers[book.idx_teacher][this.myClassSoftware];
+        const o = {
+            class_software: this.myClassSoftware,
+            class_software_id: messengerId
+        };
+        if ( this.myClassSoftware === KAKAOTALK ) {
+            const kakaotalkQrString = this.my_teachers[book.idx_teacher].kakao_qrmark_string;
+            o['url'] = kakaotalkQrString;
+        }
+        this.a.addMessenger(o);
+    }
 }

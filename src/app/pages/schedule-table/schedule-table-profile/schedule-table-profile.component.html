@@ -4,9 +4,9 @@
             <div [attr.data-class-software]="messenger" *ngIf=" myClassSoftware == messenger ">
                 <button class="add-friend-button" (click)=" onClickAddMessenger( messenger ) ">
                     <div class="icon">
-                        <img src="assets/img/add-friend-{{ messenger }}.png">
+                        <img src="../../../../assets/img/messengers/{{ messenger }}.png">
                     </div>
-                    <div class="text">{{ 'ADD ' + messenger | t }}</div>
+                    <div class="text">{{ 'ADD_' + messenger | t }}</div>
                 </button>
             </div>
         </ng-container>
