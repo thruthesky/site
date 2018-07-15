@@ -61,6 +61,7 @@ context('EnglishAs Register', () => {
                 cy.get("[name='phone_number'").type(chance.phone());
                 cy.get("[data-role='choose-another-messenger-app']").click();
                 cy.get('.radio-' + messenger).check();
+                cy.get("[data-selected-class-software='"+messenger+"']")
                 cy.get("[name='class_software_id']").type(chance.string({
                     length: 8,
                     pool: 'abcdefgh1324'

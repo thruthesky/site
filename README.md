@@ -77,10 +77,13 @@ npm i
 ### Test
 
 ```` bash
-npm run e2e                         ; base url is localhost:4200
-npm run e2e:gitpage                 ; base url is gitpage
+npm run e2e                         ; cypress open base url is localhost:4200
+npm run e2e:headless                ; cypress run headless with all domain. (*) This is preferred to run all the tests.
+npm run e2e:remote                  ; cypress open with real server urls.
+npm run e2e:remote:headless         ; cypress run headless with real server urls. (*) This is preferred to run.
 npm run e2e:katalk                  ; base url is www.katalkenglish.com
 npm run e2e:englishas               ; base url is www.englishas.com
+npm run e2e:gitpage                 ; cypress open with github page. only kakaotalk theme will be tested.
 ````
 
 ## Run
@@ -455,15 +458,18 @@ env['reloadTag'] = (new Date).getTime();
 
 * @done 학생 회원 가입, 메신저 아이디 변경 테스트.
 
-* 강사는 회원 가입/수정에서
+* @done 강사는 회원 가입/수정에서
   스카이프, 위쳇, 라인, 카톡 아이디가 모두 다 필요 함.
   wp_users.skype, wechat, kakaotalk, line 필드를 만들고 조정해야 함.
 
-* 강사 프로필에서, 학생이 사용하는 메신저에 따른 메신저 아이콘과 아이디를 표시.
+* @done 강사 프로필에서, 수업 예약 학생이 사용하는 메신저에 따른 메신저 아이콘과 아이디를 표시.
+* @reject 강사 이력서에는 모든 메신저 정보를 표시한다. (학생이 혼동할 수 있음)
 * 학생이 보는 수업 시간표에서, 학생이 사용하는 메신저에 따른 강사의 메신저 아이콘과 아이디를 표시.
 * 강사가 보는 수업 시간표에서, 학생이 이용하는 메신저의 아이콘과 아이디 표시.
 
 * katalkenglish-header.html 에서 mobileh-header 에서 engliash 전용 로고 작성.
+
+* 관리자가 회원 정보 수정에서, 학생의 class-software 와 id 를 수정 할 수 있도록 한다.
 
 * 언어 변환. 우선 아래의 것만 json 파일에서 직접 수정한다.
   * SELECT_CLASS_SOFTWARE
@@ -490,9 +496,34 @@ env['reloadTag'] = (new Date).getTime();
   * 테스트. 모든 페이지 다 테스트. 회원가입, 글 읽기, 수업 예약, 예약 확인, 취소, 즉시예약 등.
   * 디자인.
     * 회원 가입/수정.
+      * 회원 정보를 업데이트하면, profile updated 디자인.
+
   * 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
     * 학생의 경우, 기존의 kakaotalk_id 를 class_software=kakaotalk, class_software_id=카톡아이디로 복사.
     * 강사의 경우, kakaotalk 으로 변경.
+
+  * 각종 테스트
+    * 강사 검색이 각 메신저 아이디로 되는지 확인.
+    * 관리자 페이지에서 lms.admin_query() 를 많이 하는데, 그 결과가 기존의 kakaotalk_id 에서
+      강사는 5개의 메신저,
+      학생은 class_software, class_software_id 로 변경되었다.
+      기존 코드가 올바로 변경이 잘 되었는지, 확인 해 볼 것.
+    * 강사 또는 학생이, class software id 를 변경하는 경우, lms_reservation 테이블의 class_id 에도 모두 변경이되는지 확인해야 한다.
+      이것은 학생이, 이중 아이디를 만들어 무료 체험을 무한대로 하지 못하게 막으려는 것이다.
+      * 하지만 문제 발생. 스카이프와 카톡아이디가 다른데, 각각 스카이프와 카톡으로 회원가입하면, 여러 차례 무료 체험 수업을 들을 수 있다.
+        * 회원 메일 주소로도 같이 체크를 할 수 있도록 이슈를 발행한다.
+
+* 오픈.
+  * 중요: 오픈 절차를 따라야 함. 그렇지 않으면 실패. 큰 문제 발생.
+  * 먼저, 아래와 DB 패치를 해야한다. 이것은 기존의 kakaotalk_id 를 학생의 class software /id 와 강사의 kakaotalk 필드에 카톡 아이디 정보를 변경하는 것이다.
+    패치 방법:
+      cd wp-content/plugins/xapi-2/lms/patch
+      php class-software.php
+  * 그리고 kakaotalk_id 필드를 kakaotalk_id_backup 으로 이름을 변경한다.
+    SQL 쿼리:
+      ALTER TABLE `wp_users` CHANGE `kakaotalk_id` `kakaotalk_id_backup` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+
+    이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
 
 * 마무리 한 다음. English As 오픈 후.
   * 보다 편리한 언어 변환. 구글 drive 를 사용하는 것보다 직접 만들면 더 편리함. 직접 만드는 것이 좋을 것 같음.
