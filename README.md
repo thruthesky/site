@@ -482,10 +482,11 @@ env['reloadTag'] = (new Date).getTime();
   * @done PROFILE_UPDATED
   * @done schedule table profile add messengers
 
-* 강사 수업 시간표아 예약된 수업 목록에서 각 메신저 별 친구 추가가 잘 되는지 확인.
+* @done 강사 수업 시간표아 예약된 수업 목록에서 각 메신저 별 친구 추가가 잘 되는지 확인.
   * deeplink 등을 추가.
 
-* xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
+* xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함
+  * 참고로 학생인데, 도메인이 없으면 www.katalkenglish.com 이 도메인이 되도록 패치를 한다.
 
 * @see other git issues
 
