@@ -1553,10 +1553,13 @@ export class AppService {
             /**
              * If student,
              */
-            if (this.isMobile()) {
-                document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
-            } else {
-                window.open(this.kakaoUrls.student_kakaoplus_url);
+            const myClassSoftware = this.lmsInfo('user.class_software');
+            if (myClassSoftware === KAKAOTALK) {
+                if (this.isMobile()) {
+                    document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
+                } else {
+                    window.open(this.kakaoUrls.student_kakaoplus_url);
+                }
             }
             this.open('qna');
         }
@@ -1571,7 +1574,7 @@ export class AppService {
      */
     studentAddManagerMessenger(messenger) {
         let o = {};
-        if (messenger === KAKAOTALK ) {
+        if (messenger === KAKAOTALK) {
             o = {
                 class_software: messenger,
                 url: this.kakaoUrls.student_kakaoplus_deeplink
@@ -2065,11 +2068,11 @@ export class AppService {
 
 
     //
-    keys( obj ): Array<string> {
-        if ( ! obj ) {
+    keys(obj): Array<string> {
+        if (!obj) {
             return [];
         }
-        return Object.keys( obj );
+        return Object.keys(obj);
     }
 
     /**
@@ -2079,9 +2082,9 @@ export class AppService {
      */
     addMessenger(o) {
 
-        if ( o.class_software === KAKAOTALK ) {
-            if ( o.url !== void 0 ) {
-                if ( this.isMobileView() ) {
+        if (o.class_software === KAKAOTALK) {
+            if (o.url !== void 0) {
+                if (this.isMobileView()) {
                     window.open(o.url, '_blank');
                 }
             }
@@ -2090,7 +2093,7 @@ export class AppService {
 
     get branch() {
         let defaultClassSoftware = DEFAULT_CLASS_SOFTWARE;
-        if ( this.info && this.info.branch !== void 0 && this.info.branch.class_software !== void 0 ) {
+        if (this.info && this.info.branch !== void 0 && this.info.branch.class_software !== void 0) {
             defaultClassSoftware = this.info.branch.class_software;
         }
         return {
