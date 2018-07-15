@@ -2102,7 +2102,7 @@ export class AppService {
             n = parseInt(n, 10);
         }
         if (n < 1000) {
-            return n;
+            return Math.round(n);
         } else if (n < 1000000) {
             return (n / 1000).toPrecision(3) + 'K';
         } else if (n < 1000000000) {
