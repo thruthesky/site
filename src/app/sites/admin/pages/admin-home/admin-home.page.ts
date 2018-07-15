@@ -61,7 +61,7 @@ export class AdminHomePage implements OnInit {
     loadAdminStatistics() {
 
         this.a.lms.admin_statistics({ date_begin: this.stat_date_begin, date_end: this.stat_date_end }).subscribe(res => {
-            // console.log('admin statistics: ', res);
+            console.log('admin statistics: ', res);
             this.stats = res;
         }, e => this.a.toast(e));
     }
