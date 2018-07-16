@@ -326,12 +326,6 @@ main{
         cursor: pointer;
     }
 }
-
-$skype-color:#00aff0;
-$wechat-color:#7bb32e;
-$line-color:#00c300;
-$qq-color:#000;
-$kakaotalk-color:#FCD411;
 .student-class-software-id{
     input{
         padding: .75em 1em;
@@ -340,35 +334,26 @@ $kakaotalk-color:#FCD411;
         border: 1px solid rgba(125,125,125,0.4);
         text-align: center;
     }
-    svg,
     img{
-        height: 5em;
-        width: 5em;
-    }
-    .desc-input-skype-id{
-        svg{
-            color: $skype-color;
+        height: 4em;
+        width: 4em;
+        @media (min-width:$md) {
+            height: 5em;
+            width: 5em;
         }
     }
-    .desc-input-wechat-id{
-        svg{
-            color: $wechat-color;
-        }
-    }
-    .desc-input-line-id{
-        svg{
-            color: $line-color;
-        }
-    }
+
 
     .input-software-id{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 2em 0;
+        @media (min-width:$md) {
+            margin: 2em 0;   
+        }
         &>div{
-            div:last-child{
-                margin: .5em;
+            div{
+                margin: 1em 0;
             }
         }
         .app-button{
@@ -382,15 +367,28 @@ $kakaotalk-color:#FCD411;
 }
 
 .update-class-software{
+    .select-class-software{
+        &>div{
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+    margin: auto;
+    width: 80%;
     label{
+        position: relative;
         display: inline-block;
-        padding: 2em;
+        margin: .5em;
+        padding: .5em 1em;
+        font-size: .85em;
+        @media (min-width:$md){
+            margin: 0;
+            padding: 2em
+        }
         cursor: pointer;
 
         input{
-            position: relative;
-            top:-.12em;
-            margin-right: .5em;
+            margin-bottom: .75em;
         }
     }
 }

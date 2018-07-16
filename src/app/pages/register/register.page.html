@@ -175,26 +175,41 @@
                             <label>
                                 <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype"
                                     [checked]="form.class_software">
+                                <div>
+                                    <img src="../../../assets/img/messengers/skype.png">
+                                </div>
                                 <span>{{ 'SKYPE' | t }}</span>
                             </label>
                             <label>
                                 <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.kakaotalk"
                                     [checked]="form.class_software">
+                                <div>
+                                    <img src="../../../assets/img/messengers/kakaotalk.png">
+                                </div>
                                 <span>{{ 'KAKAOTALK' | t }}</span>
                             </label>
                             <label>
                                 <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.wechat"
                                     [checked]="form.class_software">
+                                <div>
+                                    <img src="../../../assets/img/messengers/wechat.png">
+                                </div>
                                 <span>{{ 'WECHAT' | t }}</span>
                             </label>
                             <label>
                                 <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.line"
                                     [checked]="form.class_software">
+                                <div>
+                                    <img src="../../../assets/img/messengers/line.png">
+                                </div>
                                 <span>{{ 'LINE' | t }}</span>
                             </label>
                             <label>
                                 <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.qq"
                                     [checked]="form.class_software">
+                                <div>
+                                    <img src="../../../assets/img/messengers/qq.png">
+                                </div>
                                 <span>{{ 'QQ' | t }}</span>
                             </label>
 
@@ -204,9 +219,9 @@
                             <div>
                                 <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                             </div>
-                        </div>
-                        <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
-                            {{ 'CANCEL' | t }}
+                            <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
+                                {{ 'CANCEL' | t }}
+                            </div>
                         </div>
                     </div>
                 </div>
