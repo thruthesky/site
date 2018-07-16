@@ -133,8 +133,8 @@
     <div id="overall-reservations-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
         <div class="bar-graph-header">
             <h2 class="bar-graph-title">
-                All Reservations
-                <span>{{(stats['total_duration_of_reservations']/60| number:'1.0-0')}}hrs {{stats['total_point_of_reservation']/stats['total_duration_of_reservations'] | number:'1.0-0'}}pts/min</span>
+                Overall Reservations
+                <small>- {{(stats['total_duration_of_reservations']/60| number:'1.0-0')}}hrs {{stats['total_point_of_reservation']/stats['total_duration_of_reservations'] | number:'1.0-0'}}pts/min</small>
             </h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 <span><b>Total:</b> {{ stats.total_no_of_reservations | number }}</span>
@@ -158,7 +158,9 @@
 
     <div id="withcenter-teachers-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations_of_withcenter_teachers']  ">
         <div class="bar-graph-header">
-            <h2 class="bar-graph-title">Reservations Of Withcenter Teachers  {{(stats['total_duration_of_withcenter_teachers']/60| number:'1.0-0')}}hrs {{stats['total_point_of_reservation_for_withcenter_teachers']/stats['total_duration_of_withcenter_teachers'] | number:'1.0-0'}}pts/min</h2>
+            <h2 class="bar-graph-title">Reservations Of Withcenter Teachers  
+                <small>- {{(stats['total_duration_of_withcenter_teachers']/60| number:'1.0-0')}}hrs {{stats['total_point_of_reservation_for_withcenter_teachers']/stats['total_duration_of_withcenter_teachers'] | number:'1.0-0'}}pts/min</small>
+            </h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 <span><b>Total:</b> {{ stats.total_no_of_reservations_of_withcenter_teachers | number }} (Percentage: {{ stats.total_no_of_reservations_of_withcenter_teachers / stats.total_no_of_reservations * 100 | number }}%)</span>
                 <span> <b>Points:</b> {{ stats.total_point_of_reservation_for_withcenter_teachers | number }}</span>
@@ -183,7 +185,9 @@
 
     <div id="homebased-teachers-graph" class="bar-graph-container"  *ngIf=" stats && stats['no_of_reservations'] ">
         <div class="bar-graph-header">
-            <h2 class="bar-graph-title">Reservations Of Homebased Teachers {{ (stats['total_duration_of_reservations']-stats['total_duration_of_withcenter_teachers'])/60 | number:'1.0-0'}}hrs {{(stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers)/(stats['total_duration_of_reservations']-stats['total_duration_of_withcenter_teachers']) | number:'1.0-0'}}pts/min</h2>
+            <h2 class="bar-graph-title">Reservations Of Homebased Teachers 
+                <small>- {{ (stats['total_duration_of_reservations']-stats['total_duration_of_withcenter_teachers'])/60 | number:'1.0-0'}}hrs {{(stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers)/(stats['total_duration_of_reservations']-stats['total_duration_of_withcenter_teachers']) | number:'1.0-0'}}pts/min</small>
+            </h2>
             <div class="bar-graph-subtitle" *ngIf=" stats ">
                 <span><b>Total:</b> {{ stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers | number }} ({{ (stats.total_no_of_reservations - stats.total_no_of_reservations_of_withcenter_teachers) / stats.total_no_of_reservations * 100 | number }}%)</span>
                 <span><b>Points:</b> {{ stats.total_point_of_reservation - stats.total_point_of_reservation_for_withcenter_teachers | number }}</span>

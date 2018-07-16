@@ -300,9 +300,10 @@ $por-homebased: #FFBF00;
         position: relative;
         .teacher-share-mark {
             position: absolute;
-            left: 0;
+            left: 1em;
             top: 0;
             color: red;
+            font-weight: bold;
         }
     }
 
@@ -365,7 +366,7 @@ $por-homebased: #FFBF00;
         font-size: .8em;
         border-spacing: 0;
         border-radius: 2px;
-        border: 1px solid rgba(125, 125, 125, 0.3);
+        border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
         @media (min-width:$md) {
             table-layout: fixed;   
@@ -373,8 +374,8 @@ $por-homebased: #FFBF00;
         th,
         td{
             padding: .75em 1em;
-            border-bottom: 1px solid rgba(125, 125, 125, 0.3);
-            border-right: 1px solid rgba(125, 125, 125, 0.3);
+            border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+            border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;
             &:last-child{
                 border-right: 0;
@@ -392,12 +393,12 @@ $por-homebased: #FFBF00;
     &-container{
         margin-bottom: 1.75em;
         border-radius: 2px;
-        border:1px solid rgba(125, 125, 125, 0.3);
+        border:1px solid rgba(125, 125, 125, 0.2);
     }
     &-header{
         display: flex;
         flex-direction: column;
-        padding: 1.25em;
+        padding: .8em 1.25em;
         border-bottom: 1px solid rgba(125, 125, 125, 0.2);
         background: #eee;
         @media (min-width:$md) {
@@ -418,7 +419,7 @@ $por-homebased: #FFBF00;
                 @media (min-width:$md) {
                     display: inline-block;
                 }
-                margin-right: 3em;
+                margin-right: 1em;
                 &:last-child{
                     margin: 0;
                 }

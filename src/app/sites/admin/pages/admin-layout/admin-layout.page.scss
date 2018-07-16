@@ -89,6 +89,9 @@ header{
             .refund-request {
                 position: relative;
                 .badge {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     position: absolute;
                     height: 20px;
                     width: 20px;
@@ -97,7 +100,6 @@ header{
                     right: 0;
                     background: red;
                     border-radius: 50%;
-                    line-height: 5px;
                 }
             }
         }
