@@ -162,7 +162,7 @@ export class SessionListComponent implements OnInit {
         }
         this.loadingOnSearch = true;
         this.a.lms.session_search(this.request()).subscribe(re => {
-            // console.log('Result of class_search(): ', re);
+            console.log('Result of class_search(): ', re);
             this.re = re;
             this.re['total_session_refunded'] = this.a.toInt(this.re['total_session_refunded']);
             this.re['total_session_refund_in_progress'] = this.a.toInt(this.re['total_session_refund_in_progress']);
