@@ -33,11 +33,14 @@
 
 
 <section id="statistics-graph">
-    <form (ngSubmit)=" loadAdminStatistics() ">
-        <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
-        <input type="number" name="date_end" [(ngModel)]="stat_date_end">
-        <button type="submit">SUBMIT</button>
-    </form>
+    <div class="form">
+        <span>  <b>No of Point Refund:</b> {{reports.no_of_point_refund_request}}</span>
+        <form (ngSubmit)=" loadAdminStatistics() ">
+            <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
+            <input type="number" name="date_end" [(ngModel)]="stat_date_end">
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
 
     <div class="total-point-share" *ngIf="stats">
         <h2>
@@ -45,11 +48,11 @@
         </h2>
         <table>
             <tr>
-                <th></th>
-                <th>Total</th>
+                <th width="100"></th>
+                <th width="100">Total</th>
                 <th>%</th>
                 <th>Share</th>
-                <th>Share After Deduction</th>
+                <th width="170">Share After Deduction</th>
                 <th>USD</th>
                 <th>PHP</th>
             </tr>
@@ -58,7 +61,7 @@
                 <th>{{ stats.total_point_of_reservation | number }}</th>
                 <td>{{stats.office_percent}}%</td>
                 <td>{{stats.office_share}}</td>
-                <td>{{stats.office_share_after_deduction | number }}</td>
+                <td width="170">{{stats.office_share_after_deduction | number }}</td>
                 <td>{{stats.office_share_in_usd | number }}</td>
                 <td>{{stats.office_share_in_php | number }}</td>
             </tr>
@@ -88,10 +91,10 @@
         </h2>
         <table>
             <tr>
-                <th></th>
+                <th width="200"></th>
                 <th>%</th>
                 <th>Share</th>
-                <th>Share After Deduction</th>
+                <th width="170">Share After Deduction</th>
                 <th>USD</th>
                 <th>PHP</th>
             </tr>
@@ -107,7 +110,7 @@
                 <th>Teacher Withcenter</th>
                 <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
                 <td>{{stats.teacher_share_withcenter}}</td>
-                <td>{{stats.teacher_share_withcenter_after_deduction | number}}</td>
+                <td width="170">{{stats.teacher_share_withcenter_after_deduction | number}}</td>
                 <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
                 <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
             </tr>

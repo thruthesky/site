@@ -311,33 +311,40 @@ $por-homebased: #FFBF00;
         white-space: pre-line;
     }
 
-
-
-    form{
+    .form{
+        display: flex;
+        align-items: center;
         margin: 2em 0;
-        text-align: center;
-        input{
-            margin-right: .5em;
-            padding: .6em .5em;
-            font-size: .8em;
-            @media (min-width:$md) {
-                margin-right: 2em;
-                padding: .6em 1em;
-                font-size: .9em;   
-            }
-            border-radius: 2px;
-            border: 1px solid rgba(125,125,125,0.4);
+        span{
+            position: relative;
+            top: .125em;
+            display: inline-block;
+            margin-right: 2em;
         }
-        button{
-            margin-top: 1em;
-            text-align: center;
-            padding: .75em 3em;
-            border: 0;
-            border-radius: 2px;
-            background: #0867B0;
-            color: #fff;
-            @media (min-width:$md) {
-                margin: 0;
+        form{
+            input{
+                margin-right: .5em;
+                padding: .6em .5em;
+                font-size: .8em;
+                @media (min-width:$md) {
+                    margin-right: 2em;
+                    padding: .6em 1em;
+                    font-size: .9em;   
+                }
+                border-radius: 2px;
+                border: 1px solid rgba(125,125,125,0.4);
+            }
+            button{
+                margin-top: 1em;
+                text-align: center;
+                padding: .75em 3em;
+                border: 0;
+                border-radius: 2px;
+                background: #0867B0;
+                color: #fff;
+                @media (min-width:$md) {
+                    margin: 0;
+                }
             }
         }
     }
@@ -360,6 +367,9 @@ $por-homebased: #FFBF00;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.3);
         border-bottom: 0;
+        @media (min-width:$md) {
+            table-layout: fixed;   
+        }
         th,
         td{
             padding: .75em 1em;
