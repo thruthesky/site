@@ -260,10 +260,17 @@
                 <span class="no">{{ stat.teacherReservation[teacher] | number }}</span>
             </span>
         </div>
+        <div class="teacher-points">
+            <b>No of reservations for each teacher: </b>
+            <span class="teacher-point" *ngFor="let teacher of stat.nameOfTeacherReservation">
+                <span class="teacher"  matTooltip="{{ teacher }}">{{ a.shortName(teacher,7) }}<ng-container *ngIf="teacher.length>7">...</ng-container></span>
+                <span class="no" matTooltip="{{stat.teacherPoints[teacher]}}">{{ a.shortNumber(stat.teacherPoints[teacher]) }}</span>
+            </span>
+        </div>
 
 
         <div class="student-reservations">
-            <b>No of reservations for each student: </b>
+            <b>No of Points for each student: </b>
             <span class="student-reservation" *ngFor="let student of stat.nameOfStudentReservation">
                 <span class="student"  matTooltip="{{ student }}">{{ a.shortName(student,7) }}<ng-container *ngIf="student.length>7">...</ng-container></span>
                 <span class="no">{{ stat.studentReservation[student] | number }}</span>

@@ -295,6 +295,24 @@ $por-homebased: #FFBF00;
     }
 }
 #statistics-graph{
+
+    .teacher-share {
+        position: relative;
+        .teacher-share-mark {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: red;
+        }
+    }
+
+
+    mat-tooltip-component > .mat-tooltip {
+        white-space: pre-line;
+    }
+
+
+
     form{
         margin: 2em 0;
         text-align: center;
@@ -376,7 +394,7 @@ $por-homebased: #FFBF00;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            line-height: 0;
+            //line-height: 0;
         }
         .bar-graph-title{
             margin: 0;

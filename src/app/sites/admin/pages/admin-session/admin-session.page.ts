@@ -14,6 +14,7 @@ interface STAT {
     dailyPointTotal: number;
     nameOfTeacherReservation: string[];
     teacherReservation: {};
+    teacherPoints: {};
     nameOfStudentReservation: string[];
     studentReservation: {};
     nameOfTeacherRefundRequest: string[];
@@ -139,6 +140,7 @@ export class AdminSessionPage implements OnInit {
             dailyPointTotal: 0,
             nameOfTeacherReservation: [],
             teacherReservation: {},
+            teacherPoints: {},
             nameOfStudentReservation: [],
             studentReservation: {},
             nameOfTeacherRefundRequest: [],
@@ -170,7 +172,7 @@ export class AdminSessionPage implements OnInit {
         }
         sql += this.getOrderBy();
         sql += ` LIMIT ${this.form.limit}`;
-        console.log(sql);
+        // console.log('onSubmit', sql);
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
@@ -446,8 +448,10 @@ export class AdminSessionPage implements OnInit {
             if (session.teacher) {
                 if (this.stat.teacherReservation[session.teacher.display_name]) {
                     this.stat.teacherReservation[session.teacher.display_name]++;
+                    this.stat.teacherPoints[session.teacher.display_name] += parseInt(session.point, 10);
                 } else {
                     this.stat.teacherReservation[session.teacher.display_name] = 1;
+                    this.stat.teacherPoints[session.teacher.display_name] = parseInt(session.point, 10);
                 }
 
                 if (session.refund_reject_at !== '0') {
@@ -504,7 +508,7 @@ export class AdminSessionPage implements OnInit {
         this.stat.nameOfTeacherRefundReject = Object.keys(this.stat.teacherRefundReject);
         this.stat.nameOfTeacherRefundDone = Object.keys(this.stat.teacherRefundDone);
 
-        // console.log('stat:', this.stat);
+        console.log('stat:', this.stat);
     }
 
     sanitize() {
