@@ -339,4 +339,31 @@ export class SessionListComponent implements OnInit {
         }
         this.a.addMessenger(o);
     }
+
+
+
+    onClickPreviewBook(book) {
+
+        const innerHTML = `
+            <div>Book Information</div>
+            <div>Name: ${book.student_name}</div>
+            <div>Book Used: ${book.book_used}</div>
+            <div>Next Book: ${book.book_next}</div>
+        `;
+
+        const data: ModalData = {
+            title: this.a.t('BOOK INFO'),
+            content: innerHTML
+        };
+        this.modal.confirm(data).subscribe(result => {
+            if ( result ) {
+                this.a.lms.session_refund(book['idx']).subscribe(() => {
+                    book['refund_done_at'] = 1;
+                }, e => this.a.toast(e));
+            }
+        });
+
+    }
+
+
 }

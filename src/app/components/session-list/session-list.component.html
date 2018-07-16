@@ -176,7 +176,7 @@
     <div *ngIf=" books.length ">
         <div class="container-fluid">
 
-            <div class="header-student row"  *ngIf="a.isStudent">
+            <div class="row" [ngClass]="{'header-student': a.isStudent, 'header-teacher': a.isTeacher}">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <div>{{ 'TEACHER' | t}}</div>
                 </div>
@@ -197,7 +197,7 @@
                 </div>
                 <div class="col-2 col-md-2" *ngIf=" future ">
                     <div>
-                        {{ 'ADD_' +  myClassSoftware | t }}
+                        {{ 'ADD_FRIEND' | t }}
                     </div>
                 </div>
                 <div class="col-2 col-md-1" *ngIf="displayPoint">
@@ -209,41 +209,6 @@
                     </ng-container>
                 </div>
             </div>
-
-            <div class="header-teacher row" *ngIf="a.isTeacher">
-                <div class="col-3 col-md-1" *ngIf="a.isStudent">
-                    <div>{{ 'TEACHER' | t}}</div>
-                </div>
-                <div class="col-3 col-md-2" *ngIf="a.isTeacher">
-                    <div>{{ 'STUDENT' | t}}</div>
-                </div>
-                <div class="col-2 col-md-1" *ngIf="a.isTeacher">
-                    <div>{{ 'CLASS NO' | t}}</div>
-                </div>
-                <div class="col-2 col-md-1" *ngIf="displayDate">
-                    <div>{{ 'DATE' | t}}</div>
-                </div>
-                <div class="col-2 col-md-1">
-                    <div>{{ 'TIME' | t}}</div>
-                </div>
-                <div class="col-1 col-md-1">
-                    <div>{{ 'minute short' | t}}</div>
-                </div>
-                <div class="col-2 col-md-2" *ngIf=" future ">
-                    <div>
-                        {{ a.ln.ADD_FRIEND }}
-                    </div>
-                </div>
-                <div class="col-2 col-md-1" *ngIf="displayPoint">
-                    <div>{{ 'POINT' | t}}</div>
-                </div>
-                <div class="sm-hide col-2 col-md-3">
-                    <ng-container *ngIf=" a.isStudent && past ">
-                        <div> {{ 'RESULT' | t}}</div>
-                    </ng-container>
-                </div>
-            </div>
-
             <div class="data row" [class.data-ie]="a.isIeEdge()" *ngFor="let book of books; let i = index; let o = odd; let e = even">
                 <div class="col-3 col-md-1" *ngIf="a.isStudent">
                     <section class="teacher-photo">
