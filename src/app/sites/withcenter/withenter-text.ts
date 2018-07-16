@@ -935,7 +935,7 @@ This Agreement will be effective from June 20, 2018.`,
         jp: `追加の説明を見る`
     },
     how_to_register_business_in_korea_desc: {
-        ko: `참고로 사업자 등록과 통신판매업 신고 번호는 누구나 쉽게 취득 할 수 있습니다. 개인의 경우, 세무서에 가서 그냥 집 주소로 전화영어, 화상영어, 온라인영어와 같이 등록을 해 달라고 하시면됩니다. 그리고 통신판매업 신고를 어디서 하는지 물어보시면됩니다. 통신판매업신고를 하실 때, 서버와 도메인이 아직 없는 상태이므로 나중에 따로 등록을 한다고 말씀을 하시면됩니다. 만약 통신판매신고를 할 때, 서버 도메인과 소재지를 묻는다면 아래의 도메인을 입력하시고, SSL 및 호스팅 비용을 납부하시면, 가맹사 매니저 페이지에서 확인을 할 수 있습니다. 그 정보로 다시 신고 하시면 됩니다. 도메인은 홈페이지 주소입니다. 직접 구매한 도메인을 입력하신 경우, 평일 기준 약 24시간이 걸립니다. 가맹사가 직접 도메인을 www.hosting.kr 에서 1년 1만원에 구매하신 다음 본사로 알려주시면 됩니다.`,
+        ko: `참고로 사업자 등록과 통신판매업 신고 번호는 누구나 쉽게 취득 할 수 있습니다. 개인의 경우, 세무서에 가서 그냥 집 주소로 전화영어 또는 화상영어 또는 온라인영어와 같이 등록을 해 달라고 하시면됩니다. 그리고 통신판매업 신고를 어디서 하는지 물어보시면됩니다. 통신판매업신고를 하실 때, 서버와 도메인이 아직 없는 상태이므로 나중에 따로 등록을 한다고 말씀을 하시면됩니다. 만약 통신판매신고를 할 때, 서버 도메인과 소재지를 묻는다면 아래의 도메인을 입력하시고, SSL 및 호스팅 비용을 납부하시면, 가맹사 매니저 페이지에서 확인을 할 수 있습니다. 그 정보로 다시 신고 하시면 됩니다. 도메인은 홈페이지 주소입니다. 직접 구매한 도메인을 입력하신 경우, 평일 기준 약 24시간이 걸립니다. 가맹사가 직접 도메인을 www.hosting.kr 에서 1년 1만원에 구매하신 다음 본사로 알려주시면 됩니다.`,
         en: `For reference, business registration and telecommunication business notification number can be easily obtained by anyone. If you are an individual, simply go to the tax office and ask them to register with your home address, such as telephone English, video English, or online English. You can also ask where you are reporting a telecommunications distributor. When you report a telecom vendor, the server and domain do not exist yet, so you can register separately later. If you are asking for a server domain and location when you make a mail order report, please enter the domain below and pay SSL and hosting fee, you can check it on your affiliate manager page. You can report it back with that information. Your domain is your homepage address. If you enter your domain, it will take about 24 hours on weekdays. You can purchase your domain at www.hosting.kr for 1 year for 1 year and then let us know at your head office.`,
         ch: `作为参考，任何人都可以轻松获得商业登记和电信业务通知号码。如果您是个人，只需前往税务办公室，让他们注册您的家庭住址，如电话英语，视频英语或在线英语。你也可以问你在哪里报告电信分销商。当您报告电信供应商时，服务器和域名尚不存在，因此您可以稍后单独注册。如果您在制作邮购报告时询问服务器域和位置，请输入下面的域并支付SSL和托管费，您可以在您的联属经理页面上查看。您可以使用该信息回报。您的域名是您的主页地址。如果您输入域名，则平日大约需要24小时。您可以在www.hosting.kr网站上购买域名1年1年，然后在您的总部通知我们。`,
         jp: `参考までに事業者登録と通信販売業申告番号は誰でも簡単に取得することができます。個人の場合は、税務署に行くだけで自宅の住所での電話英語、画像英語、オンライン英会話のように登録をしてもらうとします。そして、通信販売業申告をどこかどうかを聞いていただければされます。通信販売業申告をするときは、サーバーとドメインがまだない状態なので、後で別に登録をすると言葉をください。もし通信販売申告をしたときに、サーバーのドメインと所在地を求める場合、以下のドメインを入力し、SSL、およびホスティング費用を納付すると、加盟社マネージャーのページで確認することができます。その情報に再度お届けとなります。ドメインは、ホームページアドレスです。直接購入したドメインを入力した場合は、平日の目安約24時間かかります。加盟社が直接ドメインをwww.hosting.krで1年1万円で購入した次の本社にご指定下さい`
@@ -976,17 +976,17 @@ This Agreement will be effective from June 20, 2018.`,
         ch: `一旦你完成了你的联盟经理页面的基本设置，你可以招募学生。 通过博客，咖啡馆等，您可以让您的学生在主页上注册，输入您的Katok ID，然后参加免费试用课程。 当您参加免费试听课时，您需要检查学生是否运作良好或者不时查看免费试听情况。 如果免费课程学习顺利，您可以吸引学生支付学费。 现在你可以开始你的生意了。`,
         jp: `加盟社マネージャーのページで、基本的な設定が終わったら、学生を募集します。ブログ、カフェなどを介して、または周囲の知人を介して学生をホームページに会員登録するようにし、カトクIDを入力して、無料体験を授業をします。無料体験授業をするときは、学生がよくしているか見てみたり、無料体験の状況を随時確認する必要があります。無料体験授業がよく終わったら、学生に授業料の支払いすることを誘導します。これから事業を開始ください。`
     },
-    article_title_3: {
+    contacts: {
         ko: `본사로 연락하기`,
         en: `Contact us`,
         ch: `联系我们`,
         jp: `本社に連絡する`
     },
-    article_content_3: {
-        ko: `궁금하신 점이 있으면 thruthesky@gmail.com 으로 제목 "위세너 프랜차이즈 화상영어 창업 상담" 와 같이 메일을 보내주시면 됩니다. 가맹사 가입 후, 가맹사 관리자 페이지에 보다 많은 연락처가 있습니다.`,
-        en: `If you have any questions, please send an e-mail to thruthesky@gmail.com with the title "Weisserin franchise image English consultation".`,
-        ch: `如果您有任何问题，请发送电子邮件至“weisserin franchise image English consultation”标题为thruthesky@gmail.com。`,
-        jp: `ご不明な点があればthruthesky@gmail.comにタイトル「威勢あなたのフランチャイズ画像の英語創業相談」のようにメールをお送りください。`
+    contacts_desc: {
+        ko: `궁금하신 점이 있으면 아래의 창업 레포트 작성 항목을 참고하십시오.`,
+        en: `If you have any questions, please refer to the following section on 'Submit business report'.`,
+        ch: `如果您有任何疑问，请参阅以下有关创建创业报告的部分。`,
+        jp: `ご不明な点があれば、次の創業レポート作成の項目を参照してください。`
     },
     article_title_4: {
         ko: `기타`,
@@ -1011,6 +1011,152 @@ This Agreement will be effective from June 20, 2018.`,
         en: `Advertisements for student recruitment should be conducted by branches, but we will give tips on advertising through meetings or online video conferences. Try first on Facebook and Blogs. If possible, try Google adwords.`,
         ch: `招生广告应由分支机构进行，但我们会通过会议或在线视频会议提供有关广告的提示。 首先在Facebook和博客上尝试。 如果可能，请尝试使用Google Adwords。`,
         jp: `学生募集の広告は支店で実施する必要がありますが、会議やオンラインビデオ会議を通じて広告に関するヒントを提供します。 まずはFacebookやブログで試してみてください。 可能であれば、Google AdWordsを試してみてください。`
+    },
+    report: {
+        ko: `창업 레포트 작성`,
+        en: `Submit business report`,
+        ch: `提交业务报告`,
+        jp: `ビジネスレポートを提出する`
+    },
+    report_desc: {
+
+        ko: `
+        화상영어창업을 하시려는 분들은 다음과 같은 사항들이 중요하다고 생각을 할 것입니다.
+
+1. 강사의 질, 강사의 발음, 교육 자질.
+2. 인터넷 및 기타 수업 환경.
+3. 수업/커리큘럼/교재 과정.
+4. 홈페이지 기능/LMS/디자인.
+5. 적절한 강사료 원가와 가맹사 마진율.
+
+이 사항들은 모두 저희가 책임을 져야하는 부분이며, 현존하는 최고의 기능을 가진 LMS, 반응형/PWA 홈페이지 그리고 오랜 경험과 안정적인 화상 영어 교육 콜 센터, 최고의 강사진, 인터넷 및 설비, 커리큘럼, 그리고 절적한 강사료 등 모든 것을 완벽하게 갖추어 놓고 창업가를 기다리고 있습니다.
+
+하지만, 저희가 지난 12년 동안 화상영어 프랜차이즈 사업을 하면서 터득한 가장 중요한 점은 바로 가맹사의 학생 모집 능력입니다.
+
+학생 모집을 잘하는 가맹사는 충분히 수익을 얻고, 학생 모집을 못한 수 많은 (전체의 97%) 가맹사는 시간이 지남에 따라 모두 사라졌습니다.
+
+저희들은 더 이상 앞으로 실패를 할 97% 의 희망없는 가맹사들을 위해 질문/답변을 통한 시간 소비를 하고 싶지 않습니다.
+
+저희 위세너와 함께 하시기를 원하시는 분들께 다음과 같은 조건을 겁니다.
+
+1. 무료 체험을 해 볼 것.
+
+2. 창업(가맹사 가입) 할 것.
+
+3. 만 5세 미만의 어린 학생을 위한 커리큘럼을 어떻게 만들면 좋을지, 레포트 작성. (100 단어 내외 )
+
+4. 학생 유치 전략 리포트 작성. ( 200 단어 내외 )
+
+5. 한달에 수업료를 납부하는 학생이 100 명이라고 가정 했을 때, 가맹사 수익은 얼마로 예상하는지 레포트 작성. ( 50 단어 이내 )
+
+위와 같은 과정을 거치고, 리포트를 작성하여 "Kakaotalk Withcenter Chat" 으로 "창업 지원 리포트입니다" 하고, 레포트를 전송해 주시기 바랍니다.
+
+이 후, "Kakaotalk Withcenter Chat" 으로 저희에게 질문을 하실 수 있으며, 파트너로서 최선을 다해 돕겠습니다.
+
+참고로 "Kakaotlak Withcenter Chat" 은 창업을 하면 알 수 있습니다.
+`,
+        en: `
+        If you want to start a video English business, you will think the following things are important.
+
+1. Quality of instructor, pronunciation of instructor, educational qualities.
+2. Internet and other classroom environments.
+3. Class / Curriculum / Textbook Course
+4. Homepage function / LMS / Design
+5. Appropriate lecture cost and marginal rate
+
+All of the above are our responsibilities, and we have the best available LMS, responsive / PWA homepage, long experience and stable video English language call center, best lecturer, internet, curriculum, We are waiting for the entrepreneur to complete everything including a teacher fee.
+
+However, the most important thing we have learned in the last 12 years as part of our video English franchise business is our ability to recruit students.
+
+All the members who are good at recruiting are profitable and many (97% of the total) do not recruit students. All of them have disappeared over time.
+
+We do not want to spend time with questions / answers for 97% of the hopeless members who will no longer fail.
+
+If you want to be with us, you will have the following conditions.
+
+1. Try a free trial.
+
+2. Start a business (join a registered company).
+
+3. Create a report on how to create a curriculum for young children under the age of five. (About 100 words)
+
+4. Create a student attraction strategy report. (About 200 words)
+
+5. Assuming that there are 100 students paying tuition per month, report how much you expect your affiliate profits. (Within 50 words)
+
+After completing the above process, please fill in the report and send it to Kakaotalk Withcenter Chat.
+
+After that, you can ask us with "Kakaotalk Withcenter Chat" and we will do our best as a partner.
+
+For reference, "Kakaotlak Withcenter Chat" can be found when you start a business.`,
+        ch: `
+        如果您想开展视频英语业务，您会认为以下几点非常重要。
+
+1.讲师素质，讲师发音，教育质量。
+2.互联网和其他课堂环境。
+3.课程/课程/教科书课程
+4.主页功能/ LMS /设计
+5.适当的演讲费用和边际费率
+
+以上都是我们的责任，我们拥有最好的LMS，响应/ PWA主页，长期经验和稳定的视频英语呼叫中心，最佳讲师，互联网，课程，我们正在等待企业家完成一切，包括教师费。
+
+然而，作为我们视频英语特许经营业务的一部分，我们在过去12年中学到的最重要的事情是我们招收学生的能力。
+
+所有擅长招聘的成员都是有利可图的，很多（占总数的97％）不招收学生。所有成员都随着时间的推移而消失。
+
+我们不想花时间为97％不会失败的绝望成员提出问题/答案。
+
+如果您想和我们在一起，您将拥有以下条件。
+
+1.尝试免费试用。
+
+2.创业（加入注册公司）。
+
+3.创建一份关于如何为五岁以下幼儿创建课程的报告。 （约100字）
+
+4.制作学生吸引力策略报告。 （约200字）
+
+5.假设每月有100名学生支付学费，请报告您希望您的联盟会员获利多少。 （50字以内）
+
+完成上述过程后，请填写报告并发送至Kakaotalk Withcenter Chat。
+
+之后，您可以通过“Kakaotalk Withcenter Chat”向我们询问，我们将尽最大努力作为合作伙伴。
+
+作为参考，您可以在创业时找到“Kakaotlak Withcenter Chat”。`,
+        jp: `
+        画像の英語創業をハシリョヌン方は、以下のような事項が重要であるとの考えをしています。
+
+1.講師の質、講師の発音、教育の資質。
+2.インターネットやその他のクラスの環境。
+3.授業/カリキュラム/教材のコース
+4.ホームページの機能/ LMS /デザイン
+5.適切な講師料の原価と加盟社マージン率
+
+上記事項はすべて私達が責任を負う部分であり、現存する最高の機能を持ったLMS、反応型/ PWAホームページそして長年の経験と信頼性の高い画像英語教育コールセンター保有、最高だと自分れる講師、インターネット、カリキュラム、そしてジョルジョクした講師料などすべてを完璧に備えておいて起業家を待っている。
+
+しかし、私たちが過去12年の間に画像の英語フランチャイズ事業をしながら体得した最も重要な点は、まさに加盟社の学生募集力です。
+
+学生募集を上手加盟社は十分収益を得て、学生募集をしないことが多く（全体の97％）加盟社は、時間の経過に応じて、すべて消えた。
+
+私たちは、もはや将来の失敗をする97％の絶望的な加盟社のために質問/回答を通じた時間消費をしたくありません。
+
+私たちの威勢君と一緒れることをご希望の方は、次のような条件をかけます。
+
+1.無料体験をしてみること。
+
+2.創業（加盟社登録）すること。
+
+3. 5歳未満の若い学生のためのカリキュラムをどのように作成すると、いい、レポート作成。 （100単語内外）
+
+4.学生誘致戦略レポート作成。 （200単語内外）
+
+5.月に授業料を納付する学生が100人と仮定したとき、加盟社の収益はいくらに期待するかレポート作成。 （50単語以内）
+
+上記のような過程を経て、レポートを作成して、「Kakaotalk Withcenter Chat "で"創業支援レポートです」と、レポートを送信してください。
+
+この後、「Kakaotalk Withcenter Chat」として私達に質問をすることができ、パートナーとして最善を尽くしお手伝いします。
+
+ちなみに「Kakaotlak Withcenter Chat」は、創業をする知ることができます。`
     }
 
 };
