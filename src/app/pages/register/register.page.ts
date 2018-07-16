@@ -191,7 +191,7 @@ export class RegisterPage implements OnInit {
 
     onRegisterFailure(e) {
         //
-        // console.log('Error on register: ', e);
+        console.log('Error on register: ', e);
         this.loader.closeLoader();
         this.a.toast(e);
     }

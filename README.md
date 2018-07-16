@@ -485,14 +485,14 @@ env['reloadTag'] = (new Date).getTime();
 * @done 강사 수업 시간표아 예약된 수업 목록에서 각 메신저 별 친구 추가가 잘 되는지 확인.
   * deeplink 등을 추가.
 
-* xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함
+* xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
   * 참고로 학생인데, 도메인이 없으면 www.katalkenglish.com 이 도메인이 되도록 패치를 한다.
 
 * @see other git issues
 
 #### TODO for openning
 
-* 오픈을 위한 마무리
+* 오프닝 준비
   * https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
   * 가맹사 생성 테스트.
   * php 에서 번역을 4개 국어로 해야하고,
@@ -518,17 +518,24 @@ env['reloadTag'] = (new Date).getTime();
       * 하지만 문제 발생. 스카이프와 카톡아이디가 다른데, 각각 스카이프와 카톡으로 회원가입하면, 여러 차례 무료 체험 수업을 들을 수 있다.
         * 회원 메일 주소로도 같이 체크를 할 수 있도록 이슈를 발행한다.
 
+#### TODO for open
+
 * 오픈.
   * 중요: 오픈 절차를 따라야 함. 그렇지 않으면 실패. 큰 문제 발생.
-  * 먼저, 아래와 DB 패치를 해야한다. 이것은 기존의 kakaotalk_id 를 학생의 class software /id 와 강사의 kakaotalk 필드에 카톡 아이디 정보를 변경하는 것이다.
+  * 먼저, 아래와 DB 패치를 해야한다.
+    이것은 기존의 kakaotalk_id 를 학생의 class software /id 와 강사의 kakaotalk 필드에 카톡 아이디 정보를 변경하는 것이다.
+    그리고 도메인이 없는 학생의 도메인을 www.katalkenglish.com 으로 변경 해 준다.
     패치 방법:
       cd wp-content/plugins/xapi-2/lms/patch
       php class-software.php
+      php student-domain.php
   * 그리고 kakaotalk_id 필드를 kakaotalk_id_backup 으로 이름을 변경한다.
     SQL 쿼리:
       ALTER TABLE `wp_users` CHANGE `kakaotalk_id` `kakaotalk_id_backup` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
 
     이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
+
+#### TODO for after open
 
 * 마무리 한 다음. English As 오픈 후.
   * 보다 편리한 언어 변환. 구글 drive 를 사용하는 것보다 직접 만들면 더 편리함. 직접 만드는 것이 좋을 것 같음.
@@ -552,3 +559,4 @@ env['reloadTag'] = (new Date).getTime();
     * 위쳇 QR 코드를 등록해야 한다.
     * 라인과 큐큐는 나중에.
     * 그리고 학생이 위쳇으로 수업하면, 선생님 사진 옆에, QR 마크를 화면에 표시해야 한다.
+* 강사는 WeChat QR code 를 업로드 해야한다.
