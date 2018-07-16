@@ -424,4 +424,48 @@ main{
     }
 }
 
+.teacher-class-software-and-id{
+    margin: auto;
+    margin-bottom: 1em!important;
+    padding:1.5em 1em;
+    @media (min-width:$md) {
+        width: 80%;
+    }
+    border: 2px;
+    background: #eee;
+    font-size: .85em;
+    .col-md-6{
+        padding: 0;
+        &>div{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: .25em 0;
+            @media (min-width:$md) {
+                display: block;
+                margin: .5em 0;
+            }
+        }
+    }
+    label{
+        display: inline-block;
+        margin-right: .3em;
+        width: 120px;
+        @media (min-width:$md) {
+            width: 150px
+        }
+        text-align: left;
+    }
+    input{
+        padding: .75em 1em;
+        width: 140px;
+        @media (min-width:$md) {
+            width: 170px;
+        }
+        font-size: .85em;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.4);
+    }
+}
+
 

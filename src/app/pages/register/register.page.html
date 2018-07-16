@@ -107,26 +107,32 @@
             </mat-form-field>
 
 
-            <div class="teacher-class-software-and-id" *ngIf=" a.site.is.ontue ">
-                <div>
-                    <label>Skype ID</label>
-                    <input type="text" name="skype" [(ngModel)]=" form.skype ">
-                </div>
-                <div>
-                    <label>Input Kakaotalk ID</label>
-                    <input type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
-                </div>
-                <div>
-                    <label>Input WeChat ID</label>
-                    <input type="text" name="wechat" [(ngModel)]=" form.wechat ">
-                </div>
-                <div>
-                    <label>Input Line ID</label>
-                    <input type="text" name="line" [(ngModel)]=" form.line ">
-                </div>
-                <div>
-                    <label>Input QQ ID</label>
-                    <input type="text" name="qq" [(ngModel)]=" form.qq ">
+            <div class="teacher-class-software-and-id container-fluid" *ngIf=" a.site.is.ontue ">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <label>Skype ID</label>
+                            <input type="text" name="skype" [(ngModel)]=" form.skype ">
+                        </div>
+                        <div>
+                            <label>Input Kakaotalk ID</label>
+                            <input type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
+                        </div>
+                        <div>
+                            <label>Input WeChat ID</label>
+                            <input type="text" name="wechat" [(ngModel)]=" form.wechat ">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <label>Input Line ID</label>
+                            <input type="text" name="line" [(ngModel)]=" form.line ">
+                        </div>
+                        <div>
+                            <label>Input QQ ID</label>
+                            <input type="text" name="qq" [(ngModel)]=" form.qq ">
+                        </div>
+                    </div>
                 </div>
             </div>
 
