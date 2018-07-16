@@ -738,4 +738,12 @@ export class XapiLMSService extends Base {
             session_id: this.user.sessionId
         });
     }
+
+    get_successful_reservation(idx_student: number) {
+        return this.x.post({
+            idx_student: idx_student,
+            route: 'lms.get_successful_reservation',
+            session_id: this.user.sessionId
+        });
+    }
 }

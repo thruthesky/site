@@ -222,7 +222,7 @@
                     </section>
                 </div>
                 <div class="col-3 col-md-2" *ngIf="a.isTeacher">
-                    <div> {{ a.preTeacherName(book.student_name) }}</div>
+                    <div (click)="onClickPreviewBook(book)"> {{ a.preTeacherName(book.student_name) }}</div>
                 </div>
                 <div class="col-2 col-md-1" *ngIf=" a.isTeacher ">
                     <div>{{book.idx}}</div>

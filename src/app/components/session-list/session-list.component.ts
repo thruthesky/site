@@ -3,9 +3,9 @@ import { AppService, KEY_SCHEDULES, SHARE_SESSION_LIST } from '../../providers/a
 import { ModalData, ModalService } from '../../providers/modal/modal.service';
 
 @Component({
-  selector: 'session-list-component',
-  templateUrl: 'session-list.component.html',
-  styleUrls: ['session-list.component.scss'],
+    selector: 'session-list-component',
+    templateUrl: 'session-list.component.html',
+    styleUrls: ['session-list.component.scss'],
 })
 export class SessionListComponent implements OnInit {
     @Input() page = '';
@@ -40,12 +40,11 @@ export class SessionListComponent implements OnInit {
     loadingOnSearch = true;
 
     constructor(public a: AppService,
-                public modal: ModalService
-    ) {
+                public modal: ModalService) {
 
-        if ( this.a.isLogout ) {
+        if (this.a.isLogout) {
             this.a.open('login');
-            this.a.toast( this.a.t('YOU ARE NOT LOGGED IN'));
+            this.a.toast(this.a.t('YOU ARE NOT LOGGED IN'));
             return;
         }
         this.updatePoint();
@@ -62,12 +61,12 @@ export class SessionListComponent implements OnInit {
     ngOnInit() {
         const now = this.today.getFullYear() + '-' + this.a.add0(this.today.getMonth() + 1) + '-' + this.a.add0(this.today.getDate());
         if (this.future) {
-            this.date_begin = new Date( now );
+            this.date_begin = new Date(now);
         } else if (this.past) {
             const _begin = new Date(this.today.getTime() - 24 * 60 * 60 * 1000 * this.a.DEFAULT_DAYS_TO_SHOW_ON_PAST_PAGE);
             const _begin_date = _begin.getFullYear() + '-' + this.a.add0(_begin.getMonth() + 1) + '-' + this.a.add0(_begin.getDate());
-            this.date_begin = new Date( _begin_date );
-            this.date_end = new Date( now );
+            this.date_begin = new Date(_begin_date);
+            this.date_end = new Date(now);
         }
         this.sessionSearch();
     }
@@ -76,7 +75,7 @@ export class SessionListComponent implements OnInit {
 
         let order = 'date DESC, class_begin DESC';
 
-        if ( this.future ) {
+        if (this.future) {
             order = 'date ASC, class_begin ASC';
         }
 
@@ -123,17 +122,17 @@ export class SessionListComponent implements OnInit {
             no: this.a.t('CANCEL')
         };
         this.modal.confirm(data).subscribe(result => {
-            if ( result ) {
+            if (result) {
                 book['process'] = true;
                 this.a.lms.session_cancel(book.idx).subscribe(re => {
                     // console.log(re);
-                    this.books = this.books.filter( b => b.idx !== re['idx_reservation']);
+                    this.books = this.books.filter(b => b.idx !== re['idx_reservation']);
                     this.a.updateLmsInfoUserNoOfTotalSessions(re['no_of_total_sessions']);
                     this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
                     this.updatePoint();
-                    this.a.set( KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
+                    this.a.set(KEY_SCHEDULES, null); /// new code. When a session is clicked. delete old schedule cache.
                     this.a.onLmsCancel();
-                    this.a.toast( this.a.t('SESSION CANCELED'));
+                    this.a.toast(this.a.t('SESSION CANCELED'));
                 }, e => {
                     book['process'] = false;
                     this.a.toast(e);
@@ -156,7 +155,7 @@ export class SessionListComponent implements OnInit {
     }
 
     sessionSearch() {
-        if ( this.a.isAdmin ) {
+        if (this.a.isAdmin) {
             this.loadingOnSearch = false;
             return this.a.toast('Admin cannot view session list');
         }
@@ -222,20 +221,24 @@ export class SessionListComponent implements OnInit {
             return false;
         }
         // console.log('settled?: ', book);
-        if ( this.settled(book) ) {
+        if (this.settled(book)) {
             return false;
         }
         return true;
     }
+
     refunded(book) {
         return book['refund_done_at'] > 0;
     }
+
     settled(book) {
         return book['refund_settle_at'] > 0;
     }
+
     rejected(book) {
         return book['refund_reject_at'] > 0;
     }
+
     onClickRefund(book) {
 
         const data: ModalData = {
@@ -245,7 +248,7 @@ export class SessionListComponent implements OnInit {
             no: this.a.t('CANCEL')
         };
         this.modal.confirm(data).subscribe(result => {
-            if ( result ) {
+            if (result) {
                 this.a.lms.session_refund(book['idx']).subscribe(() => {
                     book['refund_done_at'] = 1;
                 }, e => this.a.toast(e));
@@ -260,6 +263,7 @@ export class SessionListComponent implements OnInit {
         new_date.shift();
         return new_date.join('/');
     }
+
     evaluated(book) {
         // console.log('book: ', book);
         if (!book.comment) {
@@ -273,6 +277,7 @@ export class SessionListComponent implements OnInit {
         }
         return true;
     }
+
     point(book) {
         if (this.refunded(book)) {
             return '';
@@ -290,8 +295,8 @@ export class SessionListComponent implements OnInit {
         return this.my_teachers[book.idx_teacher].photoURL ? this.my_teachers[book.idx_teacher].photoURL : this.a.anonymousPhotoURL;
     }
 
-    onClickReady( book ) {
-        if ( book.stamp_checked > 0 ) {
+    onClickReady(book) {
+        if (book.stamp_checked > 0) {
             return;
         }
 
@@ -315,33 +320,42 @@ export class SessionListComponent implements OnInit {
     }
 
     onClickKakaoQRMarkString(url) {
-        if ( !this.a.isMobileView() ) {
+        if (!this.a.isMobileView()) {
             return;
         }
         window.open(url, '_blank');
     }
 
 
-
     onClickPreviewBook(book) {
 
-        const innerHTML = `
-            <div>Book Information</div>
-            <div>Name: ${book.student_name}</div>
-            <div>Book Used: ${book.book_used}</div>
-            <div>Next Book: ${book.book_next}</div>
-        `;
+        this.a.lms.get_successful_reservation(book.idx_student).subscribe(re => {
+            console.log('onClickPreviewBook', re);
+            if (re) {
 
-        const data: ModalData = {
-            title: this.a.t('BOOK INFO'),
-            content: innerHTML
-        };
-        this.modal.confirm(data).subscribe(result => {
-            if ( result ) {
-                this.a.lms.session_refund(book['idx']).subscribe(() => {
-                    book['refund_done_at'] = 1;
-                }, e => this.a.toast(e));
+                const innerHTML = `
+                        <div>Book Information</div>
+                        <div>Name: ${re.student_name}</div>
+                        <div>Book Used: ${re.book_used}</div>
+                        <div>Next Book: ${re.book_next}</div>
+                    `;
+
+                const data: ModalData = {
+                    title: this.a.t('BOOK INFO'),
+                    content: innerHTML
+                };
+                this.modal.alert(data).subscribe(result => {
+                    // if (result) {
+                    //     this.a.lms.session_refund(book['idx']).subscribe(() => {
+                    //         book['refund_done_at'] = 1;
+                    //     }, e => this.a.toast(e));
+                    // }
+                });
+
             }
+
+        }, e => {
+            this.a.toast(e);
         });
 
     }
