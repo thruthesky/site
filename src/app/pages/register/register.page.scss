@@ -433,7 +433,10 @@ main{
     }
     border: 2px;
     background: #eee;
-    font-size: .85em;
+    font-size: .75em;
+    @media (min-width:$md) {
+        font-size: .85em;   
+    }
     .col-md-6{
         padding: 0;
         &>div{
@@ -442,15 +445,25 @@ main{
             justify-content: center;
             margin: .25em 0;
             @media (min-width:$md) {
-                display: block;
-                margin: .5em 0;
+                display: flex;
+                margin: 1em 0;
+            }
+            img{
+                height: 1.5em;
+                width: 1.5em;
+                margin-right: .5em;
+                @media (min-width:$md) {
+                    height: 2em;
+                    width: 2em;
+                    margin-right: 1em;
+                }
             }
         }
     }
     label{
         display: inline-block;
         margin-right: .3em;
-        width: 120px;
+        width: 110px;
         @media (min-width:$md) {
             width: 150px
         }
