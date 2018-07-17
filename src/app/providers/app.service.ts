@@ -1127,7 +1127,9 @@ export class AppService {
     }
 
     /**
-     * Gets lmsInfo
+     * Gets lmsInfo from localStorage.
+     *
+     * @description Warning: it gets data from localStroage.
      *
      * @param key string key
      *
@@ -1138,18 +1140,24 @@ export class AppService {
      */
     lmsInfo(key = '') {
         const info = this.get(KEY_LMS_INFO);
-        if (!this.info) {
+        if (!info) {
             return null;
         }
 
-        if (this.info[key]) {
-            return this.info[key];
+        if (info[key] !== void 0) {
+            return info[key];
         }
 
         if (key.indexOf('.') !== -1) {
             const k = key.split('.');
-            if (info[k[0]] !== void 0 && info[k[0]][k[1]] !== void 0) {
-                return info[k[0]][k[1]];
+            const first = k[0];
+            const second = k[1];
+            // console.log('info: ', info);
+            // console.log('info.user: ', info[first]);
+            if (info[first] !== void 0 && info[first]) {
+                if (info[first][second] !== void 0 && info[first][second]) {
+                    return info[k[0]][k[1]];
+                }
             }
         }
 
@@ -1699,11 +1707,14 @@ export class AppService {
     /**
      * Updates user's point from the server.
      */
-    updateUserPoint() {
+    updateUserPoint(callback?) {
         if (this.user.isLogin) {
             this.loadMyPoint(p => {
                 this.userPoint = p;
                 this.rerender();
+                if ( callback ) {
+                    callback();
+                }
             });
         }
     }

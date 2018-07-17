@@ -30,6 +30,10 @@ main {
                 padding-right: 1.5em;
                 padding-bottom: 0;
             }
+            &.point-updated {
+                font-weight: bold;
+                color: #d00;
+            }
         }
         a{
             display: flex;

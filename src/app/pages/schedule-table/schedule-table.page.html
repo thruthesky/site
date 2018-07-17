@@ -40,7 +40,7 @@
             </a>
         </div>
 
-        <div class="student-info" *ngIf=" isStudent ">
+        <div class="student-info" [ngClass]="{ 'point-updated': pointHasBeenUpdated }" *ngIf=" isStudent ">
                 {{ 'STUDENT_PONT_ON_SCHEDULE_TABLE' | t:{name: a.user.name, point: a.userPoint } }}
         </div>
 
@@ -102,6 +102,7 @@
             <div class="td session" *ngFor=" let session of sessions  " [attr.status]=" session[ N.status ] "
                  [attr.open]=" session[ N.open ] "
                  [attr.owner]=" session[ N.owner ] "
+                 [attr.prere]=" session[ N.prere ] "
                  text-center
                  (click)="onClickSession( session )"
                  >
