@@ -106,6 +106,18 @@
                 </mat-hint>
             </mat-form-field>
 
+            <mat-form-field class="with-hint" appearance="outline">
+                <mat-label>Skype ID</mat-label>
+                <input matInput type="text" name="skype" [(ngModel)]=" form.skype ">
+                <img src="../../../assets/img/messengers/skype.png">
+                <mat-hint> 
+                    <span>{{ 'INPUT_SKYPE_ID' | t }}</span>
+                    <div class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
+                        {{ 'CHOOSE_ANOTHER_MESSENGER' | t }}
+                    </div>
+                </mat-hint>
+            </mat-form-field>
+
 
             <div class="teacher-class-software-and-id container-fluid" *ngIf=" a.site.is.ontue ">
                 <div class="row">

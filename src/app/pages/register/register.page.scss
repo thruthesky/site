@@ -20,8 +20,6 @@ main{
         margin: .5em;
         }
     }
-
-
     .photo-upload {
         position: relative;
         margin: 3em auto;
@@ -75,6 +73,24 @@ main{
                 position: absolute;
                 opacity: 0;
                 z-index: -1;
+            }
+
+            img{
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 2.25em;
+                width: 2.25em;
+            }
+
+            .mat-custom-button{
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: .5em 1em;
+                border-radius: 2px;
+                background: #eee;
+                font-weight: bold;
             }
 
             mat-hint{
