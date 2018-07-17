@@ -106,56 +106,22 @@
                 </mat-hint>
             </mat-form-field>
 
-            <mat-form-field class="with-hint" appearance="outline">
-                <mat-label>Skype ID</mat-label>
-                <input matInput type="text" name="skype" [(ngModel)]=" form.skype ">
-                <img src="../../../assets/img/messengers/skype.png">
-                <mat-hint> 
-                    <span>{{ 'INPUT_SKYPE_ID' | t }}</span>
-                    <div class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
+
+            <mat-form-field class="with-hint" appearance="outline" *ngIf=" a.site.is.englishas && ! show.updateClassSoftware ">
+                <mat-label>{{ myClassSoftware() | t }} {{ 'ID' | t }}</mat-label>
+                <input matInput type="text" name="class_software_id" [(ngModel)]=" form.class_software_id ">
+                <img src="../../../assets/img/messengers/{{ myClassSoftware() }}.png">
+                <mat-hint>
+                    <span>{{ 'INPUT_'+ myClassSoftware() +'_ID' | t }}</span>
+                    <button class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
                         {{ 'CHOOSE_ANOTHER_MESSENGER' | t }}
-                    </div>
+                    </button>
                 </mat-hint>
             </mat-form-field>
 
 
-            <div class="teacher-class-software-and-id container-fluid" *ngIf=" a.site.is.ontue ">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div>
-                                <img src="../../../assets/img/messengers/skype.png">
-                            <label>Skype ID</label>
-                            <input type="text" name="skype" [(ngModel)]=" form.skype ">
-                        </div>
-                        <div>
-                                <img src="../../../assets/img/messengers/kakaotalk.png">
-                            <label>Input Kakaotalk ID</label>
-                            <input type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
-                        </div>
-                        <div>
-                                <img src="../../../assets/img/messengers/wechat.png">
-                            <label>Input WeChat ID</label>
-                            <input type="text" name="wechat" [(ngModel)]=" form.wechat ">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div>
-                                <img src="../../../assets/img/messengers/line.png">
-                            <label>Input Line ID</label>
-                            <input type="text" name="line" [(ngModel)]=" form.line ">
-                        </div>
-                        <div>
-                                <img src="../../../assets/img/messengers/qq.png">
-                            <label>Input QQ ID</label>
-                            <input type="text" name="qq" [(ngModel)]=" form.qq ">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="student-class-software-id" *ngIf=" a.site.is.englishas ">
-                <div class="input-software-id" *ngIf=" ! show.updateClassSoftware ">
+                <!-- <div class="input-software-id" *ngIf=" ! show.updateClassSoftware ">
                     <div class="desc-input-skype-id" *ngIf=" myClassSoftware( a.classSoftware.skype ) ">
                         <div>{{ 'INPUT_SKYPE_ID' | t }}</div>
                         <div>
@@ -190,14 +156,28 @@
                     <div data-role='choose-another-messenger-app' class="app-button" (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
                         {{ 'CHOOSE_ANOTHER_MESSENGER' | t }}
                     </div>
-                </div>
+                </div> -->
 
                 <div class="update-class-software">
                     <div class="select-class-software" *ngIf=" show.updateClassSoftware ">
+                        <div class="caption d-flex justify-content-between">
+                            <div class="text">
+                                {{ 'SELECT_YOUR_MESSENGER' | t }}
+                            </div>
+                            <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
+                                <span>{{ 'CANCEL' | t }}</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                        <path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"></path>
+                                    </svg>
+                                </span>
+                            </div>
+
+                        </div>
                         <div>
                             <label>
                                 <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype"
-                                    [checked]="form.class_software">
+                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.skype)">
                                 <div>
                                     <img src="../../../assets/img/messengers/skype.png">
                                 </div>
@@ -205,7 +185,7 @@
                             </label>
                             <label>
                                 <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.kakaotalk"
-                                    [checked]="form.class_software">
+                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.kakaotalk)">
                                 <div>
                                     <img src="../../../assets/img/messengers/kakaotalk.png">
                                 </div>
@@ -213,7 +193,7 @@
                             </label>
                             <label>
                                 <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.wechat"
-                                    [checked]="form.class_software">
+                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.wechat)">
                                 <div>
                                     <img src="../../../assets/img/messengers/wechat.png">
                                 </div>
@@ -221,7 +201,7 @@
                             </label>
                             <label>
                                 <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.line"
-                                    [checked]="form.class_software">
+                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.line)">
                                 <div>
                                     <img src="../../../assets/img/messengers/line.png">
                                 </div>
@@ -229,7 +209,7 @@
                             </label>
                             <label>
                                 <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.qq"
-                                    [checked]="form.class_software">
+                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.qq)">
                                 <div>
                                     <img src="../../../assets/img/messengers/qq.png">
                                 </div>
@@ -237,22 +217,52 @@
                             </label>
 
                         </div>
-                        <div [attr.data-selected-class-software]="form.class_software" class="input-class-software-id" *ngIf=" form.class_software ">
+                        <!-- <div [attr.data-selected-class-software]="form.class_software" class="input-class-software-id" *ngIf=" form.class_software ">
                             <div>{{ 'INPUT_' + form.class_software + '_ID' | t }}</div>
                             <div>
                                 <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                             </div>
-                        </div>
-                        <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
-                            <span>{{ 'CANCEL' | t }}</span>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" ></path></svg>
-                            </span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
 
+
+
+
+            <div class="teacher-class-software-and-id container-fluid" *ngIf=" a.site.is.ontue ">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <img src="../../../assets/img/messengers/skype.png">
+                            <label>Skype ID</label>
+                            <input type="text" name="skype" [(ngModel)]=" form.skype ">
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/messengers/kakaotalk.png">
+                            <label>Input Kakaotalk ID</label>
+                            <input type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/messengers/wechat.png">
+                            <label>Input WeChat ID</label>
+                            <input type="text" name="wechat" [(ngModel)]=" form.wechat ">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <img src="../../../assets/img/messengers/line.png">
+                            <label>Input Line ID</label>
+                            <input type="text" name="line" [(ngModel)]=" form.line ">
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/messengers/qq.png">
+                            <label>Input QQ ID</label>
+                            <input type="text" name="qq" [(ngModel)]=" form.qq ">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 

@@ -663,7 +663,9 @@
   "QNA_PAGE_LINE_DESC": "ラインIDをコピーして追加してください。",
   "QNA_PAGE_LINE_ID": "Line ID: thruthesky",
   "QNA_PAGE_QQ_DESC": "QQ番号をコピーして私たちを追加してください。",
-  "QNA_PAGE_QQ_ID": "QQ Number: 3483204772"
+  "QNA_PAGE_QQ_ID": "QQ Number: 3483204772",
+  "ID": "ID",
+  "SELECT_YOUR_MESSENGER": "メッセンジャーアプリを選択してください。"
 
 
 }

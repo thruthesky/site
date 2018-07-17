@@ -747,6 +747,9 @@
   "QNA_PAGE_LINE_DESC": "Please copy Line ID and add us.",
   "QNA_PAGE_LINE_ID": "Line ID: thruthesky",
   "QNA_PAGE_QQ_DESC": "Please copy QQ number and add us.",
-  "QNA_PAGE_QQ_ID": "QQ Number: 3483204772"
+  "QNA_PAGE_QQ_ID": "QQ Number: 3483204772",
+  "ID": "ID",
+  "SELECT_YOUR_MESSENGER": "Please select your messenger app."
+
 
 }

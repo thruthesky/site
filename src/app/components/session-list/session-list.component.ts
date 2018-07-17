@@ -42,14 +42,13 @@ export class SessionListComponent implements OnInit {
 
     myClassSoftware = '';
 
+
+
+
     constructor(public a: AppService,
-<<<<<<< HEAD
                 public modal: ModalService
     ) {
         this.myClassSoftware = this.a.lmsInfo('user.class_software');
-=======
-                public modal: ModalService) {
->>>>>>> master
 
         if (this.a.isLogout) {
             this.a.open('login');

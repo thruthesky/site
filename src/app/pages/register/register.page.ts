@@ -7,7 +7,7 @@ import { XapiFileUploadComponent } from '../../components/xapi-file-upload/xapi-
 import { LoaderService } from '../../providers/loader/loader.service';
 import { ModalService, ModalData } from '../../providers/modal/modal.service';
 import { ForumService } from '../../providers/forum/forum.service.module';
-import { CLASS_SOFTWARE_KAKAOTALK } from '../../providers/defines';
+import { CLASS_SOFTWARE_KAKAOTALK, DEFAULT_CLASS_SOFTWARE } from '../../providers/defines';
 
 
 @Component({
@@ -50,8 +50,8 @@ export class RegisterPage implements OnInit {
 
     year_now = new Date().getFullYear();
 
-    backup_class_software = '';
-    backup_class_software_id = '';
+    // backup_class_software = '';
+    // backup_class_software_id = '';
     constructor(public a: AppService,
         public loader: LoaderService,
         public modal: ModalService,
@@ -171,7 +171,7 @@ export class RegisterPage implements OnInit {
             }
             /// eo
 
-            if ( callback ) {
+            if (callback) {
                 callback();
             }
 
@@ -488,28 +488,39 @@ export class RegisterPage implements OnInit {
 
     onClickUpdateClassSoftware() {
         this.show.updateClassSoftware = true;
-        this.backup_class_software = this.form.class_software;
-        this.backup_class_software_id = this.form.class_software_id;
-        this.form.class_software = '';
+        // this.backup_class_software = this.form.class_software;
+        // this.backup_class_software_id = this.form.class_software_id;
+        // this.form.class_software = '';
         this.form.class_software_id = '';
     }
     onCancelUpdateClassSoftware() {
         this.show.updateClassSoftware = false;
-        this.form.class_software = this.backup_class_software;
-        this.form.class_software_id = this.backup_class_software_id;
+        // this.form.class_software = this.backup_class_software;
+        // this.form.class_software_id = this.backup_class_software_id;
     }
 
-    myClassSoftware(name) {
-        if (this.form.class_software) {
-            if (this.form.class_software === name) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (this.a.branch.info.class_software === name) {
-            return true;
-        } else {
-            return false;
+    /**
+     * Returns class_software of the user.
+     *
+     *      1. if the user has a class_software, then return it.
+     *      2. if not, if the branch has default class_software, then return it.
+     *      3. if not, return DEFAULT_CLASS_SOFTWARE
+     *
+     */
+    myClassSoftware(): string {
+        console.log('this.form.class_software:', this.form.class_software);
+        if (this.form.class_software !== void 0 && this.form.class_software) {
+            return this.form.class_software;
+        } else  {
+            return this.a.branch.info.class_software;
         }
+    }
+
+
+
+
+
+    onChangeClassSoftware(name) {
+        this.show.updateClassSoftware = false;
     }
 }

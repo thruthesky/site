@@ -2091,6 +2091,15 @@ export class AppService {
         }
     }
 
+    /**
+     * Returns branch informatoin.
+     *
+     * @description @important - app.service.ts will load branch info asynchronously.
+     *          So, you will need to think about it before you use branch information.
+     *
+     * If branch has no 'default class software' set, then it returns DEFAULT_CLASS_SOFTWARE.
+     *
+     */
     get branch() {
         let defaultClassSoftware = DEFAULT_CLASS_SOFTWARE;
         if (this.info && this.info.branch !== void 0 && this.info.branch.class_software !== void 0) {

@@ -712,7 +712,9 @@
   "QNA_PAGE_LINE_DESC": "라인 아이디를 친구 추가 해 주세요.",
   "QNA_PAGE_LINE_ID": "라인 아이디: thruthesky",
   "QNA_PAGE_QQ_DESC": "큐큐 번호를 복사해서 친구 추가 해 주세요.",
-  "QNA_PAGE_QQ_ID": "큐큐 번호: 3483204772"
+  "QNA_PAGE_QQ_ID": "큐큐 번호: 3483204772",
+  "ID": "아이디",
+  "SELECT_YOUR_MESSENGER": "사용하고 계신 메신저 앱을 선택해주세요."
 
 
 }
