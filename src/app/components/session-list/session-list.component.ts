@@ -390,7 +390,7 @@ export class SessionListComponent implements OnInit {
 
 
     onClickPreviewBook(book) {
-
+        console.log('onClickPreviewBook::book', book);
         this.a.lms.get_successful_reservation(book.idx_student).subscribe(re => {
             console.log('onClickPreviewBook', re);
             if (re) {
