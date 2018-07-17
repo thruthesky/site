@@ -104,6 +104,16 @@ form{
         }
     }
 
+    .class-software{
+        img{
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 2.25em;
+            width: 2.25em;
+        }
+    }
+
     .text-inputs{
         mat-form-field{
             width: 100%;
