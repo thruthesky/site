@@ -493,6 +493,9 @@ env['reloadTag'] = (new Date).getTime();
 #### TODO for openning
 
 * 오프닝 준비
+  * Angular 와 PHP 의 engliashas 를 master 로 mergin 한다.
+  * 질문과답변에서 카톡, 스카이프, 위쳇이 제대로 열리는지 확인한다.
+    (데스크톱에서는 그냥 qna 페이지로 연결 함.)
   * https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
   * 가맹사 생성 테스트.
   * php 에서 번역을 4개 국어로 해야하고,
