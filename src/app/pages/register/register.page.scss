@@ -65,16 +65,7 @@ main{
 
     form{
         text-align: center;
-
-        mat-form-field{
-            width: 80%;
-
-            .removed{
-                position: absolute;
-                opacity: 0;
-                z-index: -1;
-            }
-
+        .class-software{
             img{
                 position: absolute;
                 right: 0;
@@ -82,16 +73,44 @@ main{
                 height: 2.25em;
                 width: 2.25em;
             }
-
+    
             .mat-custom-button{
-                position: absolute;
-                top: 0;
-                right: 0;
-                padding: .5em 1em;
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin-top: .3em;
                 border: 0;
                 border-radius: 2px;
-                background: #eee;
                 font-weight: bold;
+                background: 0;
+                padding: 0;
+                color: darkblue;
+                text-transform: uppercase;
+                @media (min-width:$md) {
+                    position: absolute;
+                    top: 0;
+                    right: 0;   
+                    margin: 0;
+                    padding: .5em 1em;
+                    background: #eee;
+                    color:#000;
+                }
+                svg{
+                    position: relative;
+                    top:.125em;
+                    margin-left: .2em;
+                    height: 1em;
+                    width: 1em;
+                }
+            }
+        }
+        mat-form-field{
+            width: 80%;
+
+            .removed{
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
             }
 
             mat-hint{
@@ -382,10 +401,31 @@ main{
 }
 
 .update-class-software{
+    padding: 1em;
+    @media (min-width:$md) {
+        padding-top: 0;   
+    }
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0, 0.01);
     .select-class-software{
-        &>div:first-child{
+        .caption{
+            display: flex;
+            justify-content: center;
+            @media (min-width:$md) {
+                justify-content: space-between;   
+            }
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .text{
+            margin-left: .1em;
+            font-size: .9em;
+        }
+        .messangers{
             display: flex;
             justify-content: space-around;
+            align-items: center;
             flex-wrap: wrap;
         }
     }
@@ -407,18 +447,17 @@ main{
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        margin: auto;
-        padding: .75em 2em;
         font-size: .8em;
-        background: #eee;
-        color: #000;
+        padding: 1em 0;
+        color: darkred;
+        cursor: pointer;
 
         svg{
             position: relative;
             top: .125em;
             height: 1em;
             width: 1em;
-            margin-left: .4em;
+            margin-left: .2em;
         }
     }
     margin: auto;

@@ -107,14 +107,17 @@
             </mat-form-field>
 
 
-            <mat-form-field class="with-hint" appearance="outline" *ngIf=" a.site.is.englishas && ! show.updateClassSoftware ">
+            <mat-form-field class="class-software" appearance="outline" *ngIf=" a.site.is.englishas && ! show.updateClassSoftware ">
                 <mat-label>{{ myClassSoftware() | t }} {{ 'ID' | t }}</mat-label>
                 <input matInput type="text" name="class_software_id" [(ngModel)]=" form.class_software_id ">
                 <img src="../../../assets/img/messengers/{{ myClassSoftware() }}.png">
                 <mat-hint>
                     <span>{{ 'INPUT_'+ myClassSoftware() +'_ID' | t }}</span>
                     <button class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
-                        {{ 'CHOOSE_ANOTHER_MESSENGER' | t }}
+                        <span>{{ 'CHOOSE_ANOTHER_MESSENGER' | t }}</span>
+                        <span>
+                            <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M34.5 36.5l211.1 211c4.7 4.7 4.7 12.3 0 17l-211.1 211c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17L205.9 256 10.5 60.5c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.6-4.6 12.2-4.6 16.9.1zm111 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17L333.9 256 138.5 451.5c-4.7 4.7-4.7 12.3 0 17l7.1 7.1c4.7 4.7 12.3 4.7 17 0l211.1-211c4.7-4.7 4.7-12.3 0-17l-211.1-211c-4.8-4.8-12.4-4.8-17.1-.1z"></path></svg>
+                        </span>
                     </button>
                 </mat-hint>
             </mat-form-field>
@@ -157,14 +160,13 @@
                         {{ 'CHOOSE_ANOTHER_MESSENGER' | t }}
                     </div>
                 </div> -->
-
-                <div class="update-class-software">
-                    <div class="select-class-software" *ngIf=" show.updateClassSoftware ">
-                        <div class="caption d-flex justify-content-between">
+                <div class="update-class-software" *ngIf=" show.updateClassSoftware ">
+                    <div class="select-class-software">
+                        <div class="caption">
                             <div class="text">
                                 {{ 'SELECT_YOUR_MESSENGER' | t }}
                             </div>
-                            <div class="cancel app-button" (click)=" onCancelUpdateClassSoftware() ">
+                            <div class="cancel" (click)=" onCancelUpdateClassSoftware() ">
                                 <span>{{ 'CANCEL' | t }}</span>
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -174,7 +176,7 @@
                             </div>
 
                         </div>
-                        <div>
+                        <div class="messangers">
                             <label>
                                 <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype"
                                     [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.skype)">
