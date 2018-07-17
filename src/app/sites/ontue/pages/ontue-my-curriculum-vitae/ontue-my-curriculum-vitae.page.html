@@ -86,12 +86,14 @@
                         <input type="tel" matInput [(ngModel)]="account.phone_number" name="phone_number">
                     </mat-form-field>
                     <mat-form-field appearance="outline">
-                        <mat-label>{{ 'SCHOOL' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.last_education" name="last_education">
+                        <mat-label>{{ 'WECHAT ID' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.wechat" name="wechat">
                     </mat-form-field>
+
+
                     <mat-form-field appearance="outline">
-                        <mat-label>{{ 'MAJOR' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.major" name="major">
+                        <mat-label>{{ 'LINE ID' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.line" name="line">
                     </mat-form-field>
 
                 </div>
@@ -149,28 +151,22 @@
                         <input type="text" matInput [(ngModel)]="account.kakaotalk" name="kakaotalk">
                     </mat-form-field>
 
-
-                    <mat-form-field appearance="outline">
-                        <mat-label>{{ 'WECHAT ID' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.wechat" name="wechat">
-                    </mat-form-field>
-
-
-                    <mat-form-field appearance="outline">
-                        <mat-label>{{ 'LINE ID' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.line" name="line">
-                    </mat-form-field>
-
-
-                    <mat-form-field appearance="outline">
-                        <mat-label>{{ 'HOBBIES' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.hobby" name="hobby">
-                    </mat-form-field>
-
                 </div>
             </div>
             <div class="text-inputs row">
                 <div class="col">
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{ 'HOBBIES' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.hobby" name="hobby">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{ 'SCHOOL' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.last_education" name="last_education">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{ 'MAJOR' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.major" name="major">
+                    </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>{{ 'ADDRESS' | t }}</mat-label>
                         <input matInput type="text" [(ngModel)]="account.address" name="address">
