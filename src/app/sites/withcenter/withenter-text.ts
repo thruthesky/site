@@ -1012,7 +1012,6 @@ This Agreement will be effective from June 20, 2018.`,
         ch: `招生广告应由分支机构进行，但我们会通过会议或在线视频会议提供有关广告的提示。 首先在Facebook和博客上尝试。 如果可能，请尝试使用Google Adwords。`,
         jp: `学生募集の広告は支店で実施する必要がありますが、会議やオンラインビデオ会議を通じて広告に関するヒントを提供します。 まずはFacebookやブログで試してみてください。 可能であれば、Google AdWordsを試してみてください。`
     },
-<<<<<<< HEAD
     branch_domain: {
         ko: `도메인 변경`,
         en: `Domain Change`,
@@ -1060,7 +1059,7 @@ This Agreement will be effective from June 20, 2018.`,
 （4）月額300ドル未満の支店の月間売上が6ヶ月以上続く場合、フランチャイズ契約を終了することができます。
 （5）很好地选择一个域。 wechat.englishas.com，qq.englishas.com，katalk.englishas.com，skype.englishas.com，line.englishas.com，china.englishas.com，korea.englishas.com，japan.englishas.com等。
 `
-=======
+    },
     report: {
         ko: `창업 레포트 작성`,
         en: `Submit business report`,
@@ -1206,7 +1205,6 @@ For reference, "Kakaotlak Withcenter Chat" can be found when you start a busines
 この後、「Kakaotalk Withcenter Chat」として私達に質問をすることができ、パートナーとして最善を尽くしお手伝いします。
 
 ちなみに「Kakaotlak Withcenter Chat」は、創業をする知ることができます。`
->>>>>>> master
     }
 
 };
