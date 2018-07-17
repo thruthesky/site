@@ -61,7 +61,7 @@ context('EnglishAs Register', () => {
                 cy.get("[name='phone_number'").type(chance.phone());
                 cy.get("[data-role='choose-another-messenger-app']").click();
                 cy.get('.radio-' + messenger).check();
-                cy.get("[data-selected-class-software='"+messenger+"']")
+                cy.get("[data-input-id-for='"+messenger+"']")
                 cy.get("[name='class_software_id']").type(chance.string({
                     length: 8,
                     pool: 'abcdefgh1324'
@@ -73,7 +73,7 @@ context('EnglishAs Register', () => {
             it('check if ' + messenger + ' has been properly set', () => {
                 cy.get('#desktop-header').find('.menu').click();
                 cy.get('.menu-profile').click();
-                cy.get('.desc-input-' + messenger + '-id');
+                cy.get("[data-input-id-for='"+messenger+"']")
             })
         }
     })
@@ -94,7 +94,7 @@ context('EnglishAs Register', () => {
                     pool: 'abcdefgh'
                 }))
                 cy.get('.submit-button').click();
-                cy.get('.desc-input-' + messenger + '-id');
+                cy.get("[data-input-id-for='"+messenger+"']")
             })
         }
 

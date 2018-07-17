@@ -112,7 +112,7 @@
                 <input matInput type="text" name="class_software_id" [(ngModel)]=" form.class_software_id ">
                 <img src="../../../assets/img/messengers/{{ myClassSoftware() }}.png">
                 <mat-hint>
-                    <span>{{ 'INPUT_'+ myClassSoftware() +'_ID' | t }}</span>
+                    <span [attr.data-input-id-for]="myClassSoftware()">{{ 'INPUT_'+ myClassSoftware() +'_ID' | t }}</span>
                     <button class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
                         <span>{{ 'CHOOSE_ANOTHER_MESSENGER' | t }}</span>
                         <span>
