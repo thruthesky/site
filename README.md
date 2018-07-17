@@ -485,7 +485,7 @@ env['reloadTag'] = (new Date).getTime();
 * @done 강사 수업 시간표아 예약된 수업 목록에서 각 메신저 별 친구 추가가 잘 되는지 확인.
   * deeplink 등을 추가.
 
-* xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
+* @done xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
   * 참고로 학생인데, 도메인이 없으면 www.katalkenglish.com 이 도메인이 되도록 패치를 한다.
 
 * @see other git issues
@@ -534,6 +534,8 @@ env['reloadTag'] = (new Date).getTime();
       ALTER TABLE `wp_users` CHANGE `kakaotalk_id` `kakaotalk_id_backup` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
 
     이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
+
+  * 수업 예약하면, xapi library::send_push_message() 에서 각 도메인 별로, 학생, 선생, katalk, englishas 로 잘 전송되는지 확인 할 것.
 
 #### TODO for after open
 
