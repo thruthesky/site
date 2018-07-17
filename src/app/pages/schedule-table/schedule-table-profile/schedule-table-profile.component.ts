@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import { AppService } from '../../../providers/app.service';
 import { SCHEDULE_TABLE } from '../../../modules/xapi/interfaces';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -10,7 +10,7 @@ import { ModalService } from '../../../providers/modal/modal.service';
     templateUrl: './schedule-table-profile.component.html',
     styleUrls: ['./schedule-table-profile.component.scss']
 })
-export class ScheduleTableProfileComponent {
+export class ScheduleTableProfileComponent implements AfterViewInit {
     @Input() isSingleTeacher = false;
     @Input() isLoadComplete = true;
     @Input() re: SCHEDULE_TABLE = null;
@@ -29,11 +29,14 @@ export class ScheduleTableProfileComponent {
         public forum: ForumService,
         public modal: ModalService,
     ) {
-        //
-        this.myClassSoftware = this.a.lmsInfo('user.class_software');
-        console.log('myClassSoftware: ', this.myClassSoftware);
     }
 
+    ngAfterViewInit() {
+        setTimeout(() => {
+            this.myClassSoftware = this.a.lmsInfo('user.class_software');
+            console.log('myClassSoftware: ', this.myClassSoftware);
+        }, 300);
+    }
 
     /**
      * @todo remove this method. It is not used.
@@ -55,7 +58,7 @@ export class ScheduleTableProfileComponent {
     onClickAddMessenger() {
         this.a.addMessenger({
             class_software: this.myClassSoftware,
-            class_software_id: this.re.teacher[ this.myClassSoftware ],
+            class_software_id: this.re.teacher[this.myClassSoftware],
             url: this.re.teacher.kakao_qrmark_string
         });
     }

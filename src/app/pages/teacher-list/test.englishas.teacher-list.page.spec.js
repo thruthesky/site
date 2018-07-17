@@ -18,7 +18,7 @@ context('Teacher List Page', () => {
                 cy.open('profile', 'register-page')
                 cy.get("[data-role='choose-another-messenger-app']").click();
                 cy.get('.radio-' + messenger).check()
-                cy.get("[data-selected-class-software='"+messenger+"']")
+                cy.get("[data-input-id-for='"+messenger+"']")
                 cy.get("[name='class_software_id']").type(chance.string({
                     length: 5,
                     pool: 'abcdefgh'

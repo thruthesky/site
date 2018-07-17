@@ -1,8 +1,8 @@
-<main>
+<main data-role="student-session-future-page">
     <header>
         <h1>{{ 'SESSION_FUTURE' | t }}</h1>
         <div class="point-loader">
-            <ng-container *ngIf=" a.isStudent ">
+            <ng-container *ngIf=" isStudent ">
                 {{ 'USER_POINT' | t:{ username: a.user.name | t } }}
                 <span *ngIf=" a.inLoadingMyPoint "><mat-spinner [diameter]="20"></mat-spinner></span>
                 <span *ngIf=" ! a.inLoadingMyPoint "> {{ share.point }}</span>
