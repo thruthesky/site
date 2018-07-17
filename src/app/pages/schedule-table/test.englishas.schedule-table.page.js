@@ -27,11 +27,13 @@ context('Schedule Table Page', () => {
              */
             cy.get(".td.session[status='F'][open='O'][prere='']").first().click();
             cy.get("[owner='me']")
+            // cy.get(".point-updated");
         })
-    })
-    describe('Cancel the reservations of teacher: ' + teacherName, () => {
         it("Cancel reservation", () => {
-            // cy.wait(1000);
+            /**
+             * Somehow, it needs to login again. It 
+             */
+            cy.login(config.url.englishas);
             cy.open('session-future', 'student-session-future-page');
             cy.get("[data-button='cancel-reservation']").first().click();
             cy.get("[data-button='yes']").click();

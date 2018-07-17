@@ -1152,8 +1152,8 @@ export class AppService {
             const k = key.split('.');
             const first = k[0];
             const second = k[1];
-            console.log('info: ', info);
-            console.log('info.user: ', info[first]);
+            // console.log('info: ', info);
+            // console.log('info.user: ', info[first]);
             if (info[first] !== void 0 && info[first]) {
                 if (info[first][second] !== void 0 && info[first][second]) {
                     return info[k[0]][k[1]];
@@ -1707,11 +1707,14 @@ export class AppService {
     /**
      * Updates user's point from the server.
      */
-    updateUserPoint() {
+    updateUserPoint(callback?) {
         if (this.user.isLogin) {
             this.loadMyPoint(p => {
                 this.userPoint = p;
                 this.rerender();
+                if ( callback ) {
+                    callback();
+                }
             });
         }
     }

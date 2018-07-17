@@ -34,7 +34,7 @@ export class ScheduleTableProfileComponent implements AfterViewInit {
     ngAfterViewInit() {
         setTimeout(() => {
             this.myClassSoftware = this.a.lmsInfo('user.class_software');
-            console.log('myClassSoftware: ', this.myClassSoftware);
+            // console.log('myClassSoftware: ', this.myClassSoftware);
         }, 300);
     }
 

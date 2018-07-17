@@ -63,9 +63,15 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
      *
      * @description The reason why it does not use `a.isStudent` is to avoid ExpressionChangedAfterItHasBeenChecked erorr
      *      on cypress. Somehow cypress makes this error.
+     *      - This is now become a major problem. This code is all over the app.
+     *          May need to handle this error.
      */
     isStudent = false;
 
+    /**
+     * Becomes true for 5 seconds if user's point has been updated.
+     */
+    pointHasBeenUpdated = false;
     //
     constructor(
         public router: Router,
@@ -454,7 +460,10 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             session[N.idx_reservation] = re.idx_reservation;
             this.a.updateLmsInfoUserNoOfTotalSessions(re['no_of_total_sessions']);
             this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
-            this.a.updateUserPoint();
+            this.a.updateUserPoint((() => {
+                this.pointHasBeenUpdated = true;
+                setTimeout(() => this.pointHasBeenUpdated = false, 5000);
+            }));
             this.a.onLmsReserve(this.teacher_name([session]));
             if (this.teacher_group(session) === 'withcenter') {
                 // this.a.toast( this.a.ln.WITHCENTER_TEACHER_RESERVE_REMINDER );
@@ -490,7 +499,10 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             session[N.point] = this.schedule(session[N.idx_schedule])[N.point];
             this.a.updateLmsInfoUserNoOfTotalSessions(re['no_of_total_sessions']);
             this.a.updateLmsInfoUserNoOfReservation(re['no_of_reservation']);
-            this.a.updateUserPoint();
+            this.a.updateUserPoint((() => {
+                this.pointHasBeenUpdated = true;
+                setTimeout(() => this.pointHasBeenUpdated = false, 5000);
+            }));
             this.a.onLmsCancel(this.teacher_name([session]));
         }, e => {
             session['in_progress'] = false;

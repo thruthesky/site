@@ -40,7 +40,7 @@
             </a>
         </div>
 
-        <div class="student-info" *ngIf=" isStudent ">
+        <div class="student-info" [ngClass]="{ 'point-updated': pointHasBeenUpdated }" *ngIf=" isStudent ">
                 {{ 'STUDENT_PONT_ON_SCHEDULE_TABLE' | t:{name: a.user.name, point: a.userPoint } }}
         </div>
 
