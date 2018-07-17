@@ -1,17 +1,84 @@
 @import '../../../theme/variables-katalkenglish.scss';
 @import '../../../theme/vars.scss';
 
+.title{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @media (min-width:$md) {
+        flex-direction: row
+    }
+    margin: 2em 1.7em;
 
-
-.wechat {
-    .icon {
-        img {
-            width: 128px;
+    &>div:first-child{
+        margin-right: .5em;
+        margin-bottom: .5em;
+        @media (min-width:$md) {
+            margin-bottom: 0;
+            margin-right: 1em;
+        }
+        color: #FF7B0D;
+    }
+    &>div:last-child{
+        font-size: .9em;
+    }
+}
+.class-softwares{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 .5em;
+    padding-bottom: 5em;
+    font-size: .9em;
+    [data-class-software]{
+        display: flex;
+        margin-bottom: .5em;
+        @media (min-width:$md) {
+            margin-bottom: 1em;
+        }
+        padding: 1em 1.5em;
+        width: 500px;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.2);
+        background: #fff;
+        font-size: .95em;
+        .add-friend{
+            display: inline-flex;
+            align-items: center;
+            margin-top: .75em;
+            padding: .5em 1em;
+            border-radius: 2px;
+            background: #eee;
+            font-weight: bold;
+            font-size: .85em;
+            cursor: pointer;
+        }
+        .desc{
+            margin-bottom: .75em;
+            color: #3C66C8;
+            font-weight: bold;
+        }
+        .icon{
+            margin-right: 1.25em;
+            img{
+                width: 76px;
+                height: 76px;
+                @media (min-width:$md) {
+                    width: 96px;
+                    height: 96px;
+                }
+            }
         }
     }
+}
+.wechat {
+    position: relative;
     .text {
         img {
-            width: 24px;
+            position: absolute;
+            bottom: 1em;
+            right: 1.5em;
+            width: 2em;
         }
     }
 }

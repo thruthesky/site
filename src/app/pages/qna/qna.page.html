@@ -1,102 +1,76 @@
 <main>
     <header>
-
-        <h1 class="text-white">{{ a.ln.QNA_PAGE_TITLE }}</h1>
+        <h1>{{ a.ln.QNA_PAGE_TITLE }}</h1>
     </header>
     <section class="content">
 
-        <div>{{ a.ln.QNA_PAGE_TEXT_1 }}</div>
-        <div>{{ a.ln.QNA_PAGE_TEXT_2 }}</div>
+        <div class="title">
+            <div>{{ a.ln.QNA_PAGE_TEXT_1 }}</div>
+            <div>{{ a.ln.QNA_PAGE_TEXT_2 }}</div>
+        </div>
 
 
         <div class="qna-contacts">
             <div class="class-softwares">
 
                 <div data-class-software="skype">
-
                     <div class="icon">
                         <a class="add-friend-button" href="skype:thruthesky?add">
                             <img src="../../../../assets/img/messengers/skype.png">
                         </a>
                     </div>
                     <div class="text">
-                        <a class="add-friend-button" href="skype:thruthesky?add">
-                            <div>{{ 'skype' | t }} {{ 'ADD_FRIEND' | t }}</div>
-                            <div>
-                                {{ a.ln.QNA_PAGE_SKYPE_DESC }}
-                            </div>
-                        </a>
-                        <div>
-                            {{ a.ln.QNA_PAGE_SKYPE_ID }}
-                        </div>
+                        <div class="desc">{{ a.ln.QNA_PAGE_SKYPE_DESC }}</div>
+                        <div>{{ a.ln.QNA_PAGE_SKYPE_ID }}</div>
+                        <a class="add-friend" href="skype:thruthesky?add">{{ 'skype' | t }} {{ 'ADD_FRIEND' | t }}</a>
                     </div>
                 </div>
 
-
-                <div data-class-software="kakaotalk">
-                    <button class="add-friend-button" (click)=" a.studentAddManagerMessenger('kakaotalk') ">
-                        <div class="icon">
-                            <img src="../../../../assets/img/messengers/kakaotalk.png">
-                        </div>
-                        <div class="text">
-                            <div>{{ 'kakaotalk' | t }} {{ 'ADD_FRIEND' | t }}</div>
-                            <div>
-                                {{ a.ln.QNA_PAGE_KAKAOTALK_DESC }}
-                            </div>
-                            <div>
-                                {{ a.ln.QNA_PAGE_KAKAOTALK_ID }}
-                            </div>
-                        </div>
-                    </button>
+                <div data-class-software="kakaotalk" (click)=" a.studentAddManagerMessenger('kakaotalk') ">
+                    <div class="icon">
+                        <img src="../../../../assets/img/messengers/kakaotalk.png">
+                    </div>
+                    <div class="text">
+                        <div class="desc">{{ a.ln.QNA_PAGE_KAKAOTALK_DESC }}</div>
+                        <div> {{ a.ln.QNA_PAGE_KAKAOTALK_ID }}</div>
+                        <span class="add-friend">{{ 'kakaotalk' | t }} {{ 'ADD_FRIEND' | t }}</span>
+                    </div>
                 </div>
 
-
                 <div class="wechat" data-class-software="wechat">
-                    <div class="add-friend-button">
-                        <div class="icon">
-                            <img src="../../../../assets/img/contact/wechat-qr-code.jpg">
-                        </div>
-                        <div class="text">
-                            <div>
-                                <img src="../../../../assets/img/messengers/wechat.png"> {{ 'wechat' | t }} {{ 'ADD_FRIEND' | t }}</div>
-                            <div>
-                                {{ a.ln.QNA_PAGE_WECHAT_DESC }}
-                            </div>
-                            <div>
-                                {{ a.ln.QNA_PAGE_WECHAT_ID }}
-                            </div>
-                        </div>
+                    <div class="icon">
+                        <img src="../../../../assets/img/contact/wechat-qr-code.jpg">
+                    </div>
+                    <div class="text">
+                        <div class="desc">{{ a.ln.QNA_PAGE_WECHAT_DESC }}</div>
+                        <div>{{ a.ln.QNA_PAGE_WECHAT_ID }}</div>
+                        <div class="add-friend">{{ 'wechat' | t }} {{ 'ADD_FRIEND' | t }}</div>
+                        <img src="../../../../assets/img/messengers/wechat.png">
+                    </div>
+                </div>
+
+                <div data-class-software="qq">
+                    <div class="icon">
+                        <img src="../../../../assets/img/messengers/qq.png">
+                    </div>
+                    <div class="text">
+                        <div class="desc">{{ a.ln.QNA_PAGE_QQ_DESC }}</div>
+                        <div>{{ a.ln.QNA_PAGE_QQ_ID }}</div>
                     </div>
                 </div>
 
 
                 <div data-class-software="line">
-                    <div class="add-friend-button">
-                        <div class="icon">
-                            <img src="../../../../assets/img/messengers/line.png">
-                        </div>
-                        <div class="text">
-                            <div>
-                                {{ a.ln.QNA_PAGE_LINE_DESC }}</div>
-                            <div>
-                                {{ a.ln.QNA_PAGE_LINE_ID }}
-                            </div>
-                        </div>
+                    <div class="icon">
+                        <img src="../../../../assets/img/messengers/line.png">
+                    </div>
+                    <div class="text">
+                        <div class="desc">{{ a.ln.QNA_PAGE_LINE_DESC }}</div>
+                        <div>{{ a.ln.QNA_PAGE_LINE_ID }}</div>
                     </div>
                 </div>
 
 
-                <div data-class-software="qq">
-                    <div class="add-friend-button">
-                        <div class="icon">
-                            <img src="../../../../assets/img/messengers/qq.png">
-                        </div>
-                        <div class="text">
-                            <div>{{ a.ln.QNA_PAGE_QQ_DESC }}</div>
-                            <div>{{ a.ln.QNA_PAGE_QQ_ID }}</div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
