@@ -40,22 +40,6 @@
         </div>
 
         <div class="payment-information container-fluid">
-            <div class="row" *ngIf="payment_information['payment_method'] != 'paypal' ">
-                <div class="col">
-                    <div>KWR to PHP</div>
-                </div>
-                <div class="col">
-                    <input id="php" type="text" [(ngModel)]=" payment_computation['php'] " (keyup)="recompute()" />
-                </div>
-            </div>
-            <div class="row" *ngIf="payment_information['payment_method'] == 'paypal' ">
-                <div class="col">
-                    <div>KWR to USD</div>
-                </div>
-                <div class="col">
-                    <input id="usd" type="text" [(ngModel)]=" payment_computation['usd'] " (keyup)="recompute()" />
-                </div>
-            </div>
             <div class="row">
                 <div class="col">
                     <div>Total Points</div>
@@ -77,34 +61,51 @@
                     <div>Transaction Fee({{payment_computation.transaction_fee_teacher_share}}%)</div>
                 </div>
                 <div class="col">
-                    <div>{{ paypal_charges }}</div>
-                </div>
-            </div>
-            <div class="row"  *ngIf="payment_information['payment_method'] !== 'paypal' ">
-                <div class="col">
-                    <div>Conversion Rate({{ payment_computation['NEW_EXCHANGE_SELLER_RATE'] }}%)</div>
-                </div>
-                <div class="col">
-                    <div>{{ selling_rate }}</div>
+                    <div>{{ paypal_transaction_fee }}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <div>Earnings</div>
+                    <div>Points after Transaction Fee</div>
                 </div>
                 <div class="col">
-                    <div>{{ earnings }}</div>
+                    <div>{{ teacher_share_after_transaction_fee }}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <div>Salary</div>
+                    <div>1USD is equal to:</div>
                 </div>
                 <div class="col">
-                    <div>{{ salary }}</div>
+                    <div>{{payment_computation.point_to_usd}}points</div>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col">
+                    <div>Salary in USD</div>
+                </div>
+                <div class="col">
+                    <div>{{ salary_in_usd }}</div>
+                </div>
+            </div>
+            <ng-container *ngIf="payment_information['payment_method'] != 'paypal' ">
+                <div class="row">
+                    <div class="col">
+                        <div>Total Points</div>
+                    </div>
+                    <div class="col">
+                        <input id="usd-to-php" type="text" [(ngModel)]="payment_computation.usd_to_php_with_seller_rate" (keyup)="recompute()" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>Salary in PHP</div>
+                    </div>
+                    <div class="col">
+                        <div>{{ salary_in_php }}</div>
+                    </div>
+                </div>
+            </ng-container>
         </div>
 
     <div class="note text-left">
@@ -112,31 +113,30 @@
             <b>*Total Points:</b> This is the total accumulated points you earn every paid class for a certain cutoff.
         </div>
         <div class="mb-3">
-            <b>*Teacher Share Points:</b> Teacher share is {{payment_computation?.teacher_share}}% of the total accumulated points.
+            <div><b>*Teacher Share Points:</b> Teacher share is {{payment_computation?.teacher_share}}% of the total accumulated points.</div>
+            <div><b>*Branch and Office Share:</b> Branch and Office get {{100 - payment_computation?.teacher_share}}% share of the total accumulated points.</div>
+            <div><b>*Why branch and Company have share?</b> Simply because without student, teacher wont be able to teach. The main purpose of branches is to get more student.</div>
+            <div>And as a company we need to pay for our servers to host website, advertisement, salaries, transactions and taxes.</div>
+            <div>*Important Note: (All share's are subject to change without prior notice due to currency fluctuation)</div>
         </div>
         <div class="mb-3">
-            <b>*Paypal Charges:</b> When the student buy points, paypal deduct a total of {{ payment_computation?.transaction_fee_paypal }}% from the total amount
-            they pay.
-            But we still give the full amount of points to student, that's why we need to deduct the {{ payment_computation?.transaction_fee_paypal }}% to the teacher, branch
-            and company share.
-            Company, branch and teacher will share with this deduction. Since teacher share is {{payment_computation?.teacher_share}}% then we deduct {{payment_computation?.transaction_fee_teacher_share}}% to
-            teacher points.
+            <b>*Transaction Fee:</b> When the student buy points, paypal deduct a total of 4.7% from the total amount they pay.
+            But we still give the full amount of points to student, that's why we need to deduct the 4.7% to the teacher, branch and company share.
+            Company, branch and teacher will share with this deduction. Since teacher share is 75% then we deduct 3.53% to teacher points.
             And the remaining will be deducted to the company and branch.
         </div>
         <div class="mb-3">
-            <b>*Conversion Rate Fee:</b> Paypal charge this fee when we transfer the money from paypal to local banks.
+            <b>*Points after transaction:</b> remaining points after share and transaction is applied
         </div>
         <div class="mb-3">
-            <b>*Total Earnings:</b> This amount sum of all the share and deductions.
+            <b>*Salary in USD:</b>( Paypal ) This amount is may change depends on the current exchange rate.
         </div>
         <div class="mb-3">
-            <b>*Average Salary:</b> This amount is may change depends on the current exchange rate.
+            <b>*Salary in PHP:</b>( GCash and Western Union) This amount is may change depends on the current exchange rate.
         </div>
         <div class="mb-3">
-            <div><b>*Note:</b> Additional charges will be applied to GCash and Western Union base on the total salary earned.</div>
-            <div><b>*Note:</b> For paypal users, Conversion rate is not applied but paypal will charge a service fee upon
-                receiving your salary.
-            </div>
+            <div><b>*Note:</b> For paypal users, service charge will be deduct upon receiving your salary. </div>
+            <div><b>*Note:</b> For GCash and Western Union, Additional charges will be applied to GCash and Western Union base on their transfer fee.</div>
         </div>
     </div>
 </main>
