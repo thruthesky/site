@@ -232,38 +232,37 @@
 
 
 
-            <div class="teacher-class-software-and-id container-fluid" *ngIf=" a.site.is.ontue ">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div>
-                            <img src="../../../assets/img/messengers/skype.png">
-                            <label>Skype ID</label>
-                            <input type="text" name="skype" [(ngModel)]=" form.skype ">
-                        </div>
-                        <div>
-                            <img src="../../../assets/img/messengers/kakaotalk.png">
-                            <label>Input Kakaotalk ID</label>
-                            <input type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
-                        </div>
-                        <div>
-                            <img src="../../../assets/img/messengers/wechat.png">
-                            <label>Input WeChat ID</label>
-                            <input type="text" name="wechat" [(ngModel)]=" form.wechat ">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div>
-                            <img src="../../../assets/img/messengers/line.png">
-                            <label>Input Line ID</label>
-                            <input type="text" name="line" [(ngModel)]=" form.line ">
-                        </div>
-                        <div>
-                            <img src="../../../assets/img/messengers/qq.png">
-                            <label>Input QQ ID</label>
-                            <input type="text" name="qq" [(ngModel)]=" form.qq ">
-                        </div>
-                    </div>
-                </div>
+            <div *ngIf=" a.site.is.ontue ">
+                <mat-form-field class="class-software" appearance="outline">
+                    <mat-label>Skype ID</mat-label>
+                    <input matInput type="text"  name="skype" [(ngModel)]=" form.skype ">
+                    <img src="../../../assets/img/messengers/skype.png">
+                </mat-form-field>
+
+                <mat-form-field class="class-software" appearance="outline">
+                    <mat-label>Input Kakaotalk ID</mat-label>
+                    <input matInput type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
+                    <img src="../../../assets/img/messengers/kakaotalk.png">
+                </mat-form-field>
+
+                <mat-form-field class="class-software" appearance="outline">
+                    <mat-label>Input WeChat ID</mat-label>
+                    <input matInput type="text" name="wechat" [(ngModel)]=" form.wechat ">
+                        <img src="../../../assets/img/messengers/wechat.png">
+                </mat-form-field>
+
+                <mat-form-field class="class-software" appearance="outline">
+                    <mat-label>Input Line ID</mat-label>
+                    <input matInput type="text" name="line" [(ngModel)]=" form.line ">
+                         <img src="../../../assets/img/messengers/line.png">
+                </mat-form-field>
+
+                <mat-form-field class="class-software" appearance="outline">
+                    <mat-label>Input QQ ID</mat-label>
+                    <input matInput type="text" name="qq" [(ngModel)]=" form.qq ">
+                    <img src="../../../assets/img/messengers/qq.png">
+                </mat-form-field>
+
             </div>
 
 
