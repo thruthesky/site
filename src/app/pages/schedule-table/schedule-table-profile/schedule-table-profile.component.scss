@@ -203,8 +203,11 @@
         .video-button-off {
             button {
                 background: transparent !important;
-                color: #000;
-                font-weight: 500;
+                color: #000!important;
+                font-weight: 500!important;
+            }
+            span{
+                border: 0!important;
             }
         }
         .review-button {
