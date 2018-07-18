@@ -117,7 +117,7 @@ export class AdminUserPage implements OnInit {
             event.preventDefault();
         }
         // console.log(this.form);
-        const select = 'ID, user_email, display_name, name, user_registered, phone_number, kakaotalk_id, grade, bookable_time, list_order, timezone, domain, manager, point, gender, user_type';
+        const select = 'ID, user_email, display_name, name, user_registered, phone_number, kakaotalk, skype, wechat, line, qq, class_software, class_software_id, grade, bookable_time, list_order, timezone, domain, manager, point, gender, user_type';
         const where = this.getWhere();
         let sql = `SELECT ${select} FROM wp_users WHERE BRANCH`;
         if (where) {
@@ -150,7 +150,7 @@ export class AdminUserPage implements OnInit {
         if (this.form.name) {
             const n = this.form.name.trim();
             if (isNaN(<any>n)) {
-                where.push(`name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk_id LIKE '${n}%'`);
+                where.push(`name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk LIKE '${n}%' OR skype LIKE '${n}%' OR wechat LIKE '${n}%' OR line LIKE '${n}%'OR line qq '${n}%'`);
             } else {
                 where.push(`ID=${n}`);
             }
