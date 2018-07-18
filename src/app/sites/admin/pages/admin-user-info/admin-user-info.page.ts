@@ -70,7 +70,7 @@ export class AdminUserInfoPage implements OnInit {
         });
         a.lms.payment_rate().subscribe(re => {
             this.paymentRate = re;
-            console.log('paymentRate: ', this.paymentRate);
+            // console.log('paymentRate: ', this.paymentRate);
         }, () => { });
 
     }
@@ -312,7 +312,7 @@ export class AdminUserInfoPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('payments: ', re);
+            // console.log('payments: ', re);
             this.show.loader.loadPayment = false;
             if ( re ) {
                 this.payments = re;
