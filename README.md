@@ -533,15 +533,14 @@ env['reloadTag'] = (new Date).getTime();
 
 #### TODO for after open
 
-  * @done 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
-    * 학생의 경우, 기존의 kakaotalk_id 를 class_software=kakaotalk, class_software_id=카톡아이디로 복사.
-    * 강사의 경우, kakaotalk 으로 변경.
-    * 그리고 kakaotalk_id 필드를 kakaotalk_id_backup 으로 이름을 변경한다.
-    SQL 쿼리:
-      ALTER TABLE `wp_users` CHANGE `kakaotalk_id` `kakaotalk_id_backup` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+* @done 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
+  * 학생의 경우, 기존의 kakaotalk_id 를 class_software=kakaotalk, class_software_id=카톡아이디로 복사.
+  * 강사의 경우, kakaotalk 으로 변경.
+  * 그리고 kakaotalk_id 필드를 kakaotalk_id_backup 으로 이름을 변경한다.
+  SQL 쿼리:
+    ALTER TABLE `wp_users` CHANGE `kakaotalk_id` `kakaotalk_id_backup` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
 
-    이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
-
+  이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
 
 * 학생 englishas 가입 테스트와 강사 메신저 테스트가 에러가 남.
   * 하나의 테스트 파일에 한 메신저만 테스트 할 것.
