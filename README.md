@@ -493,24 +493,18 @@ env['reloadTag'] = (new Date).getTime();
 #### TODO for openning
 
 * 오프닝 준비
-  * Angular 와 PHP 의 engliashas 를 master 로 mergin 한다.
-  * 질문과답변에서 카톡, 스카이프, 위쳇이 제대로 열리는지 확인한다.
-    (데스크톱에서는 그냥 qna 페이지로 연결 함.)
-  * https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
-  * 가맹사 생성 테스트.
-  * php 에서 번역을 4개 국어로 해야하고,
+  * @done Angular 와 PHP 의 engliashas 를 master 로 mergin 한다.
+  * @done https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
+
+  * @done php 에서 번역을 4개 국어로 해야하고,
     * CODE_EMPTY_CLASS_SOFTWARE, CODE_EMPTY_CLASS_SOFTWARE_ID 에 대해서, 스카이프, 카톡, 위쳇, 라인 앱 이름을 정확히 명시해야 한다.
 
   * 테스트. 모든 페이지 다 테스트. 회원가입, 글 읽기, 수업 예약, 예약 확인, 취소, 즉시예약 등.
-  * 디자인.
+  * @done 디자인.
     * 회원 가입/수정.
       * 회원 정보를 업데이트하면, profile updated 디자인.
 
-  * 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
-    * 학생의 경우, 기존의 kakaotalk_id 를 class_software=kakaotalk, class_software_id=카톡아이디로 복사.
-    * 강사의 경우, kakaotalk 으로 변경.
-
-  * 각종 테스트
+  * @done 각종 테스트
     * 강사 검색이 각 메신저 아이디로 되는지 확인.
     * 관리자 페이지에서 lms.admin_query() 를 많이 하는데, 그 결과가 기존의 kakaotalk_id 에서
       강사는 5개의 메신저,
@@ -524,44 +518,33 @@ env['reloadTag'] = (new Date).getTime();
 #### TODO for open
 
 * 오픈.
-  * 중요: 오픈 절차를 따라야 함. 그렇지 않으면 실패. 큰 문제 발생.
-  * 먼저, 아래와 DB 패치를 해야한다.
+
+  * @done 중요: 오픈 절차를 따라야 함. 그렇지 않으면 실패. 큰 문제 발생.
+  * @done 먼저, 아래와 DB 패치를 해야한다.
     이것은 기존의 kakaotalk_id 를 학생의 class software /id 와 강사의 kakaotalk 필드에 카톡 아이디 정보를 변경하는 것이다.
     그리고 도메인이 없는 학생의 도메인을 www.katalkenglish.com 으로 변경 해 준다.
     패치 방법:
       cd wp-content/plugins/xapi-2/lms/patch
       php class-software.php
       php student-domain.php
-  * 그리고 kakaotalk_id 필드를 kakaotalk_id_backup 으로 이름을 변경한다.
+
+  * @done 수업 예약하면, xapi library::send_push_message() 에서 각 도메인 별로, 학생, 선생, katalk, englishas 로 잘 전송되는지 확인 할 것.
+
+
+#### TODO for after open
+
+  * @done 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
+    * 학생의 경우, 기존의 kakaotalk_id 를 class_software=kakaotalk, class_software_id=카톡아이디로 복사.
+    * 강사의 경우, kakaotalk 으로 변경.
+    * 그리고 kakaotalk_id 필드를 kakaotalk_id_backup 으로 이름을 변경한다.
     SQL 쿼리:
       ALTER TABLE `wp_users` CHANGE `kakaotalk_id` `kakaotalk_id_backup` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
 
     이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
 
-  * 수업 예약하면, xapi library::send_push_message() 에서 각 도메인 별로, 학생, 선생, katalk, englishas 로 잘 전송되는지 확인 할 것.
 
-#### TODO for after open
-
-* 마무리 한 다음. English As 오픈 후.
-  * 보다 편리한 언어 변환. 구글 drive 를 사용하는 것보다 직접 만들면 더 편리함. 직접 만드는 것이 좋을 것 같음.
-    * 구글 drive 를 활용하는 경우.
-    기존의 json 파일들을 모두 CSV 파일로 쏟아 부어서, 아래의 파일로 저장한다. 그래서 여러 사람들이 수정하게 한 다음,
-    * Google Language Translation Doc
-  https://docs.google.com/spreadsheets/d/1tdYbpSErJZw-NuMYbocKyq7DIaN1YyxZADEkrxw66zQ/edit#gid=0
-
-    * 다시, json 파일로 변환한다.
-
-  * 온튜 풀어야 할 과제.
-    https://docs.google.com/document/d/1sjvKRhYRoYqhQwxrlhLnZK_7xMmJ0KzNPtgIvYCr8Fw/edit#heading=h.wge93zpyb08h
-  
-  * 관리자 페이지에, 각 branch 별 목록 및 정보 수정을 할 수 있도록 한다.
-    * www.englishas.com 도 브랜치를 만든다.
-    * 그리고 englishas.com 은 그냥 www.englishas.com 으로 해서, 설정을 할 수 있도록 한다.
-    * www.englishas.com 자체도 로고 등을 변경하여 사용 할 수 있다.
-    * branch 별로 상담 카톡, 스카이프, 위쳇, 큐큐, 라인 아이디를 둔다.
-    * 질문 답변 페이지를 업데이트해야한다.
-  * 모든 강사에게 스카이프와 위쳇을 설치하라고 한다.
-    * 위쳇 QR 코드를 등록해야 한다.
-    * 라인과 큐큐는 나중에.
-    * 그리고 학생이 위쳇으로 수업하면, 선생님 사진 옆에, QR 마크를 화면에 표시해야 한다.
-* 강사는 WeChat QR code 를 업로드 해야한다.
+* 학생 englishas 가입 테스트와 강사 메신저 테스트가 에러가 남.
+  * 하나의 테스트 파일에 한 메신저만 테스트 할 것.
+    * 그래서 에러가 안나면 문서화 할 것. 한 테스트 파일에 너무 많은 테스트를 하지 말 도록.
+* 질문과답변에서 카톡, 스카이프, 위쳇이 제대로 열리도록 수정.
+    (데스크톱에서는 그냥 qna 페이지로 연결 함.)
