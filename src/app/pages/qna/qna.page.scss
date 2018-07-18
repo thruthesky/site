@@ -13,7 +13,7 @@
         @media (min-width:$md) {
             margin-right: 1em;
             margin-bottom: .5em;
-            font-size: 1.3em;
+            font-size: 1.25em;
         }
         color: #FF7B0D;
     }
@@ -81,10 +81,11 @@
             margin-bottom: .75em;
             color: #3C66C8;
             font-weight: bold;
-            font-size: .95em;
+            font-size: 1em;
         }
         .messenger-id{
             color: darkgreen;
+            font-size: .95em;
         }
         .icon{
             display: flex;
@@ -108,7 +109,7 @@
         font-size: 1.15em;
         @media (min-width:$md) {
             margin-top: 1.25em;
-            font-size: 1.5em;   
+            font-size: 1.5em!important;   
         }
     }
 }
