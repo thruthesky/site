@@ -125,7 +125,7 @@ export class AdminUserPage implements OnInit {
         }
         sql += ` ORDER BY ${this.form.order} ${this.form.by}`;
         sql += ` LIMIT ${this.form.limit}`;
-        // console.log(sql);
+        // console.log('onSubmit:sql', sql);
         this.show.loader = true;
         this.a.lms.admin_query({
             sql: sql,
@@ -150,7 +150,7 @@ export class AdminUserPage implements OnInit {
         if (this.form.name) {
             const n = this.form.name.trim();
             if (isNaN(<any>n)) {
-                where.push(`name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk LIKE '${n}%' OR skype LIKE '${n}%' OR wechat LIKE '${n}%' OR line LIKE '${n}%'OR line qq '${n}%'`);
+                where.push(`name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk LIKE '${n}%' OR skype LIKE '${n}%' OR wechat LIKE '${n}%' OR line LIKE '${n}%' OR qq LIKE '${n}%'`);
             } else {
                 where.push(`ID=${n}`);
             }
