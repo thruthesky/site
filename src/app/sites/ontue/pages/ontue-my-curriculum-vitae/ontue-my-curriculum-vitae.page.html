@@ -85,18 +85,6 @@
                         <mat-label>{{ 'PHONE NO' | t }}</mat-label>
                         <input type="tel" matInput [(ngModel)]="account.phone_number" name="phone_number">
                     </mat-form-field>
-                    <mat-form-field class="class-software" appearance="outline">
-                        <mat-label >{{ 'WECHAT ID' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.wechat" name="wechat">
-                        <img src="../../../../../assets/img/messengers/wechat.png" alt="">
-                    </mat-form-field>
-
-
-                    <mat-form-field class="class-software" appearance="outline">
-                        <mat-label >{{ 'LINE ID' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.line" name="line">
-                        <img src="../../../../../assets/img/messengers/line.png" alt="">
-                    </mat-form-field>
 
                 </div>
                 <div class="col">
@@ -142,6 +130,22 @@
                         <input type="text" matInput [(ngModel)]="account.youtube_video_url" name="youtube_video_url">
                     </mat-form-field>
 
+                </div>
+            </div>
+            <div class="text-inputs row">
+                <div class="col">
+                    <mat-form-field class="class-software" appearance="outline">
+                        <mat-label >{{ 'WECHAT ID' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.wechat" name="wechat">
+                        <img src="../../../../../assets/img/messengers/wechat.png" alt="">
+                    </mat-form-field>
+                    <mat-form-field class="class-software" appearance="outline">
+                        <mat-label >{{ 'LINE ID' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.line" name="line">
+                        <img src="../../../../../assets/img/messengers/line.png" alt="">
+                    </mat-form-field>
+                </div>
+                <div class="col">
                     <mat-form-field class="class-software" appearance="outline">
                         <mat-label>{{ 'SKYPE ID' | t }}</mat-label>
                         <input type="text" matInput [(ngModel)]="account.skype" name="skype">
@@ -153,7 +157,6 @@
                         <input type="text" matInput [(ngModel)]="account.qq" name="qq">
                         <img src="../../../../../assets/img/messengers/qq.png" alt="">
                     </mat-form-field>
-
                 </div>
             </div>
             <div class="text-inputs row">
