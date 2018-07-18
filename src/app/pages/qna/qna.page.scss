@@ -3,8 +3,10 @@
 .title{
     margin: 2em 1.6em;
     @media (min-width:$md) {
-        margin: 2.5em 1.6em;
+        margin: 2.5em 0;
+        text-align: center;
     }
+    border-radius: 2px;
 
     &>div:first-child{
         margin-right: .5em;
@@ -28,9 +30,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 1em;
+    padding: 0 .5em;
     @media (min-width:$md) {
-        padding: 0 2em;
+        padding: 0;
         padding-bottom: 8em;
     }
     padding-bottom: 5em;
@@ -38,11 +40,12 @@
     [data-class-software]{
         display: flex;
         margin-bottom: .5em;
+        width: 100%;
         @media (min-width:$md) {
+            width: 49%;
             margin-bottom: 1.45em;
         }
         padding: 1em 1.5em;
-        width: 473px;
         border-radius: 2px;
         font-size: .95em;
         border:1px solid #eee;
@@ -81,7 +84,10 @@
             margin-bottom: .75em;
             color: #3C66C8;
             font-weight: bold;
-            font-size: 1em;
+            font-size: .9em;
+            @media (min-width:$md) {
+                font-size: 1em;
+            }
         }
         .messenger-id{
             color: darkgreen;
