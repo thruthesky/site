@@ -135,7 +135,7 @@
   "MY_POINT": "My Point",
   "MY_ENGLISH_LEVEL": "My English Level",
   "MESSAGE": "Message",
-  "KATALKENGLISH_MENU_WELCOME_MESSAGE": "If you have any questions please feel free to ask Katok!",
+  "KATALKENGLISH_MENU_PAGE_TTILE": "If you have any questions please feel free to ask Katok!",
   "PROFILE": "Profile",
   "SIGN_UP": "Sign Up",
   "SCHEDULE_A_CLASS": "Shedule a class",
@@ -204,7 +204,6 @@
 
   "TAKEN": "Sessions",
   "HAD SESSIONS": " ",
-  "ADD KAKAO": "Add Kakao Friend",
   "VIDEO": "Video",
   "OPEN REVIEW": "Comments",
   "CURRICULUM VITAE": "Resume",
@@ -596,7 +595,7 @@
   "REDIRECTING": "Redirecting...",
 
   "KAKAOTALK_ID_IMPORTANT": "Please double check your Kakaotalk ID. There are many unsuccessful lessons due to wrong Kakaotalk ID.",
-  "ADD_KAKAOTALK": "Add Friend",
+
   "NO": "No",
   "TEACHER_LIST_OPTION_BUTTON": "Search",
   "PAGE_NOT_FOUND_TITLE": "Page not found",
@@ -712,5 +711,45 @@
   "CHINESE_BANK_PAYMENT_AMOUNT_DESC": "The above amount is converted from #usd dollar including VAT #VAT%.",
   "RENMINBI": "Renminbi",
   "YEN": "Yen",
-  "LOADING_TEACHER_INFO_AND_SCHEDULE": "Loading teacher information and schedule."
+  "LOADING_TEACHER_INFO_AND_SCHEDULE": "Loading teacher information and schedule.",
+
+
+
+
+  "NAME_REQUIRED": "Please input name.",
+  "NICKNAME_REQUIRED": "Please input nickname.",
+  "PHONE_NUMBER_REQUIRED": "Please input phone number.",
+
+  "KAKAOTALK": "Kakaotalk",
+  "SKYPE": "Skype",
+  "WECHAT": "WeChat",
+  "LINE": "Line",
+  "QQ": "QQ",
+  "INPUT_KAKAOTALK_ID": "Please input Kakaotalk ID.",
+  "INPUT_SKYPE_ID": "Please input Skype ID.",
+  "INPUT_WECHAT_ID": "Please input WeChat ID.",
+  "INPUT_LINE_ID": "Please input line ID.",
+  "INPUT_QQ_ID": "Please input QQ ID.",
+
+  "CHOOSE_ANOTHER_MESSENGER": "Choose another messenger",
+
+  "ADD_FRIEND": "Add Friend",
+
+  "QNA_PAGE_TITLE": "Contacts",
+  "QNA_PAGE_TEXT_1": "We use your messenger app to response instantly and lively.",
+  "QNA_PAGE_TEXT_2": "Please add us in your messenger app and ask for assistant.",
+  "QNA_PAGE_SKYPE_DESC": "Please click Skype icon to add friend or copy Skype ID and add us.",
+  "QNA_PAGE_SKYPE_ID": "Skype ID: thruthesky",
+  "QNA_PAGE_WECHAT_DESC": "Please scan QR Code or Copy WeChat ID and paste it on Add Contacts.",
+  "QNA_PAGE_WECHAT_ID": "WeChat ID: thruthesky",
+  "QNA_PAGE_KAKAOTALK_DESC": "Please click Kakaotalk icon or copy Kakaotalk ID and add us.",
+  "QNA_PAGE_KAKAOTALK_ID": "Kakaotalk ID: thruthesky2",
+  "QNA_PAGE_LINE_DESC": "Please copy Line ID and add us.",
+  "QNA_PAGE_LINE_ID": "Line ID: thruthesky",
+  "QNA_PAGE_QQ_DESC": "Please copy QQ number and add us.",
+  "QNA_PAGE_QQ_ID": "QQ Number: 3483204772",
+  "ID": "ID",
+  "SELECT_YOUR_MESSENGER": "Please select your messenger app."
+
+
 }

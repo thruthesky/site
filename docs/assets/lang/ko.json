@@ -64,7 +64,7 @@
   "MY_POINT": "나의 포인트",
   "MY_ENGLISH_LEVEL": "나의 영어 레벨",
   "MESSAGE": "메시지",
-  "KATALKENGLISH_MENU_WELCOME_MESSAGE": "궁금한 점이 있으시면 언제든지 카톡으로 질문 해 주세요!",
+  "KATALKENGLISH_MENU_PAGE_TTILE": "궁금한 점이 있으시면 언제든지 카톡으로 질문 해 주세요!",
   "PROFILE": "회원 정보",
   "SIGN_UP": "회원가입",
   "SCHEDULE_A_CLASS": "수업예약",
@@ -133,7 +133,6 @@
 
   "TAKEN": "참여",
   "HAD SESSIONS": "명",
-  "ADD KAKAO": "카카오 친구 추가",
   "VIDEO": "동영상",
   "OPEN REVIEW": "수업후기",
   "CURRICULUM VITAE": "이력서",
@@ -565,7 +564,6 @@
   "VIDEO_RESERVE_TITLE": "수업 예약 동영상 설명",
   "VIDEO_RESERVE_DESC": "수업 예약 방법을 동영상으로 확인하세요.",
   "REDIRECTING": "이동중입니다.",
-  "ADD_KAKAOTALK": "카톡추가",
   "TEACHER_LIST_OPTION_BUTTON": "검색",
   "PAGE_NOT_FOUND_TITLE": "잘못된 접속 경로",
   "PAGE_NOT_FOUND_DESC": "앗, 잘못된 경로로 접속을 하였습니다. 홈페이지로 이동하여주세요.",
@@ -680,5 +678,43 @@
   "JAPANESE_BANK_PAYMENT_AMOUNT_DESC": "위 금액은 #point 포인트(#usd 달러)를 일본 엔화로 환산하고 부가세 #VAT% 를 포함한 금액입니다.",
   "RENMINBI": "위안",
   "YEN": "엔",
-  "LOADING_TEACHER_INFO_AND_SCHEDULE": "선생님 정보와 수업 시간표 정보를 로드중입니다."
+  "LOADING_TEACHER_INFO_AND_SCHEDULE": "선생님 정보와 수업 시간표 정보를 로드중입니다.",
+
+
+  "NAME_REQUIRED": "이름을 입력하십시오.",
+  "NICKNAME_REQUIRED": "별명을 입력하십시오.",
+  "PHONE_NUMBER_REQUIRED": "전화번호를 입력하십시오.",
+
+  "KAKAOTALK": "카카오톡",
+  "SKYPE": "스카이프",
+  "WECHAT": "위쳇",
+  "LINE": "라인",
+  "QQ": "큐큐",
+  "INPUT_KAKAOTALK_ID": "카카오톡 아이디를 입력하십시오.",
+  "INPUT_SKYPE_ID": "스카이프 아이디를 입력하십시오.",
+  "INPUT_WECHAT_ID": "위쳇 아이디를 입력하십시오.",
+  "INPUT_LINE_ID": "라인 아이디를 입력하십시오.",
+  "INPUT_QQ_ID": "큐큐 아이디를 입력하십시오.",
+
+  "CHOOSE_ANOTHER_MESSENGER": "다른 메신저를 선택하실 수 있습니다.",
+
+  "ADD_FRIEND": "친구 추가",
+
+  "QNA_PAGE_TITLE": "상담 안내",
+  "QNA_PAGE_TEXT_1": "저희는 신속하고 실시간으로 답변을 하기 위해서, 회원님이 즐겨 사용하는 메신저 앱으로 질문과 답변을 하고 있습니다.",
+  "QNA_PAGE_TEXT_2": "여러분이 사용하시는 메신저 앱에 친구 추가를 해 주시고, 질문을 해 주세요.",
+  "QNA_PAGE_SKYPE_DESC": "스카이프 아이콘을 클릭하여 친구를 추가하시거나 스카이프아이디를 복사하여 친구 추가 해 주세요.",
+  "QNA_PAGE_SKYPE_ID": "스카이프 아이디: thruthesky",
+  "QNA_PAGE_WECHAT_DESC": "위쳇 QR 코드를 스캔하시거나 아이디를 복사하여 친구 추가 해 주시기바랍니다.",
+  "QNA_PAGE_WECHAT_ID": "위쳇 아이디: thruthesky",
+  "QNA_PAGE_KAKAOTALK_DESC": "카카오톡 아이콘을 클릭하여 친구 추가를 하시거나 카카오톡 아이디를 복사하여 친구 추가란이 붙여넣기를 해 주세요.",
+  "QNA_PAGE_KAKAOTALK_ID": "카카오톡 아이디: thruthesky2",
+  "QNA_PAGE_LINE_DESC": "라인 아이디를 친구 추가 해 주세요.",
+  "QNA_PAGE_LINE_ID": "라인 아이디: thruthesky",
+  "QNA_PAGE_QQ_DESC": "큐큐 번호를 복사해서 친구 추가 해 주세요.",
+  "QNA_PAGE_QQ_ID": "큐큐 번호: 3483204772",
+  "ID": "아이디",
+  "SELECT_YOUR_MESSENGER": "사용하고 계신 메신저 앱을 선택해주세요."
+
+
 }
