@@ -83,7 +83,6 @@
             </div>
         </div>
 
-
         <div class="tr schedule-row" *ngFor="let sessions of re.table; let i = index">
             <div class="td profile" *ngIf=" isAllTeacher ">
                 <a class="photo" routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher_idx( sessions ) }">

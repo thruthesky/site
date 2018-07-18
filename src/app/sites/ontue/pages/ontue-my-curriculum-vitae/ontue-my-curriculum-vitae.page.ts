@@ -77,6 +77,7 @@ export class OntueMyCurriculumVitaePage {
             this.account.skype = userData.skype;
             this.account.wechat = userData.wechat;
             this.account.line = userData.line;
+            this.account.qq = userData.qq;
 
 
             if (userData.youtube_video_url) {
