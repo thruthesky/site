@@ -530,7 +530,6 @@ env['reloadTag'] = (new Date).getTime();
 
   * @done 수업 예약하면, xapi library::send_push_message() 에서 각 도메인 별로, 학생, 선생, katalk, englishas 로 잘 전송되는지 확인 할 것.
 
-
 #### TODO for after open
 
 * @done 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
@@ -542,6 +541,6 @@ env['reloadTag'] = (new Date).getTime();
 
   이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
 
-
 * 질문과답변에서 카톡, 스카이프, 위쳇이 제대로 열리도록 수정.
     (데스크톱에서는 그냥 qna 페이지로 연결 함.)
+  
