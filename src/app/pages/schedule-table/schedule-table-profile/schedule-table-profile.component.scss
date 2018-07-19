@@ -196,7 +196,7 @@
                 }   
             }
             padding-right: .5em;
-            @media screen and (min-width:$md) {
+            @media (min-width:$md) {
                 padding: 0;
             }
         }
