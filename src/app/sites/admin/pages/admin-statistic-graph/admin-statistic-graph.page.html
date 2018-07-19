@@ -136,7 +136,7 @@
             </div>
         </div>
         <div class="bar-graph-content">
-            <div *ngFor="let date of keys(stats['no_of_reservations_of_withcenter_teachers'])">
+            <div *ngFor="let date of a.keys(stats['no_of_reservations_of_withcenter_teachers'])">
                 <div class="bar-item"
                      matTooltip="{{ date }} : {{ stats['no_of_reservations_of_withcenter_teachers'][date] }}"
                      [style.height]=" barHeight( stats['no_of_reservations_of_withcenter_teachers'][date], stats.highest_no_of_reservation  ) ">
