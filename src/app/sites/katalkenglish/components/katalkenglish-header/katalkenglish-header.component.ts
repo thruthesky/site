@@ -31,8 +31,12 @@ export class KatalkEnglishHeaderComponent {
     this.a.logout(true);
   }
   onChangeLanguage() {
+    // if ( event && event.preventDefault !== void 0 ) {
+    //   event.preventDefault();
+    // }
     // console.log( this.selectedLanguage );
     this.a.language.setUserLanguage( this.selectedLanguage );
+    // return false;
   }
 }
 
