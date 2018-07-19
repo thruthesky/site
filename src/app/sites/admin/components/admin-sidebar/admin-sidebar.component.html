@@ -40,8 +40,8 @@
     </section>
 
 
-    <section id="refund-request"  *ngIf="!refundRequests.length">
-        <h2 [ngClass]="{'red': !refundRequests.length }">Refund Request. Your timezone.</h2>
+    <section id="refund-request"  *ngIf="refundRequests.length">
+        <h2 [ngClass]="{'red': refundRequests.length }">Refund Request. Your timezone.</h2>
         <table class="aside-table">
             <thead>
                 <tr>
