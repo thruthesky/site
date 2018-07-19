@@ -1,15 +1,14 @@
 @import '../../../../../theme/vars';
 .custom-table{
+    white-space: normal;
     .link{
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none!important;
         font-weight: normal;
-        span{
-            line-height: 0;
-        }
         span:first-child{
+            position: relative;
             width: 35%;
             text-align: right;
         }
@@ -18,6 +17,8 @@
             text-align: left;
         }
         svg{
+            position: relative;
+            top: .125em;
             height: .85em;
             width: .85em;
             margin-right: .3em;

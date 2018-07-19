@@ -119,23 +119,36 @@
 
             <div>
                 <label>Choose Class Messenger</label>
-                <div>
+                <div class="choose-software-desc">
                     Please choose a default Messenger for student to use to have class with.
                 </div>
-                <input type='radio' id="class_software_skype" name='messenger' [(ngModel)]=" branch.class_software " [value]="'skype'" [checked]=" branch.class_software ">
-                <label for="class_software_skype">Skype</label>
 
+                <div class="choose-class-messenger">
+                    <label>
+                        <input id="class_software_skype"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'skype'" [checked]=" branch.class_software ">
+                        <span>Skype</span>
+                    </label>
 
-                <input type='radio' id="class_software_kakaotalk" name='messenger' [(ngModel)]=" branch.class_software " [value]="'kakaotalk'" [checked]=" branch.class_software ">
-                <label for="class_software_kakaotalk">Kakaotalk</label>
+                    <label>
+                        <input id="class_software_kakaotalk"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'kakaotalk'" [checked]=" branch.class_software ">
+                        <span>Kakaotalk</span>
+                    </label>
 
+                    <label>
+                        <input id="class_software_wechat"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'wechat'" [checked]=" branch.class_software ">
+                        <span>WeChat</span>
+                    </label>
 
-                <input type='radio' id="class_software_wechat" name='messenger' [(ngModel)]=" branch.class_software " [value]="'wechat'" [checked]=" branch.class_software ">
-                <label for="class_software_wechat">Skype</label>
+                    <label>
+                        <input id="class_software_line"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'line'" [checked]=" branch.class_software ">
+                        <span>Line</span>
+                    </label>
 
-
-                <input type='radio' id="class_software_line" name='messenger' [(ngModel)]=" branch.class_software " [value]="'line'" [checked]=" branch.class_software ">
-                <label for="class_software_line">Line</label>
+                    <label>
+                        <input id="class_software_qq"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'qq'" [checked]=" branch.class_software ">
+                        <span>QQ</span>
+                    </label>
+                </div>
 
                 <div class="note">Messenger may also be used for live chat service with customer. Student will need to input Messenger ID on registraion and they can change it to another messenger on prfile update.</div>
             </div>
