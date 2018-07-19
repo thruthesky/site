@@ -38,6 +38,9 @@ main{
         @media screen and (max-width:$sm){
             width: 100%;
         }
+        strong{
+            color: dodgerblue;
+        }
         &>div{
             border: 1px solid rgba(128, 128, 128, 0.2);
             border-bottom: none;
