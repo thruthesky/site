@@ -10,7 +10,7 @@ import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_
  * Firebase initialization.
  */
 // import * as firebase from 'firebase';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/messaging';
 firebase.initializeApp(environment['firebaseConfig']);
@@ -1566,7 +1566,8 @@ export class AppService {
                 if (this.isMobile()) {
                     document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
                 } else {
-                    window.open(this.kakaoUrls.student_kakaoplus_url);
+                    this.toast( this.ln.KATALK_OPEN_ON_MOBILE_ONLY );
+                    // window.open(this.kakaoUrls.student_kakaoplus_url);
                 }
             }
             this.open('qna');
@@ -1574,6 +1575,28 @@ export class AppService {
 
         return false;
     }
+
+    /**
+     * Adds friend to user's Messenger
+     *
+     * This is different with 'onClickContactAdmin()'
+     * @description
+     *      - teacher can add student
+     *      - student can add teacher
+     *
+     * @param o options
+     */
+    addMessenger(o) {
+
+        if (o.class_software === KAKAOTALK) {
+            if (o.url !== void 0) {
+                if (this.isMobileView()) {
+                    window.open(o.url, '_blank');
+                }
+            }
+        }
+    }
+
 
 
     /**
@@ -2084,22 +2107,6 @@ export class AppService {
             return [];
         }
         return Object.keys(obj);
-    }
-
-    /**
-     * Adds friend to user's Messenger
-     *
-     * @param o options
-     */
-    addMessenger(o) {
-
-        if (o.class_software === KAKAOTALK) {
-            if (o.url !== void 0) {
-                if (this.isMobileView()) {
-                    window.open(o.url, '_blank');
-                }
-            }
-        }
     }
 
     /**
