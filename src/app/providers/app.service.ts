@@ -1566,7 +1566,8 @@ export class AppService {
                 if (this.isMobile()) {
                     document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
                 } else {
-                    this.toast( this.ln.KATALK_OPEN_ON_MOBILE_ONLY );
+                    this.toast(this.ln.KATALK_OPEN_ON_MOBILE_ONLY);
+
                     // window.open(this.kakaoUrls.student_kakaoplus_url);
                 }
             }
@@ -1585,6 +1586,8 @@ export class AppService {
      *      - student can add teacher
      *
      * @param o options
+     *
+     * @todo update for skype, line, wechat, qq
      */
     addMessenger(o) {
 
@@ -1592,6 +1595,8 @@ export class AppService {
             if (o.url !== void 0) {
                 if (this.isMobileView()) {
                     window.open(o.url, '_blank');
+                } else {
+                    this.toast(this.ln.KAKAOTALK_FRIEND_ADD_MOBILE_ONLY);
                 }
             }
         }
@@ -1735,7 +1740,7 @@ export class AppService {
             this.loadMyPoint(p => {
                 this.userPoint = p;
                 this.rerender();
-                if ( callback ) {
+                if (callback) {
                     callback();
                 }
             });

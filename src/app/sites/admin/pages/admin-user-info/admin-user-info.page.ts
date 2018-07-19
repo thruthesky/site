@@ -175,7 +175,7 @@ export class AdminUserInfoPage implements OnInit {
             bookable_time: u.bookable_time,
             block_free_class_until: u.block_free_class_until,
             timezone: u.timezone,
-            domain: u.domain,
+            // domain: u.domain,
             manager: u.manager,
             skype: u.skype,
             kakaotalk: u.kakaotalk,
@@ -189,6 +189,7 @@ export class AdminUserInfoPage implements OnInit {
             // console.log('admin_user_update', re);
             this.show.loader.profileSaved = true;
             setTimeout(() => this.show.loader.profileSaved = false, 1000);
+            this.a.toast('User information has been updated successfully.');
         }, e => this.a.toast(e));
         return false;
     }

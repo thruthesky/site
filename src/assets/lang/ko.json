@@ -715,7 +715,8 @@
   "QNA_PAGE_QQ_DESC": "큐큐 번호를 복사해서 친구 추가 해 주세요.",
   "QNA_PAGE_QQ_ID": "큐큐 번호: 3483204772",
   "ID": "아이디",
-  "SELECT_YOUR_MESSENGER": "사용하고 계신 메신저 앱을 선택해주세요."
+  "SELECT_YOUR_MESSENGER": "사용하고 계신 메신저 앱을 선택해주세요.",
+  "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "앗, 카카오톡 친구 추가는 핸드폰에서만 할 수 있습니다. 핸드폰을 이용해서, 친구추가 버튼을 클릭해 주세요."
 
 
 }
