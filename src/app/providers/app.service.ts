@@ -2080,6 +2080,7 @@ export class AppService {
         // }
         if (this.info) {
             if (this.info.branch) {
+                // console.log('info.branch', this.info.branch);
                 if (this.info.branch.site_name && this.info.branch.site_name !== 'undefined') {
                     return this.info.branch.site_name;
                 }
@@ -2128,6 +2129,7 @@ export class AppService {
      *
      * If branch has no 'default class software' set, then it returns DEFAULT_CLASS_SOFTWARE.
      *
+     * @todo this is different from 'this.info.brnach'. It needs to be synced.
      */
     get branch() {
         let defaultClassSoftware = DEFAULT_CLASS_SOFTWARE;
