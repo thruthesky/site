@@ -95,6 +95,11 @@ aside {
         }
     }
     #refund-request{
+        h2{
+            &.red {
+                color: red;
+            }
+        }
         .aside-table{
             table-layout: fixed!important;
             @media (min-width:$md) {

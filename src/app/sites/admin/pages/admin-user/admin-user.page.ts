@@ -150,7 +150,7 @@ export class AdminUserPage implements OnInit {
         if (this.form.name) {
             const n = this.form.name.trim();
             if (isNaN(<any>n)) {
-                where.push(`name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk LIKE '${n}%' OR skype LIKE '${n}%' OR wechat LIKE '${n}%' OR line LIKE '${n}%' OR qq LIKE '${n}%'`);
+                where.push(`name LIKE '${n}%' OR user_email LIKE '${n}%' OR display_name LIKE '${n}%' OR kakaotalk LIKE '${n}%' OR skype LIKE '${n}%' OR wechat LIKE '${n}%' OR line LIKE '${n}%' OR qq LIKE '${n}%' OR class_software_id LIKE '${n}%'`);
             } else {
                 where.push(`ID=${n}`);
             }
