@@ -7,78 +7,30 @@ $points-per-day-reservations:  #A32E00;
 $por-withcenter: dodgerblue;
 $por-homebased: #FFBF00;
 
-#login-info {
-    margin: 0;
-    margin-top: 1.5em;
-    .row {
-        justify-content: space-between;
-        align-items: stretch;
-        font-size: .75em;
-        @media (min-width: $md) {
-            margin: 0 -1.5em;
-            font-size: 1em;
-        }
-        .col-sm-12 {
-            padding: 1em 0;
-            @media screen {
-                padding: 0.5em;
-            }
-        }
-    }
-    .notice {
-        margin: 0;
-        margin-top: 1em;
-        @media (min-width: $md) {
-            margin-top: 0;
-        }
-        height: 100%;
-        justify-content: center;
-    }
-    .item {
-        .item-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1em .5em;
-            @media (min-width: $md) {
-                padding: 1em;
-            }
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-            border:1px solid #054A7F;
-            background: #054A7F;
-            color: #fff;
-            svg {
-                height: 1.5em;
-                width: 1.5em;
-                @media (min-width: $md) {
-                    height: 2em;
-                    width: 2em;
-                }
-                margin-right: .5em;
-            }
-        }
-        .item-content {
-            border: 1px solid rgba(125, 125, 125, 0.2);
-            border-top: 0;
-            border-bottom-left-radius: 2px;
-            border-bottom-right-radius: 2px;
-            padding: 1em;
-            text-align: center;
-        }
-    }
-}
 
 #stats-summary {
-    font-size: .9em;
+    font-size: .85em;
     &>.row {
-        margin: 0 -1.5em !important;
         align-items: stretch;
+        margin-bottom: 1em;
     }
     .col-sm-12 {
-        padding: 0 .5em;
-        &>* {
-            margin-top: 1em;
+        padding: 0;
+    }
+    .left{
+        @media (min-width:$md) {
+            padding-right: .5em!important;   
+        }
+        &:first-child{
+            padding-bottom: 1em;
+        }
+    }
+    .right{
+        &:first-child{
+            padding-top: 1em;
+        }
+        @media (min-width:$md) {
+            padding-left: .5em!important;
         }
     }
 }
@@ -170,13 +122,13 @@ $por-homebased: #FFBF00;
                 align-items: center;
                 font-size: .9em;
                 text-transform: uppercase;
-                color: dodgerblue;
+                color: #0B68B0;
                 span {
                     margin-left: .2em;
                 }
             }
             .rating {
-                color: darkorange;
+                color: #FF9200;
                 span {
                     margin: 0 .1em;
                 }
@@ -237,7 +189,7 @@ $por-homebased: #FFBF00;
         font-size: .888em;
     }
     &-content {
-        height: 142px;
+        height: 134px;
         font-size: .9em;
         overflow: auto;
         table {
@@ -260,7 +212,7 @@ $por-homebased: #FFBF00;
                 font-size: 1.3em;
             }
             text-align: center;
-            color: #C63800
+            color: gray
         }
     }
 }
@@ -295,14 +247,28 @@ $por-homebased: #FFBF00;
     }
 }
 #statistics-graph{
-
+    .col-md-6{
+        padding: 0;
+        padding-bottom: 1em;
+        @media (min-width:$md) {
+            padding-bottom: 0;
+            &:first-child{
+                padding-right: .5em;
+            }
+            &:last-child{
+                padding-left: .5em;
+            }   
+        }
+    }
     .teacher-share {
         position: relative;
         .teacher-share-mark {
             position: absolute;
-            left: 1em;
             top: 0;
-            color: red;
+            left: 50%;
+            transform: translate(-50%,0);
+            color: #FF4900;
+            white-space: nowrap;
             font-weight: bold;
         }
     }
@@ -315,20 +281,34 @@ $por-homebased: #FFBF00;
     .form{
         display: flex;
         align-items: center;
-        margin: 2em 0;
+        border-radius: 2px;
+        background: #eee;
+        margin: 1em 0;
+        padding: 1em;
+        @media (min-width:$md) {
+            padding-left: 4.55em;   
+        }
+        font-size: .9em;
         span{
             position: relative;
             top: .125em;
             display: inline-block;
             margin-right: 2em;
+            white-space: nowrap;
+            font-size: .9em;
+            @media (min-width:$md) {
+                font-size: 1em;   
+            }
         }
         form{
             input{
                 margin-right: .5em;
+                margin-bottom: .5em;
                 padding: .6em .5em;
                 font-size: .8em;
                 @media (min-width:$md) {
                     margin-right: 2em;
+                    margin-bottom: 0;
                     padding: .6em 1em;
                     font-size: .9em;   
                 }
@@ -336,7 +316,7 @@ $por-homebased: #FFBF00;
                 border: 1px solid rgba(125,125,125,0.4);
             }
             button{
-                margin-top: 1em;
+                margin-top: .5em;
                 text-align: center;
                 padding: .75em 3em;
                 border: 0;
@@ -351,31 +331,32 @@ $por-homebased: #FFBF00;
     }
 }
 .total-point-share {
-    margin-bottom: 1.75em;
-    width: 100%;
+    margin-bottom: 1em;
+    // width: 100%;
     overflow: auto;
+    font-size: .9em;
+    white-space: pre-wrap;
     h2{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
         margin: 0;
         margin-bottom: .3em;
-        margin-left: .1em;
-        font-size: .9em;
-        color: #0867B0;
+        padding: 0 .4em;
+        font-size: .95em;
+        color: #009153;
     }
     table {
-        width: 100%;
-        font-size: .8em;
+        font-size: .82em;
         border-spacing: 0;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
-        @media (min-width:$md) {
-            table-layout: fixed;   
-        }
         th,
         td{
-            padding: .75em 1em;
+            padding: .95em .65em;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
-            border-right: 1px solid rgba(125, 125, 125, 0.2);
+            // border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;
             &:last-child{
                 border-right: 0;
@@ -383,9 +364,13 @@ $por-homebased: #FFBF00;
         }
     }
     .note{
-        margin-top: .5em;
-        margin-left: .1em;
-        font-size: .9em;
+        font-size: .8em;
+        color: #000;
+        font-weight: normal;
+
+        strong{
+            color: #FF4900;
+        }
     }
 }
 

@@ -1,36 +1,3 @@
-<section id="login-info" class="container-fluid" *ngIf=" ! a.isSuperManager">
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <div class="item">
-                <div class="item-title">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
-                        <path fill="currentColor"
-                              d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm128 421.6c-35.9 26.5-80.1 42.4-128 42.4s-92.1-15.9-128-42.4V416c0-35.3 28.7-64 64-64 11.1 0 27.5 11.4 64 11.4 36.6 0 52.8-11.4 64-11.4 35.3 0 64 28.7 64 64v13.6zm30.6-27.5c-6.8-46.4-46.3-82.1-94.6-82.1-20.5 0-30.4 11.4-64 11.4S204.6 320 184 320c-48.3 0-87.8 35.7-94.6 82.1C53.9 363.6 32 312.4 32 256c0-119.1 96.9-216 216-216s216 96.9 216 216c0 56.4-21.9 107.6-57.4 146.1zM248 120c-48.6 0-88 39.4-88 88s39.4 88 88 88 88-39.4 88-88-39.4-88-88-88zm0 144c-30.9 0-56-25.1-56-56s25.1-56 56-56 56 25.1 56 56-25.1 56-56 56z"></path>
-                    </svg>
-                    <span> You have logged in as</span>
-                </div>
-                <div class="item-content">
-                    <span>{{ a.user.email }} </span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <div class="item ">
-                <div class="item-title">
-                    <svg viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                              d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM32 80c0-8.8 7.2-16 16-16h48v64H32V80zm448 352c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V160h448v272zm0-304H128V64h336c8.8 0 16 7.2 16 16v48z"></path>
-                    </svg>
-                    Manager of
-                </div>
-                <div class="item-content">
-                    <span>{{ a.user.manager }} </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <section id="statistics-graph">
     <div class="form">
@@ -42,91 +9,351 @@
         </form>
     </div>
 
-    <div class="total-point-share" *ngIf="stats">
-        <h2>
-           Shares Computation
-        </h2>
-        <table>
-            <tr>
-                <th width="100"></th>
-                <th width="100">Total</th>
-                <th>%</th>
-                <th>Share</th>
-                <th width="170">Share After Deduction</th>
-                <th>USD</th>
-                <th>PHP</th>
-            </tr>
-            <tr>
-                <th>Office</th>
-                <th>{{ stats.total_point_of_reservation | number }}</th>
-                <td>{{stats.office_percent}}%</td>
-                <td>{{stats.office_share}}</td>
-                <td width="170">{{stats.office_share_after_deduction | number }}</td>
-                <td>{{stats.office_share_in_usd | number }}</td>
-                <td>{{stats.office_share_in_php | number }}</td>
-            </tr>
-            <tr>
-                <th>Branch</th>
-                <th>{{ stats.total_point_of_reservation | number }}</th>
-                <td>{{stats.branch_percent}}%</td>
-                <td>{{stats.branch_share}}</td>
-                <td>{{stats.branch_share_after_deduction | number }}</td>
-                <td>{{stats.branch_share_in_usd | number }}</td>
-                <td>{{stats.branch_share_in_php | number }}</td>
-            </tr>
-            <tr>
-                <th>Teacher</th>
-                <th class="teacher-share">{{ stats.total_point_of_reservation | number }}<small class="teacher-share-mark">Total Point</small></th>
-                <td>{{stats.teacher_percent}}%</td>
-                <td class="teacher-share">{{stats.teacher_share}}<small class="teacher-share-mark">Teacher Share</small></td>
-                <td>{{stats.teacher_share_after_deduction | number }}</td>
-                <td>{{stats.teacher_share_in_usd | number }}</td>
-                <td>{{stats.teacher_share_in_php | number }}</td>
-            </tr>
-        </table>
-    </div>
-    <div class="total-point-share comparison" *ngIf="stats">
-        <h2>
-           Share Comparison Office and Homebase
-        </h2>
-        <table>
-            <tr>
-                <th width="200"></th>
-                <th>%</th>
-                <th>Share</th>
-                <th width="170">Share After Deduction</th>
-                <th>USD</th>
-                <th>PHP</th>
-            </tr>
-            <tr>
-                <th>Teacher</th>
-                <td>100%</td>
-                <td class="teacher-share">{{stats.teacher_share}}<small class="teacher-share-mark">Teacher Share</small></td>
-                <td>{{stats.teacher_share_after_deduction | number}}</td>
-                <td>{{stats.teacher_share_in_usd | number}}</td>
-                <td>{{stats.teacher_share_in_php | number}}</td>
-            </tr>
-            <tr>
-                <th>Teacher Withcenter</th>
-                <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
-                <td>{{stats.teacher_share_withcenter}}</td>
-                <td width="170">{{stats.teacher_share_withcenter_after_deduction | number}}</td>
-                <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
-                <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
-            </tr>
-            <tr>
-                <th>Teacher HomeBase</th>
-                <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}%</td>
-                <td>{{stats.teacher_share - stats.teacher_share_withcenter}}</td>
-                <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number}}</td>
-                <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number}}</td>
-                <td>{{stats.teacher_share_in_php - stats.teacher_share_withcenter_in_php | number}}</td>
-            </tr>
-        </table>
-        <div class="note">
-            <small>Note*: <b>Teacher Share</b> is the {{stats.teacher_percent}}% of <b>Total Point</b>.</small>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="total-point-share" *ngIf="stats">
+                    <h2>
+                        <span>Shares Computation</span>
+                    </h2>
+                    <table>
+                        <tr>
+                            <th width="100"></th>
+                            <th width="100">Total</th>
+                            <th>%</th>
+                            <th>Share</th>
+                            <th width="170">Share After Deduction</th>
+                            <th>USD</th>
+                            <th>PHP</th>
+                        </tr>
+                        <tr>
+                            <th>Office</th>
+                            <td>{{ stats.total_point_of_reservation | number }}</td>
+                            <td>{{stats.office_percent}}%</td>
+                            <td>{{stats.office_share}}</td>
+                            <td width="170">{{stats.office_share_after_deduction | number }}</td>
+                            <td>{{stats.office_share_in_usd | number }}</td>
+                            <td>{{stats.office_share_in_php | number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Branch</th>
+                            <td>{{ stats.total_point_of_reservation | number }}</td>
+                            <td>{{stats.branch_percent}}%</td>
+                            <td>{{stats.branch_share}}</td>
+                            <td>{{stats.branch_share_after_deduction | number }}</td>
+                            <td>{{stats.branch_share_in_usd | number }}</td>
+                            <td>{{stats.branch_share_in_php | number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Teacher</th>
+                            <td class="teacher-share"><small class="teacher-share-mark">Total Point</small>{{ stats.total_point_of_reservation | number }}</td>
+                            <td>{{stats.teacher_percent}}%</td>
+                            <td class="teacher-share"><small class="teacher-share-mark">Teacher Share</small>{{stats.teacher_share}}</td>
+                            <td>{{stats.teacher_share_after_deduction | number }}</td>
+                            <td>{{stats.teacher_share_in_usd | number }}</td>
+                            <td>{{stats.teacher_share_in_php | number }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="total-point-share comparison" *ngIf="stats">
+                    <h2>
+                        <span>Share Comparison</span>
+                        <span class="note">
+                            <b>Note:</b> <strong>Teacher Share</strong> is the {{stats.teacher_percent}}% of <strong>Total Point</strong>
+                        </span>
+                    </h2>
+                    <table>
+                        <tr>
+                            <th width="200"></th>
+                            <th>%</th>
+                            <th>Share</th>
+                            <th width="170">Share After Deduction</th>
+                            <th>USD</th>
+                            <th>PHP</th>
+                        </tr>
+                        <tr>
+                            <th>Overall</th>
+                            <td>100%</td>
+                            <td class="teacher-share"><small class="teacher-share-mark">Teacher Share</small>{{stats.teacher_share}}</td>
+                            <td>{{stats.teacher_share_after_deduction | number}}</td>
+                            <td>{{stats.teacher_share_in_usd | number}}</td>
+                            <td>{{stats.teacher_share_in_php | number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Withcenter</th>
+                            <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
+                            <td>{{stats.teacher_share_withcenter}}</td>
+                            <td width="170">{{stats.teacher_share_withcenter_after_deduction | number}}</td>
+                            <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
+                            <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Homebase</th>
+                            <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}%</td>
+                            <td>{{stats.teacher_share - stats.teacher_share_withcenter}}</td>
+                            <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number}}</td>
+                            <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number}}</td>
+                            <td>{{stats.teacher_share_in_php - stats.teacher_share_withcenter_in_php | number}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
+
+    <section id="stats-summary" class="container-fluid">
+            <div class="row">
+                <div class="left col-sm-12 col-md-6">
+                    <div class="table">
+                            <div class="table-title">
+                                <h2>Teachers Equipment</h2>
+                            </div>
+                            <div class="table-content">
+                                <div class="loader" *ngIf=" loader.teacherEquipment; else teacherEquipment">
+                                    <mat-spinner [diameter]="48"></mat-spinner>
+                                    Loading Teacher Equipment
+                                </div>
+                                <ng-template #teacherEquipment>
+                                    <div *ngFor="let comment of comments">
+                                        <div class="info-wrapper">
+                                            <div class="teacher-info">
+                                                <div class="teacher-name">
+                                                    <svg class="icon" viewBox="0 0 640 512">
+                                                        <path fill="currentColor"
+                                                                d="M320 64c57.99 0 105 47.01 105 105s-47.01 105-105 105-105-47.01-105-105S262.01 64 320 64zm113.463 217.366l-39.982-9.996c-49.168 35.365-108.766 27.473-146.961 0l-39.982 9.996C174.485 289.379 152 318.177 152 351.216V412c0 19.882 16.118 36 36 36h264c19.882 0 36-16.118 36-36v-60.784c0-33.039-22.485-61.837-54.537-69.85zM528 300c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm-416 0c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm24 112v-60.784c0-16.551 4.593-32.204 12.703-45.599-29.988 14.72-63.336 8.708-85.69-7.37l-26.655 6.664C14.99 310.252 0 329.452 0 351.477V392c0 13.255 10.745 24 24 24h112.169a52.417 52.417 0 0 1-.169-4zm467.642-107.09l-26.655-6.664c-27.925 20.086-60.89 19.233-85.786 7.218C499.369 318.893 504 334.601 504 351.216V412c0 1.347-.068 2.678-.169 4H616c13.255 0 24-10.745 24-24v-40.523c0-22.025-14.99-41.225-36.358-46.567z"></path>
+                                                    </svg>
+                                                    <span>{{ a.preTeacherName(comment.teacher_name)}}</span>
+                                                </div>
+                                                <div class="rating">
+                                                    <span>{{ 'RATING' | t }}</span>
+                                                    <span *ngIf="comment.rate < 1">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate >= 1">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate < 2">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate >= 2">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate < 3">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate >= 3">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate < 4">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate >= 4">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate < 5">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span *ngIf="comment.rate >= 5">
+                                                        <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
+                                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                                                data-fa-i2svg="">
+                                                            <path fill="currentColor"
+                                                                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="extra">
+                                                <div *ngIf="comment.internet">{{ 'INTERNET' | t}}:
+                                                    {{a.ln.INTERNET_STATUS[comment.internet]}}
+                                                </div>
+                                                <div *ngIf="comment.camera">{{ 'Camera' | t}} :
+                                                    {{a.ln.CAMERA_STATUS[comment.camera]}}
+                                                </div>
+                                            </div>
+                                            <!-- <div class="date">{{ 'DATE' | t }} : {{ a.shortDate(comment.stamp) }}</div> -->
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                </div>
+                <div class="right col-sm-12 col-md-6"  *ngIf=" a.isSuperManager ">
+                    <div id="domain-change-application" class="table">
+                            <div class="table-title">
+                                <h2>List of domain change application </h2>
+                                <div *ngIf=" ! domainChangeApplication"
+                                        matTooltip="Note: subdomain of katalkenglish.com does not need to Nginx configuration. So, you can simply click Accept button.">
+                                    <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor"
+                                                d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="table-content">
+                                <div class="loader" *ngIf=" loader.domainChangeApplication; else domainChangeApplication">
+                                    <mat-spinner [diameter]="48"></mat-spinner>
+                                    Loading domain change application
+                                </div>
+                                <ng-template #domainChangeApplication>
+                                    <table cellspacing="0"
+                                            *ngIf="domain_change_applications.length; else noDomainChangeApplication">
+                                        <tr>
+                                            <th>Current Domain</th>
+                                            <th>New Domain</th>
+                                            <th>Accept or Reject</th>
+                                        </tr>
+                                        <tr *ngFor=" let branch of domain_change_applications ">
+                                            <td>{{ branch.domain }}</td>
+                                            <td>=&gt; {{ branch.domain_change_application }}</td>
+                                            <td>
+                                                <button (click)="onClickDomainChangeApplicationAccept( branch )">Accept</button>
+                                                <button (click)="onClickDomainChangeApplicationReject( branch )">Reject</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <ng-template #noDomainChangeApplication>
+                                        <div class="table-content-empty">
+                                            <h2>There is no domain change application</h2>
+                                        </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+                        </div>
+                </div>
+                <div class="left col-sm-12 col-md-6" *ngIf=" a.isSuperManager ">
+                    <div id="latest-branches" class="table">
+                        <div class="table-title">
+                            <h2>Latest Branches</h2>
+                        </div>
+                        <div class="table-content">
+                            <div class="loader" *ngIf=" !latestBranches.length ">
+                                <mat-spinner [diameter]="48"></mat-spinner>
+                                Loading Branches
+                            </div>
+                            <table cellspacing="0" *ngIf=" latestBranches.length ">
+                                <tr class="table-header">
+                                    <th>No.</th>
+                                    <th>Domain</th>
+                                    <th>Company</th>
+                                    <th>Manager</th>
+                                </tr>
+                                <tr *ngFor=" let branch of latestBranches ">
+                                    <td>{{ branch.idx }}</td>
+                                    <td>{{ branch.domain }}</td>
+                                    <td>{{ branch.company_name }}</td>
+                                    <td>{{ branch['student']['name'] }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="right col-sm-12 col-md-6">
+                    <div class="table">
+                        <div class="table-title">
+                            <h2>Point Refund Request</h2>
+                        </div>
+                        <div class="table-content">
+                            <div class="loader" *ngIf=" loader.refundRequests ">
+                                <mat-spinner [diameter]="48"></mat-spinner>
+                                Loading Branches
+                            </div>
+                            <table class="refund-request" cellspacing="0" *ngIf=" refundRequests.length ">
+                                <tr>
+                                    <th>Session ID</th>
+                                    <th>Teacher</th>
+                                    <th>Student</th>
+                                    <th>Date Time</th>
+                                </tr>
+                                <tr *ngFor=" let re of refundRequests ">
+                                    <td>
+                                        <a class="link" routerLink="/manager/point-refund/idx/{{re.idx}}">
+                                            <span>
+                                                <svg viewBox="0 0 576 512">
+                                                    <path fill="currentColor"
+                                                          d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                                                </svg>
+                                            </span>
+                                            <span>{{re.idx}}</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="link" routerLink="/manager/user-info/{{re.teacher?.idx}}">
+                                            <span>
+                                                <svg viewBox="0 0 576 512">
+                                                    <path fill="currentColor"
+                                                          d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                                                </svg>
+                                            </span>
+                                            <span>{{ re.teacher?.display_name }}</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="link" routerLink="/manager/user-info/{{re.student?.idx}}">
+                                            <span>
+                                                <svg viewBox="0 0 576 512">
+                                                    <path fill="currentColor"
+                                                          d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                                                </svg>
+                                            </span>
+                                            <span>{{ a.shortName( re.student?.display_name ) }}</span>
+                                        </a>
+                                    </td>
+                                    <td>{{ re.date }} {{ re.class_begin }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
     <!-- -RESERVATION GRAPH- -->
@@ -381,257 +608,6 @@
 
 </section>
 
-<section id="stats-summary" class="container-fluid">
-    <div class="row">
-        <div class="left col-sm-12 col-md-6" *ngIf=" a.isSuperManager ">
-            <div id="domain-change-application" class="table">
-                <div class="table-title">
-                    <h2>List of domain change application </h2>
-                    <div *ngIf=" ! domainChangeApplication"
-                         matTooltip="Note: subdomain of katalkenglish.com does not need to Nginx configuration. So, you can simply click Accept button.">
-                        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path fill="currentColor"
-                                  d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"></path>
-                        </svg>
-                    </div>
-                </div>
-                <div class="table-content">
-                    <div class="loader" *ngIf=" loader.domainChangeApplication; else domainChangeApplication">
-                        <mat-spinner [diameter]="48"></mat-spinner>
-                        Loading domain change application
-                    </div>
-                    <ng-template #domainChangeApplication>
-                        <table cellspacing="0"
-                               *ngIf="domain_change_applications.length; else noDomainChangeApplication">
-                            <tr>
-                                <th>Current Domain</th>
-                                <th>New Domain</th>
-                                <th>Accept or Reject</th>
-                            </tr>
-                            <tr *ngFor=" let branch of domain_change_applications ">
-                                <td>{{ branch.domain }}</td>
-                                <td>=&gt; {{ branch.domain_change_application }}</td>
-                                <td>
-                                    <button (click)="onClickDomainChangeApplicationAccept( branch )">Accept</button>
-                                    <button (click)="onClickDomainChangeApplicationReject( branch )">Reject</button>
-                                </td>
-                            </tr>
-                        </table>
-                        <ng-template #noDomainChangeApplication>
-                            <div class="table-content-empty">
-                                <h2>There is no domain change application</h2>
-                            </div>
-                        </ng-template>
-                    </ng-template>
-                </div>
-            </div>
-        </div>
-        <div class="right col-sm-12 col-md-6">
-            <div class="table">
-                <div class="table-title">
-                    <h2>Teachers Equipment</h2>
-                </div>
-                <div class="table-content">
-                    <div class="loader" *ngIf=" loader.teacherEquipment; else teacherEquipment">
-                        <mat-spinner [diameter]="48"></mat-spinner>
-                        Loading Teacher Equipment
-                    </div>
-                    <ng-template #teacherEquipment>
-                        <div *ngFor="let comment of comments">
-                            <div class="info-wrapper">
-                                <div class="teacher-info">
-                                    <div class="teacher-name">
-                                        <svg class="icon" viewBox="0 0 640 512">
-                                            <path fill="currentColor"
-                                                  d="M320 64c57.99 0 105 47.01 105 105s-47.01 105-105 105-105-47.01-105-105S262.01 64 320 64zm113.463 217.366l-39.982-9.996c-49.168 35.365-108.766 27.473-146.961 0l-39.982 9.996C174.485 289.379 152 318.177 152 351.216V412c0 19.882 16.118 36 36 36h264c19.882 0 36-16.118 36-36v-60.784c0-33.039-22.485-61.837-54.537-69.85zM528 300c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm-416 0c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm24 112v-60.784c0-16.551 4.593-32.204 12.703-45.599-29.988 14.72-63.336 8.708-85.69-7.37l-26.655 6.664C14.99 310.252 0 329.452 0 351.477V392c0 13.255 10.745 24 24 24h112.169a52.417 52.417 0 0 1-.169-4zm467.642-107.09l-26.655-6.664c-27.925 20.086-60.89 19.233-85.786 7.218C499.369 318.893 504 334.601 504 351.216V412c0 1.347-.068 2.678-.169 4H616c13.255 0 24-10.745 24-24v-40.523c0-22.025-14.99-41.225-36.358-46.567z"></path>
-                                        </svg>
-                                        <span>{{ a.preTeacherName(comment.teacher_name)}}</span>
-                                    </div>
-                                    <div class="rating">
-                                        <span>{{ 'RATING' | t }}</span>
-                                        <span *ngIf="comment.rate < 1">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate >= 1">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate < 2">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate >= 2">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate < 3">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate >= 3">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate < 4">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate >= 4">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate < 5">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fal" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM405.8 317.9l27.8 162L288 403.5 142.5 480l27.8-162L52.5 203.1l162.7-23.6L288 32l72.8 147.5 162.7 23.6-117.7 114.8z"></path>
-                                            </svg>
-                                        </span>
-                                        <span *ngIf="comment.rate >= 5">
-                                            <svg class="icon" aria-hidden="true" data-prefix="fas" data-icon="star"
-                                                 role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                                 data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                      d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="extra">
-                                    <div *ngIf="comment.internet">{{ 'INTERNET' | t}}:
-                                        {{a.ln.INTERNET_STATUS[comment.internet]}}
-                                    </div>
-                                    <div *ngIf="comment.camera">{{ 'Camera' | t}} :
-                                        {{a.ln.CAMERA_STATUS[comment.camera]}}
-                                    </div>
-                                </div>
-                                <!-- <div class="date">{{ 'DATE' | t }} : {{ a.shortDate(comment.stamp) }}</div> -->
-                            </div>
-                        </div>
-                    </ng-template>
-                </div>
-            </div>
-        </div>
-        <div class="left col-sm-12 col-md-6" *ngIf=" a.isSuperManager ">
-            <div id="latest-branches" class="table">
-                <div class="table-title">
-                    <h2>Latest Branches</h2>
-                </div>
-                <div class="table-content">
-                    <div class="loader" *ngIf=" !latestBranches.length ">
-                        <mat-spinner [diameter]="48"></mat-spinner>
-                        Loading Branches
-                    </div>
-                    <table cellspacing="0" *ngIf=" latestBranches.length ">
-                        <tr class="table-header">
-                            <th>No.</th>
-                            <th>Domain</th>
-                            <th>Company</th>
-                            <th>Manager</th>
-                        </tr>
-                        <tr *ngFor=" let branch of latestBranches ">
-                            <td>{{ branch.idx }}</td>
-                            <td>{{ branch.domain }}</td>
-                            <td>{{ branch.company_name }}</td>
-                            <td>{{ branch['student']['name'] }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="right col-sm-12 col-md-6">
-            <div class="table">
-                <div class="table-title">
-                    <h2>Point Refund Request</h2>
-                </div>
-                <div class="table-content">
-                    <div class="loader" *ngIf=" loader.refundRequests ">
-                        <mat-spinner [diameter]="48"></mat-spinner>
-                        Loading Branches
-                    </div>
-                    <table class="refund-request" cellspacing="0" *ngIf=" refundRequests.length ">
-                        <tr>
-                            <th>Session ID</th>
-                            <th>Teacher</th>
-                            <th>Student</th>
-                            <th>Date Time</th>
-                        </tr>
-                        <tr *ngFor=" let re of refundRequests ">
-                            <td>
-                                <a class="link" routerLink="/manager/point-refund/idx/{{re.idx}}">
-                                    <span>
-                                        <svg viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                  d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
-                                        </svg>
-                                    </span>
-                                    <span>{{re.idx}}</span>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="link" routerLink="/manager/user-info/{{re.teacher?.idx}}">
-                                    <span>
-                                        <svg viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                  d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
-                                        </svg>
-                                    </span>
-                                    <span>{{ re.teacher?.display_name }}</span>
-                                </a>
-                            </td>
-                            <td>
-                                <a class="link" routerLink="/manager/user-info/{{re.student?.idx}}">
-                                    <span>
-                                        <svg viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                  d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
-                                        </svg>
-                                    </span>
-                                    <span>{{ a.shortName( re.student?.display_name ) }}</span>
-                                </a>
-                            </td>
-                            <td>{{ re.date }} {{ re.class_begin }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section id="stats">
     <div class="stats-card">
