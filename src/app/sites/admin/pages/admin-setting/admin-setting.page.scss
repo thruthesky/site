@@ -265,6 +265,7 @@ h2{
 }
 
 .submit-button{
+    margin-top: 3em;
     padding: 1em;
     text-align: center;
     .app-button{
@@ -276,5 +277,37 @@ h2{
     .app-button{
         margin: 1em 0;
         padding:1em 2em;
+    }
+}
+.choose-software-desc{
+    margin-top: .5em;
+    padding: .75em 1em;
+    background: #eee;
+    font-size: .8em!important;
+}
+.choose-class-messenger{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    label{
+            position: relative;
+            display:flex!important;
+            align-items: center!important;
+            padding: 1em;
+            margin: 0!important;
+            font-size: .9em!important;
+            cursor: pointer;
+            span{
+                margin-left: 1em;
+                color:#000;
+            }
+            input{
+                position: relative;
+                top: .04em;//vertical alignment of radio button
+            }
+            input:checked+span{
+                color: dodgerblue;
+            }
     }
 }
