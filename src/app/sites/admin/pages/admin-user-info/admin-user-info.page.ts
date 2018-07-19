@@ -248,7 +248,7 @@ export class AdminUserInfoPage implements OnInit {
         }
         for (const session of this.sessions) {
             session.stamp_reserve = this.a.shortDateTime(session.stamp_reserve);
-            if ( session.stamp_checked > 0 ) {
+            if ( session.stamp_checked !== '0' ) {
                 session.stamp_checked = this.a.shortDateTime(session.stamp_checked);
             }
             // if (session.paid !== '0') {
