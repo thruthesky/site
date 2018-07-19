@@ -4,12 +4,12 @@ import { ModalService } from '../../../../providers/modal/modal.service';
 import { ADMIN_SUMMARY_REPORT, BOOK, Branch } from '../../../../modules/xapi/interfaces';
 
 @Component({
-    selector: 'admin-home-page',
-    templateUrl: 'admin-home.page.html',
-    styleUrls: ['admin-home.page.scss']
+    selector: 'admin-statistic-graph-page',
+    templateUrl: 'admin-statistic-graph.page.html',
+    styleUrls: ['admin-statistic-graph.page.scss']
 })
 
-export class AdminHomePage implements OnInit {
+export class AdminStatisticGraphPage implements OnInit {
     latestBranches: Array<Branch> = [];
     domain_change_applications: Array<Branch> = [];
     reports: ADMIN_SUMMARY_REPORT = <ADMIN_SUMMARY_REPORT>{};
