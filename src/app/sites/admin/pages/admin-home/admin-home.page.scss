@@ -347,18 +347,14 @@ $por-homebased: #FFBF00;
         color: #009153;
     }
     table {
-        // width: 100%;
         font-size: .82em;
         border-spacing: 0;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
-        // @media (min-width:$md) {
-        //     table-layout: fixed;   
-        // }
         th,
         td{
-            padding: .75em .65em;
+            padding: .95em .65em;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
             // border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;

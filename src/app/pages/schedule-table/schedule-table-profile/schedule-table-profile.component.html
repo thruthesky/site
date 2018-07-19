@@ -30,11 +30,17 @@
             <div class="class-software" *ngIf="myClassSoftware">
                 <ng-container *ngFor="let messenger of a.keys( a.classSoftware ) ">
                     <div [attr.data-class-software]="messenger" *ngIf=" myClassSoftware == messenger ">
-                        <button class="add-friend-button" (click)=" onClickAddMessenger() ">
+                        <button class="add-friend-button" (click)=" onClickAddMessenger() "
+                                [class.bg-color-kakaotalk]=" messenger == 'kakaotalk'"
+                                [class.bg-color-wechat]=" messenger == 'wechat'"
+                                [class.bg-color-skype]=" messenger == 'skype'"
+                                [class.bg-color-line]=" messenger == 'line'">
                             <div class="icon">
                                 <img src="../../../../assets/img/messengers/{{ messenger }}.png">
                             </div>
-                            <div class="text">{{ 'ADD_FRIEND' | t }}</div>
+                            <div class="text">
+                                {{ 'ADD_FRIEND' | t }}
+                            </div>
                         </button>
                     </div>
                 </ng-container>

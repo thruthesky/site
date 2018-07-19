@@ -45,6 +45,22 @@
             width: 100%;
         }
     }
+
+    .bg-color-kakaotalk{
+        background: #FCE600!important;
+        color: #000;
+        font-weight: bold
+    }
+    .bg-color-skype{
+        background: dodgerblue!important;
+    }
+    .bg-color-wechat{
+        background: darkred!important;
+    }
+    .bg-color-line{
+        background: darkblue!important
+        
+    }
 }
 .desktop-profile-row{
     display: flex;
