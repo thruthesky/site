@@ -666,7 +666,8 @@
   "QNA_PAGE_QQ_DESC": "QQ番号をコピーして私たちを追加してください。",
   "QNA_PAGE_QQ_ID": "QQ Number: 3483204772",
   "ID": "ID",
-  "SELECT_YOUR_MESSENGER": "メッセンジャーアプリを選択してください。"
+  "SELECT_YOUR_MESSENGER": "メッセンジャーアプリを選択してください。",
+  "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "モバイルでのみ友達を追加できます 友だちを追加するには携帯電話を使用してください。"
 
 
 }
