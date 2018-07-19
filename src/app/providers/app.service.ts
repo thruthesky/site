@@ -2028,10 +2028,16 @@ export class AppService {
         this.updateUserTimezone();
     }
 
+    /**
+     * Update user language to the server.
+     * @param ln the language that user just chagned.
+     */
     languageChanged(ln) {
-        this.lms.updateLanguage(ln).subscribe(re => {
-            // console.log('lms.languageChanged: re', re);
-        });
+        if (this.user.isLogin) {
+            this.lms.updateLanguage(ln).subscribe(re => {
+                // console.log('lms.languageChanged: re', re);
+            });
+        }
     }
 
 
