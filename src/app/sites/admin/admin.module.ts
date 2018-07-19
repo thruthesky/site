@@ -23,7 +23,7 @@ import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.
 import { AdminScheduleTablePage } from './pages/admin-schedule-table/admin-schedule-table.page';
 import { AdminMenuPage } from './pages/admin-menu/admin-menu.page';
 import { AdminNoOfUserPerEachDomainPage } from './pages/admin-no-of-user-per-each-domain/admin-no-of-user-per-each-domain.page';
-import { AdminStatisticGraphPage } from './pages/admin-statistic-graph/admin-statistic-graph';
+import { AdminStatisticGraphPage } from './pages/admin-statistic-graph/admin-statistic-graph.page';
 
 
 const routes: Routes = [
