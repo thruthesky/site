@@ -21,6 +21,8 @@ import { AdminSessionEditPage } from './pages/admin-session-edit/admin-session-e
 import { ForumServiceModule } from '../../providers/forum/forum.service.module';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { AdminScheduleTablePage } from './pages/admin-schedule-table/admin-schedule-table.page';
+import { AdminMenuPage } from './pages/admin-menu/admin-menu.page';
+import { AdminNoOfUserPerEachDomainPage } from './pages/admin-no-of-user-per-each-domain/admin-no-of-user-per-each-domain.page';
 
 
 const routes: Routes = [
@@ -48,6 +50,8 @@ const routes: Routes = [
             { path: 'user', component: AdminUserPage },
             { path: 'user-info/:ID', component: AdminUserInfoPage },
             { path: 'schedule-table/:ID', component: AdminScheduleTablePage },
+            { path: 'menu', component: AdminMenuPage},
+            { path: 'no-of-student-per-each-domain', component: AdminNoOfUserPerEachDomainPage}
         ]
     }
 
@@ -80,7 +84,9 @@ const routes: Routes = [
         AdminUserInfoPage,
         AdminSessionEditPage,
         AdminSidebarComponent,
-        AdminScheduleTablePage
+        AdminScheduleTablePage,
+        AdminMenuPage,
+        AdminNoOfUserPerEachDomainPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -95,7 +101,9 @@ const routes: Routes = [
         AdminUserPage,
         AdminUserInfoPage,
         AdminSessionEditPage,
-        AdminScheduleTablePage
+        AdminScheduleTablePage,
+        AdminMenuPage,
+        AdminNoOfUserPerEachDomainPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],
