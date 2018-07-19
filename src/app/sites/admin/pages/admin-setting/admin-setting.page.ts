@@ -48,6 +48,10 @@ export class AdminSettingPage implements OnInit {
         }, e => this.a.toast(e));
     }
     onSubmitDomainChangeApplication() {
+        if ( ! this.domain_change_application ) {
+            this.a.toast('Please input domain');
+            return;
+        }
         this.a.lms.branch_domain_change_application(this.domain_change_application).subscribe(re => {
             // console.log('onSubmitDomainChangeApplication: re: ', re);
             this.modal.alert({ content: this.a.ln.DOMAIN_CHANGE_APPLICATION, ok: this.a.ln.OK });
