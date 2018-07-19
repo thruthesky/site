@@ -9,20 +9,19 @@
                 <div><b>Point: </b>{{point}}</div>
                 <div><b>Level of the session: </b>{{level}}</div>
             </div>
-        
-        
-            <div class="custom-input-form">
-                <label>Book(Page) from the recent session</label>
-                <input type="text" matInput placeholder="Book" [(ngModel)]="book_used">
-                <div class="input-note">book used for today session</div>
-            </div>
-        
-            <div class="custom-input-form">
-                <label>Book(Page) for the next session:</label>
-                <input type="text" matInput placeholder="Book"  [(ngModel)]="book_next">
-                <div class="input-note">book you will use for the next session</div>
-            </div>
             
+            <mat-form-field class="with-hint" appearance="outline">
+                <mat-label>Book(Page) from the recent session</mat-label>
+                <input type="text" matInput [(ngModel)]="book_next">
+                <mat-hint>book used for today session</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Book(Page) for the next session:</mat-label>
+                <input type="text" matInput [(ngModel)]="book_used">
+                <mat-hint>book you will use for the next session</mat-hint>
+            </mat-form-field>
+
             <section  class="radio-group container-fluid">
                 <div class="row">
                     <div class="col-sm-12 col-md-2">
