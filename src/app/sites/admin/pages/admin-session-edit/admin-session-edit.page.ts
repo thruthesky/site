@@ -43,6 +43,7 @@ export class AdminSessionEditPage implements OnInit {
             if ( this.idx ) {
                 this.loader.get = true;
                 this.a.lms.admin_session_get(this.idx).subscribe( re => {
+                    console.log('admin_session_get', re);
                     this.form = re;
                     this.loader.get = false;
                 }, e => this.a.toast(e));

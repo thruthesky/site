@@ -213,7 +213,7 @@ export class AdminUserInfoPage implements OnInit {
     loadSchedule(ID) {
 
         let sql = `
-        SELECT r.idx, r.idx_student, r.idx_teacher, r.date, r.class_begin, r.class_end, r.point
+        SELECT r.idx, r.idx_student, r.idx_teacher, r.date, r.class_begin, r.class_end, r.point, r.stamp_checked, r.stamp_reserve
         FROM lms_reservation as r, wp_users
         WHERE BRANCH`;
         if (this.user.user_type === 'T') {
@@ -248,6 +248,9 @@ export class AdminUserInfoPage implements OnInit {
         }
         for (const session of this.sessions) {
             session.stamp_reserve = this.a.shortDateTime(session.stamp_reserve);
+            if ( session.stamp_checked !== '0' ) {
+                session.stamp_checked = this.a.shortDateTime(session.stamp_checked);
+            }
             // if (session.paid !== '0') {
             //     session.paid = <any>'Y';
             // } else {
@@ -465,7 +468,7 @@ export class AdminUserInfoPage implements OnInit {
 
         if (this.pointForm.currency === 'CNY') {
             const cny = amount * (100 / (100 + this.a.floatval(this.paymentRate.VAT)));
-            console.log('cny: ', cny);
+            // console.log('cny: ', cny);
             usd = cny / this.a.floatval(this.paymentRate.USD_TO_CNY);
         }
         if (this.pointForm.currency === 'JPY') {
