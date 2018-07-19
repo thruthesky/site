@@ -42,7 +42,7 @@ export class SessionListComponent implements OnInit {
 
     myClassSoftware = '';
 
-
+    loadbook = false;
 
 
     constructor(public a: AppService,
@@ -169,7 +169,7 @@ export class SessionListComponent implements OnInit {
         }
         this.loadingOnSearch = true;
         this.a.lms.session_search(this.request()).subscribe(re => {
-            console.log('Result of class_search(): ', re);
+            // console.log('Result of class_search(): ', re);
             this.re = re;
             this.re['total_session_refunded'] = this.a.toInt(this.re['total_session_refunded']);
             this.re['total_session_refund_in_progress'] = this.a.toInt(this.re['total_session_refund_in_progress']);
@@ -390,34 +390,34 @@ export class SessionListComponent implements OnInit {
 
 
     onClickPreviewBook(book) {
-        console.log('onClickPreviewBook::book', book);
+        // console.log('onClickPreviewBook::book', book);
+        if ( this.loadbook ) {
+            return;
+        }
+        this.loadbook = true;
         this.a.lms.get_successful_reservation(book.idx_student).subscribe(re => {
-            console.log('onClickPreviewBook', re);
+            // console.log('onClickPreviewBook', re);
+            let innerHTML = `<div>No Book Information yet.</div>`;
             if (re) {
-
-                const innerHTML = `
-                        <div>Book Information</div>
+                innerHTML = `
                         <div>Name: ${re.student_name}</div>
                         <div>Book Used: ${re.book_used}</div>
                         <div>Next Book: ${re.book_next}</div>
                     `;
-
-                const data: ModalData = {
-                    title: this.a.t('BOOK INFO'),
-                    content: innerHTML
-                };
-                this.modal.alert(data).subscribe(result => {
-                    // if (result) {
-                    //     this.a.lms.session_refund(book['idx']).subscribe(() => {
-                    //         book['refund_done_at'] = 1;
-                    //     }, e => this.a.toast(e));
-                    // }
-                });
-
             }
-
+            const data: ModalData = {
+                title: this.a.t('BOOK INFO'),
+                content: innerHTML
+            };
+            this.modal.alert(data).subscribe(result => {
+                if (result) {
+                    //
+                }
+            });
+            this.loadbook = false;
         }, e => {
             this.a.toast(e);
+            this.loadbook = false;
         });
 
     }
