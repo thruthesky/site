@@ -10,6 +10,9 @@
         width: 100%;
     }
 }
+.without-button{
+    justify-content: space-around!important;
+}
 .class-software{
     .add-friend-button {
         display: flex;
@@ -161,7 +164,7 @@
                     display: inline-block;
                     padding: 7px .65em;
                     @media (min-width:$md) {
-                        padding: 9px 1.25em;
+                        padding: 8px 1.1em;
                     }
                     border: 1px solid darkblue;
                     border-top-right-radius: 2px;
@@ -177,7 +180,7 @@
                     @media (min-width:$md) {
                         height: 1.25em;
                         width: 1.25em;
-                    }
+                    }   
                 }
             }
         }

@@ -4,7 +4,7 @@
         <div class="teacher-profile-photo">
             <img src="{{ re.teacher.photoURL }}">
         </div>
-        <div class="bio">
+        <div class="bio" [class.without-button]="!myClassSoftware">
             <div>
                 <span class="teacher-name">{{ teacherName }}</span>
                 <span class="grade" [attr.grade]=" re.teacher.grade ">
@@ -24,7 +24,7 @@
                 {{ 'TAKEN' | t }}: {{ re.teacher.total_reservation }} {{ 'HAD SESSIONS' | t }}
             </div>
 
-            <div class="class-software">
+            <div class="class-software" *ngIf="myClassSoftware">
                 <ng-container *ngFor="let messenger of a.keys( a.classSoftware ) ">
                     <div [attr.data-class-software]="messenger" *ngIf=" myClassSoftware == messenger ">
                         <button class="add-friend-button" (click)=" onClickAddMessenger() ">
