@@ -314,6 +314,7 @@
   "INITIALIZING_PAYPAL": "贝宝信用卡付款正在初始化。",
   "PLEASE_WAIT": "请稍等片刻。",
   "PAYMENT_DIFFICULT": "如果付款困难，请询问Katok。",
+  "1_POINT_IS": "1點是0.001美元。",
   "REFUND_POLICY": "退款政策。 在结算日期前七天离开的点数的1/3。 在结算日期前15天剩余一半的积分。 自付款日期起15天后，将不予退款。",
   "VAT_1": "#AMOUNT赢得结算（单独增值税#RATE％）被选中。",
   "VAT_2": "#AMOUNT积分将被收取，结算将收取约#USD美元（包括增值税）。",

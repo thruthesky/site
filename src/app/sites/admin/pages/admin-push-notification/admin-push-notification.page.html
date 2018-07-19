@@ -27,7 +27,7 @@
         </select>
     </div>
     <div *ngIf="a.isSuperManager">
-        <label>Domain:</label>
+        <label>Domain of push notification token table ( Not user domain ):</label>
         <select name="domain" [(ngModel)]="form.domain">
             <ng-container *ngIf="a.isSuperManager">
                 <option value=''>Select Domain</option>
