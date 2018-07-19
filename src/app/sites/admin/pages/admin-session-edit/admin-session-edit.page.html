@@ -29,6 +29,10 @@
 <form (ngSubmit)=" onSubmit( $event ) " *ngIf=" ! loader.get ">
 
     <div>
+        <div *ngIf="form['stamp_reserve'] > 0">Reserved: {{ a.shortDateTime( form['stamp_reserve'] ) }}</div>
+        <div *ngIf="form['stamp_checked'] > 0">Checked: {{ a.shortDateTime( form['stamp_checked'] ) }}</div>
+    </div>
+    <div>
         <label>idx</label>
         <input disabled value="{{ idx }}">
     </div>

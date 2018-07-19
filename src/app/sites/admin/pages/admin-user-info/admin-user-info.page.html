@@ -534,6 +534,7 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th>Point</th>
+                        <th class="m-0 p-0">CHK</th>
                     </tr>
                     <tr [attr.time]="session['time']" *ngFor=" let session of sessionsToday ">
                         <td>{{ session.idx }}</td>
@@ -558,6 +559,9 @@
                         </td>
                         <td>{{ session.class_begin }}-{{ session.class_end }}</td>
                         <td>{{ session.point | number }}</td>
+                        <td class="m-0 p-0" width="1%">
+                            <span matTooltip="reserve:{{ session.stamp_reserve }} checked:{{ session.stamp_checked}}">{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</span>
+                        </td>
                     </tr>
                     <tr class="bottom" [attr.time]="session['time']" *ngFor=" let session of sessions ">
                         <td>
@@ -587,6 +591,9 @@
                         <td>{{ session.date }}</td>
                         <td>{{ session.class_begin }}-{{ session.class_end }}</td>
                         <td>{{ session.point | number }}</td>
+                        <td class="m-0 p-0" width="1%">
+                            <span matTooltip="reserve:{{ session.stamp_reserve }} checked:{{ session.stamp_checked}}">{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</span>
+                        </td>
                     </tr>
                 </table>
             </section>
