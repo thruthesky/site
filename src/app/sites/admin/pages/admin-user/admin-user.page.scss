@@ -93,8 +93,9 @@ h1{
 
 
     .sched{
-        display: flex;
+        display: inline-flex;
         align-items: center;
+        margin-top: .5em;
         margin-left: .5em;
         font-size: .85em;
         border-radius: 2px;
@@ -113,11 +114,11 @@ h1{
             padding-right: .5em;
         }
     }
-    .name{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    // .name{
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
 }
 
 .statistics{
