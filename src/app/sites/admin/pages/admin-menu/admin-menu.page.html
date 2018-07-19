@@ -3,7 +3,7 @@
     <li>
         <a routerLink="/manager/no-of-student-per-each-domain">No of student list per each domain</a>
     </li>
-    <li>
+    <li *ngIf=" a.isSuperManager ">
         <a routerLink="/manager/statistic-graph">Statistic Graph</a>
     </li>
 </ul>
