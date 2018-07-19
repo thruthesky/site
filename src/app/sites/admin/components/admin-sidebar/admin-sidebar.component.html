@@ -1,6 +1,6 @@
 <aside>
 
-    <section id="login-info" *ngIf="  a.isSuperManager">
+    <section id="login-info" *ngIf=" ! a.isSuperManager">
         <span>Logged in as {{ a.user.email }}  Manager of {{ a.user.manager }} </span>
     </section> 
     
