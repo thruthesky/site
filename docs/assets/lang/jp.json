@@ -303,6 +303,7 @@
   "PLEASE_WAIT": "お待ちください.",
   "PAYMENT_DIFFICULT": "支払いが困難な場合は、Katokにお尋ねください。",
   "REFUND_POLICY": "代金返却方針。 決済日の7日前に残ったポイントの1/3。 決済日の15日前に残ったポイントの半分。 支払日から15日後、払い戻しは行われません。",
+  "1_POINT_IS": "1 POINTは0.001USドルです。",
   "VAT_1": "#AMOUNTウォン決済（VAT #RATE％別途）を選択しました。",
   "VAT_2": " #AMOUNTポイントが充電され、決済は約#USDドル（VAT含む）が請求されます。",
   "PAYMENT_HISTORY_PAGE_TITLE": "支払歴",
@@ -658,14 +659,15 @@
   "QNA_PAGE_SKYPE_ID": "Skype ID: thruthesky",
   "QNA_PAGE_WECHAT_DESC": "QRコードをスキャンしたり、WeChat IDをコピーして連絡先を追加してください。",
   "QNA_PAGE_WECHAT_ID": "WeChat ID: thruthesky",
-  "QNA_PAGE_KAKAOTALK_DESC": "カカオトークアイコンをクリックするか、カカオトークIDをコピーして追加してください。",
-  "QNA_PAGE_KAKAOTALK_ID": "Kakaotalk ID: thruthesky2",
+  "QNA_PAGE_KAKAOTALK_DESC": "携帯電話でカカオトークアイコンをクリックしてください。",
+  "QNA_PAGE_KAKAOTALK_ID": "あなたの電話を使用し、カカオトークアイコンをクリックしてください。",
   "QNA_PAGE_LINE_DESC": "ラインIDをコピーして追加してください。",
   "QNA_PAGE_LINE_ID": "Line ID: thruthesky",
   "QNA_PAGE_QQ_DESC": "QQ番号をコピーして私たちを追加してください。",
   "QNA_PAGE_QQ_ID": "QQ Number: 3483204772",
   "ID": "ID",
-  "SELECT_YOUR_MESSENGER": "メッセンジャーアプリを選択してください。"
+  "SELECT_YOUR_MESSENGER": "メッセンジャーアプリを選択してください。",
+  "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "モバイルでのみ友達を追加できます 友だちを追加するには携帯電話を使用してください。"
 
 
 }
