@@ -383,6 +383,7 @@
   "PLEASE_WAIT": "Please wait.",
   "PAYMENT_DIFFICULT": "If payment is difficult, please ask Katok.",
   "REFUND_POLICY": "Refund Policy. 1/3 of the points left seven days before the settlement date. Half of the points left 15 days before the settlement date. After 15 days from the payment date, no refund will be made.",
+  "1_POINT_IS": "1 POINT is 0.001 USD.",
   "VAT_1": "You have selected #AMOUNT Point.",
   "VAT_2": "Total: #USD (Inclusive VAT #VAT%) Point: #AMOUNT will be charged",
   "PAYMENT_HISTORY_PAGE_TITLE": "Payment History",
@@ -731,7 +732,7 @@
   "INPUT_LINE_ID": "Please input line ID.",
   "INPUT_QQ_ID": "Please input QQ ID.",
 
-  "CHOOSE_ANOTHER_MESSENGER": "Choose another messenger",
+  "CHOOSE_ANOTHER_MESSENGER": "You can choose another Messenger",
 
   "ADD_FRIEND": "Add Friend",
 
@@ -742,14 +743,15 @@
   "QNA_PAGE_SKYPE_ID": "Skype ID: thruthesky",
   "QNA_PAGE_WECHAT_DESC": "Please scan QR Code or Copy WeChat ID and paste it on Add Contacts.",
   "QNA_PAGE_WECHAT_ID": "WeChat ID: thruthesky",
-  "QNA_PAGE_KAKAOTALK_DESC": "Please click Kakaotalk icon or copy Kakaotalk ID and add us.",
-  "QNA_PAGE_KAKAOTALK_ID": "Kakaotalk ID: thruthesky2",
+  "QNA_PAGE_KAKAOTALK_DESC": "Please click Kakaotalk icon using your mobile phone.",
+  "QNA_PAGE_KAKAOTALK_ID": "Use your phone and click Kakaotalk icon.",
   "QNA_PAGE_LINE_DESC": "Please copy Line ID and add us.",
   "QNA_PAGE_LINE_ID": "Line ID: thruthesky",
   "QNA_PAGE_QQ_DESC": "Please copy QQ number and add us.",
   "QNA_PAGE_QQ_ID": "QQ Number: 3483204772",
   "ID": "ID",
-  "SELECT_YOUR_MESSENGER": "Please select your messenger app."
+  "SELECT_YOUR_MESSENGER": "Please select your messenger app.",
+  "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "Ooh, You can add friend only on mobile. Please use your mobile phone to add friend."
 
 
 }
