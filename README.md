@@ -95,6 +95,10 @@ npm run serve:local                 ; Run with local backend server.
 npm run serve:remote                ; Run on production server.
 npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
 npm run ssl                         ; run project with ssl. port is 9443. after run, access https://withcenter.katalkenglish.com:9443/
+npm run seo                         ; SEO TEST.
+                                    ; It copies the build files into ~/www/wordpress.
+                                    ; You can access https://sonub.com:8443/
+                                    ; You may want to run `npm run serve:local` to see the changes on browser.
 ````
 
 ### Working with SSL and Branch coding
