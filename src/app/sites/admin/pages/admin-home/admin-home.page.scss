@@ -189,7 +189,7 @@ $por-homebased: #FFBF00;
         font-size: .888em;
     }
     &-content {
-        height: 134px;
+        height: 133px;
         font-size: .9em;
         overflow: auto;
         table {
@@ -249,7 +249,6 @@ $por-homebased: #FFBF00;
 #statistics-graph{
     .total-point-share{
         padding: 0;
-        padding-bottom: 1em;
     }
     .sub-header {
         position: relative;
@@ -270,13 +269,11 @@ $por-homebased: #FFBF00;
     .form{
         display: flex;
         align-items: center;
+        justify-content: center;
         border-radius: 2px;
         background: #eee;
         margin: 1em 0;
         padding: 1em;
-        @media (min-width:$md) {
-            padding-left: 4.55em;
-        }
         font-size: .9em;
         span{
             position: relative;
@@ -327,8 +324,12 @@ $por-homebased: #FFBF00;
     white-space: pre-wrap;
     h2{
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        flex-direction: column;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;   
+        }
         margin: 0;
         margin-bottom: .3em;
         padding: 0 .4em;
@@ -343,7 +344,7 @@ $por-homebased: #FFBF00;
         border-bottom: 0;
         th,
         td{
-            padding: .95em .65em;
+            padding: .85em 1.75em;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
             // border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;

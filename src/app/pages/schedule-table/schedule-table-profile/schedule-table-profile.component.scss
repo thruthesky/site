@@ -17,6 +17,7 @@
     .add-friend-button {
         display: flex;
         align-items: center;
+        margin-top: .25em;
         padding: 0;
         border: 0;
         background: gray;
@@ -91,11 +92,16 @@
         }
         .teacher-name {
             font-weight: bold;
-            font-size: 130%;
+            font-size: 1.1em;
+            @media (min-width:$md) {
+                font-size: 1.2em;
+            }
             margin-right: .3em;
         }
         .grade {
             svg {
+                position: relative;
+                top: .125em;
                 height: 1em;
                 width: 1em
             }
@@ -120,7 +126,7 @@
         display: none;
         text-align: justify;
         width: 330px;
-        @media screen and (min-width: $md) {
+        @media (min-width: $md) {
             display: block;
         }
         span {
@@ -181,7 +187,7 @@
                     display: inline-block;
                     padding: 7px .65em;
                     @media (min-width:$md) {
-                        padding: 8px 1.1em;
+                        padding: 7.5px 1em;
                     }
                     border: 1px solid rgba( darkblue,0.7);
                     border-top-right-radius: 2px;
