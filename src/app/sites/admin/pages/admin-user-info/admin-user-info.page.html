@@ -53,7 +53,7 @@
                                 </span>
                             </div>
                             <div>
-                                <b>Register</b>
+                                <b>Registered</b>
                                 <span>{{user.user_registered | date}}</span>
                             </div>
                             <div>
@@ -300,6 +300,11 @@
                             <label>QQ</label>
                             <input value="{{  user.qq }}" [(ngModel)]=" user.qq " name="qq">
                         </div>
+                        <div>
+                            <label>Youtube Video</label>
+                            <input value="{{  user.youtube_video_url }}" [(ngModel)]=" user.youtube_video_url " name="youtube_video_url">
+                        </div>
+
 
                         <div>
                             <label>Teacher Group</label>
