@@ -19,7 +19,6 @@ export class AdminHomePage implements OnInit {
         refundRequests: false,
         teacherEquipment: false
     };
-
     comments = [];
 
     pageOption = {
@@ -29,11 +28,9 @@ export class AdminHomePage implements OnInit {
         totalRecord: 0
     };
 
-
     stat_date_begin = 0;
     stat_date_end = 0;
     stats = null;
-    today = null;
     constructor(
         public a: AppService,
         public modal: ModalService
@@ -41,7 +38,6 @@ export class AdminHomePage implements OnInit {
         if (a.isSuperManager) {
             this.loadDomainChangeApplications();
         }
-        this.today = a.getYmd();
         this.loadLatestBranches();
         this.loadAdminReports();
         this.loadRefundRequest();
@@ -171,26 +167,6 @@ export class AdminHomePage implements OnInit {
 
     }
 
-    keys( obj ) {
-        return Object.keys( obj );
-    }
-    barHeight( no , max = null ) {
-        if ( !no ) {
-            return '1px';
-        }
-        if ( no < 0 ) {
-            no = Math.abs(no);
-        }
-        if ( max ) {
-            return Math.floor(no / max * 100) + 'px';
-        }
-
-        return no + 'px';
-    }
-
-    formatDate(date) {
-        return date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(6, 8);
-    }
 }
 
 
