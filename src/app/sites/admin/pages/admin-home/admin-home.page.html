@@ -48,12 +48,12 @@
                 <th>Teacher</th>
                 <td class="sub-header">
                     <small class="mini-header">Total Point</small>
-                    {{ stats.total_point_of_reservation | number }}
+                    <span>{{ stats.total_point_of_reservation | number }}</span>
                 </td>
                 <td>{{stats.teacher_percent}}%</td>
                 <td class="sub-header">
                     <small class="mini-header">Teacher Share</small>
-                    {{stats.teacher_share | number }}
+                    <span>{{stats.teacher_share | number }}</span>
                 </td>
                 <td>{{stats.teacher_share_after_deduction | number }}</td>
                 <td>{{stats.teacher_share_in_usd | number }}</td>
@@ -63,10 +63,10 @@
                 <th>Withcenter</th>
                 <td class="sub-header">
                     <small class="mini-header">Teacher Share</small>
-                    {{stats.teacher_share | number }}
+                    <span>{{stats.teacher_share | number }}</span>
                 </td>
                 <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
-                <td>{{stats.teacher_share_withcenter}}</td>
+                <td>{{stats.teacher_share_withcenter | number}}</td>
                 <td width="170">{{stats.teacher_share_withcenter_after_deduction | number}}</td>
                 <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
                 <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
@@ -75,7 +75,7 @@
                 <th>Homebase</th>
                 <td class="sub-header">
                     <small class="mini-header">Teacher Share</small>
-                    {{stats.teacher_share | number }}
+                    <span>{{stats.teacher_share | number }}</span>
                 </td>
                 <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}%
                 </td>

@@ -7,6 +7,9 @@ $points-per-day-reservations:  #A32E00;
 $por-withcenter: dodgerblue;
 $por-homebased: #FFBF00;
 
+// *{
+//     border: 0!important;
+// }
 
 #stats-summary {
     font-size: .85em;
@@ -103,12 +106,12 @@ $por-homebased: #FFBF00;
     .info-wrapper {
         border-bottom: 1px solid rgba(125, 125, 125, 0.2);
         .teacher-info {
-            padding: 2em;
+            padding: 2em 1.75em;
             padding-top: .5em;
             padding-bottom: .1em;
         }
         .extra {
-            padding: 2em;
+            padding: 2em 1.75em;
             padding-top: .1em;
             padding-bottom: .5em;
         }
@@ -149,7 +152,6 @@ $por-homebased: #FFBF00;
     border-radius: 2px;
     border: 1px solid rgba(125, 125, 125, 0.2);
     font-size: 90%;
-    white-space: nowrap;
     @media (min-width: $md) {
         font-size: 100%;
     }
@@ -160,7 +162,7 @@ $por-homebased: #FFBF00;
         padding: 1em 1.5em;
         border-bottom: 1px solid rgba(125, 125, 125, 0.2);
         @media (min-width: $md) {
-            padding:1em 2em;
+            padding:.85em 1.57em;
         }
         color: #0867B0;
         font-weight: 500;
@@ -194,12 +196,22 @@ $por-homebased: #FFBF00;
         overflow: auto;
         table {
             width: 100%;
-            text-align: center;
+            border-collapse: collapse;
             tr {
-                &>td,
-                &>th {
-                    padding: .75em 1em;
+                border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+                &>td{
+                    padding: .815em .8em;
+                    &:first-child{
+                        padding-left:  1.8em;
+                    }
                 }
+                &>th {
+                    padding: .75em .75em;
+                    &:first-child{
+                        padding-left: 1.75em;
+                    }
+                }
+
             }
         }
     }
@@ -252,9 +264,10 @@ $por-homebased: #FFBF00;
     }
     .sub-header {
         position: relative;
+        text-align:left;
         .mini-header {
             position: absolute;
-            top: 0;
+            top: 2%;
             color: #FF4900;
             white-space: nowrap;
             font-weight: bold;
