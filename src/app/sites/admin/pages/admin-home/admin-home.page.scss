@@ -320,9 +320,20 @@ $por-homebased: #FFBF00;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        @media (min-width:$md) {
+            flex-direction: row;
+        }
         border-radius: 2px;
         margin: 1.5em 0;
         font-size: .75em;
+        b{
+            display: inline-block;
+            margin-bottom: 1em;
+            @media (min-width:$md) {
+                display: inline;
+            }
+        }
         span{
             position: relative;
             top: .125em;
@@ -335,6 +346,7 @@ $por-homebased: #FFBF00;
             }
         }
         form{
+            text-align: center;
             input{
                 margin-right: .5em;
                 margin-bottom: .5em;
