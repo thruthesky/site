@@ -48,8 +48,8 @@ scp ontue@ontue.com:./database-backup/7-13.sql.gz .
 gunzip 7-13.sql.gz
 # if you want, you can make back up here.
 mysql -uroot -p7777 -e "drop database ontue"
-mysql -uroot -p7777 -e "create database ontue"
-mysql -uroot -p7777 ontue < 1-01.sql
+mysql -uroot -p7777 -e "create database ontue"              ; you can make a new database on local server.
+mysql -uroot -p7777 ontue < 1-01.sql                        ; you can make a new database on local server.
 cd ~/wordpress/wp-content/uploads
 $ scp -r ontue@ontue.com:./www/wp-content/uploads/* .
 ````
