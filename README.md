@@ -48,8 +48,8 @@ scp ontue@ontue.com:./database-backup/7-13.sql.gz .
 gunzip 7-13.sql.gz
 # if you want, you can make back up here.
 mysql -uroot -p7777 -e "drop database ontue"
-mysql -uroot -p7777 -e "create database ontue"
-mysql -uroot -p7777 ontue < 1-01.sql
+mysql -uroot -p7777 -e "create database ontue"              ; you can make a new database on local server.
+mysql -uroot -p7777 ontue < 1-01.sql                        ; you can make a new database on local server.
 cd ~/wordpress/wp-content/uploads
 $ scp -r ontue@ontue.com:./www/wp-content/uploads/* .
 ````
@@ -95,6 +95,10 @@ npm run serve:local                 ; Run with local backend server.
 npm run serve:remote                ; Run on production server.
 npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
 npm run ssl                         ; run project with ssl. port is 9443. after run, access https://withcenter.katalkenglish.com:9443/
+npm run seo                         ; SEO TEST.
+                                    ; It copies the build files into ~/www/wordpress.
+                                    ; You can access https://sonub.com:8443/
+                                    ; You may want to run `npm run serve:local` to see the changes on browser.
 ````
 
 ### Working with SSL and Branch coding
@@ -432,115 +436,3 @@ env['reloadTag'] = (new Date).getTime();
 ## Resources
 
 * logo icon svg is on tmp folder.
-
-## English As Student Site
-
-
-* Started working on July 12, 2018
-  * `englishas` branch of github.com/thruthesky/site
-  * `englishas` branch on `xapi` of my macbook. the `englishas` is not even on github server.
-    * later after work, you will need to merge it into master of xapi and push.
-    * need to copy 'kakaotalk_id' to 'class_software' = 'kakotalk' | 'skype', 'class_id' = 'id'.
-
-### TODO for English As
-
-* 아래의 수정에 대한, 디자인, 언어 번역을 모두 해야 함.
-
-* @done 브랜치 기본 도메인이 katalkenglish.com 에서 englishas.com 으로 변경.
-  왜냐? katalkenglish 도메인은 한국 한생에게만 사용 가능.
-  즉, 더 이상 katalkenglish 로는 브랜치를 받지 않음.
-
-* @done 브랜치 설정에서 기본 메신저를 정할 수 있음. 따라서 회원은 그냥 아이디만 입력하면 됨.
-
-* @done 학생 회원 가입 할 때, 가맹사에서 지정한 메신저 아이디를 입력해야 함. 여러 아이디 선택을 하지 않음. 혼동을 피하기 위해서.
-
-* @done 학생 수정 할 때에는 여러 메신저 중 하나를 사용 할 수 있음.
-
-* @done 학생 회원 가입, 메신저 아이디 변경 테스트.
-
-* @done 강사는 회원 가입/수정에서
-  스카이프, 위쳇, 라인, 카톡 아이디가 모두 다 필요 함.
-  wp_users.skype, wechat, kakaotalk, line 필드를 만들고 조정해야 함.
-
-* @done 강사 프로필에서, 수업 예약 학생이 사용하는 메신저에 따른 메신저 아이콘과 아이디를 표시.
-* @reject 강사 이력서에는 모든 메신저 정보를 표시한다. (학생이 혼동할 수 있음)
-* @done 학생이 보는 수업 시간표에서, 학생이 사용하는 메신저에 따른 강사의 메신저 아이콘과 아이디를 표시.
-* @done 강사가 보는 수업 시간표에서, 학생이 이용하는 메신저의 아이콘과 아이디 표시.
-
-* @done katalkenglish-header.html 에서 mobileh-header 에서 engliash 전용 로고 작성.
-
-* @done 관리자가 회원 정보 수정에서, 학생의 class-software 와 id 를 수정 할 수 있도록 한다.
-
-* @done 언어 변환. 우선 아래의 것만 json 파일에서 직접 수정한다.
-  * @done SELECT_CLASS_SOFTWARE
-  * @done SELECT_CLASS_SOFTWARE_ID
-  * @done CHOOSE_CLASS_SOFTWARE
-  * @done KAKAOTALK,SKYPE,WECHAT,LINE
-  * @done ADD_[KAKAOTALK|WECHAT|...] => ADD FRIEND
-  * @done INPUT_[KAKAOTALK|WECHAT|...]_ID
-  * @done QnA page
-  * @done PROFILE_UPDATED
-  * @done schedule table profile add messengers
-
-* @done 강사 수업 시간표아 예약된 수업 목록에서 각 메신저 별 친구 추가가 잘 되는지 확인.
-  * deeplink 등을 추가.
-
-* @done xapi library::send_push_message() 에서 학생의 도메인으로 push 를 보내야 함.
-  * 참고로 학생인데, 도메인이 없으면 www.katalkenglish.com 이 도메인이 되도록 패치를 한다.
-
-* @see other git issues
-
-#### TODO for openning
-
-* 오프닝 준비
-  * @done Angular 와 PHP 의 engliashas 를 master 로 mergin 한다.
-  * @done https://*.englishas.com 전체 서브 도메인을 포함하는 SSL 구매 및 적용.
-
-  * @done php 에서 번역을 4개 국어로 해야하고,
-    * CODE_EMPTY_CLASS_SOFTWARE, CODE_EMPTY_CLASS_SOFTWARE_ID 에 대해서, 스카이프, 카톡, 위쳇, 라인 앱 이름을 정확히 명시해야 한다.
-
-  * 테스트. 모든 페이지 다 테스트. 회원가입, 글 읽기, 수업 예약, 예약 확인, 취소, 즉시예약 등.
-  * @done 디자인.
-    * 회원 가입/수정.
-      * 회원 정보를 업데이트하면, profile updated 디자인.
-
-  * @done 각종 테스트
-    * 강사 검색이 각 메신저 아이디로 되는지 확인.
-    * 관리자 페이지에서 lms.admin_query() 를 많이 하는데, 그 결과가 기존의 kakaotalk_id 에서
-      강사는 5개의 메신저,
-      학생은 class_software, class_software_id 로 변경되었다.
-      기존 코드가 올바로 변경이 잘 되었는지, 확인 해 볼 것.
-    * 강사 또는 학생이, class software id 를 변경하는 경우, lms_reservation 테이블의 class_id 에도 모두 변경이되는지 확인해야 한다.
-      이것은 학생이, 이중 아이디를 만들어 무료 체험을 무한대로 하지 못하게 막으려는 것이다.
-      * 하지만 문제 발생. 스카이프와 카톡아이디가 다른데, 각각 스카이프와 카톡으로 회원가입하면, 여러 차례 무료 체험 수업을 들을 수 있다.
-        * 회원 메일 주소로도 같이 체크를 할 수 있도록 이슈를 발행한다.
-
-#### TODO for open
-
-* 오픈.
-
-  * @done 중요: 오픈 절차를 따라야 함. 그렇지 않으면 실패. 큰 문제 발생.
-  * @done 먼저, 아래와 DB 패치를 해야한다.
-    이것은 기존의 kakaotalk_id 를 학생의 class software /id 와 강사의 kakaotalk 필드에 카톡 아이디 정보를 변경하는 것이다.
-    그리고 도메인이 없는 학생의 도메인을 www.katalkenglish.com 으로 변경 해 준다.
-    패치 방법:
-      cd wp-content/plugins/xapi-2/lms/patch
-      php class-software.php
-      php student-domain.php
-
-  * @done 수업 예약하면, xapi library::send_push_message() 에서 각 도메인 별로, 학생, 선생, katalk, englishas 로 잘 전송되는지 확인 할 것.
-
-#### TODO for after open
-
-* @done 기존의 kakaotalk_id 필드를 삭제. 또는 이름 변경해서 백업.
-  * 학생의 경우, 기존의 kakaotalk_id 를 class_software=kakaotalk, class_software_id=카톡아이디로 복사.
-  * 강사의 경우, kakaotalk 으로 변경.
-  * 그리고 kakaotalk_id 필드를 kakaotalk_id_backup 으로 이름을 변경한다.
-  SQL 쿼리:
-    ALTER TABLE `wp_users` CHANGE `kakaotalk_id` `kakaotalk_id_backup` VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
-
-  이렇게 필드명을 바꾸어 버리면, 패치를 다시 실행 할 수도 없다.
-
-* 질문과답변에서 카톡, 스카이프, 위쳇이 제대로 열리도록 수정.
-    (데스크톱에서는 그냥 qna 페이지로 연결 함.)
-  

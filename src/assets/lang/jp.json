@@ -58,7 +58,7 @@
   "MY_POINT": "私のポイント",
   "MY_ENGLISH_LEVEL": "私の英語のレベル",
   "MESSAGE": "メッセージ",
-  "KATALKENGLISH_MENU_PAGE_TTILE": "気になる点がございましたら、いつでもカトクで質問してください!",
+  
   "PROFILE": "プロフィール",
   "SIGN_UP": "会員登録",
   "SCHEDULE_A_CLASS": "授業の予約",
@@ -122,7 +122,7 @@
   "STUDENT_HELP_PAGE_SUB_HEADER_12": "決済したスオプリョグァポイントがいつまで使用可能である説明します。",
 
   "POINT_EXPIRE": "ポイントは、支払い日後3年間有効です。 ポイントは有効期限が切れ、有効期限が切れた後は使用されなくなります。",
-  "MY_POINT_PAGE_TITLE": "気になる点がございましたら、いつでもカトクで質問してください！",
+  
   "MY_POINT_PAGE_USER_POINT": "#USER_NAME会員のポイントは#POINTです。",
   "MY_POINT_PAGE_REMINDER": "授業料の支払いの内訳は、決済内訳メニューから確認することができます。",
   "GOTO_PAYMENT_HISTORY": "お支払い履歴ページへ移動",
