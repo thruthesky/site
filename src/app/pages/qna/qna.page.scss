@@ -1,10 +1,11 @@
 @import '../../../theme/variables-katalkenglish.scss';
 @import '../../../theme/vars.scss';
 .title{
-    margin: 2em 1.6em;
+    margin: 1.2em 1.6em;
     @media (min-width:$md) {
         margin: 2.5em 0;
-        text-align: center;
+        // text-align: center;
+        padding-left: 1.8em;
     }
     border-radius: 2px;
 
@@ -17,10 +18,10 @@
             margin-bottom: .5em;
             font-size: 1.25em;
         }
-        color: #FF7B0D;
     }
     &>div:last-child{
         font-size: .85em;
+        color: gray;
         @media (min-width:$md) {
             font-size: .9em;
         }
@@ -38,7 +39,9 @@
     padding-bottom: 5em;
     font-size: .9em;
     [data-class-software]{
+        position: relative;
         display: flex;
+        min-height: 115px;
         margin-bottom: .5em;
         width: 100%;
         @media (min-width:$md) {
@@ -84,10 +87,8 @@
             margin-bottom: .75em;
             color: #3C66C8;
             font-weight: bold;
-            font-size: .9em;
-            @media (min-width:$md) {
-                font-size: 1em;
-            }
+            font-size: 1em;
+            line-height: 1.6em;
         }
         .messenger-id{
             color: darkgreen;
@@ -95,11 +96,17 @@
         .icon{
             display: flex;
             align-items: center;
-            margin-right: 1.25em;
+            @media (min-width:$md) {
+                margin-right: 1.45em;
+            }
             img{
-                width: 76px;
-                height: 76px;
+                position: absolute;
+                bottom: 8%;
+                right: 3%;
+                width: 46px;
+                height: 46px;
                 @media (min-width:$md) {
+                    position: static;
                     width: 96px;
                     height: 96px;
                 }
@@ -122,10 +129,14 @@
     position: relative;
     .text {
         img {
+            height: 36px;
+            width: 36px;
             position: absolute;
             bottom: 1em;
-            right: 1.5em;
-            width: 2em;
+            right: 20%;
+            @media (min-width:$md) {
+                right: 1.5em;
+            }
         }
     }
 }

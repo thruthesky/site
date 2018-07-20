@@ -1205,6 +1205,46 @@ For reference, "Kakaotlak Withcenter Chat" can be found when you start a busines
 この後、「Kakaotalk Withcenter Chat」として私達に質問をすることができ、パートナーとして最善を尽くしお手伝いします。
 
 ちなみに「Kakaotlak Withcenter Chat」は、創業をする知ることができます。`
+    },
+    more_income: {
+        ko: `더 많은 분배율을 원하는 경우,`,
+        en: `More Income For Branch`,
+        ch: `分行收入增加`,
+        jp: `支店の収入を増やす`
+    },
+    more_income_desc: {
+        ko: `가맹사의 기본 분배율 보다 더 높은 수익을 원하는 경우, 강사를 직접 고용하고, 풀타임 또는 파트타임으로 쓸 수 있다.
+고용한 강사가 수업을 하게되면, 가맹사의 몫에 더해 강사의 몫 까지 모두 가맹사의 몫이된다.
+또한 고용한 강사는 가맹사 학생을 위주로 수업을 할 수 있으며 남는 시간은 프랜차이즈에 속한 모든 학생을 대상으로 수업을 할 수 있으며, 강사가 벌어들이는 모든 수익은 가맹사의 몫이된다.
+그리고 본사가 강사를 관리하고 월급을 주고, 콜센터를 운영함에 따른 서비스 비용을 본사로 납부하면된다.
+자세한 내용은 창업레포트를 작성 한 후 본사로 문의하기 바란다.
+        `,
+        en: `Branch can get more income by hiring teachers for part time or full time.
+        The income of hired teacher will belong to the Branch.
+        Branch could put priority on teaching branch student with the hired teacher.
+        But the hired teacher can teach any student on vacant time.
+        And all the income made from the hired teacher belongs to Branch.
+        Branch shall pay outsourcing fee to Withcenter.
+        Please contact Withcenter after you submit the business report.
+        `,
+        ch: `
+        通過聘請教師兼職或全職，分支機構可以獲得更多收入。
+         聘用教師的收入屬於分支機構。
+         分支機構可以優先考慮聘請老師教授分校學生。
+         但聘請的老師可以在空閒時間教授任何學生。
+         從僱傭老師那裡獲得的所有收入都屬於分公司。
+         分支機構應向Incenter支付外包費。
+         提交業務報告後，請聯繫Withcenter。
+        `,
+        jp: `
+        支部は、パートタイムまたはフルタイムで教師を雇うことにより、より多くの収入を得ることができます。
+         雇用された教師の所得は、支部に属します。
+         支部は雇用された先生と支部の学生に優先順位を置くことができました。
+         しかし、雇用された先生は、空いている時間に生徒を教えることができます。
+         そして、雇われた先生から得られた収入はすべて支店に属します。
+         支店は委託業者に委託費を支払う。
+         ビジネスレポートを提出した後、Withcenterにお問い合わせください。
+        `
     }
 
 };

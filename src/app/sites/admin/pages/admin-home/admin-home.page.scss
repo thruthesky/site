@@ -7,6 +7,9 @@ $points-per-day-reservations:  #A32E00;
 $por-withcenter: dodgerblue;
 $por-homebased: #FFBF00;
 
+// *{
+//     border: 0!important;
+// }
 
 #stats-summary {
     font-size: .85em;
@@ -41,18 +44,15 @@ $por-homebased: #FFBF00;
     justify-content: space-between;
     margin: 1em -.5em;
     .stats-card {
-        font-size: .85em;
-        width: 147px;
-        @media (min-width: $md) {
-            width: 205px;
-            font-size: 1em;
-        }
-        margin: .5em;
+        margin: .27em 0;
+        width: 120px;
         border-radius: 2px;
-        border: 1px solid rgba(125, 125, 125, 0.2);
+        // border: 1px solid rgba(125, 125, 125, 0.2);
+        background: #eee;
         text-align: center;
+        font-size: .85em;
         .stats-title {
-            padding: 1em;
+            padding: .75em;
             padding-top: .75em;
             font-size: .9em;
         }
@@ -65,22 +65,65 @@ $por-homebased: #FFBF00;
 }
 
 #contact {
+    display: flex;
+    flex-direction: column;
+    @media (min-width:$md) {
+        flex-direction: row
+    }
     margin-top: 2em;
-    h2 {
-        padding: .5em 1em;
-        @media (min-width: $md) {
-            padding: 1em .1em;
+    .qr-code{
+        width: 50%;
+        @media (min-width:$md){
+            width: 20%;   
         }
+        padding-right: 2em;
+        img{
+            width: 100%;
+        }
+        .qr-title{
+            font-size: .9em;
+            margin-top: .3em;
+            color:#009153;
+            text-align: center;
+        }
+    }
+    .content{
+        width: 100%;
+        @media (min-width:$md) {
+            width: 80%;   
+        }
+        .row{
+            align-items: center;
+        }
+
+        .col{
+            padding: 0;
+        }
+        .kakao-button{
+            .button{
+                padding: .5em 1em;
+                border-radius: 2px;
+                background: #FF9200;
+                color: #fff;
+                font-size: .9em;
+            }
+            .note{
+                padding-top:.5em;
+                color: #009153;
+                font-size: .8em;
+                font-weight: normal
+            }
+        }
+    }
+    h2 {
         margin: 0;
-        color: #F08900;
+        color: #0B68B0;
         font-size: 1.3em;
         font-weight: 100;
     }
     .content {
-        display: flex;
-        flex-direction: column;
-        @media (min-width: $md) {
-            flex-direction: row;
+        .container-fluid{
+            margin-top: .5em;
         }
         svg {
             height: 2em;
@@ -90,11 +133,8 @@ $por-homebased: #FFBF00;
         .contact-item {
             display: flex;
             align-items: center;
-            padding: .5em 1em;
-            @media (min-width: $md) {
-                padding: 1em .1em;
-                padding-right: 5em;
-            }
+            padding-top:.75em;
+            padding-bottom: 0;
         }
     }
 }
@@ -103,12 +143,12 @@ $por-homebased: #FFBF00;
     .info-wrapper {
         border-bottom: 1px solid rgba(125, 125, 125, 0.2);
         .teacher-info {
-            padding: 2em;
+            padding: 2em 1.75em;
             padding-top: .5em;
             padding-bottom: .1em;
         }
         .extra {
-            padding: 2em;
+            padding: 2em 1.75em;
             padding-top: .1em;
             padding-bottom: .5em;
         }
@@ -149,7 +189,6 @@ $por-homebased: #FFBF00;
     border-radius: 2px;
     border: 1px solid rgba(125, 125, 125, 0.2);
     font-size: 90%;
-    white-space: nowrap;
     @media (min-width: $md) {
         font-size: 100%;
     }
@@ -160,7 +199,7 @@ $por-homebased: #FFBF00;
         padding: 1em 1.5em;
         border-bottom: 1px solid rgba(125, 125, 125, 0.2);
         @media (min-width: $md) {
-            padding:1em 2em;
+            padding:.85em 1.57em;
         }
         color: #0867B0;
         font-weight: 500;
@@ -189,17 +228,27 @@ $por-homebased: #FFBF00;
         font-size: .888em;
     }
     &-content {
-        height: 134px;
+        height: 133px;
         font-size: .9em;
         overflow: auto;
         table {
             width: 100%;
-            text-align: center;
+            border-collapse: collapse;
             tr {
-                &>td,
-                &>th {
-                    padding: .75em 1em;
+                border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+                &>td{
+                    padding: .815em .8em;
+                    &:first-child{
+                        padding-left:  1.8em;
+                    }
                 }
+                &>th {
+                    padding: .75em .75em;
+                    &:first-child{
+                        padding-left: 1.75em;
+                    }
+                }
+
             }
         }
     }
@@ -249,17 +298,17 @@ $por-homebased: #FFBF00;
 #statistics-graph{
     .total-point-share{
         padding: 0;
-        padding-bottom: 1em;
     }
     .sub-header {
         position: relative;
-        .mini-header {
-            position: absolute;
-            top: 0;
-            color: #FF4900;
-            white-space: nowrap;
-            font-weight: bold;
-        }
+        text-align:left;
+        color: #fff;
+    }
+    .teacher-share{
+        background: #009153;
+    }
+    .total-point{
+        background:#FF9200;
     }
 
 
@@ -270,14 +319,21 @@ $por-homebased: #FFBF00;
     .form{
         display: flex;
         align-items: center;
-        border-radius: 2px;
-        background: #eee;
-        margin: 1em 0;
-        padding: 1em;
+        justify-content: center;
+        flex-direction: column;
         @media (min-width:$md) {
-            padding-left: 4.55em;
+            flex-direction: row;
         }
-        font-size: .9em;
+        border-radius: 2px;
+        margin: 1.5em 0;
+        font-size: .75em;
+        b{
+            display: inline-block;
+            margin-bottom: 1em;
+            @media (min-width:$md) {
+                display: inline;
+            }
+        }
         span{
             position: relative;
             top: .125em;
@@ -290,6 +346,7 @@ $por-homebased: #FFBF00;
             }
         }
         form{
+            text-align: center;
             input{
                 margin-right: .5em;
                 margin-bottom: .5em;
@@ -324,16 +381,20 @@ $por-homebased: #FFBF00;
     // width: 100%;
     overflow: auto;
     font-size: .9em;
-    white-space: pre-wrap;
+    white-space: pre-wrap!important;
     h2{
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        flex-direction: column;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;   
+        }
         margin: 0;
         margin-bottom: .3em;
         padding: 0 .4em;
-        font-size: .95em;
-        color: #009153;
+        font-size: 1em;
+        color:#0867B0;
     }
     table {
         font-size: .82em;
@@ -341,11 +402,14 @@ $por-homebased: #FFBF00;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
+        @media (min-width:$md) {
+            table-layout: fixed;   
+        }
         th,
         td{
-            padding: .95em .65em;
+            padding: .75em 1.75em;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
-            // border-right: 1px solid rgba(125, 125, 125, 0.2);
+            border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;
             &:last-child{
                 border-right: 0;
@@ -353,12 +417,16 @@ $por-homebased: #FFBF00;
         }
     }
     .note{
-        font-size: .8em;
+        font-size: .85em;
         color: #000;
         font-weight: normal;
 
         strong{
-            color: #FF4900;
+            display: inline-block;
+            margin: 0 .2em;
+            padding: .3em .5em;
+            font-size: .9em;
+            color: #fff;
         }
     }
 }

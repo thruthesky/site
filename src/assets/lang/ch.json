@@ -56,7 +56,7 @@
   "MY_POINT": "我的观点",
   "MY_ENGLISH_LEVEL": "我的英语水平",
   "MESSAGE": "メッセージ",
-  "KATALKENGLISH_MENU_PAGE_TTILE": "如果您有任何问题，请随时询问Katok！",
+  
   "PROFILE": "简介",
   "SIGN_UP": "报名",
   "SCHEDULE_A_CLASS": "安排一堂课",
@@ -330,7 +330,7 @@
   "CURRICULUM_STAT_1": "#USERNAME的下一课是#BOOK。",
   "CURRICULUM_STAT_2": "#USERNAME的教科书尚未设置。",
 
-  "MY_POINT_PAGE_TITLE": "如果您有任何疑问，请免费索取Katok！",
+  
   "MY_POINT_PAGE_USER_POINT": "#USER_NAME的观点是#POINT",
   "MY_POINT_PAGE_REMINDER": "您可以在付款历史记录菜单中查看付款记录。",
   "GOTO_PAYMENT_HISTORY": "转到付款历史页面",

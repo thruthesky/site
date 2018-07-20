@@ -172,6 +172,24 @@
 }
 
 
+.book-button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: .5em;
+    border-radius: 2px;
+    border:1px solid rgba(125,125,125,0.2);
+        svg{
+        position: relative;
+        top:.125em;
+        height: 1em;
+        width: 1em;
+        margin-left: .3em;
+        color: darkgreen;
+    }
+}
+
+
 
     .header-student,.header-teacher{
         position: sticky!important;
