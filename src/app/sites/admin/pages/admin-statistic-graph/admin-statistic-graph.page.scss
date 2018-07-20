@@ -1,0 +1,310 @@
+@import '../../../../../theme/vars';
+//graph colors
+$overall: #00B96A;
+$withcenter-teachers:#FF9200;
+$homebased-teachers:#1414BD;
+$points-per-day-reservations:  #A32E00;
+$por-withcenter: dodgerblue;
+$por-homebased: #FFBF00;
+
+
+#statistics-graph{
+    .total-point-share{
+        padding: 0;
+        padding-bottom: 1em;
+    }
+    .sub-header {
+        position: relative;
+        .mini-header {
+            position: absolute;
+            top: 0;
+            color: #FF4900;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+    }
+
+
+    mat-tooltip-component > .mat-tooltip {
+        white-space: pre-line;
+    }
+
+    .form{
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        background: #eee;
+        margin: 1em 0;
+        padding: 1em;
+        @media (min-width:$md) {
+            padding-left: 4.55em;
+        }
+        font-size: .9em;
+        span{
+            position: relative;
+            top: .125em;
+            display: inline-block;
+            margin-right: 2em;
+            white-space: nowrap;
+            font-size: .9em;
+            @media (min-width:$md) {
+                font-size: 1em;
+            }
+        }
+        form{
+            input{
+                margin-right: .5em;
+                margin-bottom: .5em;
+                padding: .6em .5em;
+                font-size: .8em;
+                @media (min-width:$md) {
+                    margin-right: 2em;
+                    margin-bottom: 0;
+                    padding: .6em 1em;
+                    font-size: .9em;
+                }
+                border-radius: 2px;
+                border: 1px solid rgba(125,125,125,0.4);
+            }
+            button{
+                margin-top: .5em;
+                text-align: center;
+                padding: .75em 3em;
+                border: 0;
+                border-radius: 2px;
+                background: #0867B0;
+                color: #fff;
+                @media (min-width:$md) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.total-point-share {
+    margin-bottom: 1em;
+    overflow: auto;
+    font-size: .9em;
+    white-space: pre-wrap;
+    h2{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: 0;
+        margin-bottom: .3em;
+        padding: 0 .4em;
+        font-size: .95em;
+        color: #009153;
+    }
+    table {
+        font-size: .82em;
+        border-spacing: 0;
+        border-radius: 2px;
+        border: 1px solid rgba(125, 125, 125, 0.2);
+        border-bottom: 0;
+        th,
+        td{
+            padding: .95em .65em;
+            border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+            // border-right: 1px solid rgba(125, 125, 125, 0.2);
+            text-align: left;
+            &:last-child{
+                border-right: 0;
+            }
+        }
+    }
+    .note{
+        font-size: .8em;
+        color: #000;
+        font-weight: normal;
+
+        strong{
+            color: #FF4900;
+        }
+    }
+}
+
+.bar-graph{
+    &-container{
+        margin-bottom: 1.75em;
+        border-radius: 2px;
+        border:1px solid rgba(125, 125, 125, 0.2);
+    }
+    &-header{
+        display: flex;
+        flex-direction: column;
+        padding: .8em 1.25em;
+        border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+        background: #eee;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            //line-height: 0;
+        }
+        .bar-graph-title{
+            margin: 0;
+            font-size: .9em;
+            color: #0867B0;
+        }
+        .bar-graph-subtitle{
+            font-size: .8em;
+            &>*{
+                display: block;
+                @media (min-width:$md) {
+                    display: inline-block;
+                }
+                margin-right: 1em;
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+    }
+    &-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 3.2em 1.5em 7em 1em;
+        font-size: .75em;
+        overflow: auto;
+
+        .bar-item{
+            position: relative;
+            margin: 0 2px;
+            min-width:2em;
+            min-height: 1px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            border-bottom: .5px solid gray;
+            background-color: gray;
+            text-align: center;
+            .item-no{
+                position: relative;
+                bottom: 1.2em;
+                padding: 0 2px;
+            }
+            .item-date{
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                margin-top: 4em;
+                transform: rotate(-87deg);
+                white-space: nowrap;
+                &.today {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+#overall-reservations-graph{
+    .bar-item{
+        border-bottom: .5px solid $overall;
+        background-color: $overall;
+    }
+}
+#withcenter-teachers-graph{
+    .bar-item{
+        border-color: $withcenter-teachers;
+        background-color: $withcenter-teachers;
+    }
+}
+#homebased-teachers-graph{
+    .bar-item{
+        border-color: $homebased-teachers;
+        background-color: $homebased-teachers;
+    }
+}
+#points-per-day-reservations-graph{
+    .bar-item{
+        border-color: $points-per-day-reservations;
+        background-color: $points-per-day-reservations;
+    }
+}
+#por-withcenter-graph{
+    .bar-item{
+        border-color: $por-withcenter;
+        background-color: $por-withcenter;
+    }
+}
+#por-homebased-graph{
+    .bar-item{
+        border-color: $por-homebased;
+        background-color: $por-homebased;
+    }
+}
+#no-of-reservations-teacher-grade-graph{
+    .bar-graph-header{
+        padding: 1.25em;
+        @media (min-width:$md) {
+            padding: 0 1.25em;
+        }
+        line-height: unset;
+
+        .bar-graph-subtitle{
+            display: flex;
+            flex-wrap: wrap;
+            @media (min-width:$md) {
+                display: block;
+            }
+            &>div{
+                margin-right: 1em;
+                &:last-child{
+                    margin-right: 0;
+                }
+                span{
+                    display: inline-block;
+                    margin:.5em 0;
+                    padding: .5em;
+                }
+                span:first-child{
+                    border-radius: 2px;
+                    background: #fff;
+                }
+                span:last-child{
+                    width: 20px;
+                }
+            }
+        }
+    }
+    .bar-graph-content{
+        padding-bottom: 1em;
+    }
+    .grade-1 {
+        border-color: #00ABA9;
+        background-color: #00ABA9;
+    }
+    .grade-2 {
+        border-color: #91D500;
+        background-color: #91D500;
+    }
+    .grade-3 {
+        border-color: #89D1FD;
+        background-color: #89D1FD;
+    }
+    .grade-4 {
+        border-color: #009CE0;
+        background-color: #009CE0;
+    }
+    .grade-5 {
+        border-color: #38578A;
+        background-color: #38578A;
+    }
+    .bar-item-group{
+        margin-right: 2.5em;
+        &>div:first-child{
+            display: flex;
+            align-items: flex-end
+        }
+
+        .item-date{
+            margin-top: .5em;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    }
+}
