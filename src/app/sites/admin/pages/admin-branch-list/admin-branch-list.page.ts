@@ -22,7 +22,7 @@ export class AdminBranchListPage implements OnInit {
     }
     loadBranches() {
         this.a.xapi.post({ route: 'lms.branch_list' }).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.re = re;
         }, e => this.a.toast(e));
     }
@@ -33,7 +33,7 @@ export class AdminBranchListPage implements OnInit {
             return;
         }
         this.a.xapi.post({ route: 'lms.branch_delete', session_id: this.a.user.sessionId, idx: branch.idx }).subscribe(res => {
-            console.log('branch_delete: ', res);
+            // console.log('branch_delete: ', res);
             this.loadBranches();
         }, e => this.a.toast(e));
     }
