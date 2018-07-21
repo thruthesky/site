@@ -9,7 +9,9 @@ import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_
 /**
  * Firebase initialization.
  */
-// import * as firebase from 'firebase';
+//
+// DO NOT CHNAGE BELOW !!!!!!!!!!!!!!!!!!
+//
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/messaging';

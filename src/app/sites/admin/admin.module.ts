@@ -24,6 +24,7 @@ import { AdminScheduleTablePage } from './pages/admin-schedule-table/admin-sched
 import { AdminMenuPage } from './pages/admin-menu/admin-menu.page';
 import { AdminNoOfUserPerEachDomainPage } from './pages/admin-no-of-user-per-each-domain/admin-no-of-user-per-each-domain.page';
 import { AdminStatisticGraphPage } from './pages/admin-statistic-graph/admin-statistic-graph.page';
+import { AdminBranchListPage } from './pages/admin-branch-list/admin-branch-list.page';
 
 
 const routes: Routes = [
@@ -53,7 +54,8 @@ const routes: Routes = [
             { path: 'schedule-table/:ID', component: AdminScheduleTablePage },
             { path: 'menu', component: AdminMenuPage},
             { path: 'no-of-student-per-each-domain', component: AdminNoOfUserPerEachDomainPage},
-            { path: 'statistic-graph', component: AdminStatisticGraphPage}
+            { path: 'statistic-graph', component: AdminStatisticGraphPage},
+            { path: 'branch-list', component: AdminBranchListPage}
         ]
     }
 
@@ -89,7 +91,8 @@ const routes: Routes = [
         AdminScheduleTablePage,
         AdminMenuPage,
         AdminNoOfUserPerEachDomainPage,
-        AdminStatisticGraphPage
+        AdminStatisticGraphPage,
+        AdminBranchListPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -107,7 +110,8 @@ const routes: Routes = [
         AdminScheduleTablePage,
         AdminMenuPage,
         AdminNoOfUserPerEachDomainPage,
-        AdminStatisticGraphPage
+        AdminStatisticGraphPage,
+        AdminBranchListPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],
