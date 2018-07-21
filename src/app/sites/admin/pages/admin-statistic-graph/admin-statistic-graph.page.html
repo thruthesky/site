@@ -12,13 +12,15 @@
         <h2>
             <span>Shares Computation</span>
             <span class="note">
-                            <b>Note:</b> <strong>Teacher Share</strong> is the {{stats.teacher_percent}}% of <strong>Total Point</strong>
-                        </span>
+                <b>Note:</b>
+                <strong class="teacher-share">Teacher Share</strong> is the {{stats.teacher_percent}}% of
+                <strong class="total-point">Total Point</strong>
+            </span>
         </h2>
         <table width="100%">
             <tr>
-                <th width="100"></th>
-                <th width="100">Total</th>
+                <th></th>
+                <th>Total</th>
                 <th>%</th>
                 <th>Share</th>
                 <th width="170">Share After Deduction</th>
@@ -45,14 +47,12 @@
             </tr>
             <tr>
                 <th>Teacher</th>
-                <td class="sub-header">
-                    <small class="mini-header">Total Point</small>
-                    {{ stats.total_point_of_reservation | number }}
+                <td class="sub-header total-point">
+                    <span>{{ stats.total_point_of_reservation | number }}</span>
                 </td>
                 <td>{{stats.teacher_percent}}%</td>
-                <td class="sub-header">
-                    <small class="mini-header">Teacher Share</small>
-                    {{stats.teacher_share | number }}
+                <td class="sub-header teacher-share">
+                    <span>{{stats.teacher_share | number }}</span>
                 </td>
                 <td>{{stats.teacher_share_after_deduction | number }}</td>
                 <td>{{stats.teacher_share_in_usd | number }}</td>
@@ -60,21 +60,19 @@
             </tr>
             <tr>
                 <th>Withcenter</th>
-                <td class="sub-header">
-                    <small class="mini-header">Teacher Share</small>
-                    {{stats.teacher_share | number }}
+                <td class="sub-header teacher-share">
+                    <span>{{stats.teacher_share | number }}</span>
                 </td>
                 <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
-                <td>{{stats.teacher_share_withcenter}}</td>
+                <td>{{stats.teacher_share_withcenter | number}}</td>
                 <td width="170">{{stats.teacher_share_withcenter_after_deduction | number}}</td>
                 <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
                 <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
             </tr>
             <tr>
                 <th>Homebase</th>
-                <td class="sub-header">
-                    <small class="mini-header">Teacher Share</small>
-                    {{stats.teacher_share | number }}
+                <td class="sub-header teacher-share">
+                    <span>{{stats.teacher_share | number }}</span>
                 </td>
                 <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}%
                 </td>
@@ -86,6 +84,47 @@
             </tr>
         </table>
     </div>
+
+
+    <div id="booking-statistics" *ngIf="stats">
+        <h2>
+            Booking Statistics
+        </h2>
+        <div><b>*R</b>: no of Reservations</div>
+        <div><b>*M</b>: no of Minutes</div>
+        <div><b>*P</b>: no of Points</div>
+        <table>
+            <tr>
+                <th>Teacher</th>
+                <th *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
+                    <div>{{d}}</div>
+                    <div>({{stats['booking_statistics']['dates'][d]}})</div>
+                </th>
+            </tr>
+            <tr *ngFor="let idx of a.keys(stats['booking_statistics']['book_stats']); let even=even" [ngClass]="{'even':even}">
+                <td>{{ stats['booking_statistics']['teachers_info'][idx]['name'] }}</td>
+                <td *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
+                    <ng-container *ngIf="stats['booking_statistics']['book_stats'][idx][d]">
+                        <div>
+                            <b>R</b>:{{stats['booking_statistics']['book_stats'][idx][d]['no_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['no_of_schedule']}} ({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_reservations']}}%)
+                        </div>
+                        <div>
+                            <b>M:{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_schedule']}} ({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_minutes']}}%)</b>
+                        </div>
+                        <div>
+                            <b>P</b>:{{a.shortNumber(stats['booking_statistics']['book_stats'][idx][d]['point_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['book_stats'][idx][d]['point_of_schedule'])}} ({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_points']}}%)
+                        </div>
+                    </ng-container>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+
+
     <!-- -RESERVATION GRAPH- -->
     <div id="overall-reservations-graph" class="bar-graph-container" *ngIf=" stats && stats['no_of_reservations'] ">
         <div class="bar-graph-header">

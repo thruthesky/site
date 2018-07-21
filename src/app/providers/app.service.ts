@@ -2118,6 +2118,9 @@ export class AppService {
         if (!obj) {
             return [];
         }
+        if (typeof obj !== 'object') {
+            return [];
+        }
         return Object.keys(obj);
     }
 

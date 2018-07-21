@@ -11,17 +11,17 @@ $por-homebased: #FFBF00;
 #statistics-graph{
     .total-point-share{
         padding: 0;
-        padding-bottom: 1em;
     }
     .sub-header {
         position: relative;
-        .mini-header {
-            position: absolute;
-            top: 0;
-            color: #FF4900;
-            white-space: nowrap;
-            font-weight: bold;
-        }
+        text-align:left;
+        color: #fff;
+    }
+    .teacher-share{
+        background: #009153;
+    }
+    .total-point{
+        background:#FF9200;
     }
 
 
@@ -32,14 +32,21 @@ $por-homebased: #FFBF00;
     .form{
         display: flex;
         align-items: center;
-        border-radius: 2px;
-        background: #eee;
-        margin: 1em 0;
-        padding: 1em;
+        justify-content: center;
+        flex-direction: column;
         @media (min-width:$md) {
-            padding-left: 4.55em;
+            flex-direction: row;
         }
-        font-size: .9em;
+        border-radius: 2px;
+        margin: 1.5em 0;
+        font-size: .75em;
+        b{
+            display: inline-block;
+            margin-bottom: 1em;
+            @media (min-width:$md) {
+                display: inline;
+            }
+        }
         span{
             position: relative;
             top: .125em;
@@ -52,6 +59,7 @@ $por-homebased: #FFBF00;
             }
         }
         form{
+            text-align: center;
             input{
                 margin-right: .5em;
                 margin-bottom: .5em;
@@ -84,18 +92,23 @@ $por-homebased: #FFBF00;
 
 .total-point-share {
     margin-bottom: 1em;
+    // width: 100%;
     overflow: auto;
     font-size: .9em;
-    white-space: pre-wrap;
+    white-space: pre-wrap!important;
     h2{
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        flex-direction: column;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
         margin: 0;
         margin-bottom: .3em;
         padding: 0 .4em;
-        font-size: .95em;
-        color: #009153;
+        font-size: 1em;
+        color:#0867B0;
     }
     table {
         font-size: .82em;
@@ -103,11 +116,14 @@ $por-homebased: #FFBF00;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
+        @media (min-width:$md) {
+            table-layout: fixed;
+        }
         th,
         td{
-            padding: .95em .65em;
+            padding: .75em 1.75em;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
-            // border-right: 1px solid rgba(125, 125, 125, 0.2);
+            border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;
             &:last-child{
                 border-right: 0;
@@ -115,12 +131,25 @@ $por-homebased: #FFBF00;
         }
     }
     .note{
-        font-size: .8em;
+        font-size: .85em;
         color: #000;
         font-weight: normal;
 
         strong{
-            color: #FF4900;
+            display: inline-block;
+            margin: 0 .2em;
+            padding: .3em .5em;
+            font-size: .9em;
+            color: #fff;
+        }
+    }
+}
+
+#booking-statistics {
+    font-size: 12px;
+    table {
+        .even {
+            background-color: #d8d8d8;
         }
     }
 }
