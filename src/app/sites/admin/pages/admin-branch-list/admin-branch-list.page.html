@@ -1,0 +1,23 @@
+<h1>Branch List</h1>
+
+<div *ngIf=" re ">
+
+    <table>
+        <tr>
+            <th *ngIf=" a.isSuperManager ">Delete</th>
+            <th>Domain</th>
+            <th>Company</th>
+            <th>Manager</th>
+            <th *ngIf=" a.isSuperManager ">No. of students</th>
+        </tr>
+
+        <tr *ngFor=" let branch of re ">
+            <td class="delete" *ngIf=" a.isSuperManager " (click)=" onClickDelete( branch ) ">[X]</td>
+            <td>{{ branch.domain }}</td>
+            <td>{{ branch.company_name }}</td>
+            <td>{{ branch.manager_name }}</td>
+            <td *ngIf=" a.isSuperManager ">{{ branch.no_of_students }}</td>
+        </tr>
+    </table>
+
+</div>
