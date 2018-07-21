@@ -566,6 +566,11 @@ export interface Branch {
         name: string;
         email: string;
     };
+    teachers_group: string;
+    teachers_level: string;
+    teachers_idx: string;
+    teachers_order: string;
+    teachers_exclude: string;
 }
 
 

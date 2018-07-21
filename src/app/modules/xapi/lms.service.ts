@@ -277,6 +277,7 @@ export class XapiLMSService extends Base {
 
     teacher_list(data): Observable<TEACHER_LIST_RESPONSE> {
         data['route'] = 'lms.teacher_list';
+        data['domain'] = window.location.hostname;
         return <any>this.x.post(data);
     }
 
