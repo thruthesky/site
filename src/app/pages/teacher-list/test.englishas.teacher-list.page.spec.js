@@ -20,6 +20,7 @@ for (const messenger of MESSENGERS) {
             cy.open('profile', 'register-page')
             cy.get("[data-role='choose-another-messenger-app']").click();
             cy.get('.radio-' + messenger).check()
+            cy.wait(500);
             cy.get("[data-input-id-for='" + messenger + "']")
             cy.get("[name='class_software_id']").type(chance.string({
                 length: 5,
