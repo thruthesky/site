@@ -25,6 +25,7 @@ import { AdminMenuPage } from './pages/admin-menu/admin-menu.page';
 import { AdminNoOfUserPerEachDomainPage } from './pages/admin-no-of-user-per-each-domain/admin-no-of-user-per-each-domain.page';
 import { AdminStatisticGraphPage } from './pages/admin-statistic-graph/admin-statistic-graph.page';
 import { AdminBranchListPage } from './pages/admin-branch-list/admin-branch-list.page';
+import { AdminBranchTeachersPage } from './pages/admin-branch-teachers/admin-branch-teachers.page';
 
 
 const routes: Routes = [
@@ -55,7 +56,8 @@ const routes: Routes = [
             { path: 'menu', component: AdminMenuPage},
             { path: 'no-of-student-per-each-domain', component: AdminNoOfUserPerEachDomainPage},
             { path: 'statistic-graph', component: AdminStatisticGraphPage},
-            { path: 'branch-list', component: AdminBranchListPage}
+            { path: 'branch-list', component: AdminBranchListPage},
+            { path: 'branch-teachers', component: AdminBranchTeachersPage}
         ]
     }
 
@@ -92,7 +94,8 @@ const routes: Routes = [
         AdminMenuPage,
         AdminNoOfUserPerEachDomainPage,
         AdminStatisticGraphPage,
-        AdminBranchListPage
+        AdminBranchListPage,
+        AdminBranchTeachersPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -111,7 +114,8 @@ const routes: Routes = [
         AdminMenuPage,
         AdminNoOfUserPerEachDomainPage,
         AdminStatisticGraphPage,
-        AdminBranchListPage
+        AdminBranchListPage,
+        AdminBranchTeachersPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],
