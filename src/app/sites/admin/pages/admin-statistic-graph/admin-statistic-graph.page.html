@@ -106,13 +106,15 @@
                 <td *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
                     <ng-container *ngIf="stats['booking_statistics']['book_stats'][idx][d]">
                         <div>
-                            <b>R</b>:{{stats['booking_statistics']['book_stats'][idx][d]['no_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['no_of_schedule']}} ({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_reservations']}}%)
+                            <b>R</b>:{{stats['booking_statistics']['book_stats'][idx][d]['no_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['no_of_schedule']}}({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_reservations']}}%)
                         </div>
                         <div>
-                            <b>M:{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_schedule']}} ({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_minutes']}}%)</b>
+                            <b class="{{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_minutes'] >= 50 ? 'green' : 'red'}}">
+                                M:{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_schedule']}}({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_minutes']}}%)
+                            </b>
                         </div>
                         <div>
-                            <b>P</b>:{{a.shortNumber(stats['booking_statistics']['book_stats'][idx][d]['point_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['book_stats'][idx][d]['point_of_schedule'])}} ({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_points']}}%)
+                            <b>P</b>:{{a.shortNumber(stats['booking_statistics']['book_stats'][idx][d]['point_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['book_stats'][idx][d]['point_of_schedule'])}}({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_points']}}%)
                         </div>
                     </ng-container>
                 </td>
