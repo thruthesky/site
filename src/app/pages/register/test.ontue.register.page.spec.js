@@ -12,6 +12,9 @@ const wechatId = 'wechatid';
 const lineId = 'lineid';
 const qqId = 'qqid';
 context('OnTue Register', () => {
+    if (config.server == 'remote') {
+        return;
+    }
     before(() => {
         cy.visit(config.url.ontue)
     })

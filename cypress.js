@@ -31,7 +31,8 @@ if (server == 'local') {
 
 export const config = {
     server: server,
-    url: url
+    url: url,
+    testuser: testuser
 };
 
 
