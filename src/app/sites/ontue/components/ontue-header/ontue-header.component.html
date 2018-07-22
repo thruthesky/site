@@ -12,13 +12,13 @@
                 <div class="buttons">
                     <a routerLink="/teacher-list">Teachers</a>
                     <!--<a routerLink="/teacher/help">Help</a>-->
-                    <a routerLink="/teacher-session-future" *ngIf=" a.isLogin ">Reserved</a>
+                    <a data-button="teacher-session-future-page" routerLink="/teacher-session-future" *ngIf=" a.isLogin ">Reserved</a>
                     <a routerLink="/teacher-session-past" *ngIf=" a.isLogin ">Past</a>
                     <a routerLink="/my-schedule"  *ngIf=" a.isLogin ">Schedule</a>
                     <a (click)=" a.onClickContactAdmin() ">Contact</a>
                     <a  routerLink="/teacher-faq">FAQ</a>
                     <a routerLink="/register" *ngIf=" a.isLogout ">Register</a>
-                    <a routerLink="/login" *ngIf=" a.isLogout ">Login</a>
+                    <a data-button="login-page" routerLink="/login" *ngIf=" a.isLogout ">Login</a>
                 </div>
                 <div class="contact-us" (click)=" a.onClickContactAdmin() ">
                     <a>Contact Us</a>

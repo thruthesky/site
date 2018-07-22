@@ -31,7 +31,8 @@ if (server == 'local') {
 
 export const config = {
     server: server,
-    url: url
+    url: url,
+    testuser: testuser
 };
 
 
@@ -56,8 +57,14 @@ Cypress.Commands.add('login', url => {
  * 
  * @param page - [data-button='xxx'] in page menu.
  * @param checker - is the [data-role='xxxx'] in the opened page.
+ * @param url - to visit first
+ * 
+ * @example cy.open( 'reminder-page', 'forum-page', config.url.katalkenglish);
  */
-Cypress.Commands.add('open', (page, checker) => {
+Cypress.Commands.add('open', (page, checker, url) => {
+    if ( url ) {
+        cy.visit(url);
+    }
     cy.get('[data-button="menu"]').click();
     cy.get("[data-button='"+page+"'").click();
     cy.get("[data-role='"+checker+"']")

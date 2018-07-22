@@ -13,6 +13,9 @@ const kakaotalkId = chance.string({
 const url = config.url.katalkenglish;
 console.log('url: ', url);
 context('KatalkEnglish Register', () => {
+    if (config.server == 'remote') {
+        return;
+    }
     before(() => {
         cy.visit(url)
     })

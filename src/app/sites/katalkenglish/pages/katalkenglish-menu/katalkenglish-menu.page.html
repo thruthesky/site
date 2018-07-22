@@ -91,7 +91,7 @@
     </a>
 
 
-    <a class="menu-message container-fluid" *ngIf=" a.user.isLogin " routerLink="/my-point">
+    <a data-button="my-point-page" class="menu-message container-fluid" *ngIf=" a.user.isLogin " routerLink="/my-point">
         <div class="row">
             <div class="col-2 col-md-1">
                 <svg class="fontawesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512">
@@ -145,7 +145,7 @@
         </div>
     </a>
 
-    <a class="menu-teaching-materials container-fluid" *ngIf=" a.site.studentTheme " routerLink="/student-curriculum">
+    <a data-button="curriculum-page" class="menu-teaching-materials container-fluid" *ngIf=" a.site.studentTheme " routerLink="/student-curriculum">
         <div class="row">
             <div class="col-2 col-md-1">
                 <svg class="fontawesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -197,7 +197,7 @@
         </div>
     </a>
 
-    <a class="menu-message container-fluid" *ngIf=" a.user.isLogin " (click)="a.open('message')">
+    <a data-button="message-page" class="menu-message container-fluid" *ngIf=" a.user.isLogin " (click)="a.open('message')">
         <div class="row">
             <div class="col-2 col-md-1">
                 <svg class="fontawesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -210,7 +210,7 @@
         </div>
     </a>
 
-    <a class="menu-teacher-reviews container-fluid" routerLink="/teacher-reviews">
+    <a data-button="class-comments-page" class="menu-teacher-reviews container-fluid" routerLink="/teacher-reviews">
         <div class="row">
             <div class="col-2 col-md-1">
                 <svg class="fontawesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -249,7 +249,7 @@
         </div>
     </a>
 
-    <a class="menu-password-change container-fluid" *ngIf=" a.user.isLogin " routerLink="/password-change">
+    <a data-button="password-change-page" class="menu-password-change container-fluid" *ngIf=" a.user.isLogin " routerLink="/password-change">
         <div class="row">
             <div class="col-2 col-md-1">
                 <svg class="fontawesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -275,7 +275,7 @@
         </div>
     </a>
 
-    <a class="container-fluid" routerLink="/{{ a.site.teacherTheme? 'teacher' : 'student'}}_reminders">
+    <a data-button="reminder-page" class="container-fluid" routerLink="/{{ a.site.teacherTheme? 'teacher' : 'student'}}_reminders">
         <div class="row">
             <div class="col-2 col-md-1">
                 <svg class="fontawesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">

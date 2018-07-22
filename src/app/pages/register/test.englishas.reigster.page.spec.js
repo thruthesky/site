@@ -7,12 +7,13 @@ import {
 } from '../../../../cypress';
 const chance = new Chance();
 
-
-
 const messengers = ['skype', 'kakaotalk', 'wechat', 'line', 'qq'];
 const url = config.url.englishas;
 console.log('url: ', url);
 context('EnglishAs Register', () => {
+    if (config.server == 'remote') {
+        return;
+    }
     before(() => {
         // cy.login(config.url.englishas);
         cy.visit(config.url.englishas)

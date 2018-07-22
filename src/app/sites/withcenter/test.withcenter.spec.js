@@ -14,6 +14,9 @@ context('Actions', () => {
             cy.get('#company-info');
         })
         it('Creating a branch', () => {
+            if ( config.server == 'remote' ) {
+                return;
+            }
             cy.get("[name='user_email']").type( chance.email() );
             cy.get("[name='user_pass']").type( chance.email() );
             cy.get("[name='name']").type( chance.name() );

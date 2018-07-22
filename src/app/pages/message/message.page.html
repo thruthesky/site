@@ -1,13 +1,12 @@
-
-<main>
+<main data-role="message-page">
     <header >
         <h1>{{ 'MESSAGE_TITLE' | t }}</h1>
     </header>
 <div class="buttons-top">
-    <button [class.active]=" box == 'inbox' " (click)="onClickBox( 'inbox' )">
+    <button data-button="inbox" [class.active]=" box == 'inbox' " (click)="onClickBox( 'inbox' )">
         {{ 'INBOX' | t }}
     </button>
-    <button [class.active]=" box == 'sent' " (click)="onClickBox( 'sent' )">
+    <button data-button="sentbox" [class.active]=" box == 'sent' " (click)="onClickBox( 'sent' )">
         {{ 'SENT' | t }}
     </button>
 </div>
