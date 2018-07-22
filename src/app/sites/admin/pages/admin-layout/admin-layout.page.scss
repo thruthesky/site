@@ -30,6 +30,12 @@ main{
 
         .layout-right{
             width: 100%;
+            .container-full {
+                position: absolute;
+                left: 0;
+                right: 0;
+                background-color: white;
+            }
             @media (min-width:$md){
                 width: 67%;
                 padding-right: 0;

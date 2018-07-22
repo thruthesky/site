@@ -37,7 +37,7 @@ export class AdminStatisticGraphPage implements OnInit {
             date_begin: this.stat_date_begin,
             date_end: this.stat_date_end
         }).subscribe(res => {
-            console.log('admin statistics: ', res);
+            // console.log('admin statistics: ', res);
             this.stats = res;
         }, e => this.a.toast(e));
     }
@@ -59,6 +59,18 @@ export class AdminStatisticGraphPage implements OnInit {
 
     formatDate(date) {
         return date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(6, 8);
+    }
+
+    classColor( n: number ) {
+        if ( !n ) {
+            return '';
+        } else if ( n < 50) {
+            return 'darkred';
+        } else if ( n < 70) {
+            return 'green';
+        } else if ( n <= 100) {
+            return 'blue';
+        }
     }
 }
 

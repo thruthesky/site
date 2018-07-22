@@ -32,6 +32,11 @@ $por-homebased: #FFBF00;
         &:first-child{
             padding-top: 1em;
         }
+
+        .container-full {
+
+        }
+
         @media (min-width:$md) {
             padding-left: .5em!important;
         }

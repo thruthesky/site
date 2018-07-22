@@ -1,4 +1,4 @@
-<section id="statistics-graph">
+<section id="statistics-graph" class="container-fluid container-full">
     <div class="form">
         <form (ngSubmit)=" loadAdminStatistics() ">
             <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
@@ -93,7 +93,7 @@
         <div><b>*R</b>: no of Reservations</div>
         <div><b>*M</b>: no of Minutes</div>
         <div><b>*P</b>: no of Points</div>
-        <table>
+        <table class="mb-5">
             <tr>
                 <th>Teacher</th>
                 <th *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
@@ -112,7 +112,7 @@
                             <b>R</b>:{{stats['booking_statistics']['book_stats'][idx][d]['no_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['no_of_schedule']}}({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_reservations']}}%)
                         </div>
                         <div>
-                            <b class="{{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_minutes'] >= 50 ? 'green' : 'red'}}">
+                            <b class="{{classColor(stats['booking_statistics']['book_stats'][idx][d]['percentage_of_minutes'])}}">
                                 M:{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_reservation']}}/{{stats['booking_statistics']['book_stats'][idx][d]['minutes_of_schedule']}}({{stats['booking_statistics']['book_stats'][idx][d]['percentage_of_minutes']}}%)
                             </b>
                         </div>
@@ -123,15 +123,15 @@
                 </td>
                 <td>
                     <div>TR:{{stats['booking_statistics']['teachers_info'][idx]['total_no_of_reservation']}}/{{stats['booking_statistics']['teachers_info'][idx]['total_no_of_schedule']}}({{stats['booking_statistics']['teachers_info'][idx]['total_percentage_of_reservations']}}%)</div>
-                    <div><b class="{{stats['booking_statistics']['teachers_info'][idx]['total_percentage_of_minutes'] >= 50 ? 'green' : 'red'}}">TM:{{a.shortNumber(stats['booking_statistics']['teachers_info'][idx]['total_minutes_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['teachers_info'][idx]['total_minutes_of_schedule'])}}({{stats['booking_statistics']['teachers_info'][idx]['total_percentage_of_minutes']}}%)</b></div>
+                    <div><b class="{{ classColor(stats['booking_statistics']['teachers_info'][idx]['total_percentage_of_minutes'])}}">TM:{{a.shortNumber(stats['booking_statistics']['teachers_info'][idx]['total_minutes_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['teachers_info'][idx]['total_minutes_of_schedule'])}}({{stats['booking_statistics']['teachers_info'][idx]['total_percentage_of_minutes']}}%)</b></div>
                     <div>TP:{{a.shortNumber(stats['booking_statistics']['teachers_info'][idx]['total_point_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['teachers_info'][idx]['total_point_of_schedule'])}}({{stats['booking_statistics']['teachers_info'][idx]['total_percentage_of_points']}}%)</div>
                 </td>
             </tr>
-            <tr>
+            <tr class="bottom-total">
                 <td></td>
                 <td *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
                     <div>TR({{stats['booking_statistics']['dates'][d]['total_percentage_no_of_reservation']}}%)</div>
-                    <div><b class="{{stats['booking_statistics']['dates'][d]['total_percentage_minute_of_reservation'] >= 50 ? 'green' : 'red'}}">TM({{stats['booking_statistics']['dates'][d]['total_percentage_minute_of_reservation']}}%)</b></div>
+                    <div><b class="{{ classColor(stats['booking_statistics']['dates'][d]['total_percentage_minute_of_reservation'])}}">TM({{stats['booking_statistics']['dates'][d]['total_percentage_minute_of_reservation']}}%)</b></div>
                     <div>TP({{stats['booking_statistics']['dates'][d]['total_percentage_point_of_reservation']}}%)</div>
                 </td>
             </tr>

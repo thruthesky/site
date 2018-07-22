@@ -10,8 +10,11 @@ $por-homebased: #FFBF00;
 .green {
     color: green;
 }
-.red {
-    color: red;
+.darkred {
+    color: darkred;
+}
+.blue {
+    color: blue;
 }
 
 
@@ -157,6 +160,9 @@ $por-homebased: #FFBF00;
     table {
         .even {
             background-color: #d8d8d8;
+        }
+        .bottom-total {
+            background: #cbcccc;
         }
     }
 }
