@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "cypress open --env server=local --config integrationFolder=src,testFiles=**/test.*.spec.js",
-    "e2e:headless": "cypress run --env server=local --config integrationFolder=src,testFiles=**/test.*",
+    "e2e:headless": "cypress run --env server=local --config integrationFolder=src,testFiles=**/test.*.spec.js",
     "e2e:remote": "cypress open --env server=remote --config integrationFolder=src,testFiles=**/test.*.spec.js",
     "e2e:remote:headless": "cypress run --env server=remote --config integrationFolder=src,testFiles=**/test.*.spec.js",
     "s": "ng serve --disable-host-check",
