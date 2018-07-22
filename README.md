@@ -76,14 +76,13 @@ npm i
 
 ### Test
 
+* Run test `npm run e2e:remote:headless` immediately after publishing to production site.
+
 ```` bash
 npm run e2e                         ; cypress open base url is localhost:4200
 npm run e2e:headless                ; cypress run headless with all domain. (*) This is preferred to run all the tests.
 npm run e2e:remote                  ; cypress open with real server urls.
 npm run e2e:remote:headless         ; cypress run headless with real server urls. (*) This is preferred to run.
-npm run e2e:katalk                  ; base url is www.katalkenglish.com
-npm run e2e:englishas               ; base url is www.englishas.com
-npm run e2e:gitpage                 ; cypress open with github page. only kakaotalk theme will be tested.
 ````
 
 ## Run

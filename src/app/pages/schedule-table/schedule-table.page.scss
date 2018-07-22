@@ -143,6 +143,18 @@ main {
             margin-top: 1em;
         }
     }
+    .try-teachers-menu {
+        margin-top: 3em;
+        padding: 1.5em;
+        border-radius: .3em;
+        line-height: 160%;
+        font-size: .9em;
+        @media (min-width: $md ) {
+            font-size: .85em;
+        }
+        background-color: rgb(245, 243, 240);
+        color: rgb(13, 13, 44);
+    }
     /**
  * Icon colors
  */

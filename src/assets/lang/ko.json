@@ -270,6 +270,7 @@
   "NO_MORE_MESSAGES": "더 이상 메시지가 없습니다.",
 
   "SCHEDULE_TABLE_LOADING": "수업 시간표를 로딩중입니다. 약 30초 정도 걸립니다.",
+  "TRY_TO_USE_TEACHERS_MENU": "만약, 속도가 느리면 강사목록을 클릭하여, 원하는 선생님을 선택하십시오.",
   "NO_SCHEDULE_TRY_SEARCH": "수업 시간표가 없습니다. 검색을 해 보세요.",
   "NO_MORE_RESERVATIONS": "더 이상 예약된 수업이 없습니다.",
   "NO_MORE_PASTS": "더 이상 지난 수업이 없습니다.",

@@ -20,13 +20,15 @@ for (const messenger of MESSENGERS) {
             cy.open('profile', 'register-page')
             cy.get("[data-role='choose-another-messenger-app']").click();
             cy.get('.radio-' + messenger).check()
-            cy.wait(500);
+            cy.wait(100);
             cy.get("[data-input-id-for='" + messenger + "']")
+            // cy.get("[name='class_software_id']").clear();
             cy.get("[name='class_software_id']").type(chance.string({
                 length: 5,
                 pool: 'abcdefgh'
             }))
             cy.get('.submit-button').click();
+            cy.get("[data-input-id-for='" + messenger + "']")
             // cy.get('.desc-input-' + messenger + '-id');
             cy.get("[data-role='profile-update-indicator']")
 

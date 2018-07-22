@@ -91,7 +91,7 @@
             </div>
 
             <!-- for katalkenglish.com site, only katalk is being used. -->
-            <mat-form-field class="katalk-id" appearance="outline" *ngIf=" a.site.is.katalkenglish || a.branch.info.class_software == a.classSoftware.kakaotalk ">
+            <mat-form-field class="katalk-id" appearance="outline" *ngIf=" a.site.is.katalkenglish ">
                 <mat-label>{{ a.ln.KAKAOTALK_ID_SHORT }}</mat-label>
                 <input matInput id="class_software_id" type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
                 <mat-hint>
@@ -121,42 +121,7 @@
 
 
             <div class="student-class-software-id" *ngIf=" a.site.is.englishas ">
-                <!-- <div class="input-software-id" *ngIf=" ! show.updateClassSoftware ">
-                    <div class="desc-input-skype-id" *ngIf=" myClassSoftware( a.classSoftware.skype ) ">
-                        <div>{{ 'INPUT_SKYPE_ID' | t }}</div>
-                        <div>
-                            <img src="../../../assets/img/messengers/skype.png">
-                        </div>
-                    </div>
-                    <div class="desc-input-kakaotalk-id" *ngIf=" myClassSoftware( a.classSoftware.kakaotalk ) ">
-                        <div>{{ 'INPUT_KAKAOTALK_ID' | t }}</div>
-                        <div>
-                            <img src="../../../assets/img/messengers/kakaotalk.png">
-                        </div>
-                    </div>
-                    <div class="desc-input-wechat-id" *ngIf=" myClassSoftware( a.classSoftware.wechat ) ">
-                        <div>{{ 'INPUT_WECHAT_ID' | t }}</div>
-                        <div>
-                            <img src="../../../assets/img/messengers/wechat.png">
-                        </div>
-                    </div>
-                    <div class="desc-input-line-id" *ngIf=" myClassSoftware( a.classSoftware.line ) ">
-                        <div>{{ 'INPUT_LINE_ID' | t }}</div>
-                        <div>
-                            <img src="../../../assets/img/messengers/line.png">
-                        </div>
-                    </div>
-                    <div class="desc-input-qq-id" *ngIf=" myClassSoftware( a.classSoftware.qq ) ">
-                        <div>{{ 'INPUT_QQ_ID' | t }}</div>
-                        <div>
-                            <img src="../../../assets/img/messengers/qq.png">
-                        </div>
-                    </div>
-                    <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
-                    <div data-role='choose-another-messenger-app' class="app-button" (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
-                        {{ 'CHOOSE_ANOTHER_MESSENGER' | t }}
-                    </div>
-                </div> -->
+                
                 <div class="update-class-software" *ngIf=" show.updateClassSoftware ">
                     <div class="select-class-software">
                         <div class="caption">
@@ -216,12 +181,7 @@
                             </label>
 
                         </div>
-                        <!-- <div [attr.data-selected-class-software]="form.class_software" class="input-class-software-id" *ngIf=" form.class_software ">
-                            <div>{{ 'INPUT_' + form.class_software + '_ID' | t }}</div>
-                            <div>
-                                <input type="text" name="class_software_id" [(ngModel)]="form.class_software_id">
-                            </div>
-                        </div> -->
+ 
                     </div>
                 </div>
             </div>

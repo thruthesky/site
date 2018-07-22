@@ -330,7 +330,8 @@
   "NEXT": "next",
   "NO_MORE_MESSAGES": "NO MORE MESSAGES",
 
-  "SCHEDULE_TABLE_LOADING": "Schedule Table Loading",
+  "SCHEDULE_TABLE_LOADING": "Please wait. Schedule table is loading",
+  "TRY_TO_USE_TEACHERS_MENU": "If it's slow, then open Teachers page and choose your teacher.",
   "NO_SCHEDULE_TRY_SEARCH": "No Schedule Try Search",
   "NO_MORE_RESERVATIONS": "NO MORE RESERVATIONS",
   "NO_MORE_PASTS": "NO MORE PASTS",
