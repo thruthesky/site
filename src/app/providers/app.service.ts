@@ -397,15 +397,25 @@ export class AppService {
 
 
 
+    /**
+     * Returns home(front page) url of the app.
+     *
+     * @description @warning student home url differs depending on login state.
+     *  If student has logged in already, then student's home is 'my-page'. not front page.
+     *  If not logged in, home is front page.
+     */
     get homeUrl() {
-        if (this.site.is.katalkenglish) {
-            return '/';
-        } else if (this.site.is.ontue) {
+        if (this.site.is.ontue) {
             return '/teacher';
         } else if (this.site.is.withcenter) {
             return 'franchise';
         } else {
-            return '/';
+
+            if (this.user.isLogin) {
+                return '/my-page';
+            } else {
+                return '/';
+            }
         }
     }
 
@@ -506,6 +516,10 @@ export class AppService {
      */
     openHome() {
         this.open(this.homeUrl);
+    }
+
+    openMyPage() {
+        this.open('/my-page');
     }
 
 

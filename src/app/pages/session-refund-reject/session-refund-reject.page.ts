@@ -37,7 +37,7 @@ export class SessionRefundRejectPage implements OnInit {
                 } else if ( this.a.isTeacher) {
                     this.a.open('teacher-session-past');
                 } else {
-                    this.a.open('/');
+                    this.a.openHome();
                 }
             }
         });
@@ -51,7 +51,7 @@ export class SessionRefundRejectPage implements OnInit {
         } else if ( this.a.isTeacher) {
             this.a.open('teacher-session-past');
         } else {
-            this.a.open('/');
+            this.a.openHome();
         }
     }
 

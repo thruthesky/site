@@ -41,7 +41,7 @@ export class SessionRefundReviewPage implements OnInit {
                 } else if ( this.a.isTeacher) {
                     this.a.open('teacher-session-past');
                 } else {
-                    this.a.open('/');
+                    this.a.openHome();
                 }
             }
         });
