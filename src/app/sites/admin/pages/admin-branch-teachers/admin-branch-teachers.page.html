@@ -1,74 +1,54 @@
-<h1>Branch Teachers</h1>
-<div>
-    <ul>
-        <li>You can choose teachers for your site.</li>
-        <li>You can add many group, level, idx separating by comma.</li>
-        <li>All combination of including teachers are 'OR' expression.</li>
-        <li>So, if you put group of 'withcener' and level '3,4,5', then you will see all withcenter teachers and teachers of level 3,4,5.</li>
-        <li>Teacher level range is from 1 to 5.</li>
-    </ul>
+<section class="branch-teachers">
+    <h1>Branch Teachers</h1>
+    <div class="instructions">
+        <ul>
+            <li>You can choose teachers for your site.</li>
+            <li>You can add many group, level, idx separating by comma.</li>
+            <li>All combination of including teachers are 'OR' expression.</li>
+            <li>So, if you put group of 'withcener' and level '3,4,5', then you will see all withcenter teachers and teachers of level 3,4,5.</li>
+            <li>Teacher level range is from 1 to 5.</li>
+        </ul>    
+    </div>
+    <form (ngSubmit)="onSubmit($event)">
+            <div class="form-title">
+                <span>Include teachers</span>
+                <span class="domain-name" *ngIf=" branch ">
+                    Domain: {{ branch.domain }} katalkenglish.com
+                </span>
+            </div>
     
-</div>
-<div *ngIf=" branch ">
-    domain: {{ branch.domain }}
-</div>
-<form (ngSubmit)="onSubmit($event)">
-    <div>Include teachers</div>
-    <div>
-
-        <div class="row">
-            <div>By Group</div>
-            <div>
-                <input type="text" name="group" [(ngModel)]="form.teachers_group">
+            <div class="form-input">
+                <label for="group">By Group</label>
+                <input type="text" id="group" name="group" [(ngModel)]="form.teachers_group">
+                <span>Example) withcenter,mygroup</span>
             </div>
-            <div>
-                Example) withcenter,mygroup
+            <div class="form-input">
+                <label for="name">By Level</label>
+                <input type="text" id="name" name="level" [(ngModel)]="form.teachers_level">
+                <span>Example) 2,3,4,5</span>
             </div>
-        </div>
-        <div class="row">
-            <div>By Level</div>
-            <div>
-                <input type="text" name="level" [(ngModel)]="form.teachers_level">
+            <div class="form-input">
+                <label for="idx">By idx</label>
+                <input type="text" id="idx" name="idx" [(ngModel)]="form.teachers_idx">
+                <span>Example) 123,456,789</span>
+                <div>You can find teacher idx on ontue.com</div>
             </div>
-            <div>
-                Example) 2,3,4,5
+    
+            <div class="form-input">
+                <label for="order">List order</label>
+                <input type="text" id="order" name="order" [(ngModel)]="form.teachers_order">
+                <span>Example) 123,456,789</span>
+                <div>Input teacher's idx to display first on the list.</div>
             </div>
-        </div>
-        <div class="row">
-            <div>By idx</div>
-            <div>
-                <input type="text" name="idx" [(ngModel)]="form.teachers_idx">
+    
+            <div class="form-input">
+                <label for="exclude">Exclude</label>
+                <input type="text" id="exclude" name="exclude" [(ngModel)]="form.teachers_exclude">
+                <span>Example) 123,456,789</span>
+                <div>Input teacher idx that you don't want to display.</div>
             </div>
-            <div>
-                Example) 123,456,789
-            </div>
-        </div>
-        <div>You can find teacher idx on ontue.com</div>
-
-        <div class="row">
-            <div>List order</div>
-            <div>
-                <input type="text" name="order" [(ngModel)]="form.teachers_order">
-            </div>
-            <div>
-                Example) 123,456,789
-            </div>
-        </div>
-        <div>Input teacher's idx to display first on the list.</div>
-
-    </div>
-
-    <div class="row">
-        <div>Exclude</div>
-        <div>
-            <input type="text" name="exclude" [(ngModel)]="form.teachers_exclude">
-        </div>
-        <div>
-            Example) 123,456,789
-        </div>
-    </div>
-    <div>Input teacher idx that you don't want to display.</div>
-
-    <button type="submit" *ngIf=" ! loader.submit ">SUBMIT</button>
-    <div *ngIf=" loader.submit ">Saving...</div>
-</form>
+    
+        <button class="app-button" type="submit" *ngIf=" ! loader.submit ">SUBMIT</button>
+        <div *ngIf=" loader.submit ">Saving...</div>
+    </form>
+</section>
