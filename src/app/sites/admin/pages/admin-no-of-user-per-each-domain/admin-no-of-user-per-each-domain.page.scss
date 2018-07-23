@@ -1,0 +1,38 @@
+.no-per-each-domain{
+    font-size: .9em;
+    h1{
+        font-size: 1.2em;
+        color: #0867B0
+    }
+    .row{
+        margin: 0 -3em;
+        .col-md-6{
+            padding: 0 2em;
+
+            &>span{
+                display: inline-block;
+                padding: .75em 1em;
+                border-bottom: 1px solid rgba(125,125,125,0.2);
+                &.title{
+                    display: inline-flex;
+                    align-items: center;
+                    width: 80%;
+                    svg{
+                        height: 1em;
+                        width: 1em;
+                        margin-right: .75em;
+                        color: dimgray
+                    }
+                }
+                &.no{
+                    width: 20%;
+                    background: #eee;
+                    text-align: center;
+                    font-weight: bold;
+                    color: #009153;
+                    outline: 1px solid #eee;
+                }
+            }
+        }
+    }
+}

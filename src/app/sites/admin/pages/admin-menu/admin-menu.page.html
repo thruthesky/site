@@ -1,15 +1,17 @@
-<h1>Admin More Menus</h1>
-<ul>
-    <li>
-        <a routerLink="/manager/no-of-student-per-each-domain">No of student list per each domain</a>
-    </li>
-    <li *ngIf=" a.isSuperManager ">
-        <a routerLink="/manager/statistic-graph">Statistic Graph</a>
-    </li>
-    <li>
-        <a routerLink="/manager/branch-list">Branch List</a>
-    </li>
-    <li>
-        <a routerLink="/manager/branch-teachers">Select Teachers</a>
-    </li>
-</ul>
+<section  class="admin-menu">
+        <h1>Admin More Menus</h1>
+        <ul>
+            <li>
+                <a routerLink="/manager/no-of-student-per-each-domain">No of student list per each domain</a>
+            </li>
+            <li *ngIf=" a.isSuperManager ">
+                <a routerLink="/manager/statistic-graph">Statistic Graph</a>
+            </li>
+            <li>
+                <a routerLink="/manager/branch-list">Branch List</a>
+            </li>
+            <li>
+                <a routerLink="/manager/branch-teachers">Select Teachers</a>
+            </li>
+        </ul>
+</section>

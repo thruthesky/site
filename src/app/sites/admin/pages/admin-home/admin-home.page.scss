@@ -33,10 +33,6 @@ $por-homebased: #FFBF00;
             padding-top: 1em;
         }
 
-        .container-full {
-
-        }
-
         @media (min-width:$md) {
             padding-left: .5em!important;
         }
@@ -46,10 +42,9 @@ $por-homebased: #FFBF00;
 #stats {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin: 1em -.5em;
     .stats-card {
-        margin: .27em 0;
+        margin: .2em;
         width: 120px;
         border-radius: 2px;
         // border: 1px solid rgba(125, 125, 125, 0.2);
@@ -70,76 +65,79 @@ $por-homebased: #FFBF00;
 }
 
 #contact {
-    display: flex;
-    flex-direction: column;
-    @media (min-width:$md) {
-        flex-direction: row
-    }
-    margin-top: 2em;
-    .qr-code{
-        width: 50%;
-        @media (min-width:$md){
-            width: 20%;   
-        }
-        padding-right: 2em;
-        img{
-            width: 100%;
-        }
-        .qr-title{
-            font-size: .9em;
-            margin-top: .3em;
-            color:#009153;
-            text-align: center;
-        }
-    }
-    .content{
-        width: 100%;
-        @media (min-width:$md) {
-            width: 80%;   
-        }
-        .row{
-            align-items: center;
-        }
-
-        .col{
-            padding: 0;
-        }
-        .kakao-button{
-            .button{
-                padding: .5em 1em;
-                border-radius: 2px;
-                background: #FF9200;
-                color: #fff;
-                font-size: .9em;
-            }
-            .note{
-                padding-top:.5em;
-                color: #009153;
-                font-size: .8em;
-                font-weight: normal
-            }
-        }
-    }
+    margin-top: 1em;
     h2 {
         margin: 0;
         color: #0B68B0;
         font-size: 1.3em;
         font-weight: 100;
     }
-    .content {
-        .container-fluid{
-            margin-top: .5em;
+    .content{
+        display: flex;
+        flex-direction: column;
+        @media (min-width:$md) {
+            flex-direction: row
         }
-        svg {
-            height: 2em;
-            width: 2em;
-            margin-right: .5em;
+        margin-top: .5em;
+        .qr-code{
+            width: 50%;
+            @media (min-width:$md){
+                width: 20%;   
+            }
+            padding-right: 2em;
+            img{
+                width: 100%;
+            }
+            .qr-title{
+                font-size: .9em;
+                margin-top: .3em;
+                color:#009153;
+                text-align: center;
+            }
         }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding-top:.75em;
-            padding-bottom: 0;
+        .content-inner{
+            width: 100%;
+            @media (min-width:$md) {
+                width: 80%;   
+            }
+            .row{
+                align-items: center;
+            }
+    
+            .col{
+                padding: 0;
+            }
+            .kakao-button{
+                .button{
+                    padding: .5em 1em;
+                    border-radius: 2px;
+                    background: #FF9200;
+                    color: #fff;
+                    font-size: .9em;
+                }
+                .note{
+                    padding-top:.5em;
+                    color: #009153;
+                    font-size: .8em;
+                    font-weight: normal
+                }
+            }
+        }
+        .content-inner {
+            .container-fluid{
+                margin-top: .5em;
+            }
+            svg {
+                height: 2em;
+                width: 2em;
+                margin-right: .5em;
+            }
+            .contact-item {
+                display: flex;
+                align-items: center;
+                padding-top:.75em;
+                padding-bottom: 0;
+            }
         }
     }
 }
@@ -412,7 +410,7 @@ $por-homebased: #FFBF00;
         }
         th,
         td{
-            padding: .75em 1.75em;
+            padding: .5em 1.75em;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
             border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;
