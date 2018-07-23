@@ -22,7 +22,7 @@
                 <td>{{ branch.domain }}</td>
                 <td>{{ branch.company_name }}</td>
                 <td>{{ branch.manager_name }}</td>
-                <td *ngIf=" a.isSuperManager ">{{ branch.no_of_students }}</td>
+                <td class="no-of-students" *ngIf=" a.isSuperManager ">{{ branch.no_of_students }}</td>
             </tr>
         </table>
     
