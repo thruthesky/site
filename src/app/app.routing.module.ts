@@ -293,6 +293,11 @@ const routes: Routes = [
     loadChildren: './pages/settings/settings.page.module#SettingsPageModule'
   },
 
+  {
+    path: 'my-page',
+    loadChildren: './pages/my-page/my-page.page.module#MyPagePageModule'
+  },
+
   /**
    * Admin Pages
    */

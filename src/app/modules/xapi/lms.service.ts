@@ -96,6 +96,20 @@ export interface PAYMENT_RATE {
 }
 
 
+export interface MYPAGE {
+    no_of_reservation: number;
+    no_of_past: number;
+    point: number;
+    level: number;
+    progress: Array<{
+        date: number;
+        level: number;
+    }>;
+    greeting: string;
+    auction: string;
+}
+
+
 @Injectable()
 export class XapiLMSService extends Base {
 
@@ -750,4 +764,12 @@ export class XapiLMSService extends Base {
             session_id: this.user.sessionId
         });
     }
+
+    mypage(): Observable<MYPAGE> {
+        return this.x.post({
+            route: 'lms.mypage',
+            session_id: this.user.sessionId
+        });
+    }
+
 }
