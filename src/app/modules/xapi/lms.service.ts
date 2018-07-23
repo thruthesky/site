@@ -109,6 +109,13 @@ export interface MYPAGE {
     no_of_total_sessions: number;
     no_of_reservation: number;
     no_of_past: number;
+    next_class: {
+        idx: number;
+        date_display: number;
+        class_begin_display: number;
+        teacher_name: string;
+        teacher_photoURL: string;
+    };
     level: number;
     progress: Array<{
         date: number;
@@ -780,6 +787,14 @@ export class XapiLMSService extends Base {
         return this.x.post({
             route: 'lms.mypage',
             session_id: this.user.sessionId
+        });
+    }
+
+    greeting_update(greeting: string): Observable<MYPAGE> {
+        return this.x.post({
+            route: 'lms.greeting_update',
+            session_id: this.user.sessionId,
+            greeting: greeting
         });
     }
 

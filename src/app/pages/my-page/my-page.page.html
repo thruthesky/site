@@ -2,26 +2,23 @@
     <header>
         <h1 class="text-danger">My Page</h1>
     </header>
-    <section class="loader" *ngIf="loader">
+    <section class="loader" *ngIf="loader.mypage">
         Loading...
     </section>
     <section class="page-content">
         
         <div>
             <img src="{{ mypage.photoURL }}">
-            Name: {{ mypage?.name }}
+            Name: {{ mypage.name }}
         </div>
         <div>
-            Point: {{ mypage?.point | number }}
+            Point: {{ mypage.point | number }}
         </div>
         <div>
-            Timezone: {{ mypage?.timezone_country }} ({{ mypage?.timezone }})
+            Timezone: {{ mypage.timezone_country }} ({{ mypage.timezone }})
         </div>
         <div>
-            Book: {{ mypage?.book_next }}
-        </div>
-        <div>
-            Software: {{ mypage?.class_software }} : {{ mypage?.class_software_id }}
+            Software: {{ mypage.class_software }} : {{ mypage.class_software_id }}
         </div>
 
         <div>
@@ -29,23 +26,33 @@
                 No. of Reservations
             </div>
             <div data-role="no-of-reservation" class="">
-                {{ mypage?.no_of_reservation }}
+                {{ mypage.no_of_reservation }}
             </div>
             <div>
                 No. of Past
             </div>
             <div data-role="no-of-reservation" class="">
-                {{ mypage?.no_of_past }}
+                {{ mypage.no_of_past }}
             </div>
+        </div>
+        <div class="next-class" *ngIf="mypage.next_class">
+            Next class: 
+            {{ mypage.next_class.teacher_name}}
+            <img src="{{ mypage.next_class.teacher_photoURL }}">
+            {{ mypage.next_class.date_display }}
+            {{ mypage.next_class.class_begin_display }}
+        </div>
+        <div>
+            Book: {{ mypage.book_next }}
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
 
-                    <div>My Level: {{ mypage?.level }}</div>
+                    <div>My Level: {{ mypage.level }}</div>
                 </div>
                 <div class="col-sm-9">
-                    <table class="progress" *ngIf=" mypage?.progress ">
+                    <table class="progress" *ngIf=" mypage.progress ">
                         <tr>
                             <td valign="bottom" *ngFor=" let idx of a.keys( mypage.progress ) " title="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
                                 <div class="wrapper">
@@ -66,8 +73,14 @@
                     <br> 꼭 영어로 적어주세요.
                     <br> 예제) Hello. I am Yuna, Kim. I am 12 years old. I love singing.
                     <br> 예제 더보기)
-                    <form>
-                        <textarea></textarea>
+                    <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
+                        <textarea name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
+                        <div>
+
+                                <button type="submit" *ngIf=" ! loader.greeting ">Submit</button>
+                                <span class="loader" *ngIf=" loader.greeting ">Saving...</span>
+                        </div>
+                        
                     </form>
                     <div>
                         주의: 개인 정보 보호를 위해 전화번호, 이메일, 스카이프/카카오톡/위쳇 등 개인 연락처를 기록하지말아주세요.
@@ -88,7 +101,7 @@
                         <div>
                             선생님 구하기를 신청하시면, 선생님들께서 보고 신청을 합니다.
                             회원님께서는 이곳에서 어떤 선생님들께서 신청했는지 알 수 있습니다.
-                            
+
 
                         </div>
 
@@ -100,7 +113,16 @@
 
 
 
-        <hr> 선생님 목록: 사진을 작게해서 한 줄에 12개 씩 등급이 있는 모든 선생님을 보여 줄 것.
+        <hr>
+        <h2>Teacher List</h2>
+
+        <div class="teachers" *ngIf=" teachers.length ">
+            <div class="teacher" *ngFor="let teacher of teachers ">
+                <div class="photo"><img src="{{ teacher.photoURL }}"></div>
+                <div>Stars: {{ teacher.grade }}</div>
+                <div>{{ teacher.display_name }}</div>
+            </div>
+        </div>
 
     </section>
 </main>

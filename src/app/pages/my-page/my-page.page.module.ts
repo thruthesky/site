@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MyPagePage } from './my-page.page';
+import { FormsModule } from '../../../../node_modules/@angular/forms';
 
 const routes: Routes = [
   { path: '', component: MyPagePage }
@@ -9,7 +10,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule
   ],
   exports: [
     RouterModule

@@ -24,3 +24,24 @@
         }
     }
 }
+
+.next-class {
+    img {
+        border-radius: .3em;
+        width: 48px;
+    }
+}
+
+.teachers {
+    display: flex;
+    flex-flow: wrap;
+    .teacher {
+        .photo {
+            overflow: hidden;
+            img {
+                width: 100px;
+                height: 120px;
+            }
+        }
+    }
+}
