@@ -105,7 +105,15 @@
                 </th>
             </tr>
             <tr *ngFor="let idx of a.keys(stats['booking_statistics']['book_stats']); let even=even" [ngClass]="{'even':even}">
-                <td>{{ stats['booking_statistics']['teachers_info'][idx]['name'] }}</td>
+                <td>
+                    <a href="/manager/user-info/{{idx}}">
+                    <div class="primary-photo" *ngIf="stats['booking_statistics']['teachers_info'][idx]['photoURL']">
+                        <img src="{{stats['booking_statistics']['teachers_info'][idx]['photoURL']}}">
+                    </div>
+                    <div>{{ stats['booking_statistics']['teachers_info'][idx]['name'] }}</div>
+                    <div>{{ stats['booking_statistics']['teachers_info'][idx]['user_group'] }}</div>
+                    </a>
+                </td>
                 <td *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
                     <ng-container *ngIf="stats['booking_statistics']['book_stats'][idx][d]">
                         <div>
