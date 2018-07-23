@@ -14,19 +14,32 @@ export class MyPagePage implements OnInit {
 
     loader = {
         mypage: false,
-        greeting: false
+        greeting: false,
+        auction: false
     };
-    mypage: MYPAGE = <any>{};
+    show = {
+        auction: false
+    };
+    mypage: MYPAGE = <any>{
+    };
     teachers: Array<TEACHER_LIST_INFO> = [];
+
     constructor(
         public a: AppService
     ) {
         // console.log(`NotFoundPage::constructor()`);
 
+
         this.loader.mypage = true;
         a.lms.mypage().subscribe(re => {
             this.loader.mypage = false;
             this.mypage = re;
+            console.log('mypage: ', this.mypage);
+            if (this.mypage.auction) {
+                this.show.auction = true;
+            } else {
+                this.mypage.auction = this.defaultAuction;
+            }
         }, e => a.toast(e));
 
         this.loadTeachers();
@@ -34,6 +47,23 @@ export class MyPagePage implements OnInit {
 
     ngOnInit() {
 
+    }
+
+    get defaultAuction() {
+        return {
+            sunday: false,
+            monday: false,
+            tuesday: false,
+            wednesday: false,
+            thursday: false,
+            friday: false,
+            saturday: false,
+            hour: 0,
+            minute: 0,
+            duration: 0,
+            point: 0,
+            comment: ''
+        };
     }
 
     loadTeachers() {
@@ -57,6 +87,24 @@ export class MyPagePage implements OnInit {
         }, e => this.a.toast(e));
 
         return false;
+    }
+    onSubmitAuction(event: Event) {
+        event.preventDefault();
+        this.loader.auction = true;
+        this.a.lms.auction_update(this.mypage.auction).subscribe(re => {
+            console.log('re: ', re);
+            this.loader.auction = false;
+        }, e => this.a.toast(e));
+        return false;
+    }
+    onDeleteAuction() {
+        this.loader.auction = true;
+        this.a.lms.auction_delete().subscribe(re => {
+            console.log('re: ', re);
+            this.loader.auction = false;
+            this.mypage.auction = this.defaultAuction;
+            this.show.auction = false;
+        }, e => this.a.toast(e));
     }
 }
 

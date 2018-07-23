@@ -124,7 +124,20 @@ export interface MYPAGE {
         comment: string;
     }>;
     greeting: string;
-    auction: string;
+    auction: {
+        sunday: boolean;
+        monday: boolean;
+        tuesday: boolean;
+        wednesday: boolean;
+        thursday: boolean;
+        friday: boolean;
+        saturday: boolean;
+        hour: number;
+        minute: number;
+        duration: number;
+        point: number;
+        comment: string;
+    };
 }
 
 
@@ -790,12 +803,40 @@ export class XapiLMSService extends Base {
         });
     }
 
-    greeting_update(greeting: string): Observable<MYPAGE> {
+    greeting_update(greeting: string): Observable<any> {
         return this.x.post({
             route: 'lms.greeting_update',
             session_id: this.user.sessionId,
             greeting: greeting
         });
     }
+    get_greetings(): Observable<any> {
+        return this.x.post({
+            route: 'lms.get_greetings'
+        });
+    }
+
+
+
+    auction_update(auction): Observable<any> {
+        return this.x.post({
+            route: 'lms.auction_update',
+            session_id: this.user.sessionId,
+            auction: auction
+        });
+    }
+    get_auctions(): Observable<any> {
+        return this.x.post({
+            route: 'lms.get_auctions'
+        });
+    }
+    auction_delete(): Observable<any> {
+        return this.x.post({
+            route: 'lms.auction_delete',
+            session_id: this.user.sessionId
+        });
+    }
+
+
 
 }
