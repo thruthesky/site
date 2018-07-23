@@ -534,8 +534,10 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
                 return 'qr-scanner'; // no schedule on this day.
             }
         } else { /// past classes.
-            if (session[N.open] === N.session_open) { // past class. but open.
+            if (session[N.open] === N.session_open) { // past class. but open. meaning 'scheduled opened but no reservation'.
                 return 'square';
+            } else if (session[N.open] === N.session_no_schedule) { // no schedule opened.
+                return 'qr-scanner';
             } else { // past & reserved.
                 if (session[N.dayoff] === 'dayoff') {
                     return ''; // past class and dayoff.
