@@ -167,6 +167,18 @@ export class AdminHomePage implements OnInit {
 
     }
 
+    classColor( n: number ) {
+        if ( !n ) {
+            return '';
+        } else if ( n < 50) {
+            return 'darkred';
+        } else if ( n < 70) {
+            return 'green';
+        } else if ( n <= 100) {
+            return 'blue';
+        }
+    }
+
 }
 
 

@@ -69,6 +69,30 @@ $por-homebased: #FFBF00;
     }
 }
 
+#booking-statistics {
+    font-size: 10px;
+    .booking-table {
+        overflow: hidden;
+        overflow-x: auto;
+        table {
+            .even {
+                background-color: #d8d8d8;
+            }
+
+            .primary-photo {
+                width: 40px;
+                img {
+                    width: 100%;
+                }
+            }
+
+            .bottom-total {
+                background: #cbcccc;
+            }
+        }
+    }
+}
+
 #contact {
     display: flex;
     flex-direction: column;
