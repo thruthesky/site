@@ -14,10 +14,13 @@
                 padding: .75em 1em;
                 border-bottom: 1px solid rgba(125,125,125,0.2);
                 &.title{
+                    position: relative;
                     display: inline-flex;
                     align-items: center;
                     width: 80%;
                     svg{
+                        position: relative;
+                        top: 0.125em;
                         height: 1em;
                         width: 1em;
                         margin-right: .75em;
