@@ -1,15 +1,29 @@
-<h1>Admin More Menus</h1>
-<ul>
-    <li>
-        <a routerLink="/manager/no-of-student-per-each-domain">No of student list per each domain</a>
-    </li>
-    <li *ngIf=" a.isSuperManager ">
-        <a routerLink="/manager/statistic-graph">Statistic Graph</a>
-    </li>
-    <li>
-        <a routerLink="/manager/branch-list">Branch List</a>
-    </li>
-    <li>
-        <a routerLink="/manager/branch-teachers">Select Teachers</a>
-    </li>
-</ul>
+<section  class="admin-menu">
+        <h1>Admin More Menus</h1>
+        <ul>
+            <li>
+                <a routerLink="/manager/no-of-student-per-each-domain">
+                    <span><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M319.4 320.6L224 400l-95.4-79.4C110.2 321.4 0 336.1 0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48 0-127.9-110.1-142.6-128.6-143.4zM208 480H48c-8.8 0-16-7.2-16-16 0-99.6 84.1-109.9 86.4-110.3l89.6 74.6V480zm208-16c0 8.8-7.2 16-16 16H240v-51.7l89.6-74.6c2.3.4 86.4 10.7 86.4 110.3zM13.2 100l6.8 2v37.6c-7 4.2-12 11.5-12 20.3 0 8.4 4.6 15.4 11.1 19.7L3.5 242c-1.7 6.9 2.1 14 7.6 14h41.8c5.5 0 9.3-7.1 7.6-14l-15.6-62.3C51.4 175.4 56 168.4 56 160c0-8.8-5-16.1-12-20.3v-30.5L90.7 123C84 139.4 80 157.2 80 176c0 79.5 64.5 144 144 144s144-64.5 144-144c0-18.8-4-36.6-10.7-53l77.5-23c17.6-5.2 17.6-34.8 0-40L240.9 2.5C235.3.8 229.7 0 224 0s-11.3.8-16.9 2.5L13.2 60c-17.6 5.2-17.6 34.8 0 40zM224 288c-61.8 0-112-50.2-112-112 0-15.7 3.7-30.3 9.6-43.8l85.5 25.4c14.8 4.4 27.2 2 33.8 0l85.5-25.4c5.9 13.5 9.6 28.2 9.6 43.8 0 61.8-50.2 112-112 112zm-7.8-254.9c.8-.2 7.3-2.4 15.6 0l158 46.9-158 46.9c-.8.2-7.3 2.4-15.6 0L58.2 80l158-46.9z"></path></svg></span>
+                    <span>No of student list per each domain</span>
+                </a>
+            </li>
+            <li *ngIf=" a.isSuperManager ">
+                <a routerLink="/manager/statistic-graph">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M500 416c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v340h468zM372 162l-84 54-86.5-84.5c-5.1-5.1-13.4-4.6-17.9 1L64 288v96h416l-90.3-216.7c-3-6.9-11.5-9.4-17.7-5.3zM96 299.2l98.7-131.3 89.3 89.3 85.8-57.2 61.7 152H96v-52.8z"></path></svg></span>
+                    <span>Statistic Graph</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/manager/branch-list">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506 114H134a6 6 0 0 1-6-6V84a6 6 0 0 1 6-6h372a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm6 154v-24a6 6 0 0 0-6-6H134a6 6 0 0 0-6 6v24a6 6 0 0 0 6 6h372a6 6 0 0 0 6-6zm0 160v-24a6 6 0 0 0-6-6H134a6 6 0 0 0-6 6v24a6 6 0 0 0 6 6h372a6 6 0 0 0 6-6zM84 120V72c0-6.627-5.373-12-12-12H24c-6.627 0-12 5.373-12 12v48c0 6.627 5.373 12 12 12h48c6.627 0 12-5.373 12-12zm0 160v-48c0-6.627-5.373-12-12-12H24c-6.627 0-12 5.373-12 12v48c0 6.627 5.373 12 12 12h48c6.627 0 12-5.373 12-12zm0 160v-48c0-6.627-5.373-12-12-12H24c-6.627 0-12 5.373-12 12v48c0 6.627 5.373 12 12 12h48c6.627 0 12-5.373 12-12z"></path></svg></span>
+                    <span>Branch List</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/manager/branch-teachers">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg></span>
+                    <span>Select Teachers</span>
+                </a>
+            </li>
+        </ul>
+</section>

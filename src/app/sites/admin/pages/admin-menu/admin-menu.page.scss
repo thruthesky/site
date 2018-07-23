@@ -1,7 +1,39 @@
-/**
- *
- * @warning this scss is globally appied.
- *
- */
-@import './../../../../../theme/vars';
-@import './../../scss/index';
+.admin-menu{
+    h1{
+        padding: 0 1em;
+        font-size: 1.1em;
+        color: #0867B0
+    }
+    ul{
+        padding: 0;
+        li{
+            list-style: none;
+            cursor: pointer;
+            &:first-child{
+                a{
+                    border-top:  1px solid rgba(125, 125, 125, 0.1);
+                }
+            }
+        }
+        a{
+            position: relative; 
+            display: flex;
+            align-items: center;
+            padding: .8em 1em;
+            border-bottom: 1px solid rgba(125, 125, 125, 0.1);
+            background: #fff;
+            transition: all .1s ease-in-out;
+            &:hover {
+                background: rgba(125, 125, 125, 0.1)
+            }
+        }
+        svg{
+            position: relative;
+            top: .125em;
+            height: 1.2em;
+            width: 1.2em;
+            margin-right: 1em;
+        }
+        
+    }
+}

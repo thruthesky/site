@@ -498,6 +498,8 @@ export interface BOOK {
         display_name: string;
         point: string;
         kakaotalk_id: string;
+        class_software: string;
+        class_software_id: string;
     };
     teacher: {
         idx: string;

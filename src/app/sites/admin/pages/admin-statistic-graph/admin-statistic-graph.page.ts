@@ -72,6 +72,9 @@ export class AdminStatisticGraphPage implements OnInit {
             return 'blue';
         }
     }
+    classBgColor( n: number ) {
+        return 'bg-' + this.classColor(n);
+    }
 }
 
 
