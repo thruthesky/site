@@ -1,0 +1,60 @@
+@import './../../../../../theme/vars';
+.branch-teachers{
+    h1{
+        margin-bottom: .5em;
+        font-size: 1.1em;
+        color: #0867B0
+    }
+    .instructions{
+        padding: .5em 0;
+        background: #eee;
+        line-height: 1.7em;
+        font-size: .9em;
+    }
+    form{
+        margin-top: 2.5em;
+        font-size: .9em;
+        .form-title{
+            font-size: 1.2em;
+            color: #0867B0;
+            .domain-name{
+                margin: 0 2em;
+                font-size: .8em;
+                color: darkgreen;
+            }
+        }
+        .form-input{
+            margin: 1em 0;
+            label{
+                display: block;
+                margin-bottom: .3em;
+                margin-left: .1em;
+            }
+            input{
+                padding: .5em 1em;
+                width: 300px;
+                border-radius: 2px;
+                border: 1px solid rgba(125,125,125,0.4);
+                font-size: 1em;
+            }
+            span{
+                display: inline-block;
+                padding: 1em 0;
+                @media (min-width:$md){
+                    padding: .5em 1em;
+                    margin: 0 1em ;   
+                }
+                background: #eee;
+                font-size: .9em;
+            }
+            div{
+                margin: .5em 0;
+                font-size: .9em;
+                color: darkred
+            }
+        }
+        .app-button{
+            padding: 1em 2em;
+        }
+    }
+}

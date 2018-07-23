@@ -199,7 +199,7 @@
     </div>
 
 
-    <div class="bottom-back-button" *ngIf="idx_teacher" routerLink="/schedule-table"
+    <div class="bottom-back-button" *ngIf="idx_teacher && !showLoader" routerLink="/schedule-table"
          [queryParams]="{idx_teacher: idx_teacher}">
          <button class="app-button">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
