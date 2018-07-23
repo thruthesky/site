@@ -1,7 +1,12 @@
 <main data-role="my-page-page">
     <section>
-        <h1 class="text-danger">My-Page</h1>
+        <h1 class="text-danger">{{ title }}</h1>
 
+        <div *ngIf=" mypage ">
+            <div data-role="no-of-reservation" class="">
+                {{ mypage.no_of_reservation }}
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col">

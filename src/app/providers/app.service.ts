@@ -6,6 +6,9 @@ import { XapiService, XapiUserService, XapiFileService, XapiLMSService } from '.
 
 import { CODE_USER_NOT_FOUND_BY_THAT_EMAIL, CODE_WRONG_SESSION_ID, CODE_NO_USER_BY_THAT_SESSION_ID, CODE_LOGIN_FIRST } from '../modules/xapi/error';
 
+
+import { environment } from '../../environments/environment';
+
 /**
  * Firebase initialization.
  */
@@ -18,7 +21,6 @@ import 'firebase/firestore';
 import 'firebase/messaging';
 firebase.initializeApp(environment['firebaseConfig']);
 
-import { environment } from '../../environments/environment';
 import { SCHEDULE_TABLE, LMS_INFO } from '../modules/xapi/interfaces';
 
 /**
