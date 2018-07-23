@@ -95,7 +95,8 @@ export class AdminSessionPage implements OnInit {
             comment: false,
             book_used: false,
             book_next: false,
-            stamp_checked: false
+            stamp_checked: false,
+            class_software: false
         }
     };
 
@@ -413,7 +414,6 @@ export class AdminSessionPage implements OnInit {
         d.successful = true;
         d.teacher_absent = true;
         // d.vocabulary = true;
-
         this.onSubmit();
     }
 

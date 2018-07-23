@@ -111,6 +111,10 @@
     <div><b>Display</b></div>
     <span class="display">
         <span>
+            <input type="checkbox" id="class_software" name="class_software" [(ngModel)]="form.display.class_software">
+            <label for="reserved_at">Class Software</label>
+        </span>
+        <span>
             <input type="checkbox" id="reserved_at" name="display_reserved_at" [(ngModel)]="form.display.reserved_at">
             <label for="reserved_at">Reserved At</label>
         </span>
@@ -319,6 +323,7 @@
                 <th>idx</th>
                 <th>Teacher</th>
                 <th>Student</th>
+                <th *ngIf=" form.display.class_software ">Class ID</th>
                 <th>Date</th>
                 <th>Begin</th>
                 <th>End</th>
@@ -370,6 +375,7 @@
                         <span>{{ session.student?.display_name.slice(0,7) }}</span>
                     </span>
                 </td>
+                <td *ngIf="form.display.class_software">{{ session.student?.class_software }}:{{ session.student?.class_software_id }}</td>
                 <td>{{ session.date }}</td>
                 <td>{{ session.class_begin }}</td>
                 <td>{{ session.class_end }}</td>

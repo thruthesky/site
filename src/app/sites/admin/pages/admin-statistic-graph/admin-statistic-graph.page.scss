@@ -7,14 +7,29 @@ $points-per-day-reservations:  #A32E00;
 $por-withcenter: dodgerblue;
 $por-homebased: #FFBF00;
 
-.green {
-    color: green;
-}
+
 .darkred {
     color: darkred;
 }
+.green {
+    color: green;
+}
 .blue {
     color: blue;
+}
+
+
+.bg-darkred {
+    background-color: darkred!important;
+    color: white!important;
+}
+.bg-green {
+    background-color: green!important;
+    color: white!important;
+}
+.bg-blue {
+    background-color: blue!important;
+    color: white!important;
 }
 
 
@@ -32,6 +47,13 @@ $por-homebased: #FFBF00;
     }
     .total-point{
         background:#FF9200;
+    }
+
+
+    .bar {
+        display: inline-block;
+        margin-bottom: 1px;
+        background-color: ghostwhite;
     }
 
 
