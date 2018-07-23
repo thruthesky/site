@@ -97,13 +97,24 @@ export interface PAYMENT_RATE {
 
 
 export interface MYPAGE {
+    ID: number;
+    name: string;
+    photoURL: string;
+    point: number;
+    timezone: string;
+    timezone_country: string;
+    book_next: string;
+    class_software: string;
+    class_software_id: string;
+    no_of_total_sessions: number;
     no_of_reservation: number;
     no_of_past: number;
-    point: number;
     level: number;
     progress: Array<{
         date: number;
         level: number;
+        teacher_name: string;
+        comment: string;
     }>;
     greeting: string;
     auction: string;

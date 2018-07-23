@@ -11,14 +11,16 @@ import { MYPAGE } from '../../modules/xapi/lms.service';
 })
 export class MyPagePage implements OnInit {
 
-    @Input() title = 'My-Page';
+    loader = false;
     mypage: MYPAGE = null;
     constructor(
         public a: AppService
     ) {
         // console.log(`NotFoundPage::constructor()`);
 
+        this.loader = true;
         a.lms.mypage().subscribe(re => {
+            this.loader = false;
             this.mypage = re;
         }, e => a.toast(e));
     }
