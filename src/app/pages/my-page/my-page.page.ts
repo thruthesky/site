@@ -31,6 +31,7 @@ export class MyPagePage implements OnInit {
     ) {
         // console.log(`NotFoundPage::constructor()`);
 
+        this.mypage.auction = this.defaultAuction;
 
         this.loader.mypage = true;
         a.lms.mypage().subscribe(re => {
@@ -39,8 +40,6 @@ export class MyPagePage implements OnInit {
             console.log('mypage: ', this.mypage);
             if (this.mypage.auction) {
                 this.show.auction = true;
-            } else {
-                this.mypage.auction = this.defaultAuction;
             }
         }, e => a.toast(e));
 
