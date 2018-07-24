@@ -18,7 +18,8 @@ export class MyPagePage implements OnInit {
         auction: false
     };
     show = {
-        auction: false
+        auction: false,
+        greetingSaved: false
     };
     mypage: MYPAGE = <any>{
     };
@@ -84,6 +85,8 @@ export class MyPagePage implements OnInit {
         this.a.lms.greeting_update(this.mypage.greeting).subscribe(re => {
             console.log('re: ', re);
             this.loader.greeting = false;
+            this.show.greetingSaved = true;
+            setTimeout(() => this.show.greetingSaved = false, 5000);
         }, e => this.a.toast(e));
 
         return false;

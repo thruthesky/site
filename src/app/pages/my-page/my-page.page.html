@@ -86,6 +86,7 @@
                         <div>
 
                             <button data-button="greeting-update" type="submit" *ngIf=" ! loader.greeting ">Submit</button>
+                            <div class="greeting-saved" *ngIf="show.greetingSaved">* Your greeting has been saved!</div>
                             <span class="loader" *ngIf=" loader.greeting ">Saving...</span>
                         </div>
 
