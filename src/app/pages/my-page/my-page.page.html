@@ -108,7 +108,7 @@
                                 <div class="checkbox-group">
                                     <label><input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">Sun</label>
                                     <label><input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">Mon</label>
-                                    <label><input type="checkbox" name="tueday" [(ngModel)]="mypage.auction.tuesday">Tue</label>
+                                    <label><input type="checkbox" name="tuesday" [(ngModel)]="mypage.auction.tuesday">Tue</label>
                                     <label><input type="checkbox" name="wednesday" [(ngModel)]="mypage.auction.wednesday">Wed</label>
                                     <label><input type="checkbox" name="thursday" [(ngModel)]="mypage.auction.thursday">Thu</label>
                                     <label><input type="checkbox" name="friday" [(ngModel)]="mypage.auction.friday">Fri</label>
@@ -198,7 +198,7 @@
                             </div>
     
                             <div *ngIf=" ! loader.auction ">
-                                <button type="submit">Update</button>
+                                <button data-button="auction-submit" type="submit">Update</button>
                                 <button type="button" (click)="onDeleteAuction()">Delete</button>
                             </div>
                             <div class="loader" *ngIf=" loader.auction ">
