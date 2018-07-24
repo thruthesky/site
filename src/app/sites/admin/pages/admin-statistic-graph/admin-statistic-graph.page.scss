@@ -178,23 +178,25 @@ $por-homebased: #FFBF00;
 }
 
 #booking-statistics {
-    overflow: hidden;
-    overflow-x: auto;
     font-size: 10px;
-    table {
-        .even {
-            background-color: #d8d8d8;
-        }
-
-        .primary-photo {
-            width: 40px;
-            img {
-                width: 100%;
+    .booking-statistic {
+        overflow: hidden;
+        overflow-x: auto;
+        table {
+            .even {
+                background-color: #d8d8d8;
             }
-        }
 
-        .bottom-total {
-            background: #cbcccc;
+            .primary-photo {
+                width: 40px;
+                img {
+                    width: 100%;
+                }
+            }
+
+            .bottom-total {
+                background: #cbcccc;
+            }
         }
     }
 }
