@@ -32,6 +32,22 @@
                 <ontue-activity-log-component></ontue-activity-log-component>
             </div>
         </div>
+
+        <section>
+            <h2>Student greeting</h2>
+            <div>
+                {{ greetings | json }}
+            </div>
+        </section>
+
+
+        <section>
+                <h2>Students who are looking for teachers</h2>
+                <div>
+                    {{ auctions | json }}
+                </div>
+            </section>
+    
         <div class="row">
             <div class="col re-aligned">
                 <ontue-how-to-be-teacher-component></ontue-how-to-be-teacher-component>

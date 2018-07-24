@@ -97,16 +97,47 @@ export interface PAYMENT_RATE {
 
 
 export interface MYPAGE {
+    ID: number;
+    name: string;
+    photoURL: string;
+    point: number;
+    timezone: string;
+    timezone_country: string;
+    book_next: string;
+    class_software: string;
+    class_software_id: string;
+    no_of_total_sessions: number;
     no_of_reservation: number;
     no_of_past: number;
-    point: number;
+    next_class: {
+        idx: number;
+        date_display: number;
+        class_begin_display: number;
+        teacher_name: string;
+        teacher_photoURL: string;
+    };
     level: number;
     progress: Array<{
         date: number;
         level: number;
+        teacher_name: string;
+        comment: string;
     }>;
     greeting: string;
-    auction: string;
+    auction: {
+        sunday: boolean;
+        monday: boolean;
+        tuesday: boolean;
+        wednesday: boolean;
+        thursday: boolean;
+        friday: boolean;
+        saturday: boolean;
+        hour: number;
+        minute: number;
+        duration: number;
+        point: number;
+        comment: string;
+    };
 }
 
 
@@ -771,5 +802,41 @@ export class XapiLMSService extends Base {
             session_id: this.user.sessionId
         });
     }
+
+    greeting_update(greeting: string): Observable<any> {
+        return this.x.post({
+            route: 'lms.greeting_update',
+            session_id: this.user.sessionId,
+            greeting: greeting
+        });
+    }
+    get_greetings(): Observable<any> {
+        return this.x.post({
+            route: 'lms.get_greetings'
+        });
+    }
+
+
+
+    auction_update(auction): Observable<any> {
+        return this.x.post({
+            route: 'lms.auction_update',
+            session_id: this.user.sessionId,
+            auction: auction
+        });
+    }
+    get_auctions(): Observable<any> {
+        return this.x.post({
+            route: 'lms.get_auctions'
+        });
+    }
+    auction_delete(): Observable<any> {
+        return this.x.post({
+            route: 'lms.auction_delete',
+            session_id: this.user.sessionId
+        });
+    }
+
+
 
 }

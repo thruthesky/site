@@ -1,59 +1,218 @@
 <main data-role="my-page-page">
-    <section>
-        <h1 class="text-danger">{{ title }}</h1>
+    <header>
+        <h1 class="text-danger">My Page</h1>
+    </header>
+    <section class="loader" *ngIf="loader.mypage">
+        Loading...
+    </section>
+    <section class="page-content">
 
-        <div *ngIf=" mypage ">
+        <div>
+            <img src="{{ mypage.photoURL }}"> Name: {{ mypage.name }}
+        </div>
+        <div>
+            Point: {{ mypage.point | number }}
+        </div>
+        <div>
+            Timezone: {{ mypage.timezone_country }} ({{ mypage.timezone }})
+        </div>
+        <div>
+            Software: {{ mypage.class_software }} : {{ mypage.class_software_id }}
+        </div>
+
+        <div>
+            <div>
+                No. of Reservations
+            </div>
             <div data-role="no-of-reservation" class="">
                 {{ mypage.no_of_reservation }}
             </div>
+            <div>
+                No. of Past
+            </div>
+            <div data-role="no-of-reservation" class="">
+                {{ mypage.no_of_past }}
+            </div>
+        </div>
+        <div class="next-class" *ngIf="mypage.next_class">
+            Next class: {{ mypage.next_class.teacher_name}}
+            <img src="{{ mypage.next_class.teacher_photoURL }}"> {{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}
+        </div>
+        <div>
+            Book: {{ mypage.book_next }}
         </div>
         <div class="container">
             <div class="row">
-                <div class="col">
-                    (공간을 작게 차지 할 것) 나의 레벨: 초급(상/중/하),중급(상/중/하), 고급(상/중/하) 와 같이 한글로 표시 할 것.
+                <div class="col-sm-3">
+
+                    <div>My Level: {{ mypage.level }}</div>
                 </div>
-
-
-                <div class="col">
-                    (공간을 작게 차지 할 것) 학업 성취도: 바 그래프로 지난 3개의 수업을 그래프로 표시한다.
+                <div class="col-sm-9">
+                    <table class="progress" *ngIf=" mypage.progress ">
+                        <tr>
+                            <td valign="bottom" *ngFor=" let idx of a.keys( mypage.progress ) " title="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
+                                <div class="wrapper">
+                                    <div class="bar" [style.height]="  mypage.progress[idx]['level'] * 10 + 'px' " [attr.level]=" mypage.progress[idx]['level'] ">{{ mypage.progress[idx]['level'] }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
-
         <hr>
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-sm-6">
 
                     My introduction in English.
                     <br> 꼭 영어로 적어주세요.
                     <br> 예제) Hello. I am Yuna, Kim. I am 12 years old. I love singing.
                     <br> 예제 더보기)
-                    <form>
-                        <textarea></textarea>
+                    <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
+                        <textarea name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
+                        <div>
+
+                            <button type="submit" *ngIf=" ! loader.greeting ">Submit</button>
+                            <span class="loader" *ngIf=" loader.greeting ">Saving...</span>
+                        </div>
+
                     </form>
-                </div>
-                <div class="col">
-                    선생님 구하기 무슨 요일: 일, 월, 화, 수, 목, 금, 토
-                    <br> 시간: 11 시 30 분
-                    <br> 몇 분 동안: 25 분 동안
-                    <br> 수업 포인트: 2000 포인트.
                     <div>
-
-
-                        <form>
-                            <textarea></textarea>
-                        </form>
-
-
+                        주의: 개인 정보 보호를 위해 전화번호, 이메일, 스카이프/카카오톡/위쳇 등 개인 연락처를 기록하지말아주세요.
                     </div>
+                </div>
+                <div class="col-sm-6">
+                    <h2>Hiring Teacher</h2>
+                    <div *ngIf="!show.auction" (click)="show.auction=true">
+                        You are not hiring a teacher. Do you want to hire a teacher?
+                    </div>
+                    <form (ngSubmit)=" onSubmitAuction( $event ) " *ngIf="show.auction">
+                        <div>
+                            What day do you want to study?
+                            <div>
+                                <input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">Sun,
+                                <input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">Mon,
+                                <input type="checkbox" name="tueday" [(ngModel)]="mypage.auction.tuesday">Tue,
+                                <input type="checkbox" name="wednesday" [(ngModel)]="mypage.auction.wednesday">Wed,
+                                <input type="checkbox" name="thursday" [(ngModel)]="mypage.auction.thursday">Thu,
+                                <input type="checkbox" name="friday" [(ngModel)]="mypage.auction.friday">Fri,
+                                <input type="checkbox" name="saturday" [(ngModel)]="mypage.auction.saturday">Sat
+                            </div>
+                        </div>
+                        <div>
+                            What time the class should begin?
+                            <div>
+                                <select name="hour" [(ngModel)]="mypage.auction.hour">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                :
+                                <select name="minute" [(ngModel)]="mypage.auction.minute">
+                                    <option value="0">0</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            How long the class should be?
+
+                            <select name="duration" [(ngModel)]="mypage.auction.duration">
+                                <option value="0">0</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
+                                <option value="60">60</option>
+                                <option value="80">80</option>
+                                <option value="100">100</option>
+                                <option value="120">120</option>
+                            </select>
+                        </div>
+
+                        <div *ngIf=" mypage.auction.duration ">
+                            How much should each class be?
+
+                            <select name="point" [(ngModel)]=" mypage.auction.point ">
+                                <option *ngFor="let point of [ 50, 80, 100, 130, 150, 180, 200, 230, 250 ]" value="{{ mypage.auction.duration * point  }}">
+                                    {{ mypage.auction.duration * point }}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div>
+                            Comments
+                            <textarea name="comment" [(ngModel)]="mypage.auction.comment"></textarea>
+                        </div>
+
+                        <div *ngIf=" ! loader.auction ">
+                            <button type="submit">Update</button>
+                            <button type="button" (click)="onDeleteAuction()">Delete</button>
+                        </div>
+                        <div class="loader" *ngIf=" loader.auction ">
+                            Saving auction ....
+                        </div>
+                        <div>
+                            선생님 구하기를 신청하시면, 선생님들께서 보고 신청을 합니다. 회원님께서는 이곳에서 어떤 선생님들께서 신청했는지 알 수 있습니다. If you advertise for hiring teacher, you will see
+                            teachers' application here.
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
 
 
 
-        <hr> 선생님 목록: 사진을 작게해서 한 줄에 12개 씩 등급이 있는 모든 선생님을 보여 줄 것.
+        <hr>
+        <h2>Teacher List</h2>
+
+        <div class="teachers" *ngIf=" teachers.length ">
+            <div class="teacher" *ngFor="let teacher of teachers ">
+                <div class="photo">
+                    <img src="{{ teacher.photoURL }}">
+                </div>
+                <div>Stars: {{ teacher.grade }}</div>
+                <div>{{ teacher.display_name }}</div>
+            </div>
+        </div>
 
     </section>
 </main>

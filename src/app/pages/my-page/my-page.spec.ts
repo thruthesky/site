@@ -67,14 +67,14 @@ describe('MyPage', () => {
         const h1 = de.query( By.css('H1') ).nativeElement;
         expect(h1.textContent).toContain('My-Page');
     }));
-    it('change title', async(() => {
-        const title = 'new title';
-        component.title = title;
-        // 제목 변경시 detectChange() 호출 해야 함.
-        fixture.detectChanges();
-        const h1 = de.query( By.css('H1') ).nativeElement;
-        expect(h1.textContent).toContain(title);
-    }));
+    // it('change title', async(() => {
+    //     const title = 'new title';
+    //     component.title = title;
+    //     // 제목 변경시 detectChange() 호출 해야 함.
+    //     fixture.detectChanges();
+    //     const h1 = de.query( By.css('H1') ).nativeElement;
+    //     expect(h1.textContent).toContain(title);
+    // }));
 
     /**
      * Observable 테스트.

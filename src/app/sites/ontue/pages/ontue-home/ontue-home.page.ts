@@ -27,6 +27,8 @@ export class OntueHomePage {
     };
 
 
+    greetings;
+    auctions;
     constructor(
         public a: AppService,
         public forum: ForumService
@@ -39,6 +41,14 @@ export class OntueHomePage {
 
         forum.loadPosts({slug: 'teacher_reminders', page: 1, per_page: 3}).subscribe(re => this.reminders = re);
 
+        a.lms.get_greetings().subscribe( res => {
+            console.log('get_greetings: ', res);
+            this.greetings = res;
+        }, e => this.a.toast(e));
+        a.lms.get_auctions().subscribe( res => {
+            console.log('get_auctions: ', res);
+            this.auctions = res;
+        }, e => this.a.toast(e));
     }
 }
 
