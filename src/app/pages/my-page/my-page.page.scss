@@ -56,12 +56,39 @@ h2{
         background: #eee;
         font-size: .9em;
         cursor: pointer;
-        b{
-            color: darkred
+
+        svg{
+            position: relative;
+            top: .125em;
+            margin-left: .4em;
+            height: 1em;
+            width: 1em;
         }
     }
     form{
         font-size: .8em;
+
+        .day{
+            .checkbox-group{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1em 0;
+                label{
+                    input{
+                        position: relative;
+                        top: .125em;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .time{
+            select{
+                border: 1px solid rgba(125,125,125,0.4);
+                background: #fff;
+            }
+        }
     }
 }
 #teacher-list{

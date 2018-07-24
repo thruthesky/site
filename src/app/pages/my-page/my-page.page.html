@@ -98,12 +98,13 @@
                     <div id="auction">
                         <h2>Hiring Teacher</h2>
                         <div class="auction-intro" *ngIf="!show.auction" (click)="show.auction=true">
-                            <b>You are not hiring a teacher.</b> Do you want to hire a teacher?
+                            <span>You are not hiring a teacher. Do you want to hire a teacher?</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></span>
                         </div>
                         <form class="auction-form" (ngSubmit)=" onSubmitAuction( $event ) " *ngIf="show.auction">
-                            <div>
-                                What day do you want to study?
-                                <div>
+                            <div class="day">
+                                <div>What day do you want to study?</div>
+                                <div class="checkbox-group">
                                     <label><input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">Sun</label>
                                     <label><input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">Mon</label>
                                     <label><input type="checkbox" name="tueday" [(ngModel)]="mypage.auction.tuesday">Tue</label>
@@ -113,8 +114,8 @@
                                     <label><input type="checkbox" name="saturday" [(ngModel)]="mypage.auction.saturday">Sat</label>
                                 </div>
                             </div>
-                            <div>
-                                What time the class should begin?
+                            <div class="time">
+                                <div>What time the class should begin?</div>
                                 <div>
                                     <select name="hour" [(ngModel)]="mypage.auction.hour">
                                         <option value="0">0</option>
@@ -160,8 +161,8 @@
                                 </div>
                             </div>
     
-                            <div>
-                                How long the class should be?
+                            <div class="duration">
+                                <div>How long the class should be?</div>
     
                                 <select name="duration" [(ngModel)]="mypage.auction.duration">
                                     <option value="0">0</option>
@@ -180,8 +181,8 @@
                                 </select>
                             </div>
     
-                            <div *ngIf=" mypage.auction.duration ">
-                                How much should each class be?
+                            <div class="point" *ngIf=" mypage.auction.duration ">
+                                <div>How much should each class be?</div>
     
                                 <select name="point" [(ngModel)]=" mypage.auction.point ">
                                     <option *ngFor="let point of [ 50, 80, 100, 130, 150, 180, 200, 230, 250 ]" value="{{ mypage.auction.duration * point  }}">
@@ -190,8 +191,8 @@
                                 </select>
     
                             </div>
-                            <div>
-                                Comments
+                            <div class="comments">
+                                <label>Comments</label>
                                 <textarea name="comment" [(ngModel)]="mypage.auction.comment"></textarea>
                             </div>
     
