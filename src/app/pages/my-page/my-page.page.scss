@@ -31,17 +31,100 @@
         width: 48px;
     }
 }
-
-.teachers {
+h2{
     display: flex;
-    flex-flow: wrap;
-    .teacher {
-        .photo {
-            overflow: hidden;
-            img {
-                width: 100px;
-                height: 120px;
+    align-items: center;
+    justify-content: center;
+    margin: .35em 0;
+    font-size: 1.1em;
+    font-weight: 300;
+    svg{
+        position: relative;
+        top:.15em;
+        margin-right: .4em;
+        height: 1.2em;
+        width: 1.2em;
+    }
+}
+.page-content{
+    padding-bottom: 5em;
+}
+#auction{
+    .auction-intro{
+        padding: 1em;
+        border-radius: 2px;
+        background: #eee;
+        font-size: .9em;
+        cursor: pointer;
+        b{
+            color: darkred
+        }
+    }
+    form{
+        font-size: .8em;
+    }
+}
+#teacher-list{
+    padding-top: 1em;
+    .teachers {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+        font-size: .78em;
+        margin: 0 .45em;
+        .teacher {
+            margin: .45em .25em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.2);
+            background: #fff;
+            .photo {
+                overflow: hidden;
+                img {
+                    width: 73px;
+                    height: 93px;
+                }
+            }
+            .text{
+                padding:.5em;
+                text-align: center;
+                .teacher-name{
+                    text-transform: uppercase;
+                }
+                .stars{
+                    font-size: .85em;
+                    svg{
+                        position: relative;
+                        top: .125em;
+                        margin: .25em .05em;
+                        height: 1em;
+                        width: 1em;
+                    }
+                }
+                .title{
+                    font-size: .85em;
+                    color: #607d8b;
+                }
             }
         }
     }
+}
+
+
+
+//stars color
+
+[grade="5"] {
+    color: #f06000;
+}
+[grade="4"] {
+    color: #ff9900;
+}
+[grade="3"] {
+    color: #4a8d23;
+}
+[grade="2"] {
+    color: #272775;
+}
+[grade="1"] {
+    color: #272727;
 }
