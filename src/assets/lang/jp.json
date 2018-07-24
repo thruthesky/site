@@ -670,7 +670,12 @@
   "SELECT_YOUR_MESSENGER": "メッセンジャーアプリを選択してください。",
   "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "モバイルでのみ友達を追加できます 友だちを追加するには携帯電話を使用してください。",
   "WORK_FOR": "会社",
-  "WORK_FOR_SELF": "フリーランサー"
+  "WORK_FOR_SELF": "フリーランサー",
+
+
+
+  "MYPAGE": "私のページ"
+
 
 
 }

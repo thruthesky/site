@@ -754,6 +754,10 @@
   "SELECT_YOUR_MESSENGER": "Please select your messenger app.",
   "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "Ooh, You can add friend only on mobile. Please use your mobile phone to add friend.",
   "WORK_FOR": "Company",
-  "WORK_FOR_SELF": "freelancer"
+  "WORK_FOR_SELF": "freelancer",
+
+
+
+  "MYPAGE": "My Page"
 
 }
