@@ -179,6 +179,11 @@ export class AdminHomePage implements OnInit {
         }
     }
 
+
+    classBgColor( n: number ) {
+        return 'bg-' + this.classColor(n);
+    }
+
 }
 
 

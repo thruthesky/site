@@ -49,11 +49,13 @@ $por-homebased: #FFBF00;
         background:#FF9200;
     }
 
-
-    .bar {
-        display: inline-block;
-        margin-bottom: 1px;
-        background-color: ghostwhite;
+    .bars {
+        width: 100px;
+        .bar {
+            display: inline-block;
+            margin-bottom: 1px;
+            background-color: ghostwhite;
+        }
     }
 
 
