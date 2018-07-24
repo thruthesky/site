@@ -76,36 +76,44 @@
     table{
         border-collapse: collapse;
         font-size: 80%;
-        @media screen and (min-width:$md) {
+        @media (min-width:$md) {
             font-size: 100%;
+        }
+        tr{
+            border-bottom: 1px solid rgba(125,125,125,0.1);
         }
     }
     td{
         padding:.8em 1em;
-        border-bottom: 1px solid rgba(125,125,125,0.2);
 
         &:first-child{
-            background: rgba(125,125,125,0.1);
-            color: gray;
+            border-right: 1px solid rgba(125,125,125,0.1);
             font-weight: bold;
             white-space: nowrap;
+            font-size: .9em;
+            text-transform: uppercase;
         }
         &:last-child{
             width: 100%;
         }
     }
-    .change-timezone{
-        display: inline-block;
-        margin:.3em 0;
-        @media (min-width:$md) {
-            margin: 0;
-            margin-left: 5em;
-        }
-        padding: .3em 1em;
-        border-radius: 2px;
-        background: gray;
-        color: white;
+    .mobile-change-timezone{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
         cursor: pointer;
+        .button{
+            font-size: .8em;
+            svg{
+                position: relative;
+                top: .125em;
+                height: 1em;
+                width: 1em;
+                margin-right: .3em;
+            }
+        }
     }
 }
 
@@ -150,7 +158,7 @@
         color: gray;
     }
 
-    .change-timezone{
+    .desktop-change-timezone{
         display: flex;
         flex-direction: column;
         align-items: center;
