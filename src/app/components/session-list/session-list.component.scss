@@ -289,8 +289,12 @@
             justify-content: center;   
             padding: .25em .75em;
             border-radius: 2px;
-            border: 1px solid rgba(125,125,125,0.3);
+            border: 1px solid rgba(125,125,125,0.2);
             cursor: pointer;
+            transition: .2s all ease-in-out;
+            &:hover{
+                background: #eee
+            }
         }
         img{
             margin: .25em 0;
