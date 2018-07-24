@@ -11,6 +11,30 @@ $por-homebased: #FFBF00;
 //     border: 0!important;
 // }
 
+.darkred {
+    color: darkred;
+}
+.green {
+    color: green;
+}
+.blue {
+    color: blue;
+}
+
+
+.bg-darkred {
+    background-color: darkred!important;
+    color: white!important;
+}
+.bg-green {
+    background-color: green!important;
+    color: white!important;
+}
+.bg-blue {
+    background-color: blue!important;
+    color: white!important;
+}
+
 #stats-summary {
     font-size: .85em;
     &>.row {
@@ -65,8 +89,9 @@ $por-homebased: #FFBF00;
 }
 
 #booking-statistics {
+    margin-bottom: 1.5em;
     font-size: 10px;
-    .booking-table {
+    .booking-statistic {
         overflow: auto;
         table {
             .even {
@@ -79,6 +104,16 @@ $por-homebased: #FFBF00;
             }
         }
     }
+
+    .bars {
+        width: 100px;
+        .bar {
+            display: inline-block;
+            margin-bottom: 1px;
+            background-color: ghostwhite;
+        }
+    }
+
 }
 
 #contact {
