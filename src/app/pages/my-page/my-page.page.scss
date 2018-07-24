@@ -66,7 +66,7 @@ h2{
         }
     }
     form{
-        font-size: .8em;
+        font-size: .85em;
         select{
             padding: .25em;
             width: 50px;
@@ -78,7 +78,9 @@ h2{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                flex-wrap: wrap;
                 padding: 1em 0;
+                font-size: .85em;
                 label{
                     input{
                         position: relative;
@@ -94,6 +96,7 @@ h2{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
             padding: .7em 0;
         }
         .comments{
@@ -109,6 +112,9 @@ h2{
                 border-radius: 2px;
                 border: 1px solid rgba(125,125,125,0.4);
             }
+        }
+        .note{
+            font-size: .9em;
         }
     }
 }
