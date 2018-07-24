@@ -19,7 +19,8 @@ export class MyPagePage implements OnInit {
     };
     show = {
         auction: false,
-        greetingSaved: false
+        greetingSaved: false,
+        auctionSaved: false
     };
     mypage: MYPAGE = <any>{
     };
@@ -30,6 +31,7 @@ export class MyPagePage implements OnInit {
     ) {
         // console.log(`NotFoundPage::constructor()`);
 
+        this.mypage.auction = this.defaultAuction;
 
         this.loader.mypage = true;
         a.lms.mypage().subscribe(re => {
@@ -38,8 +40,6 @@ export class MyPagePage implements OnInit {
             console.log('mypage: ', this.mypage);
             if (this.mypage.auction) {
                 this.show.auction = true;
-            } else {
-                this.mypage.auction = this.defaultAuction;
             }
         }, e => a.toast(e));
 
@@ -97,6 +97,8 @@ export class MyPagePage implements OnInit {
         this.a.lms.auction_update(this.mypage.auction).subscribe(re => {
             console.log('re: ', re);
             this.loader.auction = false;
+            this.show.auctionSaved = true;
+            setTimeout(() => this.show.auctionSaved = false, 5000);
         }, e => this.a.toast(e));
         return false;
     }
