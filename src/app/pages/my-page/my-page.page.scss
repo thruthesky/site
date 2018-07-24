@@ -55,8 +55,20 @@ h2{
         }
     }
 }
-#auction{
+#my-introduction,
+#auction,
+#teacher-list{
     padding: 1em 0;
+}
+#my-introduction{
+    .warning{
+        font-size: .85em;
+        b{
+            color: darkred;
+        }
+    }
+}
+#auction{
     h2{
         color: darkorange
     }
@@ -134,8 +146,7 @@ h2{
         }
     }
 }
-#teacher-list{
-    padding: 1em 0;
+#teacher-list{;
     .teachers {
         display: flex;
         flex-flow: wrap;

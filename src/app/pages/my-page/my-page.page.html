@@ -75,23 +75,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-
-                    My introduction in English.
-                    <br> 꼭 영어로 적어주세요.
-                    <br> 예제) Hello. I am Yuna, Kim. I am 12 years old. I love singing.
-                    <br> 예제 더보기)
-                    <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
-                        <textarea name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
-                        <div>
-
-                            <button data-button="greeting-update" type="submit" *ngIf=" ! loader.greeting ">Submit</button>
-                            <div class="greeting-saved" *ngIf="show.greetingSaved">* Your greeting has been saved!</div>
-                            <span class="loader" *ngIf=" loader.greeting ">Saving...</span>
+                    <div id="my-introduction">
+                        <h2>My introduction in English.</h2>
+                        <br> 꼭 영어로 적어주세요.
+                        <br> 예제) Hello. I am Yuna, Kim. I am 12 years old. I love singing.
+                        <br> 예제 더보기)
+                        <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
+                            <textarea name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
+                            <div>
+    
+                                <button data-button="greeting-update" type="submit" *ngIf=" ! loader.greeting ">Submit</button>
+                                <div class="greeting-saved" *ngIf="show.greetingSaved">* Your greeting has been saved!</div>
+                                <span class="loader" *ngIf=" loader.greeting ">Saving...</span>
+                            </div>
+    
+                        </form>
+                        <div class="warning">
+                            <b>주의:</b> 개인 정보 보호를 위해 전화번호, 이메일, 스카이프/카카오톡/위쳇 등 개인 연락처를 기록하지말아주세요.
                         </div>
-
-                    </form>
-                    <div>
-                        주의: 개인 정보 보호를 위해 전화번호, 이메일, 스카이프/카카오톡/위쳇 등 개인 연락처를 기록하지말아주세요.
                     </div>
                 </div>
                 <div class="col-sm-6">
