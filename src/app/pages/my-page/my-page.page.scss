@@ -67,7 +67,12 @@ h2{
     }
     form{
         font-size: .8em;
-
+        select{
+            padding: .25em;
+            width: 50px;
+            border: 1px solid rgba(125,125,125,0.4);
+            background: #fff;
+        }
         .day{
             .checkbox-group{
                 display: flex;
@@ -83,11 +88,12 @@ h2{
                 }
             }
         }
-        .time{
-            select{
-                border: 1px solid rgba(125,125,125,0.4);
-                background: #fff;
-            }
+        .time,
+        .duration{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .7em 0;
         }
     }
 }
