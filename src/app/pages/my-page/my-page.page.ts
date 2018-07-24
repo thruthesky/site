@@ -19,7 +19,8 @@ export class MyPagePage implements OnInit {
     };
     show = {
         auction: false,
-        greetingSaved: false
+        greetingSaved: false,
+        auctionSaved: false
     };
     mypage: MYPAGE = <any>{
     };
@@ -97,6 +98,8 @@ export class MyPagePage implements OnInit {
         this.a.lms.auction_update(this.mypage.auction).subscribe(re => {
             console.log('re: ', re);
             this.loader.auction = false;
+            this.show.auctionSaved = true;
+            setTimeout(() => this.show.auctionSaved = false, 5000);
         }, e => this.a.toast(e));
         return false;
     }
