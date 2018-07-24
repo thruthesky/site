@@ -85,7 +85,7 @@
                         <textarea name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
                         <div>
 
-                            <button type="submit" *ngIf=" ! loader.greeting ">Submit</button>
+                            <button data-button="greeting-update" type="submit" *ngIf=" ! loader.greeting ">Submit</button>
                             <span class="loader" *ngIf=" loader.greeting ">Saving...</span>
                         </div>
 
