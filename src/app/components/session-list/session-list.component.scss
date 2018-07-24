@@ -273,7 +273,10 @@
         color:blue;
     }
     .messenger-id {
-        font-size: 85%;
+        font-size: .8em;
+        @media (min-width:$md) {
+            font-size: .85em;
+        }
         word-break: break-all;
         .teacher-id-button,
         .student-id-button{
@@ -284,7 +287,10 @@
         }
         .student-id-button{
             position: relative;  
-            padding: .25em .5em;
+            padding: .5em;
+            @media (min-width:$md) {
+                padding: .25em .5em;   
+            }
             border-radius: 2px;
             border: 1px solid rgba(125,125,125,0.2);
             cursor: pointer;
@@ -293,7 +299,8 @@
                 background: #eee
             }
         }
-        img{
+        img,
+        svg{
             margin: .25em 0;
             height: 1.5em;
             width: 1.5em;
@@ -303,6 +310,12 @@
                 margin: 0;
                 margin-right: .5em;  
             }
+        }
+
+        svg{
+            height: 1.2em;
+            width: 1.2em;
+            margin-right: .4em;
         }
     }
 
