@@ -15,6 +15,8 @@ import { OntueGradingSystemComponentModule } from '../../components/ontue-gradin
 import { OntueEvaluationLatestListComponentModule } from '../../components/ontue-evaluation-latest-list/ontue-evaluation-latest-list.component.module';
 import { OntueHomeRemindersComponentModule } from '../../components/ontue-home-reminders/ontue-home-reminders.component.module';
 import { ForumServiceModule } from '../../../../providers/forum/forum.service.module';
+import { OntueStudentGreetingListComponentModule } from '../../components/ontue-student-greeting-list/ontue-student-greeting-list.component.module';
+import { OntueStudentAuctionListComponentModule } from '../../components/ontue-student-auction-list/ontue-student-auction-list.component.module';
 
 const routes: Routes = [
     {path: '', component: OntueHomePage}
@@ -35,7 +37,9 @@ const routes: Routes = [
         OntueGradingSystemComponentModule,
         OntueEvaluationLatestListComponentModule,
         OntueHomeRemindersComponentModule,
-        ForumServiceModule
+        ForumServiceModule,
+        OntueStudentGreetingListComponentModule,
+        OntueStudentAuctionListComponentModule
     ],
     exports: [
         RouterModule

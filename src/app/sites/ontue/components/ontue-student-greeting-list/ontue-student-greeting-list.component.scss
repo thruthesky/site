@@ -1,0 +1,72 @@
+section{
+    height: 100%;
+    background: #fff;
+    outline: 1px solid rgba(125,125,125,0.1);
+    font-size: 85%;
+
+    .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 ;
+        padding-left: 1.3em;
+        background:rgba(0,123,255,.8);
+        color: #fff;
+        font-weight: 200;
+
+        .external-link{
+            display: flex;
+            align-items: center;
+            padding: .7em;
+            padding-right: 1.3em;
+            color: #fff;
+            cursor: pointer;
+            svg{
+                width: 1.15em;
+                height: 1.15em;
+            }
+        }
+    }
+
+    .body{
+        padding: .5em 0;
+        .row{
+            align-items: center;
+            justify-content: center;
+            padding: .7em 1.2em;
+            &>div{
+                padding: 0;
+            }
+            &:hover{
+                background: rgba(dodgerblue,0.2);
+                cursor: pointer;
+
+                color:rgba(dodgerblue,0.95);
+            }
+        }
+
+        .comment{
+            margin: 0;
+            font-weight: 200;
+        }
+
+        .student-photo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        .student-name{
+            font-weight: bold;
+        }
+    }
+
+}
