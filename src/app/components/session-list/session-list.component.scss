@@ -96,8 +96,8 @@
     }
     .change-timezone{
         display: inline-block;
-        margin:.3em;
-        @media screen and (min-width:$md) {
+        margin:.3em 0;
+        @media (min-width:$md) {
             margin: 0;
             margin-left: 5em;
         }
@@ -198,12 +198,12 @@
         z-index: 100;
         justify-content: space-around;
         align-items: center;
-        padding: .9em 0;
+        padding: .8em 0;
         background-color: #66a2fb;
         color: white;
-        font-size: 80%;
-        @media screen and (min-width:$md){
-            font-size: 100%;
+        font-size: .8em;
+        @media (min-width:$md){
+            font-size: .9em;
         }
         text-align: center;
     
@@ -242,6 +242,25 @@
     }
 }
 
+.messenger-id-header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:wrap ;
+    svg{
+        position: relative;
+        top:.11em;
+        height: 1.1em;
+        width: 1.1em;
+        margin: .25em;
+        @media (min-width:$md) {
+            margin-right: .25em;   
+        }
+    }
+}
+
+
 .data{
     justify-content: space-around;
     align-items: center;
@@ -265,23 +284,40 @@
     .point{
         color:blue;
     }
-
-    .kakaotalk-id {
+    .messenger-id {
         font-size: 85%;
         word-break: break-all;
-        .id-button{
-            display:flex;
-            flex-direction: column;
+        .teacher-id-button{
+            display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: center;
+            justify-content: center;   
         }
-        svg{
-            height: .9em;
-            margin-bottom: .5em;
-        }
-        @media screen and (max-width:$md) {
+        .student-id-button{
+            position: relative;
+            display:flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;   
+            padding: .25em .75em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.2);
             cursor: pointer;
+            transition: .2s all ease-in-out;
+            &:hover{
+                background: #eee
+            }
+        }
+        img{
+            margin: .25em 0;
+            @media (min-width:$md) {
+                position: relative;
+                top: .175em; 
+                margin: 0;
+                margin-right: .5em;  
+            }
+            height: 1.5em;
+            width: 1.5em;
         }
     }
 
