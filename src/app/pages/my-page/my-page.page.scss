@@ -48,8 +48,17 @@ h2{
 }
 .page-content{
     padding-bottom: 5em;
+
+    .row{
+        &>div{
+            padding: 0 .83em;
+        }
+    }
 }
 #auction{
+    h2{
+        color: darkorange
+    }
     .auction-intro{
         padding: 1em;
         border-radius: 2px;
@@ -66,7 +75,7 @@ h2{
         }
     }
     form{
-        font-size: .8em;
+        font-size: .85em;
         select{
             padding: .25em;
             width: 50px;
@@ -78,11 +87,15 @@ h2{
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                flex-wrap: wrap;
                 padding: 1em 0;
+                font-size: .85em;
                 label{
                     input{
                         position: relative;
                         top: .125em;
+                        margin:0;
+                        margin-right: .2em;
                         cursor: pointer;
                     }
                 }
@@ -94,6 +107,7 @@ h2{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
             padding: .7em 0;
         }
         .comments{
@@ -109,6 +123,13 @@ h2{
                 border-radius: 2px;
                 border: 1px solid rgba(125,125,125,0.4);
             }
+        }
+        .note{
+            margin-top: .5em;
+            padding: 1em;
+            background: #eee;
+            font-size: .9em;
+            line-height: 1.4em;
         }
     }
 }
