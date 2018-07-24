@@ -209,7 +209,7 @@
 
                             <div *ngIf=" ! loader.auction ">
                                 <button data-button="auction-update" type="submit">Update</button>
-                                <button type="button" (click)="onDeleteAuction()">Delete</button>
+                                <button data-button="auction-delete" type="button" (click)="onDeleteAuction()">Delete</button>
                                 <div class="auction-saved" *ngIf="show.auctionSaved">* Your acution has been saved!</div>
                             </div>
                             <div class="loader" *ngIf=" loader.auction ">

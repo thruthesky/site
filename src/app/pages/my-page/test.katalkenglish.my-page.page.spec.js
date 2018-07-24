@@ -40,5 +40,9 @@ describe('My page', () => {
         cy.get("[name='comment']").type("I am looking for a male teacher who can teach me IELTS on skype.");
         cy.get("[data-button='auction-update']").click();
         cy.get(".auction-saved");
+
+        cy.get("[data-button='auction-delete']").click();
+        cy.get("[data-button='open-auction-box']").click();
+        cy.get("[name='comment']").should('be.empty');
     })
 })
