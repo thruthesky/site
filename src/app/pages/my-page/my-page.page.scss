@@ -48,8 +48,17 @@ h2{
 }
 .page-content{
     padding-bottom: 5em;
+
+    .row{
+        &>div{
+            padding: 0 .83em;
+        }
+    }
 }
 #auction{
+    h2{
+        color: darkorange
+    }
     .auction-intro{
         padding: 1em;
         border-radius: 2px;
@@ -85,6 +94,8 @@ h2{
                     input{
                         position: relative;
                         top: .125em;
+                        margin:0;
+                        margin-right: .2em;
                         cursor: pointer;
                     }
                 }
@@ -114,7 +125,11 @@ h2{
             }
         }
         .note{
+            margin-top: .5em;
+            padding: 1em;
+            background: #eee;
             font-size: .9em;
+            line-height: 1.4em;
         }
     }
 }
