@@ -1,23 +1,34 @@
 <main data-role="my-page-page">
     <header>
-        <h1 class="text-danger">My Page</h1>
+        <h1 class="text-white">{{ 'MYPAGE' | t }}</h1>
     </header>
     <section class="loader" *ngIf="loader.mypage">
         Loading...
     </section>
     <section class="page-content">
 
-        <div>
-            <img src="{{ mypage.photoURL }}"> Name: {{ mypage.name }}
+        <div class="page-description">
+            In this page, You will see all the information you need.
         </div>
         <div>
-            Point: {{ mypage.point | number }}
+            <img src="{{ mypage.photoURL }}">
+        </div>
+        <div>
+            Name:
+            <span data-role="user-name">{{ mypage.name }}</span>
+        </div>
+        <div>
+            Point: 
+            <span data-role="user-point">{{ mypage.point | number }}</span>
         </div>
         <div>
             Timezone: {{ mypage.timezone_country }} ({{ mypage.timezone }})
         </div>
         <div>
-            Software: {{ mypage.class_software }} : {{ mypage.class_software_id }}
+            Software: 
+            <img src="/assets/img/messengers/{{ mypage.class_software }}.png">
+            
+            : {{ mypage.class_software_id }}
         </div>
 
         <div>
@@ -45,7 +56,8 @@
             <div class="row">
                 <div class="col-sm-3">
 
-                    <div>My Level: {{ mypage.level }}</div>
+                    <div>My Level: 
+                        <span data-role="user-level">{{ mypage.level }}</span></div>
                 </div>
                 <div class="col-sm-9">
                     <table class="progress" *ngIf=" mypage.progress ">

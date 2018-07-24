@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MyPagePage } from './my-page.page';
 import { FormsModule } from '../../../../node_modules/@angular/forms';
+import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 
 const routes: Routes = [
   { path: '', component: MyPagePage }
@@ -11,7 +12,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    TranslatePipeModule
   ],
   exports: [
     RouterModule
