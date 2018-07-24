@@ -93,7 +93,7 @@
         <div><b>*R</b>: no of Reservations</div>
         <div><b>*M</b>: no of Minutes</div>
         <div><b>*P</b>: no of Points</div>
-        <table>
+        <table *ngFor="let user_group of a.keys(stats['booking']['teacher_groups']).reverse()">
             <tr>
                 <th>Teacher</th>
                 <th>
@@ -102,14 +102,14 @@
                 <th>
                     Bar
                 </th>
-                <th *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
+                <th *ngFor="let d of a.keys(stats['booking']['dates'])">
                     <div>{{d}}</div>
-                    <div>({{stats['booking_statistics']['dates'][d]['day']}})</div>
+                    <div>({{stats['booking']['dates'][d]['day']}})</div>
                 </th>
             </tr>
-            <tr *ngFor="let info of stats['booking_statistics']['teachers_info']; let even=even" [ngClass]="{'even':even}">
+            <tr *ngFor="let info of stats['booking']['teacher_groups'][user_group]; let even=even" [ngClass]="{'even':even}">
                 <td>
-                    <a href="/manager/user-info/{{idx}}">
+                    <a href="/manager/user-info/{{info.idx}}">
                     <div class="primary-photo" *ngIf="info['photoURL']">
                         <img src="{{info['photoURL']}}">
                     </div>
@@ -142,18 +142,18 @@
                         </span>
                     </div>
                 </td>
-                <td *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
-                    <ng-container *ngIf="stats['booking_statistics']['book_stats'][info.idx_teacher][d]">
+                <td *ngFor="let d of a.keys(stats['booking']['dates'])">
+                    <ng-container *ngIf="stats['booking']['statistics'][info.idx_teacher][d]">
                         <div>
-                            <b>R</b>:{{stats['booking_statistics']['book_stats'][info.idx_teacher][d]['no_of_reservation']}}/{{stats['booking_statistics']['book_stats'][info.idx_teacher][d]['no_of_schedule']}}({{stats['booking_statistics']['book_stats'][info.idx_teacher][d]['percentage_of_reservations']}}%)
+                            <b>R</b>:{{stats['booking']['statistics'][info.idx_teacher][d]['no_of_reservation']}}/{{stats['booking']['statistics'][info.idx_teacher][d]['no_of_schedule']}}({{stats['booking']['statistics'][info.idx_teacher][d]['percentage_of_reservations']}}%)
                         </div>
                         <div>
-                            <b class="{{classColor(stats['booking_statistics']['book_stats'][info.idx_teacher][d]['percentage_of_minutes'])}}">
-                                M:{{stats['booking_statistics']['book_stats'][info.idx_teacher][d]['minutes_of_reservation']}}/{{stats['booking_statistics']['book_stats'][info.idx_teacher][d]['minutes_of_schedule']}}({{stats['booking_statistics']['book_stats'][info.idx_teacher][d]['percentage_of_minutes']}}%)
+                            <b class="{{classColor(stats['booking']['statistics'][info.idx_teacher][d]['percentage_of_minutes'])}}">
+                                M:{{stats['booking']['statistics'][info.idx_teacher][d]['minutes_of_reservation']}}/{{stats['booking']['statistics'][info.idx_teacher][d]['minutes_of_schedule']}}({{stats['booking']['statistics'][info.idx_teacher][d]['percentage_of_minutes']}}%)
                             </b>
                         </div>
                         <div>
-                            <b>P</b>:{{a.shortNumber(stats['booking_statistics']['book_stats'][info.idx_teacher][d]['point_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['book_stats'][info.idx_teacher][d]['point_of_schedule'])}}({{stats['booking_statistics']['book_stats'][info.idx_teacher][d]['percentage_of_points']}}%)
+                            <b>P</b>:{{a.shortNumber(stats['booking']['statistics'][info.idx_teacher][d]['point_of_reservation'])}}/{{a.shortNumber(stats['booking']['statistics'][info.idx_teacher][d]['point_of_schedule'])}}({{stats['booking']['statistics'][info.idx_teacher][d]['percentage_of_points']}}%)
                         </div>
                     </ng-container>
                 </td>
@@ -162,14 +162,16 @@
                 <td></td>
                 <td></td>
                 <td *ngIf="stats">
-                    <div>TR:{{stats['booking_statistics']['dates_total']['total_average_no_of_reservation']}}/{{stats['booking_statistics']['dates_total']['total_average_no_of_schedule']}}({{stats['booking_statistics']['dates_total']['total_average_percentage_no_of_reservation']}}%)</div>
-                    <div><b class="{{ classColor(stats['booking_statistics']['dates_total']['total_average_percentage_minutes_of_reservation'])}}">TM:{{a.shortNumber(stats['booking_statistics']['dates_total']['total_average_minutes_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['dates_total']['total_average_minutes_of_schedule'])}}({{stats['booking_statistics']['dates_total']['total_average_percentage_minutes_of_reservation']}}%)</b></div>
-                    <div>TP:{{a.shortNumber(stats['booking_statistics']['dates_total']['total_average_point_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['dates_total']['total_average_point_of_schedule'])}}({{stats['booking_statistics']['dates_total']['total_average_percentage_point_of_reservation']}}%)</div>
+                    <div>TR:{{stats['booking']['dates_totals'][user_group]['total_average_no_of_reservation']}}/{{stats['booking']['dates_totals'][user_group]['total_average_no_of_schedule']}}({{stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation']}}%)</div>
+                    <div><b class="{{ classColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'])}}">TM:{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_minutes_of_reservation'])}}/{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_minutes_of_schedule'])}}({{stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation']}}%)</b></div>
+                    <div>TP:{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_point_of_reservation'])}}/{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_point_of_schedule'])}}({{stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation']}}%)</div>
                 </td>
-                <td *ngFor="let d of a.keys(stats['booking_statistics']['dates'])">
-                    <div>TR:{{stats['booking_statistics']['dates'][d]['total_no_of_reservation']}}/{{stats['booking_statistics']['dates'][d]['total_no_of_schedule']}}({{stats['booking_statistics']['dates'][d]['total_percentage_no_of_reservation']}}%)</div>
-                    <div><b class="{{ classColor(stats['booking_statistics']['dates'][d]['total_percentage_minutes_of_reservation'])}}">TM:{{a.shortNumber(stats['booking_statistics']['dates'][d]['total_minutes_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['dates'][d]['total_minutes_of_schedule'])}}({{stats['booking_statistics']['dates'][d]['total_percentage_minutes_of_reservation']}}%)</b></div>
-                    <div>TP:{{a.shortNumber(stats['booking_statistics']['dates'][d]['total_point_of_reservation'])}}/{{a.shortNumber(stats['booking_statistics']['dates'][d]['total_point_of_schedule'])}}({{stats['booking_statistics']['dates'][d]['total_percentage_point_of_reservation']}}%)</div>
+                <td *ngFor="let d of a.keys(stats['booking']['dates'])">
+                    <ng-container *ngIf="stats['booking']['dates'][d]['user_group'][user_group]">
+                        <div>TR:{{stats['booking']['dates'][d]['user_group'][user_group]['total_no_of_reservation']}}/{{stats['booking']['dates'][d]['user_group'][user_group]['total_no_of_schedule']}}({{stats['booking']['dates'][d]['user_group'][user_group]['total_percentage_no_of_reservation']}}%)</div>
+                        <div><b class="{{ classColor(stats['booking']['dates'][d]['user_group'][user_group]['total_percentage_minutes_of_reservation'])}}">TM:{{a.shortNumber(stats['booking']['dates'][d]['user_group'][user_group]['total_minutes_of_reservation'])}}/{{a.shortNumber(stats['booking']['dates'][d]['user_group'][user_group]['total_minutes_of_schedule'])}}({{stats['booking']['dates'][d]['user_group'][user_group]['total_percentage_minutes_of_reservation']}}%)</b></div>
+                        <div>TP:{{a.shortNumber(stats['booking']['dates'][d]['user_group'][user_group]['total_point_of_reservation'])}}/{{a.shortNumber(stats['booking']['dates'][d]['user_group'][user_group]['total_point_of_schedule'])}}({{stats['booking']['dates'][d]['user_group'][user_group]['total_percentage_point_of_reservation']}}%)</div>
+                    </ng-container>
                 </td>
             </tr>
         </table>
