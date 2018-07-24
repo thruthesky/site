@@ -25,7 +25,7 @@ for (const messenger of MESSENGERS) {
         it('Change messenger to ' + messenger, () => {
             cy.open('profile', 'register-page')
             cy.get("[data-role='choose-another-messenger-app']").click();
-            cy.get('.radio-' + messenger).check()
+            cy.get('.radio-' + messenger).check({timeout: 1000})
             // cy.wait(100);
             cy.get("[data-input-id-for='" + messenger + "']")
             cy.get("[name='class_software_id']").clear({ timeout: 1000 });
