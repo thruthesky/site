@@ -48,6 +48,13 @@ Cypress.Commands.add('login', url => {
     cy.get("[data-button='desktop-session-past']");
 });
 
+Cypress.Commands.add('logout', () => {
+    cy.get('[data-button="menu"]').click();
+    cy.get("[data-button='logout'").click();
+    cy.get("[data-button='desktop-login'")
+
+});
+
 /**
  * It does not visit the site.
  * 

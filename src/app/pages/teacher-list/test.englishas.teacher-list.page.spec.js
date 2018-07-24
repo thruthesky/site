@@ -12,17 +12,23 @@ const teacherName = 'Laira'
 
 
 for (const messenger of MESSENGERS) {
+    if ( config.server == 'remote' ) {
+        break;
+    }
     describe('Teacher list. Schedule Table. Messenger change test: ' + messenger, () => {
-        before(() => {
+        beforeEach(() => {
             cy.login(config.url.englishas)
+        })
+        afterEach(() => {
+            // cy.logout();
         })
         it('Change messenger to ' + messenger, () => {
             cy.open('profile', 'register-page')
             cy.get("[data-role='choose-another-messenger-app']").click();
             cy.get('.radio-' + messenger).check()
-            cy.wait(100);
+            // cy.wait(100);
             cy.get("[data-input-id-for='" + messenger + "']")
-            // cy.get("[name='class_software_id']").clear();
+            cy.get("[name='class_software_id']").clear({ timeout: 1000 });
             cy.get("[name='class_software_id']").type(chance.string({
                 length: 5,
                 pool: 'abcdefgh'
@@ -40,7 +46,7 @@ for (const messenger of MESSENGERS) {
             cy.get("[data-button='teacher']").should('have.length', 1);
             cy.get("[data-button='teacher']").click();
             cy.get("[data-role='schedule-table-page']");
-            cy.wait(500);
+            // cy.wait(500);
             cy.get("[data-class-software='" + messenger + "']")
         })
     })
