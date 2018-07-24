@@ -98,7 +98,7 @@
                 <div class="col-sm-6">
                     <div id="auction">
                         <h2>Hiring Teacher</h2>
-                        <div class="auction-intro" *ngIf="!show.auction" (click)="show.auction=true">
+                        <div data-button="open-auction-box" class="auction-intro" *ngIf="!show.auction" (click)="show.auction=true">
                             <b>You are not hiring a teacher.</b> Do you want to hire a teacher?
                         </div>
                         <form class="auction-form" (ngSubmit)=" onSubmitAuction( $event ) " *ngIf="show.auction">
