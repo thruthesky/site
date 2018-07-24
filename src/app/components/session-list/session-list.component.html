@@ -234,24 +234,12 @@
             <div class="col-1 col-md-1">
                 <div>{{book.duration}}</div>
             </div>
-            <div class="kakaotalk-id col-2 col-md-2" *ngIf=" future ">
-                <div>
-                    <ng-container *ngIf="a.isTeacher">
-                        {{ book.student_class_software }} : {{ book.student_class_software_id }}
-                    </ng-container>
-                    <ng-container *ngIf="a.isStudent">
-                        <div (click)=" onClickTeacherMessengerID( book ) ">
-                            <span class="id-button">
-                                <span>
-                                <svg *ngIf=" a.isMobileView() " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                    <path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
-                                    />
-                                </svg>
-                                </span>
-                                <span>{{ my_teachers[book.idx_teacher][book.student_class_software] }}</span>
-                            </span>
-                        </div>
-                    </ng-container>
+            <div class="messenger-id col-2 col-md-2" *ngIf=" future ">
+                <div [class.teacher-id-button]="a.isTeacher" [class.student-id-button]="a.isStudent"
+                     (click)="a.isStudent?onClickTeacherMessengerID( book ) : '' " >
+                    <span><img src="../../../assets/img/messengers/{{ book.student_class_software }}.png" alt="messenger button image"> </span>
+                    <span *ngIf="a.isStudent">{{ my_teachers[book.idx_teacher][book.student_class_software] }}</span>
+                    <span *ngIf="a.isTeacher"><b>ID</b> : {{ book.student_class_software_id }}</span>
                 </div>
             </div>
             <div class="col-2 col-md-1" *ngIf="displayPoint">

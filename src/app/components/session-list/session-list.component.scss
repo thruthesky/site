@@ -96,8 +96,8 @@
     }
     .change-timezone{
         display: inline-block;
-        margin:.3em;
-        @media screen and (min-width:$md) {
+        margin:.3em 0;
+        @media (min-width:$md) {
             margin: 0;
             margin-left: 5em;
         }
@@ -266,22 +266,42 @@
         color:blue;
     }
 
-    .kakaotalk-id {
+    .messenger-id {
         font-size: 85%;
         word-break: break-all;
-        .id-button{
+        .teacher-id-button{
+            display: flex;
+            flex-direction: column;
+            @media (min-width:$md) {
+                flex-direction: row;
+            }
+            align-items: center;
+            justify-content: center;   
+        }
+        .student-id-button{
+            position: relative;
             display:flex;
             flex-direction: column;
-            flex-wrap: wrap;
+            @media (min-width:$md) {
+                flex-direction: row;
+            }
             align-items: center;
-            justify-content: center;
-        }
-        svg{
-            height: .9em;
-            margin-bottom: .5em;
-        }
-        @media screen and (max-width:$md) {
+            justify-content: center;   
+            padding: .25em .75em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.3);
             cursor: pointer;
+        }
+        img{
+            margin: .25em 0;
+            @media (min-width:$md) {
+                position: relative;
+                top: .175em; 
+                margin: 0;
+                margin-right: .5em;  
+            }
+            height: 1.5em;
+            width: 1.5em;
         }
     }
 
