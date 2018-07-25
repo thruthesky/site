@@ -38,7 +38,7 @@ export class MyPagePage implements OnInit {
             this.loader.mypage = false;
             this.mypage = re;
             console.log('mypage: ', this.mypage);
-            if (this.mypage.auction) {
+            if (this.mypage.auction && this.mypage.auction.duration && parseInt(<any>this.mypage.auction.duration, 10) ) {
                 this.show.auction = true;
             }
         }, e => a.toast(e));
