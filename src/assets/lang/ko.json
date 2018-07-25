@@ -721,8 +721,32 @@
   "WORK_FOR": "소속",
   "WORK_FOR_SELF": "프리랜서",
 
-
-
-  "MYPAGE": "마이페이지"
-
+  "MYPAGE": "마이페이지",
+  "LOADING_MYPAGE": "마이페이지를 로딩중입니다. 잠시만 기다려주세요.",
+  "MYPAGE_DESCRIPTION": "수업과 관련된 정보를 이 페이지에서 확인 할 수 있습니다.",
+  "UPDATE_PHOTO": "사진 업데이트",
+  "TIMEZONE": "시간대",
+  "NO_OF_RESERVATION": "예약된 수업 수",
+  "NO_OF_PAST": "지난 수업 수",
+  "NEXT_CLASS": "다음 수업",
+  "BOOK_IN_USE": "수업 교재",
+  "MY_LEVEL": "나의 레벨",
+  "MY_LEARNING_PROGRESS": "학업성취도",
+  "MY_INTRODUCTION": "나의 소개",
+  "ENGLISH_ONLY": "꼭 영어로 적어주세요.",
+  "MY_INTRODUCTION_EX_1": "예문) Hello. I am Yuna. I am 12 years old. I go to school every day. I like music class the most.",
+  "SUBMIT_MY_INTRODUCTION": "나의 소개 저장하기",
+  "AUCTION_TITLE": "선생님 찾기",
+  "AUCTION_DESC": "선생님 찾기를 하시겠습니까? 원하시는 요일, 시간, 포인를 선택 할 수 있습니다.",
+  "AUCTION_DAYS": "무슨 요일에 수업을 하고 싶은가요?",
+  "AUCTION_HOUR": "몇 시에 수업을 하고 싶은가요?",
+  "AUCTION_DURATION": "몇 분동안 수업을 하고 싶은가요?",
+  "AUCTION_POINT": "몇 포인트로 수업을 하고 싶은가요?",
+  "AUCTION_COMMENT": "추가적으로 하시고 싶은 말씀을 적어주세요. (가능하면 영어로 적어주세요.)",
+  "SAVING": "저장 중입니다.",
+  "SAVED": "올바로 저장되었습니다.",
+  "TO_SAVE": "저장하기",
+  "TO_DELETE": "삭제하기",
+  "AUTION_REPLAY": "선생님 구하기를 신청하시면, 선생님들께서 보고 신청을 합니다. 회원님께서는 이곳에서 어떤 선생님들께서 신청했는지 알 수 있습니다.",
+  "WITHCENTER": "학원강사"
 }

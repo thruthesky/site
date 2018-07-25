@@ -674,7 +674,34 @@
 
 
 
-  "MYPAGE": "私のページ"
+  "MYPAGE": "私のページ",
+  "LOADING_MYPAGE": "私のページが読み込まれている間お待ちください。",
+  "MYPAGE_DESCRIPTION": "このページにあなたの学習情報がすべて表示されます。",
+  "UPDATE_PHOTO": "写真を更新する",
+  "TIMEZONE": "タイムゾーン",
+  "NO_OF_RESERVATION": "予約数",
+  "NO_OF_PAST": "過去のクラス数",
+  "NEXT_CLASS": "次の授業",
+  "BOOK_IN_USE": "使用中の書籍",
+  "MY_LEVEL": "私のレベル",
+  "MY_LEARNING_PROGRESS": "私の学習進歩",
+  "MY_INTRODUCTION": "私の紹介",
+  "ENGLISH_ONLY": "英語で書いてください。",
+  "MY_INTRODUCTION_EX_1": "例）こんにちは。 私はゆうなです。 私は12歳です。 私は毎日学校に通っています。 私は音楽クラスが一番好きです。",
+  "SUBMIT_MY_INTRODUCTION": "私の紹介を保存する",
+  "AUCTION_TITLE": "教師を見つける",
+  "AUCTION_DESC": "先生を探していますか？ 昼と時間を選択できます。",
+  "AUCTION_DAYS": "何日勉強したいですか？",
+  "AUCTION_HOUR": "クラスは何時に始めるべきですか？",
+  "AUCTION_DURATION": "クラスはどれくらいの期間は必要ですか？",
+  "AUCTION_POINT": "各クラスはどのくらいのレベルにする必要がありますか？",
+  "AUCTION_COMMENT": "コメントを追加できます。 （英語で書いてください）",
+  "SAVING": "保存中...",
+  "SAVED": "保存しました。",
+  "TO_SAVE": "セーブ",
+  "TO_DELETE": "削除",
+  "AUTION_REPLY": "あなたが雇用教師のために広告している場合は、ここに教師のアプリケーションが表示されます。",
+  "WITHCENTER": "Withcenter"
 
 
 

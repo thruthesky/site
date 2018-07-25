@@ -63,7 +63,8 @@ export class MyPagePage implements OnInit {
             minute: 0,
             duration: 0,
             point: 0,
-            comment: ''
+            comment: '',
+            auction: {}
         };
     }
 
