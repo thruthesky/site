@@ -38,7 +38,8 @@ export class MyPagePage implements OnInit {
             console.log('mypage: ', re);
             this.loader.mypage = false;
             this.mypage = re;
-            if (this.mypage.auction) {
+            console.log('mypage: ', this.mypage);
+            if (this.mypage.auction && this.mypage.auction.duration && parseInt(<any>this.mypage.auction.duration, 10) ) {
                 this.show.auction = true;
             }
             // console.log('mypage:after:load ', this.mypage);

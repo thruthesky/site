@@ -1,8 +1,14 @@
 @import '../../../theme/variables-katalkenglish.scss';
 @import '../../../theme/vars.scss';
 /**
- *
+ * 
  */
+.top{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 header{
     h1{
         padding: 16px!important;
@@ -57,7 +63,7 @@ header{
     }
 }
 .panel-container{
-    margin-bottom: 1em;
+    margin-bottom: .75em;
     border: 1px solid rgba(125,125,125,0.15);
     border-radius: 2px;
     .panel-title{
@@ -66,8 +72,9 @@ header{
         font-size: .85em;
     }
     .panel-content{
-        padding: 1em 16px;
+        padding: .75em 16px;
         background: #fff;
+        font-size: .9em
     }
 }
 .fs-sm {
@@ -81,8 +88,8 @@ header{
         align-items: center;
         justify-content: center;
         border-radius: 3px;
-        height: 100px;
-        width: 100px;
+        height: 90px;
+        width: 90px;
         overflow: hidden;
         img{
             width: 100%;
@@ -92,7 +99,7 @@ header{
         .app-button{
             margin: 0;
             margin-top: .5em;
-            width: 100px;
+            width: 90px;
             padding: .5em;
             font-size: .65em;
             text-align: center;
@@ -103,7 +110,7 @@ header{
                 top: .125em;
                 height: 1em;
                 width: 1em;
-                margin-right: .2em;
+                margin-right: .1em;
             }
         }
     }
@@ -114,8 +121,9 @@ header{
         flex:100%;
         padding-left: 1em;
         font-size: .9em;
-        b{
-            margin-right: .3em;
+        .title{
+            margin-right: .2em;
+            color: dimgray
         }
         .class-id {
             position: relative;
@@ -128,18 +136,20 @@ header{
                 width: 1.5em;
                 height: 1.5em;
                 margin-right: .3em;
+                white-space: nowrap
             }
         }
     }
 }
 #student-session-stats{
     margin-bottom: 1em;
+    width: 100%;
 
     .row{
         font-size: .85em;
         [data-role]{
             display: inline-block;
-            padding: .5em;
+            padding: .25em;
             min-width: 80px;
             border-radius: 2px; 
             background: #fff;
@@ -171,7 +181,7 @@ header{
         margin-right: .5em;
         height: 1.5em;
         widows: 1.5em;
-        color: #FF7B0D
+        color: dimgray
     }
 }
 #my-level{
@@ -259,10 +269,34 @@ header{
     }
 }
 
-.next-class {
-    img {
-        border-radius: .3em;
+#next-class {
+    .teacher-photo{
+        height: 48px;
         width: 48px;
+        margin-right: .75em;
+        border-radius: .3em;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+    .panel-content{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .class-info{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .teacher-name{
+                text-transform: uppercase;
+            }
+            .class-time{
+                color: #1B4AB5
+            }
+        }
     }
 }
 #my-introduction,
