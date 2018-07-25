@@ -80,6 +80,10 @@ h2{
 }
 #my-introduction{
     .warning{
+        padding: 1em;
+        border-radius: 2px;
+        border:1px solid rgba(125,125,125,0.2);
+        background: #fff;
         font-size: .85em;
         b{
             color: darkred;
