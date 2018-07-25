@@ -1,7 +1,5 @@
 <section id="statistics-graph">
     <div class="form">
-        <span>
-            <b>No of Point Refund:</b> {{reports.no_of_point_refund_request}}</span>
         <form (ngSubmit)=" loadAdminStatistics() ">
             <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
             <input type="number" name="date_end" [(ngModel)]="stat_date_end">

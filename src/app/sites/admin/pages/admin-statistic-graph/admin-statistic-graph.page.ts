@@ -75,6 +75,10 @@ export class AdminStatisticGraphPage implements OnInit {
     classBgColor( n: number ) {
         return 'bg-' + this.classColor(n);
     }
+
+    onClickSelectDate( before, after ) {
+        console.log( before, after );
+    }
 }
 
 

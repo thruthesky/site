@@ -826,9 +826,11 @@ export class XapiLMSService extends Base {
             auction: auction
         });
     }
-    get_auctions(): Observable<any> {
+    get_auctions(tz_offset): Observable<any> {
         return this.x.post({
-            route: 'lms.get_auctions'
+            route: 'lms.get_auctions',
+            session_id: this.user.sessionId,
+            tz_offset: tz_offset
         });
     }
     auction_delete(): Observable<any> {

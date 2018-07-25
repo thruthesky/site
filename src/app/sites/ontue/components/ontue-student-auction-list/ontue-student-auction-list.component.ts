@@ -12,12 +12,17 @@ export class OntueStudentAuctionListComponent {
 
     constructor(public a: AppService) {
 
-        a.lms.get_auctions().subscribe( res => {
+
+        let offset = new Date().getTimezoneOffset();
+        offset = (offset / 60) * -1;
+        a.lms.get_auctions(offset).subscribe( res => {
             console.log('get_auctions: ', res);
             if (res) {
                 this.auctions = res;
             }
         }, e => this.a.toast(e));
+
+
     }
 
 }
