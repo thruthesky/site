@@ -38,7 +38,7 @@ export class OntueHomePage {
         }, () => {
         });
 
-        forum.loadPosts({slug: 'teacher_reminders', page: 1, per_page: 3}).subscribe(re => this.reminders = re);
+        forum.loadPosts({slug: 'teacher_reminders', page: 1, per_page: 5}).subscribe(re => this.reminders = re);
 
 
     }

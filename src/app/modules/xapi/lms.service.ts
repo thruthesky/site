@@ -137,6 +137,7 @@ export interface MYPAGE {
         duration: number;
         point: number;
         comment: string;
+        hourTime_stamp?: number;
     };
 }
 
@@ -835,6 +836,11 @@ export class XapiLMSService extends Base {
             route: 'lms.auction_delete',
             session_id: this.user.sessionId
         });
+    }
+
+    get_latest_student_register(req) {
+        req['route'] = 'lms.get_latest_student_register';
+        return this.x.post(req);
     }
 
 

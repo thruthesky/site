@@ -1,0 +1,24 @@
+<section>
+    <div class="title">
+        <span>New Students</span>
+    </div>
+    <div class="body">
+        <ng-container *ngFor="let student of students; let i=index">
+            <div (click)="a.open('schedule-table', { idx_teacher: student.ID })">
+                <div class="container-fluid" *ngIf="i<3">
+                    <div class="row">
+                        <div class="col-md-4 col-3">
+                            <span class="student-photo">
+                                <img  [src]="a.checkPhotoURL(student.photoURL)"/>
+                            </span>
+                            <div class="student-name">{{ a.preTeacherName(student.display_name) }}</div>
+                        </div>
+                        <div class="col">
+                            <span class="date">Class Software: {{ student.class_software }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</section>
