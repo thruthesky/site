@@ -3,11 +3,75 @@
 /**
  *
  */
-.circle {
-    padding: 3em;
-    border-radius: 50%;
-    background-color: #ddd;
-    font-size: 1.5em;
+.panel-container{
+    margin-bottom: 1em;
+    border: 1px solid rgba(125,125,125,0.15);
+    border-radius: 2px;
+    .panel-title{
+        padding: .5em 16px;
+        background: #eee;
+        font-size: .85em;
+    }
+    .panel-content{
+        padding: 1em 16px;
+        background: #fff;
+    }
+}
+#book-in-use{
+    .panel-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    svg{
+        margin-right: .5em;
+        height: 1.5em;
+        widows: 1.5em;
+        color: dimgray
+    }
+}
+#my-level{
+        .circle {
+            position: relative;
+            margin: auto;
+            height: 3em;
+            width: 3em;
+            border-radius: 50%;
+            background-color: #ddd;
+            font-size: 1.5em;
+            span{
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%,-50%); 
+            }
+            svg{
+                height: 1.5em;
+                width:  1.5em;
+                &[level-color="0"],
+                &[level-color="1"],
+                &[level-color="2"],
+                &[level-color="3"] {
+                    color: gray;
+                }
+                &[level-color="4"],
+                &[level-color="5"],
+                &[level-color="6"] {
+                    color: dodgerblue;
+                }
+                &[level-color="7"],
+                &[level-color="8"],
+                &[level-color="9"],
+                &[level-color="10"] {
+                    color: darkorange;
+                }
+            }
+            .no{
+                top: 45%;
+                color: #fff;
+                font-size: .7em;
+            }
+        }
 }
 #my-page-profile {
     .profile-meta {
@@ -18,10 +82,27 @@
         }
     }
 }
-.progress {
-    .wrapper {
-        .bar {
-            padding: 0 .25em;
+#progress-bargraph{
+    .panel-content {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        padding-top: 2em;
+        overflow: auto;
+        .bar-item {
+            position: relative;
+            min-width: 2em;
+            border-top-right-radius: 2px;
+            border-top-left-radius: 2px;
+            text-align: center;
+            .level{
+                position: relative;
+                display: inline-block;
+                bottom: 1.3em;
+                padding: 0 2px;
+                font-size: .85em;
+            }
+
             &[level="0"],
             &[level="1"],
             &[level="2"],
