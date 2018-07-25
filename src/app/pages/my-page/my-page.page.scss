@@ -98,7 +98,15 @@
 }
 #my-introduction{
     .intro-desc{
+        margin-bottom: 1em;
+        padding: .5em 1em;
+        border-radius: 2px;
+        background: rgba(dodgerblue,0.1);
+        font-size: .9em;
         line-height: 1.5em;
+        &>div{
+            margin: .5em 0;
+        }
         &>div:first-child{
             // color: #0867B0;
             color: darkred;
