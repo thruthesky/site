@@ -24,7 +24,7 @@
                 {{ 'TAKEN' | t }}: {{ re.teacher.total_reservation }} {{ 'HAD SESSIONS' | t }}
             </div>
             <div>
-                {{ 'WORK_FOR' | t }}: {{ re.teacher.user_group ? re.teacher.user_group : 'WORK_FOR_SELF' | t }}
+                {{ 'WORK_FOR' | t }}: {{ re.teacher.user_group ? (re.teacher.user_group | t) : 'WORK_FOR_SELF' | t }}
             </div>
 
             <div class="class-software" *ngIf="myClassSoftware">

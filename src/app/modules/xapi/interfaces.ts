@@ -607,6 +607,7 @@ export interface TEACHER_LIST_INFO {
     birthday: string;
     bookable_time: string;
     display_name: string;
+    user_group: string;
     grade: string;
     kakao_qrmark_string: string;
     kakaotalk_id: string;
