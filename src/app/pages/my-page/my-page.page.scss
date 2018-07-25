@@ -73,14 +73,16 @@
             width: 1.2em;
         }
     }
-    button[data-button]{
-        margin:.5em .1em;
-        margin-right: 1.5em;
-        padding: .5em 1em;
-        border-radius: 2px;
-        border: 1px solid rgba(125,125,125,0.4);
-        background: darkblue;
-        color: #fff;
+    .buttons{
+        text-align: center;
+        button[data-button]{
+            margin:.5em 1em;
+            padding: .5em 1em;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.4);
+            background: darkblue;
+            color: #fff;
+        }
     }
     textarea{
         padding: .75em 1em;
@@ -97,6 +99,9 @@
     padding: 1em 0;
 }
 #my-introduction{
+    h2{
+        color: darkorange
+    }
     .intro-desc{
         margin-bottom: 1em;
         padding: .5em 1em;
@@ -109,7 +114,14 @@
         }
         &>div:first-child{
             // color: #0867B0;
-            color: darkred;
+            color: darkblue;
+            svg{
+                position: relative;
+                top: .18em;
+                height: 1.2em;
+                width: 1.2em;
+                margin-right: .3em;
+            }
         }
     }
     .warning{
