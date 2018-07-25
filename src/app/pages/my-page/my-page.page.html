@@ -6,50 +6,51 @@
         Loading...
     </section>
     <section class="page-content">
-
         <div class="page-description">
             In this page, You will see all the information you need.
         </div>
-        <div id="my-page-profile" class="container mb-5">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="d-flex justify-content-center">
-                        <img src="{{ mypage.photoURL }}" *ngIf=" mypage?.photoURL ">
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <span class="app-button">Update Photo</span>
-                    </div>
+        <div id="my-page-profile">
+            <div class="profile-photo">
+                <div class="student-photo">
+                    <!-- <img src="{{ mypage.photoURL }}" *ngIf=" mypage?.photoURL "> -->
+                    <img src="../../../assets/img/student/1.jpg" *ngIf=" true ">
                 </div>
-                <div class="profile-meta col-sm-6">
-                    <div>
-                        Name:
-                        <span data-role="user-name">{{ mypage.name }}</span>
-                    </div>
-                    <div>
-                        Point:
-                        <span data-role="user-point">{{ mypage.point | number }}</span>
-                    </div>
-                    <div>
-                        Timezone: {{ mypage.timezone_country }} ({{ mypage.timezone }})
-                    </div>
-                    <div class="class-id">
-                        Class ID:
-                        <span data-role="class-software-icon">
-                            <img src="/assets/img/messengers/{{ mypage.class_software }}.png">
-                        </span>
-                        <span data-role="class-software-id">{{ mypage.class_software_id }}</span>
-                    </div>
+                <div class="update-photo-button">
+                    <span class="app-button">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-camera fa-w-16 fa-7x"><path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path></svg>
+                        Update Photo
+                    </span>
+                </div>
+            </div>
+            <div class="profile-meta">
+                <div>
+                    <b>Name:</b>
+                    <span data-role="user-name">{{ mypage.name }}</span>
+                </div>
+                <div>
+                    <b>Point:</b>
+                    <span data-role="user-point">{{ mypage.point | number }}</span>
+                </div>
+                <div>
+                    <b>Timezone:</b> {{ mypage.timezone_country }} ({{ mypage.timezone }})
+                </div>
+                <div class="class-id">
+                    <span data-role="class-software-icon">
+                        <img src="/assets/img/messengers/{{ mypage.class_software }}.png">
+                    </span>
+                    <b>Class ID:</b>
+                    <span data-role="class-software-id">{{ mypage.class_software_id }}</span>
                 </div>
             </div>
         </div>
 
-        <div class="container">
+        <div id="student-session-stats" class="container">
             <div class="row">
-                <div class="col-sm-6 p-3 text-center bg-dark text-white">
+                <div class="col-sm-6">
                     <span>No. of Reservations</span>
                     <span data-role="no-of-reservation">{{ mypage.no_of_reservation }}</span>
                 </div>
-                <div class="col-sm-6 p-3 text-center bg-secondary text-white">
+                <div class="col-sm-6">
                     <span>No. of Past</span>
                     <span data-role="no-of-reservation">{{ mypage.no_of_past }}</span>
                 </div>
