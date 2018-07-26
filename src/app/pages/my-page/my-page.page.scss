@@ -139,14 +139,32 @@ header{
     }
 }
 #student-session-stats{
+    .circle{
+        display: inline-flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 7em;
+        width: 7em;
+        border-radius: 50%;
+        background: #eee;
+        text-align: center;
+        &>div{
+            margin: .1em 0;
+            font-size: .85em;
+        }
+        &>div:first-child{
+            font-size: 1.7em;
+        }
+    }
 }
 #my-level{
-        .circle {
+        .box{
             position: relative;
             margin: auto;
-            height: 3em;
-            width: 3em;
-            border-radius: 50%;
+            height: 4em;
+            width: 4em;
+            border-radius: 4px;
             background-color: #ddd;
             font-size: 1.5em;
             span{
@@ -156,8 +174,8 @@ header{
                 transform: translate(-50%,-50%); 
             }
             svg{
-                height: 1.5em;
-                width:  1.5em;
+                height: 1.75em;
+                width:  1.75em;
                 &[level-color="0"],
                 &[level-color="1"],
                 &[level-color="2"],
@@ -227,8 +245,8 @@ header{
 
 #next-class {
     .teacher-photo{
-        height: 48px;
-        width: 48px;
+        height: 70px;
+        width: 70px;
         margin-right: .75em;
         border-radius: .3em;
         overflow: hidden;
