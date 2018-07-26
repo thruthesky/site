@@ -70,21 +70,25 @@
                 <div class="class-info">
                     <div>{{ a.ln.NEXT_CLASS }}</div>
                     <div class="teacher-name">{{ a.ln.NAME }}: {{ mypage.next_class.teacher_name}}</div>
-                    <div class="class-time">{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</div>
+                    <div class="class-time">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z"></path></svg></span>
+                        <span>{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</span>
+                    </div>
                     <div class="book-in-use">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path></svg></span>
                         <span>{{ a.ln.BOOK_IN_USE }}: </span>
-                        <span> {{ mypage.book_next }}</span>
+                        <b> {{ mypage.book_next }}</b>
                     </div>
                 </div>
             </div>
 
 
             <div id="student-session-stats">
-                <div class="circle">
+                <div id="no-of-reservation" class="circle">
                     <div data-role="no-of-reservation">{{ mypage.no_of_reservation }}</div>
                     <div>{{ a.ln.NO_OF_RESERVATION }}</div>
                 </div>
-                <div class="circle">
+                <div id="no-of-past" class="circle">
                     <div data-role="no-of-reservation">{{ mypage.no_of_past }}</div>
                     <div>{{ a.ln.NO_OF_PAST }}</div>
                 </div>

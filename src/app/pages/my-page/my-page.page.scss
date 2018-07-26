@@ -98,7 +98,7 @@ header{
             width: 90px;
             border-radius: 4px;
             font-size: 1.5em;
-            background: #fff;
+            background: #eee;
             text-align: center;
             @media (min-width:$md) {
                 height: 100px;
@@ -178,10 +178,23 @@ header{
             margin-left: 1em;
 
             .class-time{
-                color:darkred
+                color:darkred;
             }
             .book-in-use{
                 color: darkgreen
+            }
+            .class-time,
+            .book-in-use{
+                svg{
+                    position: relative;
+                    top: .125em;
+                    height: 1em;
+                    width: 1em;
+                    margin-right: .3em;
+                }
+                .book-title{
+                    color: #000;
+                }
             }
         }
     }
