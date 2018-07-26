@@ -66,13 +66,11 @@
                     <div class="teacher-photo">
                         <img src="{{ mypage.next_class.teacher_photoURL }}">
                     </div>
-                    <div class="teacher-name">{{ mypage.next_class.teacher_name}}</div>
                 </div>
                 <div class="class-info">
                     <div>{{ a.ln.NEXT_CLASS }}</div>
-                    <div class="class-time">
-                        {{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}
-                    </div>
+                    <div class="teacher-name">{{ mypage.next_class.teacher_name}}</div>
+                    <div class="class-time">{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</div>
                     <div class="book-in-use">
                         <span>{{ a.ln.BOOK_IN_USE }}:</span>
                         <span>{{ mypage.book_next }}</span>

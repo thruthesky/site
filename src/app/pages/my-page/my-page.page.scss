@@ -162,6 +162,8 @@ header{
 #my-level{
         .title{ 
             color: #000;
+            margin-bottom: .3em;
+            text-align: center;
         }
         .box-container{
             position: relative;
@@ -251,8 +253,8 @@ header{
     display: flex;
     .profile-photo{
         .teacher-photo{
-            height: 70px;
-            width: 70px;
+            height: 90px;
+            width: 90px;
             border-radius: 50%;
             overflow: hidden;
             img{
