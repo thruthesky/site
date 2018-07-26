@@ -28,11 +28,11 @@
                 </div>
                 <div class="profile-meta">
                     <div>
-                        <b>{{ a.ln.NAME }}</b>
+                        <span>{{ a.ln.NAME }}</span>
                         <span data-role="user-name">{{ mypage.name }}</span>
                     </div>
                     <div>
-                        <b>{{ a.ln.POINT }}</b>
+                        <span>{{ a.ln.POINT }}</span>
                         <span data-role="user-point">{{ mypage.point | number }}</span>
                     </div>
                     <div>
@@ -65,8 +65,9 @@
 
             <div id="next-class" *ngIf="mypage.next_class">
                 <div>{{ a.ln.NEXT_CLASS }}</div>
-                <div>
-                    <img src="{{ mypage.next_class.teacher_photoURL }}">
+                <div class="teacher-photo">
+                    <!-- <img src="{{ mypage.next_class.teacher_photoURL }}"> -->
+                    <img src="../../../assets/img/student/1.jpg" alt="">
                 </div>
                 <div class="class-info">
                     <div class="teacher-name">{{ mypage.next_class.teacher_name}}</div>
