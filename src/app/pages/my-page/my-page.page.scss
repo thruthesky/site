@@ -15,6 +15,7 @@ header{
         justify-content: space-between;
     }
 
+
     /** flex arrangement ( Lower value will be first ) **/
 
     //arrangement in mobile view 
@@ -29,6 +30,7 @@ header{
     }
 
     /** End of Flex arrangement **/
+
 
     #my-page-profile {
         display: flex;
@@ -293,7 +295,6 @@ header{
         .bar-item {
             position: relative;
             margin: 0 1.5px;
-            // min-width: 2em;
             border-top-right-radius: 2px;
             border-top-left-radius: 2px;
             text-align: center;
@@ -347,7 +348,6 @@ header{
             margin: .5em 0;
         }
         &>div:first-child{
-            // color: #0867B0;
             color: darkblue;
             svg{
                 position: relative;
@@ -436,9 +436,12 @@ header{
             padding: .7em 0;
         }
         .comments{
+            margin-top: .5em;
+            font-size: 1.1em;
             label{
                 display: block;
                 margin-bottom: .3em;
+                color: darkblue
             }
         }
         .note{
@@ -447,6 +450,11 @@ header{
             background: #eee;
             font-size: .9em;
             line-height: 1.4em;
+        }
+        .point{
+            select{
+                min-width: 60px;
+            }
         }
     }
 }
@@ -510,7 +518,7 @@ header{
     color: #272727;
 }
 
-//animation
+
 @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -522,7 +530,8 @@ header{
 
 
 
-.greeting-saved {
+.greeting-saved,
+.auction-saved {
     font-size: .85em;
     color: darkgreen;
 }
