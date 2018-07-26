@@ -17,8 +17,7 @@
             <div id="my-page-profile">
                 <div class="profile-photo">
                     <div class="student-photo">
-                        <!-- <img src="{{ mypage.photoURL }}" *ngIf=" mypage?.photoURL " alt="profile picture"> -->
-                        <img src="../../../assets/img/student/1.jpg" alt="profile picture">
+                        <img src="{{ mypage.photoURL }}" *ngIf=" mypage?.photoURL " alt="profile picture">
                     </div>
                     <div class="update-photo-button">
                         <span class="app-button">
@@ -67,30 +66,18 @@
             <div id="next-class" *ngIf="mypage.next_class">
                 <div>{{ a.ln.NEXT_CLASS }}</div>
                 <div>
-                    {{ a.ln.TIMEZONE }} {{ mypage.timezone_country }} ({{ mypage.timezone }})
+                    <img src="{{ mypage.next_class.teacher_photoURL }}">
                 </div>
-                <div class="class-id" *ngIf=" mypage.class_software ">
-                    
-                        <span>{{ mypage.class_software | t }} {{ a.ln.ID }}</span>
-                        <span data-role="class-software-icon" *ngIf="mypage?.class_software">
-                            <img src="/assets/img/messengers/{{ mypage.class_software }}.png">
-                        </span>
-                    <span data-role="class-software-id">{{ mypage.class_software_id }}</span>
-                    <div>
-                        <img src="{{ mypage.next_class.teacher_photoURL }}">
+                <div class="class-info">
+                    <div class="teacher-name">{{ mypage.next_class.teacher_name}}</div>
+                    <div class="class-time">
+                        {{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}
                     </div>
-                    <div class="class-info">
-                        <div class="teacher-name">{{ mypage.next_class.teacher_name}}</div>
-                        <div class="class-time">
-                            {{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}
-                        </div>
-                        <div class="book-in-use">
-                            <span>{{ a.ln.BOOK_IN_USE }}:</span>
-                            <span>{{ mypage.book_next }}</span>
-                        </div>
+                    <div class="book-in-use">
+                        <span>{{ a.ln.BOOK_IN_USE }}:</span>
+                        <span>{{ mypage.book_next }}</span>
                     </div>
                 </div>
-
             </div>
 
 
