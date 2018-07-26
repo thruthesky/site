@@ -1,4 +1,3 @@
-@import '../../../theme/variables-katalkenglish.scss';
 @import '../../../theme/vars.scss';
 header{
     h1{
@@ -39,6 +38,9 @@ header{
         @media (min-width:$md){
             margin-bottom: 0;
         }
+        .profile-photo{
+            cursor: pointer;
+        }
         .student-photo{
             display: flex;
             align-items: center;
@@ -52,6 +54,7 @@ header{
             }
         }
         .update-photo-button{
+            cursor: pointer;
             .app-button{
                 margin: 0;
                 margin-top: .5em;
@@ -60,13 +63,17 @@ header{
                 font-size: .65em;
                 text-align: center;
                 background: #1B4AB5;
-    
                 svg{
                     position: relative;
                     top: .125em;
                     height: 1em;
                     width: 1em;
                     margin-right: .1em;
+                }
+                input[type="file"]{
+                    position: absolute;
+                    opacity: 0;
+                    z-index: -1;
                 }
             }
         }
@@ -81,8 +88,9 @@ header{
                 padding-left: 2em;
                 img {
                     position: absolute;
-                    bottom: 0;
+                    bottom: 50%;
                     left: 0;
+                    transform: translateY(50%);
                     width: 1.5em;
                     height: 1.5em;
                     margin-right: .3em;
@@ -119,15 +127,15 @@ header{
                 transform: translate(-50%,-50%)
             }
             .title{
-                top: 18%
+                top: 18%;
             }
             .no{
                 color: #fff;
                 top:50%;
             }
             svg{
-                height: 2em;
-                width:  2em;
+                height: 2.2em;
+                width:  2.2em;
                 &[level-color="0"],
                 &[level-color="1"],
                 &[level-color="2"],
@@ -176,15 +184,16 @@ header{
             justify-content: space-around;
             font-size: .9em;
             margin-left: 1em;
-
+            .title{
+                color: dimgray
+            }
             .class-time{
                 color:darkred;
             }
             .book-in-use{
                 color: darkgreen
             }
-            .class-time,
-            .book-in-use{
+            &>div{
                 svg{
                     position: relative;
                     top: .125em;
@@ -192,15 +201,13 @@ header{
                     width: 1em;
                     margin-right: .3em;
                 }
-                .book-title{
-                    color: #000;
-                }
             }
         }
     }
     #student-session-stats{
         background: #fff;
         flex: auto;
+        text-align: center;
         @media (min-width:$md) {
             background: 0;
             flex: unset;
@@ -230,7 +237,9 @@ header{
                 font-size: 1.7em;
             }
             &:first-child{
-                margin: 0 1em;
+                @media (min-width:$md) {
+                    margin: 0 .75em;
+                }
             }
         }
     }
@@ -281,12 +290,26 @@ header{
     .buttons{
         text-align: center;
         button[data-button]{
+            display: inline-flex;
+            align-items: center;
             margin:.5em 1em;
             padding: .5em 1em;
             border-radius: 2px;
-            border: 1px solid rgba(125,125,125,0.4);
+            border: 1px solid rgba(125,125,125,0.2);
             background: darkblue;
             color: #fff;
+
+            svg{
+                position: relative;
+                top: .125em;
+                height: 1.25em;
+                width: 1.25em;
+                margin-right: .3em;
+            }
+        }
+        button[data-button="auction-delete"]{
+            background: #eee;
+            color: #000
         }
     }
     textarea{
@@ -298,26 +321,26 @@ header{
         border: 1px solid rgba(125,125,125,0.4);
     }
 }
-.panel-container{
-    margin-bottom: .75em;
-    border: 1px solid rgba(125,125,125,0.15);
+#progress-bargraph{
+    margin-bottom: .5em;
+    padding: 0 1em;
+    @media (min-width:$md) {
+        padding: 0;
+    }
     border-radius: 2px;
+
     .panel-title{
         padding: .5em 16px;
         background: #eee;
         font-size: .85em;
     }
-    .panel-content{
-        padding: .75em 16px;
-        background: #fff;
-        font-size: .9em
-    }
-}
-#progress-bargraph{
     .panel-content {
         display: flex;
         align-items: flex-end;
+        padding: .75em 16px;
         padding-top: 2em;
+        background: #fff;
+        font-size: .9em;
         overflow: auto;
         &>div{
             flex: auto
@@ -328,7 +351,7 @@ header{
             border-top-right-radius: 2px;
             border-top-left-radius: 2px;
             text-align: center;
-            max-width: 200px;
+            max-width: 170px;
             .level{
                 position: relative;
                 display: inline-block;
@@ -362,7 +385,7 @@ header{
 #my-introduction,
 #auction,
 #teacher-list{
-    padding: 1em 0;
+    padding-bottom: .5em;
 }
 #my-introduction{
     h2{
@@ -453,6 +476,7 @@ header{
                         margin-right: .2em;
                         cursor: pointer;
                     }
+                    cursor: pointer;
                 }
             }
         }
@@ -489,12 +513,20 @@ header{
     }
 }
 #teacher-list{
+    margin: 0 -.225em;
+    h2{
+        margin-top: .5em;
+        color: dodgerblue;
+    }
     .teachers {
         display: flex;
         flex-flow: wrap;
         justify-content: space-around;
         font-size: .78em;
         margin: 0 .45em;
+        @media (min-width:$md) {
+            margin: 0 -.25em
+        }
         .teacher {
             margin: .45em .25em;
             border-radius: 2px;
@@ -528,10 +560,7 @@ header{
     }
 }
 
-
-
 //stars color
-
 [grade="5"] {
     color: #f06000;
 }
@@ -547,8 +576,6 @@ header{
 [grade="1"] {
     color: #272727;
 }
-
-
 @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -558,10 +585,11 @@ header{
     }
   }
 
-
-
 .greeting-saved,
 .auction-saved {
     font-size: .85em;
     color: darkgreen;
+}
+.loader{
+    font-size: .8em
 }
