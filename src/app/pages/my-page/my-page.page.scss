@@ -285,21 +285,24 @@ header{
     .panel-content {
         display: flex;
         align-items: flex-end;
-        justify-content: space-around;
         padding-top: 2em;
         overflow: auto;
+        &>div{
+            flex: auto
+        }
         .bar-item {
             position: relative;
-            min-width: 2em;
+            margin: 0 1.5px;
+            // min-width: 2em;
             border-top-right-radius: 2px;
             border-top-left-radius: 2px;
             text-align: center;
             .level{
                 position: relative;
                 display: inline-block;
-                bottom: 1.3em;
+                bottom: 1.4em;
                 padding: 0 2px;
-                font-size: .85em;
+                font-size: .9em;
             }
 
             &[level="0"],
