@@ -10,6 +10,7 @@ header{
     flex-wrap: wrap;
     align-items: center;
     padding: 1em;
+    font-size: .95em;
     @media (min-width:$md) {
         padding: 1em 1px;
         justify-content: space-between;
@@ -221,6 +222,22 @@ header{
         }
     }
 }
+.container-fluid{
+    @media (min-width:$md) {
+        padding: 0;
+        &>.row{
+            &>div{
+                padding: 0;
+            }
+            &>div:first-child{
+                padding-right: .5em;
+            }
+            &>div:last-child{
+                padding-left: .5em;
+            }
+        }   
+    }
+}
 .page-content{
     padding-bottom: 5em;
     .page-description{
@@ -298,6 +315,7 @@ header{
             border-top-right-radius: 2px;
             border-top-left-radius: 2px;
             text-align: center;
+            max-width: 200px;
             .level{
                 position: relative;
                 display: inline-block;
@@ -335,14 +353,15 @@ header{
 }
 #my-introduction{
     h2{
-        color: darkorange
+        color: darkorange;
+        font-size: 1.3em;
     }
+    font-size: .85em;
     .intro-desc{
         margin-bottom: 1em;
         padding: .5em 1em;
         border-radius: 2px;
         background: rgba(dodgerblue,0.1);
-        font-size: .9em;
         line-height: 1.5em;
         &>div{
             margin: .5em 0;
@@ -417,8 +436,6 @@ header{
                 font-size: .85em;
                 label{
                     input{
-                        position: relative;
-                        top: .125em;
                         margin:0;
                         margin-right: .2em;
                         cursor: pointer;
@@ -437,7 +454,7 @@ header{
         }
         .comments{
             margin-top: .5em;
-            font-size: 1.1em;
+            font-size: 1em;
             label{
                 display: block;
                 margin-bottom: .3em;
