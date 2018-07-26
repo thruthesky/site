@@ -15,19 +15,20 @@ header{
         justify-content: space-between;
     }
 
-    //flex arrangement ( Lower number will be first )
+    /** flex arrangement ( Lower value will be first ) **/
 
     //arrangement in mobile view 
     #my-page-profile{ order: 1}
     #next-class{ order:2}
     #my-level{ order: 3}
     #student-session-stats{ order: 4}
-
     //arrangement in deskop view
     @media (min-width:$md){
         #next-class{ order: 3}
         #my-level{ order: 2}   
     }
+
+    /** End of Flex arrangement **/
 
     #my-page-profile {
         display: flex;
