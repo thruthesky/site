@@ -11,6 +11,7 @@ header{
     align-items: center;
     padding: 1em;
     @media (min-width:$md) {
+        padding: 1em 1px;
         justify-content: space-between;
     }
 
@@ -31,6 +32,9 @@ header{
     #my-page-profile {
         display: flex;
         margin-bottom: 1em;
+        @media (min-width:$md){
+            margin-bottom: 0;
+        }
         .student-photo{
             display: flex;
             align-items: center;
@@ -92,6 +96,10 @@ header{
             font-size: 1.5em;
             background: #fff;
             text-align: center;
+            @media (min-width:$md) {
+                height: 100px;
+                width: 100px;
+            }
             .title{ 
                 width: 100%;
                 color: #000;
@@ -139,10 +147,17 @@ header{
     #next-class {
         display: flex;
         margin-bottom: 1em;
+        @media (min-width:$md){
+            margin-bottom: 0;
+        }
         .profile-photo{
             .teacher-photo{
                 height: 90px;
                 width: 90px;
+                @media (min-width:$md) {
+                    height: 100px;
+                    width: 100px;
+                }
                 border-radius: 50%;
                 overflow: hidden;
                 img{
@@ -161,6 +176,9 @@ header{
             .class-time{
                 color:darkred
             }
+            .book-in-use{
+                color: darkgreen
+            }
         }
     }
     #student-session-stats{
@@ -178,14 +196,18 @@ header{
             height: 90px;
             width: 90px;
             border-radius: 50%;
-            @media (min-width) {
+            @media (min-width:$md) {
                 height: 100px;
                 width: 100px;
+                background: #eee
             }
             background: #fff;
             text-align: center;
             &>div{
                 font-size: .75em;
+                @media (min-width:$md) {
+                    padding: 0 1em;
+                }
             }
             &>div:first-child{
                 font-size: 1.7em;
