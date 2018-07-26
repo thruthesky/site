@@ -696,5 +696,37 @@
   "SELECT_YOUR_MESSENGER": "請選擇您的Messenger應用程序。",
   "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "哦，你只能在手機上添加朋友。 請用你的手機添加好友。",
   "WORK_FOR": "公司",
-  "WORK_FOR_SELF": "自由職業者"
+  "WORK_FOR_SELF": "自由職業者",
+
+
+
+  "MYPAGE": "我的页面",
+  "LOADING_MYPAGE": "我的页面正在加载时请稍候。",
+  "MYPAGE_DESCRIPTION": "您将在此页面中看到所有学习信息。",
+  "UPDATE_PHOTO": "更新照片",
+  "TIMEZONE": "时区",
+  "NO_OF_RESERVATION": "预订数量",
+  "NO_OF_PAST": "过去的课程数量",
+  "NEXT_CLASS": "下一课",
+  "BOOK_IN_USE": "预订正在使用中",
+  "MY_LEVEL": "我的水平",
+  "MY_LEARNING_PROGRESS": "我的学习进步",
+  "MY_INTRODUCTION": "我的介绍",
+  "ENGLISH_ONLY": "请用英文写。",
+  "MY_INTRODUCTION_EX_1": "例）你好。 我是尤娜。 我今年12岁。 我每天都去上学。 我最喜欢音乐课。",
+  "SUBMIT_MY_INTRODUCTION": "保存我的介绍",
+  "AUCTION_TITLE": "寻找教师",
+  "AUCTION_DESC": "你在找老师吗？ 您可以选择日期和时间。",
+  "AUCTION_DAYS": "你想在哪一天学习？",
+  "AUCTION_HOUR": "班上几点开始？",
+  "AUCTION_DURATION": "这课应该多长时间？",
+  "AUCTION_POINT": "每节课应该多少钱？",
+  "AUCTION_COMMENT": "您可以添加评论。 （请用英文写）",
+  "SAVING": "保存...",
+  "SAVED": "成功保存。",
+  "TO_SAVE": "保存",
+  "TO_DELETE": "删除",
+  "AUTION_REPLY": "如果您为招聘教师做广告，您将在此处看到教师的申请。",
+  "WITHCENTER": "Withcenter"
+
 }

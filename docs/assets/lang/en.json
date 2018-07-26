@@ -754,6 +754,41 @@
   "SELECT_YOUR_MESSENGER": "Please select your messenger app.",
   "KAKAOTALK_FRIEND_ADD_MOBILE_ONLY": "Ooh, You can add friend only on mobile. Please use your mobile phone to add friend.",
   "WORK_FOR": "Company",
-  "WORK_FOR_SELF": "freelancer"
+  "WORK_FOR_SELF": "freelancer",
+
+
+
+
+
+ 
+  "MYPAGE": "My Page",
+  "LOADING_MYPAGE": "Please wait while my page is loading.",
+  "MYPAGE_DESCRIPTION": "You will see all of your learn information in this page.",
+  "UPDATE_PHOTO": "Update Photo",
+  "TIMEZONE": "Timezone",
+  "NO_OF_RESERVATION": "No. of Reservation",
+  "NO_OF_PAST": "No. of Past Class",
+  "NEXT_CLASS": "Next Class",
+  "BOOK_IN_USE": "Book in use",
+  "MY_LEVEL": "My Level",
+  "MY_LEARNING_PROGRESS": "My Learning Progress",
+  "MY_INTRODUCTION": "My Introduction",
+  "ENGLISH_ONLY": "Please write in English only.",
+  "MY_INTRODUCTION_EX_1": "Example) Hello. I am Yuna. I am 12 years old. I go to school every day. I like music class the most.",
+  "SUBMIT_MY_INTRODUCTION": "Save My Introduction",
+  "AUCTION_TITLE": "Finding Teachers",
+  "AUCTION_DESC": "Are you looking for a teacher. You can choose day and time.",
+  "AUCTION_DAYS": "What day do you want to study?",
+  "AUCTION_HOUR": "What time should the class begin?",
+  "AUCTION_DURATION": "How long should the class be?",
+  "AUCTION_POINT": "How much should each class be?",
+  "AUCTION_COMMENT": "You can add comment. (Please write it in English only)",
+  "SAVING": "Saving...",
+  "SAVED": "Sucessfully saved.",
+  "TO_SAVE": "Save",
+  "TO_DELETE": "Delete",
+  "AUTION_REPLY": "If you advertise for hiring teacher, you will see teachers' application here.",
+  "WITHCENTER": "Withcenter"
+
 
 }
