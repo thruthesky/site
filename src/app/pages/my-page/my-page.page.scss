@@ -145,14 +145,14 @@ header{
         align-content: center;
         justify-content: center;
         flex-direction: column;
-        height: 7em;
-        width: 7em;
+        height: 6.5em;
+        width: 6.5em;
         border-radius: 50%;
         background: #eee;
         text-align: center;
         &>div{
             margin: .1em 0;
-            font-size: .85em;
+            font-size: .8em;
         }
         &>div:first-child{
             font-size: 1.7em;
@@ -161,26 +161,26 @@ header{
 }
 #my-level{
         .title{ 
-            position: absolute;
-            top: 8px;
             color: #000;
-            font-size: .6em;
         }
-        .box{
-            height: 4em;
-            width: 4em;
+        .box-container{
+            position: relative;
+            height: 3.5em;
+            width: 3.5em;
             border-radius: 4px;
             font-size: 1.5em;
             background: #eee;
             text-align: center;
-            .icon{
-                position: relative;
-                .no{
-                    position: absolute;
-                    top: -22%;
-                    left: 50%;
-                    transform: translate(-50%,-50%)
-                }
+            .icon,
+            .no{
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%,-50%)
+            }
+            .no{
+                color: #fff;
+                top:45%;
             }
             svg{
                 height: 2em;
@@ -248,31 +248,15 @@ header{
 }
 
 #next-class {
-    .teacher-photo{
-        height: 70px;
-        width: 70px;
-        margin-right: .75em;
-        border-radius: .3em;
-        overflow: hidden;
-        img{
-            width: 100%;
-        }
-    }
-    .panel-content{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        .class-info{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-
-            .teacher-name{
-                text-transform: uppercase;
-            }
-            .class-time{
-                color: #1B4AB5
+    display: flex;
+    .profile-photo{
+        .teacher-photo{
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                width: 100%;
             }
         }
     }
