@@ -139,6 +139,15 @@ export interface MYPAGE {
         comment: string;
         hourTime_stamp?: number;
     };
+    auction_application_list: Array<{
+        idx: number;
+        sender: {
+            name: string;
+            photoURL: string;
+        };
+        title: string;
+        content: string;
+    }>;
 }
 
 export interface REQUEST_AUCTION extends REQUEST {
@@ -151,7 +160,7 @@ export interface REQUEST_AUCTION_APPLICATION extends REQUEST {
     message: string;
 }
 
-export interface AUCTION  {
+export interface AUCTION {
     ID: number;
     display_name: string;
     photoURL: string;
@@ -417,7 +426,7 @@ export class XapiLMSService extends Base {
         return this.x.post(data);
     }
 
-    message_opened(idx) {
+    message_opened(idx): Observable<any> {
         const data = {
             idx: idx,
             route: 'lms.message_opened',
@@ -867,8 +876,11 @@ export class XapiLMSService extends Base {
             session_id: this.user.sessionId
         });
     }
+    auction_application_delete(idx): Observable<any> {
+        return this.message_opened(idx);
+    }
 
-    apply_auction(req: REQUEST_AUCTION_APPLICATION ): Observable<any> {
+    apply_auction(req: REQUEST_AUCTION_APPLICATION): Observable<any> {
         req.route = 'lms.apply_auction';
         req.session_id = this.user.sessionId;
         return this.x.post(req);

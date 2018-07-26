@@ -39,7 +39,7 @@ export class MyPagePage implements OnInit {
             this.loader.mypage = false;
             this.mypage = re;
             console.log('mypage: ', this.mypage);
-            if (this.mypage.auction && this.mypage.auction.duration && parseInt(<any>this.mypage.auction.duration, 10) ) {
+            if (this.mypage.auction && this.mypage.auction.duration && parseInt(<any>this.mypage.auction.duration, 10)) {
                 this.show.auction = true;
             }
             // console.log('mypage:after:load ', this.mypage);
@@ -112,6 +112,15 @@ export class MyPagePage implements OnInit {
             this.loader.auction = false;
             this.mypage.auction = this.defaultAuction;
             this.show.auction = false;
+        }, e => this.a.toast(e));
+    }
+    onDeleteApplication(idx) {
+        this.a.lms.auction_application_delete(idx).subscribe(res => {
+            console.log('auction aplication dleete; ', res);
+            const i = this.mypage.auction_application_list.findIndex(v => v.idx === idx);
+            if ( i !== -1 ) {
+                this.mypage.auction_application_list.splice(i, 1);
+            }
         }, e => this.a.toast(e));
     }
 }
