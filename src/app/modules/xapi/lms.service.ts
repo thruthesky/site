@@ -5,7 +5,7 @@ import { XapiUserService } from './user.service';
 
 
 import { Base } from './base';
-import { TEACHER_LIST_RESPONSE, LMS_INFO, Branch } from './interfaces';
+import { TEACHER_LIST_RESPONSE, LMS_INFO, Branch, REQUEST } from './interfaces';
 export { Branch };
 
 export interface SCHEDULE_EDIT extends DAYS {
@@ -138,6 +138,36 @@ export interface MYPAGE {
         point: number;
         comment: string;
         hourTime_stamp?: number;
+    };
+}
+
+export interface REQUEST_AUCTION extends REQUEST {
+    tz_offset?: number;
+    page?: number;
+    limit?: number;
+}
+export interface REQUEST_AUCTION_APPLICATION extends REQUEST {
+    ID: number;
+    message: string;
+}
+
+export interface AUCTION  {
+    ID: number;
+    display_name: string;
+    photoURL: string;
+    auction: {
+        sunday: '' | 'Y';
+        monday: '' | 'Y';
+        tuesday: '' | 'Y';
+        wednesday: '' | 'Y';
+        thursday: '' | 'Y';
+        friday: '' | 'Y';
+        saturday: '' | 'Y';
+        hour: string;
+        minute: string;
+        duration: number;
+        point: number;
+        comment: string;
     };
 }
 
@@ -826,18 +856,22 @@ export class XapiLMSService extends Base {
             auction: auction
         });
     }
-    get_auctions(tz_offset): Observable<any> {
-        return this.x.post({
-            route: 'lms.get_auctions',
-            session_id: this.user.sessionId,
-            tz_offset: tz_offset
-        });
+    get_auctions(req: REQUEST_AUCTION): Observable<Array<AUCTION>> {
+        req.route = 'lms.get_auctions';
+        req.session_id = this.user.sessionId;
+        return this.x.post(req);
     }
     auction_delete(): Observable<any> {
         return this.x.post({
             route: 'lms.auction_delete',
             session_id: this.user.sessionId
         });
+    }
+
+    apply_auction(req: REQUEST_AUCTION_APPLICATION ): Observable<any> {
+        req.route = 'lms.apply_auction';
+        req.session_id = this.user.sessionId;
+        return this.x.post(req);
     }
 
     get_latest_student_register(req) {

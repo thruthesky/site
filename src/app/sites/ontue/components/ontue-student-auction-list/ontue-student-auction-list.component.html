@@ -7,7 +7,7 @@
     </a>
     <div class="body">
         <ng-container *ngFor="let auction of auctions; let i=index">
-            <a (click)="a.open('student-auction-list', { idx_student: auction.ID })">
+            <a (click)="a.open('auction-list', { idx_student: auction.ID })">
             <div class="container-fluid"  *ngIf="i<5">
                 <div class="row">
                     <div class="col-md-4 col-4">

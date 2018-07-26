@@ -537,7 +537,7 @@
 
 
   "WOORIBANK_PAYMENT_TITLE": "우리은행 무통장 입금 안내",
-  "BANK_TRANSACTION_DESC": "입금하시고 상담게시판에 입금자명을 남겨주세요.",
+  "BANK_TRANSACTION_DESC": "입금하시고 질문과답변에 입금자명과 로그인 메일주소를 남겨주세요.",
   "AMOUNT_TO_PAY": "결제하실 금액",
   "WON": "원",
   "WOORIBANK_PAYMENT_AMOUNT_DESC": "위 금액은 #point 포인트(#usd 달러)를 원으로 환산하고 부가세 #VAT% 를 포함한 것으로 #amount원을 입금하시면됩니다.",
