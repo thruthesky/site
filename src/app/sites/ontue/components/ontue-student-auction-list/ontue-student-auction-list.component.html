@@ -16,22 +16,23 @@
                         </span>
                     </div>
                     <div class="col-md-8 col-8">
-                        <div class="student-name">{{auction.display_name}}</div>
-                        <div>Time: {{auction['auction']['hour']}}:{{auction['auction']['minute']}}</div>
-                        <div>Duration: {{auction['auction']['duration']}}</div>
-                        <div>Offer: {{auction['auction']['point']}}</div>
+                        <span class="student-name">{{auction.display_name}}</span> want to study at
+                        <span>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</span> for
+                        <span>{{auction['auction']['duration']}}mins </span> with
+                        <span>{{auction['auction']['point']}}points</span> every
+                        <span>{{ showDateSelected(auction['auction']) }}.</span>
                     </div>
                 </div>
                 <div>
-                    <div class="days">Days:
-                        <span *ngIf="auction['auction']['sunday']">Sun</span>
-                        <span *ngIf="auction['auction']['monday']">Mon</span>
-                        <span *ngIf="auction['auction']['tuesday']">Tue</span>
-                        <span *ngIf="auction['auction']['wednesday']">Wed</span>
-                        <span *ngIf="auction['auction']['thursday']">Thu</span>
-                        <span *ngIf="auction['auction']['friday']">Fri</span>
-                        <span *ngIf="auction['auction']['saturday']">Sat</span>
-                    </div>
+                    <!--<div class="days">Days:-->
+                        <!--<span *ngIf="auction['auction']['sunday']">Sun</span>-->
+                        <!--<span *ngIf="auction['auction']['monday']">Mon</span>-->
+                        <!--<span *ngIf="auction['auction']['tuesday']">Tue</span>-->
+                        <!--<span *ngIf="auction['auction']['wednesday']">Wed</span>-->
+                        <!--<span *ngIf="auction['auction']['thursday']">Thu</span>-->
+                        <!--<span *ngIf="auction['auction']['friday']">Fri</span>-->
+                        <!--<span *ngIf="auction['auction']['saturday']">Sat</span>-->
+                    <!--</div>-->
                     <p class="comment">
                         {{ auction['auction']['comment'] }}
                     </p>
