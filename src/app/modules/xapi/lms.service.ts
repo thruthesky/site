@@ -852,10 +852,9 @@ export class XapiLMSService extends Base {
             greeting: greeting
         });
     }
-    get_greetings(): Observable<any> {
-        return this.x.post({
-            route: 'lms.get_greetings'
-        });
+    get_greetings(req = {}): Observable<any> {
+        req['route'] = 'lms.get_greetings';
+        return this.x.post(req);
     }
 
 
