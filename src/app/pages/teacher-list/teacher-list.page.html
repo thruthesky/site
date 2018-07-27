@@ -112,7 +112,7 @@
                                 </svg>
                             </div>
                             <div class="teacher-profile-photo">
-                                <img alt="profile photo" src="{{ teacher.photoURL }}">
+                                <img alt="profile photo" [src]="a.checkPhotoURL(teacher.photoURL)">
                             </div>
                             <div class="name">{{ a.shortName( teacher.display_name )}}</div>
                             <div class="grade" [attr.grade]=" teacher.grade " *ngIf="teacher.grade != '0'">

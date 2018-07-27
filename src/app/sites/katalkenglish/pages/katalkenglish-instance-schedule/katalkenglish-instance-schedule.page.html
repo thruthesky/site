@@ -27,7 +27,7 @@
                         <div class="teacher">
 
                             <div class="teacher-profile-photo ">
-                                <img src="{{ schedule.teacher.photoURL }}">
+                                <img [src]="a.checkPhotoURL(schedule.teacher.photoURL)">
                             </div>
 
                             <div class="teacher-info">

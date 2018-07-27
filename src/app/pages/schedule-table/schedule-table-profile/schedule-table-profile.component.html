@@ -2,7 +2,7 @@
 
     <div class="desktop-profile-row" *ngIf=" isLoadComplete; else singleTeacherLoader">
         <div class="teacher-profile-photo">
-            <img src="{{ re.teacher.photoURL }}">
+            <img [src]="a.checkPhotoURL(re.teacher.photoURL)">
         </div>
         <div class="bio" [class.without-button]="!myClassSoftware">
             <div>

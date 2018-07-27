@@ -54,7 +54,7 @@ export class OntueStudentAuctionListComponent {
             const d = [];
             this.days.forEach( (v, i) => {
                 if ( auction[v] && auction[v] === 'Y'  ) {
-                    d.push(this.days[i]);
+                    d.push(this.shortDays[i]);
                 }
             });
             return d.join(',');

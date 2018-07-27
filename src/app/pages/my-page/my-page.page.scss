@@ -593,3 +593,28 @@ header{
 .loader{
     font-size: .8em
 }
+
+
+#auction-application-list {
+    .teacher {
+        width: 85px;
+        .primary {
+            width: 100%;
+        }
+    }
+    .auction-application {
+        position: relative;
+        .delete-application {
+            position: absolute;
+            right: 8px;
+            top: 0;
+            padding: .5em;
+            background: lightgrey;
+            border-radius: 50%;
+            height: 33px;
+            width: 33px;
+            cursor: pointer;
+        }
+
+    }
+}

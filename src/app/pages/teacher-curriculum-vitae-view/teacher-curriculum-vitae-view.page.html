@@ -10,7 +10,7 @@
     <div  *ngIf="teacher">
 
         <div class="teacher-photo">
-            <img src="{{ teacher.photoURL ? teacher.photoURL : a.anonymousPhotoURL }}">
+            <img [src]="a.checkPhotoURL(teacher.photoURL)"/>
         </div>
 
         <div class="avatar-intro">

@@ -21,7 +21,7 @@
                 <div class="teacher-wrapper" *ngFor="let teacher of teachers"  routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
                     <div>
                         <div class="teacher-profile-photo">
-                            <img src="{{ teacher.photoURL }}">
+                            <img [src]="a.checkPhotoURL(teacher.photoURL)">
                         </div>
                     </div>
                     <div class="teacher-info">

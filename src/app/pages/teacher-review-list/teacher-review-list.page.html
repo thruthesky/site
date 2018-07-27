@@ -57,13 +57,13 @@
                 <div class="row">
                     <div class="hide-sm col-2">
                         <div class="student-photo">
-                            <img src="{{comment?.photoURL ? comment.photoURL : a.anonymousPhotoURL }}">
+                            <img [src]="a.checkPhotoURL(comment.photoURL)">
                         </div>
                     </div>
                     <div class="col-md-8 col-12">
                         <div class="info-wrapper">
                             <div class="student-photo-sm">
-                                <img src="{{comment?.photoURL ? comment.photoURL : a.anonymousPhotoURL }}">
+                                <img [src]="a.checkPhotoURL(comment.photoURL)">
                             </div>
                             <div class="student-info">
                                 <div class="student-name">

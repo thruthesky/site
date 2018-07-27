@@ -13,7 +13,7 @@
                     <div class="primary-photo">
                         <label>
                             <div class="profile-photo">
-                                <img src="{{ user.photoURL }}">
+                                <img [src]="a.checkPhotoURL(user.photoURL)"/>
                             </div>
                             <input type="file" (change)="profilePhotoUpload.onChangeFile($event)">
                             <div *ngIf="profilePhotoUpload.progressPercentage > 0">

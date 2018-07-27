@@ -1,7 +1,9 @@
 <h1>Teacher Schedule Table</h1>
 
 <div class="teacher-info">
-    <div class="teacher-photo" *ngIf="teacher && teacher.photoURL"><img src="{{teacher?.photoURL}}"></div>
+    <div class="teacher-photo" *ngIf="teacher && teacher.photoURL">
+        <img [src]="a.checkPhotoURL(teacher.photoURL)">
+    </div>
     <div class="teacher-name" *ngIf="teacher && teacher.name"><a routerLink="/manager/user-info/{{teacher.idx}}">Teacher: {{teacher.name}}</a></div>
 </div>
 

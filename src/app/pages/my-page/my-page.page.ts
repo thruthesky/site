@@ -15,7 +15,8 @@ export class MyPagePage implements OnInit {
     loader = {
         mypage: false,
         greeting: false,
-        auction: false
+        auction: false,
+        deleteApplication: false
     };
     show = {
         auction: false,
@@ -83,45 +84,70 @@ export class MyPagePage implements OnInit {
 
     onSubmitGreeting(event: Event) {
         event.preventDefault();
-
+        if (this.loader.greeting) {
+            return;
+        }
         this.loader.greeting = true;
         this.a.lms.greeting_update(this.mypage.greeting).subscribe(re => {
             console.log('re: ', re);
             this.loader.greeting = false;
             this.show.greetingSaved = true;
             setTimeout(() => this.show.greetingSaved = false, 5000);
-        }, e => this.a.toast(e));
+        }, e => {
+            this.a.toast(e);
+            this.loader.greeting = false;
+        });
 
         return false;
     }
     onSubmitAuction(event: Event) {
         event.preventDefault();
+        if ( this.loader.auction ) {
+            return;
+        }
         this.loader.auction = true;
         this.a.lms.auction_update(this.mypage.auction).subscribe(re => {
             console.log('re: ', re);
             this.loader.auction = false;
             this.show.auctionSaved = true;
             setTimeout(() => this.show.auctionSaved = false, 5000);
-        }, e => this.a.toast(e));
+        }, e => {
+            this.a.toast(e);
+            this.loader.auction = false;
+        });
         return false;
     }
     onDeleteAuction() {
+        if ( this.loader.auction ) {
+            return;
+        }
         this.loader.auction = true;
         this.a.lms.auction_delete().subscribe(re => {
             console.log('re: ', re);
             this.loader.auction = false;
             this.mypage.auction = this.defaultAuction;
             this.show.auction = false;
-        }, e => this.a.toast(e));
+        }, e => {
+            this.a.toast(e);
+            this.loader.auction = false;
+        });
     }
     onDeleteApplication(idx) {
+        if ( this.loader.deleteApplication ) {
+            return;
+        }
+        this.loader.deleteApplication = true;
         this.a.lms.auction_application_delete(idx).subscribe(res => {
             console.log('auction aplication dleete; ', res);
             const i = this.mypage.auction_application_list.findIndex(v => v.idx === idx);
             if ( i !== -1 ) {
                 this.mypage.auction_application_list.splice(i, 1);
             }
-        }, e => this.a.toast(e));
+            this.loader.deleteApplication = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.deleteApplication = false;
+        });
     }
 }
 

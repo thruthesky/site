@@ -1,21 +1,34 @@
-<h1>Auction List</h1>
-
-
-<div *ngIf=" auctions.length ">
-    <div *ngFor=" let auction of auctions ">
-        <img src="{{auction.photoURL}}">
-        {{ auction.display_name }}
-        {{ auction.auction.comment }}
-
-        <button class="app-button" (click)="auction['showMessageForm'] = true;">Contact</button>
-        <div *ngIf="auction['showMessageForm']">
-            <form (ngSubmit)="onSubmitApplication($event, auction)">
-                <textarea name="message" [(ngModel)]="auction['message']"></textarea>
-                <button class="app-button" type="submit">Submit</button>
-            </form>
+<main>
+    <header>
+        <h1>Auction List</h1>
+    </header>
+    <section class="content">
+        <div class="auctions" *ngIf=" auctions.length ">
+            <div class="auction container" *ngFor=" let auction of auctions ">
+                <div class="row">
+                    <div class="student-photo">
+                        <img [src]="a.checkPhotoURL(auction.photoURL)"/>
+                        <div>{{ auction.display_name }}</div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <span>I want to study at </span>
+                            <span>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</span> for
+                            <span>{{auction['auction']['duration']}}mins </span> with
+                            <span>{{auction['auction']['point']}}points</span> every
+                            <!--<span>{{ showDateSelected(auction['auction']) }}.</span>-->
+                        </div>
+                        <div>{{ auction.auction.comment }}</div>
+                    </div>
+                </div>
+                <button class="app-button" (click)="auction['showMessageForm'] = true;">Contact</button>
+                <div *ngIf="auction['showMessageForm']">
+                    <form (ngSubmit)="onSubmitApplication($event, auction)">
+                        <textarea name="message" [(ngModel)]="auction['message']"></textarea>
+                        <button class="app-button" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-
-
+    </section>
+</main>
