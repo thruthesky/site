@@ -225,10 +225,8 @@ textarea{
     }
     #my-page-profile,
     #next-class{
-        .profile-card{
-            @media (min-width:$md) {
-                margin: 0;
-            }
+        @media (min-width:$md) {
+            margin: 0
         }
         .panel{
             &>*{
