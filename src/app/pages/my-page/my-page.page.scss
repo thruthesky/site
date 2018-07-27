@@ -20,7 +20,6 @@ h2{
 }
 .container-fluid{
     @media (min-width:$md) {
-        padding: 0;
         &>.row{
             &>div{
                 padding: 0;
@@ -226,7 +225,7 @@ textarea{
     #my-page-profile,
     #next-class{
         @media (min-width:$md) {
-            margin: 0
+            margin: 0;
         }
         .panel{
             &>*{
@@ -265,6 +264,13 @@ textarea{
         }
     }
     #next-class {
+        .profile-card-photo{
+            @media (min-width:$md) {
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+            }
+        }
         #class-info{
             svg{
                 position: relative;
@@ -358,6 +364,7 @@ textarea{
             width: 90px;
             border-radius: 50%;
             @media (min-width:$md) {
+                margin: 0 .75em;
                 height: 100px;
                 width: 100px;
                 background: #eee
@@ -372,11 +379,6 @@ textarea{
             }
             &>div:first-child{
                 font-size: 1.7em;
-            }
-            &:first-child{
-                @media (min-width:$md) {
-                    margin: 0 .75em;
-                }
             }
         }
     }
@@ -488,6 +490,7 @@ textarea{
             color: #000
         }
         form{
+            margin-top: .5em;
             font-size: .85em;
             animation: fadeIn .2s ease-in-out;
             @keyframes fadeIn {
@@ -548,20 +551,62 @@ textarea{
         }
     }
     #auction-application-list {
-        .profile-card {
-            font-size: .9rem;
-            .profile-card-photo{
-                height: 60px;
-                width: 60px;
+        .list-content{
+            height: 210px;
+            @media (min-width:$md) {
+                height: 195px;   
             }
-            svg{
-                height: 1em;
-                width: 1em;
+            overflow: auto;
+            border: 1px solid rgba(125,125,125,0.1);
+            border-bottom: 0;
+            .profile-card {
+                align-items: center;
+                border-bottom: 1px solid rgba(125,125,125,0.1);
+                background: #fff;
+                margin:0;
+                padding: .5em;
+                font-size: .85rem;
+                cursor: pointer;
+                &:hover{
+                    background: rgba(125,125,125,0.02);
+                }
+                .profile-card-photo{
+                    height: 50px;
+                    width: 50px;
+                }
+                .application-title{
+                    margin: 0;
+                    color: darkblue;
+                    font-weight: normal;
+                    @media (min-width:$md) {
+                        display: block;
+                    }
+                }
+                .teacher-name{
+                    margin: 0;
+                    display: none;
+                    @media (min-width:$md) {
+                        display: block;
+                    }
+                }
+        
             }
-            .teacher-name{
-                margin: 0;
+            .delete-application{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                padding: 1rem;
+                &:hover{
+                    color: darkred;
+                }
+                svg{
+                    position: relative;
+                    top: .125em;
+                    height: 1em;
+                    width: 1em;
+                }
             }
-    
         }
     }
     #teacher-list{
