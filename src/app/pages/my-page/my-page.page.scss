@@ -166,7 +166,8 @@ textarea{
     padding-bottom: 0;
     margin-bottom: 2rem;
     @media (min-width:$md) {
-        padding: 1em 1px;
+        padding-left: 1px;
+        padding-right: 1px;
         justify-content: space-between;
     }
 
@@ -224,6 +225,11 @@ textarea{
     }
     #my-page-profile,
     #next-class{
+        .profile-card{
+            @media (min-width:$md) {
+                margin: 0;
+            }
+        }
         .panel{
             &>*{
                 padding: .4em .75em;
@@ -379,6 +385,10 @@ textarea{
     #progress-bargraph{
         margin: 0 1em;
         margin-bottom: 2rem;
+        @media (min-width:$md) {
+            margin-left: 0;
+            margin-right: 0;
+        }
         .panel-title{
             font-size: .85em;
         }
@@ -552,7 +562,6 @@ textarea{
             }
             .teacher-name{
                 margin: 0;
-                color:darkblue
             }
     
         }
