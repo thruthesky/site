@@ -1,25 +1,104 @@
 @import '../../../theme/vars.scss';
+
+/* global */
 header{
     h1{
         padding: 16px!important;
     }
 }
+h2{
+    padding: .4em;
+    background: #FF7B0D;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* components */
+.button-with-icon{
+    display: inline-block;
+    padding: .5em;
+    border-radius: 2px;
+    background: #1B4AB5;
+    color: #fff;
+    cursor: pointer;
+    svg{
+        position: relative;
+        top: .125em;
+        height: 1em;
+        width: 1em;
+        margin-right: .3em;
+    }
+}
+.profile-card{
+    display: flex;
+    margin-bottom: 1em;
+    .profile-card-leftside{
+        .profile-card-photo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            height: 90px;
+            width: 90px;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .profile-card-rightside{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 100%;
+        padding-left: 1em;
+        .card-title{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .5em;
+            font-weight: 300;
+            &>*:last-child{
+                margin-left: .5em;
+            }
+        }
+        .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            flex: 100%;
+        }
+    }
+}
+.panel{
+    border-radius: 2px;
+    border: 1px solid rgba(125,125,125,0.2);
+    &>*{
+        padding: .5em 1em;
+    }
+    .panel-title{
+        background: #eee;
+    }
+    .panel-content{
+        background: #fff;
+        overflow: auto;
+    }
+}
+
+/* layout */
 .top{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     padding: 1em;
-    font-size: .95em;
     @media (min-width:$md) {
         padding: 1em 1px;
         justify-content: space-between;
     }
 
-
-    /**
+    /*
      * flex arrangement using 'order' 
      * ( Lower value will be first )
-     * */
+     */
 
     //arrangement in mobile view 
     #my-page-profile{
@@ -45,6 +124,7 @@ header{
         align-items: center;
         order: 4
     }
+
     //arrangement in deskop view
     @media (min-width:$md){
         #next-class{ 
@@ -54,222 +134,11 @@ header{
             order: 2
         }   
     }
-
     /** End of Flex arrangement **/
-
-
-    #my-page-profile {
-        display: flex;
-        margin-bottom: 1em;
-        @media (min-width:$md){
-            margin-bottom: 0;
-        }
-        .profile-photo{
-            cursor: pointer;
-        }
-        .student-photo{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 3px;
-            height: 90px;
-            width: 90px;
-            overflow: hidden;
-            img{
-                width: 100%;
-            }
-        }
-        .update-photo-button{
-            cursor: pointer;
-            .app-button{
-                margin: 0;
-                margin-top: .5em;
-                width: 90px;
-                padding: .5em;
-                font-size: .65em;
-                text-align: center;
-                background: #1B4AB5;
-                svg{
-                    position: relative;
-                    top: .125em;
-                    height: 1em;
-                    width: 1em;
-                    margin-right: .1em;
-                }
-                input[type="file"]{
-                    position: absolute;
-                    opacity: 0;
-                    z-index: -1;
-                }
-            }
-        }
-        .profile-meta {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding-left: 1em;
-            font-size: .9em;
-            .class-id {
-                position: relative;
-                padding-left: 2em;
-                img {
-                    position: absolute;
-                    bottom: 50%;
-                    left: 0;
-                    transform: translateY(50%);
-                    width: 1.5em;
-                    height: 1.5em;
-                    margin-right: .3em;
-                    white-space: nowrap
-                }
-            }
-        }
-    }
-    #my-level{
-        .box-container{
-            position: relative;
-            height: 90px;
-            width: 90px;
-            border-radius: 4px;
-            font-size: 1.5em;
-            background: #eee;
-            text-align: center;
-            @media (min-width:$md) {
-                height: 100px;
-                width: 100px;
-            }
-            .title{ 
-                width: 100%;
-                color: #000;
-                text-align: center;
-                font-size: 13px
-            }
-            .title,
-            .icon,
-            .no{
-                position: absolute;
-                top: 60%;
-                left: 50%;
-                transform: translate(-50%,-50%)
-            }
-            .title{
-                top: 18%;
-            }
-            .no{
-                color: #fff;
-                top:50%;
-            }
-            svg{
-                height: 2.2em;
-                width:  2.2em;
-                &[level-color="0"],
-                &[level-color="1"],
-                &[level-color="2"],
-                &[level-color="3"] {
-                    color: gray;
-                }
-                &[level-color="4"],
-                &[level-color="5"],
-                &[level-color="6"] {
-                    color: dodgerblue;
-                }
-                &[level-color="7"],
-                &[level-color="8"],
-                &[level-color="9"],
-                &[level-color="10"] {
-                    color: darkorange;
-                }
-            }
-        }
-    }
-    #next-class {
-        display: flex;
-        margin-bottom: 1em;
-        @media (min-width:$md){
-            margin-bottom: 0;
-        }
-        .profile-photo{
-            .teacher-photo{
-                height: 90px;
-                width: 90px;
-                @media (min-width:$md) {
-                    height: 100px;
-                    width: 100px;
-                }
-                border-radius: 50%;
-                overflow: hidden;
-                img{
-                    width: 100%;
-                }
-            }
-        }
-        .class-info{
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: space-around;
-            font-size: .9em;
-            margin-left: 1em;
-            .title{
-                color: dimgray
-            }
-            .class-time{
-                color:darkred;
-            }
-            .book-in-use{
-                color: darkgreen
-            }
-            &>div{
-                svg{
-                    position: relative;
-                    top: .125em;
-                    height: 1em;
-                    width: 1em;
-                    margin-right: .3em;
-                }
-            }
-        }
-    }
-    #student-session-stats{
-        background: #fff;
-        flex: auto;
-        text-align: center;
-        @media (min-width:$md) {
-            background: 0;
-            flex: unset;
-        }
-        .circle{
-            display: inline-flex;
-            align-content: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 90px;
-            width: 90px;
-            border-radius: 50%;
-            @media (min-width:$md) {
-                height: 100px;
-                width: 100px;
-                background: #eee
-            }
-            background: #fff;
-            text-align: center;
-            &>div{
-                font-size: .75em;
-                @media (min-width:$md) {
-                    padding: 0 1em;
-                }
-            }
-            &>div:first-child{
-                font-size: 1.7em;
-            }
-            &:first-child{
-                @media (min-width:$md) {
-                    margin: 0 .75em;
-                }
-            }
-        }
-    }
 }
+
+
+
 .container-fluid{
     @media (min-width:$md) {
         padding: 0;
@@ -303,7 +172,6 @@ header{
         align-items: center;
         justify-content: center;
         margin: .35em 0;
-        font-size: 1.1em;
         font-weight: 300;
         svg{
             position: relative;
@@ -348,16 +216,9 @@ header{
     }
 }
 #progress-bargraph{
-    margin-bottom: .5em;
-    padding: 0 1em;
-    @media (min-width:$md) {
-        padding: 0;
-    }
-    border-radius: 2px;
-
+    margin: 0 1em;
+    margin-bottom: 3em;
     .panel-title{
-        padding: .5em 16px;
-        background: #eee;
         font-size: .85em;
     }
     .panel-content {
@@ -365,9 +226,7 @@ header{
         align-items: flex-end;
         padding: .75em 16px;
         padding-top: 2em;
-        background: #fff;
         font-size: .9em;
-        overflow: auto;
         &>div{
             flex: auto;
             max-width: 4em;
@@ -412,24 +271,21 @@ header{
 #auction,
 #teacher-list{
     padding-bottom: .5em;
+    margin-bottom: 3em;
 }
 #my-introduction{
-    h2{
-        color: darkorange;
-        font-size: 1.3em;
-    }
     font-size: .85em;
     .intro-desc{
         margin-bottom: 1em;
         padding: .5em 1em;
         border-radius: 2px;
-        background: rgba(dodgerblue,0.1);
+        background: rgba(#B1C5F4,0.4);
         line-height: 1.5em;
         &>div{
             margin: .5em 0;
         }
         &>div:first-child{
-            color: darkblue;
+            color: #1B4AB5;
             svg{
                 position: relative;
                 top: .18em;
@@ -461,9 +317,6 @@ header{
     }
 }
 #auction{
-    h2{
-        color: darkorange
-    }
     .auction-intro{
         padding: 1em;
         border-radius: 2px;
@@ -540,10 +393,6 @@ header{
 }
 #teacher-list{
     margin: 0 -.225em;
-    h2{
-        margin-top: .5em;
-        color: dodgerblue;
-    }
     .teachers {
         display: flex;
         flex-flow: wrap;
@@ -644,3 +493,156 @@ header{
 
     }
 }
+
+
+
+/* specifics */
+    #my-page-profile,
+    #next-class{
+        .profile-card-rightside{
+            font-size: .85rem;
+            .card-body{
+                .panel{
+                    font-size: .8rem;
+                    .panel-title{
+                        display: flex;
+                        align-items: center;
+                        font-size: .75rem; 
+                    }
+                }
+            }
+        }
+    }
+   #my-page-profile {
+        .button-with-icon{
+            margin-top: .3em;
+            width: 90px;
+            font-size: .65em;
+        }
+        .panel-title{
+            img {
+                position: relative;
+                top:.1em;
+                width: 1.25em;
+                height: 1.25em;
+                margin-right: .3em;
+                white-space: nowrap
+            }  
+        }
+    }
+    #next-class {
+        #class-info{
+            svg{
+                position: relative;
+                top: .1em;
+                height: .9em;
+                width: .9em;
+                margin-right: .2em;
+            }
+            #class-time{
+                color:darkred;
+            }
+            #book-in-use{
+                color: darkgreen
+            }
+        }
+        .panel{
+            margin-top: .5em;
+        }
+    }
+    #my-level{
+        .box-container{
+            position: relative;
+            height: 90px;
+            width: 90px;
+            border-radius: 4px;
+            font-size: 1.5em;
+            background: #eee;
+            text-align: center;
+            @media (min-width:$md) {
+                height: 100px;
+                width: 100px;
+            }
+            .title{ 
+                width: 100%;
+                color: #000;
+                text-align: center;
+                font-size: 13px
+            }
+            .title,
+            .icon,
+            .no{
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%,-50%)
+            }
+            .title{
+                top: 18%;
+            }
+            .no{
+                color: #fff;
+                top:50%;
+            }
+            svg{
+                height: 2.2em;
+                width:  2.2em;
+                &[level-color="0"],
+                &[level-color="1"],
+                &[level-color="2"],
+                &[level-color="3"] {
+                    color: gray;
+                }
+                &[level-color="4"],
+                &[level-color="5"],
+                &[level-color="6"] {
+                    color: dodgerblue;
+                }
+                &[level-color="7"],
+                &[level-color="8"],
+                &[level-color="9"],
+                &[level-color="10"] {
+                    color: darkorange;
+                }
+            }
+        }
+    }
+    #student-session-stats{
+        background: #fff;
+        flex: auto;
+        text-align: center;
+        @media (min-width:$md) {
+            background: 0;
+            flex: unset;
+        }
+        .circle{
+            display: inline-flex;
+            align-content: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            @media (min-width:$md) {
+                height: 100px;
+                width: 100px;
+                background: #eee
+            }
+            background: #fff;
+            text-align: center;
+            &>div{
+                font-size: .75em;
+                @media (min-width:$md) {
+                    padding: 0 1em;
+                }
+            }
+            &>div:first-child{
+                font-size: 1.7em;
+            }
+            &:first-child{
+                @media (min-width:$md) {
+                    margin: 0 .75em;
+                }
+            }
+        }
+    }
