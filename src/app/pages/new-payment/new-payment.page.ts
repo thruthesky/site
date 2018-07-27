@@ -226,8 +226,11 @@ export class NewPaymentPage implements AfterViewInit {
             return 0;
         }
         const vatRate = this.a.floatval(this.paymentRate.VAT);
+        // console.log('vatRtate: ', vatRate);
         const vat = this.amount * vatRate / 100;
+        // console.log('vat: ', vat);
         const usdWithVat = (this.amount + vat) / 1000;
+        // console.log('USD with vat: ', usdWithVat);
         return usdWithVat;
     }
     /**
@@ -244,7 +247,9 @@ export class NewPaymentPage implements AfterViewInit {
         if (!this.paymentRate) {
             return;
         }
+        // console.log('paymentRate.USD_TO_KRW: ', this.paymentRate.USD_TO_KRW);
         const kwr = this.usdWithVat * this.a.floatval(this.paymentRate.USD_TO_KRW);
+        // console.log('kwr: ', kwr);
         return Math.round(kwr);
     }
 
