@@ -1,0 +1,36 @@
+<main>
+    <header>
+        <h1>Greetings List</h1>
+    </header>
+    <section class="content">
+        <div class="loader" *ngIf=" showLoader ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>Loading...</span>
+        </div>
+        <div class="greetings py-3" *ngIf=" !showLoader ">
+            <div class="greeting container mb-3" *ngFor=" let greeting of greetings ">
+                <div class="row">
+                    <div class="student">
+                        <img class="primary-photo" [src]="a.checkPhotoURL(greeting.photoURL)"/>
+                        <div class="name">{{ greeting.display_name }}</div>
+                    </div>
+                    <div class="col">
+                        <div *ngIf="greeting.greeting">
+                            Greeting: {{greeting.greeting}}
+                        </div>
+                        <div class="stamp">Date Posted: {{ a.dateTime(greeting['greeting_update_stamp'])}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <page-navigator-component [no_of_total_items]=" pageOption['totalRecord']"
+                                      [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
+                                      [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
+                                      [no_of_current_page]=" pageOption['currentPage'] "
+                                      [scoll_to_element_Id]="'teacher-review-page'"
+                                      [show_prev_next]=" true " (pageClick)="onPostPageClick($event)">
+            </page-navigator-component>
+        </div>
+    </section>
+</main>

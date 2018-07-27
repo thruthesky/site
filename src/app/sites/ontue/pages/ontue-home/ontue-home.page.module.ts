@@ -19,6 +19,7 @@ import { OntueStudentGreetingListComponentModule } from '../../components/ontue-
 import { OntueStudentAuctionListComponentModule } from '../../components/ontue-student-auction-list/ontue-student-auction-list.component.module';
 import { OntuePolicyForumComponentModule } from '../../components/ontue-policy-forum/ontue-policy-forum.component.module';
 import { OntueStudentRegistrationListComponentModule } from '../../components/ontue-student-registration-list/ontue-student-registration-list.component.module';
+import { OntueTopEarnerComponentModule } from '../../components/ontue-top-earner/ontue-top-earner.component.module';
 
 const routes: Routes = [
     {path: '', component: OntueHomePage}
@@ -43,7 +44,8 @@ const routes: Routes = [
         OntueStudentGreetingListComponentModule,
         OntueStudentAuctionListComponentModule,
         OntuePolicyForumComponentModule,
-        OntueStudentRegistrationListComponentModule
+        OntueStudentRegistrationListComponentModule,
+        OntueTopEarnerComponentModule
     ],
     exports: [
         RouterModule

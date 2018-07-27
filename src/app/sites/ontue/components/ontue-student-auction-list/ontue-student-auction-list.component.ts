@@ -15,13 +15,10 @@ export class OntueStudentAuctionListComponent {
 
     constructor(public a: AppService) {
 
-
-        let offset = new Date().getTimezoneOffset();
-        offset = (offset / 60) * -1;
-        a.lms.get_auctions({tz_offset: offset}).subscribe( res => {
+        a.lms.get_auctions({tz_offset: a.lms.getUserLocalTimezoneOffset()}).subscribe( res => {
             console.log('get_auctions: ', res);
-            if (res) {
-                this.auctions = res;
+            if (res && res['auction']) {
+                this.auctions = res['auction'];
             }
         }, e => this.a.toast(e));
 
