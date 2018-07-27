@@ -8,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class MessageSendModalDialogComponent {
 
+    content = '';
     constructor(
         public dialogRef: MatDialogRef<MessageSendModalDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any

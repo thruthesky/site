@@ -1,8 +1,15 @@
-<h1 mat-dialog-title *ngIf="data?.title">{{ data.title }} </h1>
+<h1 mat-dialog-title>
+    <ng-container *ngIf="data.name">{{ 'MESSAGE_SEND_TITLE_WITH_NAME' | t:{ name: data.name } }}</ng-container>
+    <ng-container *ngIf=" ! data.name ">{{ 'MESSAGE_SEND_TITLE' | t }}</ng-container>
+</h1>
 <div class="dialog-content" mat-dialog-content>
-    <p [innerHTML]=" data.content "></p>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="content">
+    </mat-form-field>
+
 </div>
 <mat-dialog-actions align="end">
-        <button data-button="send" mat-button cdkFocusInitial [mat-dialog-close]=" true ">{{ data.yes }}</button>
-        <button data-button="cancel" mat-button cdkFocusInitial [mat-dialog-close]=" false ">{{ data.no }}</button>
+    <button data-button="send" mat-button cdkFocusInitial [mat-dialog-close]=" content ">{{ 'SEND' | t }}</button>
+    <button data-button="cancel" mat-button cdkFocusInitial [mat-dialog-close]=" false ">{{ 'CANCEL' | t }}</button>
 </mat-dialog-actions>

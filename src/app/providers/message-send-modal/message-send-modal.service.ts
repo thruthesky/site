@@ -7,9 +7,8 @@ import { MessageSendModalDialogComponent } from './dialog/message-send-modal.dai
 
 
 export interface MessageSendModalData {
-    title?: string;
-    send?: string; //  For confirm, it will be 'Yes' button
-    cancel?: string; // No button for confirm.
+    ID: number;
+    name?: string;
     maxWidth?: string;
 }
 
@@ -25,8 +24,8 @@ export class MessageSendModalService {
         public readonly a: AppService
     ) { }
 
-    sanitizeData( data: MessageSendModalData ) {
-        if ( ! data.maxWidth ) {
+    sanitizeData(data: MessageSendModalData) {
+        if (!data.maxWidth) {
             data.maxWidth = '800px';
         }
         return data;
@@ -38,20 +37,31 @@ export class MessageSendModalService {
      * @return boolean of Observable
      *      true will be returned after close.
      */
-    open(data: MessageSendModalData): Observable<boolean> {
+    open(data: MessageSendModalData) {
         this.sanitizeData(data);
         this.dialogRef = this.dialog.open(MessageSendModalDialogComponent, {
             disableClose: true,
             maxWidth: data.maxWidth,
             data: data
         });
-        return this.dialogRef.afterClosed();
-    }
-
-    close() {
-        if (this.dialogRef) {
-            this.dialogRef.close();
-        }
+        this.dialogRef.afterClosed().subscribe(res => {
+            console.log('Message box closed: ', res);
+            if (res) {
+                if (res.length < 10) {
+                    this.a.toast('Message is too short...');
+                    return;
+                }
+                this.a.lms.message_send({
+                    ID: data.ID,
+                    message: res
+                }).subscribe(re => {
+                    console.log('apply_auction: ', re);
+                    this.a.toast('Message Sent...');
+                }, e => {
+                    this.a.toast(e);
+                });
+            }
+        });
     }
 
 }

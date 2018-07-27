@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { MYPAGE } from '../../modules/xapi/lms.service';
 import { TEACHER_LIST_INFO } from '../../modules/xapi/interfaces';
+import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class MyPagePage implements OnInit {
     teachers: Array<TEACHER_LIST_INFO> = [];
 
     constructor(
-        public a: AppService
+        public a: AppService,
+        public messageSend: MessageSendModalService
     ) {
         // console.log(`NotFoundPage::constructor()`);
 

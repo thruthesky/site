@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { AUCTION } from '../../modules/xapi/lms.service';
+import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
 
 @Component({
     selector: 'auction-list-page',
@@ -24,7 +25,8 @@ export class AuctionListPage implements OnInit {
     showLoader = false;
 
     constructor(
-        public a: AppService
+        public a: AppService,
+        public messageModal: MessageSendModalService
     ) {
         this.showLoader = true;
         a.lms.get_auctions({
@@ -48,31 +50,31 @@ export class AuctionListPage implements OnInit {
     }
 
     ngOnInit() { }
-    onSubmitApplication(event: Event, auction) {
-        event.preventDefault();
-        if ( auction['applying'] ) {
-            return;
-        }
+    // onSubmitApplication(event: Event, auction) {
+    //     event.preventDefault();
+    //     if ( auction['applying'] ) {
+    //         return;
+    //     }
 
-        if (!auction['message'] || auction['message'].length < 10) {
-            this.a.toast('Message is too short...');
-            return;
-        }
-        auction['applying'] = true;
-        this.a.lms.apply_auction({
-            ID: auction.ID,
-            message: auction['message']
-        }).subscribe(res => {
-            console.log('apply_auction: ', res);
-            auction['applying'] = false;
-            auction['showMessageForm'] = false;
-            this.a.toast('Message Sent...');
-        }, e => {
-            this.a.toast(e);
-            auction['applying'] = false;
-        });
-        return false;
-    }
+    //     if (!auction['message'] || auction['message'].length < 10) {
+    //         this.a.toast('Message is too short...');
+    //         return;
+    //     }
+    //     auction['applying'] = true;
+    //     this.a.lms.apply_auction({
+    //         ID: auction.ID,
+    //         message: auction['message']
+    //     }).subscribe(res => {
+    //         console.log('apply_auction: ', res);
+    //         auction['applying'] = false;
+    //         auction['showMessageForm'] = false;
+    //         this.a.toast('Message Sent...');
+    //     }, e => {
+    //         this.a.toast(e);
+    //         auction['applying'] = false;
+    //     });
+    //     return false;
+    // }
 
 
     showDateSelected( auction ) {

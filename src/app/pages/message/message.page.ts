@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../providers/app.service';
+import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class MessagePage {
     loading = false;
 
     constructor(
-        public a: AppService
+        public a: AppService,
+        public messageSend: MessageSendModalService
     ) {
         this.loadMessage({box: this.box, page_no: this.page_no, limit: this.limit});
     }

@@ -33,7 +33,12 @@
             </div>
         </div>
 
-        <div class="content" *ngIf="message.view" (click)="onClickMessage(message)">{{message.content}}</div>   
+        <div class="content" *ngIf="message.view" (click)="onClickMessage(message)">
+            {{message.content}}
+            <div>
+                <button class="app-button" (click)=" messageSend.open( {ID: message.sender, name: message.sender_name} ) ">Reply</button>
+            </div>
+        </div>   
     </ng-container>
 
 
