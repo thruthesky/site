@@ -16,42 +16,38 @@
         <!-- TOP PART OF THE WHOLE PAGE -->
         <div class="top">
 
-            <div id="my-page-profile">
-                <label title="Choose File">
-                    <div class="profile-photo">
-                        <div class="student-photo">
-                            <img alt="profile picture" [src]="a.checkPhotoURL(mypage.photoURL)">
-                        </div>
-                        <div class="update-photo-button">
-                            <span class="app-button">
-                                <input type="file">
-                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-camera fa-w-16 fa-7x">
-                                    <path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path>
-                                </svg>
-                                {{ a.ln.UPDATE_PHOTO }}
-                            </span>
-                        </div>
+            <div id="my-page-profile" class="profile-card">
+                <div class="profile-card-leftside">
+                    <div class="profile-card-photo">
+                        <img alt="profile picture" [src]="a.checkPhotoURL(mypage.photoURL)">
                     </div>
-                </label>
-                <div class="profile-meta">
-                    <div>
-                        <span>{{ a.ln.NAME }}: </span>
-                        <span data-role="user-name">{{ mypage.name }}</span>
-                    </div>
-                    <div>
-                        <span>{{ a.ln.POINT }}: </span>
-                        <span data-role="user-point">{{ mypage.point | number }}</span>
-                    </div>
-                    <div>
-                        {{ a.ln.TIMEZONE }}: {{ mypage.timezone_country }} ({{ mypage.timezone }})
-                    </div>
-                    <div class="class-id">
-
-                        <span>{{ mypage.class_software | t }} {{ a.ln.ID }}: </span>
-                        <span data-role="class-software-icon" *ngIf="mypage?.class_software">
-                            <img src="/assets/img/messengers/{{ mypage.class_software }}.png">
+                    <span class="button-with-icon">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path>
+                            </svg>
                         </span>
-                        <span data-role="class-software-id">{{ mypage.class_software_id }}</span>
+                        <span>{{ a.ln.UPDATE_PHOTO }}</span>
+                    </span>
+                </div>
+                <div class="profile-card-rightside">
+                    <div class="card-title">
+                        <span data-role="user-name">{{ a.ln.NAME }}: {{ mypage.name }}</span>
+                        <span data-role="user-point">{{ a.ln.POINT }}: {{ mypage.point | number }}</span>
+                    </div>
+                    <div class="card-body">
+                        <div> {{ a.ln.TIMEZONE }}: {{ mypage.timezone_country }} ({{ mypage.timezone }})</div>
+                        <div class="panel"  *ngIf="mypage?.class_software">
+                            <div class="panel-title">
+                                <span data-role="class-software-icon">
+                                    <img src="/assets/img/messengers/{{ mypage.class_software }}.png">
+                                </span>
+                                <span>{{ mypage.class_software | t }} {{ a.ln.ID }}</span>
+                            </div>
+                            <div class="panel-content">
+                                <span data-role="class-software-id">{{ mypage.class_software_id }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,45 +66,53 @@
             </div>
 
 
-            <div id="next-class" *ngIf="mypage.next_class">
-                <div class="profile-photo">
-                    <div class="teacher-photo">
+            <div id="next-class" class="profile-card" *ngIf="mypage.next_class">
+                <div class="profile-card-leftside">
+                    <div class="profile-card-photo">
                         <img src="{{ mypage.next_class.teacher_photoURL }}">
                     </div>
                 </div>
-                <div class="class-info">
-                    <div class="title">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path fill="currentColor" d="M192 224c0-17.67-14.33-32-32-32h-32c-35.35 0-64 28.65-64 64v63.64c0 35.35 28.65 64 64 64h32c17.67 0 32-14.33 32-32V224zm-32 127.64h-32c-17.64 0-32-14.36-32-32V256c0-17.64 14.36-32 32-32h32v127.64zm224 32c35.35 0 64-28.65 64-64V256c0-35.35-28.65-64-64-64h-32c-17.67 0-32 14.33-32 32v127.64c0 17.67 14.33 32 32 32h32zM352 224h32c17.64 0 32 14.36 32 32v63.64c0 17.64-14.36 32-32 32h-32V224zM256 0C113.97 0 3.92 117.82.1 256L0 280c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8l.09-24C35.43 135.19 131.63 32 256 32c123.5 0 224 100.48 224 224v176c0 26.47-21.53 48-48 48h-82.94c1.79-5.03 2.94-10.36 2.94-16 0-26.51-21.49-48-48-48h-64c-26.51 0-48 21.49-48 48s21.49 48 48 48h192c44.12 0 80-35.89 80-80V256C512 114.85 397.16 0 256 0zm48 480h-64c-8.82 0-16-7.18-16-16s7.18-16 16-16h64c8.82 0 16 7.18 16 16s-7.18 16-16 16z"></path>
-                            </svg>
-                        </span>
-                        <span>{{ a.ln.NEXT_CLASS }}</span>
+                <div id="class-info" class="profile-card-rightside">
+                    <div class="card-title">
+                        <div>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path fill="currentColor" d="M192 224c0-17.67-14.33-32-32-32h-32c-35.35 0-64 28.65-64 64v63.64c0 35.35 28.65 64 64 64h32c17.67 0 32-14.33 32-32V224zm-32 127.64h-32c-17.64 0-32-14.36-32-32V256c0-17.64 14.36-32 32-32h32v127.64zm224 32c35.35 0 64-28.65 64-64V256c0-35.35-28.65-64-64-64h-32c-17.67 0-32 14.33-32 32v127.64c0 17.67 14.33 32 32 32h32zM352 224h32c17.64 0 32 14.36 32 32v63.64c0 17.64-14.36 32-32 32h-32V224zM256 0C113.97 0 3.92 117.82.1 256L0 280c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8l.09-24C35.43 135.19 131.63 32 256 32c123.5 0 224 100.48 224 224v176c0 26.47-21.53 48-48 48h-82.94c1.79-5.03 2.94-10.36 2.94-16 0-26.51-21.49-48-48-48h-64c-26.51 0-48 21.49-48 48s21.49 48 48 48h192c44.12 0 80-35.89 80-80V256C512 114.85 397.16 0 256 0zm48 480h-64c-8.82 0-16-7.18-16-16s7.18-16 16-16h64c8.82 0 16 7.18 16 16s-7.18 16-16 16z"></path>
+                                </svg>
+                            </span>
+                            <span>{{ a.ln.NEXT_CLASS }}</span>
+                        </div>
+                        <div id="teacher-name">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
+                                </svg>
+                            </span>
+                            <span>{{ a.ln.NAME }}: {{ mypage.next_class.teacher_name}}</span>
+                        </div>
                     </div>
-                    <div class="teacher-name">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
-                            </svg>
-                        </span>
-                        <span>{{ a.ln.NAME }}: {{ mypage.next_class.teacher_name}}</span>
-                    </div>
-                    <div class="class-time">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z"></path>
-                            </svg>
-                        </span>
-                        <span>{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</span>
-                    </div>
-                    <div class="book-in-use">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
-                            </svg>
-                        </span>
-                        <span>{{ a.ln.BOOK_IN_USE }}: </span>
-                        <b> {{ mypage.book_next }}</b>
+                    <div class="card-body">
+                        <div id="class-time">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z"></path>
+                                </svg>
+                            </span>
+                            <span>{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</span>
+                        </div>
+                        <div  id="book-in-use" class="panel">
+                            <div class="panel-title">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
+                                    </svg>
+                                </span>
+                                <span>{{ a.ln.BOOK_IN_USE }} </span>
+                            </div>
+                            <div class="panel-content">
+                                <span>{{ mypage.book_next }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,7 +132,7 @@
         </div>
         <!-- END OF THE TOP PART of the whole page-->
 
-        <div id="progress-bargraph">
+        <div id="progress-bargraph" class="panel">
             <div class="panel-title">{{ a.ln.MY_LEARNING_PROGRESS }}</div>
             <div class="panel-content" *ngIf=" mypage.progress ">
                 <div *ngFor=" let idx of a.keys( mypage.progress ) " title="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
