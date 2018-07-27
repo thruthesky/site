@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuctionListPage } from './auction-list.page';
 import { MaterialModule } from '../../app.material.module';
 import { PageNavigatorComponentModule } from '../../components/page-navigator/page-navigator.component.module';
 import { FormsModule } from '@angular/forms';
+import { GreetingListPage } from './greeting-list.page';
 
 
 const routes: Routes = [
-    {path: '', component: AuctionListPage}
+    {path: '', component: GreetingListPage}
 ];
 @NgModule({
     imports: [
@@ -22,13 +22,13 @@ const routes: Routes = [
         RouterModule
     ],
     declarations: [
-        AuctionListPage
+        GreetingListPage
     ],
     entryComponents: [
-        AuctionListPage
+        GreetingListPage
     ],
-    bootstrap: [AuctionListPage],
+    bootstrap: [GreetingListPage],
     schemas: []
 })
-export class AuctionListPageModule {
+export class GreetingListPageModule {
 }

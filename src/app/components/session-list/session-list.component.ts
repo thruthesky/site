@@ -328,35 +328,6 @@ export class SessionListComponent implements OnInit {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * It is called when student clicks on teacher's messenger ID to add click.
      *

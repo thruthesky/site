@@ -11,11 +11,10 @@ export class OntueStudentGreetingListComponent {
     greetings = null;
 
     constructor(public a: AppService) {
-
         a.lms.get_greetings().subscribe( res => {
             console.log('get_greetings: ', res);
             if (res) {
-                this.greetings = res;
+                this.greetings = res['greetings'];
             }
         }, e => this.a.toast(e));
     }

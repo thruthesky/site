@@ -164,6 +164,8 @@ export interface AUCTION {
     ID: number;
     display_name: string;
     photoURL: string;
+    greeting?: string;
+    auction_stamp_update: number;
     auction: {
         sunday: '' | 'Y';
         monday: '' | 'Y';

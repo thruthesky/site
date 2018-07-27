@@ -10,34 +10,67 @@ import { AUCTION } from '../../modules/xapi/lms.service';
 export class AuctionListPage implements OnInit {
     auctions: Array<AUCTION> = [];
 
+    pageOption = {
+        limitPerPage: 10,
+        currentPage: 1,
+        limitPerNavigation: 4,
+        totalRecord: 0
+    };
+
+
     days = [ 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' ];
     shortDays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
-    
+
+    showLoader = false;
+
     constructor(
         public a: AppService
     ) {
+        this.showLoader = true;
         a.lms.get_auctions({
             tz_offset: a.lms.getUserLocalTimezoneOffset(),
-            page: 1,
-            limit: 10
+            limit: this.pageOption['limitPerPage'],
+            page: this.pageOption['currentPage']
         }).subscribe(res => {
             console.log('get_auctions: ', res);
             if (res) {
-                this.auctions = res;
+                this.pageOption.currentPage = res['page'];
+                this.pageOption.limitPerPage = res['limit'];
+                this.pageOption.totalRecord = res['total'];
+                this.auctions = res['auction'];
             }
-        }, e => this.a.toast(e));
+            this.showLoader = false;
+        }, e => {
+            this.a.toast(e);
+            this.showLoader = false;
+        });
 
     }
 
     ngOnInit() { }
     onSubmitApplication(event: Event, auction) {
         event.preventDefault();
+        if ( auction['applying'] ) {
+            return;
+        }
+
+        if (!auction['message'] || auction['message'].length < 10) {
+            this.a.toast('Message is too short...');
+            return;
+        }
+        auction['applying'] = true;
         this.a.lms.apply_auction({
             ID: auction.ID,
             message: auction['message']
         }).subscribe(res => {
             console.log('apply_auction: ', res);
-        }, e => this.a.toast(e));
+            auction['applying'] = false;
+            auction['showMessageForm'] = false;
+            this.a.toast('Message Sent...');
+        }, e => {
+            this.a.toast(e);
+            auction['applying'] = false;
+        });
         return false;
     }
 

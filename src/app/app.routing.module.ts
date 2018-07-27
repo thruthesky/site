@@ -302,6 +302,10 @@ const routes: Routes = [
     path: 'auction-list',
     loadChildren: './pages/auction-list/auction-list.page.module#AuctionListPageModule'
   },
+  {
+    path: 'greetings-list',
+    loadChildren: './pages/greeting-list/greeting-list.page.module#GreetingListPageModule'
+  },
 
   /**
    * Admin Pages

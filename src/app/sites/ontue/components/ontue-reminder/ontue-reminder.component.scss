@@ -1,175 +1,41 @@
 @import '../../../../../theme/vars.scss';
-  section{
-      .desktop-banner{
-        height: 225px;
-        background: #fff;
-        overflow: hidden;
-        .top{
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          svg{
-            margin-left: .5em;
-            height: 4em;
-            width: 4em;
-            color: #FFCB00;
-          }
-        }
-        .top-earner{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          padding: 1em;
-          height: 100%;
-          border: 3px dashed rgba(125,125,125,0.1);
-          background: #fff;
-          text-align: center;
-          h2{
-              margin-top:1em;
-              margin-bottom: .5em;
-              font-size: .95em;
-              font-weight: 600;
-              color: #141823
-          }
-          .photo{
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              margin: 0 auto;
-              height: 80px;
-              width: 80px;
-              border-radius: 50%;
-              overflow: hidden;
-  
-              img{
-                  width: 100%;
-              }
-          }
-          p{
-              margin: 0;
-              padding: 0 2em;
-              width:100%;
-              @media screen and (min-width:$md) {
-                padding: 0;
-              }
-              font-size: .8em;
-              line-height: 1.5em;
-              font-weight: 400;
-              color: #3a3e4b;
-              word-wrap: break-word
-          }
-      }
+
+section {
+    height: 225px;
+    margin-top: 1.2em;
+    outline: 1px solid rgba(125, 125, 125, 0.1);
+    background: #fff;
+    text-align: center;
+    .icon {
+        margin-top: .6em;
+        height: 4.5em;
+        color: #1F7979;
+        // animation: colorAnimate 7s ease-in-out infinite
     }
-      .col{
-        padding: 0;
-      }
-      .reminder{
-        height: 225px;
-        margin-top: 1.2em;
-        outline: 1px solid rgba(125,125,125,0.1);
-        background: #fff;
+    .title {
+        margin: 0;
+        padding: .7em;
+        background: rgba(171, 0, 13, .8);
+        color: #fff;
         text-align: center;
-        .icon{
-          margin-top:.6em;
-          height: 4.5em;
-          color: #1F7979;
-          // animation: colorAnimate 7s ease-in-out infinite
-        }
-        .title{
-          margin: 0;
-          padding: .7em;
-          background: rgba(171,0,13,.8);
-          color: #fff;
-          text-align: center;
-          font-size: 85%;
-        }
+        font-size: 85%;
+    }
 
-        .body{
-          margin: .4em 0;
-          font-size: 85%;
-          font-weight: bold;
-        }
+    .body {
+        margin: .4em 0;
+        font-size: 85%;
+        font-weight: bold;
+    }
 
-        a{
-          display: inline-block;
-          margin-bottom: .5em;
-          padding: .6em 1.5em;
-          border-radius: 2px;
-          border:none;
-          background: rgba(171,0,13,.8);
-          font-size: 70%;
-          color:#fff;
-          cursor: pointer;
-        }
-      }
-  }
-  
-  .banner-bg-1{
-    background:linear-gradient(to bottom, rgba(#494949,0.63),  rgba(#494949,0.63)),
-    url('../../../../../assets/img/teacher/teacher-mobile-slide1.jpg');
-    background-size: cover;
-    background-position: top;
-  }
-
-  // @keyframes colorAnimate {
-  //   0%{
-  //     transform: rotateZ(0deg);
-  //     color: #009600;
-  //   }
-
-
-  //   26%{
-  //     color: #BC5500;
-  //     transform: rotateZ(0deg);
-  //   }
-  //   27%{
-  //     transform: rotateZ(8deg);
-  //   }
-
-  //   28%{
-  //     transform: rotateZ(0deg);
-  //   }
-
-  //   29%{
-  //     transform: rotateZ(8deg);
-  //   }
-
-  //   30%{
-  //     transform: rotateZ(0deg);
-  //   }
-
-  //   31%{
-  //     transform: rotateZ(8deg);
-  //   }
-
-  //   32%{
-  //     transform: rotateZ(0deg);
-  //   }
-
-  //   33%{
-  //     transform: rotateZ(5deg);
-  //   }
-
-  //   40%{
-  //     transform: rotateZ(0deg);
-  //     color: #007171;
-  //   }
-
-
-  //   54%{
-  //     transform: rotateZ(0deg);
-  //     color: #BC5500;
-  //   }
-
-  //   80%{
-  //     transform: rotateZ(0deg);
-  //     color: #009600;
-  //   }
-
-  //   100%{
-  //     color: #007171;
-  //     transform: rotateZ(0deg);
-  //   }
-  // }
-
+    a {
+        display: inline-block;
+        margin-bottom: .5em;
+        padding: .6em 1.5em;
+        border-radius: 2px;
+        border: none;
+        background: rgba(171, 0, 13, .8);
+        font-size: 70%;
+        color: #fff;
+        cursor: pointer;
+    }
+}
