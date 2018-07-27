@@ -12,7 +12,7 @@ export class OntueSutdentRegistrationListComponent {
 
     constructor(public a: AppService) {
         this.a.lms.get_latest_student_register({limit: 5}).subscribe( re => {
-            console.log(re);
+            console.log('get_latest_student_register', re);
             this.students = re;
         });
     }
