@@ -1,4 +1,4 @@
-<section *ngIf="policy && policy.length ">
+<section>
     <h2>
         <a routerLink="/teacher_reminders">
             <span>{{ a.ln.POLICY }}</span>
@@ -8,8 +8,10 @@
         </a>
     </h2>
     <div class="content">
-        <a *ngFor="let post of policy " routerLink="{{ a.urlPost( post.id ) }}">
-            {{ post.title.rendered }}
-        </a>
+        <ng-container *ngIf="policy && policy.length ">
+            <a *ngFor="let post of policy " routerLink="{{ a.urlPost( post.id ) }}">
+                {{ post.title.rendered }}
+            </a>
+        </ng-container>
     </div>
 </section>

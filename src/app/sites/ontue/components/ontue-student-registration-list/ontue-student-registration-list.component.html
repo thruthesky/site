@@ -17,6 +17,7 @@
                         <div class="col">
                             <span class="date">Class Software: {{ student.class_software }}</span>
                             <div *ngIf=" student.greeting ">{{student.greeting}}</div>
+                            <span>Date Registered: {{student.user_registered | date}}</span>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,10 @@
 @import '../../../../../theme/vars.scss';
 section {
-    margin:1.35em 0;
-    @media (min-width:$md) {
-        margin-top:0;
-    }
-    border: 1px solid rgba(125,125,125,0.1);
-    background-color: #fff;
-    font-size: .85em;
+    height: 100%;
+    margin-top: 1.2em;
+    background: #fff;
+    outline: 1px solid rgba(125,125,125,0.1);
+    font-size: 85%;
 
     h2 {
         margin: 0;
