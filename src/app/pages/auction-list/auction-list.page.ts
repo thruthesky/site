@@ -9,6 +9,10 @@ import { AUCTION } from '../../modules/xapi/lms.service';
 })
 export class AuctionListPage implements OnInit {
     auctions: Array<AUCTION> = [];
+
+    days = [ 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' ];
+    shortDays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
+    
     constructor(
         public a: AppService
     ) {
