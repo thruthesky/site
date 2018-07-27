@@ -18,7 +18,7 @@ export class OntueStudentAuctionListComponent {
 
         let offset = new Date().getTimezoneOffset();
         offset = (offset / 60) * -1;
-        a.lms.get_auctions(offset).subscribe( res => {
+        a.lms.get_auctions({tz_offset: offset}).subscribe( res => {
             console.log('get_auctions: ', res);
             if (res) {
                 this.auctions = res;

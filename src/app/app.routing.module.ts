@@ -298,6 +298,11 @@ const routes: Routes = [
     loadChildren: './pages/my-page/my-page.page.module#MyPagePageModule'
   },
 
+  {
+    path: 'auction-list',
+    loadChildren: './pages/auction-list/auction-list.page.module#AuctionListPageModule'
+  },
+
   /**
    * Admin Pages
    */

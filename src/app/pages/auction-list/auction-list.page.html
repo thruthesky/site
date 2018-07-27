@@ -1,0 +1,21 @@
+<h1>Auction List</h1>
+
+
+<div *ngIf=" auctions.length ">
+    <div *ngFor=" let auction of auctions ">
+        <img src="{{auction.photoURL}}">
+        {{ auction.display_name }}
+        {{ auction.auction.comment }}
+
+        <button class="app-button" (click)="auction['showMessageForm'] = true;">Contact</button>
+        <div *ngIf="auction['showMessageForm']">
+            <form (ngSubmit)="onSubmitApplication($event, auction)">
+                <textarea name="message" [(ngModel)]="auction['message']"></textarea>
+                <button class="app-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
