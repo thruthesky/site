@@ -23,8 +23,13 @@ export class GreetingListPage implements OnInit {
         public a: AppService,
         public messageSend: MessageSendModalService
     ) {
+
+        this.loadGreetings();
+    }
+
+    loadGreetings() {
         this.showLoader = true;
-        a.lms.get_greetings({
+        this.a.lms.get_greetings({
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
         }).subscribe( res => {
@@ -39,10 +44,15 @@ export class GreetingListPage implements OnInit {
             this.a.toast(e);
             this.showLoader = false;
         });
-
     }
 
+
     ngOnInit() { }
+
+    onPageClick($event) {
+        this.pageOption['currentPage'] = $event;
+        this.loadGreetings();
+    }
 
 }
 

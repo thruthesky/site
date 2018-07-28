@@ -28,8 +28,15 @@ export class AuctionListPage implements OnInit {
         public a: AppService,
         public messageModal: MessageSendModalService
     ) {
+        this.loadAuctions();
+
+    }
+
+    ngOnInit() { }
+
+    loadAuctions() {
         this.showLoader = true;
-        a.lms.get_auctions({
+        this.a.lms.get_auctions({
             tz_offset: a.lms.getUserLocalTimezoneOffset(),
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
@@ -46,35 +53,12 @@ export class AuctionListPage implements OnInit {
             this.a.toast(e);
             this.showLoader = false;
         });
-
     }
 
-    ngOnInit() { }
-    // onSubmitApplication(event: Event, auction) {
-    //     event.preventDefault();
-    //     if ( auction['applying'] ) {
-    //         return;
-    //     }
-
-    //     if (!auction['message'] || auction['message'].length < 10) {
-    //         this.a.toast('Message is too short...');
-    //         return;
-    //     }
-    //     auction['applying'] = true;
-    //     this.a.lms.apply_auction({
-    //         ID: auction.ID,
-    //         message: auction['message']
-    //     }).subscribe(res => {
-    //         console.log('apply_auction: ', res);
-    //         auction['applying'] = false;
-    //         auction['showMessageForm'] = false;
-    //         this.a.toast('Message Sent...');
-    //     }, e => {
-    //         this.a.toast(e);
-    //         auction['applying'] = false;
-    //     });
-    //     return false;
-    // }
+    onPageClick($event) {
+        this.pageOption['currentPage'] = $event;
+        this.loadAuctions();
+    }
 
 
     showDateSelected( auction ) {
