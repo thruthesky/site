@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
+import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
 
 @Component({
     selector: 'greeting-list-page',
@@ -19,7 +20,8 @@ export class GreetingListPage implements OnInit {
     showLoader = false;
 
     constructor(
-        public a: AppService
+        public a: AppService,
+        public messageSend: MessageSendModalService
     ) {
         this.showLoader = true;
         a.lms.get_greetings({

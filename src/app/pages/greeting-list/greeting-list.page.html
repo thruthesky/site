@@ -19,6 +19,7 @@
                             Greeting: {{greeting.greeting}}
                         </div>
                         <div class="stamp">Date Posted: {{ a.dateTime(greeting['greeting_update_stamp'])}}</div>
+                        <div><button class="app-button" (click)="messageSend.open({ID: greeting.ID, name: greeting.display_name })">Send Message</button></div>
                     </div>
                 </div>
             </div>

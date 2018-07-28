@@ -5,6 +5,7 @@ import { AuctionListPage } from './auction-list.page';
 import { MaterialModule } from '../../app.material.module';
 import { PageNavigatorComponentModule } from '../../components/page-navigator/page-navigator.component.module';
 import { FormsModule } from '@angular/forms';
+import { MessageModalServiceModule } from '../../providers/message-send-modal/message-send-modal.service.module';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         FormsModule,
         MaterialModule,
-        PageNavigatorComponentModule
+        PageNavigatorComponentModule,
+        MessageModalServiceModule
     ],
     exports: [
         RouterModule

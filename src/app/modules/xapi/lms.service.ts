@@ -142,6 +142,7 @@ export interface MYPAGE {
     auction_application_list: Array<{
         idx: number;
         sender: {
+            ID: number;
             name: string;
             photoURL: string;
         };
@@ -149,6 +150,14 @@ export interface MYPAGE {
         content: string;
     }>;
 }
+
+
+export interface REQUEST_MESSAGE_SEND extends REQUEST {
+    ID: number; // receiver
+    message: string; // message to send
+}
+
+
 
 export interface REQUEST_AUCTION extends REQUEST {
     tz_offset?: number;
@@ -426,6 +435,12 @@ export class XapiLMSService extends Base {
         data['route'] = 'lms.message';
         data['session_id'] = this.user.sessionId;
         return this.x.post(data);
+    }
+
+    message_send(req: REQUEST_MESSAGE_SEND): Observable<any> {
+        req.route = 'lms.message_send';
+        req.session_id = this.user.sessionId;
+        return this.x.post(req);
     }
 
     message_opened(idx): Observable<any> {

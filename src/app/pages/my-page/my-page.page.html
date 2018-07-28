@@ -16,10 +16,10 @@
         <!-- TOP PART OF THE WHOLE PAGE -->
         <div class="top">
 
-            <div id="my-page-profile" class="profile-card">
-                <div class="profile-card-leftside">
-                    <div class="profile-card-photo">
-                        <img alt="profile picture" [src]="a.checkPhotoURL(mypage.photoURL)">
+            <div id="student-profile">
+                <div class="left">
+                    <div class="student-photo">
+                        <img [src]="a.checkPhotoURL(mypage.photoURL)" alt="profile picture">
                     </div>
                     <span class="button-with-icon">
                         <span>
@@ -30,14 +30,11 @@
                         <span>{{ a.ln.UPDATE_PHOTO }}</span>
                     </span>
                 </div>
-                <div class="profile-card-rightside">
-                    <div class="card-title">
-                        <span data-role="user-name">{{ a.ln.NAME }}: {{ mypage.name }}</span>
-                        <span data-role="user-point">{{ a.ln.POINT }}: {{ mypage.point | number }}</span>
-                    </div>
-                    <div class="card-body">
+                <div class="right">
+                        <div data-role="user-name">{{ a.ln.NAME }}: {{ mypage.name }}</div>
+                        <div data-role="user-point">{{ a.ln.POINT }}: {{ mypage.point | number }}</div>
                         <div> {{ a.ln.TIMEZONE }}: {{ mypage.timezone_country }} ({{ mypage.timezone }})</div>
-                        <div class="panel"  *ngIf="mypage?.class_software">
+                        <div class="panel" *ngIf="mypage?.class_software">
                             <div class="panel-title">
                                 <span>{{ mypage.class_software | t }} {{ a.ln.ID }}</span>
                             </div>
@@ -48,72 +45,58 @@
                                 <span data-role="class-software-id">{{ mypage.class_software_id }}</span>
                             </div>
                         </div>
+                </div>
+            </div>
+
+
+            <div id="next-class" *ngIf="mypage.next_class">
+                <div class="left">
+                    <div id="my-level">
+                        <div data-role="user-level" class="box-container">
+                            <div class="title">{{ a.ln.MY_LEVEL }}</div>
+                            <span class="icon">
+                                <svg [attr.level-color]=" mypage.level" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <path fill="currentColor" d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"></path>
+                                </svg>
+                            </span>
+                            <span class="no">{{ mypage.level }}</span>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-
-            <div id="my-level">
-                <div data-role="user-level" class="box-container">
-                    <div class="title">{{ a.ln.MY_LEVEL }}</div>
-                    <span class="icon">
-                        <svg [attr.level-color]=" mypage.level" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                            <path fill="currentColor" d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"></path>
-                        </svg>
-                    </span>
-                    <span class="no">{{ mypage.level }}</span>
-                </div>
-            </div>
-
-
-            <div id="next-class" class="profile-card" *ngIf="mypage.next_class">
-                <div class="profile-card-leftside">
-                    <div class="profile-card-photo">
+                    <div class="teacher-photo">
                         <img src="{{ mypage.next_class.teacher_photoURL }}">
                     </div>
                 </div>
-                <div id="class-info" class="profile-card-rightside">
-                    <div class="card-title">
-                        <div>
-                            <span>{{ a.ln.NEXT_CLASS }}</span>
+                <div class="right">
+                    <div>{{ a.ln.NEXT_CLASS }}</div>
+                    <div id="teacher-name">{{ a.ln.TEACHER }}: {{ mypage.next_class.teacher_name}}</div>
+                    <div id="class-time">
+                        <span>{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</span>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-title">
+                                <span>{{ a.ln.BOOK_IN_USE }} </span>
                         </div>
-                        <div id="teacher-name">
+                        <div id="book-in-use" class="panel-content">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path fill="currentColor" d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path>
+                                    <path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
                                 </svg>
                             </span>
-                            <span>{{ a.ln.TEACHER }}: {{ mypage.next_class.teacher_name}}</span>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div id="class-time">
-                            <span>{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</span>
-                        </div>
-                        <div class="panel">
-                            <div class="panel-title">
-                                <span>{{ a.ln.BOOK_IN_USE }} </span>
-                            </div>
-                            <div  id="book-in-use" class="panel-content">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                        <path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
-                                    </svg>
-                                </span>
-                                <span>{{ mypage.book_next }}</span>
-                            </div>
+                            <span>{{ mypage.book_next }}</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <div id="next-class" class="profile-card" *ngIf="!mypage.next_class">
+                You do not have reservation.
+            </div>
 
-
-            <div id="student-session-stats">
-                <div id="no-of-reservation" class="circle">
+            <div id="session-stats">
+                <div id="no-of-reservation" class="session-stat">
                     <div data-role="no-of-reservation">{{ mypage.no_of_reservation }}</div>
                     <div>{{ a.ln.NO_OF_RESERVATION }}</div>
                 </div>
-                <div id="no-of-past" class="circle">
+                <div id="no-of-past" class="session-stat">
                     <div data-role="no-of-reservation">{{ mypage.no_of_past }}</div>
                     <div>{{ a.ln.NO_OF_PAST }}</div>
                 </div>
@@ -171,7 +154,7 @@
                 <div class="col-12 col-md-6">
                     <div id="auction">
                         <h2>{{ a.ln.AUCTION_TITLE }}</h2>
-                        <div  class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
+                        <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
                             <span>{{ a.ln.AUCTION_DESC }}</span>
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -305,7 +288,7 @@
                             </div>
                         </form>
 
-                        <ng-container *ngIf="!show.auction">
+                        <ng-container>
                             <div id="auction-application-list" *ngIf=" mypage?.auction_application_list?.length">
                                 <div class="note">
                                     <div>
@@ -319,7 +302,7 @@
                                 </div>
                                 <div class="list-content">
                                     <ng-container *ngFor=" let application of mypage.auction_application_list">
-                                        <a class="profile-card"  routerLink="/schedule-table" [queryParams]="{ idx_teacher: application.sender.ID }">
+                                        <a class="profile-card" routerLink="/schedule-table" [queryParams]="{ idx_teacher: application.sender.ID }">
                                             <span class="profile-card-leftside">
                                                 <span class="profile-card-photo">
                                                     <img [src]='a.checkPhotoURL(application.sender.photoURL)'>
@@ -327,20 +310,23 @@
                                             </span>
                                             <span class="profile-card-rightside">
                                                 <span class="card-title">
-                                                    <span class="teacher-name">{{ application?.sender?.name }}</span>
-                                                    <span class="application-title">{{ application?.title }}</span>
+                                                    <span class="teacher-name">{{ application.sender.name }}</span>
+                                                    <span class="application-title">{{ application.title }}</span>
                                                 </span>
                                                 <span class="card-body">
                                                     <span>{{ application?.content }}</span>
                                                 </span>
                                             </span>
-                                            <div class="delete-application" (click)="onDeleteApplication( application.idx ); application['delete'] = true;">
-                                                <svg *ngIf="!application['delete']" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                                    <path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"></path>
-                                                </svg>
-                                                <mat-spinner [diameter]="16" *ngIf="application['delete']"></mat-spinner>
-                                            </div>
                                         </a>
+                                        <div>
+                                            <button class="app-button" (click)="messageSend.open({ ID: application.sender.ID, name: application.sender.name })">Reply</button>
+                                        </div>
+                                        <div class="delete-application" (click)="onDeleteApplication( application.idx ); application['delete'] = true;">
+                                            <svg *ngIf="!application['delete']" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"></path>
+                                            </svg>
+                                            <mat-spinner [diameter]="16" *ngIf="application['delete']"></mat-spinner>
+                                        </div>
                                     </ng-container>
                                 </div>
                             </div>

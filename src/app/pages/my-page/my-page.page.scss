@@ -1,6 +1,4 @@
 @import '../../../theme/vars.scss';
-
-/* global */
 header{
     h1{
         padding: 16px!important;
@@ -41,9 +39,290 @@ textarea{
     border-radius: 2px;
     border: 1px solid rgba(125,125,125,0.4);
 }
+.top{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:1.5rem 1rem;
+    margin-bottom: 1rem;
+    background: #fff;
+    @media (min-width:$md) {
+        padding: 2rem 1px;
+        margin-bottom: 0;
+        justify-content: space-around;
+        align-items: stretch;
+        flex-wrap: nowrap;
+    }
+}
 
+#student-profile,
+#next-class{
+    margin-bottom: 1.5rem;
+    @media (min-width:$md) {
+        margin-bottom: 0;
+    }
+    .panel{
+        .panel-title{
+            background: #ddd;
+        }
+        &>*{
+            padding: .4em .75em;
+        }
+    }
+}
+#student-profile{
+    display: flex;
+    font-weight: 300;
+    flex: 100%;
+    @media (min-width:$md) {
+        flex: unset
+    }
+    .left{
+        .student-photo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            height: 110px;
+            width: 110px;   
+            @media (min-width:$md) {
+                height: 150px;
+                width: 150px;   
+            }
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+        .button-with-icon{
+            display: inline-block;
+            margin-top: 1rem;
+            padding: .5rem .25rem;
+            width: 110px;
+            font-size: .9rem;
+            @media (min-width:$md) {
+                width: 150px;   
+                padding: .75rem;
+                font-size: 1rem;
+            }
+            border-radius: 2px;
+            background: #1B4AB5;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            svg{
+                display: none;
+                @media (min-width:$md) {
+                    display: inline;
+                }
+                position: relative;
+                top: .125em;
+                height: 1em;
+                width: 1em;
+                margin-right: .5em;
+            }
+        }
+    }
+    .right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 1rem;
+        flex: 100%;
+        @media (min-width:$md) {
+            flex: unset
+        }
+        .panel{
+            font-size:.9rem;
+            @media (min-width:$md) {
+                font-size:1rem;
+            }
+        }
+        .panel-content{
+            display: flex;
+            align-items: center;
+            background: rgba(125,125,125,0.05);
+            img {
+                position: relative;
+                top:.1em;
+                width: 1.25rem;
+                height: 1.25rem;
+                margin-right: .3em;
+                white-space: nowrap
+            }  
+        }
+    }
+}
+#next-class {
+    display: flex;
+    font-weight: 300;
+    flex: 100%;
+    @media (min-width:$md) {
+        flex: unset
+    }
+    .left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .teacher-photo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            height: 110px;
+            width: 110px;
+            @media (min-width:$md) {
+                height: 100px;
+                width: 100px;   
+            }
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .right{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 1rem;
+        flex: 100%;
+        @media (min-width:$md) {
+            flex: unset
+        }
+        .panel{
+            font-size:.9rem;
+            @media (min-width:$md) {
+                font-size:1rem;
+            }
+        }
+        .panel-content{
+            display: flex;
+            align-items: center;
+            background: rgba(125,125,125,0.05);
+            svg{
+                position: relative;
+                top:.1em;
+                width: 1.2rem;
+                height: 1.2rem;
+                margin-right: .3em;
+            }
+        }
+        #class-time{
+            color:darkred;
+        }
+        #book-in-use{
+            color: darkgreen
+        }
+    }
+}
+#my-level{
+    .box-container{
+        position: relative;
+        height: 80px;
+        width: 110px;
+        margin-bottom: 1rem;
+        @media (min-width:$md) {
+            margin-bottom: 0;
+            height: 100px;
+            width: 100px;   
+        }
+        border-radius: 4px;
+        background: #ddd;
+        text-align: center;
+        .title{ 
+            width: 100%;
+            color: #000;
+            text-align: center;
+            font-size: .9rem;
+        }
+        .title,
+        .icon,
+        .no{
+            position: absolute;
+            top: 65%;
+            @media (min-width:$md) {
+                top: 60%;
+            }
+            left: 50%;
+            transform: translate(-50%,-50%)
+        }
+        .title{
+            top: 20%;
+        }
+        .no{
+            color: #fff;
+            top:53%;
+        }
+        svg{
+            height: 45px;
+            width:  45px;
+            @media (min-width:$md) {
+                height: 50px;
+                width:  50px;
+            }
+            &[level-color="0"],
+            &[level-color="1"],
+            &[level-color="2"],
+            &[level-color="3"] {
+                color: gray;
+            }
+            &[level-color="4"],
+            &[level-color="5"],
+            &[level-color="6"] {
+                color: dodgerblue;
+            }
+            &[level-color="7"],
+            &[level-color="8"],
+            &[level-color="9"],
+            &[level-color="10"] {
+                color: darkorange;
+            }
+        }
+    }
+}
 
-/* components */
+#session-stats{
+    display: flex;
+    justify-content: space-around;
+    flex: 100%;
+    @media (min-width:$md) {
+        flex: unset;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .session-stat{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 85px;
+        width: 130px;
+        border-radius: 3px;
+        text-align: center;
+        background: #ddd;
+        @media (min-width:$md) {
+            height: 100px;
+            width: 150px;
+        }
+        &>div{
+            font-size: .75em;
+            @media (min-width:$md) {
+                padding: 0 1em;
+            }
+        }
+        &>div:first-child{
+            font-size: 1.7em;
+        }
+        &:first-child{
+            margin-right: .5rem;
+            @media (min-width:$md) {
+                margin: 0;
+            }
+        }
+    }
+}
+
 .buttons{
     text-align: center;
     button[data-button]{
@@ -71,54 +350,13 @@ textarea{
         margin-right: .3em;
     }
 }
-.profile-card{
-    display: flex;
-    margin-bottom: 1.25rem;
-    .profile-card-leftside{
-        .profile-card-photo{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 3px;
-            height: 90px;
-            width: 90px;
-            overflow: hidden;
-            img{
-                width: 100%;
-            }
-        }
-    }
-    .profile-card-rightside{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex: 100%;
-        padding-left: 1em;
-        .card-title{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: .5em;
-            font-weight: 300;
-            &>*:last-child{
-                margin-left: .5em;
-            }
-        }
-        .card-body{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            flex: 100%;
-        }
-    }
-}
 .panel{
     border-radius: 2px;
-    border: 1px solid rgba(125,125,125,0.2);
     &>*{
         padding: .5em 1em;
     }
     .panel-title{
-        background: #eee;
+        background: #ddd;
     }
     .panel-content{
         background: #fff;
@@ -156,65 +394,6 @@ textarea{
 }
 
 
-/* layout */
-.top{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 1em;
-    padding-bottom: 0;
-    margin-bottom: 2rem;
-    @media (min-width:$md) {
-        margin-bottom: 1rem;
-        padding-left: 1px;
-        padding-right: 1px;
-        justify-content: space-between;
-    }
-
-    /*
-     * flex arrangement using 'order' 
-     * ( Lower value will be first )
-     */
-
-    //arrangement in mobile view 
-    #my-page-profile{
-        order: 1;
-        flex: 100%;
-        @media (min-width:$md) {
-            flex: unset
-        }
-    }
-    #next-class{ 
-        order:2;
-        flex:100%;
-        @media (min-width:$md) {
-            flex: unset
-        }
-    }
-    #my-level{ 
-        order: 3
-    }
-    #student-session-stats{ 
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        order: 4
-    }
-
-    //arrangement in deskop view
-    @media (min-width:$md){
-        #next-class{ 
-            order: 3
-        }
-        #my-level{ 
-            order: 2
-        }   
-    }
-    /** End of Flex arrangement **/
-}
-
-
-/* specifics */
     .page-content{
         padding-bottom: 5em;
         .page-description{
@@ -223,166 +402,8 @@ textarea{
             background: #B1C5F4;
         }
     }
-    #my-page-profile,
-    #next-class{
-        @media (min-width:$md) {
-            margin: 0;
-        }
-        .panel{
-            &>*{
-                padding: .4em .75em;
-            }
-        }
-        .profile-card-rightside{
-            font-size: .85rem;
-            .card-body{
-                .panel{
-                    font-size: .8rem;
-                    .panel-content{
-                        display: flex;
-                        align-items: center;
-                        font-size: .75rem; 
-                    }
-                }
-            }
-        }
-    }
-   #my-page-profile {
-        .button-with-icon{
-            margin-top: .3em;
-            width: 90px;
-            font-size: .65em;
-        }
-        .panel-content{
-            img {
-                position: relative;
-                top:.1em;
-                width: 1.25em;
-                height: 1.25em;
-                margin-right: .3em;
-                white-space: nowrap
-            }  
-        }
-    }
-    #next-class {
-        .profile-card-photo{
-            @media (min-width:$md) {
-                height: 100px;
-                width: 100px;
-                border-radius: 50%;
-            }
-        }
-        #class-info{
-            svg{
-                position: relative;
-                top: .1em;
-                height: .75rem;
-                width: .75rem;
-                margin-right: .2em;
-            }
-            #class-time{
-                color:darkred;
-            }
-            #book-in-use{
-                color: darkgreen
-            }
-        }
-        .panel{
-            margin-top: .5em;
-        }
-    }
-    #my-level{
-        .box-container{
-            position: relative;
-            height: 90px;
-            width: 90px;
-            border-radius: 4px;
-            font-size: 1.5em;
-            background: #eee;
-            text-align: center;
-            @media (min-width:$md) {
-                height: 100px;
-                width: 100px;
-            }
-            .title{ 
-                width: 100%;
-                color: #000;
-                text-align: center;
-                font-size: 13px
-            }
-            .title,
-            .icon,
-            .no{
-                position: absolute;
-                top: 60%;
-                left: 50%;
-                transform: translate(-50%,-50%)
-            }
-            .title{
-                top: 18%;
-            }
-            .no{
-                color: #fff;
-                top:50%;
-            }
-            svg{
-                height: 2.2em;
-                width:  2.2em;
-                &[level-color="0"],
-                &[level-color="1"],
-                &[level-color="2"],
-                &[level-color="3"] {
-                    color: gray;
-                }
-                &[level-color="4"],
-                &[level-color="5"],
-                &[level-color="6"] {
-                    color: dodgerblue;
-                }
-                &[level-color="7"],
-                &[level-color="8"],
-                &[level-color="9"],
-                &[level-color="10"] {
-                    color: darkorange;
-                }
-            }
-        }
-    }
-    #student-session-stats{
-        background: #fff;
-        flex: auto;
-        text-align: center;
-        @media (min-width:$md) {
-            background: 0;
-            flex: unset;
-        }
-        .circle{
-            display: inline-flex;
-            align-content: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 90px;
-            width: 90px;
-            border-radius: 50%;
-            @media (min-width:$md) {
-                margin: 0 .75em;
-                height: 100px;
-                width: 100px;
-                background: #eee
-            }
-            background: #fff;
-            text-align: center;
-            &>div{
-                font-size: .75em;
-                @media (min-width:$md) {
-                    padding: 0 1em;
-                }
-            }
-            &>div:first-child{
-                font-size: 1.7em;
-            }
-        }
-    }
+
+    
     #progress-bargraph{
         margin: 0 1em;
         margin-bottom: 2rem;
@@ -478,7 +499,7 @@ textarea{
             margin-top: .5rem;
             padding: 1em;
             border-radius: 2px;
-            background: #eee;
+            background: #ddd;
             font-size: .9em;
             cursor: pointer;
     
@@ -491,7 +512,7 @@ textarea{
             }
         }
         button[data-button="auction-delete"]{
-            background: #eee;
+            background: #ddd;
             color: #000
         }
         form{

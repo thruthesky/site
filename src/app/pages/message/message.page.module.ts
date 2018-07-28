@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MessagePage } from './message.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
+import { MessageModalServiceModule } from '../../providers/message-send-modal/message-send-modal.service.module';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
         FormsModule,
         RouterModule.forChild(routes),
         TranslatePipeModule,
-        MaterialModule
+        MaterialModule,
+        MessageModalServiceModule
     ],
     exports: [
         RouterModule
