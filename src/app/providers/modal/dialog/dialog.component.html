@@ -5,5 +5,5 @@
 <mat-dialog-actions align="end">
         <button data-button="ok" mat-button cdkFocusInitial [mat-dialog-close]=" true " *ngIf=" data.type == 'alert' ">{{ data.ok }}</button>
         <button data-button="yes" mat-button cdkFocusInitial [mat-dialog-close]=" true " *ngIf=" data.type == 'confirm' " >{{ data.yes }}</button>
-        <button data-button="no" mat-button cdkFocusInitial [mat-dialog-close]=" false " *ngIf=" data.type == 'confirm' " >{{ data.no }}</button>
+        <button data-button="no" mat-button [mat-dialog-close]=" false " *ngIf=" data.type == 'confirm' " >{{ data.no }}</button>
 </mat-dialog-actions>

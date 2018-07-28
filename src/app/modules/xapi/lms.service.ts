@@ -5,7 +5,7 @@ import { XapiUserService } from './user.service';
 
 
 import { Base } from './base';
-import { TEACHER_LIST_RESPONSE, LMS_INFO, Branch, REQUEST } from './interfaces';
+import { TEACHER_LIST_RESPONSE, LMS_INFO, Branch, REQUEST, PAGINATION_OPTION } from './interfaces';
 export { Branch };
 
 export interface SCHEDULE_EDIT extends DAYS {
@@ -191,6 +191,11 @@ export interface AUCTION {
     };
 }
 
+export type AUCTIONS = Array<AUCTION>;
+
+export interface AUCTION_LIST_OPTION  extends PAGINATION_OPTION {
+    auctions: AUCTIONS;
+}
 
 @Injectable()
 export class XapiLMSService extends Base {
@@ -882,7 +887,7 @@ export class XapiLMSService extends Base {
             auction: auction
         });
     }
-    get_auctions(req: REQUEST_AUCTION): Observable<Array<AUCTION>> {
+    get_auctions(req: REQUEST_AUCTION): Observable<AUCTION_LIST_OPTION> {
         req.route = 'lms.get_auctions';
         req.session_id = this.user.sessionId;
         return this.x.post(req);

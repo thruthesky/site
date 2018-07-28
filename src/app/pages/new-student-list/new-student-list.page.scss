@@ -1,0 +1,17 @@
+.greetings {
+    .greeting {
+        .student {
+            width: 85px;
+            text-align: center;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 4em 0;
+}

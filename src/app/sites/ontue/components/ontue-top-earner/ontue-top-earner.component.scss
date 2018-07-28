@@ -1,9 +1,10 @@
 @import '../../../../../theme/vars.scss';
 
 section {
+    overflow: hidden;
     height: 225px;
     background: #fff;
-    overflow: hidden;
+    padding: 0;
     .top-earner {
         display: flex;
         align-items: center;

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../../../app.material.module';
 
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
-import { OntueSutdentRegistrationListComponent } from './ontue-student-registration-list.component';
+import { OntueStudentRegistrationListComponent } from './ontue-student-registration-list.component';
 
 
 @NgModule({
@@ -15,11 +15,11 @@ import { OntueSutdentRegistrationListComponent } from './ontue-student-registrat
     TranslatePipeModule
   ],
   declarations: [
-      OntueSutdentRegistrationListComponent
+      OntueStudentRegistrationListComponent
   ],
   exports: [
     RouterModule,
-      OntueSutdentRegistrationListComponent
+      OntueStudentRegistrationListComponent
   ],
   schemas: []
 })

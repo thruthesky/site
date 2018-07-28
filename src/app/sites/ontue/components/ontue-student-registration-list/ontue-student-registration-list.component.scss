@@ -5,11 +5,27 @@ section{
     outline: 1px solid rgba(125,125,125,0.1);
     font-size: 85%;
     .title{
-        padding: .7em ;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 ;
         padding-left: 1.3em;
         background:rgba(0,123,255,.8);
         color: #fff;
         font-weight: 200;
+
+        .external-link{
+            display: flex;
+            align-items: center;
+            padding: .7em;
+            padding-right: 1.3em;
+            color: #fff;
+            cursor: pointer;
+            svg{
+                width: 1.15em;
+                height: 1.15em;
+            }
+        }
     }
 
     .body{

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AppService } from '../app.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Observable } from 'rxjs/Observable';
 import { MessageSendModalDialogComponent } from './dialog/message-send-modal.dailog.component';
 
 
@@ -10,6 +9,7 @@ export interface MessageSendModalData {
     ID: number;
     name?: string;
     maxWidth?: string;
+    minWidth?: string;
 }
 
 @Injectable()
@@ -28,6 +28,9 @@ export class MessageSendModalService {
         if (!data.maxWidth) {
             data.maxWidth = '800px';
         }
+        if (!data.minWidth) {
+            data.minWidth = '400px';
+        }
         return data;
     }
     /**
@@ -42,6 +45,7 @@ export class MessageSendModalService {
         this.dialogRef = this.dialog.open(MessageSendModalDialogComponent, {
             disableClose: true,
             maxWidth: data.maxWidth,
+            minWidth: data.minWidth,
             data: data
         });
         this.dialogRef.afterClosed().subscribe(res => {

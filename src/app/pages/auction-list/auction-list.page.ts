@@ -37,7 +37,7 @@ export class AuctionListPage implements OnInit {
     loadAuctions() {
         this.showLoader = true;
         this.a.lms.get_auctions({
-            tz_offset: a.lms.getUserLocalTimezoneOffset(),
+            tz_offset: this.a.lms.getUserLocalTimezoneOffset(),
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
         }).subscribe(res => {

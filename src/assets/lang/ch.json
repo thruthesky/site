@@ -727,6 +727,8 @@
   "TO_SAVE": "保存",
   "TO_DELETE": "删除",
   "AUTION_REPLY": "如果您为招聘教师做广告，您将在此处看到教师的申请。",
-  "WITHCENTER": "Withcenter"
+  "WITHCENTER": "Withcenter",
+  "MESSAGE_SEND_TITLE_WITH_NAME": "发送消息给 #name.",
+  "MESSAGE_SEND_TITLE": "发信息"
 
 }

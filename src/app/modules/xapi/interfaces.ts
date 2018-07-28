@@ -647,3 +647,26 @@ export interface ADMIN_SUMMARY_REPORT {
     no_of_student_with_freeclass?: string;
     no_of_student_with_paid_class?: string;
 }
+
+export interface PAGINATION_OPTION {
+    limitPerPage: number;
+    currentPage: number;
+    limitPerNavigation: number;
+    totalRecord: number;
+}
+
+export interface STUDENT {
+    ID: number;
+    class_software: string;
+    display_name: string;
+    greeting: string;
+    photoURL: string;
+    user_registered: string;
+}
+
+export type STUDENTS = Array<STUDENT>;
+
+export interface STUDENT_LIST_OPTION extends PAGINATION_OPTION {
+    students: STUDENTS;
+}
+

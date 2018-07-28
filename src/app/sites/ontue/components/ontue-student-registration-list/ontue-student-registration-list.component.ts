@@ -6,14 +6,14 @@ import { AppService } from '../../../../providers/app.service';
     templateUrl: 'ontue-student-registration-list.component.html',
     styleUrls: ['ontue-student-registration-list.component.scss'],
 })
-export class OntueSutdentRegistrationListComponent {
+export class OntueStudentRegistrationListComponent {
 
     students = [];
 
     constructor(public a: AppService) {
         this.a.lms.get_latest_student_register({limit: 5}).subscribe( re => {
             console.log('get_latest_student_register', re);
-            this.students = re;
+            this.students = re['students'];
         });
     }
 }

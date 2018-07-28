@@ -701,8 +701,9 @@
   "TO_SAVE": "セーブ",
   "TO_DELETE": "削除",
   "AUTION_REPLY": "あなたが雇用教師のために広告している場合は、ここに教師のアプリケーションが表示されます。",
-  "WITHCENTER": "Withcenter"
-
+  "WITHCENTER": "Withcenter",
+  "MESSAGE_SEND_TITLE_WITH_NAME": "#name にメッセージを送る",
+  "MESSAGE_SEND_TITLE": "メッセージを送る"
 
 
 }
