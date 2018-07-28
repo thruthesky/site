@@ -4,12 +4,12 @@
 </h1>
 <div class="dialog-content" mat-dialog-content>
     <mat-form-field appearance="outline" style="width: 100%">
-        <mat-label>Message</mat-label>
+        <mat-label>{{'MESSAGE_CONTENT_TITLE' | t}}</mat-label>
         <textarea matInput rows="5" [(ngModel)]="content"></textarea>
-        <mat-hint> Message must be ( minimum of 10 characters ).</mat-hint>
+        <mat-hint>{{ 'MESSAGE_CONTENT_HINT' | t }}</mat-hint>
     </mat-form-field>
 </div>
 <mat-dialog-actions align="end">
-    <button data-button="send" mat-button cdkFocusInitial [mat-dialog-close]=" content ">{{ 'SEND' | t }}</button>
+    <button data-button="send" mat-button cdkFocusInitial [mat-dialog-close]=" content ">{{ 'TO_SEND' | t }}</button>
     <button data-button="cancel" mat-button [mat-dialog-close]=" false ">{{ 'CANCEL' | t }}</button>
 </mat-dialog-actions>
