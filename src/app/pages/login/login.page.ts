@@ -40,8 +40,11 @@ export class LoginPage implements OnInit {
 
             this.a.onUserLogin();
             // this.firebaseLogin(re);
-            // this.a.openHome();
-            this.a.openMyPage();
+            if ( this.a.site.studentTheme )  {
+                this.a.openMyPage();
+            } else {
+                this.a.openHome();
+            }
             this.loader.submit = false;
         }, e => {
             this.loader.submit = false;
