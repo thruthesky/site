@@ -52,7 +52,7 @@ export class MessageSendModalService {
             console.log('Message box closed: ', res);
             if (res) {
                 if (res.length < 10) {
-                    this.a.toast('Message is too short...');
+                    this.a.toast( this.a.ln.MESSAGE_TOO_SHORT );
                     return;
                 }
                 this.a.lms.message_send({
@@ -60,7 +60,7 @@ export class MessageSendModalService {
                     message: res
                 }).subscribe(re => {
                     console.log('apply_auction: ', re);
-                    this.a.toast('Message Sent...');
+                    this.a.toast( this.a.ln.MESSAGE_SENT );
                 }, e => {
                     this.a.toast(e);
                 });

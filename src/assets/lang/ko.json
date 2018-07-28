@@ -747,8 +747,15 @@
   "SAVED": "올바로 저장되었습니다.",
   "TO_SAVE": "저장하기",
   "TO_DELETE": "삭제하기",
-  "AUTION_REPLY": "선생님 구하기를 신청하시면, 선생님들께서 보고 신청을 합니다. 회원님께서는 이곳에서 어떤 선생님들께서 신청했는지 알 수 있습니다.",
+  "AUTION_REPLY": "선생님 구하기를 신청하시면, 선생님들께서 신청을 합니다. 회원님께서는 이곳에서 어떤 선생님들께서 신청했는지 알 수 있습니다.",
   "WITHCENTER": "학원강사",
-  "MESSAGE_SEND_TITLE_WITH_NAME": "#name 에게 메시지 보내기",
-  "MESSAGE_SEND_TITLE": "문자 보내"
+  "MESSAGE_SEND_TITLE_WITH_NAME": "#name님에게 쪽지 보내기",
+  "MESSAGE_SEND_TITLE": "쪽지를 보냅니다.",
+  "TO_SEND": "전송하기",
+  "MESSAGE_CONTENT_TITLE": "쪽지 내용",
+  "MESSAGE_CONTENT_HINT": "너무 짧은 메세지는 전송이 안됩니다. 최소 10 글자 이상.",
+
+  "MESSAGE_SENT": "메세지가 올바로 전송되었습니다.",
+  "MESSAGE_TOO_SHORT": "앗, 메세지 내용이 너무 짧아서 전송에 실패했습니다.",
+  "TO_REPLY": "답변하기"
 }

@@ -703,7 +703,14 @@
   "AUTION_REPLY": "あなたが雇用教師のために広告している場合は、ここに教師のアプリケーションが表示されます。",
   "WITHCENTER": "Withcenter",
   "MESSAGE_SEND_TITLE_WITH_NAME": "#name にメッセージを送る",
-  "MESSAGE_SEND_TITLE": "メッセージを送る"
+  "MESSAGE_SEND_TITLE": "メッセージを送る",
+  "TO_SEND": "送信する",
+  "MESSAGE_CONTENT_TITLE": "メッセージの内容",
+  "MESSAGE_CONTENT_HINT": "メッセージの内容は10文字以上でなければなりません。",
+
+  "MESSAGE_SENT": "メッセージは正常に送信されました。",
+  "MESSAGE_TOO_SHORT": "メッセージが短すぎます。",
+  "TO_REPLY": "応答"
 
 
 }

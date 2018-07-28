@@ -729,6 +729,13 @@
   "AUTION_REPLY": "如果您为招聘教师做广告，您将在此处看到教师的申请。",
   "WITHCENTER": "Withcenter",
   "MESSAGE_SEND_TITLE_WITH_NAME": "发送消息给 #name.",
-  "MESSAGE_SEND_TITLE": "发信息"
+  "MESSAGE_SEND_TITLE": "发信息",
+  "TO_SEND": "发送",
+  "MESSAGE_CONTENT_TITLE": "消息内容",
+  "MESSAGE_CONTENT_HINT": "邮件内容长度必须大于10个字符。",
+
+  "MESSAGE_SENT": "消息已成功发送。",
+  "MESSAGE_TOO_SHORT": "消息太短了。",
+  "TO_REPLY": "回复"
 
 }
