@@ -1,4 +1,4 @@
-<main>
+<main data-role="new-student-list-page">
     <header>
         <h1>New Student List</h1>
     </header>
@@ -20,7 +20,7 @@
                         </div>
                         <div>Class Software: {{student.class_software}}</div>
                         <div class="stamp">Registed since: {{student.user_registered | date}}</div>
-                        <div><button class="app-button" (click)="messageSend.open({ID: student.ID, name: student.display_name })">Send Message</button></div>
+                        <div><button data-button="send-message" class="app-button" (click)="messageSend.open({ID: student.ID, name: student.display_name })">Send Message</button></div>
                     </div>
                 </div>
             </div>
