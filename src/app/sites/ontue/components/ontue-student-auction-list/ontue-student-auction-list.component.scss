@@ -31,6 +31,7 @@ section{
 
     .body{
         padding: .5em 0;
+        line-height: 1.2rem;
         .row{
             align-items: center;
             justify-content: center;
@@ -45,12 +46,18 @@ section{
                 color:rgba(dodgerblue,0.95);
             }
         }
-
+        .head{
+            display: flex;
+            justify-content: space-between;
+        }
         .comment{
             margin: 0;
             font-weight: 200;
         }
-
+        .points{
+            color: darkgreen;
+            font-size: .9em;
+        }
         .student-photo{
             display: flex;
             align-items: center;

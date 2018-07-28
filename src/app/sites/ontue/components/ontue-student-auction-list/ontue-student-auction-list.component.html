@@ -10,17 +10,19 @@
             <a (click)="a.open('auction-list', { idx_student: auction.ID })">
             <div class="container-fluid"  *ngIf="i<5">
                 <div class="row">
-                    <div class="col-md-4 col-4">
+                    <div class="col-md-3 col-4">
                         <span class="student-photo">
                             <img [src]="a.checkPhotoURL(auction.photoURL)"/>
                         </span>
                     </div>
-                    <div class="col-md-8 col-8">
-                        <span class="student-name">{{auction.display_name}}</span> want to study at
-                        <span>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</span> for
-                        <span>{{auction['auction']['duration']}}mins </span> with
-                        <span>{{auction['auction']['point']}}points</span> every
-                        <span>{{ showDateSelected(auction['auction']) }}.</span>
+                    <div class="col-md-9 col-8">
+                        <div class="head">
+                            <span class="student-name">{{auction.display_name}}</span>
+                            <span class="points">Points: {{auction['auction']['point']}}</span>
+                        </div> 
+                        <div>Time: {{auction['auction']['hour']}}:{{auction['auction']['minute']}}</div> 
+                        <div>Duration: {{auction['auction']['duration']}}mins </div>
+                        <!-- <span>{{ showDateSelected(auction['auction']) }}.</span> -->
                     </div>
                 </div>
             </div>
