@@ -17,6 +17,7 @@ h2{
 }
 .container-fluid{
     @media (min-width:$md) {
+        margin-bottom: 3.5rem;
         &>.row{
             &>div{
                 padding: 0;
@@ -47,7 +48,7 @@ textarea{
     background: #fff;
     @media (min-width:$md) {
         padding: 2rem 1px;
-        margin-bottom: 1.5rem;
+        margin-bottom: 3.5rem;
         justify-content: space-around;
         align-items: stretch;
         flex-wrap: nowrap;
@@ -467,9 +468,6 @@ textarea{
             }
         }
     }
-
-    #my-introduction,
-    #auction,
     #teacher-list{
         margin-bottom: 2rem;
         @media (min-width:$md) {
@@ -593,26 +591,77 @@ textarea{
                 height: 300px;   
             }
             overflow: auto;
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.2);
+            border-bottom: 0;
             background: #fff;
             .list-item {
                 display: flex;
-                font-size:.85rem;
-                .teacher-photo{
+                align-content: center;
+                padding: .5rem;
+                border-bottom: 1px solid rgba(125,125,125,0.2);
+                font-size: .9rem;
+                &:hover{
+                    background: rgba(125,125,125,0.05);
+                }
+                .left{
+                    .teacher-photo{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 55px;
+                        width: 55px;
+                        border-radius: 3px;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .teacher-name{
+                        display: inline-flex;
+                        justify-content: center;
+                        margin-top: .25rem;
+                        font-size: .8rem;
+                        width: 55px;
+                        overflow: hidden;
+                        color: #1B4AB5
+                    }
+                }
+                .right{
                     display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    height: 55px;
-                    width: 55px;
-                    img{
-                        width: 100%;
+                    flex-direction: column;
+                    padding-left: .5rem;
+                    flex: 100%; 
+                    .title{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .application-title{
+                            font-size:.8rem;
+                        }
+                        .buttons{
+                            button{
+                                padding: .5rem;
+                                border: 0;
+                                background: #fff;
+                                color: #000;
+                            }
+                        }
+                    }
+                    .body{
+                        display: flex;
+                        flex-direction: column;
+                        word-break: break-all;
+                        .application-content{
+                            display: inline-block;
+                            margin: .5rem 0;
+                            padding-right: .5rem;
+                            font-size: .8rem;
+                        }
                     }
                 }
             }
             .delete-application{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 1rem;
                 &:hover{
                     color: darkred;
                 }
