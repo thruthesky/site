@@ -833,8 +833,12 @@ export class AppService {
      */
     cacheKeySchedule(options: SCHEDULE_OPTIONS) {
         let key = KEY_SCHEDULES;
-        key += '-' + options.teachers.toString();
-        // console.log('cacheKeySchedule:', key);
+        let login = '-logout';
+        if ( this.user.isLogin ) {
+            login = '-login';
+        }
+        key += '-' + options.teachers.toString() + login;
+        console.log('cacheKeySchedule:', key);
         return key;
     }
 
@@ -962,22 +966,25 @@ export class AppService {
 
         options = Object.assign({}, defaults, options);
 
+        // @since 2018-07-28 It does not use cache anymore
+        //          Because when user change timezone, it does not apply.
+        //          Instead, the PHP backend does cache now.
         // console.log('loadSchedule: options: ', options);
         /**
          * Use cached data for all schedule table.
          *
          */
-        if (options.useCache) {
-            const schedules = this.cacheGetSchedule(options);
-            if (schedules) {
-                // console.log('got cached schedule. length of table: ', schedules.table.length);
-                callback(schedules);
-                return;
-            }
-        } else {
-            // if the user changes options on schedule tables search,
-            // then, it should delete it's cache.
-        }
+        // if (options.useCache) {
+        //     const schedules = this.cacheGetSchedule(options);
+        //     if (schedules) {
+        //         // console.log('got cached schedule. length of table: ', schedules.table.length);
+        //         callback(schedules);
+        //         return;
+        //     }
+        // } else {
+        //     // if the user changes options on schedule tables search,
+        //     // then, it should delete it's cache.
+        // }
 
         this.lms.schedule_table_v4(options).subscribe(re => {
             // console.log('schedule_table_v4() result:', re);
