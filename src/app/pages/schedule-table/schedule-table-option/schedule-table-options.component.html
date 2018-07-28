@@ -98,8 +98,8 @@
         <mat-form-field>
             <mat-label>{{'WEEKEND' | t }}</mat-label>
             <mat-select name="weekend" [(ngModel)]="form.display_weekends" (selectionChange)="onSearchSubmit(true)">
-                <mat-option value="499">{{'DISPLAY' | t }}</mat-option>
-                <mat-option value="999">{{'HIDE' | t }}</mat-option>
+                <mat-option value="Y">{{'DISPLAY' | t }}</mat-option>
+                <mat-option value="N">{{'HIDE' | t }}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>

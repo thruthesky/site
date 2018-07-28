@@ -359,11 +359,12 @@ export class XapiLMSService extends Base {
     }
 
 
-    schedule_table(data) {
-        data['route'] = 'lms.new_schedule_table';
-        data['session_id'] = this.user.sessionId;
-        return this.x.post(data);
-    }
+    // Not in use.
+    // schedule_table(data) {
+    //     data['route'] = 'lms.new_schedule_table';
+    //     data['session_id'] = this.user.sessionId;
+    //     return this.x.post(data);
+    // }
     schedule_table_v4(data) {
         data['route'] = 'lms.schedule_table_v4';
         data['session_id'] = this.user.sessionId;
