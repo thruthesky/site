@@ -46,18 +46,7 @@ section{
                 color:rgba(dodgerblue,0.95);
             }
         }
-        .head{
-            display: flex;
-            justify-content: space-between;
-        }
-        .comment{
-            margin: 0;
-            font-weight: 200;
-        }
-        .points{
-            color: darkgreen;
-            font-size: .9em;
-        }
+
         .student-photo{
             display: flex;
             align-items: center;
@@ -71,23 +60,12 @@ section{
                 width: 100%;
             }
         }
-
         .student-name{
-            font-weight: bold;
+             font-weight: bold;
         }
 
-
-        .days {
-            span {
-                &::after {
-                    content: ',';
-                }
-                &:last-child {
-                    &::after {
-                        content: '';
-                    }
-                }
-            }
+        .request {
+            line-height: 1.2;
         }
     }
 

@@ -38,12 +38,12 @@ section{
             &>div{
                 padding: 0;
             }
-            //&:hover{
-            //    background: rgba(dodgerblue,0.2);
-            //    cursor: pointer;
-            //
-            //    color:rgba(dodgerblue,0.95);
-            //}
+            &:hover{
+                background: rgba(dodgerblue,0.2);
+                cursor: pointer;
+
+                color:rgba(dodgerblue,0.95);
+            }
         }
 
         .comment{

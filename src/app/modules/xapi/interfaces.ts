@@ -670,3 +670,18 @@ export interface STUDENT_LIST_OPTION extends PAGINATION_OPTION {
     students: STUDENTS;
 }
 
+export interface GREETING {
+    ID: number;
+    class_software: string;
+    display_name: string;
+    greeting: string;
+    photoURL: string;
+    greeting_update_stamp: string;
+    level: number;
+}
+
+export type GREETINGS = Array<GREETING>;
+
+export interface GREETING_LIST_OPTION extends PAGINATION_OPTION {
+    greetings: GREETINGS;
+}

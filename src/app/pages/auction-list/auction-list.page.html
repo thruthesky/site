@@ -28,17 +28,6 @@
                         <div>Message: {{ auction.auction.comment }}</div>
                         <div class="stamp">Date Posted: {{ a.dateTime(auction['auction_update_stamp'])}}</div>
                         <button class="app-button" (click)="messageModal.open({ID: auction.ID, name: auction.display_name})">Send Message</button>
-                        <!-- <div *ngIf="auction['showMessageForm']">
-                            <form (ngSubmit)="onSubmitApplication($event, auction)">
-                                <textarea name="message" [(ngModel)]="auction['message']"></textarea>
-                                <div>
-                                    <button class="app-button" type="submit" *ngIf="!auction['applying']">Submit</button>
-                                    <div *ngIf="auction['applying']" class="row">
-                                        <mat-spinner [diameter]="16"></mat-spinner> <div>Submitting...</div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> -->
                     </div>
                 </div>
             </div>

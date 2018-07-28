@@ -1,32 +1,31 @@
 <section>
     <a class="title" routerLink="/auction-list">
-        <span>Student Auction</span>
+        <span>Student Auctions</span>
         <span class="external-link" >
             <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z"/></svg>
         </span>
     </a>
     <div class="body">
-        <ng-container *ngFor="let auction of auctions; let i=index">
-            <a (click)="a.open('auction-list', { idx_student: auction.ID })">
-            <div class="container-fluid"  *ngIf="i<5">
+        <div class="auctions" *ngFor="let auction of auctions; let i=index">
+            <a class="auction" (click)="a.open('auction-list')">
+            <div class="container-fluid"  *ngIf="i<3">
                 <div class="row">
-                    <div class="col-md-3 col-4">
+                    <div class="col-md-4 col-4">
                         <span class="student-photo">
                             <img [src]="a.checkPhotoURL(auction.photoURL)"/>
                         </span>
+                        <div class="student-name">{{auction.display_name}}</div>
                     </div>
-                    <div class="col-md-9 col-8">
-                        <div class="head">
-                            <span class="student-name">{{auction.display_name}}</span>
-                            <span class="points">Points: {{auction['auction']['point']}}</span>
-                        </div> 
-                        <div>Time: {{auction['auction']['hour']}}:{{auction['auction']['minute']}}</div> 
-                        <div>Duration: {{auction['auction']['duration']}}mins </div>
-                        <!-- <span>{{ showDateSelected(auction['auction']) }}.</span> -->
+                    <div class="request col-md-8 col-8">
+                        <span>I want to study at </span>
+                        <span>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</span> for
+                        <span>{{auction['auction']['duration']}}mins </span> with
+                        <span>{{auction['auction']['point']}}points</span> every
+                        <span>{{ showDateSelected(auction['auction']) }}.</span>
                     </div>
                 </div>
             </div>
             </a>
-        </ng-container>
+        </div>
     </div>
 </section>

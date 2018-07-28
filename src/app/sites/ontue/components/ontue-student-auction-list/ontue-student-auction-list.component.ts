@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
+import { AUCTIONS } from '../../../../modules/xapi/lms.service';
 
 @Component({
     selector: 'ontue-student-auction-list-component',
@@ -8,7 +9,7 @@ import { AppService } from '../../../../providers/app.service';
 })
 export class OntueStudentAuctionListComponent {
 
-    auctions = null;
+    auctions: AUCTIONS = null;
 
     days = [ 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' ];
     shortDays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];

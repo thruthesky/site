@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
+import { STUDENTS } from '../../../../modules/xapi/interfaces';
 
 @Component({
     selector: 'ontue-student-registration-list-component',
@@ -8,7 +9,7 @@ import { AppService } from '../../../../providers/app.service';
 })
 export class OntueStudentRegistrationListComponent {
 
-    students = [];
+    students: STUDENTS = null;
 
     constructor(public a: AppService) {
         this.a.lms.get_latest_student_register({limit: 5}).subscribe( re => {

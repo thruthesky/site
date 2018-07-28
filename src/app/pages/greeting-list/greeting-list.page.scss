@@ -1,10 +1,49 @@
 .greetings {
+    padding: .5em 0;
     .greeting {
+        .card {
+            margin: .5em;
+            padding: .5em;
+            background: #eeeeee;
+        }
+        &.even {
+            background-color: lightgrey;
+        }
         .student {
             width: 85px;
             text-align: center;
             img {
                 width: 100%;
+            }
+            .name {
+                font-weight: 500;
+            }
+        }
+        .left {
+            > div {
+                margin-bottom: .5em;
+            }
+        }
+        .right {
+            padding: .5em;
+            > div {
+                margin-bottom: .5em;
+            }
+        }
+        .button-with-icon{
+            display: inline-block;
+            padding: .5em;
+            border-radius: 2px;
+            background: #1B4AB5;
+            color: #fff;
+            font-size: .75rem;
+            cursor: pointer;
+            svg{
+                position: relative;
+                top: .125em;
+                height: 1em;
+                width: 1em;
+                margin-right: .3em;
             }
         }
     }
