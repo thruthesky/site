@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div id="next-class" class="profile-card" *ngIf="!mypage.next_class">
+            <div id="next-class" class="no-next-class" *ngIf="!mypage.next_class">
                 You do not have reservation.
             </div>
 
@@ -105,236 +105,243 @@
         </div>
         <!-- END OF THE TOP PART of the whole page-->
 
-        <div id="progress-bargraph" class="panel">
-            <div class="panel-title">{{ a.ln.MY_LEARNING_PROGRESS }}</div>
-            <div class="panel-content" *ngIf=" mypage.progress ">
-                <div *ngFor=" let idx of a.keys( mypage.progress ) " title="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
-                    <div class="bar-item" [style.height]="  mypage.progress[idx]['level'] * 10 + 'px' " [attr.level]=" mypage.progress[idx]['level'] ">
-                        <span class="level">{{ mypage.progress[idx]['level'] }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <div id="my-introduction">
-                        <h2>{{ a.ln.MY_INTRODUCTION }}</h2>
-                        <div class="note">
-                            <div>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                        <path fill="currentColor" d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm16 400c0 8.822-7.178 16-16 16H48c-8.822 0-16-7.178-16-16V80c0-8.822 7.178-16 16-16h352c8.822 0 16 7.178 16 16v352zm-228-80h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z"></path>
-                                    </svg>
-                                </span>
-                                <span>{{ a.ln.ENGLISH_ONLY }}</span>
-                            </div>
-                            <div>{{ a.ln.MY_INTRODUCTION_EX_1 }}</div>
-                        </div>
-
-                        <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
-                            <textarea name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
-                            <div class="buttons">
-                                <button class="button-with-icon" data-button="greeting-update" type="submit" *ngIf=" ! loader.greeting ">
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <path fill="currentColor" d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z"></path>
-                                        </svg>
-                                    </span>
-                                    <span>{{ a.ln.SUBMIT_MY_INTRODUCTION }}</span>
-                                </button>
-                                <div class="saved" *ngIf="show.greetingSaved">{{ a.ln.SAVED }}</div>
-                                <span class="loader" *ngIf=" loader.greeting ">{{ a.ln.SAVING }}</span>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div id="auction">
-                        <h2>{{ a.ln.AUCTION_TITLE }}</h2>
-                        <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
-                            <span>{{ a.ln.AUCTION_DESC }}</span>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                    <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
-                                </svg>
-                            </span>
-                        </div>
-                        <form class="auction-form" (ngSubmit)=" onSubmitAuction( $event ) " *ngIf="show.auction">
-                            <div class="day">
-                                <div>{{ a.ln.AUCTION_DAYS }}</div>
-                                <div class="checkbox-group">
-                                    <label>
-                                        <input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">Sun</label>
-                                    <label>
-                                        <input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">Mon</label>
-                                    <label>
-                                        <input type="checkbox" name="tuesday" [(ngModel)]="mypage.auction.tuesday">Tue</label>
-                                    <label>
-                                        <input type="checkbox" name="wednesday" [(ngModel)]="mypage.auction.wednesday">Wed</label>
-                                    <label>
-                                        <input type="checkbox" name="thursday" [(ngModel)]="mypage.auction.thursday">Thu</label>
-                                    <label>
-                                        <input type="checkbox" name="friday" [(ngModel)]="mypage.auction.friday">Fri</label>
-                                    <label>
-                                        <input type="checkbox" name="saturday" [(ngModel)]="mypage.auction.saturday">Sat</label>
+                <div class="col-12 col-md-7">
+                        <div id="progress-bargraph" class="panel">
+                            <div class="panel-title">{{ a.ln.MY_LEARNING_PROGRESS }}</div>
+                            <div class="panel-content" *ngIf=" mypage.progress ">
+                                <div *ngFor=" let idx of a.keys( mypage.progress ) " matTooltip="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
+                                    <div class="bar-item" [style.height]="  mypage.progress[idx]['level'] * 10 + 'px' " [attr.level]=" mypage.progress[idx]['level'] ">
+                                        <span class="level">{{ mypage.progress[idx]['level'] }}</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="time">
-                                <div>{{ a.ln.AUCTION_HOUR }}</div>
-                                <div>
-                                    <select name="hour" [(ngModel)]="mypage.auction.hour">
-                                        <option value="00">0</option>
-                                        <option value="01">1</option>
-                                        <option value="02">2</option>
-                                        <option value="03">3</option>
-                                        <option value="04">4</option>
-                                        <option value="05">5</option>
-                                        <option value="06">6</option>
-                                        <option value="07">7</option>
-                                        <option value="08">8</option>
-                                        <option value="09">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                    </select>
-                                    :
-                                    <select name="minute" [(ngModel)]="mypage.auction.minute">
-                                        <option value="00">0</option>
-                                        <option value="05">5</option>
+                        </div>
+                        <div id="my-introduction">
+                            <h2>{{ a.ln.MY_INTRODUCTION }}</h2>
+                            <div class="note">
+                                <div class="title">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor" d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm16 400c0 8.822-7.178 16-16 16H48c-8.822 0-16-7.178-16-16V80c0-8.822 7.178-16 16-16h352c8.822 0 16 7.178 16 16v352zm-228-80h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z"></path>
+                                        </svg>
+                                    </span>
+                                    <span>{{ a.ln.ENGLISH_ONLY }}</span>
+                                </div>
+                                <div>{{ a.ln.MY_INTRODUCTION_EX_1 }}</div>
+                            </div>
+    
+                            <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
+                                <textarea name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
+                                <div class="buttons">
+                                    <button class="button-with-icon" data-button="greeting-update" type="submit" *ngIf=" ! loader.greeting ">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path fill="currentColor" d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z"></path>
+                                            </svg>
+                                        </span>
+                                        <span>{{ a.ln.SUBMIT_MY_INTRODUCTION }}</span>
+                                    </button>
+                                    <div class="saved" *ngIf="show.greetingSaved">{{ a.ln.SAVED }}</div>
+                                    <span class="loader" *ngIf=" loader.greeting ">{{ a.ln.SAVING }}</span>
+                                </div>
+    
+                            </form>
+                        </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div id="auction">
+                            <h2>{{ a.ln.AUCTION_TITLE }}</h2>
+                            <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
+                                <span>{{ a.ln.AUCTION_DESC }}</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                        <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <form class="auction-form" (ngSubmit)=" onSubmitAuction( $event ) " *ngIf="show.auction">
+                                <div class="day">
+                                    <div>{{ a.ln.AUCTION_DAYS }}</div>
+                                    <div class="checkbox-group">
+                                        <label>
+                                            <input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">Sun</label>
+                                        <label>
+                                            <input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">Mon</label>
+                                        <label>
+                                            <input type="checkbox" name="tuesday" [(ngModel)]="mypage.auction.tuesday">Tue</label>
+                                        <label>
+                                            <input type="checkbox" name="wednesday" [(ngModel)]="mypage.auction.wednesday">Wed</label>
+                                        <label>
+                                            <input type="checkbox" name="thursday" [(ngModel)]="mypage.auction.thursday">Thu</label>
+                                        <label>
+                                            <input type="checkbox" name="friday" [(ngModel)]="mypage.auction.friday">Fri</label>
+                                        <label>
+                                            <input type="checkbox" name="saturday" [(ngModel)]="mypage.auction.saturday">Sat</label>
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <div>{{ a.ln.AUCTION_HOUR }}</div>
+                                    <div>
+                                        <select name="hour" [(ngModel)]="mypage.auction.hour">
+                                            <option value="00">0</option>
+                                            <option value="01">1</option>
+                                            <option value="02">2</option>
+                                            <option value="03">3</option>
+                                            <option value="04">4</option>
+                                            <option value="05">5</option>
+                                            <option value="06">6</option>
+                                            <option value="07">7</option>
+                                            <option value="08">8</option>
+                                            <option value="09">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                        </select>
+                                        :
+                                        <select name="minute" [(ngModel)]="mypage.auction.minute">
+                                            <option value="00">0</option>
+                                            <option value="05">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="25">25</option>
+                                            <option value="30">30</option>
+                                            <option value="35">35</option>
+                                            <option value="40">40</option>
+                                            <option value="45">45</option>
+                                            <option value="50">50</option>
+                                            <option value="55">55</option>
+                                        </select>
+                                    </div>
+                                </div>
+    
+                                <div class="duration">
+                                    <div>{{ a.ln.AUCTION_DURATION }}</div>
+    
+                                    <select name="duration" [(ngModel)]="mypage.auction.duration">
+                                        <option value="0">0</option>
+                                        <option value="5">5</option>
                                         <option value="10">10</option>
                                         <option value="15">15</option>
                                         <option value="20">20</option>
                                         <option value="25">25</option>
                                         <option value="30">30</option>
-                                        <option value="35">35</option>
                                         <option value="40">40</option>
-                                        <option value="45">45</option>
                                         <option value="50">50</option>
-                                        <option value="55">55</option>
+                                        <option value="60">60</option>
+                                        <option value="80">80</option>
+                                        <option value="100">100</option>
+                                        <option value="120">120</option>
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="duration">
-                                <div>{{ a.ln.AUCTION_DURATION }}</div>
-
-                                <select name="duration" [(ngModel)]="mypage.auction.duration">
-                                    <option value="0">0</option>
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                    <option value="15">15</option>
-                                    <option value="20">20</option>
-                                    <option value="25">25</option>
-                                    <option value="30">30</option>
-                                    <option value="40">40</option>
-                                    <option value="50">50</option>
-                                    <option value="60">60</option>
-                                    <option value="80">80</option>
-                                    <option value="100">100</option>
-                                    <option value="120">120</option>
-                                </select>
-                            </div>
-                            <div class="point" *ngIf=" mypage.auction.duration ">
-                                <div>{{ a.ln.AUCTION_POINT }}</div>
-
-                                <select name="point" [(ngModel)]=" mypage.auction.point ">
-                                    <option *ngFor="let point of [ 50, 80, 100, 130, 150, 180, 200, 230, 250 ]" value="{{ mypage.auction.duration * point  }}">
-                                        {{ mypage.auction.duration * point }}
-                                    </option>
-                                </select>
-
-                            </div>
-                            <div class="comments">
-                                <label>{{ a.ln.AUCTION_COMMENT }}</label>
-                                <textarea name="comment" [(ngModel)]="mypage.auction.comment"></textarea>
-                            </div>
-
-                            <div class="buttons" *ngIf=" ! loader.auction ">
-                                <button class="button-with-icon" data-button="auction-update" type="submit">
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <path fill="currentColor" d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z"></path>
-                                        </svg>
-                                    </span>
-                                    <span>{{ a.ln.TO_SAVE }}</span>
-                                </button>
-                                <button class="button-with-icon" data-button="auction-delete" type="button" (click)="onDeleteAuction()">
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                            <path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"></path>
-                                        </svg>
-                                    </span>
-                                    <span>{{ a.ln.TO_DELETE }}</span>
-                                </button>
-                                <div class="saved" *ngIf="show.auctionSaved">{{ a.ln.SAVED }}</div>
-
-                            </div>
-                            <div class="loader" *ngIf=" loader.auction ">
-                                {{ a.ln.SAVING }}
-                            </div>
-                        </form>
-
-                        <ng-container>
-                            <div id="auction-application-list" *ngIf=" mypage?.auction_application_list?.length">
-                                <div class="note">
-                                    <div>
+                                <div class="point" *ngIf=" mypage.auction.duration ">
+                                    <div>{{ a.ln.AUCTION_POINT }}</div>
+    
+                                    <select name="point" [(ngModel)]=" mypage.auction.point ">
+                                        <option *ngFor="let point of [ 50, 80, 100, 130, 150, 180, 200, 230, 250 ]" value="{{ mypage.auction.duration * point  }}">
+                                            {{ mypage.auction.duration * point }}
+                                        </option>
+                                    </select>
+    
+                                </div>
+                                <div class="comments">
+                                    <label>{{ a.ln.AUCTION_COMMENT }}</label>
+                                    <textarea name="comment" [(ngModel)]="mypage.auction.comment"></textarea>
+                                </div>
+    
+                                <div class="buttons" *ngIf=" ! loader.auction ">
+                                    <button class="button-with-icon" data-button="auction-update" type="submit">
                                         <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                                <path fill="currentColor" d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm16 400c0 8.822-7.178 16-16 16H48c-8.822 0-16-7.178-16-16V80c0-8.822 7.178-16 16-16h352c8.822 0 16 7.178 16 16v352zm-228-80h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z"></path>
+                                                <path fill="currentColor" d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z"></path>
                                             </svg>
                                         </span>
-                                        <span>{{ a.ln.AUTION_REPLY }}</span>
-                                    </div>
-                                </div>
-                                <div class="list-content">
-                                    <ng-container *ngFor=" let application of mypage.auction_application_list">
-                                        <a class="profile-card" routerLink="/schedule-table" [queryParams]="{ idx_teacher: application.sender.ID }">
-                                            <span class="profile-card-leftside">
-                                                <span class="profile-card-photo">
-                                                    <img [src]='a.checkPhotoURL(application.sender.photoURL)'>
-                                                </span>
-                                            </span>
-                                            <span class="profile-card-rightside">
-                                                <span class="card-title">
-                                                    <span class="teacher-name">{{ application.sender.name }}</span>
-                                                    <span class="application-title">{{ application.title }}</span>
-                                                </span>
-                                                <span class="card-body">
-                                                    <span>{{ application?.content }}</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                        <div>
-                                            <button class="app-button" (click)="messageSend.open({ ID: application.sender.ID, name: application.sender.name })">Reply</button>
-                                        </div>
-                                        <div class="delete-application" (click)="onDeleteApplication( application.idx ); application['delete'] = true;">
-                                            <svg *ngIf="!application['delete']" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <span>{{ a.ln.TO_SAVE }}</span>
+                                    </button>
+                                    <button class="button-with-icon" data-button="auction-delete" type="button" (click)="onDeleteAuction()">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"></path>
                                             </svg>
-                                            <mat-spinner [diameter]="16" *ngIf="application['delete']"></mat-spinner>
-                                        </div>
-                                    </ng-container>
+                                        </span>
+                                        <span>{{ a.ln.TO_DELETE }}</span>
+                                    </button>
+                                    <div class="saved" *ngIf="show.auctionSaved">{{ a.ln.SAVED }}</div>
+    
                                 </div>
-                            </div>
-                        </ng-container>
-                    </div>
+                                <div class="loader" *ngIf=" loader.auction ">
+                                    {{ a.ln.SAVING }}
+                                </div>
+                            </form>
+    
+                            <ng-container>
+                                <div id="auction-application-list" *ngIf=" mypage?.auction_application_list?.length">
+                                    <div class="note">
+                                        <div>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor" d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm16 400c0 8.822-7.178 16-16 16H48c-8.822 0-16-7.178-16-16V80c0-8.822 7.178-16 16-16h352c8.822 0 16 7.178 16 16v352zm-228-80h12V232h-12c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h48c6.627 0 12 5.373 12 12v140h12c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12h-72c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12zm36-240c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32-14.327-32-32-32z"></path>
+                                                </svg>
+                                            </span>
+                                            <span>{{ a.ln.AUTION_REPLY }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="list-content">
+                                        <ng-container *ngFor=" let application of mypage.auction_application_list">
+                                            <a class="list-item" routerLink="/schedule-table" [queryParams]="{ idx_teacher: application.sender.ID }">
+                                                <span class="left">
+                                                    <span class="teacher-photo">
+                                                        <img [src]='a.checkPhotoURL(application.sender.photoURL)'>
+                                                    </span>
+                                                </span>
+                                                <span class="right">
+                                                    <span class="title">
+                                                        <span class="teacher-name">{{ application.sender.name }}</span>
+                                                        <span class="application-title">{{ application.title }}</span>
+                                                    </span>
+                                                    <span class="body">
+                                                        <span>{{ application?.content }}</span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <div>
+                                                <button class="app-button" (click)="messageSend.open({ ID: application.sender.ID, name: application.sender.name })">Reply</button>
+                                            </div>
+                                            <div class="delete-application" (click)="onDeleteApplication( application.idx ); application['delete'] = true;">
+                                                <svg *ngIf="!application['delete']" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                    <path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"></path>
+                                                </svg>
+                                                <mat-spinner [diameter]="16" *ngIf="application['delete']"></mat-spinner>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
                 </div>
             </div>
         </div>
+
+        <!-- <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                </div>
+            </div>
+        </div> -->
 
 
         <div id="teacher-list">

@@ -11,8 +11,7 @@ h2{
     margin: 0;
     font-weight: 300;
     padding: .4em;
-    border-radius: 2px;
-    background: #FF7B0D;
+    background: #5B81D8;
     color: #fff;
     font-size: 1rem;
 }
@@ -23,10 +22,10 @@ h2{
                 padding: 0;
             }
             &>div:first-child{
-                padding-right: .5em;
+                padding-right: .75rem;
             }
             &>div:last-child{
-                padding-left: .5em;
+                padding-left: .75em;
             }
         }   
     }
@@ -34,7 +33,7 @@ h2{
 textarea{
     padding: .75em 1em;
     width: 100%;
-    height: 70px;
+    height: 140px;
     font-size: 1rem;
     border-radius: 2px;
     border: 1px solid rgba(125,125,125,0.4);
@@ -48,7 +47,7 @@ textarea{
     background: #fff;
     @media (min-width:$md) {
         padding: 2rem 1px;
-        margin-bottom: 0;
+        margin-bottom: 1.5rem;
         justify-content: space-around;
         align-items: stretch;
         flex-wrap: nowrap;
@@ -103,13 +102,15 @@ textarea{
             @media (min-width:$md) {
                 width: 150px;   
                 padding: .75rem;
-                font-size: 1rem;
+                font-size: rem;
             }
             border-radius: 2px;
+            border: 1px solid #1B4AB5;
             background: #1B4AB5;
             color: #fff;
             text-align: center;
             cursor: pointer;
+            transition: .2s all ease-in-out;
             svg{
                 display: none;
                 @media (min-width:$md) {
@@ -121,6 +122,10 @@ textarea{
                 width: 1em;
                 margin-right: .5em;
             }
+            &:hover{
+                background: #fff;
+                color: #1B4AB5;
+            }
         }
     }
     .right{
@@ -130,7 +135,8 @@ textarea{
         margin-left: 1rem;
         flex: 100%;
         @media (min-width:$md) {
-            flex: unset
+            flex: unset;
+            margin-left: 1.1rem;
         }
         .panel{
             font-size:.9rem;
@@ -188,7 +194,8 @@ textarea{
         margin-left: 1rem;
         flex: 100%;
         @media (min-width:$md) {
-            flex: unset
+            flex: unset;
+            margin-left: 1.1rem;
         }
         .panel{
             font-size:.9rem;
@@ -224,7 +231,7 @@ textarea{
         margin-bottom: 1rem;
         @media (min-width:$md) {
             margin-bottom: 0;
-            height: 100px;
+            height: 95.5px;
             width: 100px;   
         }
         border-radius: 4px;
@@ -253,6 +260,9 @@ textarea{
         .no{
             color: #fff;
             top:53%;
+            @media (min-width:$md) {
+                top:52%;
+            }
         }
         svg{
             height: 45px;
@@ -276,7 +286,7 @@ textarea{
             &[level-color="8"],
             &[level-color="9"],
             &[level-color="10"] {
-                color: darkorange;
+                color: #FF7B0D;
             }
         }
     }
@@ -302,7 +312,7 @@ textarea{
         text-align: center;
         background: #ddd;
         @media (min-width:$md) {
-            height: 100px;
+            height: 97.75px;
             width: 150px;
         }
         &>div{
@@ -332,7 +342,6 @@ textarea{
         padding: .5em 1em;
         border-radius: 2px;
         border: 1px solid rgba(125,125,125,0.2);
-        color: #fff;
     }
 }
 .button-with-icon{
@@ -341,6 +350,7 @@ textarea{
     border-radius: 2px;
     background: #1B4AB5;
     color: #fff;
+    font-size: .75rem;
     cursor: pointer;
     svg{
         position: relative;
@@ -371,25 +381,23 @@ textarea{
     color: darkgreen
 }
 .note{
-    margin-top: .5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     padding: .5rem 1rem;
-    border-radius: 2px;
-    background: rgba(#B1C5F4,0.4);
+    background: rgba(125,125,125,0.05);
     line-height: 1.5rem;
-    font-size: .85rem;
+    font-size: .9rem;
     &>*{
         margin: .5rem 0;
     }
-    &>*:first-child{
+    svg{
+        position: relative;
+        top: .18em;
+        height: 1.2em;
+        width: 1.2em;
+        margin-right: .3em;
+    }
+    .title{
         color: #1B4AB5;
-        svg{
-            position: relative;
-            top: .18em;
-            height: 1.2em;
-            width: 1.2em;
-            margin-right: .3em;
-        }
     }
 }
 
@@ -408,7 +416,7 @@ textarea{
         margin: 0 1em;
         margin-bottom: 2rem;
         @media (min-width:$md) {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             margin-left: 0;
             margin-right: 0;
         }
@@ -454,7 +462,7 @@ textarea{
                 &[level="8"],
                 &[level="9"],
                 &[level="10"] {
-                    background-color: rgb(206, 95, 4);
+                    background-color: #FF7B0D;
                 }
             }
         }
@@ -496,11 +504,10 @@ textarea{
     }
     #auction{
         .auction-intro{
-            margin-top: .5rem;
             padding: 1em;
-            border-radius: 2px;
-            background: #ddd;
+            background: rgba(125, 125, 125, 0.05);
             font-size: .9em;
+            line-height: 1.5rem;
             cursor: pointer;
     
             svg{
@@ -510,6 +517,9 @@ textarea{
                 height: 1em;
                 width: 1em;
             }
+        }
+        .note{
+            background: rgba(#FFF2B1,0.5);
         }
         button[data-button="auction-delete"]{
             background: #ddd;
@@ -580,48 +590,28 @@ textarea{
         .list-content{
             height: 210px;
             @media (min-width:$md) {
-                height: 195px;   
+                height: 300px;   
             }
             overflow: auto;
-            border: 1px solid rgba(125,125,125,0.1);
-            border-bottom: 0;
-            .profile-card {
-                align-items: center;
-                border-bottom: 1px solid rgba(125,125,125,0.1);
-                background: #fff;
-                margin:0;
-                padding: .5em;
-                font-size: .85rem;
-                cursor: pointer;
-                &:hover{
-                    background: rgba(125,125,125,0.02);
-                }
-                .profile-card-photo{
-                    height: 50px;
-                    width: 50px;
-                }
-                .application-title{
-                    margin: 0;
-                    color: darkblue;
-                    font-weight: normal;
-                    @media (min-width:$md) {
-                        display: block;
+            background: #fff;
+            .list-item {
+                display: flex;
+                font-size:.85rem;
+                .teacher-photo{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 55px;
+                    width: 55px;
+                    img{
+                        width: 100%;
                     }
                 }
-                .teacher-name{
-                    margin: 0;
-                    display: none;
-                    @media (min-width:$md) {
-                        display: block;
-                    }
-                }
-        
             }
             .delete-application{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: 100%;
                 padding: 1rem;
                 &:hover{
                     color: darkred;
@@ -638,6 +628,7 @@ textarea{
     #teacher-list{
         margin: 0 -.225em;
         h2{
+            margin-bottom: .5rem;
             svg{
                 position: relative;
                 top:.15em;
@@ -704,3 +695,10 @@ textarea{
         }
     }
     
+
+    .no-next-class{
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: gray;
+    }
