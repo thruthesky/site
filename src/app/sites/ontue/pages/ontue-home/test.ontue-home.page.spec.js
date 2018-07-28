@@ -16,7 +16,9 @@ context('OnTue Home', () => {
         it("new student test", () => {
             cy.get("[data-role='new-student-name']").first().click();
             cy.get("[data-role='new-student-list-page']");
-            cy.get("[data-button='send-message']").first.click();
+            cy.get("[data-button='send-message']").first().click();
+            cy.get(".mat-dialog-title");
+            
         })
     })
 })
