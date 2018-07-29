@@ -18,7 +18,9 @@ context('OnTue Home', () => {
             cy.get("[data-role='new-student-list-page']");
             cy.get("[data-button='send-message']").first().click();
             cy.get(".mat-dialog-title");
-            
+            cy.get("[name='message_content']").type("Hello, friend. How are you? I am JaeHo Song.");
+            cy.get("[data-button='send']").click();
+            cy.get(".mat-simple-snackbar");
         })
     })
 })
