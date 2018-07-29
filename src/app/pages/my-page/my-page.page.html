@@ -83,7 +83,7 @@
                         <div class="text">{{ mypage.next_class.teacher_name}}</div>
                     </div>
                     <div class="set" id="class-time">
-                        <div class="caption">{{ 'NEXT_CLASS_TIME' | t }}</div>
+                        <div class="caption">{{ a.ln.NEXT_CLASS_TIME }}</div>
                         <div class="text">{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</div>
                     </div>
                     <div class="panel">
@@ -97,13 +97,13 @@
                                 </svg>
                             </span>
                             <span *ngIf="mypage.book_next">{{ mypage.book_next }}</span>
-                            <span *ngIf="!mypage.book_next">{{ 'NO_BOOK_YET' | t }}</span>
+                            <span *ngIf="!mypage.book_next">{{ a.ln.NO_BOOK_YET }}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="next-class" class="no-next-class" *ngIf="!mypage.next_class">
-                {{ 'YOU_DO_NOT_HAVE_RESERVATION' | t }}
+                {{ a.ln.YOU_DO_NOT_HAVE_RESERVATION }}
             </div>
 
             <div id="session-stats">
@@ -135,7 +135,7 @@
                         </div>
 
                         <div *ngIf=" mypage?.progress && mypage.progress.length == 0 ">
-                            {{ 'NO_LEARNING_PROGRESS' | t }}
+                            {{ a.ln.NO_LEARNING_PROGRESS }}
                         </div>
                     </div>
                     <div id="my-introduction">
@@ -355,7 +355,7 @@
                                                             <path fill="currentColor" d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>{{ 'TO_REPLY' | t }}</span>
+                                                    <span>{{ a.ln.TO_REPLY }}</span>
                                                 </button>
                                                 <button class="delete-application" (click)="onDeleteApplication( application.idx ); application['delete'] = true;">
                                                     <svg *ngIf="!application['delete']" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
