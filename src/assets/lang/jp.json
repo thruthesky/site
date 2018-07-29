@@ -700,7 +700,7 @@
   "SAVED": "保存しました。",
   "TO_SAVE": "セーブ",
   "TO_DELETE": "削除",
-  "AUTION_REPLY": "あなたが雇用教師のために広告している場合は、ここに教師のアプリケーションが表示されます。",
+  "AUTION_REPLY_DESC": "あなたが雇用教師のために広告している場合は、ここに教師のアプリケーションが表示されます。",
   "WITHCENTER": "Withcenter",
   "MESSAGE_SEND_TITLE_WITH_NAME": "#name にメッセージを送る",
   "MESSAGE_SEND_TITLE": "メッセージを送る",
@@ -710,7 +710,11 @@
 
   "MESSAGE_SENT": "メッセージは正常に送信されました。",
   "MESSAGE_TOO_SHORT": "メッセージが短すぎます。",
-  "TO_REPLY": "応答"
+  "TO_REPLY": "応答",
+  "YOU_DO_NOT_HAVE_RESERVATION": "ああ！ 予約はありません。",
+  "NO_LEARNING_PROGRESS": "あなたにはまだクラスがないので学習進捗グラフはありません。",
+  "NO_BOOK_YET": "テキストブックはまだ設定されていません。",
+  "NEXT_CLASS_TIME": "次のクラスの日時"
 
 
 }

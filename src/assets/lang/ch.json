@@ -726,7 +726,7 @@
   "SAVED": "成功保存。",
   "TO_SAVE": "保存",
   "TO_DELETE": "删除",
-  "AUTION_REPLY": "如果您为招聘教师做广告，您将在此处看到教师的申请。",
+  "AUTION_REPLY_DESC": "如果您为招聘教师做广告，您将在此处看到教师的申请。",
   "WITHCENTER": "Withcenter",
   "MESSAGE_SEND_TITLE_WITH_NAME": "发送消息给 #name.",
   "MESSAGE_SEND_TITLE": "发信息",
@@ -736,6 +736,10 @@
 
   "MESSAGE_SENT": "消息已成功发送。",
   "MESSAGE_TOO_SHORT": "消息太短了。",
-  "TO_REPLY": "回复"
+  "TO_REPLY": "回复",
+  "YOU_DO_NOT_HAVE_RESERVATION": "哦！ 你没有保留。",
+  "NO_LEARNING_PROGRESS": "由于您还没有任何课程，因此没有学习进度图表。",
+  "NO_BOOK_YET": "尚未设置教科书。",
+  "NEXT_CLASS_TIME": "下一课的日期和时间"
 
 }

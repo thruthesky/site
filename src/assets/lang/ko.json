@@ -148,7 +148,7 @@
   "AFTERNOON": "오후",
   "FULL DAY": "전체(오전 오후, 하루종일)",
   "DIRECT-TIME": "시간 직접 선택:",
-  "TEACHER": "교사",
+  "TEACHER": "선생님",
   "TIME": "시간",
   "Minute": "분",
   "minute short": "분",
@@ -747,7 +747,7 @@
   "SAVED": "올바로 저장되었습니다.",
   "TO_SAVE": "저장하기",
   "TO_DELETE": "삭제하기",
-  "AUTION_REPLY": "선생님 구하기를 신청하시면, 선생님들께서 신청을 합니다. 회원님께서는 이곳에서 어떤 선생님들께서 신청했는지 알 수 있습니다.",
+  "AUTION_REPLY_DESC": "선생님 구하기를 신청하시면, 선생님들께서 신청을 합니다. 회원님께서는 이곳에서 어떤 선생님들께서 신청했는지 알 수 있습니다.",
   "WITHCENTER": "학원강사",
   "MESSAGE_SEND_TITLE_WITH_NAME": "#name님에게 쪽지 보내기",
   "MESSAGE_SEND_TITLE": "쪽지를 보냅니다.",
@@ -757,5 +757,9 @@
 
   "MESSAGE_SENT": "메세지가 올바로 전송되었습니다.",
   "MESSAGE_TOO_SHORT": "앗, 메세지 내용이 너무 짧아서 전송에 실패했습니다.",
-  "TO_REPLY": "답변하기"
+  "TO_REPLY": "답변하기",
+  "YOU_DO_NOT_HAVE_RESERVATION": "앗! 예약된 수업이 없습니다.",
+  "NO_LEARNING_PROGRESS": "아직, 수업을 받지 않아서 학업 성취도 그래프를 보실 수 없습니다.",
+  "NO_BOOK_YET": "아직 교재가 정해지지 않았습니다.",
+  "NEXT_CLASS_TIME": "다음 수업 시간"
 }
