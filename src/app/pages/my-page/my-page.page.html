@@ -3,11 +3,12 @@
         <h1 class="text-white">{{ a.ln.MYPAGE }}</h1>
     </header>
 
-    <section class="loader" *ngIf="loader.mypage">
-        {{ a.ln.LOADING_MYPAGE }}
+    <section class="loader d-flex" *ngIf="loader.mypage">
+        <mat-spinner [diameter]="24"></mat-spinner>
+        <div class="pt-1 pl-3">{{ a.ln.LOADING_MYPAGE }}</div>
     </section>
 
-    <section class="page-content" *ngIf="!loader.mypage">
+    <section class="page-content">
 
         <div class="page-description">
             {{ a.ln.MYPAGE_DESCRIPTION }}
@@ -174,7 +175,7 @@
                 </div>
                 <div class="col-12 col-md-5">
                     <div id="auction">
-                        <h2  (click)="show.auction=true">{{ a.ln.AUCTION_TITLE }}</h2>
+                        <h2 (click)="show.auction=true">{{ a.ln.AUCTION_TITLE }}</h2>
                         <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
                             <span>{{ a.ln.AUCTION_DESC }}</span>
                             <span>
