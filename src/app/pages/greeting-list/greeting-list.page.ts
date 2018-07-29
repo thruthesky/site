@@ -34,7 +34,7 @@ export class GreetingListPage implements OnInit {
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
         }).subscribe( res => {
-            console.log('greetings:: ', res);
+            // console.log('greetings:: ', res);
             if (res) {
                 this.pageOption.currentPage = res['page'];
                 this.pageOption.limitPerPage = res['limit'];
