@@ -139,7 +139,7 @@ export class AdminUserPage implements OnInit {
             }
             this.sanitize();
             this.statistics();
-            console.log('onSubmit', re);
+            // console.log('onSubmit', re);
         }, e => this.a.toast(e));
         return false;
     }

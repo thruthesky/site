@@ -49,7 +49,7 @@ export class MessageSendModalService {
             data: data
         });
         this.dialogRef.afterClosed().subscribe(res => {
-            console.log('Message box closed: ', res);
+            // console.log('Message box closed: ', res);
             if (res) {
                 if (res.length < 10) {
                     this.a.toast( this.a.ln.MESSAGE_TOO_SHORT );
@@ -59,7 +59,7 @@ export class MessageSendModalService {
                     ID: data.ID,
                     message: res
                 }).subscribe(re => {
-                    console.log('apply_auction: ', re);
+                    // console.log('apply_auction: ', re);
                     this.a.toast( this.a.ln.MESSAGE_SENT );
                 }, e => {
                     this.a.toast(e);

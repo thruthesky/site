@@ -12,7 +12,7 @@ export class OntueStudentGreetingListComponent {
 
     constructor(public a: AppService) {
         a.lms.get_greetings().subscribe( res => {
-            console.log('get_greetings: ', res);
+            // console.log('get_greetings: ', res);
             if (res) {
                 this.greetings = res['greetings'];
             }

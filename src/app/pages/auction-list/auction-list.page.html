@@ -7,27 +7,39 @@
             <mat-spinner [diameter]="48"></mat-spinner>
             <span>Loading...</span>
         </div>
-        <div class="auctions py-3" *ngIf=" !showLoader ">
-            <div class="auction container mb-3" *ngFor=" let auction of auctions ">
-                <div class="row">
-                    <div class="student">
+        <div class="auctions row no-gutters" *ngIf=" !showLoader ">
+            <div class="auction col-12 col-md-6" *ngFor=" let auction of auctions ">
+                <div class="card row no-gutters">
+                    <div class="left student">
                         <img class="primary-photo" [src]="a.checkPhotoURL(auction.photoURL)"/>
                         <div class="name">{{ auction.display_name }}</div>
                     </div>
-                    <div class="col">
-                        <div *ngIf="auction.greeting">
-                            Greeting: {{auction.greeting}}
+                    <div class="right col">
+                        <div class="message-box" *ngIf="auction.greeting">
+                            <div class="message">{{auction.greeting}}</div>
+                            <div class="message">
+                                <span>I want to study at </span>
+                                <span>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</span> for
+                                <span>{{auction['auction']['duration']}}mins </span>
+                                <span>{{auction['auction']['point']}}points</span> every
+                                <span>{{ showDateSelected(auction['auction']) }} </span>
+                                <span>via
+                                    <span class="class-software-icon" data-role="class-software-icon" *ngIf="auction.class_software">
+                                        <img src="/assets/img/messengers/{{ auction.class_software }}.png">
+                                    </span>
+                                    {{ auction.class_software }}.
+                                </span>
+                            </div>
+                            <div class="message">{{ auction.auction.comment }}</div>
                         </div>
-                        <div> Request:
-                            <span>I want to study at </span>
-                            <span>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</span> for
-                            <span>{{auction['auction']['duration']}}mins </span> with
-                            <span>{{auction['auction']['point']}}points</span> every
-                            <span>{{ showDateSelected(auction['auction']) }}.</span>
+                        <div class="stamp">{{ a.dateTime(auction['auction_update_stamp'])}}</div>
+                        <div class="button-with-icon col-12"
+                             (click)="messageSend.open({ID: auction.ID, name: auction.display_name })">
+                            <svg class="fontawesome" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/>
+                            </svg>
+                            Message
                         </div>
-                        <div>Message: {{ auction.auction.comment }}</div>
-                        <div class="stamp">Date Posted: {{ a.dateTime(auction['auction_update_stamp'])}}</div>
-                        <button class="app-button" (click)="messageModal.open({ID: auction.ID, name: auction.display_name})">Send Message</button>
                     </div>
                 </div>
             </div>
@@ -37,7 +49,6 @@
                                       [no_of_items_in_one_page]=" pageOption['limitPerPage'] "
                                       [no_of_pages_in_navigator]=" pageOption['limitPerNavigation'] "
                                       [no_of_current_page]=" pageOption['currentPage'] "
-                                      [scoll_to_element_Id]="'teacher-review-page'"
                                       [show_prev_next]=" true " (pageClick)="onPageClick($event)">
             </page-navigator-component>
         </div>

@@ -191,7 +191,7 @@ export class RegisterPage implements OnInit {
 
     onRegisterFailure(e) {
         //
-        console.log('Error on register: ', e);
+        // console.log('Error on register: ', e);
         this.loader.closeLoader();
         this.a.toast(e);
     }
@@ -248,7 +248,7 @@ export class RegisterPage implements OnInit {
         this.form.user_type = this.user_type;
 
 
-        console.log('form: ', this.form);
+        // console.log('form: ', this.form);
         if (this.a.user.isLogin) { // UPDATE
             // console.log('GOING TO UPDATE');
             this.updateWordpressBackend();
@@ -508,7 +508,7 @@ export class RegisterPage implements OnInit {
      *
      */
     myClassSoftware(): string {
-        console.log('this.form.class_software:', this.form.class_software);
+        // console.log('this.form.class_software:', this.form.class_software);
         if (this.form.class_software !== void 0 && this.form.class_software) {
             return this.form.class_software;
         } else  {

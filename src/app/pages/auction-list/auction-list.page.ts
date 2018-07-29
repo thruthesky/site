@@ -26,7 +26,7 @@ export class AuctionListPage implements OnInit {
 
     constructor(
         public a: AppService,
-        public messageModal: MessageSendModalService
+        public messageSend: MessageSendModalService
     ) {
         this.loadAuctions();
 
@@ -41,7 +41,7 @@ export class AuctionListPage implements OnInit {
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
         }).subscribe(res => {
-            console.log('get_auctions: ', res);
+            // console.log('get_auctions: ', res);
             if (res) {
                 this.pageOption.currentPage = res['page'];
                 this.pageOption.limitPerPage = res['limit'];

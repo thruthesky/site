@@ -17,7 +17,7 @@ export class OntueStudentAuctionListComponent {
     constructor(public a: AppService) {
 
         a.lms.get_auctions({tz_offset: a.lms.getUserLocalTimezoneOffset()}).subscribe( res => {
-            console.log('get_auctions: ', res);
+            // console.log('get_auctions: ', res);
             if (res && res['auction']) {
                 this.auctions = res['auction'];
             }

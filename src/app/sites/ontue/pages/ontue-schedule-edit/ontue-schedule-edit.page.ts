@@ -66,7 +66,7 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
                 });
             }
             this.a.lms.my_schedule_info().subscribe(re => {
-                console.log('my_schedule_info', re);
+                // console.log('my_schedule_info', re);
                 this.php_to_kwr = re['php_to_kwr'];
                 this.usd_to_kwr = re['usd_to_kwr'];
                 this.share_teacher = re['share_teacher'];

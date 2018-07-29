@@ -38,10 +38,10 @@ export class MyPagePage implements OnInit {
 
         this.loader.mypage = true;
         a.lms.mypage().subscribe(re => {
-            console.log('mypage: ', re);
+            // console.log('mypage: ', re);
             this.loader.mypage = false;
             this.mypage = re;
-            console.log('mypage: ', this.mypage);
+            // console.log('mypage: ', this.mypage);
             if (this.mypage.auction && this.mypage.auction.duration && parseInt(<any>this.mypage.auction.duration, 10)) {
                 this.show.auction = true;
             }
@@ -91,7 +91,7 @@ export class MyPagePage implements OnInit {
         }
         this.loader.greeting = true;
         this.a.lms.greeting_update(this.mypage.greeting).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.loader.greeting = false;
             this.show.greetingSaved = true;
             setTimeout(() => this.show.greetingSaved = false, 5000);
@@ -109,7 +109,7 @@ export class MyPagePage implements OnInit {
         }
         this.loader.auction = true;
         this.a.lms.auction_update(this.mypage.auction).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.loader.auction = false;
             this.show.auctionSaved = true;
             setTimeout(() => this.show.auctionSaved = false, 5000);
@@ -125,7 +125,7 @@ export class MyPagePage implements OnInit {
         }
         this.loader.auction = true;
         this.a.lms.auction_delete().subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.loader.auction = false;
             this.mypage.auction = this.defaultAuction;
             this.show.auction = false;
@@ -140,7 +140,7 @@ export class MyPagePage implements OnInit {
         }
         this.loader.deleteApplication = true;
         this.a.lms.auction_application_delete(idx).subscribe(res => {
-            console.log('auction aplication dleete; ', res);
+            // console.log('auction aplication dleete; ', res);
             const i = this.mypage.auction_application_list.findIndex(v => v.idx === idx);
             if ( i !== -1 ) {
                 this.mypage.auction_application_list.splice(i, 1);
