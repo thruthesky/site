@@ -16,7 +16,7 @@
                             </span>
                         </div>
                         <div class="col">
-                            <div data-role="new-student-name" class="student-name">{{ a.preTeacherName(student.display_name) }}</div>
+                            <div data-role="new-student-name" class="student-name">{{ a.shortName(student.display_name) }}</div>
                             <div class="date">Software: {{ student.class_software }}</div>
                             <div *ngIf=" student.greeting ">{{student['greeting'].slice(0,40)}}</div>
                             <div>{{student.user_registered | date}}</div>

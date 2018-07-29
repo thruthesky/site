@@ -31,9 +31,10 @@ export class TeacherReviewListPage {
         totalRecord: 0
     };
 
-    loading = true;
-
-    showLoader = false;
+    showLoader = {
+        teacher: false,
+        comments: false
+    };
 
 
     camera = null;
@@ -45,7 +46,7 @@ export class TeacherReviewListPage {
         public modal: ModalService,
     ) {
         this.active.queryParams.subscribe(params => {
-            this.showLoader = true;
+            this.showLoader.teacher = true;
             if (params['idx_teacher']) {
                 this.a.lms.get_teacher_info_by_idx(params['idx_teacher'], false).subscribe(re => {
                     // console.log('get_teacher_info_by_idx', re);
@@ -55,14 +56,14 @@ export class TeacherReviewListPage {
                     this.teacher_photoURL = re['photoURL'];
                     this.teacher_grade = re['grade'];
                     this.loadCommentList();
-                    this.showLoader = false;
+                    this.showLoader.teacher = false;
                 }, e => {
                     this.a.toast(e);
-                    this.showLoader = false;
+                    this.showLoader.teacher = false;
                 });
             } else {
                 this.a.toast(this.a.t('IDX TEACHER MISSING'));
-                this.showLoader = false;
+                this.showLoader.teacher = false;
             }
         });
     }
@@ -73,6 +74,8 @@ export class TeacherReviewListPage {
             limit: this.pageOption.limitPerPage,
             page: this.pageOption.currentPage
         };
+
+        this.showLoader.comments = true;
         this.a.lms.get_student_comments_to_teacher(data).subscribe((res: STUDENT_COMMENTS_TO_TEACHER) => {
             // console.log('get_comment_from_student_to_teaceher:: ', res);
             if (res && res['comments'] && res['comments'].length) {
@@ -85,11 +88,11 @@ export class TeacherReviewListPage {
             this.pageOption.totalRecord = res['total'];
             this.camera = res['camera'];
             this.internet = res['internet'];
-            this.loading = false;
+            this.showLoader.comments = false;
         }, e => {
             // console.log('get_student_comments_to_teacher::error');
             this.a.toast(e);
-            this.loading = false;
+            this.showLoader.comments = false;
         });
     }
 

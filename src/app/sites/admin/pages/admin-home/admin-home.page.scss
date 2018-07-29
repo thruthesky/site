@@ -63,6 +63,8 @@ $por-homebased: #FFBF00;
     }
 }
 
+
+
 #stats {
     display: flex;
     flex-wrap: wrap;
@@ -89,8 +91,18 @@ $por-homebased: #FFBF00;
 }
 
 #booking-statistics {
-    margin-bottom: 1.5em;
+    margin-bottom: .5em;
     font-size: 10px;
+    line-height: 1.1;
+    .header {
+        display: flex;
+        flex-direction: column;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+    }
     .booking-statistic {
         overflow: auto;
         table {
@@ -353,6 +365,8 @@ $por-homebased: #FFBF00;
 #statistics-graph{
     .total-point-share{
         padding: 0;
+        margin-bottom: .5em;
+        line-height: 1;
     }
     .sub-header {
         position: relative;
@@ -432,12 +446,9 @@ $por-homebased: #FFBF00;
     }
 }
 .total-point-share {
-    margin-bottom: 1em;
-    // width: 100%;
-    overflow: auto;
-    font-size: .9em;
+    font-size: 10px;
     white-space: pre-wrap!important;
-    h2{
+    .header{
         display: flex;
         flex-direction: column;
         @media (min-width:$md) {
@@ -446,23 +457,20 @@ $por-homebased: #FFBF00;
             align-items: flex-end;   
         }
         margin: 0;
-        margin-bottom: .3em;
-        padding: 0 .4em;
-        font-size: 1em;
+        padding: 0;
         color:#0867B0;
     }
     table {
-        font-size: .82em;
         border-spacing: 0;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
+
         @media (min-width:$md) {
             table-layout: fixed;   
         }
         th,
         td{
-            padding: .5em 1.75em;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
             border-right: 1px solid rgba(125, 125, 125, 0.2);
             text-align: left;
@@ -472,15 +480,12 @@ $por-homebased: #FFBF00;
         }
     }
     .note{
-        font-size: .85em;
         color: #000;
         font-weight: normal;
-
-        strong{
+        b{
             display: inline-block;
-            margin: 0 .2em;
-            padding: .3em .5em;
-            font-size: .9em;
+            margin: 0;
+            padding: 0;
             color: #fff;
         }
     }

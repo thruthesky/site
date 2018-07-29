@@ -20,6 +20,12 @@
             </a>
         </div>
     </header>
+
+    <div class="loader" *ngIf=" showLoader['teacher'] ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
+    </div>
+
     <section *ngIf="idx_teacher">
 
         <div class="teacher-avatar">
@@ -51,6 +57,13 @@
         </div>
 
         <hr>
+
+
+
+        <div class="loader" *ngIf=" showLoader['comments'] ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
+        </div>
 
         <ng-container *ngFor="let comment of comments">
             <div id="teacher-review-list-comment" class="comment container-fluid" *ngIf="comment.idx">
@@ -182,10 +195,6 @@
         </div>
     </section>
 
-    <div class="loader" *ngIf=" showLoader ">
-        <mat-spinner [diameter]="48"></mat-spinner>
-        <span>{{ 'IN LOADING' | t}}</span>
-    </div>
 
     <div class="page-nav">
         <page-navigator-component [no_of_total_items]=" pageOption['totalRecord'] "
@@ -199,7 +208,7 @@
     </div>
 
 
-    <div class="bottom-back-button" *ngIf="idx_teacher && !showLoader" routerLink="/schedule-table"
+    <div class="bottom-back-button" *ngIf="idx_teacher && !showLoader['teacher']" routerLink="/schedule-table"
          [queryParams]="{idx_teacher: idx_teacher}">
          <button class="app-button">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

@@ -14,7 +14,7 @@
                         <span class="student-photo">
                             <img [src]="a.checkPhotoURL(auction.photoURL)"/>
                         </span>
-                        <div class="student-name">{{auction.display_name}}</div>
+                        <div class="student-name">{{ a.shortName(auction.display_name)}}</div>
                     </div>
                     <div class="request col-md-8 col-8">
                         <span>I want to study at </span>

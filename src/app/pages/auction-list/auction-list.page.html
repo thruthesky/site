@@ -12,7 +12,7 @@
                 <div class="card row no-gutters">
                     <div class="left student">
                         <img class="primary-photo" [src]="a.checkPhotoURL(auction.photoURL)"/>
-                        <div class="name">{{ auction.display_name }}</div>
+                        <div class="name">{{ a.shortName(auction.display_name) }}</div>
                     </div>
                     <div class="right col">
                         <div class="message-box">

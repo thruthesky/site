@@ -9,15 +9,15 @@
 
 
     <div class="total-point-share container-fluid" *ngIf="stats && a.isSuperManager">
-        <h2>
+        <div class="header">
             <span>Shares Computation</span>
             <span class="note">
-                <b>Note:</b>
-                <strong class="teacher-share">Teacher Share</strong> is the {{stats.teacher_percent}}% of
-                <strong class="total-point">Total Point</strong>
+                <span>Note:</span>
+                <b class="teacher-share">Teacher Share</b> is the {{stats.teacher_percent}}% of
+                <b class="total-point">Total Point</b>
             </span>
-        </h2>
-        <table width="100%">
+        </div>
+        <table class="table-share" width="100%">
             <tr>
                 <th></th>
                 <th>Total</th>
@@ -86,26 +86,30 @@
     </div>
 
     <div id="booking-statistics" *ngIf="stats">
-        <h2>
-            Booking Statistics
-        </h2>
-        <div><b>*R</b>: no of Reservations<b> *M</b>: no of Minutes<b> *P</b>: no of Points</div>
-        <div class="booking-statistic" *ngFor="let user_group of a.keys(stats['booking']['teacher_groups']).reverse()">
-            <h2>User Group: {{ user_group }}</h2>
+        <div class="header">
+            <b>
+                Booking Statistics
+            </b>
+            <div><b>*R</b>: no of Reservations<b> *M</b>: no of Minutes<b> *P</b>: no of Points</div>
+        </div>
+        <div class="booking-statistic">
             <table>
                 <tr>
                     <th>
-                        Total Per Group
+                        Group
                     </th>
+                    <th>Total</th>
                     <th>
                         Bar
                     </th>
                     <th *ngFor="let d of a.keys(stats['booking']['dates'])">
-                        <div>{{d}}</div>
-                        <div>({{stats['booking']['dates'][d]['day']}})</div>
+                        <div>{{d.substr(4, 4)}}({{stats['booking']['dates'][d]['day']}})</div>
                     </th>
                 </tr>
-                <tr class="bottom-total">
+                <tr class="bottom-total" *ngFor="let user_group of a.keys(stats['booking']['teacher_groups']).reverse()">
+                    <td>
+                        {{ user_group }}
+                    </td>
                     <td *ngIf="stats">
                         <div>TR:{{stats['booking']['dates_totals'][user_group]['total_average_no_of_reservation']}}/{{stats['booking']['dates_totals'][user_group]['total_average_no_of_schedule']}}({{stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation']}}%)</div>
                         <div><b class="{{ classColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'])}}">TM:{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_minutes_of_reservation'])}}/{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_minutes_of_schedule'])}}({{stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation']}}%)</b></div>
@@ -113,22 +117,24 @@
                     </td>
                     <td>
                         <div  class="bars">
+                            <div>
                             <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation'])}} "
                                   [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation'] + 'px' ">
                                 {{stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation']}}
                             </span>
-                        </div>
-                        <div>
-                            <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'])}} "
-                                  [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'] + 'px' ">
-                                {{stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation']}}
-                            </span>
-                        </div>
-                        <div>
-                            <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'])}} "
-                                  [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'] + 'px' ">
-                                {{stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation']}}
-                            </span>
+                            </div>
+                            <div>
+                                <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'])}} "
+                                      [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'] + 'px' ">
+                                    {{stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation']}}
+                                </span>
+                            </div>
+                            <div>
+                                <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'])}} "
+                                      [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'] + 'px' ">
+                                    {{stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation']}}
+                                </span>
+                            </div>
                         </div>
                     </td>
                     <td *ngFor="let d of a.keys(stats['booking']['dates'])">
