@@ -15,8 +15,8 @@
                         <div class="name">{{ student.display_name }}</div>
                     </div>
                     <div class="right col">
-                        <div class="message-box" *ngIf="student.greeting">
-                            <div class="message">{{student['greeting']}}</div>
+                        <div class="message-box">
+                            <div class="message">{{student['greeting'] ? student['greeting'] : 'Greetings not set...' }}</div>
                         </div>
                         <div>Class:
                             <span class="class-software-icon" data-role="class-software-icon" *ngIf="student.class_software">
@@ -36,6 +36,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="no-more" *ngIf=" !students || students.length == 0 ">
+                No Auctions yet...
             </div>
         </div>
         <div class="pagination">

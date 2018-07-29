@@ -112,7 +112,7 @@
                 </tr>
                 <tr *ngFor="let info of stats['booking']['teacher_groups'][user_group]; let even=even" [ngClass]="{'even':even}">
                     <td>
-                        <a href="/manager/user-info/{{info.idx}}">
+                        <a href="/schedule-table?idx_teacher={{info.idx_teacher}}" target="_blank">
                             <div class="primary-photo" *ngIf="info['photoURL']">
                                 <img src="{{info['photoURL']}}">
                             </div>
@@ -127,22 +127,24 @@
                     </td>
                     <td>
                         <div class="bars">
-                            <span class="bar {{classBgColor(info['total_percentage_of_reservations'])}} "
-                                  [style.width]=" info['total_percentage_of_reservations'] + 'px' ">
-                                {{info['total_percentage_of_reservations']}}
-                            </span>
+                            <div>
+                                <span class="bar {{classBgColor(info['total_percentage_of_reservations'])}} "
+                                      [style.width]=" info['total_percentage_of_reservations'] + 'px' ">
+                                    {{info['total_percentage_of_reservations']}}
+                                </span>
                             </div>
                             <div>
-                            <span class="bar {{classBgColor(info['total_percentage_of_minutes'])}} "
-                                  [style.width]=" info['total_percentage_of_minutes'] + 'px' ">
-                                {{info['total_percentage_of_minutes']}}
-                            </span>
+                                <span class="bar {{classBgColor(info['total_percentage_of_minutes'])}} "
+                                      [style.width]=" info['total_percentage_of_minutes'] + 'px' ">
+                                    {{info['total_percentage_of_minutes']}}
+                                </span>
                             </div>
                             <div>
-                            <span class="bar {{classBgColor(info['total_percentage_of_points'])}} "
-                                  [style.width]=" info['total_percentage_of_points'] + 'px' ">
-                                {{info['total_percentage_of_points']}}
-                            </span>
+                                <span class="bar {{classBgColor(info['total_percentage_of_points'])}} "
+                                      [style.width]=" info['total_percentage_of_points'] + 'px' ">
+                                    {{info['total_percentage_of_points']}}
+                                </span>
+                            </div>
                         </div>
                     </td>
                     <td *ngFor="let d of a.keys(stats['booking']['dates'])">
@@ -169,23 +171,25 @@
                         <div>TP:{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_point_of_reservation'])}}/{{a.shortNumber(stats['booking']['dates_totals'][user_group]['total_average_point_of_schedule'])}}({{stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation']}}%)</div>
                     </td>
                     <td>
-                        <div>
-                            <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation'])}} "
-                                  [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation'] + 'px' ">
-                                {{stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation']}}
-                            </span>
-                        </div>
-                        <div>
-                            <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'])}} "
-                                  [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'] + 'px' ">
-                                {{stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation']}}
-                            </span>
-                        </div>
-                        <div>
-                            <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'])}} "
-                                  [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'] + 'px' ">
-                                {{stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation']}}
-                            </span>
+                        <div class="bars">
+                            <div>
+                                <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation'])}} "
+                                      [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation'] + 'px' ">
+                                    {{stats['booking']['dates_totals'][user_group]['total_average_percentage_no_of_reservation']}}
+                                </span>
+                            </div>
+                            <div>
+                                <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'])}} "
+                                      [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation'] + 'px' ">
+                                    {{stats['booking']['dates_totals'][user_group]['total_average_percentage_minutes_of_reservation']}}
+                                </span>
+                            </div>
+                            <div>
+                                <span class="bar {{classBgColor(stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'])}} "
+                                      [style.width]=" stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation'] + 'px' ">
+                                    {{stats['booking']['dates_totals'][user_group]['total_average_percentage_point_of_reservation']}}
+                                </span>
+                            </div>
                         </div>
                     </td>
                     <td *ngFor="let d of a.keys(stats['booking']['dates'])">
