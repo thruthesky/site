@@ -4,11 +4,22 @@
             <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
             <input type="number" name="date_end" [(ngModel)]="stat_date_end">
             <button type="submit">SUBMIT</button>
+            <span class="select-date-button" (click)="onClickSelectDate(7,1)">[-7|+1]</span>
+            <span class="select-date-button" (click)="onClickSelectDate(7,7)">[-7|+7]</span>
+            <span class="select-date-button" (click)="onClickSelectDate(30,0)">[-30]</span>
+            <span class="select-date-button" (click)="onClickSelectDate(0,30)">[+30]</span>
+            <span class="select-date-button" (click)="onClickSelectDate(15,0)">[-15]</span>
+            <span class="select-date-button" (click)="onClickSelectDate(0,15)">[+15]</span>
+            <span class="select-date-button" (click)="onClickSelectDate(15,15)">[-15|+15]</span>
         </form>
     </div>
 
+    <div class="loader" *ngIf=" loader.booking ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>Loading...</span>
+    </div>
 
-    <div class="total-point-share container-fluid" *ngIf="stats && a.isSuperManager">
+    <div class="total-point-share container-fluid" *ngIf="stats && !loader.booking && a.isSuperManager">
         <div class="header">
             <span>Shares Computation</span>
             <span class="note">
@@ -85,7 +96,7 @@
         </table>
     </div>
 
-    <div id="booking-statistics" *ngIf="stats">
+    <div id="booking-statistics" *ngIf="stats && !loader.booking">
         <div class="header">
             <b>
                 Booking Statistics
@@ -147,8 +158,41 @@
                 </tr>
             </table>
         </div>
-
     </div>
+
+
+    <!-- -RESERVATION GRAPH- -->
+    <div id="overall-reservations-graph" class="bar-graph-container" *ngIf=" stats && stats['no_of_reservations'] ">
+        <div class="bar-graph-header">
+            <h2 class="bar-graph-title">
+                Overall Reservations
+                <small>- {{(stats['total_duration_of_reservations']/60| number:'1.0-0')}}hrs
+                    {{stats['total_point_of_reservation']/stats['total_duration_of_reservations'] |
+                    number:'1.0-0'}}pts/min
+                </small>
+            </h2>
+            <div class="bar-graph-subtitle" *ngIf=" stats ">
+                <span><b>Total:</b> {{ stats.total_no_of_reservations | number }}</span>
+                <span><b>Points:</b> {{ stats.teacher_share | number }}</span>
+                <span>
+                    $: {{stats.teacher_share_in_usd | number}}
+                    ₱: {{stats.teacher_share_in_php | number}}
+                </span>
+            </div>
+        </div>
+        <div class="bar-graph-content">
+            <div *ngFor="let date of a.keys(stats['no_of_reservations'])">
+                <div class="bar-item" matTooltip="{{ date }} : {{ stats['no_of_reservations'][date] }}"
+                     [style.height]=" barHeight( stats['no_of_reservations'][date], stats.highest_no_of_reservation, 3 ) ">
+                    <div class="item-no">{{ stats['no_of_reservations'][date] }}</div>
+                    <div class="item-date" [ngClass]="{'today': date == today}">{{ date.slice(6, 8) }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <section id="stats-summary" class="container-fluid">
         <div class="row">
             <div class="left col-sm-12 col-md-6">

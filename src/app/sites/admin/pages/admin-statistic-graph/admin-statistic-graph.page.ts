@@ -14,36 +14,39 @@ export class AdminStatisticGraphPage implements OnInit {
     stat_date_end = 0;
     stats = null;
     today = null;
+
+    loader = {
+        booking: false
+    };
     constructor(
         public a: AppService,
         public modal: ModalService
     ) {
 
         this.today = a.getYmd();
+        this.onClickSelectDate();
 
-        const d = new Date();
-        this.stat_date_begin = parseInt(d.getFullYear() + a.add0((d.getMonth() + 1)) + a.add0(1), 10);
-        const lastDayOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
-        this.stat_date_end = parseInt(d.getFullYear() + a.add0((d.getMonth() + 1)) + lastDayOfMonth.getDate(), 10);
-        this.loadAdminStatistics();
     }
 
     ngOnInit() { }
 
 
     loadAdminStatistics() {
-
+        this.loader.booking = true;
         this.a.lms.admin_statistics({
             date_begin: this.stat_date_begin,
             date_end: this.stat_date_end
         }).subscribe(res => {
             // console.log('admin statistics: ', res);
             this.stats = res;
-        }, e => this.a.toast(e));
+            this.loader.booking = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.booking = false;
+        });
     }
 
-
-    barHeight( no , max = null ) {
+    barHeight( no , max = null, div = 1 ) {
         if ( !no || no === 0 ) {
             return '1px';
         }
@@ -51,10 +54,10 @@ export class AdminStatisticGraphPage implements OnInit {
             no = Math.abs(no);
         }
         if ( max ) {
-            return Math.floor(no / max * 100) + 'px';
+            return Math.floor((no / max * 100) / div) + 'px';
         }
 
-        return no + 'px';
+        return Math.floor(no / div) + 'px';
     }
 
     formatDate(date) {
@@ -76,9 +79,27 @@ export class AdminStatisticGraphPage implements OnInit {
         return 'bg-' + this.classColor(n);
     }
 
-    onClickSelectDate( before, after ) {
-        console.log( before, after );
+    onClickSelectDate( begin = null, end = null ) {
+        const d = new Date();
+
+        if ( begin != null ) {
+            const begin_date = new Date( d.getTime() - ( begin * 24 * 60 * 60 * 1000) );
+            this.stat_date_begin = parseInt(begin_date.getFullYear() + this.a.add0((begin_date.getMonth() + 1)) + this.a.add0(begin_date.getDate()), 10);
+        } else {
+            this.stat_date_begin = parseInt(d.getFullYear() + this.a.add0((d.getMonth() + 1)) + this.a.add0(1), 10);
+        }
+
+        if ( end != null ) {
+            const end_date = new Date( d.getTime() + ( end * 24 * 60 * 60 * 1000) );
+            this.stat_date_end = parseInt(end_date.getFullYear() + this.a.add0((end_date.getMonth() + 1)) + this.a.add0(end_date.getDate()), 10);
+        } else {
+            const lastDayOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+            this.stat_date_end = parseInt(d.getFullYear() + this.a.add0((d.getMonth() + 1)) + lastDayOfMonth.getDate(), 10);
+        }
+
+        this.loadAdminStatistics();
     }
+
 }
 
 

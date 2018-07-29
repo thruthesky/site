@@ -32,6 +32,18 @@ $por-homebased: #FFBF00;
     color: white!important;
 }
 
+.select-date-button {
+    display: inline-block;
+    padding: .5em;
+    margin-left: .5em;
+    margin-right: 0;
+    border-radius: 2px;
+    border: 1px solid lightgrey;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
 
 #statistics-graph{
     .total-point-share{
@@ -85,7 +97,6 @@ $por-homebased: #FFBF00;
             position: relative;
             top: .125em;
             display: inline-block;
-            margin-right: 2em;
             white-space: nowrap;
             font-size: .9em;
             @media (min-width:$md) {

@@ -407,7 +407,6 @@ $por-homebased: #FFBF00;
             position: relative;
             top: .125em;
             display: inline-block;
-            margin-right: 2em;
             white-space: nowrap;
             font-size: .9em;
             @media (min-width:$md) {
@@ -487,6 +486,101 @@ $por-homebased: #FFBF00;
             margin: 0;
             padding: 0;
             color: #fff;
+        }
+    }
+}
+
+
+.select-date-button {
+    display: inline-block;
+    padding: .5em;
+    margin-left: .5em;
+    margin-right: 0;
+    border-radius: 2px;
+    border: 1px solid lightgrey;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+#overall-reservations-graph{
+    .bar-item{
+        border-bottom: .5px solid $overall;
+        background-color: $overall;
+    }
+}
+
+.bar-graph{
+    &-container{
+        margin-bottom: 1.75em;
+        border-radius: 2px;
+        border:1px solid rgba(125, 125, 125, 0.2);
+    }
+    &-header{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+        background: #eee;
+        @media (min-width:$md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            //line-height: 0;
+        }
+        .bar-graph-title{
+            margin: 0;
+            font-size: .9em;
+            color: #0867B0;
+        }
+        .bar-graph-subtitle{
+            font-size: .8em;
+            &>*{
+                display: block;
+                @media (min-width:$md) {
+                    display: inline-block;
+                }
+                margin-right: 1em;
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+    }
+    &-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 1em 1.5em 1.2em 1em;
+        font-size: .75em;
+        overflow: auto;
+
+        .bar-item{
+            position: relative;
+            margin: 0 2px;
+            min-width:2em;
+            min-height: 1px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            border-bottom: .5px solid gray;
+            background-color: gray;
+            text-align: center;
+            .item-no{
+                position: relative;
+                bottom: 1.2em;
+                padding: 0 2px;
+            }
+            .item-date{
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                transform: rotate(-87deg);
+                white-space: nowrap;
+                &.today {
+                    font-weight: bold;
+                }
+            }
         }
     }
 }
