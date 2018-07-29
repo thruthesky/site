@@ -20,12 +20,13 @@
             }
         }
         .left {
+            padding: 1em;
             > div {
                 margin-bottom: .5em;
             }
         }
         .right {
-            padding: .5em;
+            padding: 1em;
             > div {
                 margin-bottom: .5em;
             }
@@ -37,6 +38,7 @@
             background: #1B4AB5;
             color: #fff;
             font-size: .75rem;
+            text-align: center;
             cursor: pointer;
             svg{
                 position: relative;
