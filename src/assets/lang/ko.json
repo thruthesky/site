@@ -761,5 +761,12 @@
   "YOU_DO_NOT_HAVE_RESERVATION": "앗! 예약된 수업이 없습니다.",
   "NO_LEARNING_PROGRESS": "아직, 수업을 받지 않아서 학업 성취도 그래프를 보실 수 없습니다.",
   "NO_BOOK_YET": "아직 교재가 정해지지 않았습니다.",
-  "NEXT_CLASS_TIME": "다음 수업 시간"
+  "NEXT_CLASS_TIME": "다음 수업 시간",
+
+  "AUCTION_DELETE": "경매 삭제",
+  "AUCTION_DELETE_CONFIRM": "경매를 삭제 하시겠습니까?",
+  "AUCTION_APPLICATION_DELETE": "경매 신청서 삭제",
+  "AUCTION_APPLICATION_DELETE_CONFIRM": "이 애플리케이션을 삭제 하시겠습니까?"
+
+
 }

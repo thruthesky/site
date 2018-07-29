@@ -714,7 +714,14 @@
   "YOU_DO_NOT_HAVE_RESERVATION": "ああ！ 予約はありません。",
   "NO_LEARNING_PROGRESS": "あなたにはまだクラスがないので学習進捗グラフはありません。",
   "NO_BOOK_YET": "テキストブックはまだ設定されていません。",
-  "NEXT_CLASS_TIME": "次のクラスの日時"
+  "NEXT_CLASS_TIME": "次のクラスの日時",
+
+  "AUCTION_DELETE": "オークションの削除",
+  "AUCTION_DELETE_CONFIRM": "オークションを削除してもよろしいですか？",
+  "AUCTION_APPLICATION_DELETE": "オークションアプリケーションの削除",
+  "AUCTION_APPLICATION_DELETE_CONFIRM": "このアプリケーションを削除してもよろしいですか？"
+
+
 
 
 }

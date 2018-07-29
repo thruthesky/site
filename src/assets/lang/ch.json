@@ -740,6 +740,13 @@
   "YOU_DO_NOT_HAVE_RESERVATION": "哦！ 你没有保留。",
   "NO_LEARNING_PROGRESS": "由于您还没有任何课程，因此没有学习进度图表。",
   "NO_BOOK_YET": "尚未设置教科书。",
-  "NEXT_CLASS_TIME": "下一课的日期和时间"
+  "NEXT_CLASS_TIME": "下一课的日期和时间",
+
+  "AUCTION_DELETE": "拍卖删除",
+  "AUCTION_DELETE_CONFIRM": "您确定要删除竞价吗？",
+  "AUCTION_APPLICATION_DELETE": "拍卖申请删除",
+  "AUCTION_APPLICATION_DELETE_CONFIRM": "您确定要删除此应用程序吗？"
+
+
 
 }

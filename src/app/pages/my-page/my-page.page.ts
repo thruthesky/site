@@ -4,6 +4,7 @@ import { AppService } from '../../providers/app.service';
 import { MYPAGE } from '../../modules/xapi/lms.service';
 import { TEACHER_LIST_INFO } from '../../modules/xapi/interfaces';
 import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
+import { ModalData, ModalService } from '../../providers/modal/modal.service';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class MyPagePage implements OnInit {
 
     constructor(
         public a: AppService,
-        public messageSend: MessageSendModalService
+        public messageSend: MessageSendModalService,
+        public modal: ModalService
     ) {
         // console.log(`NotFoundPage::constructor()`);
 
@@ -123,33 +125,58 @@ export class MyPagePage implements OnInit {
         if ( this.loader.auction ) {
             return;
         }
-        this.loader.auction = true;
-        this.a.lms.auction_delete().subscribe(re => {
-            // console.log('re: ', re);
-            this.loader.auction = false;
-            this.mypage.auction = this.defaultAuction;
-            this.show.auction = false;
-        }, e => {
-            this.a.toast(e);
-            this.loader.auction = false;
+
+        const data: ModalData = {
+            title: this.a.t('AUCTION_DELETE'),
+            content: this.a.t('AUCTION_DELETE_CONFIRM'),
+            yes: this.a.t('YES'),
+            no: this.a.t('CANCEL')
+        };
+        this.modal.confirm(data).subscribe(result => {
+            if (result) {
+                this.loader.auction = true;
+                this.a.lms.auction_delete().subscribe(re => {
+                    // console.log('re: ', re);
+                    this.loader.auction = false;
+                    this.mypage.auction = this.defaultAuction;
+                    this.show.auction = false;
+                }, e => {
+                    this.a.toast(e);
+                    this.loader.auction = false;
+                });
+            }
         });
+
     }
-    onDeleteApplication(idx) {
+    onDeleteApplication(application) {
         if ( this.loader.deleteApplication ) {
             return;
         }
-        this.loader.deleteApplication = true;
-        this.a.lms.auction_application_delete(idx).subscribe(res => {
-            // console.log('auction aplication dleete; ', res);
-            const i = this.mypage.auction_application_list.findIndex(v => v.idx === idx);
-            if ( i !== -1 ) {
-                this.mypage.auction_application_list.splice(i, 1);
+        const data: ModalData = {
+            title: this.a.t('AUCTION_APPLICATION_DELETE'),
+            content: this.a.t('AUCTION_APPLICATION_DELETE_CONFIRM'),
+            yes: this.a.t('YES'),
+            no: this.a.t('CANCEL')
+        };
+        this.modal.confirm(data).subscribe(result => {
+            if (result) {
+                this.loader.deleteApplication = true;
+                this.a.lms.auction_application_delete(application.idx).subscribe(res => {
+                    // console.log('auction aplication dleete; ', res);
+                    const i = this.mypage.auction_application_list.findIndex(v => v.idx === application.idx);
+                    if (i !== -1) {
+                        this.mypage.auction_application_list.splice(i, 1);
+                    }
+                    this.loader.deleteApplication = false;
+                }, e => {
+                    this.a.toast(e);
+                    this.loader.deleteApplication = false;
+                });
+            } else {
+                application['delete'] = false;
             }
-            this.loader.deleteApplication = false;
-        }, e => {
-            this.a.toast(e);
-            this.loader.deleteApplication = false;
         });
+
     }
 }
 
