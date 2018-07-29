@@ -106,7 +106,7 @@ export class TeacherReviewListPage {
         };
         this.modal.confirm(data).subscribe(result => {
             if ( result ) {
-                this.showLoader = true;
+                this.showLoader.comments = true;
                 const q = {
                     idx: comment.idx
                 };
@@ -115,10 +115,10 @@ export class TeacherReviewListPage {
                         comment.idx = '';
                         this.a.toast( this.a.t('COMMENT DELETED'));
                     }
-                    this.showLoader = false;
+                    this.showLoader.comments = false;
                 }, e => {
                     this.a.toast(e);
-                    this.showLoader = false;
+                    this.showLoader.comments = false;
                 });
             }
         });
