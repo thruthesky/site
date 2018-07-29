@@ -174,7 +174,7 @@
                 </div>
                 <div class="col-12 col-md-5">
                     <div id="auction">
-                        <h2>{{ a.ln.AUCTION_TITLE }}</h2>
+                        <h2  (click)="show.auction=true">{{ a.ln.AUCTION_TITLE }}</h2>
                         <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
                             <span>{{ a.ln.AUCTION_DESC }}</span>
                             <span>
