@@ -1,4 +1,6 @@
 .auctions {
+    padding: .5em .5em;
+    background: #eeeeee;
     .auction {
         .card {
             margin: .5em;
@@ -72,4 +74,9 @@
     display: flex;
     justify-content: center;
     padding: 4em 0;
+}
+
+.no-more{
+    text-align: center;
+    padding: 5em;
 }

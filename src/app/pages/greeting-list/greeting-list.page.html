@@ -17,7 +17,7 @@
                         <div class="name">{{ a.preTeacherName(greeting.display_name) }}</div>
                     </div>
                     <div class="right col">
-                        <div class="message-box" *ngIf="greeting.greeting">
+                        <div class="message-box">
                             <div class="message">{{greeting['greeting']}}</div>
                         </div>
                         <div>Level: {{ greeting['level'] > 0 ? greeting['level'] : "No Evaluation yet."}}</div>
@@ -37,6 +37,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="no-more" *ngIf=" !greetings || greetings.length == 0 ">
+                No Greetings yet...
             </div>
         </div>
         <div class="pagination">

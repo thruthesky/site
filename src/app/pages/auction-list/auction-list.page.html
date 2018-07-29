@@ -15,7 +15,7 @@
                         <div class="name">{{ auction.display_name }}</div>
                     </div>
                     <div class="right col">
-                        <div class="message-box" *ngIf="auction.greeting">
+                        <div class="message-box">
                             <div class="message">{{auction.greeting}}</div>
                             <div class="message">
                                 <span>I want to study at </span>
@@ -43,6 +43,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="no-more" *ngIf=" !auctions || auctions.length == 0 ">
+                No Auctions yet...
+            </div>
+
         </div>
         <div class="pagination">
             <page-navigator-component [no_of_total_items]=" pageOption['totalRecord']"
