@@ -22,7 +22,8 @@
             color: dimgray;
         }
         .primary-photo{
-            margin: .5rem 0 .5rem .25rem;
+            margin: .5rem 0 .5rem .5rem;
+            padding: 0;
             height: 75px;
             width: 75px;
             border-radius: 3px;
@@ -50,7 +51,7 @@
             }
         }
         .name{
-            width: 75px;
+            width: 70px;
             font-weight: normal;
             text-align: center;
             color: #3C66C8;
