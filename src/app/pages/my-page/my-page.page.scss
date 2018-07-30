@@ -37,9 +37,15 @@ h2 {
             }
             &>div:first-child {
                 padding-right: .75rem;
+                @media (min-width:$md) {
+                    padding-inline-end: 0;
+                }
             }
             &>div:last-child {
                 padding-left: .75em;
+                @media (min-width:$md) {
+                    padding-inline-end: 0;
+                }
             }
         }
     }
@@ -48,6 +54,7 @@ h2 {
 mat-form-field[appearance] {
     width: 100% !important;
     textarea {
+        padding: 0 1.25em;
         height: 85px;
         font-size: 1rem;
     }
@@ -366,15 +373,9 @@ mat-form-field[appearance] {
 
 #my-introduction {
     margin-bottom: 2rem;
-    @media (min-width: $md) {
-        margin-bottom: 0;
-    }
     font-size: .85em;
     .button-with-icon {
         margin: 0;
-        @media (min-width: $md) {
-            margin-top: 1rem;
-        }
     }
     .note{
         padding: 1em 2em;
@@ -465,16 +466,15 @@ mat-form-field[appearance] {
 
 #auction-application-list {
     .list-content {
-        height: 290px;
-        z-index: 1;
         @media (min-width: $md) {
-            height: 329px;
+            max-height: 329px;
         }
-        overflow: auto;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
         background: #fff;
+        z-index: 1;
+        overflow: auto;
         .buttons-hook {
             position: relative;
         }
