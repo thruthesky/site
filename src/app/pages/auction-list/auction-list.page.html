@@ -19,9 +19,9 @@
                             <div class="message">{{auction.greeting}}</div>
                             <div class="message">
                                 <span>I want to study at </span>
-                                <span>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</span> for
-                                <span>{{auction['auction']['duration']}}mins </span>
-                                <span>{{auction['auction']['point']}}points</span> every
+                                <b>{{auction['auction']['hour']}}:{{auction['auction']['minute']}}</b> for
+                                <b>{{auction['auction']['duration']}}mins </b>
+                                <b>{{auction['auction']['point']}}points</b> every
                                 <span>{{ showDateSelected(auction['auction']) }} </span>
                                 <span>via
                                     <span class="class-software-icon" data-role="class-software-icon" *ngIf="auction.class_software">

@@ -115,6 +115,7 @@ export interface MYPAGE {
         class_begin_display: number;
         teacher_name: string;
         teacher_photoURL: string;
+        teacher_grade: number;
     };
     level: number;
     progress: Array<{
