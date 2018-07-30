@@ -57,7 +57,8 @@ mat-form-field[appearance] {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
+    padding-top: 1.5rem;
     margin-bottom: 1.5rem;
     background: #fff;
     @media (min-width: $md) {
@@ -71,44 +72,38 @@ mat-form-field[appearance] {
 
 #student-profile,
 #next-class {
-    margin-bottom: 1.5rem;
-    @media (min-width: $md) {
-        margin-bottom: 0;
-    }
-    .panel {
-        .panel-title {
-            background: #ddd;
-        }
-        &>* {
-            padding: .4em .75em;
-        }
-    }
-}
-
-#student-profile {
     display: flex;
+    margin: 1rem 0;
     font-weight: 300;
-    flex: 100%;
-    @media (min-width: $md) {
-        flex: unset;
+    .set:first-child{
+        .caption{
+            margin-top: 0;
+        }
     }
     .left {
-        margin: 1em 1em 0;
-        .student-photo {
+        margin: 0 1em ;
+        @media (min-width:$md) {
+            margin: 0 1em 0 0;
+        }
+        .photo-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 3px;
             height: 144px;
-            width: 120px; // @media (min-width: $md) {
-            //     height: 180px;
-            //     width: 150px;
-            // }
+            width: 120px;
             overflow: hidden;
             img {
                 width: 100%;
             }
         }
+    }
+    .right {
+        margin-left: 1em;
+    }
+}
+#student-profile{
+    .left{
         .button-with-icon {
             display: inline-block;
             margin-top: 1.5em;
@@ -144,8 +139,7 @@ mat-form-field[appearance] {
         }
     }
     .right {
-        margin-left: 2rem;
-        flex: 100%;
+        margin-left: 1em;
         .class-software {
             .text {
                 display: flex;
@@ -154,141 +148,55 @@ mat-form-field[appearance] {
                     width: 24px;
                 }
             }
-        } // .panel {
-        //     font-size: .9rem;
-        //     @media (min-width: $md) {
-        //         font-size:1rem;
-        //     }
-        // }
-        // .panel-content {
-        //     display: flex;
-        //     align-items: center;
-        //     background: rgba(125, 125, 125, 0.05);
-        //     img {
-        //         position: relative;
-        //         top: .1em;
-        //         width: 1.25rem;
-        //         height: 1.25rem;
-        //         margin-right: .3em;
-        //         white-space: nowrap
-        //     }
-        // }
+        } 
     }
 }
 
 #next-class {
-    display: flex;
-    font-weight: 300;
-    flex: 100%;
-    @media (min-width: $md) {
-        flex: unset
-    }
-    .left {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .teacher-photo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 3px;
-            height: 110px;
-            width: 110px;
-            @media (min-width: $md) {
-                height: 100px;
-                width: 100px;
-            }
-            overflow: hidden;
-            img {
-                width: 100%;
-            }
-        }
-    }
     .right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-left: 1rem;
-        flex: 100%;
-        @media (min-width: $md) {
-            flex: unset;
-            margin-left: 1.1rem;
-        }
-        .panel {
-            font-size: .9rem;
-            @media (min-width: $md) {
-                font-size:1rem;
-            }
-        }
-        .panel-content {
-            display: flex;
-            align-items: center;
-            background: rgba(125, 125, 125, 0.05);
+        .set {
             svg {
                 position: relative;
                 top: .1em;
-                width: 1.2rem;
-                height: 1.2rem;
+                width: 1em;
+                height: 1rem;
                 margin-right: .3em;
             }
         }
         #class-time {
             color: darkred;
         }
-        #book-in-use {
-            color: darkgreen
-        }
     }
 }
 
-#my-level {
-    .box-container {
-        position: relative;
-        height: 80px;
-        width: 110px;
-        margin-bottom: 1rem;
-        @media (min-width: $md) {
-            margin-bottom: 0;
-            height: 95.5px;
-            width: 100px;
-        }
-        border-radius: 4px;
-        background: #ddd;
-        text-align: center;
-        .title {
-            width: 100%;
-            color: #000;
-            text-align: center;
-            font-size: .9rem;
-        }
-        .title,
-        .icon,
-        .no {
-            position: absolute;
-            top: 65%;
-            @media (min-width: $md) {
-                top: 60%;
-            }
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-        .title {
-            top: 20%;
-        }
-        .no {
-            color: #fff;
-            top: 56%;
-            @media (min-width: $md) {
-                top:52%;
-            }
+
+#session-stats {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    @media (min-width:$md){
+        display: flex;
+        flex-direction: column;
+        width: auto
+    }
+    #my-level {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: .5rem;
+        padding: .5rem 1rem;
+        border: 1px solid rgba(125,125,125,0.2);
+        font-size: 1.1rem;
+        .title{
+            display: inline-block;
+            margin: 0 1rem;
+            font-weight: 300;
         }
         svg {
-            height: 45px;
-            width: 45px;
-            @media (min-width: $md) {
-                height: 50px;
-                width: 50px;
-            }
+            position: relative;
+            top: .125em;
+            height: 1.5rem;
+            width: 1.5rem;
             &[level-color="0"],
             &[level-color="1"],
             &[level-color="2"],
@@ -308,31 +216,10 @@ mat-form-field[appearance] {
             }
         }
     }
-}
-
-#session-stats {
-    display: flex;
-    justify-content: space-around;
-    flex: 100%;
-    @media (min-width: $md) {
-        flex: unset;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .session-stat {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 85px;
-        width: 130px;
-        border-radius: 3px;
+    .stat-item {
+        display:inline-block;
+        padding: 1rem;
         text-align: center;
-        background: #ddd;
-        @media (min-width: $md) {
-            height: 97.75px;
-            width: 150px;
-        }
         &>div {
             font-size: .75em;
             @media (min-width: $md) {
@@ -341,12 +228,6 @@ mat-form-field[appearance] {
         }
         &>div:first-child {
             font-size: 1.7em;
-        }
-        &:first-child {
-            margin-right: .5rem;
-            @media (min-width: $md) {
-                margin: 0;
-            }
         }
     }
 }
@@ -377,20 +258,6 @@ mat-form-field[appearance] {
         height: 1em;
         width: 1em;
         margin-right: .3em;
-    }
-}
-
-.panel {
-    border-radius: 2px;
-    &>* {
-        padding: .5em 1em;
-    }
-    .panel-title {
-        background: #ddd;
-    }
-    .panel-content {
-        background: #fff;
-        overflow: auto;
     }
 }
 
@@ -436,7 +303,12 @@ mat-form-field[appearance] {
 #progress-bargraph {
     margin: 0;
     margin-bottom: 1.5rem;
+    border-radius: 2px;
+    &>* {
+        padding: .5em 1em;
+    }
     .panel-title {
+        background: #ddd;
         font-size: .85em;
     }
     .panel-content {
@@ -445,6 +317,8 @@ mat-form-field[appearance] {
         padding: .75em 16px;
         padding-top: 2em;
         font-size: .9em;
+        background: #fff;
+        overflow: auto;
         &>div {
             flex: auto;
             max-width: 4em;
