@@ -30,16 +30,9 @@ h2 {
 
 .container-fluid {
     @media (min-width: $md) {
-        margin-bottom: 3.5rem;
         &>.row {
             &>div {
                 padding: 0;
-            }
-            &>div:first-child {
-                padding-right: .75rem;
-            }
-            &>div:last-child {
-                padding-left: .75em;
             }
         }
     }
@@ -48,6 +41,7 @@ h2 {
 mat-form-field[appearance] {
     width: 100% !important;
     textarea {
+        padding: 0 1.25em;
         height: 85px;
         font-size: 1rem;
     }
@@ -57,58 +51,52 @@ mat-form-field[appearance] {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
+    padding-top: 1.5rem;
     margin-bottom: 1.5rem;
     background: #fff;
     @media (min-width: $md) {
-        padding: 2rem 1px;
+        padding: 1.5rem 1px;
         margin-bottom: 3.5rem;
         justify-content: space-around;
         align-items: stretch;
         flex-wrap: nowrap;
     }
 }
-
 #student-profile,
 #next-class {
-    margin-bottom: 1.5rem;
-    @media (min-width: $md) {
-        margin-bottom: 0;
-    }
-    .panel {
-        .panel-title {
-            background: #ddd;
-        }
-        &>* {
-            padding: .4em .75em;
-        }
-    }
-}
-
-#student-profile {
     display: flex;
+    margin: 1rem 0;
     font-weight: 300;
-    flex: 100%;
-    @media (min-width: $md) {
-        flex: unset;
+    .set:first-child{
+        .caption{
+            margin-top: 0;
+        }
     }
     .left {
-        margin: 1em 1em 0;
-        .student-photo {
+        margin: 0 1em ;
+        @media (min-width:$md) {
+            margin: 0 1em 0 0;
+        }
+        .photo-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 3px;
             height: 144px;
-            width: 120px; // @media (min-width: $md) {
-            //     height: 180px;
-            //     width: 150px;
-            // }
+            width: 120px;
             overflow: hidden;
             img {
                 width: 100%;
             }
         }
+    }
+    .right {
+        margin-left: 1em;
+    }
+}
+#student-profile{
+    .left{
         .button-with-icon {
             display: inline-block;
             margin-top: 1.5em;
@@ -116,7 +104,7 @@ mat-form-field[appearance] {
             width: 120px;
             font-size: .9rem;
             @media (min-width: $md) {
-                padding: .75rem;
+                padding: .6rem .75rem;
                 font-size: .75rem;
             }
             border-radius: 2px;
@@ -144,8 +132,7 @@ mat-form-field[appearance] {
         }
     }
     .right {
-        margin-left: 2rem;
-        flex: 100%;
+        margin-left: 1em;
         .class-software {
             .text {
                 display: flex;
@@ -154,141 +141,60 @@ mat-form-field[appearance] {
                     width: 24px;
                 }
             }
-        } // .panel {
-        //     font-size: .9rem;
-        //     @media (min-width: $md) {
-        //         font-size:1rem;
-        //     }
-        // }
-        // .panel-content {
-        //     display: flex;
-        //     align-items: center;
-        //     background: rgba(125, 125, 125, 0.05);
-        //     img {
-        //         position: relative;
-        //         top: .1em;
-        //         width: 1.25rem;
-        //         height: 1.25rem;
-        //         margin-right: .3em;
-        //         white-space: nowrap
-        //     }
-        // }
+        } 
     }
 }
 
 #next-class {
-    display: flex;
-    font-weight: 300;
-    flex: 100%;
-    @media (min-width: $md) {
-        flex: unset
-    }
-    .left {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .teacher-photo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 3px;
-            height: 110px;
-            width: 110px;
-            @media (min-width: $md) {
-                height: 100px;
-                width: 100px;
-            }
-            overflow: hidden;
-            img {
-                width: 100%;
-            }
-        }
-    }
     .right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-left: 1rem;
-        flex: 100%;
-        @media (min-width: $md) {
-            flex: unset;
-            margin-left: 1.1rem;
-        }
-        .panel {
-            font-size: .9rem;
-            @media (min-width: $md) {
-                font-size:1rem;
-            }
-        }
-        .panel-content {
-            display: flex;
-            align-items: center;
-            background: rgba(125, 125, 125, 0.05);
+        .set {
             svg {
                 position: relative;
                 top: .1em;
-                width: 1.2rem;
-                height: 1.2rem;
+                width: 1em;
+                height: 1rem;
                 margin-right: .3em;
             }
         }
         #class-time {
             color: darkred;
         }
-        #book-in-use {
-            color: darkgreen
+    }
+    #book-in-use{
+        .text{
+            color: darkgreen;
         }
     }
 }
 
-#my-level {
-    .box-container {
-        position: relative;
-        height: 80px;
-        width: 110px;
-        margin-bottom: 1rem;
-        @media (min-width: $md) {
-            margin-bottom: 0;
-            height: 95.5px;
-            width: 100px;
-        }
-        border-radius: 4px;
-        background: #ddd;
-        text-align: center;
-        .title {
-            width: 100%;
-            color: #000;
-            text-align: center;
-            font-size: .9rem;
-        }
-        .title,
-        .icon,
-        .no {
-            position: absolute;
-            top: 65%;
-            @media (min-width: $md) {
-                top: 60%;
-            }
-            left: 50%;
-            transform: translate(-50%, -50%)
-        }
-        .title {
-            top: 20%;
-        }
-        .no {
-            color: #fff;
-            top: 56%;
-            @media (min-width: $md) {
-                top:52%;
-            }
+
+#session-stats {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    @media (min-width:$md){
+        display: flex;
+        flex-direction: column;
+        width: auto
+    }
+    #my-level {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: .5rem;
+        padding: .5rem 1rem;
+        border: 1px solid rgba(125,125,125,0.2);
+        font-size: 1.1rem;
+        .title{
+            display: inline-block;
+            margin: 0 1rem;
+            font-weight: 300;
         }
         svg {
-            height: 45px;
-            width: 45px;
-            @media (min-width: $md) {
-                height: 50px;
-                width: 50px;
-            }
+            position: relative;
+            top: .125em;
+            height: 1.5rem;
+            width: 1.5rem;
             &[level-color="0"],
             &[level-color="1"],
             &[level-color="2"],
@@ -308,31 +214,10 @@ mat-form-field[appearance] {
             }
         }
     }
-}
-
-#session-stats {
-    display: flex;
-    justify-content: space-around;
-    flex: 100%;
-    @media (min-width: $md) {
-        flex: unset;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .session-stat {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 85px;
-        width: 130px;
-        border-radius: 3px;
+    .stat-item {
+        display:inline-block;
+        padding: 1rem;
         text-align: center;
-        background: #ddd;
-        @media (min-width: $md) {
-            height: 97.75px;
-            width: 150px;
-        }
         &>div {
             font-size: .75em;
             @media (min-width: $md) {
@@ -341,12 +226,6 @@ mat-form-field[appearance] {
         }
         &>div:first-child {
             font-size: 1.7em;
-        }
-        &:first-child {
-            margin-right: .5rem;
-            @media (min-width: $md) {
-                margin: 0;
-            }
         }
     }
 }
@@ -380,20 +259,6 @@ mat-form-field[appearance] {
     }
 }
 
-.panel {
-    border-radius: 2px;
-    &>* {
-        padding: .5em 1em;
-    }
-    .panel-title {
-        background: #ddd;
-    }
-    .panel-content {
-        background: #fff;
-        overflow: auto;
-    }
-}
-
 .loader {
     font-size: .8em
 }
@@ -401,27 +266,6 @@ mat-form-field[appearance] {
 .saved {
     font-size: .85em;
     color: darkgreen
-}
-
-.note {
-    margin-bottom: 1.5rem;
-    padding: .5rem 1rem;
-    background: rgba(125, 125, 125, 0.05);
-    line-height: 1.5rem;
-    font-size: .9rem;
-    &>* {
-        margin: .5rem 0;
-    }
-    svg {
-        position: relative;
-        top: .18em;
-        height: 1.2em;
-        width: 1.2em;
-        margin-right: .3em;
-    }
-    .title {
-        color: #1B4AB5;
-    }
 }
 
 .page-content {
@@ -435,16 +279,23 @@ mat-form-field[appearance] {
 
 #progress-bargraph {
     margin: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3.5rem;
+    border-radius: 2px;
+    &>* {
+        padding: .5em 1em;
+    }
     .panel-title {
+        background: #ddd;
         font-size: .85em;
     }
     .panel-content {
         display: flex;
         align-items: flex-end;
-        padding: .75em 16px;
+        padding: .75em 1.5rem;
         padding-top: 2em;
         font-size: .9em;
+        background: #fff;
+        overflow: auto;
         &>div {
             flex: auto;
             max-width: 4em;
@@ -491,46 +342,42 @@ mat-form-field[appearance] {
 }
 
 #my-introduction {
-    margin-bottom: 2rem;
-    @media (min-width: $md) {
-        margin-bottom: 0;
-    }
+    margin-bottom: 3.5rem;
     font-size: .85em;
-    .warning {
-        margin-top: 1em;
-        padding: 1em;
-        border-radius: 2px;
-        border: 1px solid rgba(125, 125, 125, 0.2);
-        background: #fff;
-        font-size: .85em;
-        line-height: 1.5em;
-        b {
-            color: darkred;
+
+    .my-introduction-desc {
+        margin-bottom: 1rem;
+        padding: 1em 2em;
+        background: rgba(125, 125, 125, 0.05);
+        line-height: 1.5rem;
+        font-size: .9rem;
+        .title {
+            color: #1B4AB5;
+        }
+        &>* {
+            margin: .5rem 0;
         }
         svg {
             position: relative;
-            top: .125em;
-            height: 1em;
-            width: 1em;
+            top: .18em;
+            height: 1.2em;
+            width: 1.2em;
             margin-right: .3em;
-            color: darkred;
+        }
+        .note{
+            margin: .75rem 0;
         }
     }
     .button-with-icon {
         margin: 0;
-        @media (min-width: $md) {
-            margin-top: 1rem;
-        }
     }
 }
 
 #auction {
-    margin-bottom: 2rem;
-    @media (min-width: $md) {
-        margin: 0;
-    }
-    .auction-intro {
-        padding: 1em;
+    margin-bottom: 3.5rem;
+    .auction-desc {
+        margin-bottom: 1rem;
+        padding: 1rem 2rem;
         background: rgba(125, 125, 125, 0.05);
         font-size: .9em;
         line-height: 1.5rem;
@@ -544,6 +391,8 @@ mat-form-field[appearance] {
         }
     }
     .note {
+        margin: .75rem 0;
+        padding: 1em;
         background: rgba(#FFF2B1, 0.5);
     }
     .buttons {
@@ -608,16 +457,15 @@ mat-form-field[appearance] {
 
 #auction-application-list {
     .list-content {
-        height: 290px;
-        z-index: 1;
         @media (min-width: $md) {
-            height: 329px;
+            max-height: 329px;
         }
-        overflow: auto;
         border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-bottom: 0;
         background: #fff;
+        z-index: 1;
+        overflow: auto;
         .buttons-hook {
             position: relative;
         }

@@ -19,7 +19,7 @@
 
             <div id="student-profile">
                 <div class="left">
-                    <div class="student-photo">
+                    <div class="photo-wrapper">
                         <img [src]="a.checkPhotoURL(mypage.photoURL)" alt="profile picture">
                     </div>
                     <span class="button-with-icon" routerLink="/profile">
@@ -62,18 +62,7 @@
 
             <div id="next-class" *ngIf="mypage.next_class">
                 <div class="left">
-                    <div id="my-level">
-                        <div data-role="user-level" class="box-container">
-                            <div class="title">{{ a.ln.MY_LEVEL }}</div>
-                            <span class="icon">
-                                <svg [attr.level-color]=" mypage.level" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                    <path fill="currentColor" d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"></path>
-                                </svg>
-                            </span>
-                            <span class="no">{{ mypage.level }}</span>
-                        </div>
-                    </div>
-                    <div class="teacher-photo">
+                    <div class="photo-wrapper">
                         <img src="{{ mypage.next_class.teacher_photoURL }}">
                     </div>
                 </div>
@@ -87,11 +76,9 @@
                         <div class="caption">{{ a.ln.NEXT_CLASS_TIME }}</div>
                         <div class="text">{{ mypage.next_class.date_display }} {{ mypage.next_class.class_begin_display }}</div>
                     </div>
-                    <div class="panel">
-                        <div class="panel-title">
-                            <span>{{ a.ln.BOOK_IN_USE }} </span>
-                        </div>
-                        <div id="book-in-use" class="panel-content">
+                    <div class="set" id="book-in-use">
+                        <div class="caption">{{ a.ln.BOOK_IN_USE }} </div>
+                        <div class="text">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                     <path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
@@ -107,12 +94,21 @@
                 {{ a.ln.YOU_DO_NOT_HAVE_RESERVATION }}
             </div>
 
+
             <div id="session-stats">
-                <div id="no-of-reservation" class="session-stat">
+                <div data-role="user-level" id="my-level">
+                    <span>
+                        <svg [attr.level-color]=" mypage.level" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path fill="currentColor" d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"></path>
+                        </svg>
+                    </span>
+                    <span class="title">{{ a.ln.MY_LEVEL }} : {{ mypage.level }} </span>
+                </div>
+                <div id="no-of-reservation" class="stat-item">
                     <div data-role="no-of-reservation">{{ mypage.no_of_reservation }}</div>
                     <div>{{ a.ln.NO_OF_RESERVATION }}</div>
                 </div>
-                <div id="no-of-past" class="session-stat">
+                <div id="no-of-past" class="stat-item">
                     <div data-role="no-of-reservation">{{ mypage.no_of_past }}</div>
                     <div>{{ a.ln.NO_OF_PAST }}</div>
                 </div>
@@ -124,8 +120,8 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-md-7">
-                    <div id="progress-bargraph" class="panel">
+                <div class="col-12 col-md-12">
+                    <div id="progress-bargraph">
                         <div class="panel-title">{{ a.ln.MY_LEARNING_PROGRESS }}</div>
                         <div class="panel-content" *ngIf=" mypage.progress ">
                             <div *ngFor=" let idx of a.keys( mypage.progress ) " matTooltip="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
@@ -141,7 +137,7 @@
                     </div>
                     <div id="my-introduction">
                         <h2>{{ a.ln.MY_INTRODUCTION }}</h2>
-                        <div class="note">
+                        <div class="my-introduction-desc">
                             <div class="title">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -150,7 +146,7 @@
                                 </span>
                                 <span>{{ a.ln.ENGLISH_ONLY }}</span>
                             </div>
-                            <div>{{ a.ln.MY_INTRODUCTION_EX_1 }}</div>
+                            <div class="note">{{ a.ln.MY_INTRODUCTION_EX_1 }}</div>
                         </div>
 
                         <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
@@ -173,10 +169,10 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-12">
                     <div id="auction">
                         <h2 (click)="show.auction=true">{{ a.ln.AUCTION_TITLE }}</h2>
-                        <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
+                        <div class="auction-desc" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
                             <span>{{ a.ln.AUCTION_DESC }}</span>
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
