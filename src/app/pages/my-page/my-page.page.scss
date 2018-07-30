@@ -30,22 +30,9 @@ h2 {
 
 .container-fluid {
     @media (min-width: $md) {
-        margin-bottom: 3.5rem;
         &>.row {
             &>div {
                 padding: 0;
-            }
-            &>div:first-child {
-                padding-right: .75rem;
-                @media (min-width:$md) {
-                    padding-inline-end: 0;
-                }
-            }
-            &>div:last-child {
-                padding-left: .75em;
-                @media (min-width:$md) {
-                    padding-inline-end: 0;
-                }
             }
         }
     }
@@ -69,14 +56,13 @@ mat-form-field[appearance] {
     margin-bottom: 1.5rem;
     background: #fff;
     @media (min-width: $md) {
-        padding: 2rem 1px;
-        margin-bottom: 3rem;
+        padding: 1.5rem 1px;
+        margin-bottom: 3.5rem;
         justify-content: space-around;
         align-items: stretch;
         flex-wrap: nowrap;
     }
 }
-
 #student-profile,
 #next-class {
     display: flex;
@@ -172,6 +158,11 @@ mat-form-field[appearance] {
         }
         #class-time {
             color: darkred;
+        }
+    }
+    #book-in-use{
+        .text{
+            color: darkgreen;
         }
     }
 }
@@ -277,27 +268,6 @@ mat-form-field[appearance] {
     color: darkgreen
 }
 
-.note {
-    margin-bottom: 1.5rem;
-    padding: .5rem 1rem;
-    background: rgba(125, 125, 125, 0.05);
-    line-height: 1.5rem;
-    font-size: .9rem;
-    &>* {
-        margin: .5rem 0;
-    }
-    svg {
-        position: relative;
-        top: .18em;
-        height: 1.2em;
-        width: 1.2em;
-        margin-right: .3em;
-    }
-    .title {
-        color: #1B4AB5;
-    }
-}
-
 .page-content {
     padding-bottom: 5em;
     .page-description {
@@ -309,7 +279,7 @@ mat-form-field[appearance] {
 
 #progress-bargraph {
     margin: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     border-radius: 2px;
     &>* {
         padding: .5em 1em;
@@ -321,7 +291,7 @@ mat-form-field[appearance] {
     .panel-content {
         display: flex;
         align-items: flex-end;
-        padding: .75em 16px;
+        padding: .75em 1.5rem;
         padding-top: 2em;
         font-size: .9em;
         background: #fff;
@@ -372,23 +342,42 @@ mat-form-field[appearance] {
 }
 
 #my-introduction {
-    margin-bottom: 2rem;
+    margin-bottom: 3.5rem;
     font-size: .85em;
+
+    .my-introduction-desc {
+        margin-bottom: 1rem;
+        padding: 1em 2em;
+        background: rgba(125, 125, 125, 0.05);
+        line-height: 1.5rem;
+        font-size: .9rem;
+        .title {
+            color: #1B4AB5;
+        }
+        &>* {
+            margin: .5rem 0;
+        }
+        svg {
+            position: relative;
+            top: .18em;
+            height: 1.2em;
+            width: 1.2em;
+            margin-right: .3em;
+        }
+        .note{
+            margin: .75rem 0;
+        }
+    }
     .button-with-icon {
         margin: 0;
-    }
-    .note{
-        padding: 1em 2em;
     }
 }
 
 #auction {
-    margin-bottom: 2rem;
-    @media (min-width: $md) {
-        margin: 0;
-    }
-    .auction-intro {
-        padding: 1em;
+    margin-bottom: 3.5rem;
+    .auction-desc {
+        margin-bottom: 1rem;
+        padding: 1rem 2rem;
         background: rgba(125, 125, 125, 0.05);
         font-size: .9em;
         line-height: 1.5rem;
@@ -402,6 +391,8 @@ mat-form-field[appearance] {
         }
     }
     .note {
+        margin: .75rem 0;
+        padding: 1em;
         background: rgba(#FFF2B1, 0.5);
     }
     .buttons {

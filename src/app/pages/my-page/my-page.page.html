@@ -137,7 +137,7 @@
                     </div>
                     <div id="my-introduction">
                         <h2>{{ a.ln.MY_INTRODUCTION }}</h2>
-                        <div class="note">
+                        <div class="my-introduction-desc">
                             <div class="title">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -146,7 +146,7 @@
                                 </span>
                                 <span>{{ a.ln.ENGLISH_ONLY }}</span>
                             </div>
-                            <div>{{ a.ln.MY_INTRODUCTION_EX_1 }}</div>
+                            <div class="note">{{ a.ln.MY_INTRODUCTION_EX_1 }}</div>
                         </div>
 
                         <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
@@ -172,7 +172,7 @@
                 <div class="col-12 col-md-12">
                     <div id="auction">
                         <h2 (click)="show.auction=true">{{ a.ln.AUCTION_TITLE }}</h2>
-                        <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
+                        <div class="auction-desc" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
                             <span>{{ a.ln.AUCTION_DESC }}</span>
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
