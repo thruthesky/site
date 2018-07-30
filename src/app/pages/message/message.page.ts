@@ -61,6 +61,7 @@ export class MessagePage {
             this.a.lms.message_opened(message.idx).subscribe(res => {
                 // console.log(res);
                 message.open = 1;
+                this.a.check_message_count();
             }, e => {
                 this.a.toast(e);
             });

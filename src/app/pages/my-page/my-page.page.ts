@@ -166,6 +166,7 @@ export class MyPagePage implements OnInit {
                     const i = this.mypage.auction_application_list.findIndex(v => v.idx === application.idx);
                     if (i !== -1) {
                         this.mypage.auction_application_list.splice(i, 1);
+                        this.a.check_message_count();
                     }
                     this.loader.deleteApplication = false;
                 }, e => {

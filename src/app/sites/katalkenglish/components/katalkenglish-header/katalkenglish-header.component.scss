@@ -112,6 +112,25 @@
                 padding-top: 2px;
                 font-size: 12px;
             }
+
+            .message {
+                position: relative;
+                .badge {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: -5px;
+                    right: -10px;
+                    height: 20px;
+                    width: 20px;
+                    padding: .5em;
+                    background: red;
+                    color: white;
+                    border-radius: 50%;
+                }
+            }
+
         }
         .session-future, .session-past, .book {
             svg {

@@ -913,6 +913,12 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
+    get_message_count_by_status(req = {}) {
+        req['route'] = 'lms.message_count_by_status';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
 
 
 }

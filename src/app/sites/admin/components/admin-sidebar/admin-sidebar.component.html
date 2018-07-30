@@ -16,6 +16,8 @@
             <thead>
                 <tr>
                     <th>Student</th>
+                    <th>Currency</th>
+                    <th>Amount</th>
                     <th>Points</th>
                     <th>Date Time</th>
                 </tr>
@@ -31,6 +33,12 @@
                             </span>
                             <span>{{ a.shortName(payment.student?.display_name) }}</span>
                         </div>
+                    </td>
+                    <td>
+                        {{payment.currency}}
+                    </td>
+                    <td>
+                        {{payment.amount | number}}
                     </td>
                     <td>
                         {{ payment.point | number }}
