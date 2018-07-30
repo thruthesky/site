@@ -121,7 +121,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-12">
                     <div id="progress-bargraph">
                         <div class="panel-title">{{ a.ln.MY_LEARNING_PROGRESS }}</div>
                         <div class="panel-content" *ngIf=" mypage.progress ">
@@ -170,7 +170,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-12">
                     <div id="auction">
                         <h2 (click)="show.auction=true">{{ a.ln.AUCTION_TITLE }}</h2>
                         <div class="auction-intro" data-button="open-auction-box" *ngIf="!show.auction" (click)="show.auction=true">
