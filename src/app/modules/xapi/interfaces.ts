@@ -512,7 +512,13 @@ export interface BOOK {
 }
 
 
+export interface TOP_EARNER {
+    title?: string;
+    content?: string;
+    src?: string;
+}
 
+export type TOP_EARNERS  = Array<TOP_EARNER>;
 
 
 export interface TEACHER_SITE_INFO {
@@ -529,11 +535,7 @@ export interface TEACHER_SITE_INFO {
         comment_from_teacher: Array<any>;
         recent_reservations: Array<any>;
         recent_graded_teachers: Array<any>;
-        topearner: {
-            title: string;
-            content: string;
-            src: string;
-        };
+        topearners: TOP_EARNERS;
 }
 
 

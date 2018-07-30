@@ -23,7 +23,7 @@ export class OntueHomePage {
         no_of_teacher: '0',
         recent_graded_teachers: [],
         recent_reservations: [],
-        topearner: <any> {}
+        topearners: []
     };
 
 
@@ -33,7 +33,7 @@ export class OntueHomePage {
         public forum: ForumService
     ) {
         this.a.lms.get_teacher_site_info().subscribe(res => {
-            // console.log('res', res);
+            console.log('res', res);
             this.site_info = res['site_info'];
         }, () => {
         });
