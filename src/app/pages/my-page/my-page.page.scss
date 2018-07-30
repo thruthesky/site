@@ -504,7 +504,10 @@ mat-form-field[appearance] {
             display: flex; // align-content: center;
             padding: .5rem;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
-            font-size: .9rem;
+            @media (min-width:$md) {
+                padding:.75rem;
+                font-size: .9rem;
+            }
             &:hover {
                 background: rgba(125, 125, 125, 0.05);
             }
@@ -526,6 +529,9 @@ mat-form-field[appearance] {
                     justify-content: center;
                     margin-top: .25rem;
                     font-size: .8rem;
+                    @media (min-width:$md) {
+                        font-size: .9rem;
+                    }
                     width: 60px;
                     overflow: hidden;
                     color: #1B4AB5
@@ -537,17 +543,14 @@ mat-form-field[appearance] {
                 padding-left: .5rem;
                 flex: 100%;
                 @media (min-width: $md) {
+                    padding-left: 1rem;
                     max-width: unset;
                 }
                 .title {
                     display: flex;
                     .application-title {
-                        font-size: .8rem;
                         color: dimgray;
                         max-width: 58%;
-                        @media (min-width: $md) {
-                            max-width: 68%;
-                        }
                         overflow: hidden;
                         white-space: nowrap;
                     }
@@ -560,18 +563,32 @@ mat-form-field[appearance] {
                         display: inline-block;
                         margin: .25rem 0;
                         padding-right: .5rem;
-                        font-size: .8rem;
                     }
                 }
             }
         }
         .delete-application {
+            @media (min-width:$md){
+                font-size: .8rem !important;
+            }
+            svg {
+                margin-right: .3em;
+            }
             &:hover {
                 color: darkred !important;
+            }
+            .text{
+                display: none;
+                @media (min-width:$md) {
+                    display: inline
+                }
             }
         }
         .reply-button {
             font-size: .7rem !important;
+            @media (min-width:$md){
+                font-size: .8rem !important;
+            }
             &:hover {
                 color: dodgerblue !important
             }
