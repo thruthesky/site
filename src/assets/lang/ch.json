@@ -745,7 +745,9 @@
   "AUCTION_DELETE": "拍卖删除",
   "AUCTION_DELETE_CONFIRM": "您确定要删除竞价吗？",
   "AUCTION_APPLICATION_DELETE": "拍卖申请删除",
-  "AUCTION_APPLICATION_DELETE_CONFIRM": "您确定要删除此应用程序吗？"
+  "AUCTION_APPLICATION_DELETE_CONFIRM": "您确定要删除此应用程序吗？",
+
+  "WECHAT_ADD_FREIND": "请扫描二维码或添加微信ID。"
 
 
 

@@ -719,7 +719,9 @@
   "AUCTION_DELETE": "オークションの削除",
   "AUCTION_DELETE_CONFIRM": "オークションを削除してもよろしいですか？",
   "AUCTION_APPLICATION_DELETE": "オークションアプリケーションの削除",
-  "AUCTION_APPLICATION_DELETE_CONFIRM": "このアプリケーションを削除してもよろしいですか？"
+  "AUCTION_APPLICATION_DELETE_CONFIRM": "このアプリケーションを削除してもよろしいですか？",
+
+  "WECHAT_ADD_FREIND": "QRコードをスキャンしたり、WeChat IDを追加してください。"
 
 
 
