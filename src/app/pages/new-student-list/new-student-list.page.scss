@@ -1,99 +1,108 @@
 @import "../../../theme/vars";
-
-#new-student-list{
+#new-student-list {
+    &>.row{
+        margin: 0 -1.5rem;
+        padding: 2rem 0;
+        .col-md-6{
+            padding: .5rem;
+        }
+    }
     .card{
         display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        @media (min-width:$md){
-            flex-wrap: nowrap;
-            justify-content: space-between;
+        margin: 0 1rem;
+        padding: 1rem;
+        @media (min-width:$md) {
+            margin: 0;
+            padding: 1.5rem;   
         }
-        border-bottom: 1px solid rgba(125,125,125,0.2);
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.2);
         background: #fff;
-        font-size: .9rem;
+        font-size: .95rem;
         font-weight: 300;
-        &>div{
-            padding: .5rem 0;
-            @media (min-width:$md) {
-                padding: 0 .25rem;   
+        .left{
+            .primary-photo{
+                padding: 0;
+                height: 90px;
+                width: 90px;
+                border-radius: 3px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                }
+            }
+            .name{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: .75em .25em;
+                color: #3C66C8;
+                svg{
+                    position: relative;
+                    top: .125em;
+                    height: 1em;
+                    width: 1em;
+                    margin-right: .3em;
+                }
+            }
+            .message-button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding:.55rem .5rem;
+                border-radius: 2px;
+                background: #1B4AB5;
+                font-size: .85rem;
+                color: #fff;
+                cursor: pointer;
+                svg{
+                    position: relative;
+                    top:.125em;
+                    margin-right: .3rem;
+                    height: 1em;
+                    width: 1em;
+                }
             }
         }
-        .title{
-            color: dimgray;
-        }
-        .primary-photo{
-            margin: .5rem 0 .5rem .5rem;
-            padding: 0;
-            height: 75px;
-            width: 75px;
-            border-radius: 3px;
-            overflow: hidden;
-            img{
-                width: 100%;
-            }
-        }
-        .message-button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding:.5rem;
-            width: 35px;
-            border-radius: 2px;
-            background: #1B4AB5;
-            font-size: .85rem;
-            color: #fff;
-            cursor: pointer;
-            svg{
-                position: relative;
-                top:.125em;
-                height: 1em;
-                width: 1em;
-            }
-        }
-        .name{
-            width: 85px;
-            font-weight: normal;
-            text-align: center;
-            color: #3C66C8;
-        }
-        .class-software{
-            padding-left: .7rem;
-            display: flex;
-            align-items: center;
-            width: 170px;
-            img{
-                position: relative;
-                top: .125em;
-                margin: 0 .5em;
-                height: 25px;
-                width: 25px;
-            }
-        }
-        .message-box{
+        .right{
             flex: 100%;
-            order: 2;
-            @media (min-width:$md) {
-                flex: unset;
-                order: 1;
+            padding-left: 1rem;
+            &>*{
+                margin-bottom: .6rem;
+                &:last-child{
+                    margin: 0;
+                }
             }
-            width: 395px;
+            .title{
+                font-size: .9rem;
+                color: dimgray;
+            }
             .message{
-                padding: .5rem;
-                line-height: 1.6em;
+                padding: 1rem;
+                @media (min-width:$md) {
+                    height: 105px;   
+                }
+                overflow: auto;
+                background: #eee;
+                font-size: .85rem;
+                line-height: 1.5rem;
+                font-weight: normal;
             }
-        }
-        .stamp{
-            order: 1;
-            @media (min-width:$md) {
-                order: 2;
+            .class-software{
+                display: flex;
+                align-items: center;
+                img{
+                    position: relative;
+                    top: .125em;
+                    margin: 0 .5em;
+                    height: 20px;
+                    width: 20px;
+                }
             }
-            width: 180px;
-            font-size: .85rem;
         }
     }
 }
+
 .pagination{
     display: flex;
     justify-content: center;
@@ -103,4 +112,13 @@
 .no-more{
     text-align: center;
     padding: 5em;
+}
+
+.loader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    mat-spinner{
+        margin-bottom: .6rem;
+    }
 }

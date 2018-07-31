@@ -351,6 +351,11 @@ mat-form-field[appearance] {
             }
         }
     }
+    .empty-progress-bar{
+        padding: 2rem;
+        font-size: .9em;
+        text-align: center;
+    }
     .panel-content {
         display: flex;
         align-items: flex-end;
@@ -556,135 +561,112 @@ mat-form-field[appearance] {
 }
 
 #auction-application-list {
-    .list-content {
-        @media (min-width: $md) {
-            max-height: 329px;
-        }
-        border-radius: 2px;
-        border: 1px solid rgba(125, 125, 125, 0.2);
-        border-bottom: 0;
-        background: #fff;
-        z-index: 1;
-        overflow: auto;
-        .buttons-hook {
+    .list-container{
+        .button-hook{
             position: relative;
-        }
-        .buttons {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin-top: 0;
-            max-width: 40%;
-            @media (min-width: $md) {
-                max-width: 30%;
-            }
-            button {
-                padding: .5rem .5rem;
-                border-color: #fff;
-                background: #fff;
-                svg {
-                    position: relative;
-                    top: .125em;
-                    height: 1em;
-                    width: 1em;
+
+            .buttons {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-top: 0;
+                max-width: 40%;
+                @media (min-width: $md) {
+                    max-width: 30%;
+                }
+                button {
+                    padding: .5rem;
+                    @media (min-width:$md) {
+                        padding: 1rem; 
+                    }
+                    border-color: #fff;
+                    background: #fff;
+                    svg {
+                        position: relative;
+                        top: .125em;
+                        height: 1em;
+                        width: 1em;
+                    }
                 }
             }
+                .delete-application {
+                    @media (min-width:$md){
+                        font-size: .8rem !important;
+                    }
+                    svg {
+                        margin-right: .3em;
+                    }
+                    &:hover {
+                        color: darkred !important;
+                    }
+                    .text{
+                        display: none;
+                        @media (min-width:$md) {
+                            display: inline
+                        }
+                    }
+                }
+                .reply-button {
+                    font-size: .7rem !important;
+                    @media (min-width:$md){
+                        font-size: .8rem !important;
+                    }
+                    &:hover {
+                        color: dodgerblue !important
+                    }
+                    svg {
+                        margin-right: .3em;
+                    }
+                }
         }
-        .list-item {
-            display: flex; // align-content: center;
-            padding: .5rem;
-            border-bottom: 1px solid rgba(125, 125, 125, 0.2);
-            font-size: .8rem;
-            @media (min-width:$md) {
-                padding:.75rem;
-                font-size: .9rem;
+        .list-item{
+            position: relative;
+            display: flex;
+            align-items: stretch;
+            background: #fff;
+            &:hover{
+                background: rgba(125, 125, 125, 0.04);
             }
-            &:hover {
-                background: rgba(125, 125, 125, 0.05);
-            }
-            .left {
+            .left{
+                padding: 1rem;
                 .teacher-photo {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    height: 60px;
-                    width: 60px;
-                    border-radius: 3px;
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 50%;
                     overflow: hidden;
                     img {
                         width: 100%;
                     }
                 }
-                .teacher-name {
-                    display: inline-flex;
-                    justify-content: center;
-                    margin-top: .25rem;
-                    font-size: .8rem;
-                    @media (min-width:$md) {
-                        font-size: .9rem;
-                    }
-                    width: 60px;
-                    overflow: hidden;
-                    color: #1B4AB5
-                }
             }
-            .right {
+            .right{
                 display: flex;
+                justify-content: center;
                 flex-direction: column;
-                padding-left: .5rem;
                 flex: 100%;
-                @media (min-width: $md) {
-                    padding-left: 1rem;
-                    max-width: unset;
-                }
-                .title {
-                    display: flex;
-                    .application-title {
-                        color: dimgray;
-                        max-width: 58%;
-                        overflow: hidden;
-                        white-space: nowrap;
-                    }
-                }
-                .body {
-                    display: flex;
-                    flex-direction: column;
-                    word-break: break-all;
-                    .application-content {
-                        display: inline-block;
-                        margin: .25rem 0;
-                        padding-right: .5rem;
-                    }
-                }
-            }
-        }
-        .delete-application {
-            @media (min-width:$md){
-                font-size: .8rem !important;
-            }
-            svg {
-                margin-right: .3em;
-            }
-            &:hover {
-                color: darkred !important;
-            }
-            .text{
-                display: none;
+                padding: 1rem .5rem; 
                 @media (min-width:$md) {
-                    display: inline
+                    padding: 1rem; 
                 }
-            }
-        }
-        .reply-button {
-            font-size: .7rem !important;
-            @media (min-width:$md){
-                font-size: .8rem !important;
-            }
-            &:hover {
-                color: dodgerblue !important
-            }
-            svg {
-                margin-right: .3em;
+                border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+
+                .teacher-name{
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    color: #1B4AB5;
+                }
+                .title{
+                    margin-top: .25em;
+                    font-size: 1rem;
+                    color: dimgray;
+                }
+                .text{
+                    margin-top: .5em;
+                    font-size: .9rem;
+                }
             }
         }
     }
@@ -698,17 +680,17 @@ mat-form-field[appearance] {
             top: .125em;
         }
     }
-    // h2 {
-    //     margin-bottom: .5rem;
-    //     text-align: center;
-    //     svg {
-    //         position: relative;
-    //         top: .15em;
-    //         margin-right: .4em;
-    //         height: 1.2em;
-    //         width: 1.2em;
-    //     }
-    // }
+    h2 {
+        // margin-bottom: .5rem;
+        text-align: center;
+        // svg {
+        //     position: relative;
+        //     top: .15em;
+        //     margin-right: .4em;
+        //     height: 1.2em;
+        //     width: 1.2em;
+        // }
+    }
     .teachers {
         display: flex;
         flex-flow: wrap;
@@ -783,4 +765,15 @@ mat-form-field[appearance] {
 }
 [grade="1"] {
     color: #272727;
+}
+
+.loader,
+.mini-loader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    mat-spinner{
+        margin-bottom: .6rem;
+    }
 }
