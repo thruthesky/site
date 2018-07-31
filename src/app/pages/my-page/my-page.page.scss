@@ -6,13 +6,15 @@
         color: grey;
     }
     .text {
+        position: relative;
         font-size: .9rem;
         @media (min-width:$md) {
-            max-width: 180px;
-            word-break: break-all;
+            white-space: nowrap;
             font-size: 1.1rem;   
         }
     }
+
+
 }
 
 header {
@@ -62,7 +64,7 @@ mat-form-field[appearance] {
     background: #fff;
     @media (min-width: $md) {
         padding: 1.75rem 3rem;
-        margin-bottom: 3.5rem;
+        margin-bottom: 0;
         justify-content: space-between;
         align-items: stretch;
         flex-wrap: nowrap;
@@ -123,6 +125,7 @@ mat-form-field[appearance] {
     padding: 1rem;
     padding-bottom: .5rem;
     border: 1px solid rgba(125, 125, 125, 0.2);
+    border-radius: 2px;
     background: rgba(125, 125, 125, 0.03);
     .left{
         margin-left: 0!important;
@@ -211,6 +214,7 @@ mat-form-field[appearance] {
         justify-content: center;
         padding: .5rem 1rem;
         border: 1px solid rgba(125,125,125,0.2);
+        border-radius: 2px;
         font-size: 1.1rem;
         .title{
             display: inline-block;
@@ -249,14 +253,9 @@ mat-form-field[appearance] {
             width: auto;
         }
         padding: 1rem;
+        border-radius: 2px;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-top: 0;
-        &:first-child{
-            border-right: 0;
-            @media (min-width:$md) {
-                border: 1px solid rgba(125, 125, 125, 0.2);
-            }
-        }
         background: rgba(125, 125, 125, 0.03);
         text-align: center;
         &>div {
