@@ -35,12 +35,12 @@
                     <div class="set">
                         <div class="caption">{{ a.ln.NAME }}</div>
                         <div data-role="user-name" class="text" *ngIf=" mypage.name ">{{ mypage.name }}</div>
-                        <div  *ngIf=" !mypage.name "><mat-spinner [diameter]="20"></mat-spinner></div>
+                        <div *ngIf=" !mypage.name "><mat-spinner [diameter]="20"></mat-spinner></div>
                     </div>
                     <div class="set">
                         <div class="caption">{{ a.ln.POINT }}</div>
                         <div class="text" data-role="user-point" *ngIf="mypage.point">{{ mypage.point | number }}</div>
-                        <div  *ngIf=" !mypage.point "><mat-spinner [diameter]="20"></mat-spinner></div>
+                        <div *ngIf=" !mypage.point "><mat-spinner [diameter]="20"></mat-spinner></div>
                     </div>
 
                     <div class="set">
@@ -77,12 +77,12 @@
                     <div id="no-of-reservation" class="stat-item">
                         <div data-role="no-of-reservation">{{ mypage.no_of_reservation }}</div>
                         <div *ngIf=" mypage.no_of_reservation ">{{ a.ln.NO_OF_RESERVATION }}</div>
-                        <div *ngIf=" !mypage.no_of_reservation "><mat-spinner [diameter]="20"></mat-spinner></div>
+                        <div class="mini-loader" *ngIf=" !mypage.no_of_reservation "><mat-spinner [diameter]="20"></mat-spinner></div>
                     </div>
                     <div id="no-of-past" class="stat-item">
                         <div data-role="no-of-reservation">{{ mypage.no_of_past }}</div>
                         <div *ngIf=" mypage.no_of_past ">{{ a.ln.NO_OF_PAST }}</div>
-                        <div *ngIf=" !mypage.no_of_past "><mat-spinner [diameter]="20"></mat-spinner></div>
+                        <div class="mini-loader" *ngIf=" !mypage.no_of_past "><mat-spinner [diameter]="20"></mat-spinner></div>
                     </div>
                 </div>
 
@@ -405,12 +405,6 @@
             </div>
         </div>
 
-        <!-- <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 col-md-12">
-                </div>
-            </div>
-        </div> -->
 
 
         <div id="teacher-list">
