@@ -768,7 +768,11 @@
   "AUCTION_APPLICATION_DELETE": "경매 신청서 삭제",
   "AUCTION_APPLICATION_DELETE_CONFIRM": "이 애플리케이션을 삭제 하시겠습니까?",
 
-  "WECHAT_ADD_FREIND": "위쳇으로 친구를 추가하기 위해서는 QR 코드를 스캔하시거나 위쳇 아이디를 추가해주세요."
+  "WECHAT_ADD_FREIND": "위쳇으로 친구를 추가하기 위해서는 QR 코드를 스캔하시거나 위쳇 아이디를 추가해주세요.",
+
+  "STUDENT_GREETING_LIST": "인사말 목록",
+  "STUDENT_OFFER_LIST": "쿠폰 목록",
+  "NEW_STUDENT_LIST": "새로운 학생 목록"
 
 
 }

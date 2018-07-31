@@ -74,7 +74,7 @@
 
             <div class="container-fluid">
                 <div class="row" [class.removed-padding]="!a.site.teacherTheme">
-                    <div class="col" *ngIf=" a.site.teacherTheme ">
+                    <div class="col" *ngIf=" a.site.teacherTheme && a.isLogin  ">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ 'BOOKABLE TIME' | t }}</mat-label>
                             <input matInput id="bookable_time" type="number" name="bookable_time" [(ngModel)]="form.bookable_time">
@@ -186,7 +186,7 @@
                 </div>
             </div>
 
-            <div *ngIf=" a.site.is.ontue ">
+            <div *ngIf=" a.site.is.ontue && a.isLogin ">
                 <mat-form-field class="class-software" appearance="outline">
                     <mat-label>Skype ID</mat-label>
                     <input matInput type="text" name="skype" [(ngModel)]=" form.skype ">

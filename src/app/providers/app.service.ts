@@ -685,7 +685,7 @@ export class AppService {
      */
     logout(home = false) {
         // console.log(`logout( home ) `, home);
-
+        this.message_count = 0;
         this.user.logout();
         if (home) {
             this.openHome();
@@ -1385,6 +1385,7 @@ export class AppService {
         this.updateLMSInfo();
         this.updatePushToken();
         this.log({ idx_user: this.user.id, name: this.user.name, activity: 'login' });
+        this.check_message_count();
         // console.log("userLogin::Log::");
     }
 
@@ -2170,7 +2171,7 @@ export class AppService {
      *
      * If branch has no 'default class software' set, then it returns DEFAULT_CLASS_SOFTWARE.
      *
-     * @todo this is different from 'this.info.brnach'. It needs to be synced.
+     * @todo this is different from 'this.info.branch'. It needs to be synced.
      */
     get branch() {
         let defaultClassSoftware = DEFAULT_CLASS_SOFTWARE;

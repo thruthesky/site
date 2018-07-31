@@ -462,6 +462,26 @@ mat-form-field[appearance] {
 
 #auction {
     margin-bottom: 3.5rem;
+    font-size: .85em;
+    h2{
+        padding: 0;
+        padding-left: 2rem;
+        &>.title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .link-icon{
+                padding: .5rem 2rem;
+                svg{
+                    position: relative;
+                    top: .125em;
+                    height: 1em;
+                    width: 1em;
+                }
+            }
+        }
+    }
     .auction-desc {
         margin-bottom: 1rem;
         padding: 1rem;
@@ -775,5 +795,45 @@ mat-form-field[appearance] {
     justify-content: center;
     mat-spinner{
         margin-bottom: .6rem;
+    }
+}
+
+.auctions{
+    padding: .5em 0;
+    line-height: 1.2rem;
+    .row{
+        align-items: center;
+        justify-content: center;
+        padding: .7em 1.2em;
+        &>div{
+            padding: 0;
+        }
+        &:hover{
+            background: rgba(dodgerblue,0.2);
+            cursor: pointer;
+
+            color:rgba(dodgerblue,0.95);
+        }
+    }
+
+    .student-photo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img{
+            width: 100%;
+        }
+    }
+    .student-name{
+        font-weight: bold;
+    }
+
+    .request {
+        line-height: 1.2;
     }
 }

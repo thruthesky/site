@@ -721,7 +721,11 @@
   "AUCTION_APPLICATION_DELETE": "オークションアプリケーションの削除",
   "AUCTION_APPLICATION_DELETE_CONFIRM": "このアプリケーションを削除してもよろしいですか？",
 
-  "WECHAT_ADD_FREIND": "QRコードをスキャンしたり、WeChat IDを追加してください。"
+  "WECHAT_ADD_FREIND": "QRコードをスキャンしたり、WeChat IDを追加してください。",
+
+  "STUDENT_GREETING_LIST": "ご挨拶一覧",
+  "STUDENT_OFFER_LIST": "オファーリスト",
+  "NEW_STUDENT_LIST": "新しい学生リスト"
 
 
 
