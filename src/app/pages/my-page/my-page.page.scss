@@ -6,7 +6,10 @@
         color: grey;
     }
     .text {
-        font-size: 1.1rem;
+        font-size: .9rem;
+        @media (min-width:$md) {
+            font-size: 1.1rem;   
+        }
     }
 }
 
@@ -67,11 +70,12 @@ mat-form-field[appearance] {
     .left{
         .button-with-icon {
             display: inline-block;
-            margin-top: 1.5rem;
-            padding: .75rem .5rem;
+            margin-top: 1rem;
+            padding: .5rem;
             width: 120px;
             font-size: .9rem;
             @media (min-width: $md) {
+                margin-top: 1.5rem;
                 padding: .6rem .75rem;
                 font-size: .75rem;
             }
@@ -119,6 +123,7 @@ mat-form-field[appearance] {
     border: 1px solid rgba(125, 125, 125, 0.2);
     background: rgba(125, 125, 125, 0.03);
     .left{
+        margin-left: 0!important;
         svg{
             margin-top: .5rem;
             height: 1.2rem;
@@ -165,7 +170,7 @@ mat-form-field[appearance] {
         }
     }
     .left {
-        margin: 0 1em ;
+        margin: 0 1rem;
         text-align: center;
         @media (min-width:$md) {
             margin: 0 1em 0 0;
@@ -237,9 +242,19 @@ mat-form-field[appearance] {
     .stat-item {
         flex: auto;
         display:inline-block;
+        width: 50%;
+        @media (min-width:$md) {
+            width: auto;
+        }
         padding: 1rem;
         border: 1px solid rgba(125, 125, 125, 0.2);
         border-top: 0;
+        &:first-child{
+            border-right: 0;
+            @media (min-width:$md) {
+                border: 1px solid rgba(125, 125, 125, 0.2);
+            }
+        }
         background: rgba(125, 125, 125, 0.03);
         text-align: center;
         &>div {
@@ -678,7 +693,11 @@ mat-form-field[appearance] {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 0 2rem!important;
+    padding: 2rem!important;
+    width: 100%;
+    @media (min-width:$md) {
+        width: unset;
+    }
     font-weight: bold;
     color: gray;
     font-size: 1rem;
