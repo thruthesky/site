@@ -844,7 +844,7 @@ export class AppService {
     cacheKeySchedule(options: SCHEDULE_OPTIONS) {
         let key = KEY_SCHEDULES;
         let login = '-logout';
-        if ( this.user.isLogin ) {
+        if (this.user.isLogin) {
             login = '-login';
         }
         key += '-' + options.teachers.toString() + login;
@@ -1581,7 +1581,7 @@ export class AppService {
      *
      * @param event Click event
      */
-    onClickContactAdmin(event?: Event) {
+    onClickContactAdmin(messenger = '') {
         //
         if (event) {
             event.preventDefault();
@@ -1598,7 +1598,7 @@ export class AppService {
              * If student,
              */
             const myClassSoftware = this.lmsInfo('user.class_software');
-            if (myClassSoftware === KAKAOTALK) {
+            if (messenger === KAKAOTALK || myClassSoftware === KAKAOTALK) {
                 if (this.isMobile()) {
                     document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
                 } else {
@@ -1606,6 +1606,8 @@ export class AppService {
 
                     // window.open(this.kakaoUrls.student_kakaoplus_url);
                 }
+            } else if ( messenger === WECHAT ) {
+                this.toast( this.ln.WECHAT_ADD_FREIND );
             }
             this.open('qna');
         }
@@ -2184,12 +2186,12 @@ export class AppService {
 
 
     check_message_count() {
-        if ( this.isLogout ) {
+        if (this.isLogout) {
             return;
         }
-        this.lms.get_message_count_by_status({}).subscribe( res => {
+        this.lms.get_message_count_by_status({}).subscribe(res => {
             // console.log('check_message_count:: ', res);
-            if ( res > 0 ) {
+            if (res > 0) {
                 this.message_count = res;
             }
         }, e => {

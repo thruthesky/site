@@ -807,7 +807,10 @@
   "AUCTION_DELETE": "Auction Delete",
   "AUCTION_DELETE_CONFIRM": "Are you sure you want to delete your auction?",
   "AUCTION_APPLICATION_DELETE": "Auction Application Delete",
-  "AUCTION_APPLICATION_DELETE_CONFIRM": "Are you sure you want to delete this application?"
+  "AUCTION_APPLICATION_DELETE_CONFIRM": "Are you sure you want to delete this application?",
+
+  "WECHAT_ADD_FREIND": "Please scan QR code or add WeChat ID."
+
 
 
 }

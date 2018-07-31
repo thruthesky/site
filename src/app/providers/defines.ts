@@ -12,6 +12,8 @@ export const SITE_WITHCENTER = 'withcenter';
 export const SITE_ADMIN = 'admin';
 
 
+
+
 export const CLASS_SOFTWARE_KAKAOTALK = 'kakaotalk';
 
 export interface SITE {
