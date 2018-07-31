@@ -11,7 +11,7 @@
         <div id="greetings" class="container-fluid" *ngIf=" !showLoader ">
             <div class="row">
                 <ng-container *ngFor=" let greeting of greetings " >
-                    <div class="col-md-6">
+                    <div class="col-12 col-md-6">
                         <div class="card" (click)="messageSend.open({ID: greeting.ID, name: greeting.display_name })">
                             <div class="left">
                                 <div class="primary-photo" ><img [src]="a.checkPhotoURL(greeting.photoURL)"/></div>
