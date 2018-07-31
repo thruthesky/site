@@ -35,18 +35,24 @@
                     <div class="set">
                         <div class="caption">{{ a.ln.NAME }}</div>
                         <div data-role="user-name" class="text" *ngIf=" mypage.name ">{{ mypage.name }}</div>
-                        <div *ngIf=" !mypage.name "><mat-spinner [diameter]="20"></mat-spinner></div>
+                        <div *ngIf=" !mypage.name ">
+                            <mat-spinner [diameter]="20"></mat-spinner>
+                        </div>
                     </div>
                     <div class="set">
                         <div class="caption">{{ a.ln.POINT }}</div>
                         <div class="text" data-role="user-point" *ngIf="mypage.point">{{ mypage.point | number }}</div>
-                        <div *ngIf=" !mypage.point "><mat-spinner [diameter]="20"></mat-spinner></div>
+                        <div *ngIf=" !mypage.point ">
+                            <mat-spinner [diameter]="20"></mat-spinner>
+                        </div>
                     </div>
 
                     <div class="set">
                         <div class="caption"> {{ a.ln.TIMEZONE }}</div>
                         <div class="text" *ngIf=" mypage.timezone_country ">{{ mypage.timezone_country }} ({{ mypage.timezone }})</div>
-                        <div *ngIf=" !mypage.timezone_country "><mat-spinner [diameter]="20"></mat-spinner></div>
+                        <div *ngIf=" !mypage.timezone_country ">
+                            <mat-spinner [diameter]="20"></mat-spinner>
+                        </div>
                     </div>
                     <div class="set class-software" *ngIf="mypage?.class_software">
                         <div class="caption">
@@ -66,27 +72,31 @@
             </div>
 
             <div id="session-stats">
-                    <div data-role="user-level" id="my-level">
-                        <span>
-                            <svg [attr.level-color]=" mypage.level" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path fill="currentColor" d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"></path>
-                            </svg>
-                        </span>
-                        <span class="title" *ngIf=" mypage.level ">{{ a.ln.MY_LEVEL }} : {{ mypage.level }} </span>
-                    </div>
-                    <div id="no-of-reservation" class="stat-item">
-                        <div data-role="no-of-reservation">{{ mypage.no_of_reservation }}</div>
-                        <div *ngIf=" mypage.no_of_reservation ">{{ a.ln.NO_OF_RESERVATION }}</div>
-                        <div class="mini-loader" *ngIf=" !mypage.no_of_reservation "><mat-spinner [diameter]="20"></mat-spinner></div>
-                    </div>
-                    <div id="no-of-past" class="stat-item">
-                        <div data-role="no-of-reservation">{{ mypage.no_of_past }}</div>
-                        <div *ngIf=" mypage.no_of_past ">{{ a.ln.NO_OF_PAST }}</div>
-                        <div class="mini-loader" *ngIf=" !mypage.no_of_past "><mat-spinner [diameter]="20"></mat-spinner></div>
+                <div data-role="user-level" id="my-level">
+                    <span>
+                        <svg [attr.level-color]=" mypage.level" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path fill="currentColor" d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"></path>
+                        </svg>
+                    </span>
+                    <span class="title" *ngIf=" mypage.level ">{{ a.ln.MY_LEVEL }} : {{ mypage.level }} </span>
+                </div>
+                <div id="no-of-reservation" class="stat-item">
+                    <div data-role="no-of-reservation">{{ mypage.no_of_reservation }}</div>
+                    <div *ngIf=" mypage.no_of_reservation ">{{ a.ln.NO_OF_RESERVATION }}</div>
+                    <div class="mini-loader" *ngIf=" !mypage.no_of_reservation ">
+                        <mat-spinner [diameter]="20"></mat-spinner>
                     </div>
                 </div>
+                <div id="no-of-past" class="stat-item">
+                    <div data-role="no-of-reservation">{{ mypage.no_of_past }}</div>
+                    <div *ngIf=" mypage.no_of_past ">{{ a.ln.NO_OF_PAST }}</div>
+                    <div class="mini-loader" *ngIf=" !mypage.no_of_past ">
+                        <mat-spinner [diameter]="20"></mat-spinner>
+                    </div>
+                </div>
+            </div>
 
-            <a id="next-class" *ngIf="mypage.next_class"  routerLink="/session-future">
+            <a id="next-class" *ngIf="mypage.next_class" routerLink="/session-future">
 
                 <div class="left">
                     <div class="photo-wrapper">
@@ -101,7 +111,9 @@
                 <div class="right">
                     <div class="title">
                         <span>
-                            <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M192 224c0-17.67-14.33-32-32-32h-32c-35.35 0-64 28.65-64 64v63.64c0 35.35 28.65 64 64 64h32c17.67 0 32-14.33 32-32V224zm-32 127.64h-32c-17.64 0-32-14.36-32-32V256c0-17.64 14.36-32 32-32h32v127.64zm224 32c35.35 0 64-28.65 64-64V256c0-35.35-28.65-64-64-64h-32c-17.67 0-32 14.33-32 32v127.64c0 17.67 14.33 32 32 32h32zM352 224h32c17.64 0 32 14.36 32 32v63.64c0 17.64-14.36 32-32 32h-32V224zM256 0C113.97 0 3.92 117.82.1 256L0 280c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8l.09-24C35.43 135.19 131.63 32 256 32c123.5 0 224 100.48 224 224v176c0 26.47-21.53 48-48 48h-82.94c1.79-5.03 2.94-10.36 2.94-16 0-26.51-21.49-48-48-48h-64c-26.51 0-48 21.49-48 48s21.49 48 48 48h192c44.12 0 80-35.89 80-80V256C512 114.85 397.16 0 256 0zm48 480h-64c-8.82 0-16-7.18-16-16s7.18-16 16-16h64c8.82 0 16 7.18 16 16s-7.18 16-16 16z"></path></svg>
+                            <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor" d="M192 224c0-17.67-14.33-32-32-32h-32c-35.35 0-64 28.65-64 64v63.64c0 35.35 28.65 64 64 64h32c17.67 0 32-14.33 32-32V224zm-32 127.64h-32c-17.64 0-32-14.36-32-32V256c0-17.64 14.36-32 32-32h32v127.64zm224 32c35.35 0 64-28.65 64-64V256c0-35.35-28.65-64-64-64h-32c-17.67 0-32 14.33-32 32v127.64c0 17.67 14.33 32 32 32h32zM352 224h32c17.64 0 32 14.36 32 32v63.64c0 17.64-14.36 32-32 32h-32V224zM256 0C113.97 0 3.92 117.82.1 256L0 280c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8l.09-24C35.43 135.19 131.63 32 256 32c123.5 0 224 100.48 224 224v176c0 26.47-21.53 48-48 48h-82.94c1.79-5.03 2.94-10.36 2.94-16 0-26.51-21.49-48-48-48h-64c-26.51 0-48 21.49-48 48s21.49 48 48 48h192c44.12 0 80-35.89 80-80V256C512 114.85 397.16 0 256 0zm48 480h-64c-8.82 0-16-7.18-16-16s7.18-16 16-16h64c8.82 0 16 7.18 16 16s-7.18 16-16 16z"></path>
+                            </svg>
                         </span>
                         <span>{{ a.ln.NEXT_CLASS }}</span>
                     </div>
@@ -132,7 +144,9 @@
             </a>
             <div id="next-class" class="no-next-class" *ngIf="!mypage.next_class">
                 <span>
-                    <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM212.7 224h22.6c6.9 0 12.4 5.8 12 12.7l-6.7 120c-.4 6.4-5.6 11.3-12 11.3h-9.3c-6.4 0-11.6-5-12-11.3l-6.7-120c-.3-6.9 5.2-12.7 12.1-12.7zM252 416c0 15.5-12.5 28-28 28s-28-12.5-28-28 12.5-28 28-28 28 12.5 28 28z"></path></svg>
+                    <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM212.7 224h22.6c6.9 0 12.4 5.8 12 12.7l-6.7 120c-.4 6.4-5.6 11.3-12 11.3h-9.3c-6.4 0-11.6-5-12-11.3l-6.7-120c-.3-6.9 5.2-12.7 12.1-12.7zM252 416c0 15.5-12.5 28-28 28s-28-12.5-28-28 12.5-28 28-28 28 12.5 28 28z"></path>
+                    </svg>
                 </span>
                 <span>{{ a.ln.YOU_DO_NOT_HAVE_RESERVATION }}</span>
             </div>
@@ -147,7 +161,12 @@
                     <div id="progress-bargraph">
                         <a class="panel-title" routerLink="/session-past">
                             <span>{{ a.ln.MY_LEARNING_PROGRESS }}</span>
-                            <span class="link-icon"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z" fill="currentColor"></path></svg></span>
+                            <span class="link-icon">
+                                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
                         </a>
                         <div class="panel-content" *ngIf=" mypage.progress ">
                             <div *ngFor=" let idx of a.keys( mypage.progress ) " matTooltip="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
@@ -163,9 +182,14 @@
                     </div>
                     <div id="my-introduction">
                         <h2>
-                            <a class="title" routerLink="/register">
+                            <a class="title" routerLink="/greetings-list">
                                 <span>{{ a.ln.MY_INTRODUCTION }}</span>
-                                <span class="link-icon"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z" fill="currentColor"></path></svg></span>
+                                <span class="link-icon">
+                                    <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </span>
                             </a>
                         </h2>
                         <div class="my-introduction-desc">
@@ -355,43 +379,41 @@
                             <div id="auction-application-list" *ngIf=" mypage?.auction_application_list?.length">
 
                                 <div class="list-container">
-                                <ng-container *ngFor=" let application of mypage.auction_application_list">
-                                    <div class="button-hook">
-                                        <a class="list-item"  routerLink="/schedule-table" [queryParams]="{ idx_teacher: application.sender.ID }">
-                                            <span class="left">
-                                                <span class="teacher-photo">
-                                                    <img [src]='a.checkPhotoURL(application.sender.photoURL)'>
+                                    <ng-container *ngFor=" let application of mypage.auction_application_list">
+                                        <div class="button-hook">
+                                            <div class="buttons">
+                                                <button class="reply-button" (click)="messageSend.open({ ID: application.sender.ID, name: application.sender.name })">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                            <path fill="currentColor" d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span>{{ a.ln.TO_REPLY }}</span>
+                                                </button>
+                                                <button class="delete-application" (click)="onDeleteApplication( application ); application['delete'] = true;">
+                                                    <span>
+                                                        <svg *ngIf="!application['delete']" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                            <path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span class="text">{{ a.ln.DELETE }}</span>
+                                                    <mat-spinner [diameter]="16" *ngIf="application['delete']"></mat-spinner>
+                                                </button>
+                                            </div>
+                                            <a class="list-item" routerLink="/schedule-table" [queryParams]="{ idx_teacher: application.sender.ID }">
+                                                <span class="left">
+                                                    <span class="teacher-photo">
+                                                        <img [src]='a.checkPhotoURL(application.sender.photoURL)'>
+                                                    </span>
                                                 </span>
-                                            </span>
-                                            <span class="right">
-                                                <span class="teacher-name">{{ application.sender.name }}</span>
-                                                <span class="title">{{ application.title }}</span>
-                                                <span class="text">{{ application?.content }}</span>
-                                            </span>
-                                        </a>
-
-
-                                        <span class="buttons">
-                                            <button class="reply-button" (click)="messageSend.open({ ID: application.sender.ID, name: application.sender.name })">
-                                                <span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                        <path fill="currentColor" d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path>
-                                                    </svg>
+                                                <span class="right">
+                                                    <span class="teacher-name">{{ application.sender.name }}</span>
+                                                    <!-- <span class="title">{{ application.title }}</span> -->
+                                                    <span class="text">{{ application?.content }}</span>
                                                 </span>
-                                                <span>{{ a.ln.TO_REPLY }}</span>
-                                            </button>
-                                            <button class="delete-application" (click)="onDeleteApplication( application ); application['delete'] = true;">
-                                                <span>
-                                                    <svg *ngIf="!application['delete']" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                                        <path fill="currentColor" d="M0 84V56c0-13.3 10.7-24 24-24h112l9.4-18.7c4-8.2 12.3-13.3 21.4-13.3h114.3c9.1 0 17.4 5.1 21.5 13.3L312 32h112c13.3 0 24 10.7 24 24v28c0 6.6-5.4 12-12 12H12C5.4 96 0 90.6 0 84zm416 56v324c0 26.5-21.5 48-48 48H80c-26.5 0-48-21.5-48-48V140c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12zm-272 68c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208zm96 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v224c0 8.8 7.2 16 16 16s16-7.2 16-16V208z"></path>
-                                                    </svg>
-                                                </span>
-                                                <span class="text">{{ a.ln.DELETE }}</span>
-                                                <mat-spinner [diameter]="16" *ngIf="application['delete']"></mat-spinner>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </ng-container>
+                                            </a>
+                                        </div>
+                                    </ng-container>
                                 </div>
                             </div>
                         </ng-container>
