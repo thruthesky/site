@@ -8,6 +8,8 @@
     .text {
         font-size: .9rem;
         @media (min-width:$md) {
+            max-width: 180px;
+            word-break: break-all;
             font-size: 1.1rem;   
         }
     }
@@ -212,12 +214,12 @@ mat-form-field[appearance] {
         font-size: 1.1rem;
         .title{
             display: inline-block;
-            margin: 0 1rem;
             font-weight: 300;
         }
         svg {
             position: relative;
             top: .125em;
+            margin-right: .5rem;
             height: 1.35rem;
             width: 1.35rem;
             &[level-color="0"],
