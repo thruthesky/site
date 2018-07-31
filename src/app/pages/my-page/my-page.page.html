@@ -56,7 +56,10 @@
                             <span data-role="class-software-icon">
                                 <img src="/assets/img/messengers/{{ mypage.class_software }}.png">
                             </span>
-                            <span data-role="class-software-id">{{ mypage.class_software_id }}</span>
+                            <span data-role="class-software-id">
+                                <span>{{ mypage.class_software_id.slice(0,17) }}</span>
+                                <span *ngIf="mypage.class_software_id.length>17">...</span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -83,7 +86,7 @@
                     </div>
                 </div>
 
-            <div id="next-class" *ngIf="mypage.next_class">
+            <a id="next-class" *ngIf="mypage.next_class"  routerLink="/session-future">
 
                 <div class="left">
                     <div class="photo-wrapper">
@@ -96,7 +99,12 @@
                     </div>
                 </div>
                 <div class="right">
-                    <div>{{ a.ln.NEXT_CLASS }}</div>
+                    <div class="title">
+                        <span>
+                            <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M192 224c0-17.67-14.33-32-32-32h-32c-35.35 0-64 28.65-64 64v63.64c0 35.35 28.65 64 64 64h32c17.67 0 32-14.33 32-32V224zm-32 127.64h-32c-17.64 0-32-14.36-32-32V256c0-17.64 14.36-32 32-32h32v127.64zm224 32c35.35 0 64-28.65 64-64V256c0-35.35-28.65-64-64-64h-32c-17.67 0-32 14.33-32 32v127.64c0 17.67 14.33 32 32 32h32zM352 224h32c17.64 0 32 14.36 32 32v63.64c0 17.64-14.36 32-32 32h-32V224zM256 0C113.97 0 3.92 117.82.1 256L0 280c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8l.09-24C35.43 135.19 131.63 32 256 32c123.5 0 224 100.48 224 224v176c0 26.47-21.53 48-48 48h-82.94c1.79-5.03 2.94-10.36 2.94-16 0-26.51-21.49-48-48-48h-64c-26.51 0-48 21.49-48 48s21.49 48 48 48h192c44.12 0 80-35.89 80-80V256C512 114.85 397.16 0 256 0zm48 480h-64c-8.82 0-16-7.18-16-16s7.18-16 16-16h64c8.82 0 16 7.18 16 16s-7.18 16-16 16z"></path></svg>
+                        </span>
+                        <span>{{ a.ln.NEXT_CLASS }}</span>
+                    </div>
                     <div class="set" id="teacher-name">
                         <div class="caption">{{ a.ln.TEACHER }}</div>
                         <div class="text">{{ mypage.next_class.teacher_name}}</div>
@@ -113,14 +121,20 @@
                                     <path fill="currentColor" d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
                                 </svg>
                             </span>
-                            <span *ngIf="mypage.book_next">{{ mypage.book_next }}</span>
+                            <span *ngIf="mypage.book_next">
+                                <span>{{ mypage.book_next.slice(0,15) }}</span>
+                                <span *ngIf="mypage.book_next.length>15">...</span>
+                            </span>
                             <span *ngIf="!mypage.book_next">{{ a.ln.NO_BOOK_YET }}</span>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
             <div id="next-class" class="no-next-class" *ngIf="!mypage.next_class">
-                {{ a.ln.YOU_DO_NOT_HAVE_RESERVATION }}
+                <span>
+                    <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM212.7 224h22.6c6.9 0 12.4 5.8 12 12.7l-6.7 120c-.4 6.4-5.6 11.3-12 11.3h-9.3c-6.4 0-11.6-5-12-11.3l-6.7-120c-.3-6.9 5.2-12.7 12.1-12.7zM252 416c0 15.5-12.5 28-28 28s-28-12.5-28-28 12.5-28 28-28 28 12.5 28 28z"></path></svg>
+                </span>
+                <span>{{ a.ln.YOU_DO_NOT_HAVE_RESERVATION }}</span>
             </div>
 
         </div>
@@ -131,7 +145,10 @@
             <div class="row">
                 <div class="col-12 col-md-12">
                     <div id="progress-bargraph">
-                        <div class="panel-title">{{ a.ln.MY_LEARNING_PROGRESS }}</div>
+                        <a class="panel-title" routerLink="/session-past">
+                            <span>{{ a.ln.MY_LEARNING_PROGRESS }}</span>
+                            <span class="link-icon"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-64 47.111C384 109.929 370.071 96 352.889 96H220.667c-12.887 0-23.333 10.447-23.333 23.334v14.904c0 13.138 10.843 23.686 23.976 23.324l56.002-1.588L69.908 361.908c-7.858 7.802-7.88 20.504-.05 28.334l19.899 19.899c7.83 7.83 20.532 7.808 28.334-.05l205.935-207.404-1.588 56.003c-.362 13.133 10.186 23.976 23.324 23.976h14.904c12.887 0 23.334-10.447 23.334-23.333V127.111z" fill="currentColor"></path></svg></span>
+                        </a>
                         <div class="panel-content" *ngIf=" mypage.progress ">
                             <div *ngFor=" let idx of a.keys( mypage.progress ) " matTooltip="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
                                 <div class="bar-item" [style.height]="  mypage.progress[idx]['level'] * 10 + 'px' " [attr.level]=" mypage.progress[idx]['level'] ">
