@@ -23,11 +23,13 @@
             }
         }
         .message {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: flex-end;
             padding-left: 2em;
             padding-right: 0;
+            margin-right: 1em;
             .message-icon{
                 height: 1.5em;
                 width: 1.5em;
@@ -40,8 +42,8 @@
                 height: 20px;
                 width: 20px;
                 padding: .5em;
-                top: 13px;
-                right: 0;
+                top: 10px;
+                right: -10px;
                 background: red;
                 border-radius: 50%;
             }
@@ -76,6 +78,7 @@
 
 
     .menu{
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -88,6 +91,22 @@
                 height: 1.5em;
                 width: 1.5em;
             }
+        }
+
+
+        .badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            padding: .5em;
+            top: 5px;
+            right: -10px;
+            color: white;
+            background: red;
+            border-radius: 50%;
         }
     }
 

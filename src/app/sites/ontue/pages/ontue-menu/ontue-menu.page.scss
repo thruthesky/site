@@ -37,3 +37,24 @@
     cursor: pointer;
   }
 }
+
+.message {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 25px;
+        width: 25px;
+        padding: .5em;
+        top: 0;
+        right: -10px;
+        color: white;
+        background: red;
+        border-radius: 50%;
+    }
+}

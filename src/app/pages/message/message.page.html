@@ -35,7 +35,7 @@
 
         <div class="content" *ngIf="message.view" (click)="onClickMessage(message)">
             {{message.content}}
-            <div>
+            <div *ngIf=" message.status != '' ">
                 <button class="app-button" (click)=" messageSend.open( {ID: message.sender, name: message.sender_name} ) ">Reply</button>
             </div>
         </div>   
