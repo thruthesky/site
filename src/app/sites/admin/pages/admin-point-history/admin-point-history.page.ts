@@ -47,6 +47,10 @@ export class AdminPointHistoryPage implements OnInit {
     point_log_selected_all = false;
     point_log_selected_empty = false;
 
+    loader = {
+        pointHistory: false
+    }
+
     constructor(
         public a: AppService
     ) {
@@ -92,6 +96,8 @@ export class AdminPointHistoryPage implements OnInit {
         /**
          * @see lms.admin_query() for detail.
          */
+
+        this.loader.pointHistory = true;
         this.a.lms.admin_query({
             sql: `SELECT p.*
 					FROM lms_point_log as p, wp_users
@@ -102,6 +108,7 @@ export class AdminPointHistoryPage implements OnInit {
         })
             .subscribe((re: Array<POINT_HISTORY>) => {
                 // console.log('re: ', re);
+                this.loader.pointHistory = false;
                 if (!re) {
                     return;
                 }
@@ -113,7 +120,10 @@ export class AdminPointHistoryPage implements OnInit {
                         log.point_change = parseInt(log.after_point, 10) === after;
                     }
                 }
-            }, e => this.a.toast(e));
+            }, e => {
+                this.a.toast(e);
+                this.loader.pointHistory = false;
+            });
     }
     onSubmit() {
         this.loadPointHistory();

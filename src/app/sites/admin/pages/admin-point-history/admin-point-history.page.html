@@ -22,15 +22,15 @@
         <button class="app-button" type="submit">Search</button>
     </div>
 </form>
-<div class="loader" *ngIf=" !re.length">
+<div class="loader" *ngIf=" loader.pointHistory ">
     <mat-spinner [diameter]="48"></mat-spinner>
     loading...
 </div>
-<section class="result" *ngIf=" re.length ">
+<section class="result" *ngIf=" re.length && !loader.pointHistory ">
     No of Searched Record: {{ re.length }}
 </section>
 <div class="custom-table">
-    <table *ngIf=" re.length ">
+    <table *ngIf=" re.length && !loader.pointHistory ">
             <tr>
                 <th>Action</th>
                 <th>Apply Point</th>
