@@ -304,7 +304,7 @@ export class AdminUserInfoPage implements OnInit {
     }
     loadPayment(ID) {
 
-        let sql = `SELECT p.idx, p.amount, p.currency, p.idx_student, p.payment_method, p.point, p.stamp_begin, p.state
+        let sql = `SELECT p.idx, p.amount, p.currency, p.idx_student, p.payment_method, p.point, p.stamp_begin, p.state, p.message
             FROM lms_payment as p, wp_users
             WHERE BRANCH AND wp_users.ID=${ID} AND p.idx_student=${ID}`;
         sql += ` AND (state='approved' OR state='refund') `;

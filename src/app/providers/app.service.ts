@@ -329,8 +329,13 @@ export class AppService {
         this.adminLoginUser();
 
 
-        this.check_message_count();
 
+        this.check_message_count();
+        console.log('message:: before 5mins:: ');
+        setInterval(() => {
+            this.check_message_count();
+            console.log('message:: after 5mins:: ');
+        }, 1000 * 60 * 5);
     }
 
     get ln(): any {
