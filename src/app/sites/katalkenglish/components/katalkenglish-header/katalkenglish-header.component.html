@@ -2,7 +2,10 @@
     <div id="mobile-header">
         <nav class="top">
             <a class="menu" routerLink="/menu">
-                <img class="resized" src="assets/img/menu-icon.png" alt="">
+                <div class="message">
+                    <img class="resized" src="assets/img/menu-icon.png" alt="">
+                    <span class="badge" *ngIf=" a.message_count > 0 ">{{a.message_count}}</span>
+                </div>
             </a>
             <a routerLink="{{ a.homeUrl }}">
                 <img class="resized" src="assets/img/logo/katalk-english.png" alt="Logo" *ngIf=" a.site.katalkEnglishRootDomain ">
