@@ -16,6 +16,8 @@ export class SiteService {
      * @code
      *      <section id="ontue" *ngIf=" a.site.ontue ">
      *      if ( this.a.site.katalkenglish ) { ... }
+     *
+     *      if you use `a.site.is.englishas`, it means, any site that is not ontue, withcenter, katalkenglish.
      */
     is: SITE = {
         ontue: false,
@@ -29,7 +31,7 @@ export class SiteService {
     constructor() {
 
         // Base.collectionDomain = 'database';
-        this.is[this.getSite()] = true;
+        this.is[this.getSite()] = true;             // =================> determin sites.
 
 
     }
@@ -101,6 +103,11 @@ export class SiteService {
      * Returns site code.
      *
      * It determins which site you are in.
+     *
+     * @description It returns 'englishas' by default for any domain that is not one of ontue, withcenter, katalkenglish, engliasas.
+     *      This means, when you want to determin the site that the user is in, it will be 'englishas' if the site is not in the domain categories.
+     *
+     *      So, if you use `a.site.is.englishas`, it means, any site that is not ontue, withcenter, katalkenglish.
      */
     getSite(): string {
         if (this.isAdminPath()) {
@@ -114,7 +121,7 @@ export class SiteService {
         } else if (this.isOntueDomain()) {
             return SITE_ONTUE;
         } else {
-            return SITE_KATALKENGLISH;
+            return SITE_ENGLISHAS;
         }
     }
 
