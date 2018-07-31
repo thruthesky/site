@@ -3,7 +3,7 @@
     .caption {
         margin: .8rem 0 .25rem;
         font-size: .7em;
-        color: grey;
+        color: dimgrey;
     }
     .text {
         position: relative;
@@ -13,8 +13,6 @@
             font-size: 1.1rem;   
         }
     }
-
-
 }
 
 header {
@@ -26,7 +24,7 @@ header {
 h2 {
     margin: 0;
     font-weight: 300;
-    padding: .5rem 1.5rem;
+    padding: .5rem 2rem;
     background: #5B81D8;
     color: #fff;
     font-size: .9rem;
@@ -57,7 +55,7 @@ mat-form-field[appearance] {
     align-items: center;
     padding: 1rem;
     padding-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3.5rem;
     background: #fff;
     @media (min-width: $md) {
         padding: 1.75rem 3rem;
@@ -131,7 +129,7 @@ mat-form-field[appearance] {
     }
     border: 1px solid rgba(125, 125, 125, 0.2);
     border-radius: 2px;
-    background: rgba(125, 125, 125, 0.03);
+    background: #fff;
     .left{
         margin-left: 0!important;
         svg{
@@ -258,10 +256,7 @@ mat-form-field[appearance] {
             width: auto;
         }
         padding: 1rem;
-        border-radius: 2px;
-        border: 1px solid rgba(125, 125, 125, 0.2);
-        border-top: 0;
-        background: rgba(125, 125, 125, 0.03);
+        background: #eff0f1;
         text-align: center;
         &>div {
             font-size: .75em;
@@ -271,6 +266,13 @@ mat-form-field[appearance] {
         }
         &>div:first-child {
             font-size: 1.6rem;
+        }
+    }
+    #no-of-reservation{
+        border-right: 1px solid rgba(125, 125, 125, 0.2);
+        @media (min-width:$md) {
+            border: 0;
+            border-bottom: 1px solid rgba(125, 125, 125, 0.2);
         }
     }
 }
@@ -333,14 +335,14 @@ mat-form-field[appearance] {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 1.5rem;
-        padding-right: 0;
+        padding: 0;
+        padding-left: 2rem;
         background: #eff0f1;
         font-size: .85em;
 
         .link-icon{
             display: inline-block;
-            padding: .5rem 1.5rem;
+            padding: .5rem 2rem;
             svg{
                 position: relative;
                 top:.125em;
@@ -352,8 +354,7 @@ mat-form-field[appearance] {
     .panel-content {
         display: flex;
         align-items: flex-end;
-        padding: .75em 1.5rem;
-        padding-top: 2em;
+        padding: 2rem;
         font-size: .9em;
         background: #fff;
         overflow: auto;
@@ -405,7 +406,25 @@ mat-form-field[appearance] {
 #my-introduction {
     margin-bottom: 3.5rem;
     font-size: .85em;
+    h2{
+        padding: 0;
+        padding-left: 2rem;
+        &>.title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
+            .link-icon{
+                padding: .5rem 2rem;
+                svg{
+                    position: relative;
+                    top: .125em;
+                    height: 1em;
+                    width: 1em;
+                }
+            }
+        }
+    }
     .my-introduction-desc {
         margin-bottom: 1rem;
         padding: 1em 2em;
@@ -414,16 +433,18 @@ mat-form-field[appearance] {
         font-size: .9rem;
         .title {
             color: #1B4AB5;
+            font-size: 1.1rem;
+            font-weight: 300;
         }
         &>* {
             margin: .5rem 0;
         }
         svg {
             position: relative;
-            top: .18em;
-            height: 1.2em;
-            width: 1.2em;
-            margin-right: .3em;
+            top: .12rem;
+            height: 1rem;
+            width: 1rem;
+            margin-right: .3rem;
         }
         .note{
             margin: .75rem 0;
@@ -463,6 +484,7 @@ mat-form-field[appearance] {
         margin-top: .5rem;
         @media (min-width: $md) {
             margin: 0;
+            margin-bottom: .5rem;
         }
     }
     button[data-button="auction-delete"] {
@@ -471,6 +493,11 @@ mat-form-field[appearance] {
     }
     form {
         margin: 1rem .25rem;
+        @media (min-width:$md) {
+            margin: 0;
+            padding: 2.5rem 3.5rem;  
+            background: #fff; 
+        }
         font-size: .85em;
         animation: fadeIn .2s ease-in-out;
         @keyframes fadeIn {
@@ -481,8 +508,11 @@ mat-form-field[appearance] {
                 opacity: 1;
             }
         }
-        mat-form-field {
+        mat-form-field{
             width: 50px;
+            @media (min-width:$md) {
+                width: unset;
+            }
         }
         .day {
             .checkbox-group {
@@ -564,6 +594,7 @@ mat-form-field[appearance] {
             display: flex; // align-content: center;
             padding: .5rem;
             border-bottom: 1px solid rgba(125, 125, 125, 0.2);
+            font-size: .8rem;
             @media (min-width:$md) {
                 padding:.75rem;
                 font-size: .9rem;
@@ -667,16 +698,17 @@ mat-form-field[appearance] {
             top: .125em;
         }
     }
-    h2 {
-        margin-bottom: .5rem;
-        svg {
-            position: relative;
-            top: .15em;
-            margin-right: .4em;
-            height: 1.2em;
-            width: 1.2em;
-        }
-    }
+    // h2 {
+    //     margin-bottom: .5rem;
+    //     text-align: center;
+    //     svg {
+    //         position: relative;
+    //         top: .15em;
+    //         margin-right: .4em;
+    //         height: 1.2em;
+    //         width: 1.2em;
+    //     }
+    // }
     .teachers {
         display: flex;
         flex-flow: wrap;
