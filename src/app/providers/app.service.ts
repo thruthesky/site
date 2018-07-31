@@ -331,10 +331,10 @@ export class AppService {
 
 
         this.check_message_count();
-        console.log('message:: before 5mins:: ');
+        // console.log('message:: before 5mins:: ');
         setInterval(() => {
             this.check_message_count();
-            console.log('message:: after 5mins:: ');
+            // console.log('message:: after 5mins:: ');
         }, 1000 * 60 * 5);
     }
 
