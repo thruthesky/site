@@ -751,7 +751,12 @@
 
   "STUDENT_GREETING_LIST": "问候清单",
   "STUDENT_OFFER_LIST": "优惠清单",
-  "NEW_STUDENT_LIST": "新学生名单"
+  "NEW_STUDENT_LIST": "新学生名单",
+
+
+  "OTHERS_INTRODUCTION": "查看其他学生问候",
+  "OTHERS_AUCTION_LIST": "查看其他学生优惠",
+  "AUCTION_OPEN_BUTTON": "开始"
 
 
 
