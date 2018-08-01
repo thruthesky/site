@@ -770,9 +770,12 @@
 
   "WECHAT_ADD_FREIND": "위쳇으로 친구를 추가하기 위해서는 QR 코드를 스캔하시거나 위쳇 아이디를 추가해주세요.",
 
-  "STUDENT_GREETING_LIST": "인사말 목록",
+  "STUDENT_GREETING_LIST": "학생 인사말 목록",
   "STUDENT_OFFER_LIST": "쿠폰 목록",
-  "NEW_STUDENT_LIST": "새로운 학생 목록"
+  "NEW_STUDENT_LIST": "새로운 학생 목록",
+
+  "OTHERS_INTRODUCTION": "다른 학생의 인사말 보기",
+  "OTHERS_AUCTION_LIST": "다른 학생의 선생님 찾기 목록"
 
 
 }

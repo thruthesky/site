@@ -1,4 +1,8 @@
 @import '../../../theme/vars.scss';
+.link-text {
+    display: inline-block;
+    padding-right: .5em;
+}
 .set {
     .caption {
         margin: .8rem 0 .25rem;

@@ -1603,6 +1603,7 @@ export class AppService {
              *
              *  then it opens,kakaotalk.
              */
+            // console.log('this.branch.info.class_software: ', this.branch.info.class_software);
             const myClassSoftware = this.lmsInfo('user.class_software');
             if ( this.branch.info.class_software === KAKAOTALK || messenger === KAKAOTALK || myClassSoftware === KAKAOTALK) {
                 if (this.isMobile()) {
@@ -2180,6 +2181,7 @@ export class AppService {
      */
     get branch() {
         let defaultClassSoftware = DEFAULT_CLASS_SOFTWARE;
+        console.log('info: ', this.info);
         if (this.info && this.info.branch !== void 0 && this.info.branch.class_software !== void 0) {
             defaultClassSoftware = this.info.branch.class_software;
         }
