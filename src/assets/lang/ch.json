@@ -747,7 +747,11 @@
   "AUCTION_APPLICATION_DELETE": "拍卖申请删除",
   "AUCTION_APPLICATION_DELETE_CONFIRM": "您确定要删除此应用程序吗？",
 
-  "WECHAT_ADD_FREIND": "请扫描二维码或添加微信ID。"
+  "WECHAT_ADD_FREIND": "请扫描二维码或添加微信ID。",
+
+  "STUDENT_GREETING_LIST": "问候清单",
+  "STUDENT_OFFER_LIST": "优惠清单",
+  "NEW_STUDENT_LIST": "新学生名单"
 
 
 
