@@ -552,6 +552,7 @@ mat-form-field[appearance] {
                 }
                 label {
                     display: flex;
+                    align-items: center;
                     input {
                         margin: 0;
                         margin-right: .2em;
@@ -585,18 +586,22 @@ mat-form-field[appearance] {
     .list-container{
         .button-hook{
             position: relative;
-
+            &:first-child{
+                .right{
+                    border-top: 1px solid rgba(125, 125, 125, 0.2)!important;
+                }
+            }
             .buttons {
                 position: absolute;
                 z-index: 14;
-                top: 0;
+                top: 1px;
                 right: 0;
                 max-width: 40%;
                 @media (min-width: $md) {
                     max-width: 30%;
                 }
                 button {
-                    padding: .75rem .5rem;
+                    padding: 1.18rem 1rem;
                     @media (min-width:$md) {
                         padding: 1rem; 
                     }
@@ -611,6 +616,9 @@ mat-form-field[appearance] {
                 }
             }
                 .delete-application {
+                    mat-spinner{
+                        margin-right: .3rem;
+                    }
                     @media (min-width:$md){
                         font-size: .8rem !important;
                     }
@@ -623,7 +631,8 @@ mat-form-field[appearance] {
                     .text{
                         display: none;
                         @media (min-width:$md) {
-                            display: inline
+                            display: inline-flex;
+                            align-items: center;
                         }
                     }
                 }
@@ -645,16 +654,12 @@ mat-form-field[appearance] {
             display: flex;
             align-items: stretch;
             background: #fff;
-            &:first-child{
-                .right{
-                    border-top: 1px solid rgba(125, 125, 125, 0.2)!important;
-                }
-            }
             &:hover{
                 background: rgba(125, 125, 125, 0.04);
             }
             .left{
                 padding: 1rem;
+                padding-right: 1.5rem;
                 .teacher-photo {
                     display: flex;
                     align-items: center;
@@ -670,8 +675,10 @@ mat-form-field[appearance] {
             }
             .right{
                 display: flex;
-                justify-content: center;
+                // justify-content: center;
                 flex-direction: column;
+                padding: 1.5rem 1rem!important;
+                padding-left: 0!important;
                 flex: 100%;
                 padding: 1rem .5rem; 
                 @media (min-width:$md) {
@@ -690,9 +697,97 @@ mat-form-field[appearance] {
                     color: dimgray;
                 }
                 .text{
-                    margin-top: .5em;
-                    font-size: .9rem;
+                    margin-top: 1.25em;
+                    margin-bottom: .75em;
+
+                    font-size: .85rem;
+                    line-height: 1.5em;
                 }
+            }
+        }
+    }
+}
+
+#auction-student-offers{
+    padding:  1.5rem 1rem;
+    background: rgba(#B1C5F4,0.4);
+    .col-12{
+        padding: 0;
+    }
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0; 
+        @media (min-width:$md) {
+            margin: .5rem;   
+        }
+        margin-bottom: .5em;
+        padding: .75rem 1.8rem;
+        background: #fff;
+        color: dimgray;
+        font-size: .85rem;
+
+        svg{
+            position: relative;
+            top: .125em;
+            margin-right: .5rem;
+            height: 1.5em;
+            width: 1.5em;
+        }
+    }
+    .auction-offer{
+        display: flex;
+        margin: .5rem 0; 
+        @media (min-width:$md) {
+            margin: .5rem;   
+        }
+        padding: 1rem;
+        background: #fff;
+        font-size: .85rem;
+        line-height: 1.6em;
+        &:hover{
+            outline: 1px solid rgba(125, 125, 125, 0.4);
+        }
+        
+        .left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-right: 1rem;
+            width: 160px;
+            .student-photo{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                }
+            }
+            .student-name{
+                display: flex;
+                align-items: center;
+                padding-top: .35em ;
+                font-size: .8rem;
+                white-space: nowrap;
+                svg{
+                    position: relative;
+                    top: .125em;
+                    height: 1em;
+                    width: 1em;
+                    margin-right: .3rem;
+                }
+            }
+        }
+        .right{
+            b{
+                color: #1B4AB5;
+                font-weight: normal;
             }
         }
     }
@@ -802,45 +897,5 @@ mat-form-field[appearance] {
     justify-content: center;
     mat-spinner{
         margin-bottom: .6rem;
-    }
-}
-
-.auctions{
-    padding: .5em 0;
-    line-height: 1.2rem;
-    .row{
-        align-items: center;
-        justify-content: center;
-        padding: .7em 1.2em;
-        &>div{
-            padding: 0;
-        }
-        &:hover{
-            background: rgba(dodgerblue,0.2);
-            cursor: pointer;
-
-            color:rgba(dodgerblue,0.95);
-        }
-    }
-
-    .student-photo{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        overflow: hidden;
-
-        img{
-            width: 100%;
-        }
-    }
-    .student-name{
-        font-weight: bold;
-    }
-
-    .request {
-        line-height: 1.2;
     }
 }
