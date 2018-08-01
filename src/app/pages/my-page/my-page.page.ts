@@ -46,7 +46,7 @@ export class MyPagePage implements OnInit {
 
         this.loader.mypage = true;
         a.lms.mypage().subscribe(re => {
-            // console.log('mypage: ', re);
+            console.log('mypage: ', re);
             this.loader.mypage = false;
             this.mypage = re;
             // console.log('mypage: ', this.mypage);
