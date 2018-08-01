@@ -4,7 +4,7 @@
             <a class="menu" routerLink="/menu">
                 <div class="message">
                     <img class="resized" src="assets/img/menu-icon.png" alt="">
-                    <span class="badge" *ngIf=" a.message_count && a.isLogin > 0 ">{{a.message_count}}</span>
+                    <span class="badge" *ngIf=" a.isLogin &&  a.message_count > 0 ">{{a.message_count}}</span>
                 </div>
             </a>
             <a routerLink="{{ a.homeUrl }}">
