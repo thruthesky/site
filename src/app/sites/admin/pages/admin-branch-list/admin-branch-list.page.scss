@@ -17,7 +17,7 @@
             }
         }
     }
-    .delete {
+    .edit, .delete {
         button{
             display: flex;
             align-items: center;
@@ -25,7 +25,6 @@
             padding: 1em 0;
             background: transparent;
             border: 0;
-            color: #8b0000;
             cursor: pointer;
     
             svg{
@@ -33,6 +32,18 @@
                 height: 1em;
                 width: 1em;
             }
+        }
+    }
+
+    .edit {
+        button {
+
+            color:green;
+        }
+    }
+    .delete {
+        .button {
+            color: #8b0000;
         }
     }
 

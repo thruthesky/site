@@ -920,6 +920,12 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
+    get_branches() {
+        return this.x.post({
+            route: 'lms.branch_list'
+        });
+    }
+
 
 
 }

@@ -19,7 +19,6 @@ import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { AdminSessionEditPage } from './pages/admin-session-edit/admin-session-edit.page';
 import { ForumServiceModule } from '../../providers/forum/forum.service.module';
-import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { AdminScheduleTablePage } from './pages/admin-schedule-table/admin-schedule-table.page';
 import { AdminMenuPage } from './pages/admin-menu/admin-menu.page';
 import { AdminNoOfUserPerEachDomainPage } from './pages/admin-no-of-user-per-each-domain/admin-no-of-user-per-each-domain.page';
@@ -27,6 +26,9 @@ import { AdminStatisticGraphPage } from './pages/admin-statistic-graph/admin-sta
 import { AdminBranchListPage } from './pages/admin-branch-list/admin-branch-list.page';
 import { AdminBranchTeachersPage } from './pages/admin-branch-teachers/admin-branch-teachers.page';
 
+// COMPONENT
+import { AdminBranchEditComponent } from './components/admin-branch-edit/admin-branch-edit.component';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 
 const routes: Routes = [
     {
@@ -95,7 +97,8 @@ const routes: Routes = [
         AdminNoOfUserPerEachDomainPage,
         AdminStatisticGraphPage,
         AdminBranchListPage,
-        AdminBranchTeachersPage
+        AdminBranchTeachersPage,
+        AdminBranchEditComponent
     ],
     entryComponents: [
         AdminLayoutPage,

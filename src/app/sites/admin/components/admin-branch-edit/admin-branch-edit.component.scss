@@ -1,0 +1,155 @@
+@import '../../../../../theme/vars';
+h2 {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.form-title {
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+
+.information-input {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $md) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &>div {
+        label,
+        .label {
+            display: block;
+            margin-left: .2em;
+            margin-bottom: .2em;
+            font-size: .9em;
+        }
+        &>div {
+            margin-top: 1em;
+        }
+        input[type="text"],
+        textarea {
+            padding: .75em 1em;
+            font-size: .85em;
+            border-radius: 2px;
+            border: 1px solid rgba(125, 125, 125, 0.3);
+        }
+        .note {
+            margin-left: .2em;
+            margin-top: .3em;
+            font-size: .85em;
+            color: #D27800
+        }
+    }
+    .website-information {
+        @media(min-width: $md) {
+            width: 53%;
+        }
+        input,
+        textarea {
+            width: 100%;
+        }
+        textarea {
+            height: 80px;
+        }
+        label {
+            color: #0867B0
+        }
+    }
+    .company-information {
+        @media(min-width: $md) {
+            width: 42%;
+        }
+        input {
+            width: 100%;
+        }
+    }
+}
+
+.company-logo {
+    input {
+        position: absolute;
+        opacity: 0;
+    }
+    label {
+        position: relative;
+        height: 100px;
+        border: 3px dashed rgba(125, 125, 125, 0.3);
+        width: 100%;
+        cursor: pointer;
+    }
+    .progress-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        padding: 1em;
+    }
+    .placeholder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: lighter;
+        font-size: 1em;
+        text-align: center;
+        .update-file {
+            display: block;
+            margin-top: .5em;
+            color: #0867B0;
+        }
+    }
+    .logo {
+        width: 200px;
+        height: 48px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+
+.submit-button {
+    margin-top: 3em;
+    padding: 1em;
+    text-align: center;
+    .app-button {
+        padding: 1em;
+    }
+}
+
+
+.choose-software-desc {
+    margin-top: .5em;
+    padding: .75em 1em;
+    background: #eee;
+    font-size: .8em !important;
+}
+
+.choose-class-messenger {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    label {
+        position: relative;
+        display: flex !important;
+        align-items: center !important;
+        padding: 1em;
+        margin: 0 !important;
+        font-size: .9em !important;
+        cursor: pointer;
+        span {
+            margin-left: 1em;
+            color: #000;
+        }
+        input {
+            position: relative;
+            top: .04em; //vertical alignment of radio button
+        }
+        input:checked+span {
+            color: dodgerblue;
+        }
+    }
+}

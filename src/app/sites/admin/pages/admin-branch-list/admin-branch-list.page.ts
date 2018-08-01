@@ -13,18 +13,27 @@ import { Branch } from '../../../../modules/xapi/interfaces';
 export class AdminBranchListPage implements OnInit {
 
     re: Array<Branch> = null;
+    loader = {
+        branch: false
+    };
+
     constructor(
         public activated: ActivatedRoute,
         public router: Router,
-        public a: AppService
+        public a: AppService,
     ) {
         this.loadBranches();
     }
     loadBranches() {
-        this.a.xapi.post({ route: 'lms.branch_list' }).subscribe(re => {
+        this.loader.branch = true;
+        this.a.lms.get_branches().subscribe(re => {
             // console.log('re: ', re);
             this.re = re;
-        }, e => this.a.toast(e));
+            this.loader.branch = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.branch = false;
+        });
     }
     ngOnInit() { }
     onClickDelete(branch: Branch) {
@@ -36,6 +45,10 @@ export class AdminBranchListPage implements OnInit {
             // console.log('branch_delete: ', res);
             this.loadBranches();
         }, e => this.a.toast(e));
+    }
+
+    onClickEdit( branch: Branch ) {
+        console.log('onClickEdit:: ', branch);
     }
 }
 
