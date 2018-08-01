@@ -34,8 +34,8 @@ export class MessageSendModalService {
         return data;
     }
     /**
-     * Show a alert modal box
-     * @param data data to dsiplay on modal
+     * Show a alert modal box for normal message
+     * @param data data to display on modal
      *
      * @return boolean of Observable
      *      true will be returned after close.
@@ -56,6 +56,41 @@ export class MessageSendModalService {
                     return;
                 }
                 this.a.lms.message_send({
+                    ID: data.ID,
+                    message: res
+                }).subscribe(re => {
+                    // console.log('message_send: ', re);
+                    this.a.toast( this.a.ln.MESSAGE_SENT );
+                }, e => {
+                    this.a.toast(e);
+                });
+            }
+        });
+    }
+
+    /**
+     * Show a alert modal box for auction message
+     * @param data data to display on modal
+     *
+     * @return boolean of Observable
+     *      true will be returned after close.
+     */
+    auction(data: MessageSendModalData) {
+        this.sanitizeData(data);
+        this.dialogRef = this.dialog.open(MessageSendModalDialogComponent, {
+            disableClose: true,
+            maxWidth: data.maxWidth,
+            minWidth: data.minWidth,
+            data: data
+        });
+        this.dialogRef.afterClosed().subscribe(res => {
+            // console.log('Message box closed: ', res);
+            if (res) {
+                if (res.length < 10) {
+                    this.a.toast( this.a.ln.MESSAGE_TOO_SHORT );
+                    return;
+                }
+                this.a.lms.apply_auction({
                     ID: data.ID,
                     message: res
                 }).subscribe(re => {
