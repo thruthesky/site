@@ -1,6 +1,9 @@
+@import "../../../../../theme/vars";
 section{
-    height: 100%;
-    margin-top: 1.2em;
+    @media (min-width:$md) {
+        height: 100%;;
+    }
+    margin-top: 1.35em;
     background: #fff;
     outline: 1px solid rgba(125,125,125,0.1);
     font-size: 85%;
