@@ -352,7 +352,7 @@ export class AppService {
     }
 
 
-    get isLogin() {
+    get isLogin(): boolean {
         return this.user.isLogin;
     }
 
@@ -1597,9 +1597,14 @@ export class AppService {
         } else {
             /**
              * If student,
+             *      - messgener parameter is kakaotalk,
+             *      - or branch set default software as kakaotalk,
+             *      - or my class software is kakao talk,
+             *
+             *  then it opens,kakaotalk.
              */
             const myClassSoftware = this.lmsInfo('user.class_software');
-            if (messenger === KAKAOTALK || myClassSoftware === KAKAOTALK) {
+            if ( this.branch.info.class_software === KAKAOTALK || messenger === KAKAOTALK || myClassSoftware === KAKAOTALK) {
                 if (this.isMobile()) {
                     document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
                 } else {
