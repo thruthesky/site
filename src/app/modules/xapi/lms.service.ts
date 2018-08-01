@@ -926,6 +926,14 @@ export class XapiLMSService extends Base {
         });
     }
 
+    get_branch_info_by_domain(domain) {
+       return this.x.post({
+           route: 'lms.branch_information',
+           session_id: this.user.sessionId,
+           domain: domain
+       });
+    }
+
 
 
 }

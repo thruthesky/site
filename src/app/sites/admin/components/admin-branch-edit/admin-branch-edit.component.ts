@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { ModalService } from '../../../../providers/modal/modal.service';
 import { Branch, FILES } from '../../../../modules/xapi/interfaces';
@@ -18,6 +18,7 @@ interface Form {
 export class AdminBranchEditComponent implements OnInit {
 
     @Input() branch: Branch = <any>{};
+    @Output() success = new EventEmitter<any>();
 
     loader = {
         branchUpdate: false,
@@ -43,11 +44,13 @@ export class AdminBranchEditComponent implements OnInit {
         this.a.lms.branch_update(this.branch).subscribe(re => {
             this.loader.branchUpdate = false;
             // console.log('branch_update: re: ', re);
-            this.modal.alert({ content: this.a.ln.BRANCH_INFO_UPDATED, ok: this.a.ln.OK });
+            this.modal.alert({ content: this.a.ln.BRANCH_INFO_UPDATED, ok: this.a.ln.OK })
+                .subscribe( () => this.success.emit(true));
             this.branch = re;
         }, e => {
             this.loader.branchUpdate = false;
             this.a.toast(e);
+            this.success.emit(false);
         });
     }
 
@@ -62,7 +65,6 @@ export class AdminBranchEditComponent implements OnInit {
         } else {
             this.updateCompanyLogo(file);
         }
-
     }
 
     updateCompanyLogo(file) {
@@ -70,7 +72,9 @@ export class AdminBranchEditComponent implements OnInit {
         this.branch.logo_url = file.url;
         this.a.lms.branch_update({ idx: this.branch.idx, logo_url: this.branch.logo_url }).subscribe( re => {
             // console.log('branch_update logo: re:', re);
-        }, e => this.a.toast(e));
+        }, e => {
+            this.a.toast(e);
+        });
     }
 
 }

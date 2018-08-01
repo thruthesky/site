@@ -13,6 +13,7 @@ import { Branch } from '../../../../modules/xapi/interfaces';
 export class AdminBranchListPage implements OnInit {
 
     re: Array<Branch> = null;
+    branch = null;
     loader = {
         branch: false
     };
@@ -30,6 +31,9 @@ export class AdminBranchListPage implements OnInit {
             // console.log('re: ', re);
             this.re = re;
             this.loader.branch = false;
+            // setTimeout( () => {
+                this.a.scrollIntoViewById('branch-list');
+            // }, 1000);
         }, e => {
             this.a.toast(e);
             this.loader.branch = false;
@@ -48,7 +52,22 @@ export class AdminBranchListPage implements OnInit {
     }
 
     onClickEdit( branch: Branch ) {
-        console.log('onClickEdit:: ', branch);
+        this.loader.branch = true;
+        this.a.lms.get_branch_info_by_domain(branch.domain).subscribe( re => {
+            // console.log('onClickEdit:: ', branch);
+            this.branch = re;
+            this.loader.branch = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.branch = false;
+        });
+    }
+
+    onSubmitUpdate(event) {
+        if (event) {
+            this.branch = null;
+            this.loadBranches();
+        }
     }
 }
 
