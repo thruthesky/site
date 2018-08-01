@@ -67,6 +67,9 @@
         .right{
             flex: 100%;
             padding-left: 1rem;
+            @media (min-width:$md) {
+                padding-left: 1.5rem;   
+            }
             &>*{
                 margin-bottom: .6rem;
                 &:last-child{
@@ -91,7 +94,7 @@
                 overflow: auto;
                 background: #eee;
                 font-size: .85rem;
-                line-height: 1.5rem;
+                line-height: 1.35rem;
                 font-weight: normal;
             }
             .class-software{

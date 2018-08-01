@@ -37,8 +37,10 @@ section {
     }
 
     .content{
-        height: 189px;
-        overflow:auto;
+        @media (min-width:$md) {
+            height: 189px;
+            overflow:auto;   
+        }
         &>a{
             display: block;
             padding: .8em 1.3em;

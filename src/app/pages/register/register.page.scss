@@ -80,7 +80,7 @@ main{
                 border: 0;
                 border-radius: 2px;
                 background: 0;
-                margin-top:.3em;
+                margin-top:1em;
                 padding: 0;
                 font-size: .95em;
                 color: rgba(0,0,0,.6);
@@ -398,26 +398,20 @@ main{
     border: 1px solid rgba(0,0,0,.12);
     // background: rgba(0,0,0, 0.04);
     .select-class-software{
-        .caption{
-            display: flex;
-            justify-content: center;
-            @media (min-width:430px) {
-                justify-content: space-between;   
-            }
-            align-items: center;
-            flex-wrap: wrap;
-        }
         .text{
             margin-left: .1em;
             font-size: .9em;
             color: #1e90ff;
+            @media (min-width:$md) {
+                margin: 1rem;
+                text-align: left;   
+            }
         }
         .messengers{
+            margin-top: 1.5rem;
+            margin-bottom: .75rem;
             display: flex;
-            justify-content: center;
-            @media (min-width:$md) {
-                justify-content: space-around;   
-            }
+            justify-content: space-around;   
             align-items: center;
             flex-wrap: wrap;
         }
