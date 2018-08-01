@@ -43,7 +43,10 @@ h2 {
 mat-form-field[appearance] {
     width: 100% !important;
     textarea {
-        padding: 0 1.5rem;
+        padding: 0 1rem;
+        @media (min-width:$md) {
+            padding: 0 1.5rem;   
+        }
         height: 85px;
         font-size: 1rem;
     }
@@ -55,7 +58,7 @@ mat-form-field[appearance] {
     align-items: center;
     padding: 1rem;
     padding-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     background: #fff;
     @media (min-width: $md) {
         padding: 1.75rem 3rem;
@@ -329,8 +332,12 @@ mat-form-field[appearance] {
 }
 
 #progress-bargraph {
-    margin: 0;
-    margin-bottom: 3.5rem;
+    margin: 0 1.5rem;
+    margin-bottom: 2.5rem;
+    @media (min-width:$md) {
+        margin: 0;   
+        margin-bottom: 3.5rem;     
+    }
     border-radius: 2px;
     &>* {
         padding: .5em 1em;
@@ -405,15 +412,13 @@ mat-form-field[appearance] {
     }
 }
 
-#teacher-list {
-    margin-bottom: 2rem;
-    @media (min-width: $md) {
-        margin-bottom: 1rem;
-    }
-}
-
 #my-introduction {
-    margin-bottom: 3.5rem;
+    margin: 0 1.5rem;
+    margin-bottom: 2.5rem;
+    @media (min-width:$md) {
+        margin: 0;
+        margin-bottom: 3.5rem;   
+    }
     font-size: .85em;
     h2{
         padding: 0;
@@ -465,7 +470,11 @@ mat-form-field[appearance] {
 }
 
 #auction {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
+    background: #fff;
+    @media (min-width:$md) {
+        margin-bottom: 3.5rem;   
+    }
     h2{
         padding: 0;
         padding-left: 1.8em;
@@ -517,7 +526,7 @@ mat-form-field[appearance] {
         color: #000
     }
     form {
-        margin: 1rem .25rem;
+        padding: 1.5rem;
         @media (min-width:$md) {
             margin: 0;
             padding: 2.5rem 3.5rem;  
@@ -793,8 +802,13 @@ mat-form-field[appearance] {
     }
 }
 
+
 #teacher-list {
     margin: 0 -.225em;
+    margin-bottom: 2rem;
+    @media (min-width: $md) {
+        margin-bottom: 1rem;
+    }
     .stars{
         svg {
             position: relative;
@@ -802,22 +816,14 @@ mat-form-field[appearance] {
         }
     }
     h2 {
-        // margin-bottom: .5rem;
         text-align: center;
-        // svg {
-        //     position: relative;
-        //     top: .15em;
-        //     margin-right: .4em;
-        //     height: 1.2em;
-        //     width: 1.2em;
-        // }
     }
     .teachers {
         display: flex;
         flex-flow: wrap;
         justify-content: space-around;
         font-size: .78em;
-        margin: 0 .45em;
+        margin: .25rem .45em;
         @media (min-width: $md) {
             margin: 0 -.25em
         }
