@@ -386,8 +386,7 @@ mat-form-field[appearance] {
     .panel-content {
         display: flex;
         align-items: flex-end;
-        padding: 1.9rem;
-        padding: 1.9rem 1.43rem;
+        padding:1.9rem 1.43rem 5.75rem 1.43rem;
         @media (min-width:$md) {
             padding: 1.9rem;
         }
@@ -409,6 +408,19 @@ mat-form-field[appearance] {
                 display: inline-block;
                 bottom: 1.4em;
                 padding: 0 2px;
+                font-size: .9em;
+            }
+            .date {
+                display: inline-block; 
+                position: absolute;
+                @media (min-width:$md) {
+                    display: none;
+                }
+                bottom: -3.25em;
+                left: 0;
+                padding: 0 2px;
+                transform: rotate(-87deg);
+                white-space: nowrap;
                 font-size: .9em;
             }
             &[level="0"],
@@ -494,7 +506,16 @@ mat-form-field[appearance] {
         }
     }
     .button-with-icon {
+        width: 100%;
+        display: block;
+        @media (min-width:$md){
+            display: inline-block;
+            width: unset;
+        }
         margin: 0;
+        button{
+            text-align: center;
+        }
     }
 }
 

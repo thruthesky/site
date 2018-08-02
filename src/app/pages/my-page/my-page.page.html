@@ -167,9 +167,13 @@
                 </span>
             </a>
             <div class="panel-content" *ngIf=" mypage?.progress && mypage.progress.length != 0 ">
-                <div *ngFor=" let idx of a.keys( mypage.progress ) " matTooltip="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}">
+                <div *ngFor=" let idx of a.keys( mypage.progress ) " 
+                     #tooltip="matTooltip"
+                     matTooltip="Teacher: {{ mypage.progress[idx]['teacher_name'] }}. Date: {{ mypage.progress[idx]['date'] }}. Comments: {{  mypage.progress[idx]['comment'] }}"
+                     (click)="tooltip.toggle()">
                     <div class="bar-item" [style.height]="  mypage.progress[idx]['level'] * 10 + 'px' " [attr.level]=" mypage.progress[idx]['level'] ">
                         <span class="level">{{ mypage.progress[idx]['level'] }}</span>
+                        <span class="date">{{ mypage.progress[idx]['date'] }}</span>
                     </div>
                 </div>
             </div>
