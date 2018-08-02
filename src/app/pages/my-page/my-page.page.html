@@ -233,7 +233,7 @@
 
         <div id="auction">
                 <h2>
-                    <a class="title" routerLink="/greetings-list">
+                    <a class="title" routerLink="/auction-list">
                         <span>{{ a.ln.AUCTION_TITLE }}</span>
                         <span class="link-icon">
                                 <span class="link-text">{{ a.ln.OTHERS_AUCTION_LIST }}</span>
@@ -260,6 +260,9 @@
                             </span>
                             <span>{{ a.ln.AUTION_REPLY_DESC }}</span>
                         </div>
+                    </div>
+                    <div>
+                        <button class="py-3 px-4 app-button">{{ a.ln.AUCTION_OPEN_BUTTON }}</button>
                     </div>
                 </div>
                 <form class="auction-form" (ngSubmit)=" onSubmitAuction( $event ) " *ngIf="show.auction">

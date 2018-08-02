@@ -811,10 +811,13 @@
 
   "WECHAT_ADD_FREIND": "Please scan QR code or add WeChat ID.",
 
-  "STUDENT_GREETING_LIST": "Greeting List",
-  "STUDENT_OFFER_LIST": "Offer List",
-  "NEW_STUDENT_LIST": "New Student List"
+  "STUDENT_GREETING_LIST": "Student Greeting List",
+  "STUDENT_OFFER_LIST": "Student Offer List",
+  "NEW_STUDENT_LIST": "New Student List",
 
+  "OTHERS_INTRODUCTION": "View Other Student Greetings",
+  "OTHERS_AUCTION_LIST": "View Other Student Offers",
+  "AUCTION_OPEN_BUTTON": "Begin"
 
 
 }
