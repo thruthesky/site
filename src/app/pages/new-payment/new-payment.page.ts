@@ -326,7 +326,7 @@ export class NewPaymentPage implements AfterViewInit {
     }
     onConfirmManualAmountInput(value) {
         this.inputAmount = false;
-        console.log('amount value: ', value);
+        // console.log('amount value: ', value);
         this.amount = parseInt(value, 10);
     }
 
