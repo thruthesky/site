@@ -162,9 +162,9 @@
     <section id="session-ongoing">
         <h2>Sessions ongoing</h2>
         <div class="timezone"> Timezone: {{ a.userTime }}</div>
-        <!--<audio autoplay>-->
-            <!--<source src='../../../../../assets/sound/chick.mp3' type='audio/mpeg'>-->
-        <!--</audio>-->
+        <audio autoplay loop *ngIf=" alertUnChecked ">
+            <source src='../../../../../assets/sound/siren.mp3' type='audio/mpeg'>
+        </audio>
         <table class="aside-table" *ngIf=" sessions.length ">
             <tr>
                 <th>idx</th>
