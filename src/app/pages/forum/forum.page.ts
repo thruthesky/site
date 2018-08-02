@@ -31,6 +31,7 @@ export class ForumPage implements OnInit {
     posts: Array<WP_POST> = [];
     slug = '';
     title = '';
+    page = 1;
     showLoader = true;
     constructor(
         activated: ActivatedRoute,
@@ -61,28 +62,38 @@ export class ForumPage implements OnInit {
         // console.log('slug: ', slug);
         // console.log(this.a.environment.categories);
         this.showLoader = true;
-        const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment.categories[ slug ];
+        const url = this.a.urlBackend + '/wp-json/wp/v2/posts?categories=' + this.a.environment.categories[slug] + '&page=' + this.page;
 
         // console.log('api: ', url);
 
 
-        this.http.get(url).subscribe((posts: Array<WP_POST>) => {
-            // console.log('posts: ', posts);
-
+        this.http.get(url, { observe: 'response' }).subscribe((resp) => {
+            const posts: Array<WP_POST> = <any>resp.body;
+            const keys = resp['headers'].keys();
+            for (const k of keys) {
+                console.log(`${k} = ` + resp.headers.get(k));
+            }
             if (posts && posts.length) {
-                this.posts = posts;
+                // this.posts = posts;
                 for (const post of posts) {
                     post.content.rendered = <any>this.sanitizer.bypassSecurityTrustHtml(post.content.rendered);
+                    this.posts.push(post);
                 }
             } else {
                 this.modal.alert({ content: this.a.ln['SLUG_IS_EMPTY'] });
             }
             this.showLoader = false;
         }, e => {
-            // console.error(e);
+            console.log(e);
             this.showLoader = false;
         });
     }
+
+    loadMorePosts() {
+        this.page++;
+        this.loadPosts(this.slug);
+    }
+
 }
 
 

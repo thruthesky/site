@@ -13,7 +13,7 @@ describe('My page', () => {
         cy.get("[data-role='my-page-page']");
         cy.get("[data-role='user-name']").should('contain', 'Teser');
         cy.get("[data-role='user-point']").should('contain', '0');
-        cy.get("[data-role='user-level']").should('contain', '0');
+        cy.get("[data-role='user-level']").should('contain', '');
     })
     it('Edit greeting', () => {
         
@@ -49,6 +49,7 @@ describe('My page', () => {
         cy.get("[data-class='auction-saved']");
 
         cy.get("[data-button='auction-delete']").click();
+        cy.get("[data-button='yes']").click();
         cy.get("[data-button='open-auction-box']").click();
         cy.get("[name='comment']").should('be.empty');
     })
