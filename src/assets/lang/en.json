@@ -817,7 +817,10 @@
 
   "OTHERS_INTRODUCTION": "View Other Student Greetings",
   "OTHERS_AUCTION_LIST": "View Other Student Offers",
-  "AUCTION_OPEN_BUTTON": "Begin"
+  "AUCTION_OPEN_BUTTON": "Begin",
+
+  "NO_MORE_POST": "No More Post...",
+  "SHOW_MORE_POST": "Show More Post"
 
 
 }

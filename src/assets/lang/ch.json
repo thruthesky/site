@@ -756,7 +756,10 @@
 
   "OTHERS_INTRODUCTION": "查看其他学生问候",
   "OTHERS_AUCTION_LIST": "查看其他学生优惠",
-  "AUCTION_OPEN_BUTTON": "开始"
+  "AUCTION_OPEN_BUTTON": "开始",
+
+  "NO_MORE_POST": "没有更多的帖子",
+  "SHOW_MORE_POST": "显示更多帖子"
 
 
 

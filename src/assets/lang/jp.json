@@ -730,7 +730,10 @@
 
   "OTHERS_INTRODUCTION": "他の生徒の挨拶を見る",
   "OTHERS_AUCTION_LIST": "他の学生のオファーを見る",
-  "AUCTION_OPEN_BUTTON": "ベギン"
+  "AUCTION_OPEN_BUTTON": "ベギン",
+
+  "NO_MORE_POST": "もう投稿はありません",
+  "SHOW_MORE_POST": "もっと投稿を表示"
 
 
 }

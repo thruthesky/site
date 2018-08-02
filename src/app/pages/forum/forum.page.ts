@@ -33,6 +33,7 @@ export class ForumPage implements OnInit {
     title = '';
     page = 1;
     showLoader = true;
+    noMorePage = false;
     constructor(
         activated: ActivatedRoute,
         public sanitizer: DomSanitizer,
@@ -69,9 +70,21 @@ export class ForumPage implements OnInit {
 
         this.http.get(url, { observe: 'response' }).subscribe((resp) => {
             const posts: Array<WP_POST> = <any>resp.body;
-            const keys = resp['headers'].keys();
-            for (const k of keys) {
-                console.log(`${k} = ` + resp.headers.get(k));
+            // const keys = resp['headers'].keys();
+            // for (const k of keys) {
+            //     // console.log(`${k} = ` + resp.headers.get(k) + ' === ' + this.page);
+            //     // let total = k;
+            //     const total = resp.headers.get(k);
+            //     console.log(k, total, this.page);
+            //     if ( k === 'x-wp-totalpages' && total === this.page  ) {
+            //         this.noMorePage = true;
+            //     }
+            // }
+
+            const totalpages = resp.headers.get('x-wp-totalpages');
+            console.log('total', totalpages);
+            if (totalpages === `${this.page}`) {
+                this.noMorePage = true;
             }
             if (posts && posts.length) {
                 // this.posts = posts;
@@ -83,6 +96,8 @@ export class ForumPage implements OnInit {
                 this.modal.alert({ content: this.a.ln['SLUG_IS_EMPTY'] });
             }
             this.showLoader = false;
+
+
         }, e => {
             console.log(e);
             this.showLoader = false;

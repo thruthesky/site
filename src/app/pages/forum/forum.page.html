@@ -21,8 +21,11 @@
             <mat-spinner [diameter]="48"></mat-spinner>
             <span>{{ a.ln['IN LOADING'] }}</span>
         </div>
-        <div class="load-more">
-            <div class="app-button" *ngIf="!showLoader && posts.length" (click)="loadMorePosts()">SHOW MORE POST</div>
+        <div class="load-more" *ngIf="noMorePage">
+            {{a.ln['NO_MORE_POST']}}
+        </div>
+        <div class="load-more" *ngIf="!noMorePage">
+            <div class="app-button" *ngIf="!showLoader && posts.length" (click)="loadMorePosts()">{{a.ln['SHOW_MORE_POST']}}</div>
         </div>
     </section>
 </main>

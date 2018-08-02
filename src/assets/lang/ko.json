@@ -776,7 +776,10 @@
 
   "OTHERS_INTRODUCTION": "다른 학생의 인사말 보기",
   "OTHERS_AUCTION_LIST": "다른 학생의 선생님 찾기 목록",
-  "AUCTION_OPEN_BUTTON": "선생님 찾기"
+  "AUCTION_OPEN_BUTTON": "선생님 찾기",
+
+  "NO_MORE_POST": "더 이상 게시물이 없다.",
+  "SHOW_MORE_POST": "더 많은 게시물 표시"
 
 
 }
