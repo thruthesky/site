@@ -235,5 +235,20 @@ export class MyPagePage implements OnInit {
         });
         return cnt;
     }
+
+    onClickShowProgressModal(progress) {
+
+        const innerHTML = `<div>Teacher: ${ progress['teacher_name'] }.</div>
+                     <div>Date: ${ progress['date'] }.</div>
+                     <div>Comments: ${  progress['comment'] }</div>`;
+        const data: ModalData = {
+            content: innerHTML
+        };
+        this.modal.alert(data).subscribe(result => {
+            if (result) {
+                //
+            }
+        });
+    }
 }
 

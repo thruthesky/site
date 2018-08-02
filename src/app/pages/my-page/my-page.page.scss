@@ -387,9 +387,9 @@ mat-form-field[appearance] {
         display: flex;
         align-items: flex-end;
         padding:1.9rem 1.43rem 5.75rem 1.43rem;
-        @media (min-width:$md) {
-            padding: 1.9rem;
-        }
+        //@media (min-width:$md) {
+        //    padding: 1.9rem;
+        //}
         font-size: .9em;
         background: #fff;
         overflow: auto;
@@ -413,9 +413,9 @@ mat-form-field[appearance] {
             .date {
                 display: inline-block; 
                 position: absolute;
-                @media (min-width:$md) {
-                    display: none;
-                }
+                //@media (min-width:$md) {
+                //    display: none;
+                //}
                 left: 0;
                 right: 0;
                 bottom: -5.25em;
