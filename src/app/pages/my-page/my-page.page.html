@@ -210,9 +210,11 @@
             </div>
 
             <form (ngSubmit)="onSubmitGreeting( $event )" *ngIf=" mypage ">
-                <mat-form-field appearance="outline">
-                    <textarea matInput name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
-                </mat-form-field>
+                <div class="text-area">
+                    <mat-form-field appearance="outline">
+                        <textarea matInput name="greeting" [(ngModel)]=" mypage.greeting "></textarea>
+                    </mat-form-field>
+                </div>
                 <div class="buttons">
                     <button class="button-with-icon" data-button="greeting-update" type="submit" *ngIf=" ! loader.greeting ">
                         <span>
@@ -268,19 +270,33 @@
                         <div>{{ a.ln.AUCTION_DAYS }}</div>
                         <div class="checkbox-group">
                             <label>
-                                <input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">Sun</label>
+                                <input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">
+                                <span>Sun</span>
+                            </label>
                             <label>
-                                <input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">Mon</label>
+                                <input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">
+                                <span>Mon</span>
+                            </label>
                             <label>
-                                <input type="checkbox" name="tuesday" [(ngModel)]="mypage.auction.tuesday">Tue</label>
+                                <input type="checkbox" name="tuesday" [(ngModel)]="mypage.auction.tuesday">
+                                <span>Tue</span>
+                            </label>
                             <label>
-                                <input type="checkbox" name="wednesday" [(ngModel)]="mypage.auction.wednesday">Wed</label>
+                                <input type="checkbox" name="wednesday" [(ngModel)]="mypage.auction.wednesday">
+                                <span>Wed</span>
+                            </label>
                             <label>
-                                <input type="checkbox" name="thursday" [(ngModel)]="mypage.auction.thursday">Thu</label>
+                                <input type="checkbox" name="thursday" [(ngModel)]="mypage.auction.thursday">
+                                <span>Thu</span>
+                            </label>
                             <label>
-                                <input type="checkbox" name="friday" [(ngModel)]="mypage.auction.friday">Fri</label>
+                                <input type="checkbox" name="friday" [(ngModel)]="mypage.auction.friday">
+                                <span>Fri</span>
+                            </label>
                             <label>
-                                <input type="checkbox" name="saturday" [(ngModel)]="mypage.auction.saturday">Sat</label>
+                                <input type="checkbox" name="saturday" [(ngModel)]="mypage.auction.saturday">
+                                <span>Sat</span>
+                            </label>
                         </div>
                     </div>
                     <div class="time">
