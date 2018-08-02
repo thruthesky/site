@@ -398,6 +398,7 @@ $por-homebased: #FFBF00;
         border-radius: 2px;
         margin: 1.5em 0;
         font-size: .75em;
+
         b{
             display: inline-block;
             margin-bottom: 1em;
@@ -417,6 +418,13 @@ $por-homebased: #FFBF00;
         }
         form{
             text-align: center;
+            .graph-button {
+                display: inline-block;
+                margin-right: .5em;
+                padding: .5em .5em 0;
+                vertical-align: bottom;
+                border: 1px solid lightgrey;
+            }
             input{
                 margin-right: .5em;
                 margin-bottom: .5em;
