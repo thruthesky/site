@@ -829,7 +829,7 @@ mat-form-field[appearance] {
 #auction-student-offers{
     padding: 2rem 1.5rem; 
     @media (min-width:$md) {
-        padding: 1rem ($side-space)-.5;   
+        padding: 1rem #{$side-space}-.5;   
     }
     background: rgba(#B1C5F4,0.4);
     .col-12{
