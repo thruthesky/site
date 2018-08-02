@@ -213,12 +213,12 @@ export class AdminSidebarComponent implements OnInit {
 
     loadUncheckedSession() {
 
-        let sql = `SELECT r.idx, r.date, r.class_begin, r.class_end FROM lms_reservation as r, wp_users WHERE BRANCH AND wp_users.ID = r.idx_student`;
+        let sql = `SELECT r.idx, r.date, r.class_begin, r.class_end, r.stamp_checked FROM lms_reservation as r, wp_users WHERE BRANCH AND wp_users.ID = r.idx_student`;
         const u = this.a.getUTCYmdHisFromUserYmdHi(this.a.getYmdHi());
         const date = u.substr(0, 8);
         const Hi = u.substr(8, 4);
 
-        sql += ` AND alert='' AND (r.date > '${date}' OR (r.date>='${date}' AND class_begin>='${Hi}'))`;
+        sql += ` AND r.stamp_checked=0 AND (r.date > '${date}' OR (r.date>='${date}' AND class_begin>='${Hi}'))`;
         sql += ` ORDER BY r.date ASC, r.class_begin ASC`;
         sql += ` LIMIT 1`;
         // console.log('sql: ', sql);
@@ -233,7 +233,7 @@ export class AdminSidebarComponent implements OnInit {
                     // const b = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_begin);
                     // session.date = b.substr(0, 8);
                     // session.class_begin = b.substr(8, 4);
-                    console.log('uncheckSession::  ', session);
+                    // console.log('uncheckSession::  ', session);
 
                     const d = new Date();
 
@@ -247,6 +247,8 @@ export class AdminSidebarComponent implements OnInit {
 
                     if ( book_stamp <= allow_stamp) {
                         this.alertUnChecked = true;
+                    } else {
+                        this.alertUnChecked = false;
                     }
                 }
             }
