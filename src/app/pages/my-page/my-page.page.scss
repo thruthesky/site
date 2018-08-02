@@ -585,18 +585,28 @@ mat-form-field[appearance] {
         font-size: .8em;
         line-height: 1.5rem;
         cursor: pointer;
+
         svg {
             position: relative;
             top: .125em;
-            margin:0 .4rem;
+            margin-left: .4rem;
             height: 1em;
             width: 1em;
         }
 
+
         .start-button{
-            button{
-                padding: .75rem 1.75rem;
+            .app-button{
+                display: flex;
+                align-items: center;
+                padding: .7rem 1.7rem;
                 background: #1B4AB5;
+                font-size: .75rem;
+
+                svg {
+                    margin: 0;
+                    margin-left: .4em;
+                }
             }
         }
     }
