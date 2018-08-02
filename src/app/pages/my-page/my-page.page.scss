@@ -340,10 +340,9 @@ mat-form-field[appearance] {
 
 
 #progress-bargraph {
-    margin: 0 1.5rem;
+    margin: 0;
     margin-bottom: 2.5rem;
     @media (min-width:$md) {
-        margin: 0;   
         margin-bottom: 3.5rem;     
     }
     border-radius: 2px;
@@ -386,10 +385,10 @@ mat-form-field[appearance] {
     .panel-content {
         display: flex;
         align-items: flex-end;
-        padding:1.9rem 1.43rem 5.75rem 1.43rem;
-        //@media (min-width:$md) {
-        //    padding: 1.9rem;
-        //}
+        padding:1.9rem 1.5rem 5.75rem 1.5rem;
+        @media (min-width:$md) {
+           padding: 1.9rem 2rem 5.75rem 2rem;
+        }
         font-size: .9em;
         background: #fff;
         overflow: auto;
@@ -401,6 +400,9 @@ mat-form-field[appearance] {
         .bar-item {
             position: relative;
             margin: 0 3px;
+            &:first-child{
+                margin-left: 0;
+            }
             border-top-right-radius: 2px;
             border-top-left-radius: 2px;
             text-align: center;
@@ -447,12 +449,13 @@ mat-form-field[appearance] {
 }
 
 #my-introduction {
-    margin: 0 1.5rem;
+    // margin: 0 1.5rem;
     margin-bottom: 2.5rem;
     @media (min-width:$md) {
         margin: 0;
         margin-bottom: 3.5rem;   
     }
+    background: #fff;
     font-size: .85em;
     h2{
         padding: 0;
@@ -480,7 +483,7 @@ mat-form-field[appearance] {
         }
     }
     .my-introduction-desc {
-        margin-bottom: 1rem;
+        margin: 2rem 1.5rem;
         padding: 1em 1.5rem;
         @media (min-width:$md) {
             padding: 1em 2rem;   
@@ -507,16 +510,30 @@ mat-form-field[appearance] {
             margin: .75rem 0;
         }
     }
-    .button-with-icon {
-        width: 100%;
+    form{
         display: block;
-        @media (min-width:$md){
-            display: inline-block;
-            width: unset;
+        .text-area {
+            padding: 0 1.5rem;
         }
-        margin: 0;
-        button{
-            text-align: center;
+        .buttons{
+            padding: 0 1.5rem;
+            padding-bottom: 2rem;
+            .button-with-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                width: 100%;
+                @media (min-width:$md){
+                    display: inline-block;
+                    width: unset;
+                    margin: 1rem;
+                    margin-bottom: 2rem;
+                }
+                button{
+                    text-align: center;
+                }
+            }
         }
     }
 }
@@ -615,21 +632,37 @@ mat-form-field[appearance] {
                 align-items: center;
                 justify-content: space-between;
                 flex-wrap: wrap;
+                margin-top: .5rem;
                 padding: 1em 0;
                 font-size: .85em;
                 @media (min-width:$md) {
-                    font-size: 1rem;
+                    font-size: .9rem;
                 }
                 label {
                     display: flex;
-                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
                     input {
-                        margin: 0;
-                        margin-right: .2em;
-                        @media (min-width:$md) {
-                            margin-right: .5em;
+                        position: absolute;
+                        opacity: 0;
+                        &:checked{
+                            &+span{
+                                border:1px solid rgba(#1B4AB5,0.3);
+                                border-radius: 0;
+                                background: rgba(#B1C5F4,0.2);
+                                color: #1B4AB5;
+                            }
                         }
-                        cursor: pointer;
+                    }
+                    span{
+                        margin: .5rem 0;
+                        padding: .35rem .55rem;
+                        @media (min-width:$md) {
+                            padding: .75rem 1.75rem;
+                        }
+                        border-radius: 2px;
+                        border:1px solid #eee;
+                        background: #eee;
                     }
                     cursor: pointer;
                 }
