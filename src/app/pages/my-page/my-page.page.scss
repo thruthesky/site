@@ -1,4 +1,6 @@
 @import '../../../theme/vars.scss';
+$side-space: 2.5rem;
+
 .link-text {
     display: inline-block;
     padding-right: .5em;
@@ -359,7 +361,7 @@ mat-form-field[appearance] {
         padding: 0;
         padding-left: 1.5rem;
         @media (min-width:$md) {
-            padding-left: 2.5rem;
+            padding-left: $side-space;
         }
         background: #eff0f1;
         font-size: .85em;
@@ -368,7 +370,7 @@ mat-form-field[appearance] {
             display: inline-block;
             padding: .75rem 1.5rem;
             @media (min-width:$md) {
-                padding: .75rem 2.5rem;
+                padding: .75rem $side-space;
             }
             svg{
                 position: relative;
@@ -390,7 +392,7 @@ mat-form-field[appearance] {
         align-items: flex-end;
         padding:1.9rem 1.5rem 5.75rem 1.5rem;
         @media (min-width:$md) {
-           padding: 1.9rem 2.5rem 5.75rem 2.5rem;
+           padding: 1.9rem $side-space 5.75rem $side-space;
         }
         font-size: .9em;
         background: #fff;
@@ -464,7 +466,7 @@ mat-form-field[appearance] {
         padding: 0;
         padding-left: 1.5rem;
         @media (min-width:$md) {
-            padding-left: 2.5rem;
+            padding-left: $side-space;
         }
         &>.title{
             display: flex;
@@ -474,7 +476,7 @@ mat-form-field[appearance] {
             .link-icon{
                 padding: .75rem 1.5rem;
                 @media (min-width:$md) {
-                    padding: .75rem 2.5rem;
+                    padding: .75rem $side-space;
                 }
                 svg{
                     position: relative;
@@ -489,7 +491,7 @@ mat-form-field[appearance] {
         margin: 2rem 1.5rem;
         padding: 1em 1.5rem;
         @media (min-width:$md) {
-            margin: 2rem 2.5rem;
+            margin: 2rem $side-space;
             padding: 1em 2rem;   
         }
         background: #eff0f1;
@@ -519,7 +521,7 @@ mat-form-field[appearance] {
         .text-area {
             padding: 0 1.5rem;
             @media (min-width:$md) {
-                padding: 0 2.5rem;
+                padding: 0 $side-space;
             }
         }
         .buttons{
@@ -555,7 +557,7 @@ mat-form-field[appearance] {
         padding: 0;
         padding-left: 1.5rem;
         @media (min-width:$md) {
-            padding-left: 2.5rem;
+            padding-left: $side-space;
         }
         &>.title{
             display: flex;
@@ -565,7 +567,7 @@ mat-form-field[appearance] {
             .link-icon{
                 padding: .75rem 1.5rem;
                 @media (min-width:$md) {
-                    padding: .75rem 2.5rem;
+                    padding: .75rem $side-space;
                 }
                 svg{
                     position: relative;
@@ -580,7 +582,7 @@ mat-form-field[appearance] {
         margin-bottom: 1rem;
         padding: 1rem 1.5rem;  
         @media (min-width:$md) {
-            padding: 1rem 2rem;  
+            padding: 1rem $side-space;  
         } 
         background: #eff0f1;
         font-size: .8em;
@@ -614,7 +616,7 @@ mat-form-field[appearance] {
         padding: 1.5rem;
         @media (min-width:$md) {
             margin: 0;
-            padding: 2.5rem;  
+            padding: $side-space;  
             background: #fff; 
         }
         font-size: .85em;
@@ -771,7 +773,7 @@ mat-form-field[appearance] {
                 padding: 1rem 1.5rem;
                 padding-right: 1.5rem;
                 @media (min-width:$md) {
-                    padding: 1rem 2.5rem;
+                    padding: 1rem $side-space;
                 }
                 .teacher-photo {
                     display: flex;
@@ -827,7 +829,7 @@ mat-form-field[appearance] {
 #auction-student-offers{
     padding: 2rem 1.5rem; 
     @media (min-width:$md) {
-        padding: 1rem 1.5rem;   
+        padding: 1rem ($side-space)-.5;   
     }
     background: rgba(#B1C5F4,0.4);
     .col-12{
