@@ -23,14 +23,20 @@ $mobile-side-space: 1.75rem;
 
 header {
     h1 {
-        padding: 16px 2rem !important;
+        padding: 16px $mobile-side-space!important;
+        @media (min-width:$md) {
+            padding: 16px $desktop-side-space !important;   
+        }
     }
 }
 
 .page-content {
     padding-bottom: 5em;
     .page-description {
-        padding: .75em 2rem;
+        padding: .75em $mobile-side-space;
+        @media (min-width:$md) {
+            padding: .75em $desktop-side-space;
+        }
         font-size: .8em;
         background: #B1C5F4;
     }
