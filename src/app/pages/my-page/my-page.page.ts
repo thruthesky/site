@@ -46,7 +46,7 @@ export class MyPagePage implements OnInit {
 
         this.loader.mypage = true;
         a.lms.mypage().subscribe(re => {
-            console.log('mypage: ', re);
+            // console.log('mypage: ', re);
             this.loader.mypage = false;
             this.mypage = re;
             // console.log('mypage: ', this.mypage);
@@ -234,6 +234,21 @@ export class MyPagePage implements OnInit {
             }
         });
         return cnt;
+    }
+
+    onClickShowProgressModal(progress) {
+
+        const innerHTML = `<div>Teacher: ${ progress['teacher_name'] }.</div>
+                     <div>Date: ${ progress['date'] }.</div>
+                     <div>Comments: ${  progress['comment'] }</div>`;
+        const data: ModalData = {
+            content: innerHTML
+        };
+        this.modal.alert(data).subscribe(result => {
+            if (result) {
+                //
+            }
+        });
     }
 }
 

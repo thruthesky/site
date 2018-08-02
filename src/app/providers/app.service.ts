@@ -848,7 +848,7 @@ export class AppService {
             login = '-login';
         }
         key += '-' + options.teachers.toString() + login;
-        console.log('cacheKeySchedule:', key);
+        // console.log('cacheKeySchedule:', key);
         return key;
     }
 
@@ -2181,7 +2181,7 @@ export class AppService {
      */
     get branch() {
         let defaultClassSoftware = DEFAULT_CLASS_SOFTWARE;
-        console.log('info: ', this.info);
+        // console.log('info: ', this.info);
         if (this.info && this.info.branch !== void 0 && this.info.branch.class_software !== void 0) {
             defaultClassSoftware = this.info.branch.class_software;
         }

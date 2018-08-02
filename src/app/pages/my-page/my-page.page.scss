@@ -386,21 +386,21 @@ mat-form-field[appearance] {
     .panel-content {
         display: flex;
         align-items: flex-end;
-        padding: 1.9rem;
-        padding: 1.9rem 1.43rem;
-        @media (min-width:$md) {
-            padding: 1.9rem;
-        }
+        padding:1.9rem 1.43rem 5.75rem 1.43rem;
+        //@media (min-width:$md) {
+        //    padding: 1.9rem;
+        //}
         font-size: .9em;
         background: #fff;
         overflow: auto;
         &>div {
             flex: auto;
-            max-width: 4em;
+            max-width: 2.5rem;
+            cursor: pointer;
         }
         .bar-item {
             position: relative;
-            margin: 0 1.5px;
+            margin: 0 3px;
             border-top-right-radius: 2px;
             border-top-left-radius: 2px;
             text-align: center;
@@ -409,6 +409,20 @@ mat-form-field[appearance] {
                 display: inline-block;
                 bottom: 1.4em;
                 padding: 0 2px;
+                font-size: .9em;
+            }
+            .date {
+                display: inline-block; 
+                position: absolute;
+                //@media (min-width:$md) {
+                //    display: none;
+                //}
+                left: 0;
+                right: 0;
+                bottom: -5.25em;
+                padding: 0 2px;
+                transform: rotate(-87deg);
+                white-space: nowrap;
                 font-size: .9em;
             }
             &[level="0"],
@@ -494,7 +508,16 @@ mat-form-field[appearance] {
         }
     }
     .button-with-icon {
+        width: 100%;
+        display: block;
+        @media (min-width:$md){
+            display: inline-block;
+            width: unset;
+        }
         margin: 0;
+        button{
+            text-align: center;
+        }
     }
 }
 
