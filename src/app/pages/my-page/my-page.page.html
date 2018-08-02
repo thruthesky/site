@@ -261,8 +261,8 @@
                             <span>{{ a.ln.AUTION_REPLY_DESC }}</span>
                         </div>
                     </div>
-                    <div>
-                        <button class="py-3 px-4 app-button">{{ a.ln.AUCTION_OPEN_BUTTON }}</button>
+                    <div class="start-button">
+                        <button class=" app-button">{{ a.ln.AUCTION_OPEN_BUTTON }}</button>
                     </div>
                 </div>
                 <form class="auction-form" (ngSubmit)=" onSubmitAuction( $event ) " *ngIf="show.auction">
