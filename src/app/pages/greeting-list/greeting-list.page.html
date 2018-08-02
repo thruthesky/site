@@ -46,11 +46,12 @@
                     </div>
                 </ng-container>
             </div>
+
+            <div class="no-more" *ngIf=" greetings?.greetings?.length ">
+                No Greetings yet...
+            </div>
         </div>
 
-        <div class="no-more" *ngIf=" !greetings || greetings.length == 0 ">
-            No Greetings yet...
-        </div>
         <div class="pagination">
             <page-navigator-component [no_of_total_items]=" pageOption['totalRecord']"
                                       [no_of_items_in_one_page]=" pageOption['limitPerPage'] "

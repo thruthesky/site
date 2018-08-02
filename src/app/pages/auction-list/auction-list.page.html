@@ -51,11 +51,12 @@
                         </div>
                 </div>
             </div>
+
+            <div class="no-more" *ngIf=" auctions?.auctions?.length ">
+                No Auctions yet...
+            </div>
         </div>
 
-        <div class="no-more" *ngIf=" !auctions || auctions.length == 0 ">
-            No Auctions yet...
-        </div>
 
         <div class="pagination">
             <page-navigator-component [no_of_total_items]=" pageOption['totalRecord']"
