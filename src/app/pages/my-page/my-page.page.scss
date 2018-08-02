@@ -395,11 +395,11 @@ mat-form-field[appearance] {
         overflow: auto;
         &>div {
             flex: auto;
-            max-width: 4em;
+            max-width: 2.5rem;
         }
         .bar-item {
             position: relative;
-            margin: 0 1.5px;
+            margin: 0 3px;
             border-top-right-radius: 2px;
             border-top-left-radius: 2px;
             text-align: center;
@@ -416,8 +416,9 @@ mat-form-field[appearance] {
                 @media (min-width:$md) {
                     display: none;
                 }
-                bottom: -3.25em;
                 left: 0;
+                right: 0;
+                bottom: -5.25em;
                 padding: 0 2px;
                 transform: rotate(-87deg);
                 white-space: nowrap;
