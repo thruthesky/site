@@ -33,13 +33,8 @@ context('OnTue Register', () => {
             cy.get("[name='password']").type(chance.string({
                 length: 8
             }));
-            cy.get("[name='bookable_time'").type(15);
             cy.get("[name='phone_number'").type(chance.phone());
-            cy.get("[name='skype']").type(skypeId);
-            cy.get("[name='kakaotalk']").type(kakaotalkId);
-            cy.get("[name='wechat']").type(wechatId);
-            cy.get("[name='line']").type(lineId);
-            cy.get("[name='qq']").type(qqId);
+            cy.get("[data-button='gender-female']").click();
             cy.get("[name='month']").select("02");
             cy.get("[name='day']").select("03");
             cy.get("[name='year']").select("1984");
@@ -53,7 +48,18 @@ context('OnTue Register', () => {
         it('open profile page', () => {
             cy.open('register', 'register-page');
         })
+        it('update teacher info', () => {
+            cy.get("[name='bookable_time'").type(15);
+            cy.get("[name='skype']").type(skypeId);
+            cy.get("[name='kakaotalk']").type(kakaotalkId);
+            cy.get("[name='wechat']").type(wechatId);
+            cy.get("[name='line']").type(lineId);
+            cy.get("[name='qq']").type(qqId);
+            cy.get("[type='submit']").click();
+            cy.get("[data-role='profile-title']")
+        })
         it('check messenger id', () => {
+            cy.open('register', 'register-page');
             cy.get("[name='skype']").should('have.value', skypeId)
             cy.get("[name='kakaotalk']").should('have.value', kakaotalkId)
             cy.get("[name='wechat']").should('have.value', wechatId)
