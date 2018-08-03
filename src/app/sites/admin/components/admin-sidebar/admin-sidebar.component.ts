@@ -225,7 +225,7 @@ export class AdminSidebarComponent implements OnInit {
         this.a.lms.admin_query({
             sql: sql
         }).subscribe( re => {
-            console.log('loadUncheckedSession: ', re);
+            // console.log('loadUncheckedSession: ', re);
 
             if (re.length) {
                 for (const session of re) {

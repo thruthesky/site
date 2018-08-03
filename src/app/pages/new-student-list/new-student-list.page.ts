@@ -19,6 +19,7 @@ export class NewStudentListPage implements OnInit {
     };
 
     showLoader = false;
+    uid = '';
 
     constructor(
         public a: AppService,
@@ -31,16 +32,15 @@ export class NewStudentListPage implements OnInit {
     loadNewStudent() {
         this.showLoader = true;
         this.a.lms.get_latest_student_register({
+            uid: this.uid,
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
         }).subscribe( res => {
             // console.log('students:: ', res);
-            if (res) {
-                this.pageOption.currentPage = res['page'];
-                this.pageOption.limitPerPage = res['limit'];
-                this.pageOption.totalRecord = res['total'];
-                this.students = res['students'];
-            }
+            this.pageOption.currentPage = res['page'];
+            this.pageOption.limitPerPage = res['limit'];
+            this.pageOption.totalRecord = res['total'];
+            this.students = res['students'];
             this.showLoader = false;
         }, e => {
             this.a.toast(e);
@@ -53,6 +53,14 @@ export class NewStudentListPage implements OnInit {
 
     onPageClick($event) {
         this.pageOption['currentPage'] = $event;
+        this.loadNewStudent();
+    }
+
+
+    onSubmitUserSearch() {
+        this.pageOption.currentPage = 1;
+        this.pageOption.limitPerPage = 10;
+        this.pageOption.totalRecord = 0;
         this.loadNewStudent();
     }
 

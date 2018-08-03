@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
-import { AUCTION, AUCTION_LIST_OPTION } from '../../modules/xapi/lms.service';
 import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
+import { AUCTIONS } from '../../modules/xapi/lms.service';
 
 @Component({
     selector: 'auction-list-page',
@@ -9,7 +9,7 @@ import { MessageSendModalService } from '../../providers/message-send-modal/mess
     styleUrls: ['auction-list.page.scss']
 })
 export class AuctionListPage implements OnInit {
-    auctions: AUCTION_LIST_OPTION = null;
+    auctions: AUCTIONS = null;
 
     pageOption = {
         limitPerPage: 10,

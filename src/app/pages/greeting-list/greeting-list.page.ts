@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
-import { GREETING_LIST_OPTION } from '../../modules/xapi/interfaces';
+import { GREETINGS } from '../../modules/xapi/interfaces';
 
 @Component({
     selector: 'greeting-list-page',
@@ -9,7 +9,7 @@ import { GREETING_LIST_OPTION } from '../../modules/xapi/interfaces';
     styleUrls: ['greeting-list.page.scss']
 })
 export class GreetingListPage implements OnInit {
-    greetings: GREETING_LIST_OPTION = null;
+    greetings: GREETINGS = null;
 
     pageOption = {
         limitPerPage: 10,

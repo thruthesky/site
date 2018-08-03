@@ -43,9 +43,9 @@
 
 
     <div class="buttons-bottom">
+        <div class="pb-5" *ngIf="message_count < limit">{{ 'NO_MORE_MESSAGES' | t }}</div>
         <button *ngIf="page_no > 1" (click)="onClickPrevious()">{{ 'PREVIOUS' | t }}</button>
         <button *ngIf="message_count == limit" (click)="onClickNext()"> {{ 'NEXT' | t }}</button>
-        <div *ngIf="message_count < limit">{{ 'NO_MORE_MESSAGES' | t }}</div>
     </div>
 
 </div>

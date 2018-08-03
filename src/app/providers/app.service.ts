@@ -2199,9 +2199,9 @@ export class AppService {
         }
         this.lms.get_message_count_by_status({}).subscribe(res => {
             // console.log('check_message_count:: ', res);
-            if (res > 0) {
+            // if (res > 0) {
                 this.message_count = res;
-            }
+            // }
         }, e => {
             this.toast(e);
         });

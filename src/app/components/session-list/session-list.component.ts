@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AppService, KEY_SCHEDULES, SHARE_SESSION_LIST } from '../../providers/app.service';
 import { ModalData, ModalService } from '../../providers/modal/modal.service';
 import { KAKAOTALK } from '../../providers/defines';
+import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
 
 @Component({
     selector: 'session-list-component',
@@ -46,7 +47,8 @@ export class SessionListComponent implements OnInit {
 
 
     constructor(public a: AppService,
-                public modal: ModalService
+                public modal: ModalService,
+                public messageSend: MessageSendModalService
     ) {
         this.myClassSoftware = this.a.lmsInfo('user.class_software');
 

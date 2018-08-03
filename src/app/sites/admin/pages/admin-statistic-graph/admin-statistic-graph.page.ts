@@ -24,7 +24,9 @@ export class AdminStatisticGraphPage implements OnInit {
     ) {
 
         this.today = a.getYmd();
-        this.onClickSelectDate();
+
+        // this.onClickSelectDate();
+        this.onClickSelectDate(1, 1);
 
     }
 
@@ -37,7 +39,7 @@ export class AdminStatisticGraphPage implements OnInit {
             date_begin: this.stat_date_begin,
             date_end: this.stat_date_end
         }).subscribe(res => {
-            // console.log('admin statistics: ', res);
+            console.log('admin statistics: ', res);
             this.stats = res;
             this.loader.booking = false;
         }, e => {
