@@ -269,34 +269,13 @@
                     <div class="day">
                         <div>{{ a.ln.AUCTION_DAYS }}</div>
                         <div class="checkbox-group">
-                            <label>
-                                <input type="checkbox" name="sunday" [(ngModel)]="mypage.auction.sunday">
-                                <span>{{ a.ln.SUNDAY }}</span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="monday" [(ngModel)]="mypage.auction.monday">
-                                <span>{{ a.ln.MONDAY }}</span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="tuesday" [(ngModel)]="mypage.auction.tuesday">
-                                <span>{{ a.ln.TUESDAY }}</span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="wednesday" [(ngModel)]="mypage.auction.wednesday">
-                                <span>{{ a.ln.WEDNESDAY }}</span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="thursday" [(ngModel)]="mypage.auction.thursday">
-                                <span>{{ a.ln.THURSDAY }}</span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="friday" [(ngModel)]="mypage.auction.friday">
-                                <span>{{ a.ln.FRIDAY }}</span>
-                            </label>
-                            <label>
-                                <input type="checkbox" name="saturday" [(ngModel)]="mypage.auction.saturday">
-                                <span>{{ a.ln.SATURDAY }}</span>
-                            </label>
+                            <mat-checkbox name="sunday" [(ngModel)]="mypage.auction.sunday">{{ a.ln.SUNDAY }}</mat-checkbox>
+                            <mat-checkbox name="monday" [(ngModel)]="mypage.auction.monday">{{ a.ln.MONDAY }}</mat-checkbox>
+                            <mat-checkbox name="tuesday" [(ngModel)]="mypage.auction.tuesday">{{ a.ln.TUESDAY }}</mat-checkbox>
+                            <mat-checkbox name="wednesday" [(ngModel)]="mypage.auction.wednesday">{{ a.ln.WEDNESDAY }}</mat-checkbox>
+                            <mat-checkbox name="thursday" [(ngModel)]="mypage.auction.thursday">{{ a.ln.THURSDAY }}</mat-checkbox>
+                            <mat-checkbox name="friday" [(ngModel)]="mypage.auction.friday">{{ a.ln.FRIDAY }}</mat-checkbox>
+                            <mat-checkbox name="saturday" [(ngModel)]="mypage.auction.saturday">{{ a.ln.SATURDAY }}</mat-checkbox>
                         </div>
                     </div>
                     <div class="time">

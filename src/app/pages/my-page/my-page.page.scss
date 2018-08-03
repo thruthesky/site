@@ -659,43 +659,24 @@ mat-form-field[appearance] {
             .checkbox-group {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: space-around;
                 flex-wrap: wrap;
-                margin-top: .5rem;
-                padding: 1em 0;
                 font-size: .85em;
                 @media (min-width:$md) {
+                    justify-content: space-between;
+                    margin-top: .5rem;
+                    padding: 1em 0;
                     font-size: .9rem;
                 }
-                label {
-                    display: flex;
-                    justify-content: space-between;
-                    flex-wrap: wrap;
-                    input {
-                        position: absolute;
-                        opacity: 0;
-                        &:checked{
-                            &+span{
-                                border:1px solid rgba(#1B4AB5,0.3);
-                                border-radius: 0;
-                                background: rgba(#B1C5F4,0.2);
-                                color: #1B4AB5;
-                            }
-                        }
+                mat-checkbox{
+                    margin-top: 1rem;
+                    margin-right: 1rem;
+                    @media (min-width:$md) {
+                        margin: 0;
                     }
-                    span{
-                        margin: .5rem 0;
-                        padding: .35rem .55rem;
-                        @media (min-width:$md) {
-                            padding: .75rem 1.75rem;
-                        }
-                        border-radius: 2px;
-                        border:1px solid #eee;
-                        background: #eee;
-                    }
-                    cursor: pointer;
                 }
             }
+
         }
         .time,
         .duration,
