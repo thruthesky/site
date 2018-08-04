@@ -936,6 +936,7 @@ export class XapiLMSService extends Base {
 
     admin_message_list(req): Observable<any> {
         req['route'] = 'lms.admin_message_list';
+        req['session_id'] = this.user.sessionId;
         return this.x.post(req);
     }
 

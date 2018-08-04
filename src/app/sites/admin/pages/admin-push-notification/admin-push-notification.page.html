@@ -1,84 +1,119 @@
-<b class="warning">todo: merge root domain with www sub domain.</b>
-<h2>How to use</h2>
-<ol>
-    <li>
-        Choose one of user type or domain or email.
-        <br> You can select only one of them. Email is for test purpose.
-    </li>
-    <li>
-        Input the post no. and click [check] button.
-        <br> Url, title, body will be automatically set.
-    </li>
-    <li>
-        Change URL of domain.
-        <br> For student, you may want to user https://www.katalkenglish.com/post/ID
-        <br> For teacher, you will use https://www.ontue.com/post/ID
-    </li>
-</ol>
-<form (ngSubmit)="onSubmit( $event )">
-    <div *ngIf="a.isSuperManager">
-        <label>User type:</label>
-        <select name="user_type" [(ngModel)]="form.user_type">
-            <option value=''>Select User Type</option>
-            <option value="A">All user(including un-registered): {{ stat.no_of_user }}</option>
-            <option value="S">Students: {{ stat.no_of_student }}</option>
-            <option value="T">Teachers: {{ stat.no_of_teacher }}</option>
-            <option value="TEST">Test Users: {{ stat.no_of_test_user }}</option>
-        </select>
-    </div>
-    <div *ngIf="a.isSuperManager">
-        <label>Domain of push notification token table ( Not user domain ):</label>
-        <select name="domain" [(ngModel)]="form.domain">
-            <ng-container *ngIf="a.isSuperManager">
-                <option value=''>Select Domain</option>
-                <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
-                    {{ domain['domain'] ? domain['domain'] : 'No domain' }} : {{ domain['cnt'] }}
-                </option>
-            </ng-container>
-            <option *ngIf="!a.isSuperManager" value="{{a.user.manager}}">{{a.user.manager}}</option>
-        </select>
-    </div>
+<h2>Send Push Notification</h2>
+<section *ngIf="a.isSuperManager">
+    <h2>How to use</h2>
+    <ol>
+        <li>
+            Choose one of user type or domain or email.
+            <br> You can select only one of them. Email is for test purpose.
+        </li>
+        <li>
+            Input the post no. and click [check] button.
+            <br> Url, title, body will be automatically set.
+        </li>
+        <li>
+            Change URL of domain.
+            <br> For student, you may want to user https://www.katalkenglish.com/post/ID
+            <br> For teacher, you will use https://www.ontue.com/post/ID
+        </li>
+    </ol>
+    <form (ngSubmit)="onSubmit( $event )">
+        <div *ngIf="a.isSuperManager">
+            <label>User type:</label>
+            <select name="user_type" [(ngModel)]="form.user_type">
+                <option value=''>Select User Type</option>
+                <option value="A">All user(including un-registered): {{ stat.no_of_user }}</option>
+                <option value="S">Students: {{ stat.no_of_student }}</option>
+                <option value="T">Teachers: {{ stat.no_of_teacher }}</option>
+                <option value="TEST">Test Users: {{ stat.no_of_test_user }}</option>
+            </select>
+        </div>
+        <div *ngIf="a.isSuperManager">
+            <label>Domain of push notification token table ( Not user domain ):</label>
+            <select name="domain" [(ngModel)]="form.domain">
+                <ng-container *ngIf="a.isSuperManager">
+                    <option value=''>Select Domain</option>
+                    <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
+                        {{ domain['domain'] ? domain['domain'] : 'No domain' }} : {{ domain['cnt'] }}
+                    </option>
+                </ng-container>
+                <option *ngIf="!a.isSuperManager" value="{{a.user.manager}}">{{a.user.manager}}</option>
+            </select>
+        </div>
 
-    <div *ngIf="a.isSuperManager">
-        <label>Email:</label>
-        <input type="text" name="email" [(ngModel)]="form.email"> 
-        <span class="note">For test purpose. You can send push to only this use.</span>
-    </div>
-
-    <div>
-        <label>Post No.:</label>
-        <input type="text" name="postId" [(ngModel)]="form.postId">
-        <button class="check-button" type="button" (click)="onClickCheck()">CHECK</button>
-    </div>
-
-    <ng-container *ngIf=" post?.id ">
+        <div *ngIf="a.isSuperManager">
+            <label>Email:</label>
+            <input type="text" name="email" [(ngModel)]="form.email">
+            <span class="note">For test purpose. You can send push to only this use.</span>
+        </div>
 
         <div>
-            Url: https://
-            <select name="url_domain" [(ngModel)]="form.urlDomain">
-                <option value=''>Select Domain</option>
-                <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
-                    {{ domain['domain'] ? domain['domain'] : '' }}
-                </option>
-            </select>
-            /post/{{ form.postId }}
+            <label>Post No.:</label>
+            <input type="text" name="postId" [(ngModel)]="form.postId">
+            <button class="check-button" type="button" (click)="onClickCheck()">CHECK</button>
         </div>
+
+        <ng-container *ngIf=" post?.id ">
+
+            <div>
+                Url: https://
+                <select name="url_domain" [(ngModel)]="form.urlDomain">
+                    <option value=''>Select Domain</option>
+                    <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
+                        {{ domain['domain'] ? domain['domain'] : '' }}
+                    </option>
+                </select>
+                /post/{{ form.postId }}
+            </div>
+            <div class="text-area">
+                <label>Title:</label>
+                <textarea class="post-input" type="text" name="title" [(ngModel)]="form.title"></textarea>
+            </div>
+            <div class="text-area">
+                <label>Content:</label>
+                <textarea class="post-input" type="text" name="body" [(ngModel)]="form.body"></textarea>
+            </div>
+
+        </ng-container>
+        <div>
+            <button class="submit-button" type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
+            <div class="loader" *ngIf=" loader.send ">
+                <mat-spinner [diameter]="28"></mat-spinner>
+                Sending...
+            </div>
+        </div>
+
+    </form>
+</section>
+
+<section *ngIf="!a.isSuperManager">
+    <h4>How to send notification</h4>
+    <ol>
+        <li>
+            <div>Input the title of the notification</div>
+        </li>
+        <li>
+            <div>Input the content of the notification</div>
+        </li>
+        <li>
+            <div>Click the Send button and it will send the notification to all your students.</div>
+        </li>
+    </ol>
+    <form (ngSubmit)="onSubmit( $event )">
         <div class="text-area">
             <label>Title:</label>
             <textarea class="post-input" type="text" name="title" [(ngModel)]="form.title"></textarea>
         </div>
         <div class="text-area">
-            <label>Body:</label>
+            <label>Content:</label>
             <textarea class="post-input" type="text" name="body" [(ngModel)]="form.body"></textarea>
         </div>
-
-    </ng-container>
-    <div>
-        <button class="submit-button" type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
-        <div class="loader" *ngIf=" loader.send ">
-            <mat-spinner [diameter]="28"></mat-spinner>
-            Sending...
+        <div>
+            <button class="submit-button" type="submit" *ngIf=" !loader.send ">Send Push Notification</button>
+            <div class="loader" *ngIf=" loader.send ">
+                <mat-spinner [diameter]="28"></mat-spinner>
+                Sending...
+            </div>
         </div>
-    </div>
 
-</form>
+    </form>
+</section>

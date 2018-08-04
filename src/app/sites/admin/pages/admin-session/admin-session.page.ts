@@ -161,12 +161,12 @@ export class AdminSessionPage implements OnInit {
             event.preventDefault();
         }
         // console.log('form:', this.form);
-        let idMatch = 'u.ID = r.idx_student';
+        let idMatch = 'wp_users.ID = r.idx_student';
         if (this.form.user_group || this.form.grade) {
-            idMatch = 'u.ID = r.idx_teacher';
+            idMatch = 'wp_users.ID = r.idx_teacher';
         }
 
-        let sql = `SELECT r.*,u.user_group FROM lms_reservation as r, wp_users as u WHERE BRANCH AND ${idMatch}`;
+        let sql = `SELECT r.*,wp_users.user_group FROM lms_reservation as r, wp_users WHERE BRANCH AND ${idMatch}`;
         const where = this.getWhere();
         if (where) {
             sql += ` AND ${where}`;

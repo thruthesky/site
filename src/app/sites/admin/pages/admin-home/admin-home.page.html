@@ -1,7 +1,7 @@
 <section id="statistics-graph">
     <div class="form">
         <form (ngSubmit)=" loadAdminStatistics() ">
-            <a class="graph-button" routerLink="./statistic-graph">
+            <a *ngIf=" a.isSuperManager " class="graph-button" routerLink="./statistic-graph">
                 <svg width="24px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M500 384c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v308h436zm-308-44v-72c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v72c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0V204c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v136c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0V140c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v200c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0V108c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v232c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12z" class=""></path></svg>
             </a>
             <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
@@ -17,74 +17,80 @@
         </form>
     </div>
 
-    <div class="loader" *ngIf=" loader.booking ">
-        <mat-spinner [diameter]="48"></mat-spinner>
-        <span>Loading...</span>
-    </div>
+    <div *ngIf=" a.isSuperManager ">
+        <div class="loader" *ngIf=" loader.booking ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>Loading...</span>
+        </div>
 
-    <div class="total-point-share container-fluid" *ngIf="stats && !loader.booking && a.isSuperManager">
-        <div class="header">
-            <span>Shares Computation</span>
-            <span class="note">
+        <div class="total-point-share container-fluid" *ngIf="stats && !loader.booking">
+            <div class="header">
+                <span>Shares Computation</span>
+                <span class="note">
                 <b>PHP</b> {{ stats['usd_to_php'] }}
                 <span>Note:</span>
                 <b class="teacher-share">Teacher Share</b> is the {{stats.teacher_percent}}% of
                 <b class="total-point">Total Point</b>
             </span>
+            </div>
+            <table class="table-share" width="100%">
+                <tr>
+                    <th>Total</th>
+                    <th>{{ stats.total_point_of_reservation | number }}</th>
+                    <th>100%</th>
+                    <th width="170">Share After Deduction</th>
+                    <th>USD</th>
+                    <th>PHP</th>
+                </tr>
+                <tr>
+                    <th>Office</th>
+                    <td>{{stats.office_share | number}}</td>
+                    <td>{{stats.office_percent}}%</td>
+                    <td width="170">{{stats.office_share_after_deduction | number }}</td>
+                    <td>{{stats.office_share_in_usd | number }}</td>
+                    <td>{{stats.office_share_in_php | number }}</td>
+                </tr>
+                <tr>
+                    <th>Branch</th>
+                    <td>{{stats.branch_share | number }}</td>
+                    <td>{{stats.branch_percent}}%</td>
+                    <td>{{stats.branch_share_after_deduction | number }}</td>
+                    <td>{{stats.branch_share_in_usd | number }}</td>
+                    <td>{{stats.branch_share_in_php | number }}</td>
+                </tr>
+                <tr>
+                    <th>Teacher</th>
+                    <td>{{stats.teacher_share | number }}</td>
+                    <td>{{stats.teacher_percent}}%</td>
+                    <td>{{stats.teacher_share_after_deduction | number }}</td>
+                    <td>{{stats.teacher_share_in_usd | number }}</td>
+                    <td>{{stats.teacher_share_in_php | number }}</td>
+                </tr>
+                <tr>
+                    <th>Withcenter</th>
+                    <td>{{stats.teacher_share_withcenter | number}}</td>
+                    <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
+                    <td width="170">{{stats.teacher_share_withcenter_after_deduction | number}}</td>
+                    <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
+                    <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
+                </tr>
+                <tr>
+                    <th>Homebase</th>
+                    <td>{{stats.teacher_share - stats.teacher_share_withcenter | number }}</td>
+                    <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 |
+                        number}}%
+                    </td>
+                    <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction |
+                        number}}
+                    </td>
+                    <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number}}</td>
+                    <td>{{stats.teacher_share_in_php - stats.teacher_share_withcenter_in_php | number}}</td>
+                </tr>
+            </table>
         </div>
-        <table class="table-share" width="100%">
-            <tr>
-                <th>Total</th>
-                <th>{{ stats.total_point_of_reservation | number }}</th>
-                <th>100%</th>
-                <th width="170">Share After Deduction</th>
-                <th>USD</th>
-                <th>PHP</th>
-            </tr>
-            <tr>
-                <th>Office</th>
-                <td>{{stats.office_share | number}}</td>
-                <td>{{stats.office_percent}}%</td>
-                <td width="170">{{stats.office_share_after_deduction | number }}</td>
-                <td>{{stats.office_share_in_usd | number }}</td>
-                <td>{{stats.office_share_in_php | number }}</td>
-            </tr>
-            <tr>
-                <th>Branch</th>
-                <td>{{stats.branch_share | number }}</td>
-                <td>{{stats.branch_percent}}%</td>
-                <td>{{stats.branch_share_after_deduction | number }}</td>
-                <td>{{stats.branch_share_in_usd | number }}</td>
-                <td>{{stats.branch_share_in_php | number }}</td>
-            </tr>
-            <tr>
-                <th>Teacher</th>
-                <td>{{stats.teacher_share | number }}</td>
-                <td>{{stats.teacher_percent}}%</td>
-                <td>{{stats.teacher_share_after_deduction | number }}</td>
-                <td>{{stats.teacher_share_in_usd | number }}</td>
-                <td>{{stats.teacher_share_in_php | number }}</td>
-            </tr>
-            <tr>
-                <th>Withcenter</th>
-                <td>{{stats.teacher_share_withcenter | number}}</td>
-                <td>{{stats.teacher_share_withcenter / stats.teacher_share * 100 | number}}%</td>
-                <td width="170">{{stats.teacher_share_withcenter_after_deduction | number}}</td>
-                <td>{{stats.teacher_share_withcenter_in_usd | number}}</td>
-                <td>{{stats.teacher_share_withcenter_in_php | number}}</td>
-            </tr>
-            <tr>
-                <th>Homebase</th>
-                <td>{{stats.teacher_share - stats.teacher_share_withcenter | number }}</td>
-                <td>{{(stats.teacher_share - stats.teacher_share_withcenter) / stats.teacher_share * 100 | number}}%</td>
-                <td>{{stats.teacher_share_after_deduction - stats.teacher_share_withcenter_after_deduction | number}}</td>
-                <td>{{stats.teacher_share_in_usd - stats.teacher_share_withcenter_in_usd | number}}</td>
-                <td>{{stats.teacher_share_in_php - stats.teacher_share_withcenter_in_php | number}}</td>
-            </tr>
-        </table>
     </div>
 
-    <div id="booking-statistics" *ngIf="stats && !loader.booking">
+    <div id="booking-statistics" *ngIf="stats && !loader.booking && a.isSuperManager">
         <div class="header">
             <b>
                 Booking Statistics
@@ -150,7 +156,7 @@
 
 
     <!-- -RESERVATION GRAPH- -->
-    <div class="bar-graph-container" *ngIf=" stats ">
+    <div class="bar-graph-container" *ngIf=" stats && a.isSuperManager">
         <div class="bar-graph-content" id="overall-reservations-graph">
             <div *ngFor="let date of a.keys(stats['no_of_reservations'])">
                 <div class="bar-item" matTooltip="{{ date }} : {{ stats['no_of_reservations'][date] }}"
