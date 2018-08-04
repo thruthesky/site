@@ -53,6 +53,26 @@ export class AdminHomePage implements OnInit {
 
     ngOnInit() { }
 
+    onClickSelectDate( begin = null, end = null ) {
+        const d = new Date();
+
+        if ( begin != null ) {
+            const begin_date = new Date( d.getTime() - ( begin * 24 * 60 * 60 * 1000) );
+            this.stat_date_begin = parseInt(begin_date.getFullYear() + this.a.add0((begin_date.getMonth() + 1)) + this.a.add0(begin_date.getDate()), 10);
+        } else {
+            this.stat_date_begin = parseInt(d.getFullYear() + this.a.add0((d.getMonth() + 1)) + this.a.add0(1), 10);
+        }
+
+        if ( end != null ) {
+            const end_date = new Date( d.getTime() + ( end * 24 * 60 * 60 * 1000) );
+            this.stat_date_end = parseInt(end_date.getFullYear() + this.a.add0((end_date.getMonth() + 1)) + this.a.add0(end_date.getDate()), 10);
+        } else {
+            const lastDayOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+            this.stat_date_end = parseInt(d.getFullYear() + this.a.add0((d.getMonth() + 1)) + lastDayOfMonth.getDate(), 10);
+        }
+
+        this.loadAdminStatistics();
+    }
 
     loadAdminStatistics() {
         this.loader.booking = true;
@@ -202,26 +222,7 @@ export class AdminHomePage implements OnInit {
         return Math.floor(no / div) + 'px';
     }
 
-    onClickSelectDate( begin = null, end = null ) {
-        const d = new Date();
 
-        if ( begin != null ) {
-            const begin_date = new Date( d.getTime() - ( begin * 24 * 60 * 60 * 1000) );
-            this.stat_date_begin = parseInt(begin_date.getFullYear() + this.a.add0((begin_date.getMonth() + 1)) + this.a.add0(begin_date.getDate()), 10);
-        } else {
-            this.stat_date_begin = parseInt(d.getFullYear() + this.a.add0((d.getMonth() + 1)) + this.a.add0(1), 10);
-        }
-
-        if ( end != null ) {
-            const end_date = new Date( d.getTime() + ( end * 24 * 60 * 60 * 1000) );
-            this.stat_date_end = parseInt(end_date.getFullYear() + this.a.add0((end_date.getMonth() + 1)) + this.a.add0(end_date.getDate()), 10);
-        } else {
-            const lastDayOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0);
-            this.stat_date_end = parseInt(d.getFullYear() + this.a.add0((d.getMonth() + 1)) + lastDayOfMonth.getDate(), 10);
-        }
-
-        this.loadAdminStatistics();
-    }
 }
 
 

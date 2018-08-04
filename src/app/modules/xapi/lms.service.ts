@@ -934,6 +934,9 @@ export class XapiLMSService extends Base {
        });
     }
 
-
+    admin_message_list(req): Observable<any> {
+        req['route'] = 'lms.admin_message_list';
+        return this.x.post(req);
+    }
 
 }
