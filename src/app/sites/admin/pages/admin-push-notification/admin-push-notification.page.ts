@@ -71,7 +71,7 @@ export class AdminPushNotificationPage implements OnInit {
         if (!a.isSuperManager) {
             this.form.domain = this.a.user.manager;
             this.form.urlDomain = this.a.user.manager;
-            this.form.postId = 1;
+            this.form.postId = 'N/A';
         }
     }
 
