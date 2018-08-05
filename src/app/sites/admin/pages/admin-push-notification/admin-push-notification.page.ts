@@ -70,6 +70,8 @@ export class AdminPushNotificationPage implements OnInit {
 
         if (!a.isSuperManager) {
             this.form.domain = this.a.user.manager;
+            this.form.urlDomain = this.a.user.manager;
+            this.form.postId = 'N/A';
         }
     }
 
@@ -83,7 +85,11 @@ export class AdminPushNotificationPage implements OnInit {
             event.preventDefault();
         }
         this.loader.send = true;
-        this.form.url = `https://${this.form.urlDomain}/post/${this.form.postId}`;
+        if (this.a.isSuperManager) {
+            this.form.url = `https://${this.form.urlDomain}/post/${this.form.postId}`;
+        } else {
+            this.form.url = `https://${this.form.urlDomain}`;
+        }
         this.a.lms.admin_push_send(this.form).subscribe(res => {
             // console.log('onSubmit()', res);
             this.loader.send = false;

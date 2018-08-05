@@ -29,6 +29,7 @@ import { AdminBranchTeachersPage } from './pages/admin-branch-teachers/admin-bra
 // COMPONENT
 import { AdminBranchEditComponent } from './components/admin-branch-edit/admin-branch-edit.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { AdminMessageListPage } from './pages/admin-message-list/admin-message-list.page';
 
 const routes: Routes = [
     {
@@ -59,7 +60,8 @@ const routes: Routes = [
             { path: 'no-of-student-per-each-domain', component: AdminNoOfUserPerEachDomainPage},
             { path: 'statistic-graph', component: AdminStatisticGraphPage},
             { path: 'branch-list', component: AdminBranchListPage},
-            { path: 'branch-teachers', component: AdminBranchTeachersPage}
+            { path: 'branch-teachers', component: AdminBranchTeachersPage},
+            { path: 'message-list', component: AdminMessageListPage}
         ]
     }
 
@@ -98,7 +100,8 @@ const routes: Routes = [
         AdminStatisticGraphPage,
         AdminBranchListPage,
         AdminBranchTeachersPage,
-        AdminBranchEditComponent
+        AdminBranchEditComponent,
+        AdminMessageListPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -118,7 +121,8 @@ const routes: Routes = [
         AdminNoOfUserPerEachDomainPage,
         AdminStatisticGraphPage,
         AdminBranchListPage,
-        AdminBranchTeachersPage
+        AdminBranchTeachersPage,
+        AdminMessageListPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],

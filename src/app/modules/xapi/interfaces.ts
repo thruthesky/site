@@ -687,3 +687,31 @@ export type GREETINGS = Array<GREETING>;
 export interface GREETING_LIST_OPTION extends PAGINATION_OPTION {
     greetings: GREETINGS;
 }
+
+
+export interface MESSAGE {
+    content: string;
+    idx: number;
+    open: number;
+    receiver: number;
+    sender: number;
+    stamp: number;
+    status: string;
+    title: string;
+}
+
+export type MESSAGES = Array<MESSAGE>;
+
+
+export interface MESSAGES_GROUP {
+    [key: string]: [{
+        ID: number;
+        display_name: string;
+        photoUrl: string;
+        message_count: number;
+        messages: MESSAGES;
+    }];
+}
+
+
+
