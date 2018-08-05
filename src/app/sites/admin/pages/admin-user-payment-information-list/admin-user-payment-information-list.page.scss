@@ -1,0 +1,59 @@
+@import '../../../../../theme/vars';
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 2px;
+    margin: 1.5em 0;
+    font-size: .75em;
+    form{
+        text-align: center;
+        input{
+            margin-right: .5em;
+            margin-bottom: .5em;
+            padding: .6em .5em;
+            font-size: .8em;
+            @media (min-width:$md) {
+                margin-right: 2em;
+                margin-bottom: 0;
+                padding: .6em 1em;
+                font-size: .9em;
+            }
+            border-radius: 2px;
+            border: 1px solid rgba(125,125,125,0.4);
+        }
+        button{
+            margin-top: .5em;
+            text-align: center;
+            padding: .75em 3em;
+            border: 0;
+            border-radius: 2px;
+            background: #0867B0;
+            color: #fff;
+            @media (min-width:$md) {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.icon-svg{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: normal;
+    svg{
+        height: .9em;
+        width: .9em;
+        margin: 0 .5em;
+    }
+}
+
+.primary-photo {
+    width: 40px;
+    img {
+        width: 100%;
+    }
+}

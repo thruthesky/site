@@ -779,7 +779,15 @@
   "AUCTION_OPEN_BUTTON": "선생님 찾기",
 
   "NO_MORE_POST": "더 이상 게시물이 없다.",
-  "SHOW_MORE_POST": "더 많은 게시물 표시"
+  "SHOW_MORE_POST": "더 많은 게시물 표시",
+
+  "ALL_MESSAGE": "모든 메시지",
+  "PERSONAL_MESSAGE": "개인 메시지",
+  "AUCTION_MESSAGE": "경매 메시지",
+  "READ_ALL_MESSAGE": "모두 읽기로 표시",
+
+  "MESSAGE READ ALL": "모든 메시지 마크 읽기",
+  "MESSAGE READ ALL CONFIRM": "모든 메시지를 읽으려고 하시겠습니까?"
 
 
 }

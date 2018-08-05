@@ -664,6 +664,7 @@ export interface STUDENT {
     greeting: string;
     photoURL: string;
     user_registered: string;
+    no_of_reservations: number;
 }
 
 export type STUDENTS = Array<STUDENT>;

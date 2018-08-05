@@ -26,7 +26,7 @@ export class AdminStatisticGraphPage implements OnInit {
         this.today = a.getYmd();
 
         // this.onClickSelectDate();
-        this.onClickSelectDate(1, 1);
+        this.onClickSelectDate();
 
     }
 

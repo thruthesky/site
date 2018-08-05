@@ -453,7 +453,7 @@ export class XapiLMSService extends Base {
     message_opened(idx): Observable<any> {
         const data = {
             idx: idx,
-            route: 'lms.message_opened',
+            route: 'lms.message_read_all',
             session_id: this.user.sessionId
         };
         return this.x.post(data);
@@ -940,4 +940,22 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
+    admin_count_student_reservation(req): Observable<any> {
+        req['route'] = 'lms.admin_count_student_reservation';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
+    admin_user_payment_information_list(req): Observable<any> {
+        req['route'] = 'lms.admin_user_payment_information_list';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
+    message_read_all(): Observable<any> {
+        return this.x.post({
+            route: 'lms.message_read_all',
+            session_id: this.user.sessionId
+        });
+    }
 }

@@ -37,9 +37,16 @@ export class AdminSessionPage implements OnInit {
 
     re: Array<BOOK> = [];
     stat: STAT = <any>{};
+
+    minCount = 1; // this is the minimum reservation to search in countStudentReservation
+    reservations_count: Array<any> = [];
+    showReservationCount = false;
+
+
     show = {
         loader: false,
-        stat: false
+        stat: false,
+        reservation: false
     };
     form = {
         idx: '',
@@ -549,6 +556,25 @@ export class AdminSessionPage implements OnInit {
             const e = this.a.getUserYmdHiFromUTCYmdHi(session.date + session.class_end);
             session.class_end = e.substr(8, 4);
         }
+    }
+
+    getStudentReservationCount(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        if ( this.show.reservation ) {
+            return;
+        }
+        this.show.reservation = true;
+        this.showReservationCount = true;
+        this.a.lms.admin_count_student_reservation({minimum: this.minCount}).subscribe( re => {
+            console.log(re);
+            this.reservations_count = re;
+            this.show.reservation = false;
+        }, e => {
+            this.a.toast(e);
+            this.show.reservation = false;
+        });
     }
 }
 
