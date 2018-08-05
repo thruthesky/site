@@ -6,6 +6,7 @@ import { MessagePage } from './message.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../app.material.module';
 import { MessageModalServiceModule } from '../../providers/message-send-modal/message-send-modal.service.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         TranslatePipeModule,
         MaterialModule,
-        MessageModalServiceModule
+        MessageModalServiceModule,
+        ModalServiceModule
     ],
     exports: [
         RouterModule

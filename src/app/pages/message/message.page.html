@@ -2,53 +2,67 @@
     <header >
         <h1>{{ 'MESSAGE_TITLE' | t }}</h1>
     </header>
-<div class="buttons-top">
-    <button data-button="inbox" [class.active]=" box == 'inbox' " (click)="onClickBox( 'inbox' )">
-        {{ 'INBOX' | t }}
-    </button>
-    <button data-button="sentbox" [class.active]=" box == 'sent' " (click)="onClickBox( 'sent' )">
-        {{ 'SENT' | t }}
-    </button>
-</div>
-
-<div class="loader" *ngIf=" loading ">
-    <mat-spinner [diameter]="48"></mat-spinner>
-    <span>{{ 'IN LOADING' | t}}</span>
-</div>
-
-
-<div class="message-list" *ngIf=" data ">
-    <ng-container  *ngFor=" let message of data.messages ">
-
-        <div class="message" (click)="onClickMessage(message)">
-            <div class="photo">
-                <img src="{{ message?.sender_photoURL? message.sender_photoURL: a.anonymousPhotoURL}}">
-            </div>
-            <div class="message-info container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-12 sender"><span>{{'SENDER' | t}}</span>: {{message.sender_name}}</div>
-                    <div class="col-lg-6 col-12 title" [class.new]="message.open == 0"><span>{{'SUBJECT' | t}}</span>: {{message.title}}</div>
-                    <div class="col-lg-3 col-12 date">{{ message.stamp * 1000 | date:'medium'}}</div>
-                </div>
-            </div>
+    <div class="buttons-top">
+        <button data-button="inbox" [class.active]=" box == 'inbox' " (click)="onClickBox( 'inbox' )">
+            {{ 'INBOX' | t }}
+        </button>
+        <button data-button="sentbox" [class.active]=" box == 'sent' " (click)="onClickBox( 'sent' )">
+            {{ 'SENT' | t }}
+        </button>
+    </div>
+    <div>
+        <div class="py-3">
+            <label for="allMessage" class="px-3">
+                <input id="allMessage" type='radio' name='filterMessage' [value]="''" [checked]=" filterMessage == '' " [(ngModel)]=" filterMessage " (ngModelChange)="loadDefault()"> {{ 'ALL_MESSAGE' | t }}
+            </label>
+            <label for="personalMessage" class="px-3">
+                <input id="personalMessage" type='radio' name='filterMessage'  [value]="'M'" [checked]=" filterMessage =='M' " [(ngModel)]=" filterMessage " (ngModelChange)="loadDefault()"> {{ 'PERSONAL_MESSAGE' | t }}
+            </label>
+            <label for="auctionMessage" class="px-3" *ngIf=" a.isTeacher && box=='sent' || a.isStudent && box=='inbox'  ">
+                <input id="auctionMessage" type='radio' name='filterMessage'[value]="'A'" [checked]=" filterMessage =='A' " [(ngModel)]=" filterMessage " (ngModelChange)="loadDefault()"> {{ 'AUCTION_MESSAGE' | t }}
+            </label>
+            <div class="app-button px-3" *ngIf=" box=='inbox' " (click)="onClickReadAll()">{{ 'READ_ALL_MESSAGE' | t }}</div>
         </div>
-
-        <div class="content" *ngIf="message.view" (click)="onClickMessage(message)">
-            {{message.content}}
-            <div *ngIf=" message.status != '' ">
-                <button class="app-button" (click)=" messageSend.open( {ID: message.sender, name: message.sender_name} ) ">Reply</button>
-            </div>
-        </div>   
-    </ng-container>
-
-
-    <div class="buttons-bottom">
-        <div class="pb-5" *ngIf="message_count < limit">{{ 'NO_MORE_MESSAGES' | t }}</div>
-        <button *ngIf="page_no > 1" (click)="onClickPrevious()">{{ 'PREVIOUS' | t }}</button>
-        <button *ngIf="message_count == limit" (click)="onClickNext()"> {{ 'NEXT' | t }}</button>
     </div>
 
-</div>
+    <div class="loader" *ngIf=" loading ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        <span>{{ 'IN LOADING' | t}}</span>
+    </div>
+
+
+    <div class="message-list" *ngIf=" data ">
+        <ng-container  *ngFor=" let message of data.messages ">
+
+            <div class="message" (click)="onClickMessage(message)">
+                <div class="photo">
+                    <img src="{{ message?.sender_photoURL? message.sender_photoURL: a.anonymousPhotoURL}}">
+                </div>
+                <div class="message-info container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-12 sender"><span>{{'SENDER' | t}}</span>: {{message.sender_name}}</div>
+                        <div class="col-lg-6 col-12 title" [class.new]="message.open == 0"><span>{{'SUBJECT' | t}}</span>: {{message.title}}</div>
+                        <div class="col-lg-3 col-12 date">{{ message.stamp * 1000 | date:'medium'}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content" *ngIf="message.view" (click)="onClickMessage(message)">
+                {{message.content}}
+                <div *ngIf=" message.status != '' ">
+                    <button class="app-button" (click)=" messageSend.open( {ID: message.sender, name: message.sender_name} ) ">Reply</button>
+                </div>
+            </div>
+        </ng-container>
+
+
+        <div class="buttons-bottom">
+            <div class="pb-5" *ngIf="message_count < limit">{{ 'NO_MORE_MESSAGES' | t }}</div>
+            <button *ngIf="page_no > 1" (click)="onClickPrevious()">{{ 'PREVIOUS' | t }}</button>
+            <button *ngIf="message_count == limit" (click)="onClickNext()"> {{ 'NEXT' | t }}</button>
+        </div>
+
+    </div>
 
 
 

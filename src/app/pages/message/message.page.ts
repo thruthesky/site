@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
+import { ModalData, ModalService } from '../../providers/modal/modal.service';
 
 
 @Component({
@@ -15,19 +16,27 @@ export class MessagePage {
     message_count;
     limit = 10;
     box = 'inbox';
+    filterMessage = '';
 
     loading = false;
 
     constructor(
         public a: AppService,
+        public modal: ModalService,
         public messageSend: MessageSendModalService
     ) {
-        this.loadMessage({box: this.box, page_no: this.page_no, limit: this.limit});
+        this.loadDefault();
+    }
+
+    loadDefault() {
+        this.page_no = 1;
+        this.loadMessage({box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit});
     }
 
 
     onClickBox(box) {
         this.box = box;
+        this.filterMessage = '';
         this.loadMessage({box: this.box, page_no: 1, limit: this.limit});
     }
 
@@ -44,12 +53,12 @@ export class MessagePage {
 
     onClickPrevious() {
         this.page_no--;
-        this.loadMessage({box: this.box, page_no: this.page_no, limit: this.limit});
+        this.loadMessage({box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit});
     }
 
     onClickNext() {
         this.page_no++;
-        this.loadMessage({box: this.box, page_no: this.page_no, limit: this.limit});
+        this.loadMessage({box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit});
     }
 
 
@@ -67,4 +76,24 @@ export class MessagePage {
             });
         }
     }
+
+    onClickReadAll() {
+        const data: ModalData = {
+            title: this.a.t('MESSAGE READ ALL'),
+            content: this.a.t('MESSAGE READ ALL CONFIRM'),
+            yes: this.a.t('YES'),
+            no: this.a.t('CANCEL')
+        };
+        this.modal.confirm(data).subscribe(result => {
+            if (result) {
+                this.a.lms.message_read_all().subscribe(res => {
+                    this.loadDefault();
+                    this.a.check_message_count();
+                }, e => {
+                    this.a.toast(e);
+                });
+            }
+        });
+    }
+
 }

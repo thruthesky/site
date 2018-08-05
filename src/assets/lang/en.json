@@ -820,7 +820,15 @@
   "AUCTION_OPEN_BUTTON": "Begin",
 
   "NO_MORE_POST": "No More Post...",
-  "SHOW_MORE_POST": "Show More Post"
+  "SHOW_MORE_POST": "Show More Post",
+
+  "ALL_MESSAGE": "All Message",
+  "PERSONAL_MESSAGE": "Personal Message",
+  "AUCTION_MESSAGE": "Auction Message",
+  "READ_ALL_MESSAGE": "Mark as Read All",
+
+  "MESSAGE READ ALL": "All Message Mark Read",
+  "MESSAGE READ ALL CONFIRM": "Are you sure you want to mark read all message?"
 
 
 }

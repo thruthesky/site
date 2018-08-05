@@ -733,7 +733,15 @@
   "AUCTION_OPEN_BUTTON": "ベギン",
 
   "NO_MORE_POST": "もう投稿はありません",
-  "SHOW_MORE_POST": "もっと投稿を表示"
+  "SHOW_MORE_POST": "もっと投稿を表示",
+
+  "ALL_MESSAGE": "すべてのメッセージ",
+  "PERSONAL_MESSAGE": "パーソナルメッセージ",
+  "AUCTION_MESSAGE": "オークションメッセージ",
+  "READ_ALL_MESSAGE": "すべてを読むとしてマークする",
+
+  "MESSAGE READ ALL": "すべてのメッセージマーク読み取り",
+  "MESSAGE READ ALL CONFIRM": "あなたは本当にすべてのメッセージを読むことをマークしてもよろしいですか？"
 
 
 }

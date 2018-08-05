@@ -1,11 +1,54 @@
 <h1>Session List &amp; Search</h1>
-<div class="timezone"><span class="title">Timezone:</span> {{ a.userTime }} <span class="note">( The time of input and display is based on your timezone settings. )</span></div>
+<div class="timezone"><span class="title">Timezone:</span> {{ a.userTime }} <span class="note">( The time of input and display is based on your timezone settings. )</span>
+</div>
+
+<div class="reservation-count pb-3">
+    <h3 class="my-1">
+        Student Reservation Count
+        <svg *ngIf="!showReservationCount" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M128 152v-32c0-4.4 3.6-8 8-8h208c4.4 0 8 3.6 8 8v32c0 4.4-3.6 8-8 8H136c-4.4 0-8-3.6-8-8zm8 88h208c4.4 0 8-3.6 8-8v-32c0-4.4-3.6-8-8-8H136c-4.4 0-8 3.6-8 8v32c0 4.4 3.6 8 8 8zm299.1 159.7c-4.2 13-4.2 51.6 0 64.6 7.3 1.4 12.9 7.9 12.9 15.7v16c0 8.8-7.2 16-16 16H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h352c8.8 0 16 7.2 16 16v368c0 7.8-5.5 14.2-12.9 15.7zm-41.1.3H80c-17.6 0-32 14.4-32 32 0 17.7 14.3 32 32 32h314c-2.7-17.3-2.7-46.7 0-64zm6-352H80c-17.7 0-32 14.3-32 32v278.7c9.8-4.3 20.6-6.7 32-6.7h320V48z" class=""></path></svg>
+        <span class="border px-3" *ngIf="showReservationCount" (click)=" showReservationCount = false " >
+            Hide
+            <svg width=20px xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M514.91 32h-.16c-24.08.12-144.75 8.83-219.56 48.09-4.05 2.12-10.33 2.12-14.38 0C205.99 40.83 85.32 32.12 61.25 32h-.16C27.4 32 0 58.47 0 91.01v296.7c0 31.41 25.41 57.28 57.85 58.9 34.77 1.76 122.03 8.26 181.89 30.37 5.27 1.95 10.64 3.02 16.25 3.02h64c5.62 0 10.99-1.08 16.26-3.02 59.87-22.11 147.12-28.61 181.92-30.37 32.41-1.62 57.82-27.48 57.82-58.89V91.01C576 58.47 548.6 32 514.91 32zM272 433c0 8.61-7.14 15.13-15.26 15.13-1.77 0-3.59-.31-5.39-.98-62.45-23.21-148.99-30.33-191.91-32.51-15.39-.77-27.44-12.6-27.44-26.93V91.01c0-14.89 13.06-27 29.09-27 19.28.1 122.46 7.38 192.12 38.29 11.26 5 18.64 15.75 18.66 27.84l.13 100.32V433zm272-45.29c0 14.33-12.05 26.16-27.45 26.93-42.92 2.18-129.46 9.3-191.91 32.51-1.8.67-3.62.98-5.39.98-8.11 0-15.26-6.52-15.26-15.13V230.46l.13-100.32c.01-12.09 7.4-22.84 18.66-27.84 69.66-30.91 172.84-38.19 192.12-38.29 16.03 0 29.09 12.11 29.09 27v296.7z" class=""></path></svg>
+        </span>
+    </h3>
+    <div>
+        <form (ngSubmit)="getStudentReservationCount($event)">
+            Minimum Reservation: <input type="text" name="minimum" [(ngModel)]="minCount" placeholder="Minimum # of reservation">
+                <button class="app-button" type="submit">SEARCH</button>
+        </form>
+        <div class="reservations-table" *ngIf=" !show.reservation && showReservationCount ">
+            <div class="student-reservations">
+                <b>Reservation Count</b>
+                <div class="students d-inline-block" *ngFor="let student of reservations_count">
+                    <span class="info" (click)="student['showDetail'] = !student['showDetail']">
+                        <span class="name" matTooltip="{{ student['display_name'] }}">{{ a.shortName(student['display_name'],7) }}<ng-container
+                                *ngIf="student.length>7">...</ng-container></span>
+                        <span class="no">{{ student['reservation'] }}</span>
+                    </span>
+                    <div *ngIf="student['reservation_breakdown'] && student['showDetail']">
+                        <div class="info" *ngFor="let r of student['reservation_breakdown']">
+                            <span class="name">{{r['point']}}</span>
+                            <span class="no">{{r['cnt']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader" *ngIf=" show.reservation ">
+        <mat-spinner [diameter]="48"></mat-spinner>
+        Loading...
+    </div>
+
+</div>
+
 <form (ngSubmit)="onSubmit( $event )">
     <div>
         <input class="narrow" type="text" name="idx" [(ngModel)]="form.idx" placeholder="idx">
         <input class="narrow" type="text" name="idx_teacher" [(ngModel)]="form.idx_teacher" placeholder="idx_teacher">
         <input class="narrow" type="text" name="idx_student" [(ngModel)]="form.idx_student" placeholder="idx_student">
-        <input class="narrow" type="text" name="idx_schedule" [(ngModel)]="form.idx_schedule" placeholder="idx_schedule">
+        <input class="narrow" type="text" name="idx_schedule" [(ngModel)]="form.idx_schedule"
+               placeholder="idx_schedule">
     </div>
     <div>
         <input class="narrow" type="text" name="user_group" [(ngModel)]="form.user_group" placeholder="user_group">
@@ -123,49 +166,60 @@
             <label for="paid">Paid</label>
         </span>
         <span>
-            <input type="checkbox" id="display_refund_request_at" name="display_refund_request_at" [(ngModel)]="form.display.refund_request_at">
+            <input type="checkbox" id="display_refund_request_at" name="display_refund_request_at"
+                   [(ngModel)]="form.display.refund_request_at">
             <label for="display_refund_request_at">Refund Request At</label>
         </span>
         <span>
-            <input type="checkbox" id="refund_request_message" name="display_refund_request_message" [(ngModel)]="form.display.refund_request_message">
+            <input type="checkbox" id="refund_request_message" name="display_refund_request_message"
+                   [(ngModel)]="form.display.refund_request_message">
             <label for="refund_request_message">Request Message</label>
         </span>
         <span>
-            <input type="checkbox" id="display_refund_reject_at" name="display_refund_reject_at" [(ngModel)]="form.display.refund_reject_at">
+            <input type="checkbox" id="display_refund_reject_at" name="display_refund_reject_at"
+                   [(ngModel)]="form.display.refund_reject_at">
             <label for="display_refund_reject_at">Reject At</label>
         </span>
         <span>
-            <input type="checkbox" id="refund_reject_message" name="display_refund_reject_message" [(ngModel)]="form.display.refund_reject_message">
+            <input type="checkbox" id="refund_reject_message" name="display_refund_reject_message"
+                   [(ngModel)]="form.display.refund_reject_message">
             <label for="refund_reject_message">Reject Message</label>
         </span>
 
         <span>
-            <input type="checkbox" id="display_refund_done_at" name="display_refund_done_at" [(ngModel)]="form.display.refund_done_at">
+            <input type="checkbox" id="display_refund_done_at" name="display_refund_done_at"
+                   [(ngModel)]="form.display.refund_done_at">
             <label for="display_refund_done_at">Refund Done At</label>
         </span>
         <span>
-            <input type="checkbox" id="display_refund_done_point" name="display_refund_done_point" [(ngModel)]="form.display.refund_done_point">
+            <input type="checkbox" id="display_refund_done_point" name="display_refund_done_point"
+                   [(ngModel)]="form.display.refund_done_point">
             <label for="display_refund_done_point">Done Point</label>
         </span>
         <span>
-            <input type="checkbox" id="refund_done_by" name="display_refund_done_by" [(ngModel)]="form.display.refund_done_by">
+            <input type="checkbox" id="refund_done_by" name="display_refund_done_by"
+                   [(ngModel)]="form.display.refund_done_by">
             <label for="refund_done_by">Done By</label>
         </span>
         <span>
-            <input type="checkbox" id="display_refund_settle_at" name="display_refund_settle_at" [(ngModel)]="form.display.refund_settle_at">
+            <input type="checkbox" id="display_refund_settle_at" name="display_refund_settle_at"
+                   [(ngModel)]="form.display.refund_settle_at">
             <label for="display_refund_settle_at">Settled At</label>
         </span>
         <span>
-            <input type="checkbox" id="display_teacher_absent" name="display_teacher_absent" [(ngModel)]="form.display.teacher_absent">
+            <input type="checkbox" id="display_teacher_absent" name="display_teacher_absent"
+                   [(ngModel)]="form.display.teacher_absent">
             <label for="display_teacher_absent">Teacher Absent</label>
         </span>
         <span>
-            <input type="checkbox" id="display_student_absent" name="display_student_absent" [(ngModel)]="form.display.student_absent">
+            <input type="checkbox" id="display_student_absent" name="display_student_absent"
+                   [(ngModel)]="form.display.student_absent">
             <label for="display_student_absent">Student Absent</label>
         </span>
 
         <span>
-            <input type="checkbox" id="display_successful" name="display_successful" [(ngModel)]="form.display.successful">
+            <input type="checkbox" id="display_successful" name="display_successful"
+                   [(ngModel)]="form.display.successful">
             <label for="display_successful">Successful</label>
         </span>
         <span>
@@ -181,7 +235,8 @@
             <label for="grammar">Grammar</label>
         </span>
         <span>
-            <input type="checkbox" id="pronunciation" name="display_pronunciation" [(ngModel)]="form.display.pronunciation">
+            <input type="checkbox" id="pronunciation" name="display_pronunciation"
+                   [(ngModel)]="form.display.pronunciation">
             <label for="pronunciation">Pronunciation</label>
         </span>
         <span>
@@ -190,7 +245,8 @@
         </span>
 
         <span>
-            <input type="checkbox" id="refund_settle_message" name="display_refund_settle_message" [(ngModel)]="form.display.refund_settle_message">
+            <input type="checkbox" id="refund_settle_message" name="display_refund_settle_message"
+                   [(ngModel)]="form.display.refund_settle_message">
             <label for="refund_settle_message">Settled Message</label>
         </span>
         <span>
@@ -224,15 +280,17 @@
         <b>No of searched Sessions: {{ re.length }}</b>
         <span class="app-button open" (click)="show.stat=true" *ngIf="!show.stat">
             Show Stats
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 12.3V240h227.7c6.9 0 12.3-5.8 12-12.7-6.4-122.4-104.5-220.6-227-227-6.9-.3-12.7 5.1-12.7 12zM552.7 288c6.9 0 12.3 5.8 12 12.7-2.8 53.2-23.2 105.6-61.2 147.8-4.6 5.1-12.6 5.4-17.5.5L325 288h227.7zM401 433c4.8 4.8 4.7 12.8-.4 17.3-42.6 38.4-99 61.7-160.8 61.7C107.6 511.9-.2 403.8 0 271.5.2 143.4 100.8 38.9 227.3 32.3c6.9-.4 12.7 5.1 12.7 12V272l161 161z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor"
+                                                                                d="M288 12.3V240h227.7c6.9 0 12.3-5.8 12-12.7-6.4-122.4-104.5-220.6-227-227-6.9-.3-12.7 5.1-12.7 12zM552.7 288c6.9 0 12.3 5.8 12 12.7-2.8 53.2-23.2 105.6-61.2 147.8-4.6 5.1-12.6 5.4-17.5.5L325 288h227.7zM401 433c4.8 4.8 4.7 12.8-.4 17.3-42.6 38.4-99 61.7-160.8 61.7C107.6 511.9-.2 403.8 0 271.5.2 143.4 100.8 38.9 227.3 32.3c6.9-.4 12.7 5.1 12.7 12V272l161 161z"></path></svg>
         </span>
         <span class="app-button close" (click)="show.stat=false" *ngIf="show.stat">
             Hide Stats
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 464c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm94.8-285.3L281.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L256 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor"
+                                                                                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 464c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm94.8-285.3L281.5 256l69.3 69.3c4.7 4.7 4.7 12.3 0 17l-8.5 8.5c-4.7 4.7-12.3 4.7-17 0L256 281.5l-69.3 69.3c-4.7 4.7-12.3 4.7-17 0l-8.5-8.5c-4.7-4.7-4.7-12.3 0-17l69.3-69.3-69.3-69.3c-4.7-4.7-4.7-12.3 0-17l8.5-8.5c4.7-4.7 12.3-4.7 17 0l69.3 69.3 69.3-69.3c4.7-4.7 12.3-4.7 17 0l8.5 8.5c4.6 4.7 4.6 12.3 0 17z"></path></svg>
         </span>
     </div>
     <div class="details" *ngIf=" show.stat ">
-        
+
         <div class="daily-reservations">
             <b>Daily Reservations(UTC+0):</b>
             <span class="daily-reservation" *ngFor="let date of stat.dateOfDailyReservation">
@@ -260,23 +318,26 @@
         <div class="teacher-reservations">
             <b>No of reservations for each teacher: </b>
             <span class="teacher-reservation" *ngFor="let teacher of stat.nameOfTeacherReservation">
-                <span class="teacher"  matTooltip="{{ teacher }}">{{ a.shortName(teacher,7) }}<ng-container *ngIf="teacher.length>7">...</ng-container></span>
+                <span class="teacher" matTooltip="{{ teacher }}">{{ a.shortName(teacher,7) }}<ng-container
+                        *ngIf="teacher.length>7">...</ng-container></span>
                 <span class="no">{{ stat.teacherReservation[teacher] | number }}</span>
             </span>
         </div>
         <div class="teacher-points">
             <b>No of reservations for each teacher: </b>
             <span class="teacher-point" *ngFor="let teacher of stat.nameOfTeacherReservation">
-                <span class="teacher"  matTooltip="{{ teacher }}">{{ a.shortName(teacher,7) }}<ng-container *ngIf="teacher.length>7">...</ng-container></span>
+                <span class="teacher" matTooltip="{{ teacher }}">{{ a.shortName(teacher,7) }}<ng-container
+                        *ngIf="teacher.length>7">...</ng-container></span>
                 <span class="no" matTooltip="{{stat.teacherPoints[teacher]}}">{{ a.shortNumber(stat.teacherPoints[teacher]) }}</span>
             </span>
         </div>
 
 
         <div class="student-reservations">
-            <b>No of Points for each student: </b>
+            <b>No of Reservation for each student: </b>
             <span class="student-reservation" *ngFor="let student of stat.nameOfStudentReservation">
-                <span class="student"  matTooltip="{{ student }}">{{ a.shortName(student,7) }}<ng-container *ngIf="student.length>7">...</ng-container></span>
+                <span class="student" matTooltip="{{ student }}">{{ a.shortName(student,7) }}<ng-container
+                        *ngIf="student.length>7">...</ng-container></span>
                 <span class="no">{{ stat.studentReservation[student] | number }}</span>
             </span>
         </div>
@@ -291,7 +352,8 @@
         <div class="student-refund-requests">
             <b>No of refund request of student: </b>
             <span class="student-refund-request" *ngFor="let student of stat.nameOfStudentRefundRequest">
-                <span class="student" matTooltip="{{ student }}">{{ a.shortName(student,7) }}<ng-container *ngIf="student.length>7">...</ng-container></span>
+                <span class="student" matTooltip="{{ student }}">{{ a.shortName(student,7) }}<ng-container
+                        *ngIf="student.length>7">...</ng-container></span>
                 <span class="no">{{ stat.studentRefundRequest[student] | number }}</span>
             </span>
         </div>
@@ -319,90 +381,95 @@
 <div class="time-zone">The time of session list is in your timezone. {{ a.userTime }}</div>
 <div class="custom-table">
     <table class="sessions" *ngIf=" re.length ">
-            <tr>
-                <th>idx</th>
-                <th>Teacher</th>
-                <th>Student</th>
-                <th *ngIf=" form.display.class_software ">Class ID</th>
-                <th>Date</th>
-                <th>Begin</th>
-                <th>End</th>
-                <th>Point</th>
-                <th *ngIf=" form.display.reserved_at ">Reserved At</th>
-                <th *ngIf=" form.display.paid ">Paid</th>
-                <th *ngIf=" form.display.refund_request_at ">Refund Request At</th>
-                <th width="300" *ngIf=" form.display.refund_request_message ">Request Message</th>
-                <th *ngIf=" form.display.refund_reject_at ">Reject At</th>
-                <th width="300" *ngIf=" form.display.refund_reject_message ">Reject Message</th>
-                <th *ngIf=" form.display.refund_done_at ">Done At</th>
-                <th *ngIf=" form.display.refund_done_point ">Done Point</th>
-                <th *ngIf=" form.display.refund_done_by ">Done By</th>
-                <th *ngIf=" form.display.refund_settle_at ">Settled At</th>
-                <th width="300" *ngIf=" form.display.refund_settle_message ">Settled Message</th>
-                <th *ngIf=" form.display.teacher_absent ">Teacher Absent</th>
-                <th *ngIf=" form.display.student_absent ">Student Absent</th>
-                <th *ngIf=" form.display.successful ">Successful</th>
-                <th *ngIf=" form.display.expression ">Expression</th>
-                <th *ngIf=" form.display.vocabulary ">Vocabulary</th>
-                <th *ngIf=" form.display.grammar ">Grammar</th>
-                <th *ngIf=" form.display.pronunciation ">Pronuncitation</th>
-                <th *ngIf=" form.display.speed ">Speed</th>
-                <th width="300" *ngIf=" form.display.comment ">Comment</th>
-                <th *ngIf=" form.display.book_used ">Book Used</th>
-                <th *ngIf=" form.display.book_next ">Book Next</th>
-                <th *ngIf=" form.display.stamp_checked ">Checked</th>
-            </tr>
-            <tr *ngFor="let session of re">
-                <td routerLink="/manager/session-edit/{{session.idx}}">
-                    <a class="link">
+        <tr>
+            <th>idx</th>
+            <th>Teacher</th>
+            <th>Student</th>
+            <th *ngIf=" form.display.class_software ">Class ID</th>
+            <th>Date</th>
+            <th>Begin</th>
+            <th>End</th>
+            <th>Point</th>
+            <th *ngIf=" form.display.reserved_at ">Reserved At</th>
+            <th *ngIf=" form.display.paid ">Paid</th>
+            <th *ngIf=" form.display.refund_request_at ">Refund Request At</th>
+            <th width="300" *ngIf=" form.display.refund_request_message ">Request Message</th>
+            <th *ngIf=" form.display.refund_reject_at ">Reject At</th>
+            <th width="300" *ngIf=" form.display.refund_reject_message ">Reject Message</th>
+            <th *ngIf=" form.display.refund_done_at ">Done At</th>
+            <th *ngIf=" form.display.refund_done_point ">Done Point</th>
+            <th *ngIf=" form.display.refund_done_by ">Done By</th>
+            <th *ngIf=" form.display.refund_settle_at ">Settled At</th>
+            <th width="300" *ngIf=" form.display.refund_settle_message ">Settled Message</th>
+            <th *ngIf=" form.display.teacher_absent ">Teacher Absent</th>
+            <th *ngIf=" form.display.student_absent ">Student Absent</th>
+            <th *ngIf=" form.display.successful ">Successful</th>
+            <th *ngIf=" form.display.expression ">Expression</th>
+            <th *ngIf=" form.display.vocabulary ">Vocabulary</th>
+            <th *ngIf=" form.display.grammar ">Grammar</th>
+            <th *ngIf=" form.display.pronunciation ">Pronuncitation</th>
+            <th *ngIf=" form.display.speed ">Speed</th>
+            <th width="300" *ngIf=" form.display.comment ">Comment</th>
+            <th *ngIf=" form.display.book_used ">Book Used</th>
+            <th *ngIf=" form.display.book_next ">Book Next</th>
+            <th *ngIf=" form.display.stamp_checked ">Checked</th>
+        </tr>
+        <tr *ngFor="let session of re">
+            <td routerLink="/manager/session-edit/{{session.idx}}">
+                <a class="link">
                         <span>
-                            <svg viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                            <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                             d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
                         </span>
-                        <span>{{ session.idx }}</span>
-                    </a>
-                </td>
-                <td routerLink="/manager/user-info/{{session.teacher?.idx}}">
+                    <span>{{ session.idx }}</span>
+                </a>
+            </td>
+            <td routerLink="/manager/user-info/{{session.teacher?.idx}}">
                     <span class="link">
                         <span>
-                            <svg viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                            <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                             d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
                         </span>                     
                         <span>{{ session.teacher?.display_name }}</span>
-                    </span>   
-                </td>
-                <td routerLink="/manager/user-info/{{session.student?.idx}}">
+                    </span>
+            </td>
+            <td routerLink="/manager/user-info/{{session.student?.idx}}">
                     <span class="link" matTooltip="{{ session.student?.display_name }}">
-                        <span><svg viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></span>
+                        <span><svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                               d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></span>
                         <span>{{ session.student?.display_name.slice(0,7) }}</span>
                     </span>
-                </td>
-                <td *ngIf="form.display.class_software">{{ session.student?.class_software }}:{{ session.student?.class_software_id }}</td>
-                <td>{{ session.date }}</td>
-                <td>{{ session.class_begin }}</td>
-                <td>{{ session.class_end }}</td>
-                <td>{{ session.point }}</td>
-                <td *ngIf=" form.display.reserved_at ">{{ session.stamp_reserve }}</td>
-                <td *ngIf=" form.display.paid ">{{ session.paid }}</td>
-                <td *ngIf=" form.display.refund_request_at ">{{ session.refund_request_at }}</td>
-                <td width="300" *ngIf=" form.display.refund_request_message ">{{ session.refund_request_message }}</td>
-                <td *ngIf=" form.display.refund_reject_at ">{{ session.refund_reject_at }}</td>
-                <td width="300" *ngIf=" form.display.refund_reject_message ">{{ session.refund_reject_message }}</td>
-                <td *ngIf=" form.display.refund_done_at ">{{ session.refund_done_at }}</td>
-                <td *ngIf=" form.display.refund_done_point ">{{ session.refund_done_point }}</td>
-                <td *ngIf=" form.display.refund_done_by ">{{ session.refund_done_by }}</td>
-                <td *ngIf=" form.display.refund_settle_at ">{{ session.refund_settle_at }}</td>
-                <td width="300" *ngIf=" form.display.refund_settle_message ">{{ session.refund_settle_message }}</td>
-                <td *ngIf=" form.display.teacher_absent ">{{ session.teacher_absent }}</td>
-                <td *ngIf=" form.display.student_absent ">{{ session.student_absent }}</td>
-                <td *ngIf=" form.display.successful ">{{ session.successful }}</td>
-                <td *ngIf=" form.display.expression ">{{ session.expression }}</td>
-                <td *ngIf=" form.display.vocabulary ">{{ session.vocabulary }}</td>
-                <td *ngIf=" form.display.grammar ">{{ session.grammar }}</td>
-                <td *ngIf=" form.display.pronunciation ">{{ session.pronunciation }}</td>
-                <td *ngIf=" form.display.speed ">{{ session.speed }}</td>
-                <td width="300" *ngIf=" form.display.comment ">{{ session.comment }}</td>
-                <td *ngIf=" form.display.book_used ">{{ session.book_used }}</td>
-                <td *ngIf=" form.display.book_next ">{{ session.book_next }}</td>
-                <td *ngIf=" form.display.stamp_checked ">{{ session.stamp_checked  != '0' ? 'Y' : 'N' }}</td>
-            </tr>
-        </table>
+            </td>
+            <td *ngIf="form.display.class_software">{{ session.student?.class_software }}:{{
+                session.student?.class_software_id }}
+            </td>
+            <td>{{ session.date }}</td>
+            <td>{{ session.class_begin }}</td>
+            <td>{{ session.class_end }}</td>
+            <td>{{ session.point }}</td>
+            <td *ngIf=" form.display.reserved_at ">{{ session.stamp_reserve }}</td>
+            <td *ngIf=" form.display.paid ">{{ session.paid }}</td>
+            <td *ngIf=" form.display.refund_request_at ">{{ session.refund_request_at }}</td>
+            <td width="300" *ngIf=" form.display.refund_request_message ">{{ session.refund_request_message }}</td>
+            <td *ngIf=" form.display.refund_reject_at ">{{ session.refund_reject_at }}</td>
+            <td width="300" *ngIf=" form.display.refund_reject_message ">{{ session.refund_reject_message }}</td>
+            <td *ngIf=" form.display.refund_done_at ">{{ session.refund_done_at }}</td>
+            <td *ngIf=" form.display.refund_done_point ">{{ session.refund_done_point }}</td>
+            <td *ngIf=" form.display.refund_done_by ">{{ session.refund_done_by }}</td>
+            <td *ngIf=" form.display.refund_settle_at ">{{ session.refund_settle_at }}</td>
+            <td width="300" *ngIf=" form.display.refund_settle_message ">{{ session.refund_settle_message }}</td>
+            <td *ngIf=" form.display.teacher_absent ">{{ session.teacher_absent }}</td>
+            <td *ngIf=" form.display.student_absent ">{{ session.student_absent }}</td>
+            <td *ngIf=" form.display.successful ">{{ session.successful }}</td>
+            <td *ngIf=" form.display.expression ">{{ session.expression }}</td>
+            <td *ngIf=" form.display.vocabulary ">{{ session.vocabulary }}</td>
+            <td *ngIf=" form.display.grammar ">{{ session.grammar }}</td>
+            <td *ngIf=" form.display.pronunciation ">{{ session.pronunciation }}</td>
+            <td *ngIf=" form.display.speed ">{{ session.speed }}</td>
+            <td width="300" *ngIf=" form.display.comment ">{{ session.comment }}</td>
+            <td *ngIf=" form.display.book_used ">{{ session.book_used }}</td>
+            <td *ngIf=" form.display.book_next ">{{ session.book_next }}</td>
+            <td *ngIf=" form.display.stamp_checked ">{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</td>
+        </tr>
+    </table>
 </div>

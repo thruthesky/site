@@ -36,7 +36,7 @@ export class NewStudentListPage implements OnInit {
             limit: this.pageOption['limitPerPage'],
             page: this.pageOption['currentPage']
         }).subscribe( res => {
-            // console.log('students:: ', res);
+            console.log('students:: ', res);
             this.pageOption.currentPage = res['page'];
             this.pageOption.limitPerPage = res['limit'];
             this.pageOption.totalRecord = res['total'];

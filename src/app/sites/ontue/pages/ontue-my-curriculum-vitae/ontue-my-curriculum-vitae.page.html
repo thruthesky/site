@@ -135,14 +135,14 @@
             <div class="text-inputs row">
                 <div class="col">
                     <mat-form-field class="class-software" appearance="outline">
+                        <mat-label>{{ 'KAKAOTALK ID' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.kakaotalk" name="kakaotalk">
+                        <img src="../../../../../assets/img/messengers/kakaotalk.png" alt="">
+                    </mat-form-field>
+                    <mat-form-field class="class-software" appearance="outline">
                         <mat-label >{{ 'WECHAT ID' | t }}</mat-label>
                         <input type="text" matInput [(ngModel)]="account.wechat" name="wechat">
                         <img src="../../../../../assets/img/messengers/wechat.png" alt="">
-                    </mat-form-field>
-                    <mat-form-field class="class-software" appearance="outline">
-                        <mat-label >{{ 'LINE ID' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.line" name="line">
-                        <img src="../../../../../assets/img/messengers/line.png" alt="">
                     </mat-form-field>
                 </div>
                 <div class="col">
@@ -162,9 +162,9 @@
             <div class="text-inputs row">
                 <div class="col">
                     <mat-form-field class="class-software" appearance="outline">
-                        <mat-label>{{ 'KAKAOTALK ID' | t }}</mat-label>
-                        <input type="text" matInput [(ngModel)]="account.kakaotalk" name="kakaotalk">
-                        <img src="../../../../../assets/img/messengers/kakaotalk.png" alt="">
+                        <mat-label >{{ 'LINE ID' | t }}</mat-label>
+                        <input type="text" matInput [(ngModel)]="account.line" name="line">
+                        <img src="../../../../../assets/img/messengers/line.png" alt="">
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>{{ 'HOBBIES' | t }}</mat-label>
