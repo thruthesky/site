@@ -828,7 +828,10 @@
   "READ_ALL_MESSAGE": "Mark as Read All",
 
   "MESSAGE READ ALL": "All Message Mark Read",
-  "MESSAGE READ ALL CONFIRM": "Are you sure you want to mark read all message?"
+  "MESSAGE READ ALL CONFIRM": "Are you sure you want to mark read all message?",
+
+  "NO_DAY_SELECTED": "NO_DAY_SELECTED",
+  "NO_POINT_SELECTED": "NO_POINT_SELECTED"
 
 
 }

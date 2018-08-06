@@ -21,7 +21,9 @@ export class RegisterPage implements OnInit {
      * For form variables
      *
      */
-    form = <USER_REGISTER>{};
+    form = <USER_REGISTER>{
+        gender: 'F'
+    };
     agree = false;
     birthday;
     year: string;

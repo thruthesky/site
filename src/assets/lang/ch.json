@@ -767,7 +767,10 @@
   "READ_ALL_MESSAGE": "标记为全部阅读",
 
   "MESSAGE READ ALL": "所有消息标记读取",
-  "MESSAGE READ ALL CONFIRM": "您确定要标记阅读所有消息吗？"
+  "MESSAGE READ ALL CONFIRM": "您确定要标记阅读所有消息吗？",
+
+  "NO_DAY_SELECTED": "请选择天数",
+  "NO_POINT_SELECTED": "请选择积分"
 
 
 

@@ -741,7 +741,10 @@
   "READ_ALL_MESSAGE": "すべてを読むとしてマークする",
 
   "MESSAGE READ ALL": "すべてのメッセージマーク読み取り",
-  "MESSAGE READ ALL CONFIRM": "あなたは本当にすべてのメッセージを読むことをマークしてもよろしいですか？"
+  "MESSAGE READ ALL CONFIRM": "あなたは本当にすべてのメッセージを読むことをマークしてもよろしいですか？",
+
+  "NO_DAY_SELECTED": "日を選択してください",
+  "NO_POINT_SELECTED": "ポイントを選択してください"
 
 
 }
