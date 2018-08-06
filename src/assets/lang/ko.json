@@ -126,8 +126,8 @@
   "STUDENT_HELP_PAGE_HEADER_12": "수업료 환불과 포인트 유효기간",
   "STUDENT_HELP_PAGE_SUB_HEADER_12": "결제한 수업료과 포인트가 언제까지 사용가능한지 설명합니다.",
   "STUDENT_HELP_LOW_POINT_RESERVATION_TITLE": "낮은 수업 포인트 제한 안내",
-  "STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE": "저렴한 수업(10분 기준 #point 이하)은 #no 개 까지만 예약 가능합니다.",
-  "STUDENT_HELP_LOW_POINT_RESERVATION_DESC": "저희는 고품격의 일대일 화상영어 수업을 월 1만원이라는 저렴한 금액으로 화상영어 서비스를 하고 있습니다. 그런데 몇 몇 학생들이 저렴한 수업만 골라 몇 백개씩 예약하여 다른 학생들이 더 이상 저렴한 수업을 예약하지 못하는 현상이 벌어지고 있습니다. 이러한 이유로 저렴한 수업을 #no개 이하로 예약되도록 조정하였습니다. 참고로 저렴한 수업이 아닌 경우는 예약에 제한이 없습니다.",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE": "낮은 포인트 수업(10분 기준 #point 이하)은 #no 개 까지만 예약 가능합니다.",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_DESC": "저희는 고품격의 일대일 화상영어 수업을 월 1만원이라는 저렴한 금액으로 화상영어 서비스를 하고 있습니다. 그런데 몇 몇 학생들이 저렴한 수업만 골라 몇 백개씩 예약하여 다른 학생들이 더 이상 저렴한 수업을 예약하지 못하는 현상이 벌어지고 있습니다. 이러한 이유로 저렴한 수업을 #no개 이하로 예약되도록 조정하였습니다. 낮은 수업 포인트 예약 #no2개를 한 후, 수업이 모두 끝나면, 다시 #no3개의 수업을 예약하시면됩니다 ^^; 참고로 10분 기준 #point 포인트를 초과하는 수업의 경우에는 예약에 제한이 없습니다.",
   "POINT_EXPIRE": "포인트는 결제 후 부터 3년간 유효합니다. 3년이 지나면 포인트는 소멸하므로 그 전에 수업을 들으셔야합니다.",
 
 
@@ -781,8 +781,8 @@
   "OTHERS_AUCTION_LIST": "다른 학생의 선생님 찾기 목록",
   "AUCTION_OPEN_BUTTON": "선생님 찾기",
 
-  "NO_MORE_POST": "더 이상 게시물이 없다.",
-  "SHOW_MORE_POST": "더 많은 게시물 표시",
+  "NO_MORE_POST": "더 이상 게시글이 없습니다.",
+  "SHOW_MORE_POST": "더 많은 게시글 표시",
 
   "ALL_MESSAGE": "모든 메시지",
   "PERSONAL_MESSAGE": "개인 메시지",

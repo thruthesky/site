@@ -340,7 +340,9 @@
                 </div>
 
                 <div [class.accordion-hidden]="!accord.on9" [class.accordion-showed]="accord.on9">
-                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_9_1' | t:{'lmsInfoCancellableMinutes': a.lmsInfoCancellableMinutes(), 'lmsInfoCancellableMinutes_2': a.lmsInfoCancellableMinutes(), 'lmsInfoCancellableTimeForInstantReservation': a.lmsInfoCancellableTimeForInstantReservation() } }}</div>
+                    <div>{{ 'STUDENT_HELP_PAGE_CONTENT_9_1' | t:{'lmsInfoCancellableMinutes': a.lmsInfoCancellableMinutes(), 'lmsInfoCancellableMinutes_2':
+                        a.lmsInfoCancellableMinutes(), 'lmsInfoCancellableTimeForInstantReservation': a.lmsInfoCancellableTimeForInstantReservation()
+                        } }}</div>
                 </div>
             </div>
         </div>
@@ -405,7 +407,8 @@
                 <div>
                     <div>
                         <h2>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_TITLE' | t }}</h2>
-                        <div>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE' | t:{ 'point': a.info?.LOW_POINT_PER_MINUTE * 10, 'no':  a.info?.MAX_LOW_POINT_RESERVATION } }}</div>
+                        <div>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE' | t:{ 'point': a.info?.LOW_POINT_PER_MINUTE * 10,
+                            'no': a.info?.MAX_LOW_POINT_RESERVATION } }}</div>
                     </div>
                     <span [class.rotate-45-off]="!accord.on3" [class.rotate-45-on]="accord.on3">
                         <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
@@ -416,7 +419,10 @@
                 </div>
 
                 <div [class.accordion-hidden]="!accord.on3" [class.accordion-showed]="accord.on3">
-                    <div>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_DESC' | t: {'no': a.info?.MAX_LOW_POINT_RESERVATION} }}</div>
+                    <div>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_DESC' | t: {'point': a.info?.LOW_POINT_PER_MINUTE * 10, 'no':
+                        a.info?.MAX_LOW_POINT_RESERVATION, 'no2': a.info?.MAX_LOW_POINT_RESERVATION, 'no3': a.info?.MAX_LOW_POINT_RESERVATION}
+                        }}
+                    </div>
                 </div>
 
             </div>
