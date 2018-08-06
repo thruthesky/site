@@ -12,6 +12,18 @@
 </div>
 
 <section class="message" *ngIf=" messages && !loader.message ">
+
+    <!-- <div *ngFor="let g of a.keys(messages) ">
+        <h3>{{g}}</h3>
+        <ng-container *ngFor="let info of messages[g]">
+            <a class="card" href="/schedule-table?idx_teacher={{info.ID}}" target="_blank">
+                <span class="primary-photo" *ngIf="info['photoURL']">
+                    <img src="{{info['photoURL']}}">
+                </span>
+                <span>{{ info['display_name'] }}</span>
+            </a>
+        </ng-container>
+    </div> -->
     <div *ngFor="let g of a.keys(messages) ">
         <h3>{{g}}</h3>
         <table>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { MESSAGES_GROUP } from '../../../../modules/xapi/interfaces';
+import { ModalService } from '../../../../providers/modal/modal.service';
 
 @Component({
     selector: 'admin-message-list-page',
@@ -19,6 +20,7 @@ export class AdminMessageListPage implements OnInit {
 
     constructor(
         public a: AppService,
+        public modal: ModalService
     ) {
 
         this.onClickSelectDate();
@@ -59,6 +61,29 @@ export class AdminMessageListPage implements OnInit {
             this.a.toast(e);
             this.loader.message = false;
         });
+    }
+
+    showModalMessage() {
+        const content = `
+            <section class="content">
+                <p>1. Open the Kakaotalk app on your smart
+                    phone. *(Login if you didn't login yet) </p>
+                <p>2. In your Kakaotalk app, press the <b>More
+                    Option Button</b>. (3 dot shown on the image below)</p>
+                <div class="image"><img src="assets/img/kakao/6.jpg"></div>
+                <p>3. Press My <b>Profile</b>. (Primary Photo
+                    with your name shown on the image below)</p>
+                <div class="image"><img src="assets/img/kakao/7.jpg"></div>
+                <p>4. Press the <b>QR Code Button</b>.</p>
+                <div class="image"><img src="assets/img/kakao/8.jpg"></div>
+                <p>5. Press the <b>Download Button</b> to get a
+                    copy of your QR Code. (Check your gallery or Download folder)</p>
+                <div class="image"><img src="assets/img/kakao/9.jpg"></div>
+                <p>6. Hurray! You have a copy of your QR Code,
+                    you can update your Curriculum Vitae by uploading this image.</p>
+            </section>
+        `;
+        this.modal.alert({ content: content });
     }
 
 }
