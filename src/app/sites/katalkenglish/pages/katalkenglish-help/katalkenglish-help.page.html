@@ -398,6 +398,31 @@
             </div>
         </div>
 
+
+
+        <div class="part low-point-reservation" (click)="accord.on3=!accord.on3">
+            <div class="desc">
+                <div>
+                    <div>
+                        <h2>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_TITLE' | t }}</h2>
+                        <div>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE' | t:{ 'point': a.info?.LOW_POINT_PER_MINUTE * 10, 'no':  a.info?.MAX_LOW_POINT_RESERVATION } }}</div>
+                    </div>
+                    <span [class.rotate-45-off]="!accord.on3" [class.rotate-45-on]="accord.on3">
+                        <svg aria-hidden="true" data-prefix="fal" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                            data-fa-i2svg="">
+                            <path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path>
+                        </svg>
+                    </span>
+                </div>
+
+                <div [class.accordion-hidden]="!accord.on3" [class.accordion-showed]="accord.on3">
+                    <div>{{ 'STUDENT_HELP_LOW_POINT_RESERVATION_DESC' | t: {'no': a.info?.MAX_LOW_POINT_RESERVATION} }}</div>
+                </div>
+
+            </div>
+        </div>
+
+
     </section>
 
 </main>
