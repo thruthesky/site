@@ -600,6 +600,8 @@ export interface LMS_INFO {
     VAT: string;
     NEW_EXCHANGE_BUYER_RATE: string; // student
     NEW_EXCHANGE_SELLER_RATE: string; // teacher
+    LOW_POINT_PER_MINUTE: string;
+    MAX_LOW_POINT_RESERVATION: string;
 }
 
 
