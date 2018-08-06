@@ -47,16 +47,13 @@
 .message-tab{
     display: flex;
     margin-top: 2.5rem;
+    border-left: 1px solid rgba(128, 128, 128, 0.2);
     font-size: .85rem;
     text-align: center;
     label{
         flex: 100%;
-        &:last-child{
-            span{
-                border-right: 1px solid rgba(128, 128, 128, 0.2);
-            }
-        }
         input:checked+span{
+            border:1px solid rgba(green,0.5);
             color: green;
         }
         span{
@@ -66,7 +63,7 @@
             padding: .75rem .5rem;
             height: 100%;
             border: 1px solid rgba(125,125,125,0.2);
-            border-right: 0;
+            border-left: 0;
             background: #fff;
             cursor: pointer;
         }
@@ -75,8 +72,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (min-width:$md) {
+            margin: 0 2rem;   
+        }
         padding: .75rem .5rem;
-        background: rgba(green,0.8);
+        border-radius: 2px;
+        background:darkblue;
         color: #fff;
         flex:100%;
         font-size: .75rem;
