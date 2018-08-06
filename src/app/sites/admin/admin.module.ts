@@ -31,6 +31,7 @@ import { AdminBranchEditComponent } from './components/admin-branch-edit/admin-b
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { AdminMessageListPage } from './pages/admin-message-list/admin-message-list.page';
 import { AdminUserPaymentInformationListPage } from './pages/admin-user-payment-information-list/admin-user-payment-information-list.page';
+import { AdminStudentReservationPage } from './pages/admin-student-reservation/admin-student-reservation.page';
 
 const routes: Routes = [
     {
@@ -63,6 +64,7 @@ const routes: Routes = [
             { path: 'branch-list', component: AdminBranchListPage},
             { path: 'branch-teachers', component: AdminBranchTeachersPage},
             { path: 'message-list', component: AdminMessageListPage},
+            { path: 'student-reservation', component: AdminStudentReservationPage},
             { path: 'user-payment-information/:ID', component: AdminUserPaymentInformationListPage },
             { path: 'user-payment-information', component: AdminUserPaymentInformationListPage }
         ]
@@ -105,7 +107,8 @@ const routes: Routes = [
         AdminBranchTeachersPage,
         AdminBranchEditComponent,
         AdminMessageListPage,
-        AdminUserPaymentInformationListPage
+        AdminUserPaymentInformationListPage,
+        AdminStudentReservationPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -127,7 +130,8 @@ const routes: Routes = [
         AdminBranchListPage,
         AdminBranchTeachersPage,
         AdminMessageListPage,
-        AdminUserPaymentInformationListPage
+        AdminUserPaymentInformationListPage,
+        AdminStudentReservationPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],

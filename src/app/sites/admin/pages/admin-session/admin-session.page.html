@@ -2,45 +2,6 @@
 <div class="timezone"><span class="title">Timezone:</span> {{ a.userTime }} <span class="note">( The time of input and display is based on your timezone settings. )</span>
 </div>
 
-<div class="reservation-count pb-3">
-    <h3 class="my-1">
-        Student Reservation Count
-        <svg *ngIf="!showReservationCount" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M128 152v-32c0-4.4 3.6-8 8-8h208c4.4 0 8 3.6 8 8v32c0 4.4-3.6 8-8 8H136c-4.4 0-8-3.6-8-8zm8 88h208c4.4 0 8-3.6 8-8v-32c0-4.4-3.6-8-8-8H136c-4.4 0-8 3.6-8 8v32c0 4.4 3.6 8 8 8zm299.1 159.7c-4.2 13-4.2 51.6 0 64.6 7.3 1.4 12.9 7.9 12.9 15.7v16c0 8.8-7.2 16-16 16H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h352c8.8 0 16 7.2 16 16v368c0 7.8-5.5 14.2-12.9 15.7zm-41.1.3H80c-17.6 0-32 14.4-32 32 0 17.7 14.3 32 32 32h314c-2.7-17.3-2.7-46.7 0-64zm6-352H80c-17.7 0-32 14.3-32 32v278.7c9.8-4.3 20.6-6.7 32-6.7h320V48z" class=""></path></svg>
-        <span class="border px-3" *ngIf="showReservationCount" (click)=" showReservationCount = false " >
-            Hide
-            <svg width=20px xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M514.91 32h-.16c-24.08.12-144.75 8.83-219.56 48.09-4.05 2.12-10.33 2.12-14.38 0C205.99 40.83 85.32 32.12 61.25 32h-.16C27.4 32 0 58.47 0 91.01v296.7c0 31.41 25.41 57.28 57.85 58.9 34.77 1.76 122.03 8.26 181.89 30.37 5.27 1.95 10.64 3.02 16.25 3.02h64c5.62 0 10.99-1.08 16.26-3.02 59.87-22.11 147.12-28.61 181.92-30.37 32.41-1.62 57.82-27.48 57.82-58.89V91.01C576 58.47 548.6 32 514.91 32zM272 433c0 8.61-7.14 15.13-15.26 15.13-1.77 0-3.59-.31-5.39-.98-62.45-23.21-148.99-30.33-191.91-32.51-15.39-.77-27.44-12.6-27.44-26.93V91.01c0-14.89 13.06-27 29.09-27 19.28.1 122.46 7.38 192.12 38.29 11.26 5 18.64 15.75 18.66 27.84l.13 100.32V433zm272-45.29c0 14.33-12.05 26.16-27.45 26.93-42.92 2.18-129.46 9.3-191.91 32.51-1.8.67-3.62.98-5.39.98-8.11 0-15.26-6.52-15.26-15.13V230.46l.13-100.32c.01-12.09 7.4-22.84 18.66-27.84 69.66-30.91 172.84-38.19 192.12-38.29 16.03 0 29.09 12.11 29.09 27v296.7z" class=""></path></svg>
-        </span>
-    </h3>
-    <div>
-        <form (ngSubmit)="getStudentReservationCount($event)">
-            Minimum Reservation: <input type="text" name="minimum" [(ngModel)]="minCount" placeholder="Minimum # of reservation">
-                <button class="app-button" type="submit">SEARCH</button>
-        </form>
-        <div class="reservations-table" *ngIf=" !show.reservation && showReservationCount ">
-            <div class="student-reservations">
-                <b>Reservation Count</b>
-                <div class="students d-inline-block" *ngFor="let student of reservations_count">
-                    <span class="info" (click)="student['showDetail'] = !student['showDetail']">
-                        <span class="name" matTooltip="{{ student['display_name'] }}">{{ a.shortName(student['display_name'],7) }}<ng-container
-                                *ngIf="student.length>7">...</ng-container></span>
-                        <span class="no">{{ student['reservation'] }}</span>
-                    </span>
-                    <div *ngIf="student['reservation_breakdown'] && student['showDetail']">
-                        <div class="info" *ngFor="let r of student['reservation_breakdown']">
-                            <span class="name">{{r['point']}}</span>
-                            <span class="no">{{r['cnt']}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="loader" *ngIf=" show.reservation ">
-        <mat-spinner [diameter]="48"></mat-spinner>
-        Loading...
-    </div>
-
-</div>
 
 <form (ngSubmit)="onSubmit( $event )">
     <div>
