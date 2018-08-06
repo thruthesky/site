@@ -682,6 +682,7 @@ export interface GREETING {
     greeting: string;
     photoURL: string;
     greeting_update_stamp: string;
+    no_of_reservations: number;
     level: number;
 }
 

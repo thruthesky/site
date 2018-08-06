@@ -39,6 +39,7 @@
                                     </div>
                                     <div class="level"><span class="title">Level:</span> {{ greeting['level'] > 0 ? greeting['level'] : "No Evaluation yet."}}</div>     
                                 </div>
+                                <div>Reservation: {{greeting.no_of_reservations}}</div>
                                 <div class="stamp"><span class="title">Posted:</span> {{ a.dateTime(greeting['greeting_update_stamp'])}}</div>
                                  <div class="message">{{greeting['greeting']}}</div>
                             </div>
