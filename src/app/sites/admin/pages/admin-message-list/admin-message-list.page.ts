@@ -78,7 +78,7 @@ export class AdminMessageListPage implements OnInit {
                 margin:2rem 0;
                 padding:1rem;
                 border-radius:2px;
-                background:#eee;
+                border:1px solid rgba(125,125,125,0.2);
                 line-height: 1.5em;">`
             +
             `<div style="color:dodgerblue"> Reciever:
