@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AdminStudentReservationPage implements OnInit {
 
     minCount = 100; // this is the minimum reservation to search in countStudentReservation
-    point = 50;
+    pointPerMin = 50;
     reservations_count: Array<any> = [];
     showReservationCount = false;
 
@@ -37,7 +37,7 @@ export class AdminStudentReservationPage implements OnInit {
         }
         this.loader.reservation = true;
         this.showReservationCount = true;
-        this.a.lms.admin_count_student_reservation({minimum: this.minCount, point: this.point}).subscribe( re => {
+        this.a.lms.admin_count_student_reservation({minimum: this.minCount, pointPerMin: this.pointPerMin}).subscribe( re => {
             console.log(re);
             this.reservations_count = re;
             this.loader.reservation = false;
