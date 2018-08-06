@@ -39,21 +39,60 @@
     }
 }
 
-.icon-svg{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-weight: normal;
-    svg{
-        height: .9em;
-        width: .9em;
-        margin: 0 .5em;
+
+.primary-photo {
+    display: inline-block;
+    width: 58px;
+    overflow: hidden;
+    img {
+      width: 100%;
     }
 }
 
-.primary-photo {
-    width: 40px;
-    img {
-        width: 100%;
+
+.teacher-group{
+    margin-bottom: 2rem;
+    padding: .5rem;
+    border-radius: 2px;
+    border: 1px solid rgba(125,125,125,0.2);
+    background: #eee;
+    h3{
+        margin: 0;
+        padding: .5rem;
+        font-weight: 300;
+        font-size: 1rem;
+        
+    }
+}
+.messages-container{
+    display: flex;
+    flex-wrap: wrap;
+    .card{
+        margin: .25rem;
+        padding: .25rem;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+        background: #fff;
+        text-align: center;
+        .right{
+            font-size: .8rem;
+            .message-link{
+                margin: .25rem 0;
+                color: dimgray;
+                svg{
+                    position: relative;
+                    top: .125em;
+                    margin-left: .3em;
+                    width: 1em;
+                    height: 1em;
+                    color: orange;
+                    cursor: pointer;
+                }
+            }
+            .name{
+                font-size: .75rem;
+                color: dimgray;
+            }
+        }
     }
 }
