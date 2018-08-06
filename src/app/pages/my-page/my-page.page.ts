@@ -49,7 +49,7 @@ export class MyPagePage implements OnInit {
             // console.log('mypage: ', re);
             this.loader.mypage = false;
             this.mypage = re;
-            console.log('mypage: ', this.mypage);
+            // console.log('mypage: ', this.mypage);
             if (this.mypage.auction && this.mypage.auction.duration && parseInt(<any>this.mypage.auction.duration, 10)) {
                 this.show.auction = true;
             }
@@ -59,7 +59,7 @@ export class MyPagePage implements OnInit {
         this.loadTeachers();
 
         a.lms.get_auctions({tz_offset: a.lms.getUserLocalTimezoneOffset()}).subscribe( res => {
-            console.log('get_auctions: ', res);
+            // console.log('get_auctions: ', res);
             if (res && res['auction']) {
                 this.auctions = res['auction'];
             }
@@ -131,15 +131,9 @@ export class MyPagePage implements OnInit {
         }
 
         if ( !this.mypage.auction.point ) {
-            this.a.toast('NO_POINT_SELECTED');
+            this.a.toast(this.a.ln['NO_POINT_SELECTED']);
             return;
         }
-
-
-
-
-
-
 
 
         this.loader.auction = true;
