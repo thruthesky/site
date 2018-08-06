@@ -176,6 +176,7 @@ export interface AUCTION {
     photoURL: string;
     greeting?: string;
     auction_stamp_update: number;
+    no_of_reservations: number;
     auction: {
         sunday: '' | 'Y';
         monday: '' | 'Y';
