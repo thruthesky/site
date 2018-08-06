@@ -453,7 +453,7 @@ export class XapiLMSService extends Base {
     message_opened(idx): Observable<any> {
         const data = {
             idx: idx,
-            route: 'lms.message_read_all',
+            route: 'lms.message_opened',
             session_id: this.user.sessionId
         };
         return this.x.post(data);

@@ -25,7 +25,7 @@ export class AdminUserPaymentInformationListPage implements OnInit {
         active.paramMap.subscribe(params => {
             const ID = params.get('ID');
             if ( ID ) {
-                this.loadDefault({ID: ID});
+                this.loadDefault({idx_teacher: ID});
             } else {
                 this.loadDefault();
             }
@@ -37,6 +37,10 @@ export class AdminUserPaymentInformationListPage implements OnInit {
 
 
     loadDefault(o = {}) {
+        if ( this.ID ) {
+            o['idx_teacher'] = this.ID;
+        }
+
         this.loader.record = true;
         this.a.lms.admin_user_payment_information_list(o).subscribe(res => {
             console.log('messages: ', res);

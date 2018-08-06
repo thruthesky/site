@@ -44,6 +44,50 @@
     }
 }
 
+.message-tab{
+    display: flex;
+    margin-top: 2.5rem;
+    font-size: .85rem;
+    text-align: center;
+    label{
+        flex: 100%;
+        &:last-child{
+            span{
+                border-right: 1px solid rgba(128, 128, 128, 0.2);
+            }
+        }
+        input:checked+span{
+            color: green;
+        }
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .75rem .5rem;
+            height: 100%;
+            border: 1px solid rgba(125,125,125,0.2);
+            border-right: 0;
+            background: #fff;
+            cursor: pointer;
+        }
+    }
+    .read-all-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: .75rem .5rem;
+        background: rgba(green,0.8);
+        color: #fff;
+        flex:100%;
+        font-size: .75rem;
+        cursor: pointer;
+    }
+    input{
+        position: absolute;
+        opacity: 0;
+    }
+}
+
 
 .message-list{
 
