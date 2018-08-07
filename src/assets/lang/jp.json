@@ -123,6 +123,10 @@
 
   "POINT_EXPIRE": "ポイントは、支払い日後3年間有効です。 ポイントは有効期限が切れ、有効期限が切れた後は使用されなくなります。",
   
+  "STUDENT_HELP_LOW_POINT_RESERVATION_TITLE": "多くの低ポイントサービスの制限",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE": "低点予約（＃ポイントポイント以下で10分）は#noのみに制限されます。",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_DESC": "私たちは1：1の高品質の英語教育を、世界で最も安い料金で提供しています。 一部の学生はサイト上であまりにも多くの予約を予約しています。 そして、それは他の学生のための可用性の欠如を引き起こす。 このため、低点予約の番号は#noのみに制限しています。",
+
   "MY_POINT_PAGE_USER_POINT": "#USER_NAME会員のポイントは#POINTです。",
   "MY_POINT_PAGE_REMINDER": "授業料の支払いの内訳は、決済内訳メニューから確認することができます。",
   "GOTO_PAYMENT_HISTORY": "お支払い履歴ページへ移動",

@@ -119,6 +119,10 @@
   "STUDENT_HELP_PAGE_HEADER_12": "退还学费和有效期",
   "STUDENT_HELP_PAGE_SUB_HEADER_12": "描述您已支付的学费金额以及您的学分何时可用。",
   "POINT_EXPIRE": "积分在付款日期后的3年内有效。 点将过期并在到期后不再使用。",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_TITLE": "太多的低点服务限制",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE": "低点保留（小于或等于#point - 点的10分钟）仅限于#no。",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_DESC": "我们以1：1的比例提供高质量的英语教育，以世界上最低的价格提供面对面的服务。 有些学生在网站上保留了太多预订。 这导致其他学生缺乏可用性。 因此，我们仅限制低点保留#no。",
+
 
 
   "TAKEN": "会议",
