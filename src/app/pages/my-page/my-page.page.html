@@ -282,7 +282,7 @@
                         <div>{{ a.ln.AUCTION_HOUR }}</div>
                         <div>
                             <mat-form-field>
-                                <mat-select name="hour" [(ngModel)]="mypage.auction.hour">
+                                <mat-select name="hour" [(ngModel)]="mypage.auction.hour" [placeholder]="a.ln['HOUR']">
                                     <mat-option value="00">0</mat-option>
                                     <mat-option value="01">1</mat-option>
                                     <mat-option value="02">2</mat-option>
@@ -311,7 +311,7 @@
                             </mat-form-field>
                             :
                             <mat-form-field>
-                                <mat-select name="minute" [(ngModel)]="mypage.auction.minute">
+                                <mat-select name="minute" [(ngModel)]="mypage.auction.minute" [placeholder]="a.ln['MINUTE']">
                                     <mat-option value="00">0</mat-option>
                                     <mat-option value="05">5</mat-option>
                                     <mat-option value="10">10</mat-option>
@@ -333,17 +333,17 @@
                         <div>{{ a.ln.AUCTION_DURATION }}</div>
                         <mat-form-field>
                             <mat-select name="duration" [(ngModel)]="mypage.auction.duration">
-                                <mat-option value="10">10</mat-option>
-                                <mat-option value="15">15</mat-option>
-                                <mat-option value="20">20</mat-option>
-                                <mat-option data-min="25" value="25">25</mat-option>
-                                <mat-option value="30">30</mat-option>
-                                <mat-option value="40">40</mat-option>
-                                <mat-option value="50">50</mat-option>
-                                <mat-option value="60">60</mat-option>
-                                <mat-option value="80">80</mat-option>
-                                <mat-option value="100">100</mat-option>
-                                <mat-option value="120">120</mat-option>
+                                <mat-option [value]="10">10</mat-option>
+                                <mat-option [value]="15">15</mat-option>
+                                <mat-option [value]="20">20</mat-option>
+                                <mat-option data-min="25" [value]="25">25</mat-option>
+                                <mat-option [value]="30">30</mat-option>
+                                <mat-option [value]="40">40</mat-option>
+                                <mat-option [value]="50">50</mat-option>
+                                <mat-option [value]="60">60</mat-option>
+                                <mat-option [value]="80">80</mat-option>
+                                <mat-option [value]="100">100</mat-option>
+                                <mat-option [value]="120">120</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>

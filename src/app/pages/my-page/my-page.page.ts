@@ -79,9 +79,9 @@ export class MyPagePage implements OnInit {
             thursday: false,
             friday: false,
             saturday: false,
-            hour: 0,
-            minute: 0,
-            duration: 0,
+            hour: '00',
+            minute: '00',
+            duration: 25,
             point: 0,
             comment: '',
             auction: {}
@@ -122,6 +122,20 @@ export class MyPagePage implements OnInit {
         if ( this.loader.auction ) {
             return;
         }
+        // console.log('days', this.mypage.auction);
+        const countDays = this.countDays(this.mypage.auction);
+        // console.log('days', countDays);
+        if ( !countDays ) {
+            this.a.toast(this.a.ln['NO_DAY_SELECTED']);
+            return;
+        }
+
+        if ( !this.mypage.auction.point ) {
+            this.a.toast(this.a.ln['NO_POINT_SELECTED']);
+            return;
+        }
+
+
         this.loader.auction = true;
         this.a.lms.auction_update(this.mypage.auction).subscribe(re => {
             // console.log('re: ', re);
@@ -229,7 +243,7 @@ export class MyPagePage implements OnInit {
     countDays(auction) {
         let cnt = 0;
         this.days.forEach( v => {
-            if ( auction[v] && auction[v] === 'Y'  ) {
+            if ( auction[v] && (auction[v] === 'Y' || auction[v] === true )  ) {
                 cnt++;
             }
         });

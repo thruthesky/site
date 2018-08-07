@@ -105,53 +105,62 @@
         <div class="container-fluid">
             <div class="row input-week">
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="sunday" [(ngModel)]="data.sunday" (change)="allDays=false" > Sun</mat-checkbox>
+                    <!-- <label>
                         <input type="checkbox" name="sunday" [(ngModel)]="data.sunday" (change)="allDays=false">
                         <span>Sun</span>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="monday" [(ngModel)]="data.monday" (change)="allDays=false"> Mon</mat-checkbox>
+                    <!-- <label>
                         <input type="checkbox" name="monday" [(ngModel)]="data.monday" (change)="allDays=false">
                         <span>Mon</span>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="tuesday" [(ngModel)]="data.tuesday" (change)="allDays=false"> Tue</mat-checkbox>
+                    <!-- <label>
                         <input type="checkbox" name="tuesday" [(ngModel)]="data.tuesday" (change)="allDays=false">
                         <span>Tue</span>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="wednesday" [(ngModel)]="data.wednesday" (change)="allDays=false"> Wed</mat-checkbox>
+                    
+                    <!-- <label>
                         <input type="checkbox" name="wednesday" [(ngModel)]="data.wednesday" (change)="allDays=false">
                         <span>Wed</span>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="thursday" [(ngModel)]="data.thursday" (change)="allDays=false"> Thu</mat-checkbox>                   
+                    <!-- <label>
                         <input type="checkbox" name="thursday" [(ngModel)]="data.thursday" (change)="allDays=false">
                         <span>Thu</span>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="friday" [(ngModel)]="data.friday" (change)="allDays=false"> Fri</mat-checkbox>                   
+                    <!-- <label>
                         <input type="checkbox" name="friday" [(ngModel)]="data.friday" (change)="allDays=false">
                         <span>Fri</span>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="saturday" [(ngModel)]="data.saturday" (change)="allDays=false"> Sat</mat-checkbox>  
+                    <!-- <label>
                         <input type="checkbox" name="saturday" [(ngModel)]="data.saturday" (change)="allDays=false">
                         <span>Sat</span>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="col">
-                    <label>
+                    <mat-checkbox name="allDays" [(ngModel)]="allDays" (click)="onClickAllDays()" > All</mat-checkbox>
+                    <!-- <label>
                         <input type="checkbox" name="allDays"
                                [(ngModel)]="allDays" (click)="onClickAllDays()">
                         <span>All</span>
-                    </label>
+                    </label> -->
                 </div>
             </div>
         </div>

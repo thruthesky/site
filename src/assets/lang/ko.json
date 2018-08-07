@@ -790,7 +790,10 @@
   "READ_ALL_MESSAGE": "모두 읽음으로 표시",
 
   "MESSAGE READ ALL": "모든 메시지 마크 읽기",
-  "MESSAGE READ ALL CONFIRM": "모든 메시지를 읽으려고 하시겠습니까?"
+  "MESSAGE READ ALL CONFIRM": "모든 메시지를 읽으려고 하시겠습니까?",
+
+  "NO_DAY_SELECTED": "일을 선택하십시오.",
+  "NO_POINT_SELECTED": "포인트를 선택하십시오."
 
 
 }

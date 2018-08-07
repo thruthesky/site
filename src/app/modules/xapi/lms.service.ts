@@ -126,15 +126,15 @@ export interface MYPAGE {
     }>;
     greeting: string;
     auction: {
-        sunday: boolean;
-        monday: boolean;
-        tuesday: boolean;
-        wednesday: boolean;
-        thursday: boolean;
-        friday: boolean;
-        saturday: boolean;
-        hour: number;
-        minute: number;
+        sunday: '' | 'Y' | boolean;
+        monday: '' | 'Y' | boolean;
+        tuesday: '' | 'Y' | boolean;
+        wednesday: '' | 'Y' | boolean;
+        thursday: '' | 'Y' | boolean;
+        friday: '' | 'Y' | boolean;
+        saturday: '' | 'Y' | boolean;
+        hour: string;
+        minute: string;
         duration: number;
         point: number;
         comment: string;
@@ -178,13 +178,13 @@ export interface AUCTION {
     auction_stamp_update: number;
     no_of_reservations: number;
     auction: {
-        sunday: '' | 'Y';
-        monday: '' | 'Y';
-        tuesday: '' | 'Y';
-        wednesday: '' | 'Y';
-        thursday: '' | 'Y';
-        friday: '' | 'Y';
-        saturday: '' | 'Y';
+        sunday: '' | 'Y' | true | false;
+        monday: '' | 'Y' | true | false;
+        tuesday: '' | 'Y' | true | false;
+        wednesday: '' | 'Y' | true | false;
+        thursday: '' | 'Y' | true | false;
+        friday: '' | 'Y' | true | false;
+        saturday: '' | 'Y' | true | false;
         hour: string;
         minute: string;
         duration: number;

@@ -1,23 +1,23 @@
 @import "../../../theme/vars";
 
 .search-box {
+    margin-bottom: .5rem;
     padding: 1em .5em;
     background: #e0e0e0;
+    border:1px solid rgba(125,125,125,0.3);
+    border-radius: 2px;
+    border-top: 0;
     .user-search {
         display: flex;
         justify-content: flex-end;
         padding: 0 .3em;
 
         input{
-            padding: .5em;
+            padding: .5em 1rem;
             border-radius: 2px;
             border: 0;
             background: #fff;
             font-size: .8em;
-            width: 100px;
-            @media (min-width:$md) {
-                width: 160px
-            }
         }
 
         button{
@@ -30,16 +30,13 @@
             background: #fff;
 
             svg{
+                margin-right: .4rem;
                 height: 1em;
                 width: 1em;
             }
 
             span{
-                display: none;
                 line-height: 0;
-                @media (min-width:$md) {
-                    display: inline
-                }
             }
         }
     }
