@@ -251,6 +251,8 @@ export class AdminSidebarComponent implements OnInit {
                         this.alertUnChecked = false;
                     }
                 }
+            } else {
+                this.alertUnChecked = false;
             }
         }, e => this.a.toast(e));
         return false;
