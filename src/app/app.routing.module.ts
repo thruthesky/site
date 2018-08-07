@@ -186,6 +186,10 @@ const routes: Routes = [
     loadChildren: './pages/message/message.page.module#MessagePageModule'
   },
   {
+    path: 'message/:idx',
+    loadChildren: './pages/message/message.page.module#MessagePageModule'
+  },
+  {
     path: 'session-refund-request',
     loadChildren: './pages/session-refund-request/session-refund-request.page.module#SessionRefundRequestPageModule'
   },

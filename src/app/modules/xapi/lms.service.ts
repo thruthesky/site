@@ -195,7 +195,7 @@ export interface AUCTION {
 
 export type AUCTIONS = Array<AUCTION>;
 
-export interface AUCTION_LIST_OPTION  extends PAGINATION_OPTION {
+export interface AUCTION_LIST_OPTION extends PAGINATION_OPTION {
     auctions: AUCTIONS;
 }
 
@@ -928,11 +928,11 @@ export class XapiLMSService extends Base {
     }
 
     get_branch_info_by_domain(domain) {
-       return this.x.post({
-           route: 'lms.branch_information',
-           session_id: this.user.sessionId,
-           domain: domain
-       });
+        return this.x.post({
+            route: 'lms.branch_information',
+            session_id: this.user.sessionId,
+            domain: domain
+        });
     }
 
     admin_message_list(req): Observable<any> {
@@ -959,4 +959,10 @@ export class XapiLMSService extends Base {
             session_id: this.user.sessionId
         });
     }
+    admin_promo_message(req): Observable<any> {
+        req['route'] = 'lms.admin_promo_message';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
 }

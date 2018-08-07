@@ -33,6 +33,11 @@
     </div>
 
 
+    <div class="view-message" *ngIf=" data && data.view">
+        {{ data.view | json }}
+    </div>
+
+
     <div class="message-list" *ngIf=" data ">
         <ng-container  *ngFor=" let message of data.messages ">
 
