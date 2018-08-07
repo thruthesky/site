@@ -155,37 +155,6 @@ main{
                 justify-content: center;
                 padding: 0
             }
-            // input{
-            //     position: absolute;
-            //     opacity: 0;
-            // }
-    
-            // input:checked{
-            //         &+span{
-            //             border-color: dodgerblue;
-            //             background: rgba(dodgerblue,0.1);
-            //             color: dodgerblue;
-            //         }
-            // }
-    
-            // span{
-            //     display: flex;
-            //     align-items: center;
-            //     justify-content: center;
-            //     padding: 1em 2em;
-            //     border-radius: 2px;
-            //     border: 1px solid #e2e2e2;
-            //     color: rgba(#000,0.8);
-            //     font-size: 90%;
-            //     cursor: pointer;
-    
-            //     @media screen and(max-width:$sm){
-            //         margin-top: .3em;
-            //         padding: .9em 1.4em;
-            //         font-size:80%;
-            //     }
-            // }
-    
         }
     
         .timezone{
