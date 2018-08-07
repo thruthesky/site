@@ -91,6 +91,7 @@ export class AdminMessageListPage implements OnInit {
             `<div>Seen:` + seen + `</div>` +
             `</div>`;
         }
+        this.modal.alert({ content: finalMessage});
     }
 
 }
