@@ -24,13 +24,13 @@ describe('My page', () => {
     })
     it('Auction test', () => {
         cy.get("[data-button='open-auction-box']").click();
-        cy.get("[name='sunday']").check({timeout: 1000});
-        cy.get("[name='monday']").check({timeout: 1000});
-        cy.get("[name='tuesday']").check({timeout: 1000});
-        cy.get("[name='wednesday']").check({timeout: 1000});
-        cy.get("[name='thursday']").check({timeout: 1000});
-        cy.get("[name='friday']").check({timeout: 1000});
-        cy.get("[name='saturday']").check({timeout: 1000});
+        cy.get("mat-checkbox[name='sunday']").click({timeout: 1000});
+        cy.get("mat-checkbox[name='monday']").click({timeout: 1000});
+        cy.get("mat-checkbox[name='tuesday']").click({timeout: 1000});
+        cy.get("mat-checkbox[name='wednesday']").click({timeout: 1000});
+        cy.get("mat-checkbox[name='thursday']").click({timeout: 1000});
+        cy.get("mat-checkbox[name='friday']").click({timeout: 1000});
+        cy.get("mat-checkbox[name='saturday']").click({timeout: 1000});
         
         // cy.get("[name='hour']").select('01', { timeout: 1000 });
         cy.get("[name='hour']").click();
