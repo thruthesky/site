@@ -88,7 +88,7 @@
         @media (min-width:$md) {
             flex: unset;
             padding: 0;
-            width: 175px;
+            max-width: 130px;
         }
         .teacher-name {
             font-weight: bold;
@@ -315,7 +315,7 @@
     }
     svg {
         color: #ffffff;
-        min-height: 1.5em;
-        min-width: 1.5em;
+        height: 1.5em;
+        width: 1.5em;
     }
 }

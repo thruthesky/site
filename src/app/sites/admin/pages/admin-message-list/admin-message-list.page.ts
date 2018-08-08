@@ -91,7 +91,9 @@ export class AdminMessageListPage implements OnInit {
             `<div>Seen:` + seen + `</div>` +
             `</div>`;
         }
-        this.modal.alert({ content: finalMessage});
+        if ( info.length > 0 ) {
+            this.modal.alert({ content: finalMessage});
+        }
     }
 
 }
