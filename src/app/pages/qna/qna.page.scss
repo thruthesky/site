@@ -94,8 +94,8 @@
             color: darkgreen;
         }
         .icon{
-            display: flex;
-            align-items: center;
+            // display: inline-flex;
+            // align-items: center;
             @media (min-width:$md) {
                 margin-right: 1.45em;
             }
