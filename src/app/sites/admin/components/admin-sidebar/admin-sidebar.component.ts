@@ -23,6 +23,7 @@ export class AdminSidebarComponent implements OnInit {
     'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
     alertUnChecked = false;
+    alertMark = '';
 
     /**
      * quick search
@@ -206,6 +207,7 @@ export class AdminSidebarComponent implements OnInit {
         this.a.lms.session_stamp_checked({idx: session.idx}).subscribe( re => {
             // console.log(re);
             session.stamp_checked = 1;
+            this.alertMark = '';
         }, e => {
             this.a.toast(e);
         });
@@ -225,7 +227,7 @@ export class AdminSidebarComponent implements OnInit {
         this.a.lms.admin_query({
             sql: sql
         }).subscribe( re => {
-            // console.log('loadUncheckedSession: ', re);
+            console.log('loadUncheckedSession: ', re);
 
             if (re.length) {
                 for (const session of re) {
@@ -247,6 +249,7 @@ export class AdminSidebarComponent implements OnInit {
 
                     if ( book_stamp <= allow_stamp) {
                         this.alertUnChecked = true;
+                        this.alertMark = session.class_begin;
                     } else {
                         this.alertUnChecked = false;
                     }

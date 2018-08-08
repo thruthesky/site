@@ -160,7 +160,7 @@
 
 
     <section id="session-ongoing">
-        <h2>Sessions ongoing</h2>
+        <h2>Sessions ongoing ({{ a.getHi().substr(0, 2) + ':' + a.getHi().substr(2, 2) }})</h2>
         <div class="timezone"> Timezone: {{ a.userTime }}</div>
         <audio autoplay loop *ngIf=" alertUnChecked ">
             <source src='../../../../../assets/sound/siren.mp3' type='audio/mpeg'>
@@ -175,7 +175,7 @@
                 <th>Point</th>
                 <th>Chk</th>
             </tr>
-            <tr *ngFor="let session of sessions">
+            <tr *ngFor="let session of sessions" [ngClass]="{'uncheckSession': alertMark == session.class_begin }">
                 <td>
                     <a class='link' routerLink="/manager/session-edit/{{session.idx}}">
                         <svg viewBox="0 0 576 512">
