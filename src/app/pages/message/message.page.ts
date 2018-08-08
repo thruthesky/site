@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
 import { ModalData, ModalService } from '../../providers/modal/modal.service';
+import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 
 @Component({
@@ -21,23 +22,30 @@ export class MessagePage {
     loading = false;
 
     constructor(
+        private activatedRoute: ActivatedRoute,
         public a: AppService,
         public modal: ModalService,
         public messageSend: MessageSendModalService
     ) {
-        this.loadDefault();
+
+        activatedRoute.paramMap.subscribe(params => {
+            console.log('data: ', params);
+            this.loadDefault({ idx: params.get('idx') });
+        });
+        // this.loadDefault();
     }
 
-    loadDefault() {
+    loadDefault(options = {}) {
         this.page_no = 1;
-        this.loadMessage({box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit});
+        options = Object.assign({}, { box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit }, options);
+        this.loadMessage(options);
     }
 
 
     onClickBox(box) {
         this.box = box;
         this.filterMessage = '';
-        this.loadMessage({box: this.box, page_no: 1, limit: this.limit});
+        this.loadMessage({ box: this.box, page_no: 1, limit: this.limit });
     }
 
 
@@ -53,12 +61,12 @@ export class MessagePage {
 
     onClickPrevious() {
         this.page_no--;
-        this.loadMessage({box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit});
+        this.loadMessage({ box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit });
     }
 
     onClickNext() {
         this.page_no++;
-        this.loadMessage({box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit});
+        this.loadMessage({ box: this.box, status: this.filterMessage, page_no: this.page_no, limit: this.limit });
     }
 
 

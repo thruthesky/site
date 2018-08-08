@@ -247,6 +247,9 @@ aside {
     }
     #session-ongoing{
         font-size: 1.1em;
+        .uncheckSession {
+            font-weight: bold;
+        }
         .timezone{
             font-size: 1.1em;
             padding: .5em .2em;
