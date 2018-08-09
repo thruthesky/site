@@ -154,7 +154,7 @@ mat-form-field[appearance] {
     padding-bottom: .5rem;
     width: 100%;
     @media (min-width:$md) {
-        width: unset;
+        width: auto;
     }
     border: 1px solid rgba(125, 125, 125, 0.2);
     border-radius: 2px;
@@ -457,7 +457,6 @@ mat-form-field[appearance] {
 }
 
 #my-introduction {
-    // margin: 0 1.5rem;
     margin-bottom: 2.5rem;
     @media (min-width:$md) {
         margin: 0;
@@ -538,7 +537,7 @@ mat-form-field[appearance] {
                 width: 100%;
                 @media (min-width:$md){
                     display: inline-block;
-                    width: unset;
+                    width: auto;
                     margin: 1rem;
                     margin-bottom: 1.5rem;
                 }
@@ -799,7 +798,6 @@ mat-form-field[appearance] {
             }
             .right{
                 display: flex;
-                // justify-content: center;
                 flex-direction: column;
                 padding: 1.5rem 1rem!important;
                 padding-left: 0!important;
@@ -990,7 +988,7 @@ mat-form-field[appearance] {
         width: 1em;
     }
 }
-//stars color
+
 [grade="5"] {
     color: #f06000;
 }
