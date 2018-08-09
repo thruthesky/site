@@ -13,7 +13,7 @@ export class OntuePolicyForumComponent implements OnInit {
         public a: AppService,
         public forum: ForumService
     ) {
-        this.forum.loadPosts({slug: 'policy', page: 1, per_page: 9}).subscribe(re => this.policy = re);
+        this.forum.loadPosts({slug: 'policy', page: 1, per_page: 8}).subscribe(re => this.policy = re);
     }
 
     ngOnInit() {
