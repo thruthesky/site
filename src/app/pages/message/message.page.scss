@@ -261,24 +261,55 @@
     }
 
     .content{
-        padding: 2em;
+        padding: 1em;
+        @media (min-width:$md) {
+            padding: 2em;
+        }
         background:#eee; 
         text-align: center;
         line-height: 1.6em;
         font-weight: 200;
         font-size: 1.2em;
     }
+    .schedule-table-button{
+        margin: .5rem;
+        padding: .5rem 1rem;
+        @media (min-width:$md) {
+            padding: .7rem 1.5rem;
+        }
+        background: darkorange;
+        color: #fff;
+        font-size: .75rem;
+        @media (min-width:$md) {
+            font-size: .85rem;
+        }
+        svg{
+            position: relative;
+            top: .125em;
+            height: 1em;
+            width: 1em;
+            margin-right: .4rem;
+        }
 
+    }
     .reply-button{
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin-top: .5rem;
+        margin: .5rem;
         padding: .5rem 1rem;
+        @media (min-width:$md) {
+            padding: .7rem 1.5rem;
+        }
         border: 0;
         border-radius: 2px;
-        background: darkorange;
-        color: #fff;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        background: #fff;
+        font-size: .75rem;
+        @media (min-width:$md) {
+            font-size: .85rem;
+        }
+        text-transform: uppercase;
 
         svg{
             position: relative;
