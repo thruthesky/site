@@ -100,8 +100,9 @@
     background:#fff;
     .left{
         display: flex;
-        flex: 2;
+        flex:4;
         .photo{
+            display: block;
             height: 50px;
             width: 50px;
             @media (min-width:$md) {
@@ -131,9 +132,42 @@
     .right{
         display: flex;
         flex-direction: column;
-        svg{
-            height: 1em;
-            width: 1em;
+        text-align: center;
+        margin-top: 1rem;
+        flex:100%;
+        @media (min-width:$md) {
+            flex:1;
+            margin-top: 0;
+        }
+        a,
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5em;
+            padding: .75rem;
+            border-radius: 2px;
+            background: darkorange;
+            color: #fff;
+            font-size: .7em;
+            text-align: center;
+            svg{
+                position: relative;
+                top:.125em;
+                margin-right: .5em;
+                height: 1em;
+                width: 1em;
+            }
+        }
+        button{
+            border: 0;
+            background: #eee;
+            color: #000;
+            text-transform: uppercase;
+        }
+        .date{
+            font-size: .9em;
+            color: dimgray
         }
     }
 }

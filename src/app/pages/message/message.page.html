@@ -34,8 +34,10 @@
 
         <div class="message-topview"  *ngIf=" data?.view?.idx">
             <div class="left">
-                <div class="photo">
-                    <img src="{{ data?.view?.sender_photoURL ? data.view.sender_photoURL: a.anonymousPhotoURL}}">
+                <div>
+                    <span class="photo">
+                        <img src="{{ data?.view?.sender_photoURL ? data.view.sender_photoURL: a.anonymousPhotoURL}}">
+                    </span>
                 </div>
                 <div class="message-info">
                     <div class="sender"><span>{{'SENDER' | t}}</span>: {{data.view.sender_name}}</div>
