@@ -58,6 +58,7 @@ export interface SCHEDULE_OPTIONS {
     max_point: number;
     class_begin_hour: number;        // Loads schedule btween 00:00 am and 23:59 pm.
     class_end_hour: number;          // Loads schedule btween 00:00 am and 23:59 pm.
+    user_group: string;
     useCache: boolean;
 }
 
