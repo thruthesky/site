@@ -1,41 +1,51 @@
 <h1>Admin Promo Message</h1>
 
+<div class="desc">
+    <div class="title">Admin can send messages to students on behalf of teacher's name.</div>
+    <div class="content">
 
-<ol>
-    <li>
-        Admin can send messages to students on behalf of teacher's name.
-    </li>
-    <li>
-        There template tags are mandatory. These template can be used in title and content. They can be used muliple times.
-<br>
-        '#studentName', '#teacherName', '#kakaotalkID'
-        
-        Optionally, teachers can add '#skypeID', '#wechatID', '#stars'
-    </li>
-</ol>
+            <div>There template tags are <b>mandatory</b>. These template can be used in title and content. They can be used muliple times.</div>
+    
+            <div>'#studentName', '#teacherName', '#kakaotalkID'. <span>Optionally, teachers can add</span> '#skypeID', '#wechatID', '#stars'</div>
+    </div>
 
+</div>
 
 <form>
-    <div>
-        Select Teacher:
-        <select name="teacher" [(ngModel)]=" form.teacher ">
-            <option value=''>Select One Teacher</option>
-            <option *ngFor="let teacher of teachers" value="{{ teacher.ID }}">{{ teacher.display_name }}</option>
-        </select>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <mat-form-field>
+                    <mat-select placeholder="Select Teacher" [(ngModel)]=" form.teacher ">
+                        <mat-option value=''> Select One Teacher </mat-option>
+                        <mat-option *ngFor="let teacher of teachers" value="{{ teacher.ID }}">{{ teacher.display_name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+                <mat-form-field>
+                    <mat-select placeholder="Select Students" [(ngModel)]=" form.student ">
+                        <mat-option value='all'> All Students</mat-option>
+                        <mat-option value="test">Test students only</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
     </div>
-    <div>
 
-            Select students:
-            <select name="students" [(ngModel)]=" form.student ">
-                <option value="all">All students</option>
-                <option value="test">Test students only</option>
-            </select>
+    <div class="text-area">
+        <mat-form-field appearance="outline">
+            <mat-label>Message content template:</mat-label>
+            <textarea matInput name="template" [(ngModel)]=" form.template "></textarea>
+        </mat-form-field>
     </div>
-    <div>
-        Message content template:<br>
-<textarea name="template" [(ngModel)]=" form.template "></textarea>
-    </div>
-    <div>
-        <button type="submit" (click)="onClickSendButton();">Send Message To Students</button>
+
+    <div class="submit-button">
+        <button type="submit" (click)="onClickSendButton();">
+            <span>Send Message To Students</span>
+            <span>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"></path></svg>
+            </span>
+        </button>
     </div>
 </form>
