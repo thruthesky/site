@@ -249,6 +249,7 @@ export class AdminSidebarComponent implements OnInit {
 
                     if ( book_stamp <= allow_stamp) {
                         this.alertUnChecked = true;
+                        this.loadSessionOnGoing();
                         this.alertMark = session.class_begin;
                     } else {
                         this.alertUnChecked = false;

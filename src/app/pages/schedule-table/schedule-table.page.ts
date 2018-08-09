@@ -37,6 +37,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         display_weekends: 'Y',
         navigate: 'today',
         starting_day: '',
+        user_group: '',
         useCache: true          /// ** Only first schedule table list will be cached.
     };
 

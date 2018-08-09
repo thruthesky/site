@@ -834,7 +834,9 @@
   "MESSAGE READ ALL CONFIRM": "Are you sure you want to mark read all message?",
 
   "NO_DAY_SELECTED": "Please select days",
-  "NO_POINT_SELECTED": "Please select points"
+  "NO_POINT_SELECTED": "Please select points",
+
+  "ACADEMY_TEACHER": "Academy Teacher"
 
 
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../providers/app.service';
 import { MessageSendModalService } from '../../providers/message-send-modal/message-send-modal.service';
 import { ModalData, ModalService } from '../../providers/modal/modal.service';
-import { ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class MessagePage {
     ) {
 
         activatedRoute.paramMap.subscribe(params => {
-            console.log('data: ', params);
+            // console.log('data: ', params);
             this.loadDefault({ idx: params.get('idx') });
         });
         // this.loadDefault();
@@ -53,9 +53,12 @@ export class MessagePage {
         this.loading = true;
         this.a.lms.message(o).subscribe(re => {
             this.loading = false;
-            // console.log(re);
+            // console.log('loadMessage::', re);
             this.data = re;
             this.message_count = this.data.messages.length;
+            if ( this.data.view && this.data.view.length && this.data.view.open === '0') {
+                this.onClickMessage(this.data.view);
+            }
         }, e => this.a.toast(e));
     }
 
@@ -86,13 +89,13 @@ export class MessagePage {
     }
 
     onClickReadAll() {
-        const data: ModalData = {
+        const d: ModalData = {
             title: this.a.t('MESSAGE READ ALL'),
             content: this.a.t('MESSAGE READ ALL CONFIRM'),
             yes: this.a.t('YES'),
             no: this.a.t('CANCEL')
         };
-        this.modal.confirm(data).subscribe(result => {
+        this.modal.confirm(d).subscribe(result => {
             if (result) {
                 this.a.lms.message_read_all().subscribe(res => {
                     this.loadDefault();

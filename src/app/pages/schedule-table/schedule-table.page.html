@@ -6,6 +6,10 @@
     <!--/single-teacher-->
     <header *ngIf=" isAllTeacher ">
         <h1>{{ "ALL SCHEDULE" | t }}</h1>
+        <select class="teacher-group" [(ngModel)]="form.user_group" (ngModelChange)="onSearchSubmit()">
+            <option value="">{{ 'ALL_TEACHER' | t}}</option>
+            <option value="withcenter">{{ 'ACADEMY_TEACHER' | t }}</option>
+        </select>
     </header>
     <!--/multiple-teachers-->
 
