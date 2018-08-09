@@ -1,7 +1,6 @@
 @import '../../../../../theme/vars.scss';
 
 section {
-    overflow: hidden;
     height: 225px;
     background: #fff;
     padding: 0;
@@ -35,6 +34,7 @@ section {
         .topearner {
             display: flex;
             align-items: center;
+            width:100%;
                 .photo {
                     display: flex;
                     align-items: center;
@@ -53,7 +53,6 @@ section {
                 .right {
                     margin: 0;
                     padding: 0 2em;
-                    width: 100%;
                     @media (min-width: $md) {
                         padding: 0;
                     }
@@ -61,7 +60,7 @@ section {
                     line-height: 1.5em;
                     font-weight: 400;
                     color: #3a3e4b;
-                    word-wrap: break-word
+                    word-wrap: break-word;
                 }
         }
     }
