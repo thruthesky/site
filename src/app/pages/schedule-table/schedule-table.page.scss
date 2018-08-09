@@ -2,7 +2,12 @@
 header {
     display: none;
     @media screen and (min-width: $md) {
-        display: block;
+        display: flex;
+        justify-content: space-between;
+    }
+    .teacher-group {
+        padding: 0 1em;
+        margin: 1em;
     }
 }
 

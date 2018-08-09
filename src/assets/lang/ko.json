@@ -793,7 +793,9 @@
   "MESSAGE READ ALL CONFIRM": "모든 메시지를 읽으려고 하시겠습니까?",
 
   "NO_DAY_SELECTED": "일을 선택하십시오.",
-  "NO_POINT_SELECTED": "포인트를 선택하십시오."
+  "NO_POINT_SELECTED": "포인트를 선택하십시오.",
+
+  "ACADEMY_TEACHER": "아카데미 교사"
 
 
 }

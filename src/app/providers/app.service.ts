@@ -970,6 +970,7 @@ export class AppService {
             max_point: 100000,
             class_begin_hour: 0,        // Loads schedule btween 00:00 am and 23:59 pm.
             class_end_hour: 24,          // Loads schedule btween 00:00 am and 23:59 pm.
+            user_group: '',
             useCache: false
         };
 
