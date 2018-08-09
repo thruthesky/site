@@ -89,6 +89,55 @@
     }
 }
 
+.message-topview{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5em .75em;
+    @media (min-width:$md) {
+        padding: 1.5em 2em;   
+    }
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    background:#fff;
+    .left{
+        display: flex;
+        flex: 2;
+        .photo{
+            height: 50px;
+            width: 50px;
+            @media (min-width:$md) {
+                height: 100px;
+                width: 100px; 
+            }
+            border-radius: 2px;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+        .message-info{
+            padding: 0 1.5rem;
+            .subject{
+                margin-top: .2em;
+                margin-bottom: 1em;
+                font-size: .88em;
+                color: dimgray
+            }
+            .content{
+                font-weight: 300;
+                line-height: 1.5em;
+            }
+        }
+    }
+    .right{
+        display: flex;
+        flex-direction: column;
+        svg{
+            height: 1em;
+            width: 1em;
+        }
+    }
+}
+
 
 .message-list{
 
