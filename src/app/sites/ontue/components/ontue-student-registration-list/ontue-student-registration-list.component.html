@@ -9,17 +9,20 @@
         <div (click)="a.open('new-student-list')" *ngFor="let student of students; let i=index">
             <div class="container-fluid" *ngIf="i<5">
                 <div class="row">
-                    <div class="col-md-4 col-3">
-                            <span class="student-photo">
-                                <img [src]="a.checkPhotoURL(student.photoURL)"/>
-                            </span>
+                    <div class="left col-md-4 col-3">
+                        <span class="student-photo">
+                            <img [src]="a.checkPhotoURL(student.photoURL)"/>
+                        </span>
                     </div>
-                    <div class="col">
-                        <div data-role="new-student-name" class="student-name">{{ a.shortName(student.display_name) }}
+                    <div class="right col">
+                        <div class="title">
+                            <div data-role="new-student-name" class="student-name">{{ a.shortName(student.display_name) }}</div>
+                            <div class="date">{{student.user_registered | date}}</div>
                         </div>
-                        <div class="date">Software: {{ student.class_software }}</div>
-                        <div *ngIf=" student.greeting ">{{student['greeting'].slice(0,40)}}</div>
-                        <div>{{student.user_registered | date}}</div>
+                        <div class="content">
+                            <div>Software: {{ student.class_software }}</div>
+                            <div class="greeting" *ngIf=" student.greeting ">{{student['greeting'].slice(0,40)}}</div>
+                        </div>
                     </div>
                 </div>
             </div>

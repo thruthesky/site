@@ -33,25 +33,30 @@ section{
     }
 
     .body{
-        padding: .5em 0;
+        padding: .6em 0;
         .row{
-            align-items: center;
             justify-content: center;
             padding: .7em 1.2em;
             &>div{
                 padding: 0;
             }
             &:hover{
-                background: rgba(dodgerblue,0.2);
+                background: rgba(125,125,125,0.1);
                 cursor: pointer;
-
-                color:rgba(dodgerblue,0.95);
             }
         }
 
-        .comment{
-            margin: 0;
-            font-weight: 200;
+        .right{
+            .student-name{
+                font-size: .9em;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+            .greeting{
+                font-size: .85em;
+                line-height: 1.3;
+                color: dimgray;
+            }
         }
 
         .student-photo{
@@ -66,10 +71,6 @@ section{
             img{
                 width: 100%;
             }
-        }
-
-        .student-name{
-            font-weight: bold;
         }
     }
 

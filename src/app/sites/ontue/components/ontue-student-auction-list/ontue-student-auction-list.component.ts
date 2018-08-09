@@ -55,7 +55,7 @@ export class OntueStudentAuctionListComponent {
                     d.push(this.shortDays[i]);
                 }
             });
-            return d.join(',');
+            return d.join(', ');
         }
     }
 
