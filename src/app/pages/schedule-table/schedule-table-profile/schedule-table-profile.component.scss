@@ -86,9 +86,9 @@
         font-size: .8em;
         padding-left: 19px;
         @media (min-width:$md) {
-            flex: unset;
+            // flex: unset;
             padding: 0;
-            max-width: 130px;
+            max-width: 160px;
         }
         .teacher-name {
             font-weight: bold;

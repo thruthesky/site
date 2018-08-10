@@ -63,7 +63,6 @@
             padding: .75rem .5rem;
             height: 100%;
             border: 1px solid rgba(125,125,125,0.2);
-            border-bottom: 0;
             border-left: 0;
             background: #fff;
             cursor: pointer;
@@ -99,11 +98,13 @@
 .message-topview{
     display: flex;
     flex-wrap: wrap;
+    margin: 1.5em 0;
     padding: 1.5em .75em;
     @media (min-width:$md) {
         padding: 1.5em 2em;   
     }
-    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 2px;
     background:#fff;
     .left{
         display: flex;
@@ -124,13 +125,27 @@
         }
         .message-info{
             padding: 0 1.5rem;
-            .subject{
-                margin-top: .2em;
-                margin-bottom: 1em;
-                font-size: .88em;
-                color: dimgray
+            width: 100%;
+            .top{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .date{
+                    font-size: .8em;
+                }
             }
+            .subject{
+                margin-top: .25em;
+                margin-bottom: 1em;
+                font-size: .85em;
+                color: dimgray;
+                font-weight: 300;
+            }        
             .content{
+                margin-bottom: .5rem;
+                padding: 1rem 1.25rem;
+                border: 1px solid rgba(128, 128, 128, 0.2);
+                border-radius: 2px;
                 font-weight: 300;
                 line-height: 1.5em;
             }
@@ -172,39 +187,35 @@
             color: #000;
             text-transform: uppercase;
         }
-        .date{
-            font-size: .9em;
-            color: dimgray
-        }
     }
 }
 
-
+.message-top-border{
+    &:first-child{
+        border-top: 1px solid rgba(128, 128, 128, 0.2);
+    }
+}
 .message-list{
 
-    @media screen and (max-width:$sm) {
+    @media (max-width:$sm) {
         font-size: 80%
     }
-
     .message{
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding:.5em 2em;
-        @media screen and (min-width:$lg) {
+        @media (min-width:$lg) {
             padding-right: 0;
         }
 
-        @media screen and (max-width:$sm) {
+        @media (max-width:$sm) {
             padding: 1em ;
         }
         border-bottom: 1px solid rgba(128, 128, 128, 0.2);
         background: #fff;
         cursor: pointer;
         transition:  all .2s ease-in-out;
-        &:first-child{
-            border-top: 1px solid rgba(128, 128, 128, 0.2);
-        }
 
         .photo{
             height: 40px;
