@@ -33,6 +33,21 @@
         </div>
     </div>
 
+    <div *ngIf="form.student == 'test'">
+        <mat-form-field appearance="outline">
+            <mat-label>Test Email(Separate by comma)</mat-label>
+            <input matInput type="text" name="emails" [(ngModel)]="form.emails">
+
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input matInput type="text" name="title" [(ngModel)]="form.title">
+        </mat-form-field>
+    </div>
+
     <div class="text-area">
         <mat-form-field appearance="outline">
             <mat-label>Message content template:</mat-label>
