@@ -5,7 +5,7 @@ header {
     align-items: center;
     .teacher-group {
         margin: 1em 1.7rem;
-        padding: 1em;
+        padding-left: 1em;
         @media (min-width:$md) {
             height: 30px;   
         }
