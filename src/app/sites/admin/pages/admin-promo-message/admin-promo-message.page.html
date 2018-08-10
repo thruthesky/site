@@ -16,15 +16,15 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <mat-form-field>
-                    <mat-select placeholder="Select Teacher" [(ngModel)]=" form.teacher ">
+                    <mat-select placeholder="Select Teacher" name="teacher" [(ngModel)]=" form.teacher ">
                         <mat-option value=''> Select One Teacher </mat-option>
-                        <mat-option *ngFor="let teacher of teachers" value="{{ teacher.ID }}">{{ teacher.display_name }}</mat-option>
+                        <mat-option *ngFor="let teacher of teachers" [value]="teacher.ID">{{ teacher.display_name }}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div class="col-12 col-md-6">
                 <mat-form-field>
-                    <mat-select placeholder="Select Students" [(ngModel)]=" form.student ">
+                    <mat-select placeholder="Select Students" name="student" [(ngModel)]=" form.student ">
                         <mat-option value='all'> All Students</mat-option>
                         <mat-option value="test">Test students only</mat-option>
                     </mat-select>

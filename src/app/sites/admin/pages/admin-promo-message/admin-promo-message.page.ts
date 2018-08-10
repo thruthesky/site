@@ -44,7 +44,7 @@ Thank you.`
     }
 
     sendMessages() {
-
+        // console.log(this.form);
         this.a.lms.admin_promo_message(this.form).subscribe(res => {
             // console.log('res: ', res);
         }, e => this.a.toast(e));
