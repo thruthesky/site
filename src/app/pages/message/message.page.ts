@@ -53,7 +53,7 @@ export class MessagePage {
         this.loading = true;
         this.a.lms.message(o).subscribe(re => {
             this.loading = false;
-            console.log('loadMessage::', re);
+            // console.log('loadMessage::', re);
             this.data = re;
             this.message_count = this.data.messages.length;
             if ( this.data.view && this.data.view.length && this.data.view.open === '0') {
