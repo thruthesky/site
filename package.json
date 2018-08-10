@@ -15,13 +15,10 @@
     "e2e:headless:katalkenglish": "cypress run --env server=local --config integrationFolder=src,testFiles=**/test.katalk*.spec.js",
     "e2e:headless:englishas": "cypress run --env server=local --config integrationFolder=src,testFiles=**/test.englishas*.spec.js",
     "e2e:headless:ontue": "cypress run --env server=local --config integrationFolder=src,testFiles=**/test.ontue*.spec.js",
-    
-
     "e2e:remote:headless": "npm run e2e:remote:headless:katalkenglish && npm run e2e:remote:headless:ontue && npm run e2e:remote:headless:englishas",
     "e2e:remote:headless:katalkenglish": "cypress run --env server=remote --config integrationFolder=src,testFiles=**/test.katalk*.spec.js",
     "e2e:remote:headless:englishas": "cypress run --env server=remote --config integrationFolder=src,testFiles=**/test.englishas*.spec.js",
     "e2e:remote:headless:ontue": "cypress run --env server=remote --config integrationFolder=src,testFiles=**/test.ontue*.spec.js",
-
     "s": "ng serve --disable-host-check",
     "serve:local": "ng serve --disable-host-check --configuration=local-backend-server",
     "serve:hmr": "ng serve --disable-host-check --configuration=hmr",
