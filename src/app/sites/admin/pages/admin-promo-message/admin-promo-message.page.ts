@@ -28,7 +28,7 @@ Thank you.`
             console.log('aq: ', res);
             this.teachers = res;
 
-            this.test();
+            // this.test();
         }, e => this.a.toast(e));
     }
 
@@ -46,7 +46,7 @@ Thank you.`
     sendMessages() {
 
         this.a.lms.admin_promo_message(this.form).subscribe(res => {
-            console.log('res: ', res);
+            // console.log('res: ', res);
         }, e => this.a.toast(e));
     }
 }
