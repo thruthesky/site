@@ -11,6 +11,7 @@ export class AdminPromoMessagePage implements OnInit {
     form = {
         teacher: '',
         student: '',
+        emails: 'thruthesky@gmail.com,thruthesky@naver.com,pinedaclp@gmail.com,pinedaclp@yahoo.com',
         title: 'Hi #studentName. Let\'s study English?',
         template: `Hello #studentName. I am teacher #teacherName.
 I am a #stars star teacher. I have been teaching English for 5 years now.
@@ -25,10 +26,10 @@ Thank you.`
         let sql = `SELECT ID, display_name FROM wp_users WHERE BRANCH AND wp_users.user_group = 'withcenter'`;
         sql += ` AND wp_users.grade > 0 `;
         this.a.lms.admin_query({ sql: sql }).subscribe(res => {
-            console.log('aq: ', res);
+            // console.log('aq: ', res);
             this.teachers = res;
 
-            this.test();
+            // this.test();
         }, e => this.a.toast(e));
     }
 
@@ -44,9 +45,23 @@ Thank you.`
     }
 
     sendMessages() {
-
+        if (!this.form.teacher ) {
+            this.a.toast('Select teacher');
+            return;
+        }
+        if (!this.form.student ) {
+            this.a.toast('Select Student');
+            return;
+        }
+        if (this.form.student === 'all') {
+            const re = confirm('WARNING: You are Sending to all student?');
+            if (!re) {
+                return;
+            }
+        }
+        // console.log(this.form);
         this.a.lms.admin_promo_message(this.form).subscribe(res => {
-            console.log('res: ', res);
+            // console.log('res: ', res);
         }, e => this.a.toast(e));
     }
 }
