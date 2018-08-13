@@ -726,7 +726,7 @@ mat-form-field[appearance] {
                     @media (min-width:$md) {
                         padding: .7rem 1rem; 
                     }
-                    border-color: #fff;
+                    border:0;
                     background: #fff;
                     svg {
                         position: relative;
