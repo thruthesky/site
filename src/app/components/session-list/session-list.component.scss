@@ -203,8 +203,6 @@
 
 .message-button{
     position: relative;
-    display: flex;
-    align-items: center;
     padding: .5em;
     margin-left: .5em;
     border-radius: 2px;
@@ -215,8 +213,7 @@
         top:.125em;
         height: 1em;
         width: 1em;
-        margin-left: .3em;
-        color: #0000ff;
+        color: orange;
     }
 }
 
