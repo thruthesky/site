@@ -1,5 +1,23 @@
 @import '../../../../../theme/vars';
 
+h3{
+    display: flex;
+    align-items: center;
+    // svg{
+    //     margin-right: .3em;
+    //     height: 1em;
+    //     width: 1em;
+    // }
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin: .5em 0;
+    button{
+        padding: 1em;
+    }
+}
+
 .reservation-count{
     .reservations-table {
         b{
