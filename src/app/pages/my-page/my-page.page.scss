@@ -584,7 +584,7 @@ mat-form-field[appearance] {
         margin-bottom: 1rem;
         padding: 1rem $mobile-side-space;  
         @media (min-width:$md) {
-            padding: 1rem $desktop-side-space;  
+            padding: 1.5rem $desktop-side-space;  
         } 
         background: #eff0f1;
         font-size: .8em;
@@ -599,18 +599,27 @@ mat-form-field[appearance] {
             width: 1em;
         }
 
-
-        .start-button{
-            .app-button{
-                display: flex;
-                align-items: center;
-                padding: .35rem 1.7rem;
-                background: #FF7B0D;
-                font-size: .75rem;
-
-                svg {
-                    margin: 0;
-                    margin-left: .4em;
+        .desc-title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            .start-button{
+                .app-button{
+                    display: flex;
+                    align-items: center;
+                    margin-top: .5em;
+                    padding: .35rem 1.7rem;
+                    background: #FF7B0D;
+                    font-size: .75rem;
+                    @media (min-width:$md) {
+                        margin-top: 0
+                    }
+    
+                    svg {
+                        margin: 0;
+                        margin-left: .4em;
+                    }
                 }
             }
         }
@@ -826,6 +835,7 @@ mat-form-field[appearance] {
 
 #auction-student-offers{
     padding: 2rem $mobile-side-space; 
+    padding-top: 1.5rem;
     @media (min-width:$md) {
         padding: 1rem calc(#{$desktop-side-space} - .5rem) ;   
     }
@@ -842,10 +852,11 @@ mat-form-field[appearance] {
             margin: .5rem;   
         }
         margin-bottom: .5em;
-        padding: .75rem 1.8rem;
-        background: #fff;
-        color: dimgray;
+        padding: .25rem 1.8rem;
+        // background: #fff;
+        // color: dimgray;
         font-size: .85rem;
+        font-weight: bold;
 
         svg{
             position: relative;
