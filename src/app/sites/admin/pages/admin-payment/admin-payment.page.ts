@@ -12,7 +12,7 @@ interface STAT {
         };
     };
     point: number;
-    kwr: number;
+    krw: number;
     usd: number;
     refund: number;
     success: number;
@@ -73,7 +73,7 @@ export class AdminPaymentPage implements OnInit {
             studentName: [],
             student: {},
             point: 0,
-            kwr: 0,
+            krw: 0,
             usd: 0,
             refund: 0,
             success: 0,
@@ -173,8 +173,8 @@ export class AdminPaymentPage implements OnInit {
                     this.stat.point += parseInt(pay.point, 10);
                     if ((<string>pay.currency).toLowerCase() === 'usd') {
                         this.stat.usd += parseFloat(pay.amount);
-                    } else if ((<string>pay.currency).toLowerCase() === 'kwr') {
-                        this.stat.kwr += parseInt(pay.amount, 10);
+                    } else if ((<string>pay.currency).toLowerCase() === 'krw') {
+                        this.stat.krw += parseInt(pay.amount, 10);
                     }
                     const n = `${pay.student.display_name}(${pay.student.name})`;
                     if (this.stat.student[n]) {

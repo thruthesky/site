@@ -965,4 +965,11 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
+    admin_get_free_class_list() {
+        return this.x.post({
+            route: 'lms.admin_get_free_class_list',
+            session_id: this.user.sessionId
+        });
+    }
+
 }

@@ -33,6 +33,7 @@ import { AdminMessageListPage } from './pages/admin-message-list/admin-message-l
 import { AdminUserPaymentInformationListPage } from './pages/admin-user-payment-information-list/admin-user-payment-information-list.page';
 import { AdminStudentReservationPage } from './pages/admin-student-reservation/admin-student-reservation.page';
 import { AdminPromoMessagePage } from './pages/admin-promo-message/admin-promo-message.page';
+import { AdminFreeClassListPage } from './pages/admin-free-class-list/admin-free-class-list.page';
 
 const routes: Routes = [
     {
@@ -68,7 +69,9 @@ const routes: Routes = [
             { path: 'student-reservation', component: AdminStudentReservationPage},
             { path: 'user-payment-information/:ID', component: AdminUserPaymentInformationListPage },
             { path: 'user-payment-information', component: AdminUserPaymentInformationListPage },
-            { path: 'promo-message', component: AdminPromoMessagePage }
+            { path: 'promo-message', component: AdminPromoMessagePage },
+            { path: 'free-class-list/:ID', component: AdminFreeClassListPage },
+            { path: 'free-class-list', component: AdminFreeClassListPage }
         ]
     }
 
@@ -111,7 +114,8 @@ const routes: Routes = [
         AdminMessageListPage,
         AdminUserPaymentInformationListPage,
         AdminStudentReservationPage,
-        AdminPromoMessagePage
+        AdminPromoMessagePage,
+        AdminFreeClassListPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -135,7 +139,8 @@ const routes: Routes = [
         AdminMessageListPage,
         AdminUserPaymentInformationListPage,
         AdminStudentReservationPage,
-        AdminPromoMessagePage
+        AdminPromoMessagePage,
+        AdminFreeClassListPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],
