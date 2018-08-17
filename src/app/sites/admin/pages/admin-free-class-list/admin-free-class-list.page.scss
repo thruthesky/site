@@ -1,2 +1,44 @@
 @import '../../../../../theme/vars';
 
+form{
+    mat-form-field{
+        margin-right: 2rem;
+    }
+    button{
+        border: 0;
+        padding: 1em 2em;
+        border-radius: 2px;
+        background: darkblue;
+        color: #fff;
+    }
+}
+.darken{
+    background: dimgray!important;
+    color: #fff;
+}
+.container-fluid{
+    margin-bottom: 2em;
+    font-size: .9rem;
+    border: 1px solid rgba(125,125,125,0.4);
+    border-bottom: 0;
+    .row{
+        padding: 0 1em;
+        border-bottom: 1px solid rgba(125,125,125,0.4);
+        align-items: center;
+        &:first-child{
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #eee;
+            z-index: 1000;
+        }
+        &>div{
+            padding: .5em;
+        }
+        .bolder{
+            font-weight: bolder;
+            color: dodgerblue;
+        }
+    }
+}
