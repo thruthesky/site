@@ -6,3 +6,56 @@
         <button type="submit">SEARCH</button>
     </div>
 </form>
+
+<div *ngIf="student">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Class ID</th>
+            <th>Free Class By ID</th>
+            <th>Free Class By Software ID</th>
+            <th>Free Class Refund in Progress</th>
+            <th>Free Class Refunded</th>
+        </tr>
+        <tr>
+            <td>{{student.ID}}</td>
+            <td>{{student.display_name}}</td>
+            <td>{{student.class_software}} : {{student.class_software_id}}</td>
+            <td>{{student.free_class_by_id}}</td>
+            <td>{{student.free_class_by_class_software_id}}</td>
+            <td>{{student.free_class_by_refund_in_progress}}</td>
+            <td>{{student.free_class_by_refunded}}</td>
+        </tr>
+        <!--<tr *ngFor="let session of student.sessions">-->
+            <!--{{ session | json}}-->
+        <!--</tr>-->
+
+    </table>
+</div>
+
+
+<div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Class ID</th>
+            <th>Free Class By ID</th>
+            <th>Free Class By Software ID</th>
+            <th>Free Class Refund in Progress</th>
+            <th>Free Class Refunded</th>
+        </tr>
+        <tr *ngFor="let student of students ">
+            <td>{{student.ID}}</td>
+            <td>{{student.display_name}}</td>
+            <td>{{student.class_software}} : {{student.class_software_id}}</td>
+            <td>{{student.free_class_by_id}}</td>
+            <td>{{student.free_class_by_class_software_id}}</td>
+            <td>{{student.free_class_by_refund_in_progress}}</td>
+            <td>{{student.free_class_by_refunded}}</td>
+        </tr>
+    </table>
+</div>
+
+
