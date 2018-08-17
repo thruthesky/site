@@ -202,7 +202,9 @@ export class RegisterPage implements OnInit {
         if (event) {
             event.preventDefault();
         }
-        this.form.domain = this.a.site.getDomain();
+        if ( this.a.isLogout ) {
+            this.form.domain = this.a.site.getDomain();
+        }
 
 
         if (!this.form.name || !this.form.name.length) {
@@ -229,7 +231,9 @@ export class RegisterPage implements OnInit {
             }
 
             this.patchBirthday();
-            this.user_type = 'T';
+            if ( this.a.isLogout ) {
+                this.user_type = 'T';
+            }
         }
 
         // if (this.a.user.isLogin && this.user_type === 'T' && !this.qrmarks.length) {
