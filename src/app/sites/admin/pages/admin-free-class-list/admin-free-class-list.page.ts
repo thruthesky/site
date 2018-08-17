@@ -37,6 +37,33 @@ export class AdminFreeClassListPage implements OnInit {
         list: false,
         student: false
     };
+
+    display = {
+        reserved_at: false,
+        paid: false,
+        refund_request_at: false,
+        refund_request_message: false,
+        refund_reject_at: false,
+        refund_reject_message: false,
+        refund_done_at: false,
+        refund_done_by: false,
+        refund_done_point: false,
+        refund_settle_at: false,
+        refund_settle_message: false,
+        teacher_absent: false,
+        student_absent: false,
+        successful: false,
+        expression: false,
+        vocabulary: false,
+        grammar: false,
+        pronunciation: false,
+        speed: false,
+        comment: false,
+        book_used: false,
+        book_next: false,
+        stamp_checked: false,
+        class_software: false
+    }
     constructor(
         public a: AppService,
         public activated: ActivatedRoute

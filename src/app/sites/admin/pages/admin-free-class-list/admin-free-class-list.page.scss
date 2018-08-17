@@ -42,3 +42,53 @@ form{
         }
     }
 }
+
+
+
+.display{
+    display: flex;
+    flex-wrap: wrap;
+
+    &>span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: .25em 1em;
+        cursor: pointer
+    }
+
+    label{
+        cursor: pointer;
+    }
+}
+
+.custom-table{
+    white-space: normal;
+    margin-bottom: 2em;
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none!important;
+        font-weight: normal;
+        span:first-child{
+            position: relative;
+            width: 35%;
+            text-align: right;
+        }
+        span:last-child{
+            width: 65%;
+            text-align: left;
+        }
+        svg{
+            position: relative;
+            top: .125em;
+            height: .85em;
+            width: .85em;
+            margin-right: .3em;
+        }
+    }
+    table{
+        table-layout: unset;
+    }
+}

@@ -7,49 +7,240 @@
     <button type="submit">SEARCH</button>
 </form>
 
-<div  class="container-fluid" *ngIf="student">
-        <div class="row darken">
-            <div class="col-1">ID</div>
-            <div class="col-3">Name</div>
-            <div class="col-4">Class ID</div>
-            <div class="col-1">Free Class By ID</div>
-            <div class="col-1">Free Class By Software ID</div>
-            <div class="col-1">Free Class Refund in Progress</div>
-            <div class="col-1">Free Class Refunded</div>
+<div class="container-fluid" *ngIf="student">
+    <div class="row darken">
+        <div class="col-1">ID</div>
+        <div class="col-3">Name</div>
+        <div class="col-4">Class ID</div>
+        <div class="col-1">Free Class By ID</div>
+        <div class="col-1">Free Class By Software ID</div>
+        <div class="col-1">Free Class Refund in Progress</div>
+        <div class="col-1">Free Class Refunded</div>
+    </div>
+    <div class="row">
+        <div class="col-1">{{student.ID}}</div>
+        <div class="col-3">{{student.display_name}}</div>
+        <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">
+            {{student.free_class_by_class_software_id}}
         </div>
-        <div class="row">
-            <div class="col-1">{{student.ID}}</div>
-            <div class="col-3">{{student.display_name}}</div>
-            <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
-            <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
-            <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">{{student.free_class_by_class_software_id}}</div>
-            <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">{{student.free_class_by_refund_in_progress}}</div>
-            <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">
+            {{student.free_class_by_refund_in_progress}}
         </div>
-    <!-- <table border="1">
+        <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}</div>
+    </div>
+</div>
+
+
+<div class="display" *ngIf=" student?.sessions?.length ">
+    <div><b>Display</b></div>
+    <span>
+            <input type="checkbox" id="class_software" name="class_software" [(ngModel)]="display.class_software">
+            <label for="reserved_at">Class Software</label>
+        </span>
+    <span>
+            <input type="checkbox" id="reserved_at" name="display_reserved_at" [(ngModel)]="display.reserved_at">
+            <label for="reserved_at">Reserved At</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_paid" name="display_paid" [(ngModel)]="display.paid">
+            <label for="display_paid">Paid</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_refund_request_at" name="display_refund_request_at"
+                   [(ngModel)]="display.refund_request_at">
+            <label for="display_refund_request_at">Refund Request At</label>
+        </span>
+    <span>
+            <input type="checkbox" id="refund_request_message" name="display_refund_request_message"
+                   [(ngModel)]="display.refund_request_message">
+            <label for="refund_request_message">Request Message</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_refund_reject_at" name="display_refund_reject_at"
+                   [(ngModel)]="display.refund_reject_at">
+            <label for="display_refund_reject_at">Reject At</label>
+        </span>
+    <span>
+            <input type="checkbox" id="refund_reject_message" name="display_refund_reject_message"
+                   [(ngModel)]="display.refund_reject_message">
+            <label for="refund_reject_message">Reject Message</label>
+        </span>
+
+    <span>
+            <input type="checkbox" id="display_refund_done_at" name="display_refund_done_at"
+                   [(ngModel)]="display.refund_done_at">
+            <label for="display_refund_done_at">Refund Done At</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_refund_done_point" name="display_refund_done_point"
+                   [(ngModel)]="display.refund_done_point">
+            <label for="display_refund_done_point">Done Point</label>
+        </span>
+    <span>
+            <input type="checkbox" id="refund_done_by" name="display_refund_done_by"
+                   [(ngModel)]="display.refund_done_by">
+            <label for="refund_done_by">Done By</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_refund_settle_at" name="display_refund_settle_at"
+                   [(ngModel)]="display.refund_settle_at">
+            <label for="display_refund_settle_at">Settled At</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_teacher_absent" name="display_teacher_absent"
+                   [(ngModel)]="display.teacher_absent">
+            <label for="display_teacher_absent">Teacher Absent</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_student_absent" name="display_student_absent"
+                   [(ngModel)]="display.student_absent">
+            <label for="display_student_absent">Student Absent</label>
+        </span>
+
+    <span>
+            <input type="checkbox" id="display_successful" name="display_successful"
+                   [(ngModel)]="display.successful">
+            <label for="display_successful">Successful</label>
+        </span>
+    <span>
+            <input type="checkbox" id="expression" name="display_expression" [(ngModel)]="display.expression">
+            <label for="expression">Expression</label>
+        </span>
+    <span>
+            <input type="checkbox" id="vocabulary" name="display_vocabulary" [(ngModel)]="display.vocabulary">
+            <label for="vocabulary">Vocabulary</label>
+        </span>
+    <span>
+            <input type="checkbox" id="grammar" name="display_grammar" [(ngModel)]="display.grammar">
+            <label for="grammar">Grammar</label>
+        </span>
+    <span>
+            <input type="checkbox" id="pronunciation" name="display_pronunciation"
+                   [(ngModel)]="display.pronunciation">
+            <label for="pronunciation">Pronunciation</label>
+        </span>
+    <span>
+            <input type="checkbox" id="speed" name="display_speed" [(ngModel)]="display.speed">
+            <label for="speed">Speed</label>
+        </span>
+
+    <span>
+            <input type="checkbox" id="refund_settle_message" name="display_refund_settle_message"
+                   [(ngModel)]="display.refund_settle_message">
+            <label for="refund_settle_message">Settled Message</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_comment" name="display_comment" [(ngModel)]="display.comment">
+            <label for="display_comment">Comment</label>
+        </span>
+    <span>
+            <input type="checkbox" id="display_checked" name="display_checked" [(ngModel)]="display.stamp_checked">
+            <label for="display_checked">Checked</label>
+        </span>
+    <span>
+            <input type="checkbox" id="book_used" name="display_book_used" [(ngModel)]="display.book_used">
+            <label for="book_used">Book Used</label>
+        </span>
+    <span>
+            <input type="checkbox" id="book_next" name="display_book_next" [(ngModel)]="display.book_next">
+            <label for="book_next">Book Next</label>
+        </span>
+</div>
+<div class="custom-table" *ngIf=" student?.sessions?.length ">
+    <table class="sessions" >
         <tr>
-            <th width="75px">ID</th>
-            <th>Name</th>
-            <th>Class ID</th>
-            <th width="100px">Free Class By ID</th>
-            <th width="100px">Free Class By Software ID</th>
-            <th width="100px">Free Class Refund in Progress</th>
-            <th width="100px">Free Class Refunded</th>
+            <th>idx</th>
+            <th>Teacher</th>
+            <th>Student</th>
+            <th *ngIf=" display.class_software ">Class ID</th>
+            <th>Date</th>
+            <th>Begin</th>
+            <th>End</th>
+            <th>Point</th>
+            <th *ngIf=" display.reserved_at ">Reserved At</th>
+            <th *ngIf=" display.paid ">Paid</th>
+            <th *ngIf=" display.refund_request_at ">Refund Request At</th>
+            <th width="300" *ngIf=" display.refund_request_message ">Request Message</th>
+            <th *ngIf=" display.refund_reject_at ">Reject At</th>
+            <th width="300" *ngIf=" display.refund_reject_message ">Reject Message</th>
+            <th *ngIf=" display.refund_done_at ">Done At</th>
+            <th *ngIf=" display.refund_done_point ">Done Point</th>
+            <th *ngIf=" display.refund_done_by ">Done By</th>
+            <th *ngIf=" display.refund_settle_at ">Settled At</th>
+            <th width="300" *ngIf=" display.refund_settle_message ">Settled Message</th>
+            <th *ngIf=" display.teacher_absent ">Teacher Absent</th>
+            <th *ngIf=" display.student_absent ">Student Absent</th>
+            <th *ngIf=" display.successful ">Successful</th>
+            <th *ngIf=" display.expression ">Expression</th>
+            <th *ngIf=" display.vocabulary ">Vocabulary</th>
+            <th *ngIf=" display.grammar ">Grammar</th>
+            <th *ngIf=" display.pronunciation ">Pronuncitation</th>
+            <th *ngIf=" display.speed ">Speed</th>
+            <th width="300" *ngIf=" display.comment ">Comment</th>
+            <th *ngIf=" display.book_used ">Book Used</th>
+            <th *ngIf=" display.book_next ">Book Next</th>
+            <th *ngIf=" display.stamp_checked ">Checked</th>
         </tr>
-        <tr>
-            <td width="75px">{{student.ID}}</td>
-            <td>{{student.display_name}}</td>
-            <td>{{student.class_software}} : {{student.class_software_id}}</td>
-            <td width="100px">{{student.free_class_by_id}}</td>
-            <td width="100px">{{student.free_class_by_class_software_id}}</td>
-            <td width="100px">{{student.free_class_by_refund_in_progress}}</td>
-            <td width="100px">{{student.free_class_by_refunded}}</td>
-        </tr> -->
-        <!--<tr *ngFor="let session of student.sessions">-->
-            <!--{{ session | json}}-->
-        <!--</tr>-->
-<!-- 
-    </table> -->
+        <tr *ngFor="let session of student.sessions">
+            <td routerLink="/manager/session-edit/{{session.idx}}">
+                <a class="link">
+                        <span>
+                            <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                             d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                        </span>
+                    <span>{{ session.idx }}</span>
+                </a>
+            </td>
+            <td routerLink="/manager/user-info/{{session.teacher?.idx}}">
+                    <span class="link">
+                        <span>
+                            <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                             d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                        </span>                     
+                        <span>{{ session.teacher?.display_name }}</span>
+                    </span>
+            </td>
+            <td routerLink="/manager/user-info/{{session.student?.idx}}">
+                    <span class="link" matTooltip="{{ session.student?.display_name }}">
+                        <span><svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                               d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></span>
+                        <span>{{ session.student?.display_name.slice(0,7) }}</span>
+                    </span>
+            </td>
+            <td *ngIf="display.class_software">{{ session.student?.class_software }}:{{
+                session.student?.class_software_id }}
+            </td>
+            <td>{{ session.date }}</td>
+            <td>{{ session.class_begin }}</td>
+            <td>{{ session.class_end }}</td>
+            <td>{{ session.point }}</td>
+            <td *ngIf=" display.reserved_at ">{{ session.stamp_reserve }}</td>
+            <td *ngIf=" display.paid ">{{ session.paid }}</td>
+            <td *ngIf=" display.refund_request_at ">{{ session.refund_request_at }}</td>
+            <td width="300" *ngIf=" display.refund_request_message ">{{ session.refund_request_message }}</td>
+            <td *ngIf=" display.refund_reject_at ">{{ session.refund_reject_at }}</td>
+            <td width="300" *ngIf=" display.refund_reject_message ">{{ session.refund_reject_message }}</td>
+            <td *ngIf=" display.refund_done_at ">{{ session.refund_done_at }}</td>
+            <td *ngIf=" display.refund_done_point ">{{ session.refund_done_point }}</td>
+            <td *ngIf=" display.refund_done_by ">{{ session.refund_done_by }}</td>
+            <td *ngIf=" display.refund_settle_at ">{{ session.refund_settle_at }}</td>
+            <td width="300" *ngIf=" display.refund_settle_message ">{{ session.refund_settle_message }}</td>
+            <td *ngIf=" display.teacher_absent ">{{ session.teacher_absent }}</td>
+            <td *ngIf=" display.student_absent ">{{ session.student_absent }}</td>
+            <td *ngIf=" display.successful ">{{ session.successful }}</td>
+            <td *ngIf=" display.expression ">{{ session.expression }}</td>
+            <td *ngIf=" display.vocabulary ">{{ session.vocabulary }}</td>
+            <td *ngIf=" display.grammar ">{{ session.grammar }}</td>
+            <td *ngIf=" display.pronunciation ">{{ session.pronunciation }}</td>
+            <td *ngIf=" display.speed ">{{ session.speed }}</td>
+            <td width="300" *ngIf=" display.comment ">{{ session.comment }}</td>
+            <td *ngIf=" display.book_used ">{{ session.book_used }}</td>
+            <td *ngIf=" display.book_next ">{{ session.book_next }}</td>
+            <td *ngIf=" display.stamp_checked ">{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</td>
+        </tr>
+    </table>
 </div>
 
 
@@ -68,30 +259,14 @@
         <div class="col-3">{{student.display_name}}</div>
         <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
         <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
-        <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">{{student.free_class_by_class_software_id}}</div>
-        <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">{{student.free_class_by_refund_in_progress}}</div>
-        <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">
+            {{student.free_class_by_class_software_id}}
+        </div>
+        <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">
+            {{student.free_class_by_refund_in_progress}}
+        </div>
+        <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}
+        </div>
     </div>
-    <!-- <table border="1">
-        <tr>
-            <th width="75px">ID</th>
-            <th>Name</th>
-            <th>Class ID</th>
-            <th width="100px">Free Class By ID</th>
-            <th width="100px">Free Class By Software ID</th>
-            <th width="100px">Free Class Refund in Progress</th>
-            <th width="100px">Free Class Refunded</th>
-        </tr>
-        <tr *ngFor="let student of students ">
-            <td width="75px">{{student.ID}}</td>
-            <td>{{student.display_name}}</td>
-            <td>{{student.class_software}} : {{student.class_software_id}}</td>
-            <td width="100px">{{student.free_class_by_id}}</td>
-            <td width="100px">{{student.free_class_by_class_software_id}}</td>
-            <td width="100px">{{student.free_class_by_refund_in_progress}}</td>
-            <td width="100px">{{student.free_class_by_refunded}}</td>
-        </tr>
-    </table> -->
 </div>
-
 
