@@ -940,6 +940,11 @@ export class XapiLMSService extends Base {
         req['session_id'] = this.user.sessionId;
         return this.x.post(req);
     }
+    admin_message_list_count(req): Observable<any> {
+        req['route'] = 'lms.admin_message_list_count';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
 
     admin_count_student_reservation(req): Observable<any> {
         req['route'] = 'lms.admin_count_student_reservation';
