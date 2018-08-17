@@ -1,61 +1,97 @@
 <h1>Free Class Session List</h1>
 
 <form (ngSubmit)="onSubmit( $event )">
-    <div>
-        <input class="narrow" type="text" name="ID" [(ngModel)]="form.ID" placeholder="User ID">
-        <button type="submit">SEARCH</button>
-    </div>
+    <mat-form-field>
+        <input matInput class="narrow" type="text" name="ID" [(ngModel)]="form.ID" placeholder="User ID">
+    </mat-form-field>
+    <button type="submit">SEARCH</button>
 </form>
 
-<div *ngIf="student">
-    <table>
+<div  class="container-fluid" *ngIf="student">
+        <div class="row darken">
+            <div class="col-1">ID</div>
+            <div class="col-3">Name</div>
+            <div class="col-4">Class ID</div>
+            <div class="col-1">Free Class By ID</div>
+            <div class="col-1">Free Class By Software ID</div>
+            <div class="col-1">Free Class Refund in Progress</div>
+            <div class="col-1">Free Class Refunded</div>
+        </div>
+        <div class="row">
+            <div class="col-1">{{student.ID}}</div>
+            <div class="col-3">{{student.display_name}}</div>
+            <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
+            <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
+            <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">{{student.free_class_by_class_software_id}}</div>
+            <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">{{student.free_class_by_refund_in_progress}}</div>
+            <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}</div>
+        </div>
+    <!-- <table border="1">
         <tr>
-            <th>ID</th>
+            <th width="75px">ID</th>
             <th>Name</th>
             <th>Class ID</th>
-            <th>Free Class By ID</th>
-            <th>Free Class By Software ID</th>
-            <th>Free Class Refund in Progress</th>
-            <th>Free Class Refunded</th>
+            <th width="100px">Free Class By ID</th>
+            <th width="100px">Free Class By Software ID</th>
+            <th width="100px">Free Class Refund in Progress</th>
+            <th width="100px">Free Class Refunded</th>
         </tr>
         <tr>
-            <td>{{student.ID}}</td>
+            <td width="75px">{{student.ID}}</td>
             <td>{{student.display_name}}</td>
             <td>{{student.class_software}} : {{student.class_software_id}}</td>
-            <td>{{student.free_class_by_id}}</td>
-            <td>{{student.free_class_by_class_software_id}}</td>
-            <td>{{student.free_class_by_refund_in_progress}}</td>
-            <td>{{student.free_class_by_refunded}}</td>
-        </tr>
+            <td width="100px">{{student.free_class_by_id}}</td>
+            <td width="100px">{{student.free_class_by_class_software_id}}</td>
+            <td width="100px">{{student.free_class_by_refund_in_progress}}</td>
+            <td width="100px">{{student.free_class_by_refunded}}</td>
+        </tr> -->
         <!--<tr *ngFor="let session of student.sessions">-->
             <!--{{ session | json}}-->
         <!--</tr>-->
-
-    </table>
+<!-- 
+    </table> -->
 </div>
 
 
-<div>
-    <table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1">ID</div>
+        <div class="col-3">Name</div>
+        <div class="col-4">Class ID</div>
+        <div class="col-1">Free Class By ID</div>
+        <div class="col-1">Free Class By Software ID</div>
+        <div class="col-1">Free Class Refund in Progress</div>
+        <div class="col-1">Free Class Refunded</div>
+    </div>
+    <div class="row" *ngFor="let student of students ">
+        <div class="col-1">{{student.ID}}</div>
+        <div class="col-3">{{student.display_name}}</div>
+        <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">{{student.free_class_by_class_software_id}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">{{student.free_class_by_refund_in_progress}}</div>
+        <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}</div>
+    </div>
+    <!-- <table border="1">
         <tr>
-            <th>ID</th>
+            <th width="75px">ID</th>
             <th>Name</th>
             <th>Class ID</th>
-            <th>Free Class By ID</th>
-            <th>Free Class By Software ID</th>
-            <th>Free Class Refund in Progress</th>
-            <th>Free Class Refunded</th>
+            <th width="100px">Free Class By ID</th>
+            <th width="100px">Free Class By Software ID</th>
+            <th width="100px">Free Class Refund in Progress</th>
+            <th width="100px">Free Class Refunded</th>
         </tr>
         <tr *ngFor="let student of students ">
-            <td>{{student.ID}}</td>
+            <td width="75px">{{student.ID}}</td>
             <td>{{student.display_name}}</td>
             <td>{{student.class_software}} : {{student.class_software_id}}</td>
-            <td>{{student.free_class_by_id}}</td>
-            <td>{{student.free_class_by_class_software_id}}</td>
-            <td>{{student.free_class_by_refund_in_progress}}</td>
-            <td>{{student.free_class_by_refunded}}</td>
+            <td width="100px">{{student.free_class_by_id}}</td>
+            <td width="100px">{{student.free_class_by_class_software_id}}</td>
+            <td width="100px">{{student.free_class_by_refund_in_progress}}</td>
+            <td width="100px">{{student.free_class_by_refunded}}</td>
         </tr>
-    </table>
+    </table> -->
 </div>
 
 
