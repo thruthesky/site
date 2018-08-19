@@ -24,7 +24,7 @@
                     </span>
                         </a>
 
-                        <div class="right" (click)="showMessage(info.ID)">
+                        <div class="right" (click)=" g == 'withcenter' ? showMessage(info.ID) : return">
                             <div class="message-link">
                                 <span>{{ info.message_count }}</span>
                                 <span *ngIf=" info.message_count && g =='withcenter' ">
@@ -41,8 +41,8 @@
             </div>
         </div>
         <div class="col-6" *ngIf="messageView">
-            <span (click)="messageView = false">X</span>
-            <span (click)="showMessage(selectedID, true)">R</span>
+            <span (click)="messageView = false">Close</span>
+            <span (click)="showMessage(selectedID, true)">Refresh</span>
             <div *ngFor="let msg of teachers_message[selectedID]" (click)="showConversation(msg)">
                 <div class="{{msg.open != '0' ? 'font-weight-normal' : 'font-weight-bold'}} ">
                     <div> Receiver:
@@ -53,8 +53,8 @@
                 </div>
                 <div class="conversation border" *ngIf="msg['showConversation']">
 
-                <span (click)="$event.stopPropagation(); msg['showConversation'] = false">X</span>
-                <span (click)="$event.stopPropagation(); showConversation(msg, true)">R</span>
+                <span (click)="$event.stopPropagation(); msg['showConversation'] = false">Close</span>
+                <span (click)="$event.stopPropagation(); showConversation(msg, true)">Refresh</span>
                 <div *ngFor="let m of msg['conversation']" >
                     <div class="{{m.open != '0' ? 'font-weight-normal' : 'font-weight-bold'}} ">
                         <div> Receiver:
