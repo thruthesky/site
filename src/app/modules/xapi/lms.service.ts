@@ -946,6 +946,18 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
+    admin_message_list_by_idx_teacher(req): Observable<any> {
+        req['route'] = 'lms.admin_message_list_by_idx_teacher';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
+    admin_message_list_conversation(req): Observable<any> {
+        req['route'] = 'lms.admin_message_list_conversation';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
+    }
+
     admin_count_student_reservation(req): Observable<any> {
         req['route'] = 'lms.admin_count_student_reservation';
         req['session_id'] = this.user.sessionId;

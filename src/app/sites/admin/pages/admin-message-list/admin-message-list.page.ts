@@ -11,42 +11,45 @@ import { ModalService } from '../../../../providers/modal/modal.service';
 export class AdminMessageListPage implements OnInit {
 
     messages: MESSAGES_GROUP = null;
+    teachers_message = {};
     stat_date_begin = 0;
     stat_date_end = 0;
 
     loader = {
-      message: false
+        message: false,
+        teacher_message: false,
+        teacher_conversation: false
     };
 
     messageView = false;
+    selectedID = null;
 
-    constructor(
-        public a: AppService,
-        public modal: ModalService
-    ) {
+    constructor(public a: AppService,
+                public modal: ModalService) {
 
         this.onClickSelectDate();
 
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 
 
-    onClickSelectDate( begin = null, end = null ) {
+    onClickSelectDate(begin = null, end = null) {
         const d = new Date();
 
-        if ( begin != null ) {
-            const begin_date = new Date( d.getTime() - ( begin * 24 * 60 * 60 * 1000) );
+        if (begin != null) {
+            const begin_date = new Date(d.getTime() - ( begin * 24 * 60 * 60 * 1000));
             this.stat_date_begin = parseInt(begin_date.getFullYear() + this.a.add0((begin_date.getMonth() + 1)) + this.a.add0(begin_date.getDate()), 10);
         } else {
             this.stat_date_begin = parseInt(d.getFullYear() + this.a.add0((d.getMonth() + 1)) + this.a.add0(1), 10);
         }
 
-        if ( end != null ) {
-            const end_date = new Date( d.getTime() + ( end * 24 * 60 * 60 * 1000) );
+        if (end != null) {
+            const end_date = new Date(d.getTime() + ( end * 24 * 60 * 60 * 1000));
             this.stat_date_end = parseInt(end_date.getFullYear() + this.a.add0((end_date.getMonth() + 1)) + this.a.add0(end_date.getDate()), 10);
         } else {
-            const end_date = new Date( d.getTime() + ( 24 * 60 * 60 * 1000) );
+            const end_date = new Date(d.getTime() + ( 24 * 60 * 60 * 1000));
             this.stat_date_end = parseInt(end_date.getFullYear() + this.a.add0((end_date.getMonth() + 1)) + this.a.add0(end_date.getDate()), 10);
         }
 
@@ -55,7 +58,10 @@ export class AdminMessageListPage implements OnInit {
 
     loadMessageList() {
         this.loader.message = true;
-        this.a.lms.admin_message_list_count({ date_begin: this.stat_date_begin, date_end: this.stat_date_end }).subscribe(res => {
+        this.a.lms.admin_message_list_count({
+            date_begin: this.stat_date_begin,
+            date_end: this.stat_date_end
+        }).subscribe(res => {
             console.log('messages: ', res);
             this.messages = res;
             this.loader.message = false;
@@ -99,8 +105,50 @@ export class AdminMessageListPage implements OnInit {
     // }
 
 
-    showMessage(info) {
+    showMessage(ID, refresh = false) {
+        if ( this.teachers_message[ID] && !refresh ) {
+            this.messageView = true;
+            return;
+        }
+        this.teachers_message[ID] = null;
+        this.selectedID = ID;
         this.messageView = true;
+        this.loader.teacher_message = true;
+        this.a.lms.admin_message_list_by_idx_teacher({
+            ID: ID,
+            date_begin: this.stat_date_begin,
+            date_end: this.stat_date_end
+        }).subscribe(re => {
+            console.log('admin_message_list_by_idx_teacher', re);
+            this.loader.teacher_message = false;
+            this.teachers_message[ID] = re;
+        }, e => {
+            this.a.toast(e);
+            this.loader.teacher_message = false;
+        });
+    }
+
+    showConversation(message, refresh = false) {
+        if ( message['conversation'] && !refresh ) {
+            message['showConversation'] = true;
+            return;
+        }
+        message['conversation'] = null;
+        message['showConversation'] = true;
+        this.loader.teacher_message = true;
+        this.a.lms.admin_message_list_conversation({
+            sender: message.sender,
+            receiver: message.receiver,
+            date_begin: this.stat_date_begin,
+            date_end: this.stat_date_end
+        }).subscribe(re => {
+            console.log('admin_message_list_conversation', re);
+            this.loader.teacher_conversation = false;
+            message['conversation'] = re;
+        }, e => {
+            this.a.toast(e);
+            this.loader.teacher_conversation = false;
+        });
     }
 
 }
