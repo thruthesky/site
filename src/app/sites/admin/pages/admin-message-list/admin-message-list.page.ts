@@ -108,6 +108,7 @@ export class AdminMessageListPage implements OnInit {
     showMessage(ID, refresh = false) {
         if ( this.teachers_message[ID] && !refresh ) {
             this.messageView = true;
+            this.selectedID = ID;
             return;
         }
         this.teachers_message[ID] = null;
