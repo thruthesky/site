@@ -40,14 +40,6 @@
 }
 
 
-.primary-photo {
-    display: inline-block;
-    width: 58px;
-    overflow: hidden;
-    img {
-      width: 100%;
-    }
-}
 
 
 .teacher-group{
@@ -78,19 +70,57 @@
         border: 1px solid rgba(125,125,125,0.3);
         background: #fff;
         text-align: center;
-        .right{
+        cursor: pointer;
+        .primary-photo {
+            position: relative;
+            display: inline-block;
+            width: 58px;
+            overflow: hidden;
+            line-height: 0;
+            img {
+              width: 100%;
+            }
+            &:hover{
+                .hover-effect{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .hover-effect{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba(96,125,139,.4);
+                width: 100%;
+                height: 100%;
+                svg{
+                    height: 1em;
+                    width: 1em;
+                    color: #fff;
+                }
+            }
+        }
+        .bottom{
             font-size: .8rem;
+            &:hover{
+                .message-link{
+                    color: orange!important;
+                    svg{
+                        color: orange!important
+                    }
+                }
+            }
             .message-link{
                 margin: .25rem 0;
-                color: dimgray;
                 svg{
                     position: relative;
                     top: .125em;
                     margin-left: .3em;
                     width: 1em;
                     height: 1em;
-                    color: orange;
-                    cursor: pointer;
+                    color: dimgray;
                 }
             }
             .name{
@@ -101,20 +131,17 @@
     }
 }
 
-
-.is-sender-message{
-    color: darkred;
-}
-.is-receiver-message{
-    color: darkblue
-}
-
-.msg-not-seen{
-    font-weight: bold
-}
 #conversation-list{
     font-size: .9rem;
+    .loader{
+        text-align: center;
+        mat-spinner{
+            margin-bottom: 1em;
+        }
+    }
     svg{
+        position: relative;
+        top: .125em;
         width: 1em;
         height: 1em;
     }
@@ -134,30 +161,77 @@
             color: red;
         }
         svg{
-            position: relative;
-            top: .125em;
             margin-right: .4rem;
         }
     }
     .buttons-inside{
-        margin-top: 1em;
         button{
+            padding: 1.25em 1em!important;
+            padding-left: 1.5em!important;
             border: 0!important;
-            padding: 1em 0!important;
-            background: #fff!important;
+            background: transparent!important;
+            color : #000;
+        }
+        .close{
+            padding-left: 1.5em!important;
         }
     }
     .conversation-item{
-        padding: 1em;
+        padding: .75em;
         border-bottom: 1px solid rgba(125,125,125,0.3);
+        &:hover{
+            background: rgba(125,125,125,0.05);
+        }
         cursor: pointer;
         .conversation-title{
-            display: flex;
-            margin-bottom: 1em;
+            font-size: .9em;
+            a{
+                display: inline-block;
+                padding-bottom: .25em;
+                font-size: .9em;
+                &:hover{
+                    color: dodgerblue;
+                }
+            }
         }
         .conversation-content{
+            margin:1em 0;
+            padding-bottom: 1.5em;
+            background: #99C0D9;
+            cursor: auto;
             .message{
-                padding: 1em 0;
+                padding: 0 1.5em;
+                padding-bottom: 1em;
+                width: 90%;
+                line-height: 1.3em;
+                .message-title{
+                    margin-bottom: .5em;
+                    font-size: .8em;
+                    color: #447899;
+                    cursor: pointer;
+                }
+                .message-content{
+                    padding: 1em 1.5em;
+                    border-radius: 5px;
+                    font-size: .9em;
+                }  
+            }      
+            .sender{
+                margin-left: auto;
+                .message-title{
+                    text-align: right;
+                    cursor: pointer;
+                }
+                .message-content{
+                    background: #f7de00;
+                    border-bottom-right-radius: 0;
+                }     
+            }
+            .receiver{
+                .message-content{
+                    border-bottom-left-radius: 0;
+                    background: #fff;
+                }
             }
         }
     }
