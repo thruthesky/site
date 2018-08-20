@@ -41,8 +41,9 @@
             </div>
         </div>
         <div id="conversation-list" class="col-6" *ngIf="messageView">
-            <div *ngIf="loader.teacher_message">
-                loader...
+            <div class="loader" *ngIf="loader.teacher_message">
+                <mat-spinner [diameter]="30"></mat-spinner>
+                Loading...
             </div>
             <div *ngIf="!loader.teacher_message">
             <div class="buttons-outside" >
@@ -58,35 +59,39 @@
             <div class="conversation-item" *ngFor="let msg of teachers_message[selectedID]"  (click)="showConversation(msg)">
                 <div class="conversation-title {{msg.open != '0' ? 'font-weight-normal' : 'font-weight-bold'}} ">
                     <a href="/manager/user-info/{{msg.receiver}}" target="_blank">
-                        <span>Receiver</span> ({{msg.receiver}}) {{msg.receiver_name}}
+                        <span>Receiver:</span> ({{msg.receiver}}) {{msg.receiver_name}}
                         <svg viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z" fill="currentColor"></path></svg>
                     </a>
                     <div>Message:{{ msg.content.slice(0,90) }}...</div>
                 </div>
                 <div class="conversation-content"  *ngIf="msg['showConversation']">
-                    <div *ngIf="loader.teacher_conversation">
-                        loader conversation
+                    <div class="loader" *ngIf="loader.teacher_conversation">
+                            <mat-spinner [diameter]="30"></mat-spinner>
+                            Loading Conversation...
                     </div>
-                    <div>
-                <div class="buttons-inside" *ngIf="!loader.teacher_conversation">
-                    <button class="close" (click)="$event.stopPropagation(); msg['showConversation'] = false">
-                        <span><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" ><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg></span>
-                        <span>Close</span>
-                    </button>
-                    <button class="refresh" (click)="$event.stopPropagation(); showConversation(msg, true)">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M457.373 9.387l-50.095 50.102C365.411 27.211 312.953 8 256 8 123.228 8 14.824 112.338 8.31 243.493 7.971 250.311 13.475 256 20.301 256h10.015c6.352 0 11.647-4.949 11.977-11.293C48.159 131.913 141.389 42 256 42c47.554 0 91.487 15.512 127.02 41.75l-53.615 53.622c-20.1 20.1-5.855 54.628 22.627 54.628H480c17.673 0 32-14.327 32-32V32.015c0-28.475-34.564-42.691-54.627-22.628zM480 160H352L480 32v128zm11.699 96h-10.014c-6.353 0-11.647 4.949-11.977 11.293C463.84 380.203 370.504 470 256 470c-47.525 0-91.468-15.509-127.016-41.757l53.612-53.616c20.099-20.1 5.855-54.627-22.627-54.627H32c-17.673 0-32 14.327-32 32v127.978c0 28.614 34.615 42.641 54.627 22.627l50.092-50.096C146.587 484.788 199.046 504 256 504c132.773 0 241.176-104.338 247.69-235.493.339-6.818-5.165-12.507-11.991-12.507zM32 480V352h128L32 480z" class=""></path></svg></span>
-                        <span>Refresh</span>
-                    </button>
-                </div>
-                <div *ngFor="let m of msg['conversation']" class="message {{ msg.sender == m.sender ? 'sender' : 'receiver'}}"  >
-                    <div>
-                        <div> Receiver:
-                            <a href="/manager/user-info/{{m.receiver}}" target="_blank">({{m.receiver}}) {{m.receiver_name}}
-                                <svg viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z" fill="currentColor"></path></svg>
-                            </a>
+                    <div  *ngIf="!loader.teacher_conversation">
+                        <div class="buttons-inside">
+                            <button class="close" (click)="$event.stopPropagation(); msg['showConversation'] = false">
+                                <span><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" ><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg></span>
+                                <span>Close</span>
+                            </button>
+                            <button class="refresh" (click)="$event.stopPropagation(); showConversation(msg, true)">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M457.373 9.387l-50.095 50.102C365.411 27.211 312.953 8 256 8 123.228 8 14.824 112.338 8.31 243.493 7.971 250.311 13.475 256 20.301 256h10.015c6.352 0 11.647-4.949 11.977-11.293C48.159 131.913 141.389 42 256 42c47.554 0 91.487 15.512 127.02 41.75l-53.615 53.622c-20.1 20.1-5.855 54.628 22.627 54.628H480c17.673 0 32-14.327 32-32V32.015c0-28.475-34.564-42.691-54.627-22.628zM480 160H352L480 32v128zm11.699 96h-10.014c-6.353 0-11.647 4.949-11.977 11.293C463.84 380.203 370.504 470 256 470c-47.525 0-91.468-15.509-127.016-41.757l53.612-53.616c20.099-20.1 5.855-54.627-22.627-54.627H32c-17.673 0-32 14.327-32 32v127.978c0 28.614 34.615 42.641 54.627 22.627l50.092-50.096C146.587 484.788 199.046 504 256 504c132.773 0 241.176-104.338 247.69-235.493.339-6.818-5.165-12.507-11.991-12.507zM32 480V352h128L32 480z" class=""></path></svg></span>
+                                <span>Refresh</span>
+                            </button>
                         </div>
-                    </div>
-                </div>
+                        <div *ngFor="let m of msg['conversation']" class="message {{ msg.sender == m.sender ? 'sender' : 'receiver'}}"  >
+                            <div>
+                                <div class="message-title"> Received by:
+                                    <a href="/manager/user-info/{{m.receiver}}" target="_blank">({{m.receiver}}) {{m.receiver_name}}
+                                        <svg viewBox="0 0 576 512"><path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z" fill="currentColor"></path></svg>
+                                    </a>
+                                </div>
+                                <div class="message-content">
+                                    {{ m.content }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
