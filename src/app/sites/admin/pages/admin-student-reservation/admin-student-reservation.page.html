@@ -15,6 +15,9 @@
     </form>
     <div class="reservations-table" *ngIf=" !loader.reservation">
         <b>Reservation Count</b>
+        <ul>
+            <li><small>Low Points - points that is equal or less than {{ pointPerMin }}point per minute. Example, below or equal to {{ pointPerMin * 10 }}point for 10minutes is considered low point.</small></li>
+        </ul>
         <div class="student-reservations">
             <div class="record" *ngFor="let student of reservations_count" (click)="student['showDetail'] = !student['showDetail']">
                 <span class="info">

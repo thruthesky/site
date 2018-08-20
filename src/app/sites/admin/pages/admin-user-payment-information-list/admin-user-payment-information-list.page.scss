@@ -51,9 +51,80 @@
     }
 }
 
+
 .primary-photo {
-    width: 40px;
+    display: inline-block;
+    width: 58px;
+    overflow: hidden;
     img {
         width: 100%;
+    }
+}
+
+.payment-information-history {
+    padding: 3em 0;
+
+    .rotate-45 {
+
+        &-on {
+            transition: all .1s ease-in-out;
+            transform: rotate(45deg)
+        }
+
+        &-off {
+            transition: all .1s ease-in-out;
+            transform: rotate(0)
+        }
+    }
+
+    .show-history-button {
+        text-align: center;
+
+        button {
+            padding: 1em 3em;
+            border-radius: 2px;
+            border: 0;
+            background: darkorange;
+            color: #fff;
+            cursor: pointer
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+
+        .plus-icon {
+            height: 1em;
+        }
+
+        li {
+            & > div:first-child {
+                display: flex;
+                justify-content: space-between;
+                padding: 1em 2em;
+                border-bottom: 1px solid #fff;
+                background: #e2e2e2;
+                cursor: pointer;
+            }
+        }
+
+        .list {
+            & > div {
+                display: flex;
+                padding: 0 2em;
+                border-bottom: 1px solid black;
+                div:first-child {
+                    font-weight: bold;
+                    width: 25%;
+                }
+                div:last-child {
+                    width: 75%;
+                }
+                div {
+                    margin: 1em;
+                }
+            }
+        }
     }
 }
