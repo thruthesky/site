@@ -971,11 +971,10 @@ export class XapiLMSService extends Base {
         return this.x.post(req);
     }
 
-    admin_user_payment_information_list(): Observable<any> {
-        return this.x.post({
-            route: 'lms.admin_user_payment_information_list',
-            session_id: this.user.sessionId
-        });
+    admin_user_payment_information_list(req): Observable<any> {
+        req['route'] = 'lms.admin_user_payment_information_list';
+        req['session_id'] = this.user.sessionId;
+        return this.x.post(req);
     }
 
     message_read_all(): Observable<any> {
