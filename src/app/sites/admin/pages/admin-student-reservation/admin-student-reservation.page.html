@@ -1,26 +1,21 @@
 <h3>
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <path fill="currentColor"
-              d="M128 152v-32c0-4.4 3.6-8 8-8h208c4.4 0 8 3.6 8 8v32c0 4.4-3.6 8-8 8H136c-4.4 0-8-3.6-8-8zm8 88h208c4.4 0 8-3.6 8-8v-32c0-4.4-3.6-8-8-8H136c-4.4 0-8 3.6-8 8v32c0 4.4 3.6 8 8 8zm299.1 159.7c-4.2 13-4.2 51.6 0 64.6 7.3 1.4 12.9 7.9 12.9 15.7v16c0 8.8-7.2 16-16 16H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h352c8.8 0 16 7.2 16 16v368c0 7.8-5.5 14.2-12.9 15.7zm-41.1.3H80c-17.6 0-32 14.4-32 32 0 17.7 14.3 32 32 32h314c-2.7-17.3-2.7-46.7 0-64zm6-352H80c-17.7 0-32 14.3-32 32v278.7c9.8-4.3 20.6-6.7 32-6.7h320V48z"
-              class=""></path>
-    </svg> -->
     Student Reservation Count
 </h3>
 <div class="reservation-count">
     <form (ngSubmit)="getStudentReservationCount($event)">
         <mat-form-field>
-            <mat-label>Minimum Reservation</mat-label> 
+            <mat-label>Minimum Reservation( More than or equal this #no will be displayed. )</mat-label>
             <input matInput type="text" name="class" [(ngModel)]="minCount" placeholder="Minimum # of reservation">
         </mat-form-field>    
         <mat-form-field>
-            <mat-label>Points per Minute</mat-label> 
+            <mat-label>Points per Minute( Less than or equal this #no of points per minute will be displayed. )</mat-label>
             <input matInput type="text" name="point" [(ngModel)]="pointPerMin" placeholder="Points">
         </mat-form-field>
         <button class="app-button" type="submit">SEARCH</button>
     </form>
     <div class="reservations-table" *ngIf=" !loader.reservation">
+        <b>Reservation Count</b>
         <div class="student-reservations">
-            <b>Reservation Count</b>
             <div class="record" *ngFor="let student of reservations_count" (click)="student['showDetail'] = !student['showDetail']">
                 <span class="info">
                     <span class="name" matTooltip="{{ student['display_name'] }}">{{ a.shortName(student['display_name'],7) }}<ng-container
@@ -44,5 +39,4 @@
         <mat-spinner [diameter]="48"></mat-spinner>
         Loading...
     </div>
-
 </div>
