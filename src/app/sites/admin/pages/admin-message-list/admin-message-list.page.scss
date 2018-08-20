@@ -68,7 +68,6 @@
 .message-view {
     width: 400px;
 }
-
 .messages-container{
     display: flex;
     flex-wrap: wrap;
@@ -97,6 +96,68 @@
             .name{
                 font-size: .75rem;
                 color: dimgray;
+            }
+        }
+    }
+}
+
+
+.is-sender-message{
+    color: darkred;
+}
+.is-receiver-message{
+    color: darkblue
+}
+
+.msg-not-seen{
+    font-weight: bold
+}
+#conversation-list{
+    font-size: .9rem;
+    svg{
+        width: 1em;
+        height: 1em;
+    }
+    .buttons-inside,
+    .buttons-outside{
+        .close,
+        .refresh{
+            display: inline-flex;
+            align-items: center;
+            padding: .5em 1em;
+            border: 1px solid rgba(125,125,125,0.2);
+            border-radius: 2px;
+            background: #eee;
+        }
+        .close{
+            margin-right: 1rem;
+            color: red;
+        }
+        svg{
+            position: relative;
+            top: .125em;
+            margin-right: .4rem;
+        }
+    }
+    .buttons-inside{
+        margin-top: 1em;
+        button{
+            border: 0!important;
+            padding: 1em 0!important;
+            background: #fff!important;
+        }
+    }
+    .conversation-item{
+        padding: 1em;
+        border-bottom: 1px solid rgba(125,125,125,0.3);
+        cursor: pointer;
+        .conversation-title{
+            display: flex;
+            margin-bottom: 1em;
+        }
+        .conversation-content{
+            .message{
+                padding: 1em 0;
             }
         }
     }
