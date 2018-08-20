@@ -136,7 +136,7 @@ export class AdminMessageListPage implements OnInit {
         }
         message['conversation'] = null;
         message['showConversation'] = true;
-        this.loader.teacher_message = true;
+        this.loader.teacher_conversation = true;
         this.a.lms.admin_message_list_conversation({
             sender: message.sender,
             receiver: message.receiver,
