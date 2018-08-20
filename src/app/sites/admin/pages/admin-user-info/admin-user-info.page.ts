@@ -76,6 +76,7 @@ export class AdminUserInfoPage implements OnInit {
     }
 
     ngOnInit() {
+        // console.log('ngOnInit');
 
     }
 
@@ -312,6 +313,7 @@ export class AdminUserInfoPage implements OnInit {
         sql += ` LIMIT 100`;
         // console.log(sql);
         this.show.loader.loadPayment = true;
+        this.total_point_paid = 0;
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,

@@ -48,17 +48,14 @@ form{
 .display{
     display: flex;
     flex-wrap: wrap;
-
-    &>span{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: .25em 1em;
-        cursor: pointer
+    div{
+        flex: 100%;
+        margin-bottom: 1em;
     }
-
-    label{
-        cursor: pointer;
+    mat-checkbox{
+        margin-right: 2em;
+        margin-bottom: 1em;
+        width: 140px;
     }
 }
 

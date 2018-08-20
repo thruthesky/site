@@ -510,6 +510,14 @@ export class XapiLMSService extends Base {
         return this.x.post(data);
     }
 
+    payment_information_history_by_id(ID) {
+        const data = {};
+        data['ID'] = ID;
+        data['route'] = 'lms.payment_information_history_by_id';
+        data['session_id'] = this.user.sessionId;
+        return this.x.post(data);
+    }
+
     session_evaluate(data) {
         data['route'] = 'lms.session_evaluate';
         data['session_id'] = this.user.sessionId;
@@ -523,7 +531,6 @@ export class XapiLMSService extends Base {
         data['session_id'] = this.user.sessionId;
         data['idx'] = idx;
         return this.x.post(data);
-
     }
 
 

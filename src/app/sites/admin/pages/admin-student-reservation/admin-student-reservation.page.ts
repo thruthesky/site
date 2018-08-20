@@ -37,9 +37,9 @@ export class AdminStudentReservationPage implements OnInit {
         }
         this.loader.reservation = true;
         this.showReservationCount = true;
-        this.a.lms.admin_count_student_reservation({minimum: this.minCount, pointPerMin: this.pointPerMin}).subscribe( re => {
-            console.log(re);
-            this.reservations_count = re;
+        this.a.lms.admin_count_student_reservation({minimum: this.minCount, pointPerMin: this.pointPerMin}).subscribe( res => {
+            // console.log('admin_count_student_reservation', re);
+            this.reservations_count = res;
             this.loader.reservation = false;
         }, e => {
             this.a.toast(e);
