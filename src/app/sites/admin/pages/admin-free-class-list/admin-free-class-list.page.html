@@ -35,118 +35,30 @@
 
 <div class="display" *ngIf=" student?.sessions?.length ">
     <div><b>Display</b></div>
-    <span>
-            <input type="checkbox" id="class_software" name="class_software" [(ngModel)]="display.class_software">
-            <label for="reserved_at">Class Software</label>
-        </span>
-    <span>
-            <input type="checkbox" id="reserved_at" name="display_reserved_at" [(ngModel)]="display.reserved_at">
-            <label for="reserved_at">Reserved At</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_paid" name="display_paid" [(ngModel)]="display.paid">
-            <label for="display_paid">Paid</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_refund_request_at" name="display_refund_request_at"
-                   [(ngModel)]="display.refund_request_at">
-            <label for="display_refund_request_at">Refund Request At</label>
-        </span>
-    <span>
-            <input type="checkbox" id="refund_request_message" name="display_refund_request_message"
-                   [(ngModel)]="display.refund_request_message">
-            <label for="refund_request_message">Request Message</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_refund_reject_at" name="display_refund_reject_at"
-                   [(ngModel)]="display.refund_reject_at">
-            <label for="display_refund_reject_at">Reject At</label>
-        </span>
-    <span>
-            <input type="checkbox" id="refund_reject_message" name="display_refund_reject_message"
-                   [(ngModel)]="display.refund_reject_message">
-            <label for="refund_reject_message">Reject Message</label>
-        </span>
-
-    <span>
-            <input type="checkbox" id="display_refund_done_at" name="display_refund_done_at"
-                   [(ngModel)]="display.refund_done_at">
-            <label for="display_refund_done_at">Refund Done At</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_refund_done_point" name="display_refund_done_point"
-                   [(ngModel)]="display.refund_done_point">
-            <label for="display_refund_done_point">Done Point</label>
-        </span>
-    <span>
-            <input type="checkbox" id="refund_done_by" name="display_refund_done_by"
-                   [(ngModel)]="display.refund_done_by">
-            <label for="refund_done_by">Done By</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_refund_settle_at" name="display_refund_settle_at"
-                   [(ngModel)]="display.refund_settle_at">
-            <label for="display_refund_settle_at">Settled At</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_teacher_absent" name="display_teacher_absent"
-                   [(ngModel)]="display.teacher_absent">
-            <label for="display_teacher_absent">Teacher Absent</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_student_absent" name="display_student_absent"
-                   [(ngModel)]="display.student_absent">
-            <label for="display_student_absent">Student Absent</label>
-        </span>
-
-    <span>
-            <input type="checkbox" id="display_successful" name="display_successful"
-                   [(ngModel)]="display.successful">
-            <label for="display_successful">Successful</label>
-        </span>
-    <span>
-            <input type="checkbox" id="expression" name="display_expression" [(ngModel)]="display.expression">
-            <label for="expression">Expression</label>
-        </span>
-    <span>
-            <input type="checkbox" id="vocabulary" name="display_vocabulary" [(ngModel)]="display.vocabulary">
-            <label for="vocabulary">Vocabulary</label>
-        </span>
-    <span>
-            <input type="checkbox" id="grammar" name="display_grammar" [(ngModel)]="display.grammar">
-            <label for="grammar">Grammar</label>
-        </span>
-    <span>
-            <input type="checkbox" id="pronunciation" name="display_pronunciation"
-                   [(ngModel)]="display.pronunciation">
-            <label for="pronunciation">Pronunciation</label>
-        </span>
-    <span>
-            <input type="checkbox" id="speed" name="display_speed" [(ngModel)]="display.speed">
-            <label for="speed">Speed</label>
-        </span>
-
-    <span>
-            <input type="checkbox" id="refund_settle_message" name="display_refund_settle_message"
-                   [(ngModel)]="display.refund_settle_message">
-            <label for="refund_settle_message">Settled Message</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_comment" name="display_comment" [(ngModel)]="display.comment">
-            <label for="display_comment">Comment</label>
-        </span>
-    <span>
-            <input type="checkbox" id="display_checked" name="display_checked" [(ngModel)]="display.stamp_checked">
-            <label for="display_checked">Checked</label>
-        </span>
-    <span>
-            <input type="checkbox" id="book_used" name="display_book_used" [(ngModel)]="display.book_used">
-            <label for="book_used">Book Used</label>
-        </span>
-    <span>
-            <input type="checkbox" id="book_next" name="display_book_next" [(ngModel)]="display.book_next">
-            <label for="book_next">Book Next</label>
-        </span>
+    <mat-checkbox id="class_software" name="class_software" [(ngModel)]="display.class_software">Class Software</mat-checkbox>
+    <mat-checkbox id="reserved_at" name="display_reserved_at" [(ngModel)]="display.reserved_at">Reserved At</mat-checkbox>
+    <mat-checkbox id="display_paid" name="display_paid" [(ngModel)]="display.paid">Paid</mat-checkbox>
+    <mat-checkbox id="display_refund_request_at" name="display_refund_request_at" [(ngModel)]="display.refund_request_at">Refund Request At</mat-checkbox>
+    <mat-checkbox id="refund_request_message" name="display_refund_request_message" [(ngModel)]="display.refund_request_message">Request Message</mat-checkbox>
+    <mat-checkbox id="display_refund_reject_at" name="display_refund_reject_at" [(ngModel)]="display.refund_reject_at">Reject At</mat-checkbox>
+    <mat-checkbox id="refund_reject_message" name="display_refund_reject_message" [(ngModel)]="display.refund_reject_message">Reject Message</mat-checkbox>
+    <mat-checkbox id="display_refund_done_at" name="display_refund_done_at" [(ngModel)]="display.refund_done_at">Refund Done At</mat-checkbox>
+    <mat-checkbox id="display_refund_done_point" name="display_refund_done_point" [(ngModel)]="display.refund_done_point">Done Point</mat-checkbox>
+    <mat-checkbox id="refund_done_by" name="display_refund_done_by" [(ngModel)]="display.refund_done_by">Done By</mat-checkbox>
+    <mat-checkbox id="display_refund_settle_at" name="display_refund_settle_at" [(ngModel)]="display.refund_settle_at">Settled At</mat-checkbox>
+    <mat-checkbox id="display_teacher_absent" name="display_teacher_absent" [(ngModel)]="display.teacher_absent">Teacher Absent</mat-checkbox>
+    <mat-checkbox id="display_student_absent" name="display_student_absent" [(ngModel)]="display.student_absent">Student Absent</mat-checkbox>
+    <mat-checkbox id="display_successful" name="display_successful" [(ngModel)]="display.successful">Successful</mat-checkbox>
+    <mat-checkbox id="expression" name="display_expression" [(ngModel)]="display.expression">Expression</mat-checkbox>
+    <mat-checkbox id="vocabulary" name="display_vocabulary" [(ngModel)]="display.vocabulary">Vocabulary</mat-checkbox>
+    <mat-checkbox id="grammar" name="display_grammar" [(ngModel)]="display.grammar">Grammar</mat-checkbox>
+    <mat-checkbox id="pronunciation" name="display_pronunciation" [(ngModel)]="display.pronunciation">Pronunciation</mat-checkbox>
+    <mat-checkbox id="speed" name="display_speed" [(ngModel)]="display.speed">Speed</mat-checkbox>
+    <mat-checkbox id="refund_settle_message" name="display_refund_settle_message" [(ngModel)]="display.refund_settle_message">Settled Message</mat-checkbox>
+    <mat-checkbox id="display_comment" name="display_comment" [(ngModel)]="display.comment">Comment</mat-checkbox>
+    <mat-checkbox id="display_checked" name="display_checked" [(ngModel)]="display.stamp_checked">Checked</mat-checkbox>
+    <mat-checkbox id="book_used" name="display_book_used" [(ngModel)]="display.book_used">Book Used</mat-checkbox>
+    <mat-checkbox id="book_next" name="display_book_next" [(ngModel)]="display.book_next">Book Next</mat-checkbox>
 </div>
 <div class="custom-table" *ngIf=" student?.sessions?.length ">
     <table class="sessions" >

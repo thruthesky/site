@@ -46,19 +46,10 @@ form{
 
 
 .display{
-    display: flex;
-    flex-wrap: wrap;
-
-    &>span{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: .25em 1em;
-        cursor: pointer
-    }
-
-    label{
-        cursor: pointer;
+    mat-checkbox{
+        margin-right: 2em;
+        margin-bottom: 1em;
+        width: 150px;
     }
 }
 
