@@ -40,14 +40,6 @@
 }
 
 
-.primary-photo {
-    display: inline-block;
-    width: 58px;
-    overflow: hidden;
-    img {
-      width: 100%;
-    }
-}
 
 
 .teacher-group{
@@ -78,19 +70,57 @@
         border: 1px solid rgba(125,125,125,0.3);
         background: #fff;
         text-align: center;
-        .right{
+        cursor: pointer;
+        .primary-photo {
+            position: relative;
+            display: inline-block;
+            width: 58px;
+            overflow: hidden;
+            line-height: 0;
+            img {
+              width: 100%;
+            }
+            &:hover{
+                .hover-effect{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .hover-effect{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba(96,125,139,.4);
+                width: 100%;
+                height: 100%;
+                svg{
+                    height: 1em;
+                    width: 1em;
+                    color: #fff;
+                }
+            }
+        }
+        .bottom{
             font-size: .8rem;
+            &:hover{
+                .message-link{
+                    color: orange!important;
+                    svg{
+                        color: orange!important
+                    }
+                }
+            }
             .message-link{
                 margin: .25rem 0;
-                color: dimgray;
                 svg{
                     position: relative;
                     top: .125em;
                     margin-left: .3em;
                     width: 1em;
                     height: 1em;
-                    color: orange;
-                    cursor: pointer;
+                    color: dimgray;
                 }
             }
             .name{
