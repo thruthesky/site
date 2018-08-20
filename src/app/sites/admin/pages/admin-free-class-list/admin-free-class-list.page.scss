@@ -50,11 +50,12 @@ form{
     flex-wrap: wrap;
     div{
         flex: 100%;
+        margin-bottom: 1em;
     }
     mat-checkbox{
         margin-right: 2em;
         margin-bottom: 1em;
-        width: 150px;
+        width: 140px;
     }
 }
 
