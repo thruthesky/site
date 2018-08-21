@@ -41,6 +41,17 @@ form{
             color: dodgerblue;
         }
     }
+    .pointer{
+        display: flex;
+        align-items: center;
+        svg{
+            position: relative;
+            top: .125em;
+            margin-right: .3em;
+            height: 1em;
+            width: 1em;
+        }
+    }
 }
 
 
