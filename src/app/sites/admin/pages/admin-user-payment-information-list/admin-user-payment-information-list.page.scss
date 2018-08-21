@@ -38,7 +38,43 @@
         }
     }
 }
-
+.teacher-container{
+    display: flex;
+    flex-wrap: wrap;
+    .card{
+        margin: .25rem;
+        padding: .25rem;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+        background: #fff;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            .name{
+                color: dodgerblue;
+            }
+        }
+        .selected{
+            color: dodgerblue!important
+        }
+        .primary-photo {
+            position: relative;
+            display: inline-block;
+            width: 58px;
+            height: 69.59px;
+            overflow: hidden;
+            line-height: 0;
+            img {
+              width: 100%;
+            }
+        }
+        .name{
+            padding: .5em 0;
+            font-size: .75rem;
+            color: dimgray;
+        }
+    }
+}
 .icon-svg{
     display: flex;
     align-items: center;
@@ -51,6 +87,31 @@
     }
 }
 
+.close-button{
+    display: inline-flex;
+    align-items: center;
+    padding: .5em 1em;
+    border: 1px solid rgba(125,125,125,0.4);
+    border-radius: 2px;
+    background: #eee;
+    color: red;
+    svg{
+        position: relative;
+        top: .125em;
+        height: 1em;
+        width: 1em;
+        margin-right: .5em;
+    }
+}
+
+.info-list{
+    margin: 1em 0;
+    border-top: 1px solid rgba(125,125,125,0.4); 
+    &>div{
+        padding: .5em 1em;
+        border-bottom: 1px solid rgba(125,125,125,0.4); 
+    }
+}
 
 .primary-photo {
     display: inline-block;
@@ -60,7 +121,16 @@
         width: 100%;
     }
 }
+.no-payment-information{
+    padding: 2em;
+    text-align: center;
+}
 
+.payment-information{
+    .row>div:last-child{
+        padding: 0;
+    }
+}
 .teacher-container{
     display: flex;
     flex-wrap: wrap;
@@ -180,9 +250,16 @@
     }
 }
 
+
 .payment-information-history {
     padding: 3em 0;
-
+    .loader{
+        margin-top: 3em;
+    }
+    .title{
+        font-weight: bold;
+        color: darkblue
+    }
     .rotate-45 {
 
         &-on {
@@ -197,8 +274,8 @@
     }
 
     .show-history-button {
+        margin-top: 1em;
         text-align: center;
-
         button {
             padding: 1em 3em;
             border-radius: 2px;
@@ -231,17 +308,13 @@
         .list {
             & > div {
                 display: flex;
-                padding: 0 2em;
+                padding:  .5em 1em;
                 border-bottom: 1px solid black;
                 div:first-child {
-                    font-weight: bold;
-                    width: 25%;
+                    width: 30%;
                 }
                 div:last-child {
-                    width: 75%;
-                }
-                div {
-                    margin: 1em;
+                    width: 70%;
                 }
             }
         }
