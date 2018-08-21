@@ -167,7 +167,7 @@
         <div class="col-1">Free Class Refunded</div>
     </div>
     <div class="row" *ngFor="let student of students ">
-        <div class="col-1">{{student.ID}}</div>
+        <div class="col-1" (click)="loadStudentFreeClass(student.ID)">{{student.ID}}</div>
         <div class="col-3">{{student.display_name}}</div>
         <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
         <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
