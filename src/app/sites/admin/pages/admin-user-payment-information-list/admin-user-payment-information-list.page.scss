@@ -61,6 +61,125 @@
     }
 }
 
+.teacher-container{
+    display: flex;
+    flex-wrap: wrap;
+    .card{
+        margin: .25rem;
+        padding: .25rem;
+        border-radius: 2px;
+        border: 1px solid rgba(125,125,125,0.3);
+        background: #fff;
+        text-align: center;
+        cursor: pointer;
+        .primary-photo {
+            position: relative;
+            display: inline-block;
+            width: 58px;
+            overflow: hidden;
+            line-height: 0;
+            img {
+                width: 100%;
+            }
+            &:hover{
+                .hover-effect{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .hover-effect{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba(96,125,139,.4);
+                width: 100%;
+                height: 100%;
+                svg{
+                    height: 1em;
+                    width: 1em;
+                    color: #fff;
+                }
+            }
+        }
+        .bottom{
+            font-size: .8rem;
+            &:hover{
+                .message-link{
+                    color: orange!important;
+                    svg{
+                        color: orange!important
+                    }
+                }
+            }
+            .message-link{
+                margin: .25rem 0;
+                svg{
+                    position: relative;
+                    top: .125em;
+                    margin-left: .3em;
+                    width: 1em;
+                    height: 1em;
+                    color: dimgray;
+                }
+            }
+            .name{
+                font-size: .75rem;
+                color: dimgray;
+            }
+        }
+    }
+}
+
+
+#information-list {
+    font-size: .9rem;
+    .loader{
+        text-align: center;
+        mat-spinner{
+            margin-bottom: 1em;
+        }
+    }
+    svg{
+        position: relative;
+        top: .125em;
+        width: 1em;
+        height: 1em;
+    }
+    .buttons-inside,
+    .buttons-outside{
+        .close,
+        .refresh{
+            display: inline-flex;
+            align-items: center;
+            padding: .5em 1em;
+            border: 1px solid rgba(125,125,125,0.2);
+            border-radius: 2px;
+            background: #eee;
+        }
+        .close{
+            margin-right: 1rem;
+            color: red;
+        }
+        svg{
+            margin-right: .4rem;
+        }
+    }
+    .buttons-inside{
+        button{
+            padding: 1.25em 1em!important;
+            padding-left: 1.5em!important;
+            border: 0!important;
+            background: transparent!important;
+            color : #000;
+        }
+        .close{
+            padding-left: 1.5em!important;
+        }
+    }
+}
+
 .payment-information-history {
     padding: 3em 0;
 

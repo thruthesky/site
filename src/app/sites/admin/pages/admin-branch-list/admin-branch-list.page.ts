@@ -28,7 +28,7 @@ export class AdminBranchListPage implements OnInit {
     loadBranches() {
         this.loader.branch = true;
         this.a.lms.get_branches().subscribe(re => {
-            // console.log('re: ', re);
+            console.log('re: ', re);
             this.re = re;
             this.loader.branch = false;
             // setTimeout( () => {

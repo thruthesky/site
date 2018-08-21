@@ -33,11 +33,14 @@
                 </div>
             </div>
         </div>
-        <div id="conversation-list" class="col-6" *ngIf="paymentInfoView">
+        <div id="information-list" class="col-6" *ngIf="paymentInfoView">
             <div>
-                <div class="buttons-outside" >
+                <div class="buttons-outside">
                     <button class="close" (click)="paymentInfoView = false">
-                        <span><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" ><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg></span>
+                        <span><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path
+                                fill="currentColor"
+                                d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"
+                                class=""></path></svg></span>
                         <span>Close</span>
                     </button>
                 </div>
@@ -45,92 +48,95 @@
                     <div>No Payment Information yet...</div>
                 </div>
                 <div *ngIf="payment_information[selectedID]">
-                    <div>Full Name: {{payment_information[selectedID]?.first_name}} {{payment_information[selectedID]?.middle_name}} {{payment_information[selectedID]?.last_name}}</div>
+                    <div>Full Name: {{payment_information[selectedID]?.first_name}}
+                        {{payment_information[selectedID]?.middle_name}} {{payment_information[selectedID]?.last_name}}
+                    </div>
                     <div>Payment Method: {{payment_information[selectedID].payment_method}}</div>
                     <div>Phone Number: {{payment_information[selectedID].phone_number}}</div>
                     <div>Email: {{payment_information[selectedID].email}}</div>
                     <div>Address: {{payment_information[selectedID].address}}</div>
                     <div>City: {{payment_information[selectedID].city}}</div>
-                    <div>Province{{payment_information[selectedID].province}}</div>
+                    <div>Province: {{payment_information[selectedID].province}}</div>
                     <div>Country: {{payment_information[selectedID].country}}</div>
                     <div>ZipCode: {{payment_information[selectedID].zipcode}}</div>
                 </div>
                 <hr>
 
-                    <div class="payment-information-history">
-                        <h2>{{ "PAYMENT INFORMATION HISTORY" | t }}</h2>
+                <div class="payment-information-history"
+                     *ngIf=" payment_information[selectedID]">
+                    <h2>{{ "PAYMENT INFORMATION HISTORY" | t }}</h2>
 
-                        <div class="show-history-button">
-                            <button (click)="onClickShowHistory()"> Show History</button>
-                        </div>
+                    <div class="show-history-button">
+                        <button (click)="onClickShowHistory()"> Show History</button>
+                    </div>
 
-                        <div class="loader mt-3" *ngIf=" loader.history ">
-                            <mat-spinner [diameter]="48"></mat-spinner>
-                            <span>{{ 'IN LOADING' | t}}</span>
-                        </div>
+                    <div class="loader mt-3" *ngIf=" loader.history ">
+                        <mat-spinner [diameter]="48"></mat-spinner>
+                        <span>{{ 'IN LOADING' | t}}</span>
+                    </div>
 
-                        <ul *ngIf=" !loader.history ">
-                            <ng-container *ngFor="let info of payment_information[selectedID]['history']; let odd = odd">
-                                <li (click)="info['more'] =  !info['more']">
-                                    <div>
-                                        <span>Date/Time Changed: {{a.shortDate(info.stamp)}}</span>
-                                        <span [class.rotate-45-on]="info['more']" [class.rotate-45-off]="!info['more']">
+                    <ul *ngIf=" !loader.history && payment_information[selectedID] && payment_information[selectedID]['history']">
+                        <ng-container *ngFor="let info of payment_information[selectedID]['history']; let odd = odd">
+                            <li (click)="info['more'] =  !info['more']">
+                                <div>
+                                    <span>Date/Time Changed: {{a.shortDate(info.stamp)}}</span>
+                                    <span [class.rotate-45-on]="info['more']" [class.rotate-45-off]="!info['more']">
                                 <svg class="plus-icon" aria-hidden="true" data-prefix="fal" data-icon="plus" role="img"
                                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path
                                         fill="currentColor"
                                         d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
                             </span>
+                                </div>
+                                <div class="list" *ngIf="info['more']">
+                                    <div>
+                                        <div>First Name</div>
+                                        <div>{{info['first_name']}}</div>
                                     </div>
-                                    <div class="list" *ngIf="info['more']">
-                                        <div>
-                                            <div>First Name</div>
-                                            <div>{{info['first_name']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Middle Name</div>
-                                            <div>{{info['middle_name']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Last Name</div>
-                                            <div>{{info['last_name']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Phone Number</div>
-                                            <div>{{info['phone_number']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Email</div>
-                                            <div>{{info['email']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Payment Method</div>
-                                            <div>{{info['payment_method']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Country</div>
-                                            <div>{{info['country']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Province</div>
-                                            <div>{{info['province']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>City</div>
-                                            <div>{{info['city']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Address</div>
-                                            <div>{{info['address']}}</div>
-                                        </div>
-                                        <div>
-                                            <div>Zipcode</div>
-                                            <div>{{info['zipcode']}}</div>
-                                        </div>
+                                    <div>
+                                        <div>Middle Name</div>
+                                        <div>{{info['middle_name']}}</div>
                                     </div>
-                                </li>
-                            </ng-container>
-                        </ul>
-                    </div>
+                                    <div>
+                                        <div>Last Name</div>
+                                        <div>{{info['last_name']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>Phone Number</div>
+                                        <div>{{info['phone_number']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>Email</div>
+                                        <div>{{info['email']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>Payment Method</div>
+                                        <div>{{info['payment_method']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>Country</div>
+                                        <div>{{info['country']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>Province</div>
+                                        <div>{{info['province']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>City</div>
+                                        <div>{{info['city']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>Address</div>
+                                        <div>{{info['address']}}</div>
+                                    </div>
+                                    <div>
+                                        <div>Zipcode</div>
+                                        <div>{{info['zipcode']}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
