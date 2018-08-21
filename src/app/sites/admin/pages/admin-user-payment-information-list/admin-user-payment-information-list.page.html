@@ -23,8 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6" *ngIf="paymentInfoView">
-            <div>
+        <div id="information-list" class="col-6" *ngIf="paymentInfoView">
                 <button class="close-button" (click)="paymentInfoView = false">
                     <span><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" ><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg></span>
                     <span>Close</span>
@@ -33,7 +32,9 @@
                     <div>No Payment Information yet...</div>
                 </div>
                 <div class="info-list" *ngIf="payment_information[selectedID]">
-                    <div>Full Name: {{payment_information[selectedID]?.first_name}} {{payment_information[selectedID]?.middle_name}} {{payment_information[selectedID]?.last_name}}</div>
+                    <div>Full Name: {{payment_information[selectedID]?.first_name}}
+                        {{payment_information[selectedID]?.middle_name}} {{payment_information[selectedID]?.last_name}}
+                    </div>
                     <div>Payment Method: {{payment_information[selectedID].payment_method}}</div>
                     <div>Phone Number: {{payment_information[selectedID].phone_number}}</div>
                     <div>Email: {{payment_information[selectedID].email}}</div>
@@ -44,30 +45,26 @@
                     <div>ZipCode: {{payment_information[selectedID].zipcode}}</div>
                 </div>
 
-                    <div class="payment-information-history"  *ngIf="payment_information[selectedID]">
-                        <div class="title">{{ "PAYMENT INFORMATION HISTORY" | t }}</div>
+                <div class="payment-information-history"  *ngIf="payment_information[selectedID]">
+                    <div class="title">{{ "PAYMENT INFORMATION HISTORY" | t }}</div>
+                    <div class="show-history-button">
+                        <button (click)="onClickShowHistory()"> Show History</button>
+                    </div>
 
-                        <div class="show-history-button">
-                            <button (click)="onClickShowHistory()"> Show History</button>
-                        </div>
+                    <div class="loader" *ngIf=" loader.history ">
+                        <mat-spinner [diameter]="48"></mat-spinner>
+                        <span>{{ 'IN LOADING' | t}}</span>
+                    </div>
 
-                        <div class="loader" *ngIf=" loader.history ">
-                            <mat-spinner [diameter]="48"></mat-spinner>
-                            <span>{{ 'IN LOADING' | t}}</span>
-                        </div>
-
-                        <ul *ngIf=" !loader.history ">
-                            <ng-container *ngFor="let info of payment_information[selectedID]['history']; let odd = odd">
-                                <li (click)="info['more'] =  !info['more']">
-                                    <div>
-                                        <span>Date/Time Changed: {{a.shortDate(info.stamp)}}</span>
-                                        <span [class.rotate-45-on]="info['more']" [class.rotate-45-off]="!info['more']">
-                                <svg class="plus-icon" aria-hidden="true" data-prefix="fal" data-icon="plus" role="img"
-                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path
-                                        fill="currentColor"
-                                        d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
-                            </span>
-                                    </div>
+                    <ul *ngIf=" !loader.history && payment_information[selectedID] && payment_information[selectedID]['history']">
+                        <ng-container *ngFor="let info of payment_information[selectedID]['history']; let odd = odd">
+                            <li (click)="info['more'] =  !info['more']">
+                                <div>
+                                    <span>Date/Time Changed: {{a.shortDate(info.stamp)}}</span>
+                                    <span [class.rotate-45-on]="info['more']" [class.rotate-45-off]="!info['more']">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 238H242V44c0-6.6-5.4-12-12-12h-12c-6.6 0-12 5.4-12 12v194H12c-6.6 0-12 5.4-12 12v12c0 6.6 5.4 12 12 12h194v194c0 6.6 5.4 12 12 12h12c6.6 0 12-5.4 12-12V274h194c6.6 0 12-5.4 12-12v-12c0-6.6-5.4-12-12-12z"></path></svg>
+                                    </span>
+                                </div>
                                     <div class="list" *ngIf="info['more']">
                                         <div>First Name: {{info['first_name']}}</div>
                                         <div>Middle Name: {{info['middle_name']}}</div>
@@ -81,11 +78,10 @@
                                         <div>Address: {{info['address']}}</div>
                                         <div>Zipcode: {{info['zipcode']}}</div>
                                     </div>
-                                </li>
-                            </ng-container>
-                        </ul>
-                    </div>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
+         </div>
 </section>
