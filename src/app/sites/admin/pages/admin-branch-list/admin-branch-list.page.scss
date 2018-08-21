@@ -53,3 +53,17 @@
         font-weight: bold;
     }
 }
+
+.link {
+    display: flex;
+    align-items: center;
+    font-size: .82em;
+    border-radius: 2px;
+    &:hover{
+        font-weight: normal;
+    }
+    svg{
+        height: 1em;
+        width: 1em;
+    }
+}

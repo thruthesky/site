@@ -99,6 +99,8 @@ export class AdminFreeClassListPage implements OnInit {
 
     loadStudentFreeClass(ID) {
         this.loader.student = true;
+        this.form.ID = ID;
+        this.a.scrollToTop();
         this.a.lms.admin_get_free_class_by_id({ID: ID}).subscribe( re => {
             this.student = re;
             console.log('admin_get_free_class_by_id:: id', re);

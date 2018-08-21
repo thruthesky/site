@@ -84,6 +84,7 @@ export class AdminUserPaymentInformationListPage implements OnInit {
     showPaymentInfo(ID) {
         this.paymentInfoView = true;
         this.selectedID = ID;
+        this.a.scrollToTop();
     }
 
 

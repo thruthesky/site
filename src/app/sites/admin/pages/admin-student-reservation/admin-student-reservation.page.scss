@@ -34,6 +34,13 @@ form{
                     align-items: center;
                     font-size: .82em;
                     border-radius: 2px;
+                    &:hover{
+                        font-weight: normal;
+                    }
+                    svg{
+                        height: 1em;
+                        width: 1em;
+                    }
                     span{
                         display: inline-block;
                         padding: .25em .5em;
@@ -49,6 +56,23 @@ form{
                             background: #614141;
                             color: #fff;
                             border: 1px solid #614141;
+                        }
+                    }
+
+                    .rotate-45 {
+
+                        &-on {
+                            svg {
+                                transition: all .1s ease-in-out;
+                                transform: rotate(45deg)
+                            }
+                        }
+
+                        &-off {
+                            svg {
+                                transition: all .1s ease-in-out;
+                                transform: rotate(0)
+                            }
                         }
                     }
 

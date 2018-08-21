@@ -1,5 +1,5 @@
 <h1>Free Class Session List</h1>
-
+<div *ngIf="!loader.list">
 <form (ngSubmit)="onSubmit( $event )">
     <mat-form-field>
         <input matInput class="narrow" type="text" name="ID" [(ngModel)]="form.ID" placeholder="User ID">
@@ -7,7 +7,11 @@
     <button type="submit">SEARCH</button>
 </form>
 
-<div class="container-fluid" *ngIf="student">
+    <div *ngIf=" loader.student ">
+        loading student detail...
+    </div>
+
+<div class="container-fluid" *ngIf=" student && !loader.student ">
     <div class="row darken">
         <div class="col-1">ID</div>
         <div class="col-3">Name</div>
@@ -34,7 +38,7 @@
 
 
 <div class="display" *ngIf=" student?.sessions?.length ">
-    <div><b>Display</b></div>
+    <div><b>Display Options</b></div>
     <mat-checkbox id="class_software" name="class_software" [(ngModel)]="display.class_software">Class Software</mat-checkbox>
     <mat-checkbox id="reserved_at" name="display_reserved_at" [(ngModel)]="display.reserved_at">Reserved At</mat-checkbox>
     <mat-checkbox id="display_paid" name="display_paid" [(ngModel)]="display.paid">Paid</mat-checkbox>
@@ -96,8 +100,8 @@
             <th *ngIf=" display.stamp_checked ">Checked</th>
         </tr>
         <tr *ngFor="let session of student.sessions">
-            <td routerLink="/manager/session-edit/{{session.idx}}">
-                <a class="link">
+            <td>
+                <a class="link" href="/manager/session-edit/{{session.idx}}" target="_blank">
                         <span>
                             <svg viewBox="0 0 576 512"><path fill="currentColor"
                                                              d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
@@ -105,21 +109,21 @@
                     <span>{{ session.idx }}</span>
                 </a>
             </td>
-            <td routerLink="/manager/user-info/{{session.teacher?.idx}}">
-                    <span class="link">
+            <td>
+                    <a class="link" href="/manager/user-info/{{session.teacher?.idx}}" target="_blank">
                         <span>
                             <svg viewBox="0 0 576 512"><path fill="currentColor"
                                                              d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
                         </span>                     
                         <span>{{ session.teacher?.display_name }}</span>
-                    </span>
+                    </a>
             </td>
-            <td routerLink="/manager/user-info/{{session.student?.idx}}">
-                    <span class="link" matTooltip="{{ session.student?.display_name }}">
+            <td>
+                    <a class="link" href="/manager/user-info/{{session.student?.idx}}" target="_blank" matTooltip="{{ session.student?.display_name }}">
                         <span><svg viewBox="0 0 576 512"><path fill="currentColor"
                                                                d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></span>
                         <span>{{ session.student?.display_name.slice(0,7) }}</span>
-                    </span>
+                    </a>
             </td>
             <td *ngIf="display.class_software">{{ session.student?.class_software }}:{{
                 session.student?.class_software_id }}
@@ -167,8 +171,12 @@
         <div class="col-1">Free Class Refunded</div>
     </div>
     <div class="row" *ngFor="let student of students ">
-        <div class="col-1">{{student.ID}}</div>
-        <div class="col-3">{{student.display_name}}</div>
+        <div class="col-1">
+            <div class="pointer" (click)="loadStudentFreeClass(student.ID)">{{student.ID}}</div>
+        </div>
+        <div class="col-3">
+            <a href="/manager/user-info/{{student.ID}}" target="_blank">{{student.display_name}}</a>
+        </div>
         <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
         <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
         <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">
@@ -182,3 +190,7 @@
     </div>
 </div>
 
+</div>
+<div *ngIf="loader.list">
+    loader...
+</div>

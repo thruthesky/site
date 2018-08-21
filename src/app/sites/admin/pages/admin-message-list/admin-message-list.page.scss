@@ -112,6 +112,12 @@
                     }
                 }
             }
+            .selected{
+                color: orange!important;
+                svg{
+                    color: orange!important
+                }
+            }
             .message-link{
                 margin: .25rem 0;
                 svg{
