@@ -7,7 +7,8 @@
     <button type="submit">SEARCH</button>
 </form>
 
-    <div *ngIf=" loader.student ">
+    <div class="loader" *ngIf=" loader.student ">
+        <mat-spinner [diameter]="30"></mat-spinner>
         loading student detail...
     </div>
 
@@ -191,6 +192,7 @@
 </div>
 
 </div>
-<div *ngIf="loader.list">
+<div class="loader" *ngIf="loader.list">
+    <mat-spinner [diameter]="30"></mat-spinner>
     loader...
 </div>
