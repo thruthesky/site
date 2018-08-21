@@ -57,12 +57,15 @@
             <div>
                 Url: https://
                 <select name="url_domain" [(ngModel)]="form.urlDomain">
-                    <option value=''>Select Domain</option>
+                    <option value='user-domain'>User's Own Domain</option>
                     <option *ngFor="let domain of stat.domains " value="{{ domain['domain'] }}">
                         {{ domain['domain'] ? domain['domain'] : '' }}
                     </option>
                 </select>
                 /post/{{ form.postId }}
+            </div>
+            <div>
+                * Please choose User's Own Domain to redirect users to their own registered sites when push notification is clicked.
             </div>
             <div class="text-area">
                 <label>Title:</label>

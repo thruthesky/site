@@ -23,7 +23,7 @@ export class AdminPushNotificationPage implements OnInit {
     form = {
         user_type: '',
         domain: '',
-        urlDomain: '',
+        urlDomain: 'user-domain',
         email: '',
         postId: '',
         url: '',
