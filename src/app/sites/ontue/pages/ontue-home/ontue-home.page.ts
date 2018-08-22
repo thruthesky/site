@@ -54,7 +54,7 @@ export class OntueHomePage {
 
 
     checkTeacherInformation() {
-        if ( this.isLogout || this.isStudent || this.isSuperManager || this.isManager ) {
+        if ( this.a.isLogout || this.a.isStudent || this.a.isSuperManager || this.a.isManager ) {
             return;
         }
         this.a.lms.checkTeacherInformation().subscribe( res => {
@@ -83,8 +83,7 @@ export class OntueHomePage {
                     const data: ModalData = {
                         title: 'Required Information Missing',
                         content: content,
-                        ok: this.a.t('OK'),
-                        width: 600
+                        ok: this.a.t('OK')
                     };
                     this.modal.alert(data).subscribe(result => {
                         if (result) {}
