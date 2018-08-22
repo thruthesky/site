@@ -51,7 +51,7 @@ export class ModalService {
     }
     /**
      * Show a alert modal box
-     * @param data data to dsiplay on modal
+     * @param data data to display on modal
      *
      * @return boolean of Observable
      *      true will be returned after close.

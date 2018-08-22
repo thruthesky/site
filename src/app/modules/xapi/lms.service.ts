@@ -199,6 +199,13 @@ export interface AUCTION_LIST_OPTION extends PAGINATION_OPTION {
     auctions: AUCTIONS;
 }
 
+
+export interface TEACHER_INFORMATION_REQUIREMENT {
+    curriculum: Array<string>;
+    payment: Array<string>;
+    profile: Array<string>;
+}
+
 @Injectable()
 export class XapiLMSService extends Base {
 
@@ -983,6 +990,7 @@ export class XapiLMSService extends Base {
             session_id: this.user.sessionId
         });
     }
+
     admin_promo_message(req): Observable<any> {
         req['route'] = 'lms.admin_promo_message';
         req['session_id'] = this.user.sessionId;
@@ -998,6 +1006,13 @@ export class XapiLMSService extends Base {
         req['route'] = 'lms.admin_get_free_class_by_id';
         req['session_id'] = this.user.sessionId;
         return this.x.post(req);
+    }
+
+    checkTeacherInformation(): Observable<TEACHER_INFORMATION_REQUIREMENT> {
+        return this.x.post({
+            route: 'lms.checkTeacherInformation',
+            session_id: this.user.sessionId
+        });
     }
 
 }
