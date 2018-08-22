@@ -1,28 +1,75 @@
 @import '../../../../../theme/vars';
-
-form{
-    mat-form-field{
-        margin-right: 2rem;
+.top{
+    display: flex;
+    form{
+        mat-form-field{
+            margin-right: 1rem;
+        }
+        button{
+            border: 0;
+            padding: 1em;
+            border-radius: 2px;
+            background: darkblue;
+            color: #fff;
+        }
     }
-    button{
-        border: 0;
-        padding: 1em 2em;
-        border-radius: 2px;
-        background: darkblue;
-        color: #fff;
+    .legends{
+        display: flex;
+        justify-content: space-between;
+        flex:auto;
+        flex-wrap: wrap;
+        margin-left:2em;
+        font-size: .85rem;
+        .title{
+            flex: 100%;
+            font-weight: bold;
+            color: dimgray
+        }
+        &>div{
+            display: flex;
+            align-items: center;
+        }
+        svg{
+            margin-left: .75em;
+            height: 1.35em;
+            width: 1.35em;
+        }
     }
 }
-.darken{
-    background: dimgray!important;
-    color: #fff;
+//icon color
+.by-id{
+    color: dodgerblue
 }
-.container-fluid{
+.by-class-software{
+    color: darkorange
+}
+.by-refund-in-progress{
+    color: darkgreen
+}
+.by-refunded{
+    color: red;
+}
+.searched-table{
+    margin-bottom: 2em;
+    padding: 1em .75em;
+    border: 1px solid rgba(125,125,125,0.4);
+}
+.free-class-table{
     margin-bottom: 2em;
     font-size: .9rem;
     border: 1px solid rgba(125,125,125,0.4);
     border-bottom: 0;
+    svg,
+    img{
+        height: 1.25em;
+        width: 1.25em;
+    }
+    img{
+        position: relative;
+        top: .125em;
+    }
     .row{
-        padding: 0 1em;
+        padding: 0 .5em;
         border-bottom: 1px solid rgba(125,125,125,0.4);
         align-items: center;
         &:first-child{
@@ -30,15 +77,18 @@ form{
             top: 0;
             left: 0;
             right: 0;
+            padding: .4em .5em;
             background: #eee;
             z-index: 1000;
         }
         &>div{
             padding: .5em;
         }
-        .bolder{
-            font-weight: bolder;
-            color: dodgerblue;
+        .col-1{
+            text-align: center;
+            &:first-child{
+                text-align: left;
+            }
         }
     }
     .pointer{
@@ -59,13 +109,14 @@ form{
 .display{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 1em;
     div{
         flex: 100%;
         margin-bottom: 1em;
     }
     mat-checkbox{
-        margin-right: 2em;
+        margin-right: 1.5em;
         margin-bottom: .25em;
         width: 140px;
         font-size: .85em;
@@ -79,7 +130,7 @@ form{
 
 .custom-table{
     white-space: normal;
-    margin-bottom: 2em;
+    overflow: auto;
     .link{
         display: flex;
         align-items: center;

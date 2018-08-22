@@ -1,178 +1,219 @@
 <h1>Free Class Session List</h1>
 <div *ngIf="!loader.list">
-<form (ngSubmit)="onSubmit( $event )">
-    <mat-form-field>
-        <input matInput class="narrow" type="text" name="ID" [(ngModel)]="form.ID" placeholder="User ID">
-    </mat-form-field>
-    <button type="submit">SEARCH</button>
-</form>
+
+<div class="top">
+    <form (ngSubmit)="onSubmit( $event )">
+        <mat-form-field>
+            <input matInput class="narrow" type="text" name="ID" [(ngModel)]="form.ID" placeholder="User ID">
+        </mat-form-field>
+        <button type="submit">SEARCH</button>
+    </form>
+    <div class="legends">
+        <div class="title">
+            Free Class Category
+        </div>
+        <div>
+            <span>ID =</span>
+            <span><svg class="by-id"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v16h576V80c0-26.5-21.5-48-48-48zM0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V128H0v304zm352-232c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zM176 192c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zM67.1 396.2C75.5 370.5 99.6 352 128 352h8.2c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h8.2c28.4 0 52.5 18.5 60.9 44.2 3.2 9.9-5.2 19.8-15.6 19.8H82.7c-10.4 0-18.8-10-15.6-19.8z"></path></svg></span>
+        </div>
+        <div>
+            <span>Software ID =</span>
+            <span><svg class="by-class-software" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg></span>
+        </div>
+        <div>
+            <span>Refund in Progress =</span>
+            <span> <svg class="by-refund-in-progress" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></span>
+        </div>
+        <div>
+            <span>Refunded =</span>
+             <span><svg  class="by-refunded"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M500.333 0h-47.411c-6.853 0-12.314 5.729-11.986 12.574l3.966 82.759C399.416 41.899 331.672 8 256.001 8 119.34 8 7.899 119.526 8 256.187 8.101 393.068 119.096 504 256 504c63.926 0 122.202-24.187 166.178-63.908 5.113-4.618 5.354-12.561.482-17.433l-33.971-33.971c-4.466-4.466-11.64-4.717-16.38-.543C341.308 415.448 300.606 432 256 432c-97.267 0-176-78.716-176-176 0-97.267 78.716-176 176-176 60.892 0 114.506 30.858 146.099 77.8l-101.525-4.865c-6.845-.328-12.574 5.133-12.574 11.986v47.411c0 6.627 5.373 12 12 12h200.333c6.627 0 12-5.373 12-12V12c0-6.627-5.373-12-12-12z"></path></svg></span>
+        </div>
+    </div>
+</div>
 
     <div class="loader" *ngIf=" loader.student ">
         <mat-spinner [diameter]="30"></mat-spinner>
         loading student detail...
     </div>
-
-<div class="container-fluid" *ngIf=" student && !loader.student ">
-    <div class="row darken">
-        <div class="col-1">ID</div>
-        <div class="col-3">Name</div>
-        <div class="col-4">Class ID</div>
-        <div class="col-1">Free Class By ID</div>
-        <div class="col-1">Free Class By Software ID</div>
-        <div class="col-1">Free Class Refund in Progress</div>
-        <div class="col-1">Free Class Refunded</div>
-    </div>
-    <div class="row">
-        <div class="col-1">{{student.ID}}</div>
-        <div class="col-3">{{student.display_name}}</div>
-        <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
-        <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
-        <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">
-            {{student.free_class_by_class_software_id}}
+<div class="searched-table"  *ngIf=" student && !loader.student ">
+    <div class="free-class-table  container-fluid">
+        <div class="row">
+            <div class="col-2">ID</div>
+            <div class="col-3">Name</div>
+            <div class="col-3">Class ID</div>
+            <div class="col-1 blue">            
+                <span><svg class="by-id" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v16h576V80c0-26.5-21.5-48-48-48zM0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V128H0v304zm352-232c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zM176 192c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zM67.1 396.2C75.5 370.5 99.6 352 128 352h8.2c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h8.2c28.4 0 52.5 18.5 60.9 44.2 3.2 9.9-5.2 19.8-15.6 19.8H82.7c-10.4 0-18.8-10-15.6-19.8z"></path></svg></span>
+            </div>
+            <div class="col-1">            
+                <span><svg class="by-class-software" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg></span>
+            </div>
+            <div class="col-1">            
+                <span> <svg class="by-refund-in-progress" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></span>
+            </div>
+            <div class="col-1">             
+                <span><svg  class="by-refunded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M500.333 0h-47.411c-6.853 0-12.314 5.729-11.986 12.574l3.966 82.759C399.416 41.899 331.672 8 256.001 8 119.34 8 7.899 119.526 8 256.187 8.101 393.068 119.096 504 256 504c63.926 0 122.202-24.187 166.178-63.908 5.113-4.618 5.354-12.561.482-17.433l-33.971-33.971c-4.466-4.466-11.64-4.717-16.38-.543C341.308 415.448 300.606 432 256 432c-97.267 0-176-78.716-176-176 0-97.267 78.716-176 176-176 60.892 0 114.506 30.858 146.099 77.8l-101.525-4.865c-6.845-.328-12.574 5.133-12.574 11.986v47.411c0 6.627 5.373 12 12 12h200.333c6.627 0 12-5.373 12-12V12c0-6.627-5.373-12-12-12z"></path></svg></span>
+            </div>
         </div>
-        <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">
-            {{student.free_class_by_refund_in_progress}}
+        <div class="row">
+            <div class="col-2">{{student.ID}}</div>
+            <div class="col-3">{{student.display_name}}</div>
+            <div class="col-3"><img src="../../../../../assets/img/messengers/{{student.class_software}}.png">  {{student.class_software_id}}</div>
+            <div class="col-1" [class.by-id]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
+            <div class="col-1" [class.by-class-software]="student.free_class_by_class_software_id>0">
+                {{student.free_class_by_class_software_id}}
+            </div>
+            <div class="col-1" [class.by-refund-in-progress]="student.free_class_by_refund_in_progress>0">
+                {{student.free_class_by_refund_in_progress}}
+            </div>
+            <div class="col-1" [class.by-refunded]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}</div>
         </div>
-        <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}</div>
+    </div>
+
+
+    <div class="display" *ngIf=" student?.sessions?.length">
+        <mat-checkbox id="class_software" name="class_software" [(ngModel)]="display.class_software">Class Software</mat-checkbox>
+        <mat-checkbox id="reserved_at" name="display_reserved_at" [(ngModel)]="display.reserved_at">Reserved At</mat-checkbox>
+        <mat-checkbox id="display_paid" name="display_paid" [(ngModel)]="display.paid">Paid</mat-checkbox>
+        <mat-checkbox id="display_refund_request_at" name="display_refund_request_at" [(ngModel)]="display.refund_request_at">Refund Request At</mat-checkbox>
+        <mat-checkbox id="refund_request_message" name="display_refund_request_message" [(ngModel)]="display.refund_request_message">Request Message</mat-checkbox>
+        <mat-checkbox id="display_refund_reject_at" name="display_refund_reject_at" [(ngModel)]="display.refund_reject_at">Reject At</mat-checkbox>
+        <mat-checkbox id="refund_reject_message" name="display_refund_reject_message" [(ngModel)]="display.refund_reject_message">Reject Message</mat-checkbox>
+        <mat-checkbox id="display_refund_done_at" name="display_refund_done_at" [(ngModel)]="display.refund_done_at">Refund Done At</mat-checkbox>
+        <mat-checkbox id="display_refund_done_point" name="display_refund_done_point" [(ngModel)]="display.refund_done_point">Done Point</mat-checkbox>
+        <mat-checkbox id="refund_done_by" name="display_refund_done_by" [(ngModel)]="display.refund_done_by">Done By</mat-checkbox>
+        <mat-checkbox id="display_refund_settle_at" name="display_refund_settle_at" [(ngModel)]="display.refund_settle_at">Settled At</mat-checkbox>
+        <mat-checkbox id="display_teacher_absent" name="display_teacher_absent" [(ngModel)]="display.teacher_absent">Teacher Absent</mat-checkbox>
+        <mat-checkbox id="display_student_absent" name="display_student_absent" [(ngModel)]="display.student_absent">Student Absent</mat-checkbox>
+        <mat-checkbox id="display_successful" name="display_successful" [(ngModel)]="display.successful">Successful</mat-checkbox>
+        <mat-checkbox id="expression" name="display_expression" [(ngModel)]="display.expression">Expression</mat-checkbox>
+        <mat-checkbox id="vocabulary" name="display_vocabulary" [(ngModel)]="display.vocabulary">Vocabulary</mat-checkbox>
+        <mat-checkbox id="grammar" name="display_grammar" [(ngModel)]="display.grammar">Grammar</mat-checkbox>
+        <mat-checkbox id="pronunciation" name="display_pronunciation" [(ngModel)]="display.pronunciation">Pronunciation</mat-checkbox>
+        <mat-checkbox id="speed" name="display_speed" [(ngModel)]="display.speed">Speed</mat-checkbox>
+        <mat-checkbox id="refund_settle_message" name="display_refund_settle_message" [(ngModel)]="display.refund_settle_message">Settled Message</mat-checkbox>
+        <mat-checkbox id="display_comment" name="display_comment" [(ngModel)]="display.comment">Comment</mat-checkbox>
+        <mat-checkbox id="display_checked" name="display_checked" [(ngModel)]="display.stamp_checked">Checked</mat-checkbox>
+        <mat-checkbox id="book_used" name="display_book_used" [(ngModel)]="display.book_used">Book Used</mat-checkbox>
+        <mat-checkbox id="book_next" name="display_book_next" [(ngModel)]="display.book_next">Book Next</mat-checkbox>
+    </div>
+
+
+    <div class="custom-table" *ngIf=" student?.sessions?.length">
+        <table class="sessions" >
+            <tr>
+                <th>idx</th>
+                <th>Teacher</th>
+                <th>Student</th>
+                <th *ngIf=" display.class_software ">Class ID</th>
+                <th>Date</th>
+                <th>Begin</th>
+                <th>End</th>
+                <th>Point</th>
+                <th *ngIf=" display.reserved_at ">Reserved At</th>
+                <th *ngIf=" display.paid ">Paid</th>
+                <th *ngIf=" display.refund_request_at ">Refund Request At</th>
+                <th width="300" *ngIf=" display.refund_request_message ">Request Message</th>
+                <th *ngIf=" display.refund_reject_at ">Reject At</th>
+                <th width="300" *ngIf=" display.refund_reject_message ">Reject Message</th>
+                <th *ngIf=" display.refund_done_at ">Done At</th>
+                <th *ngIf=" display.refund_done_point ">Done Point</th>
+                <th *ngIf=" display.refund_done_by ">Done By</th>
+                <th *ngIf=" display.refund_settle_at ">Settled At</th>
+                <th width="300" *ngIf=" display.refund_settle_message ">Settled Message</th>
+                <th *ngIf=" display.teacher_absent ">Teacher Absent</th>
+                <th *ngIf=" display.student_absent ">Student Absent</th>
+                <th *ngIf=" display.successful ">Successful</th>
+                <th *ngIf=" display.expression ">Expression</th>
+                <th *ngIf=" display.vocabulary ">Vocabulary</th>
+                <th *ngIf=" display.grammar ">Grammar</th>
+                <th *ngIf=" display.pronunciation ">Pronuncitation</th>
+                <th *ngIf=" display.speed ">Speed</th>
+                <th width="300" *ngIf=" display.comment ">Comment</th>
+                <th *ngIf=" display.book_used ">Book Used</th>
+                <th *ngIf=" display.book_next ">Book Next</th>
+                <th *ngIf=" display.stamp_checked ">Checked</th>
+            </tr>
+            <tr *ngFor="let session of student.sessions">
+                <td>
+                    <a class="link" href="/manager/session-edit/{{session.idx}}" target="_blank">
+                            <span>
+                                <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                                d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                            </span>
+                        <span>{{ session.idx }}</span>
+                    </a>
+                </td>
+                <td>
+                        <a class="link" href="/manager/user-info/{{session.teacher?.idx}}" target="_blank">
+                            <span>
+                                <svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                                d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
+                            </span>                     
+                            <span>{{ session.teacher?.display_name }}</span>
+                        </a>
+                </td>
+                <td>
+                        <a class="link" href="/manager/user-info/{{session.student?.idx}}" target="_blank" matTooltip="{{ session.student?.display_name }}">
+                            <span><svg viewBox="0 0 576 512"><path fill="currentColor"
+                                                                d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></span>
+                            <span>{{ session.student?.display_name.slice(0,7) }}</span>
+                        </a>
+                </td>
+                <td *ngIf="display.class_software">{{ session.student?.class_software }}:{{
+                    session.student?.class_software_id }}
+                </td>
+                <td>{{ session.date }}</td>
+                <td>{{ session.class_begin }}</td>
+                <td>{{ session.class_end }}</td>
+                <td>{{ session.point }}</td>
+                <td *ngIf=" display.reserved_at ">{{ session.stamp_reserve }}</td>
+                <td *ngIf=" display.paid ">{{ session.paid }}</td>
+                <td *ngIf=" display.refund_request_at ">{{ session.refund_request_at }}</td>
+                <td width="300" *ngIf=" display.refund_request_message ">{{ session.refund_request_message }}</td>
+                <td *ngIf=" display.refund_reject_at ">{{ session.refund_reject_at }}</td>
+                <td width="300" *ngIf=" display.refund_reject_message ">{{ session.refund_reject_message }}</td>
+                <td *ngIf=" display.refund_done_at ">{{ session.refund_done_at }}</td>
+                <td *ngIf=" display.refund_done_point ">{{ session.refund_done_point }}</td>
+                <td *ngIf=" display.refund_done_by ">{{ session.refund_done_by }}</td>
+                <td *ngIf=" display.refund_settle_at ">{{ session.refund_settle_at }}</td>
+                <td width="300" *ngIf=" display.refund_settle_message ">{{ session.refund_settle_message }}</td>
+                <td *ngIf=" display.teacher_absent ">{{ session.teacher_absent }}</td>
+                <td *ngIf=" display.student_absent ">{{ session.student_absent }}</td>
+                <td *ngIf=" display.successful ">{{ session.successful }}</td>
+                <td *ngIf=" display.expression ">{{ session.expression }}</td>
+                <td *ngIf=" display.vocabulary ">{{ session.vocabulary }}</td>
+                <td *ngIf=" display.grammar ">{{ session.grammar }}</td>
+                <td *ngIf=" display.pronunciation ">{{ session.pronunciation }}</td>
+                <td *ngIf=" display.speed ">{{ session.speed }}</td>
+                <td width="300" *ngIf=" display.comment ">{{ session.comment }}</td>
+                <td *ngIf=" display.book_used ">{{ session.book_used }}</td>
+                <td *ngIf=" display.book_next ">{{ session.book_next }}</td>
+                <td *ngIf=" display.stamp_checked ">{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</td>
+            </tr>
+        </table>
     </div>
 </div>
 
-
-<div class="display" *ngIf=" student?.sessions?.length ">
-    <div><b>Display Options</b></div>
-    <mat-checkbox id="class_software" name="class_software" [(ngModel)]="display.class_software">Class Software</mat-checkbox>
-    <mat-checkbox id="reserved_at" name="display_reserved_at" [(ngModel)]="display.reserved_at">Reserved At</mat-checkbox>
-    <mat-checkbox id="display_paid" name="display_paid" [(ngModel)]="display.paid">Paid</mat-checkbox>
-    <mat-checkbox id="display_refund_request_at" name="display_refund_request_at" [(ngModel)]="display.refund_request_at">Refund Request At</mat-checkbox>
-    <mat-checkbox id="refund_request_message" name="display_refund_request_message" [(ngModel)]="display.refund_request_message">Request Message</mat-checkbox>
-    <mat-checkbox id="display_refund_reject_at" name="display_refund_reject_at" [(ngModel)]="display.refund_reject_at">Reject At</mat-checkbox>
-    <mat-checkbox id="refund_reject_message" name="display_refund_reject_message" [(ngModel)]="display.refund_reject_message">Reject Message</mat-checkbox>
-    <mat-checkbox id="display_refund_done_at" name="display_refund_done_at" [(ngModel)]="display.refund_done_at">Refund Done At</mat-checkbox>
-    <mat-checkbox id="display_refund_done_point" name="display_refund_done_point" [(ngModel)]="display.refund_done_point">Done Point</mat-checkbox>
-    <mat-checkbox id="refund_done_by" name="display_refund_done_by" [(ngModel)]="display.refund_done_by">Done By</mat-checkbox>
-    <mat-checkbox id="display_refund_settle_at" name="display_refund_settle_at" [(ngModel)]="display.refund_settle_at">Settled At</mat-checkbox>
-    <mat-checkbox id="display_teacher_absent" name="display_teacher_absent" [(ngModel)]="display.teacher_absent">Teacher Absent</mat-checkbox>
-    <mat-checkbox id="display_student_absent" name="display_student_absent" [(ngModel)]="display.student_absent">Student Absent</mat-checkbox>
-    <mat-checkbox id="display_successful" name="display_successful" [(ngModel)]="display.successful">Successful</mat-checkbox>
-    <mat-checkbox id="expression" name="display_expression" [(ngModel)]="display.expression">Expression</mat-checkbox>
-    <mat-checkbox id="vocabulary" name="display_vocabulary" [(ngModel)]="display.vocabulary">Vocabulary</mat-checkbox>
-    <mat-checkbox id="grammar" name="display_grammar" [(ngModel)]="display.grammar">Grammar</mat-checkbox>
-    <mat-checkbox id="pronunciation" name="display_pronunciation" [(ngModel)]="display.pronunciation">Pronunciation</mat-checkbox>
-    <mat-checkbox id="speed" name="display_speed" [(ngModel)]="display.speed">Speed</mat-checkbox>
-    <mat-checkbox id="refund_settle_message" name="display_refund_settle_message" [(ngModel)]="display.refund_settle_message">Settled Message</mat-checkbox>
-    <mat-checkbox id="display_comment" name="display_comment" [(ngModel)]="display.comment">Comment</mat-checkbox>
-    <mat-checkbox id="display_checked" name="display_checked" [(ngModel)]="display.stamp_checked">Checked</mat-checkbox>
-    <mat-checkbox id="book_used" name="display_book_used" [(ngModel)]="display.book_used">Book Used</mat-checkbox>
-    <mat-checkbox id="book_next" name="display_book_next" [(ngModel)]="display.book_next">Book Next</mat-checkbox>
-</div>
-<div class="custom-table" *ngIf=" student?.sessions?.length ">
-    <table class="sessions" >
-        <tr>
-            <th>idx</th>
-            <th>Teacher</th>
-            <th>Student</th>
-            <th *ngIf=" display.class_software ">Class ID</th>
-            <th>Date</th>
-            <th>Begin</th>
-            <th>End</th>
-            <th>Point</th>
-            <th *ngIf=" display.reserved_at ">Reserved At</th>
-            <th *ngIf=" display.paid ">Paid</th>
-            <th *ngIf=" display.refund_request_at ">Refund Request At</th>
-            <th width="300" *ngIf=" display.refund_request_message ">Request Message</th>
-            <th *ngIf=" display.refund_reject_at ">Reject At</th>
-            <th width="300" *ngIf=" display.refund_reject_message ">Reject Message</th>
-            <th *ngIf=" display.refund_done_at ">Done At</th>
-            <th *ngIf=" display.refund_done_point ">Done Point</th>
-            <th *ngIf=" display.refund_done_by ">Done By</th>
-            <th *ngIf=" display.refund_settle_at ">Settled At</th>
-            <th width="300" *ngIf=" display.refund_settle_message ">Settled Message</th>
-            <th *ngIf=" display.teacher_absent ">Teacher Absent</th>
-            <th *ngIf=" display.student_absent ">Student Absent</th>
-            <th *ngIf=" display.successful ">Successful</th>
-            <th *ngIf=" display.expression ">Expression</th>
-            <th *ngIf=" display.vocabulary ">Vocabulary</th>
-            <th *ngIf=" display.grammar ">Grammar</th>
-            <th *ngIf=" display.pronunciation ">Pronuncitation</th>
-            <th *ngIf=" display.speed ">Speed</th>
-            <th width="300" *ngIf=" display.comment ">Comment</th>
-            <th *ngIf=" display.book_used ">Book Used</th>
-            <th *ngIf=" display.book_next ">Book Next</th>
-            <th *ngIf=" display.stamp_checked ">Checked</th>
-        </tr>
-        <tr *ngFor="let session of student.sessions">
-            <td>
-                <a class="link" href="/manager/session-edit/{{session.idx}}" target="_blank">
-                        <span>
-                            <svg viewBox="0 0 576 512"><path fill="currentColor"
-                                                             d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
-                        </span>
-                    <span>{{ session.idx }}</span>
-                </a>
-            </td>
-            <td>
-                    <a class="link" href="/manager/user-info/{{session.teacher?.idx}}" target="_blank">
-                        <span>
-                            <svg viewBox="0 0 576 512"><path fill="currentColor"
-                                                             d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg>
-                        </span>                     
-                        <span>{{ session.teacher?.display_name }}</span>
-                    </a>
-            </td>
-            <td>
-                    <a class="link" href="/manager/user-info/{{session.student?.idx}}" target="_blank" matTooltip="{{ session.student?.display_name }}">
-                        <span><svg viewBox="0 0 576 512"><path fill="currentColor"
-                                                               d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path></svg></span>
-                        <span>{{ session.student?.display_name.slice(0,7) }}</span>
-                    </a>
-            </td>
-            <td *ngIf="display.class_software">{{ session.student?.class_software }}:{{
-                session.student?.class_software_id }}
-            </td>
-            <td>{{ session.date }}</td>
-            <td>{{ session.class_begin }}</td>
-            <td>{{ session.class_end }}</td>
-            <td>{{ session.point }}</td>
-            <td *ngIf=" display.reserved_at ">{{ session.stamp_reserve }}</td>
-            <td *ngIf=" display.paid ">{{ session.paid }}</td>
-            <td *ngIf=" display.refund_request_at ">{{ session.refund_request_at }}</td>
-            <td width="300" *ngIf=" display.refund_request_message ">{{ session.refund_request_message }}</td>
-            <td *ngIf=" display.refund_reject_at ">{{ session.refund_reject_at }}</td>
-            <td width="300" *ngIf=" display.refund_reject_message ">{{ session.refund_reject_message }}</td>
-            <td *ngIf=" display.refund_done_at ">{{ session.refund_done_at }}</td>
-            <td *ngIf=" display.refund_done_point ">{{ session.refund_done_point }}</td>
-            <td *ngIf=" display.refund_done_by ">{{ session.refund_done_by }}</td>
-            <td *ngIf=" display.refund_settle_at ">{{ session.refund_settle_at }}</td>
-            <td width="300" *ngIf=" display.refund_settle_message ">{{ session.refund_settle_message }}</td>
-            <td *ngIf=" display.teacher_absent ">{{ session.teacher_absent }}</td>
-            <td *ngIf=" display.student_absent ">{{ session.student_absent }}</td>
-            <td *ngIf=" display.successful ">{{ session.successful }}</td>
-            <td *ngIf=" display.expression ">{{ session.expression }}</td>
-            <td *ngIf=" display.vocabulary ">{{ session.vocabulary }}</td>
-            <td *ngIf=" display.grammar ">{{ session.grammar }}</td>
-            <td *ngIf=" display.pronunciation ">{{ session.pronunciation }}</td>
-            <td *ngIf=" display.speed ">{{ session.speed }}</td>
-            <td width="300" *ngIf=" display.comment ">{{ session.comment }}</td>
-            <td *ngIf=" display.book_used ">{{ session.book_used }}</td>
-            <td *ngIf=" display.book_next ">{{ session.book_next }}</td>
-            <td *ngIf=" display.stamp_checked ">{{ session.stamp_checked != '0' ? 'Y' : 'N' }}</td>
-        </tr>
-    </table>
-</div>
-
-
-<div class="container-fluid">
+<div class="free-class-table container-fluid">
     <div class="row">
-        <div class="col-1">ID</div>
+        <div class="col-2">ID</div>
         <div class="col-3">Name</div>
-        <div class="col-4">Class ID</div>
-        <div class="col-1">Free Class By ID</div>
-        <div class="col-1">Free Class By Software ID</div>
-        <div class="col-1">Free Class Refund in Progress</div>
-        <div class="col-1">Free Class Refunded</div>
+        <div class="col-3">Class ID</div>
+        <div class="col-1 blue">            
+            <span><svg class="by-id" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528 32H48C21.5 32 0 53.5 0 80v16h576V80c0-26.5-21.5-48-48-48zM0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V128H0v304zm352-232c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zm0 64c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H360c-4.4 0-8-3.6-8-8v-16zM176 192c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zM67.1 396.2C75.5 370.5 99.6 352 128 352h8.2c12.3 5.1 25.7 8 39.8 8s27.6-2.9 39.8-8h8.2c28.4 0 52.5 18.5 60.9 44.2 3.2 9.9-5.2 19.8-15.6 19.8H82.7c-10.4 0-18.8-10-15.6-19.8z"></path></svg></span>
+        </div>
+        <div class="col-1">            
+            <span><svg class="by-class-software" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg></span>
+        </div>
+        <div class="col-1">            
+            <span> <svg class="by-refund-in-progress" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></span>
+        </div>
+        <div class="col-1">             
+            <span><svg  class="by-refunded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M500.333 0h-47.411c-6.853 0-12.314 5.729-11.986 12.574l3.966 82.759C399.416 41.899 331.672 8 256.001 8 119.34 8 7.899 119.526 8 256.187 8.101 393.068 119.096 504 256 504c63.926 0 122.202-24.187 166.178-63.908 5.113-4.618 5.354-12.561.482-17.433l-33.971-33.971c-4.466-4.466-11.64-4.717-16.38-.543C341.308 415.448 300.606 432 256 432c-97.267 0-176-78.716-176-176 0-97.267 78.716-176 176-176 60.892 0 114.506 30.858 146.099 77.8l-101.525-4.865c-6.845-.328-12.574 5.133-12.574 11.986v47.411c0 6.627 5.373 12 12 12h200.333c6.627 0 12-5.373 12-12V12c0-6.627-5.373-12-12-12z"></path></svg></span>
+        </div>
     </div>
     <div class="row" *ngFor="let student of students ">
-        <div class="col-1">
+        <div class="col-2">
             <div class="pointer" (click)="loadStudentFreeClass(student.ID)">
                 <span>
                     <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm-176 86c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>
@@ -186,15 +227,15 @@
                 <span>{{student.display_name}}</span>
             </a>
         </div>
-        <div class="col-4">{{student.class_software}} : {{student.class_software_id}}</div>
-        <div class="col-1" [class.bolder]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
-        <div class="col-1" [class.bolder]="student.free_class_by_class_software_id>0">
+        <div class="col-3"><img src="../../../../../assets/img/messengers/{{student.class_software}}.png"> {{student.class_software_id}}</div>
+        <div class="col-1" [class.by-id]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
+        <div class="col-1" [class.by-class-software]="student.free_class_by_class_software_id>0">
             {{student.free_class_by_class_software_id}}
         </div>
-        <div class="col-1" [class.bolder]="student.free_class_by_refund_in_progress>0">
+        <div class="col-1" [class.by-refund-in-progress]="student.free_class_by_refund_in_progress>0">
             {{student.free_class_by_refund_in_progress}}
         </div>
-        <div class="col-1" [class.bolder]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}
+        <div class="col-1" [class.by-refunded]="student.free_class_by_refunded>0">{{student.free_class_by_refunded}}
         </div>
     </div>
 </div>
