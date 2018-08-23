@@ -5,6 +5,11 @@
   background: #fff;
   line-height: 1.4em;
   .page-title{
+    @media (min-width:$md) {
+      padding: 1.5em;
+      border: 1px solid rgba(125,125,125,0.2);
+      border-radius: 2px; 
+    }
     &>div:first-child{
       margin-bottom: .25em;
       font-weight: bold;
@@ -12,6 +17,7 @@
     }
     &>div:last-child{
       font-size: .9rem;
+      color: dimgray
     }
   }
   .container-fluid{
@@ -20,7 +26,7 @@
       margin: 0 -2em;
       padding-top: 2em;
       @media (min-width:$md) {
-        padding-top: 4em;
+        padding-top: 3em;
       }
       .text{
         margin-top: 1.25em;
@@ -36,11 +42,11 @@
           padding-bottom: .75em;
           text-align: center;
           font-size: 1em;
+          color: darkblue;
           @media (min-width: $md) {
             font-size: 1.1em;
             font-weight: 200;
             letter-spacing: .05em;
-            color: darkblue;
           }
         }
         .images {
