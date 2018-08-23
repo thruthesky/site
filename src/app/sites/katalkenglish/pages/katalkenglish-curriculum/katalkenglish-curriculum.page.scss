@@ -1,23 +1,9 @@
 @import './../../../../../theme/vars.scss';
 main {
-  .text {
-    padding: 2em 1em;
-    @media screen and (min-width: $md) {
-      padding: 2em 0;
-    }
-    font-weight: 200;
-    font-size: 1.1em;
-    line-height: 1.7em;
-    &>div {
-      margin-bottom: 1em;
-    }
+  .col{
+    margin: 2em 0;
   }
-  .books {
-    padding-right: 1.5em;
-    &>div {
-      padding: 0;
-    }
-  }
+  .phonics,
   .letsgo,
   .sidebyside {
     .title {
@@ -25,7 +11,7 @@ main {
       padding: .75em;
       text-align: center;
       font-size: 1em;
-      @media screen and (min-width: $md) {
+      @media (min-width: $md) {
         font-size: 1.1em;
         font-weight: 200;
         letter-spacing: .05em;
@@ -46,7 +32,7 @@ main {
         justify-content: center;
         height: 133px;
         width: 103px;
-        @media screen and (min-width: $md) {
+        @media (min-width: $md) {
           height: 160px;
           width: 125px;
         }
@@ -54,7 +40,7 @@ main {
         margin: 0 0.25em;
         img {
           width: 100%;
-          @media screen and (min-width: $md) {
+          @media (min-width: $md) {
             height: 100%;
             width: auto;
           }

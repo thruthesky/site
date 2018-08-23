@@ -398,12 +398,6 @@
   "AMOUNT": "Amount",
 
 
-  "CURRICULUM_PAGE_TITLE": "Teaching materials",
-  "CURRICULUM_PAGE_DESC": "We will guide you through the lesson ",
-  "CURRICULUM_STAT_1": "#USERNAME's next lesson is #BOOK.",
-  "CURRICULUM_STAT_2": "#USERNAME's textbooks have not yet been set.",
-
-  
   "MY_POINT_PAGE_USER_POINT": "#USER_NAME's point is #POINT",
   "MY_POINT_PAGE_REMINDER": "You can check your payment history in the Payment History menu.",
   "GOTO_PAYMENT_HISTORY": "Go To Payment History Page",
@@ -578,20 +572,6 @@
   "ACCOUNT_NO": "Account No",
   "WOORIBANK_NAME": "Wooribank",
   "CONTACT": "Contact",
-
-  "CURRICULUM_PAGE_BOOK_1": "English Textbook for Children ",
-  "CURRICULUM_PAGE_TITLE_BOOK_2": "Teaching Materials for Teenagers and Adults",
-  "CURRICULUM_PAGE_TITLE_TEXT_1": "The most important part of the English language course is the choice of course materials.",
-  "CURRICULUM_PAGE_TITLE_TEXT_2": "There are various courses such as Basic English, English Conversation, Business English, and Test English. In Katok English, you can trust the reliable Let's Go (4th edition) Side by Side (3rd Edition) Two textbooks are adopted as formal textbooks.",
-  "CURRICULUM_PAGE_TITLE_TEXT_3": "These two textbooks cover everything from basic words in English to vocabulary, reading, writing, listening and speaking, and even include basic English, English conversation and business English.",
-  "CURRICULUM_PAGE_TITLE_TEXT_4": "Letsgo is suitable for under 14 years of age, and side by side is suitable for adults from 12 years old to adults.",
-  "CURRICULUM_PAGE_TITLE_TEXT_5": "The class materials will be delivered to the students by e-mail or phone before the class time.",
-  "CURRICULUM_PAGE_TITLE_TEXT_6": "However, please make a purchase at the bookstore in order to make preparations for lessons and review.",
-  "CURRICULUM_PAGE_TITLE_TEXT_7": "We have customized one-to-one lessons so you can take lessons with the textbooks you have. You can take the textbook of the student with your mobile phone and send it to you by e-mail.",
-  "CURRICULUM_PAGE_TITLE_TEXT_8": " For reference, it is difficult to open textbooks if you use video classes with KakaoTalk. (Teacher's face and student's face occupy the entire screen in KakaoTalk.) Therefore, the student should prepare the textbook before class time.",
-
-
-
 
   "YOU_ARE_TO_AGREE": "Please, click the Agree button of Terms and Conditions to sign up.",
   "TOC_AGREE": "By registering, I agree to",
@@ -839,10 +819,28 @@
 
   "ACADEMY_TEACHER": "Academy Teacher",
 
-  "CURRICULUM_PHONICS_BOOK_1": "Zero-English level learners ages 12 and below.",
-  "CURRICULUM_PHONICS_TITLE_TEXT_1": "Phonics Race 1 to 4 - This series is for Zero-English level learners ages 12 and below.",
-  "CURRICULUM_PHONICS_TITLE_TEXT_2": "A student who does not have any background in English language should start learning the basics from the letters of the English Alphabet, how to write them, the sound of each and simple words that begin with each letter sound. The first book, Phonics Race 1, will aid in developing the reading skill of the student. The activities involved in the lessons are simple and repeated facilitating better understanding and aiding memorization. They also help in training the student to follow simple instructions in English.",
-  "CURRICULUM_PHONICS_TITLE_TEXT_3": "The next step is to teach the student long and short vowel sounds, letter combinations and more simple words. Phonics Race 2 to 4 are the perfect books to use. The level of difficulty increases gradually allowing time for the student to adjust and keeping the lessons less stressful for the learner. The activities in these books will develop not just the reading skill but also the listening skill of the student. Interesting and colorful pictures in the books help in maintaining the student's interest and focus."
+  "CURRICULUM_PAGE_TITLE": "Teaching materials",
+  "CURRICULUM_PAGE_DESC": "We will guide you through the lesson ",
+  "CURRICULUM_STAT_1": "#USERNAME's next lesson is #BOOK.",
+  "CURRICULUM_STAT_2": "#USERNAME's textbooks have not yet been set.",
+
+  "CURRICULUM_PAGE_TITLE_TEXT_1": "The most important part of the English language course is the choice of course materials.",
+  "CURRICULUM_PAGE_TITLE_TEXT_2": "There are various courses such as Basic English, English Conversation, Business English, and Test English. In Katok English, you can trust the reliable Let's Go (4th edition) Side by Side (3rd Edition) Two textbooks are adopted as formal textbooks.",
+  
+  "CURRICULUM_PHONICS_TITLE": "Zero-English level learners ages 12 and below.",
+  "CURRICULUM_PHONICS_TEXT_1": "Phonics Race 1 to 4 - This series is for Zero-English level learners ages 12 and below.",
+  "CURRICULUM_PHONICS_TEXT_2": "A student who does not have any background in English language should start learning the basics from the letters of the English Alphabet, how to write them, the sound of each and simple words that begin with each letter sound. The first book, Phonics Race 1, will aid in developing the reading skill of the student. The activities involved in the lessons are simple and repeated facilitating better understanding and aiding memorization. They also help in training the student to follow simple instructions in English.",
+  "CURRICULUM_PHONICS_TEXT_3": "The next step is to teach the student long and short vowel sounds, letter combinations and more simple words. Phonics Race 2 to 4 are the perfect books to use. The level of difficulty increases gradually allowing time for the student to adjust and keeping the lessons less stressful for the learner. The activities in these books will develop not just the reading skill but also the listening skill of the student. Interesting and colorful pictures in the books help in maintaining the student's interest and focus.",
+  
+  "CURRICULUM_LETSGO_TITLE": "English Textbook for Children ",
+  "CURRICULUM_LETSGO_TEXT_1": "These two textbooks cover everything from basic words in English to vocabulary, reading, writing, listening and speaking, and even include basic English, English conversation and business English.",
+  "CURRICULUM_LETSGO_TEXT_2": "Letsgo is suitable for under 14 years of age, and side by side is suitable for adults from 12 years old to adults.",
+  "CURRICULUM_LETSGO_TEXT_3": "The class materials will be delivered to the students by e-mail or phone before the class time.",
+
+  "CURRICULUM_SIDEBYSIDE_TITLE": "Teaching Materials for Teenagers and Adults",
+  "CURRICULUM_SIDEBYSIDE_TEXT_1": "However, please make a purchase at the bookstore in order to make preparations for lessons and review.",
+  "CURRICULUM_SIDEBYSIDE_TEXT_2": "We have customized one-to-one lessons so you can take lessons with the textbooks you have. You can take the textbook of the student with your mobile phone and send it to you by e-mail.",
+  "CURRICULUM_SIDEBYSIDE_TEXT_3": " For reference, it is difficult to open textbooks if you use video classes with KakaoTalk. (Teacher's face and student's face occupy the entire screen in KakaoTalk.) Therefore, the student should prepare the textbook before class time."
 
 
 }
