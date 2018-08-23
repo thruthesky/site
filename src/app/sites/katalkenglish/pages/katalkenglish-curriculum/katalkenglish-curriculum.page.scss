@@ -8,6 +8,7 @@
     &>div:first-child{
       margin-bottom: .25em;
       font-weight: bold;
+      font-size: 1.1rem;
     }
     &>div:last-child{
       font-size: .9rem;
@@ -23,6 +24,9 @@
       }
       .text{
         margin-top: 1.25em;
+        @media (min-width:$md) {
+          margin-top: 0;
+        }
         &>div{
           margin-bottom: 1.5em;
         }
