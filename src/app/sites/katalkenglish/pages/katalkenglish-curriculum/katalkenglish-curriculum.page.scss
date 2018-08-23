@@ -1,51 +1,74 @@
 @import './../../../../../theme/vars.scss';
-main {
-  .col{
-    margin: 2em 0;
-  }
-  .phonics,
-  .letsgo,
-  .sidebyside {
-    .title {
-      margin-top: 2em;
-      padding: .75em;
-      text-align: center;
-      font-size: 1em;
-      @media (min-width: $md) {
-        font-size: 1.1em;
-        font-weight: 200;
-        letter-spacing: .05em;
-        color: darkblue;
-        background: #fff;
-      }
+.content{
+  padding: 2em 1.75em;
+  padding-bottom: 8em;
+  background: #fff;
+  line-height: 1.4em;
+  .page-title{
+    &>div:first-child{
+      margin-bottom: .25em;
+      font-weight: bold;
     }
-    .images {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      padding: .5em;
-      border: 1px solid rgba(125, 125, 125, 0.1);
-      background: white;
-      &>div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 133px;
-        width: 103px;
-        @media (min-width: $md) {
-          height: 160px;
-          width: 125px;
+    &>div:last-child{
+      font-size: .9rem;
+    }
+  }
+  .container-fluid{
+    .row{
+      margin: 0 -2em;
+      padding-top: 2em;
+      @media (min-width:$md) {
+        padding-top: 4em;
+      }
+      .text{
+        margin-top: 1.25em;
+        &>div{
+          margin-bottom: 1.5em;
         }
-        overflow: hidden;
-        margin: 0 0.25em;
-        img {
-          width: 100%;
+      }
+      &>div{
+        .title {
+          padding-bottom: .75em;
+          text-align: center;
+          font-size: 1em;
           @media (min-width: $md) {
-            height: 100%;
-            width: auto;
+            font-size: 1.1em;
+            font-weight: 200;
+            letter-spacing: .05em;
+            color: darkblue;
+          }
+        }
+        .images {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          padding: .5em;
+          background: white;
+
+          &>div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.25em;
+            height: 133px;
+            width: 103px;
+            overflow: hidden;
+
+            @media (min-width: $md) {
+              height: 160px;
+              width: 125px;
+            }
+            img {
+              width: 100%;
+              border-radius: 2px;
+              @media (min-width: $md) {
+                height: 100%;
+              }
+            }
           }
         }
       }
     }
   }
+
 }
