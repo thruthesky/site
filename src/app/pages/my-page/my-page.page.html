@@ -50,7 +50,7 @@
                     <div class="set">
                         <div class="caption"> {{ a.ln.TIMEZONE }}</div>
                         <div class="text" *ngIf=" mypage.timezone_country || mypage.timezone_country == 0 ">{{ mypage?.timezone_country }} ({{ mypage?.timezone }})</div>
-                        <div *ngIf=" !mypage.timezone_country || mypage.timezone_country != 0 ">
+                        <div *ngIf=" !mypage.timezone_country && mypage.timezone_country != 0 ">
                             <mat-spinner [diameter]="20"></mat-spinner>
                         </div>
                     </div>

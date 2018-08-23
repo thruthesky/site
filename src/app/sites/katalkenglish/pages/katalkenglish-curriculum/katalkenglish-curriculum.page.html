@@ -1,8 +1,8 @@
 <main data-role="curriculum-page">
     <header>
-        <h1>{{ 'CURRICULUM_PAGE_TITLE' | t}}</h1>
+        <h1>{{ a.ln['CURRICULUM_PAGE_TITLE'] }}</h1>
         <p>
-            {{ 'CURRICULUM_PAGE_DESC' | t}}
+            {{ a.ln['CURRICULUM_PAGE_DESC'] }}
             <span class="status" *ngIf=" a.isStudent ">
                 <span *ngIf="a.lmsInfoBook()">{{ 'CURRICULUM_STAT_1' | t : { 'USERNAME':a.user.name, 'BOOK': a.lmsInfoBook()} }}</span>
                 <span *ngIf=" ! a.lmsInfoBook()">{{ 'CURRICULUM_STAT_2' | t : {'USERNAME':a.user.name} }}</span>
@@ -14,7 +14,24 @@
             <div class="books row">
 
                     <div class="letsgo col-12 col-md-12">
-                        <div class="title">{{ 'CURRICULUM_PAGE_BOOK_1' | t}}</div>
+                        <div class="title">{{ a.ln['CURRICULUM_PHONICS_BOOK_1'] }}</div>
+                        <div class="images">
+                            <div>
+                                <img src="assets/img/books/phonics-race-1.jpg">
+                            </div>
+                            <div>
+                                <img src="assets/img/books/phonics-race-2.jpg">
+                            </div>
+                            <div>
+                                <img src="assets/img/books/phonics-race-3.jpg">
+                            </div>
+                            <div>
+                                <img src="assets/img/books/phonics-race-4.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="letsgo col-12 col-md-12">
+                        <div class="title">{{ a.ln['CURRICULUM_PAGE_BOOK_1'] }}</div>
                         <div class="images">
                             <div>
                                 <img src="assets/img/books/letsgo-1.jpg">
@@ -29,7 +46,7 @@
                     </div>
 
                     <div class="sidebyside col-12 col-md-12">
-                        <div class="title"> {{ 'CURRICULUM_PAGE_TITLE_BOOK_2' | t}}</div>
+                        <div class="title"> {{ a.ln['CURRICULUM_PAGE_TITLE_BOOK_2'] }}</div>
                         <div class="images">
                             <div>
                                 <img src="assets/img/books/sidebyside-1.jpg">
@@ -46,14 +63,20 @@
             </div>
         </div>
         <div class="text">
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_1' | t}}</div>
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_2' | t}}</div>
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_3' | t}}</div>
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_4' | t}}</div>
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_5' | t}}</div>
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_6' | t}}</div>
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_7' | t}}</div>
-            <div>{{ 'CURRICULUM_PAGE_TITLE_TEXT_8' | t}}</div>
+            <div>{{ a.ln['CURRICULUM_PHONICS_TITLE_TEXT_1'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PHONICS_TITLE_TEXT_2']}}</div>
+            <div>{{ a.ln['CURRICULUM_PHONICS_TITLE_TEXT_3']}}</div>
+            <div>{{ a.ln['CURRICULUM_PHONICS_TITLE_TEXT_4'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_2'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_3'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_1'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_2'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_3'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_4'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_5'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_6'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_7'] }}</div>
+            <div>{{ a.ln['CURRICULUM_PAGE_TITLE_TEXT_8'] }}</div>
         </div>
     </section>
 </main>

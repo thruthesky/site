@@ -837,6 +837,12 @@
   "NO_DAY_SELECTED": "Please select days",
   "NO_POINT_SELECTED": "Please select points",
 
-  "ACADEMY_TEACHER": "Academy Teacher"
+  "ACADEMY_TEACHER": "Academy Teacher",
+
+  "CURRICULUM_PHONICS_BOOK_1": "Zero-English level learners ages 12 and below.",
+  "CURRICULUM_PHONICS_TITLE_TEXT_1": "Phonics Race 1 to 4 - This series is for Zero-English level learners ages 12 and below.",
+  "CURRICULUM_PHONICS_TITLE_TEXT_2": "A student who does not have any background in English language should start learning the basics from the letters of the English Alphabet, how to write them, the sound of each and simple words that begin with each letter sound. The first book, Phonics Race 1, will aid in developing the reading skill of the student. The activities involved in the lessons are simple and repeated facilitating better understanding and aiding memorization. They also help in training the student to follow simple instructions in English.",
+  "CURRICULUM_PHONICS_TITLE_TEXT_3": "The next step is to teach the student long and short vowel sounds, letter combinations and more simple words. Phonics Race 2 to 4 are the perfect books to use. The level of difficulty increases gradually allowing time for the student to adjust and keeping the lessons less stressful for the learner. The activities in these books will develop not just the reading skill but also the listening skill of the student. Interesting and colorful pictures in the books help in maintaining the student's interest and focus."
+
 
 }
