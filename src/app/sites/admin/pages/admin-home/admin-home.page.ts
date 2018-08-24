@@ -18,7 +18,8 @@ export class AdminHomePage implements OnInit {
         domainChangeApplication: true,
         refundRequests: false,
         teacherEquipment: false,
-        booking: false
+        booking: false,
+        domainChange: false
     };
     comments = [];
 
@@ -145,10 +146,15 @@ export class AdminHomePage implements OnInit {
         }, e => this.a.toast(e));
     }
     async onClickDomainChangeApplicationAccept(branch: Branch) {
+        if ( this.loader.domainChange ) {
+            return;
+        }
+        this.loader.domainChange = true;
         if (branch.domain_change_application.indexOf('katalkenglish.com') === -1) {
             const re = await this.modal.confirm({ content: `<b style='color: red;'>Warning: This is not a subdomain of katalkenglsih. Have you done nginx server work?</b>` })
                 .toPromise();
             if (!re) {
+                this.loader.domainChange = false;
                 return;
             }
         }
@@ -156,7 +162,11 @@ export class AdminHomePage implements OnInit {
             // console.log('branch_accept_domain_change_application: re: ', re);
             this.modal.alert({ content: 'Domain change application has been done.' });
             this.loadDomainChangeApplications();
-        }, e => this.a.toast(e));
+            this.loader.domainChange = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.domainChange = false;
+        });
     }
     loadLatestBranches() {
         if (!this.a.isSuperManager) {

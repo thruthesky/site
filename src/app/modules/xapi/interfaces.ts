@@ -561,6 +561,8 @@ export interface Branch {
     html_footer: string;
     copyright: string;
     class_software: string;
+    no_of_past: string;
+    no_of_future: string;
     no_of_students: string;
     stamp_register: string;
     stamp_update: string;
@@ -575,6 +577,7 @@ export interface Branch {
     teachers_idx: string;
     teachers_order: string;
     teachers_exclude: string;
+    kakaotalk_id: string;
 }
 
 
