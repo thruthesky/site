@@ -97,16 +97,6 @@ main {
         margin: .5em -.1em;
         .col-auto {
             padding: .4em .1em;
-            &:hover {
-                .hover-img-effect{
-                    -webkit-transform: scale(0.98);
-                    -ms-transform: scale(0.98);
-                    transform: scale(0.98);
-                    .hover-cover {
-                        opacity: 1;
-                    }
-                }
-            }
         }
         .row {
             justify-content: space-around;
@@ -116,116 +106,11 @@ main {
                 margin-left: 0;
             }
         }
-        .profile-wrapper {
-            margin: .4em auto;
-            width: 100px;
-            height: 100%;
-            border: 1px solid rgba(grey, 0.2);
-            border-radius: 2px;
-            background: white;
-            text-align: center;
-            overflow: hidden;
-            .name {
-                margin-top: .6em;
-                text-transform: uppercase;
-                font-size: 90%;
-                font-weight: 500;
-            }
-            .grade,
-            .reservation,
-            .no-video,
-            .no-schedule {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-top: .6em;
-                font-size: 80%;
-            }
-            .reservation {
-                color: #607d8b;
-            }
-            .no-video,
-            .no-schedule {
-                color: rgb(202, 0, 0);
-                svg {
-                    color: #272727;
-                    height: 1.2em;
-                    width: 1.2em;
-                    margin-right: .2em;
-                }
-            }
-            .grade {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap;
-                font-size: .75em;
-                .title {
-                    margin-top: .1em;
-                }
-                .star {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-left: .2em;
-                    svg {
-                        height: 1em;
-                        width: 1em;
-                    }
-                }
-            }
-            .grade[grade="5"] {
-                color: #f06000;
-            }
-            .grade[grade="4"] {
-                color: #ff9900;
-            }
-            .grade[grade="3"] {
-                color: #4a8d23;
-            }
-            .grade[grade="2"] {
-                color: #272775;
-            }
-            .grade[grade="1"] {
-                color: #272727;
-            }
-        }
-        .teacher-profile-photo {
-            height: 120px;
-            width: 100px;
-            overflow: hidden;
-            border-top-left-radius: 2px;
-            border-top-right-radius: 2px;
-            img {
-                width: 100%;
-            }
-        }
+
         @media screen and (max-width:$sm) {
             .container-fluid {
                 padding-right: .4em;
                 padding-left: .4em;
-            }
-        }
-        .hover-img-effect {
-            position: relative; // transition: transform 0.1s ease-in-out;
-            cursor: pointer;
-            .hover-cover {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100%;
-                width: 100%;
-                position: absolute;
-                opacity: 0;
-                border-radius: 2px;
-                background: rgba(#607d8b, 0.4);
-                text-align: center; //for ie
-                // transition: opacity 0.2s ease-in-out;
-                .icon {
-                    height: 2em;
-                    width: 2em;
-                    color: white;
-                }
             }
         }
     }

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TeacherListPage } from './teacher-list.page';
 import { MaterialModule } from '../../app.material.module';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { TeacherListProfileComponent } from './teacher-list-profile/teacher-list-profile.component';
 
 
 
@@ -23,7 +24,8 @@ const routes: Routes = [
     RouterModule
   ],
   declarations: [
-    TeacherListPage
+    TeacherListPage,
+    TeacherListProfileComponent
   ],
   entryComponents: [
     TeacherListPage

@@ -172,6 +172,7 @@ export class AdminUserInfoPage implements OnInit {
             class_software_id: u.class_software_id,
             youtube_video_url: u.youtube_video_url,
             grade: u.grade,
+            candidate: u.candidate,
             user_group: u.user_group,
             list_order: u.list_order,
             bookable_time: u.bookable_time,

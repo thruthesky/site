@@ -103,6 +103,7 @@ export interface USER_REGISTER extends REQUEST {
     block_free_class_until?: string;
     user_group?: string;
     grade?: string;
+    candidate?: string;
     list_order?: string;
     timezone?: string;
     manager?: string;
@@ -575,6 +576,7 @@ export interface Branch {
     teachers_group: string;
     teachers_level: string;
     teachers_idx: string;
+    teachers_candidate: string;
     teachers_order: string;
     teachers_exclude: string;
     kakaotalk_id: string;
@@ -627,6 +629,7 @@ export interface TEACHER_LIST_INFO {
 export interface TEACHER_LIST_RESPONSE {
     total: string;
     teachers: Array<TEACHER_LIST_INFO>;
+    candidate_teachers: Array<TEACHER_LIST_INFO>;
 }
 
 export interface ADMIN_SUMMARY_REPORT {

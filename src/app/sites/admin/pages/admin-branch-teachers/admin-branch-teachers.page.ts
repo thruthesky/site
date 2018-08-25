@@ -20,6 +20,7 @@ export class AdminBranchTeachersPage {
         teachers_group: '',
         teachers_level: '',
         teachers_idx: '',
+        teachers_candidate: '',
         teachers_order: '',
         teachers_exclude: ''
     };
@@ -39,6 +40,7 @@ export class AdminBranchTeachersPage {
             this.form.teachers_group = this.branch.teachers_group;
             this.form.teachers_level = this.branch.teachers_level;
             this.form.teachers_idx = this.branch.teachers_idx;
+            this.form.teachers_candidate = this.branch.teachers_candidate;
             this.form.teachers_order = this.branch.teachers_order;
             this.form.teachers_exclude = this.branch.teachers_exclude;
         }, e => this.a.toast(e));
@@ -51,6 +53,7 @@ export class AdminBranchTeachersPage {
         this.a.lms.branch_update(this.form).subscribe(re => {
             this.loader.submit = false;
             this.getBranchInformation();
+            this.a.toast('Branch teacher selection updated !');
         }, e => {
             this.loader.submit = false;
             this.a.toast(e);

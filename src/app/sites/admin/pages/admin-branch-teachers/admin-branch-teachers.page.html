@@ -5,49 +5,58 @@
             <li>You can choose teachers for your site.</li>
             <li>You can add many group, level, idx separating by comma.</li>
             <li>All combination of including teachers are 'OR' expression.</li>
-            <li>So, if you put group of 'withcener' and level '3,4,5', then you will see all withcenter teachers and teachers of level 3,4,5.</li>
+            <li>So, if you put group of 'withcener' and level '3,4,5', then you will see all withcenter teachers and teachers
+                of level 3,4,5.</li>
             <li>Teacher level range is from 1 to 5.</li>
-        </ul>    
+            <li>Candidate teachers are the one who are still in preparation of teaching. They are not completely ready but to try.</li>
+        </ul>
     </div>
     <form (ngSubmit)="onSubmit($event)">
-            <div class="form-title">
-                <span>Include teachers</span>
-                <span class="domain-name" *ngIf=" branch ">
-                    Domain: {{ branch.domain }} katalkenglish.com
-                </span>
-            </div>
-    
-            <div class="form-input">
-                <label for="group">By Group</label>
-                <input type="text" id="group" name="group" [(ngModel)]="form.teachers_group">
-                <span>Example) withcenter,mygroup</span>
-            </div>
-            <div class="form-input">
-                <label for="name">By Level</label>
-                <input type="text" id="name" name="level" [(ngModel)]="form.teachers_level">
-                <span>Example) 2,3,4,5</span>
-            </div>
-            <div class="form-input">
-                <label for="idx">By idx</label>
-                <input type="text" id="idx" name="idx" [(ngModel)]="form.teachers_idx">
-                <span>Example) 123,456,789</span>
-                <div>You can find teacher idx on ontue.com</div>
-            </div>
-    
-            <div class="form-input">
-                <label for="order">List order</label>
-                <input type="text" id="order" name="order" [(ngModel)]="form.teachers_order">
-                <span>Example) 123,456,789</span>
-                <div>Input teacher's idx to display first on the list.</div>
-            </div>
-    
-            <div class="form-input">
-                <label for="exclude">Exclude</label>
-                <input type="text" id="exclude" name="exclude" [(ngModel)]="form.teachers_exclude">
-                <span>Example) 123,456,789</span>
-                <div>Input teacher idx that you don't want to display.</div>
-            </div>
-    
+        <div class="form-title">
+            <span>Include teachers</span>
+            <span class="domain-name" *ngIf=" branch ">
+                Domain: {{ branch.domain }} katalkenglish.com
+            </span>
+        </div>
+
+        <div class="form-input">
+            <label for="group">By Group</label>
+            <input type="text" id="group" name="group" [(ngModel)]="form.teachers_group">
+            <span>Example) withcenter,mygroup</span>
+        </div>
+        <div class="form-input">
+            <label for="name">By Level</label>
+            <input type="text" id="name" name="level" [(ngModel)]="form.teachers_level">
+            <span>Example) 2,3,4,5</span>
+        </div>
+        <div class="form-input">
+            <label for="idx">Select Teachers By idx</label>
+            <input type="text" id="idx" name="idx" [(ngModel)]="form.teachers_idx">
+            <span>Example) 123,456,789</span>
+            <div>You can find teacher idx on ontue.com</div>
+        </div>
+
+        <div class="form-input">
+            <label for="candidate">Candidate Teachers</label>
+            <input type="text" id="candidate" name="candidate" [(ngModel)]="form.teachers_candidate">
+            <span>Input 'Y' to show candidate teachers.</span>
+            <div>If it is not 'Y' then, candiate teachers will not be listed.</div>
+        </div>
+
+        <div class="form-input">
+            <label for="order">List order</label>
+            <input type="text" id="order" name="order" [(ngModel)]="form.teachers_order">
+            <span>Example) 123,456,789</span>
+            <div>Input teacher's idx to display first on the list.</div>
+        </div>
+
+        <div class="form-input">
+            <label for="exclude">Exclude</label>
+            <input type="text" id="exclude" name="exclude" [(ngModel)]="form.teachers_exclude">
+            <span>Example) 123,456,789</span>
+            <div>Input teacher idx that you don't want to display.</div>
+        </div>
+
         <button class="app-button" type="submit" *ngIf=" ! loader.submit ">SUBMIT</button>
         <div *ngIf=" loader.submit ">Saving...</div>
     </form>

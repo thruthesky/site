@@ -317,6 +317,12 @@
                         </div>
 
                         <div>
+                            <label>Teacher Candidate</label>
+                            <input value="{{  user.candidate }}" [(ngModel)]=" user.candidate " name="teacher_candidate">
+                        </div>
+                        <div>Input 1 to 9 as listing priority. If it's 0 or empty, then the teacher is not candidate for star.</div>
+
+                        <div>
                             <label>List Order</label>
                             <input value="{{  user.list_order }}" [(ngModel)]=" user.list_order " name="list_order">
                         </div>

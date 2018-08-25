@@ -50,13 +50,12 @@ export class SettingsPage {
 
 
     onClickTimezone(offset) {
-        // console.log(offset);
         this.a.lms.timezone_set(offset).subscribe(re => {
-            // console.log(re);
             /**
-             * We reload user's profile to update user information cache the new timezone.
+             * Update user timezone.
              */
-            this.a.user.loadProfile().subscribe(() => {
+            this.a.updateLMSInfo(() => {
+                this.a.updateUserTimezone();
             });
         }, e => this.a.toast(e));
     }

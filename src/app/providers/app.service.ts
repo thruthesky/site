@@ -316,7 +316,6 @@ export class AppService {
         /**
          * Update user time
          */
-        // this.updateUserTimezone(); // No need to do this. updateUserTimezone() will be fired right after language file is loaded.
         setInterval(() => {
             this.updateUserTimezone();
         }, 10000);
@@ -1102,6 +1101,8 @@ export class AppService {
      * Use this method to get user information like class_software and class_software_id.
      * It is like updating/getting user information from server.
      *
+     * It is okay to be called many times as it is needed.
+     *
      * @description It gets lms information every time
      *      - app boots
      *      - register
@@ -1814,11 +1815,24 @@ export class AppService {
     }
 
     /**
+     * Updates user time based on LMS_INFO of localStorage
+     *      - This method can be called as many times as it is needed.
+     *      - What it does it simply update the value of 'this.userTime'.
+     *      - But there are two conditions to meet before calling this method.
+     *
+     * @desc Two condition to call this method.
+     *      1. LMS information must be loaded first.
+     *          If the user didn't logged in, then there will be no timezone information. It's okay. no problem.
+     *      2. Language translation file should loaded.
+     *          If the language file is not yet loaded, then the 'language code' may be display. It's okay. no problem.
+     *
      * @desc this.userTime holds user current time based on his timezone settings.
      *      and it is must be translated with his local language.
      *      But when it is being called for the first time by constructor, the language json file not loaded yet.
      *      So, the text 'CURRENT TIME' is being display.
      *      To prevent this, this method must be invoked right after the language file is loaded.
+     *
+     *
      */
     updateUserTimezone() {
         const info = this.get(KEY_LMS_INFO);

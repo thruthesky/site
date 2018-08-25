@@ -27,6 +27,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
      * This is needed to display teachers on the list.
      */
     teachers: Array<TEACHER_LIST_INFO> = [];
+    candidate_teachers: Array<TEACHER_LIST_INFO> = [];
     countries: Array<string> = null;
 
     gender = '';
@@ -58,7 +59,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
             // .map(v => console.log('v: ', v))
             .subscribe((v) => {
                 // console.log('v: ', v);
-                if ( v !== '' && v.length < 2 ) {
+                if (v !== '' && v.length < 2) {
                     return;
                 }
                 this.init();
@@ -114,13 +115,16 @@ export class TeacherListPage implements OnInit, OnDestroy {
             if (options.useCache) {
                 this.init();
                 // console.log('Save cache teacher list', re);
-                this.a.set( KEY_TEACHER_LIST, re );
+                this.a.set(KEY_TEACHER_LIST, re);
             }
             this.show.loadTeacher = false;
             this.displayTeachers(re);
             if (this.re.teachers.length < this.limit) {
                 this.noMoreTeachers = true;
             }
+
+            this.candidate_teachers = re.candidate_teachers;
+            // console.log('this.candidate_teachers', this.candidate_teachers);
         }, e => {
             this.a.toast(e);
             this.show.loadTeacher = false;
@@ -158,7 +162,7 @@ export class TeacherListPage implements OnInit, OnDestroy {
     }
 
     teacher_country_get() {
-        this.a.lms.teacher_country_get().subscribe( res => {
+        this.a.lms.teacher_country_get().subscribe(res => {
             this.countries = res;
         }, e => this.a.toast(e));
     }
