@@ -804,6 +804,7 @@
   "TO_REPLY": "Reply",
   "YOU_DO_NOT_HAVE_RESERVATION": "Ooh! You don't have reservations.",
   "NO_LEARNING_PROGRESS": "There is no learning progress graph since you do not have any class yet.",
+  "LEVEL_EVALUATION": "The level is scored by the evaluation of detail criteria on the last 20 sessions. There are five criteria in each evaluation which are Vacabulary, expression, grammar, pronunciation and speech delivery.",
   "NO_BOOK_YET": "Text book has not been set, yet.",
   "NEXT_CLASS_TIME": "Next class date & time",
 

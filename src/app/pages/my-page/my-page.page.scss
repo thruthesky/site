@@ -5,6 +5,7 @@ $mobile-side-space: 1.75rem;
     display: inline-block;
     padding-right: .5em;
 }
+
 .set {
     .caption {
         margin: .8rem 0 .25rem;
@@ -14,18 +15,18 @@ $mobile-side-space: 1.75rem;
     .text {
         position: relative;
         font-size: .9rem;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             white-space: nowrap;
-            font-size: 1.1rem;   
+            font-size: 1.1rem;
         }
     }
 }
 
 header {
     h1 {
-        padding: 16px $mobile-side-space!important;
-        @media (min-width:$md) {
-            padding: 16px $desktop-side-space !important;   
+        padding: 16px $mobile-side-space !important;
+        @media (min-width: $md) {
+            padding: 16px $desktop-side-space !important;
         }
     }
 }
@@ -34,7 +35,7 @@ header {
     padding-bottom: 5em;
     .page-description {
         padding: .75em $mobile-side-space;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding: .75em $desktop-side-space;
         }
         font-size: .8em;
@@ -48,7 +49,7 @@ h2 {
     padding: .75rem 2rem;
     background: #5B81D8;
     color: #fff;
-    @media (min-width:$md) {
+    @media (min-width: $md) {
         font-size: .9rem;
     }
     font-size: .8rem;
@@ -68,8 +69,8 @@ mat-form-field[appearance] {
     width: 100% !important;
     textarea {
         padding: 0 1rem;
-        @media (min-width:$md) {
-            padding: 0 1.42rem;   
+        @media (min-width: $md) {
+            padding: 0 1.42rem;
         }
         height: 85px;
         font-size: 1rem;
@@ -92,9 +93,10 @@ mat-form-field[appearance] {
         flex-wrap: nowrap;
     }
 }
-#student-profile{
+
+#student-profile {
     margin: 1rem 0;
-    .left{
+    .left {
         .button-with-icon {
             display: inline-block;
             margin-top: 1rem;
@@ -144,40 +146,41 @@ mat-form-field[appearance] {
                     width: 24px;
                 }
             }
-        } 
+        }
     }
 }
+
 #next-class {
     margin: 1rem;
-    margin-bottom: 1.2rem!important;
+    margin-bottom: 1.2rem !important;
     padding: 1rem;
     padding-bottom: .5rem;
     width: 100%;
-    @media (min-width:$md) {
+    @media (min-width: $md) {
         width: auto;
     }
     border: 1px solid rgba(125, 125, 125, 0.2);
     border-radius: 2px;
     background: #fff;
-    .left{
-        margin-left: 0!important;
-        margin-right: .5rem!important;
-        svg{
+    .left {
+        margin-left: 0 !important;
+        margin-right: .5rem !important;
+        svg {
             margin-top: .5rem;
             height: 1.2rem;
             width: 1.2rem;
         }
     }
     .right {
-        .title{
-            svg{
+        .title {
+            svg {
                 position: relative;
                 top: .125rem;
                 margin-right: .4rem;
                 height: 1rem;
                 width: 1rem;
             }
-          }
+        }
         .set {
             svg {
                 position: relative;
@@ -191,25 +194,26 @@ mat-form-field[appearance] {
             color: darkred;
         }
     }
-    #book-in-use{
-        .text{
+    #book-in-use {
+        .text {
             color: darkgreen;
         }
     }
 }
+
 #student-profile,
 #next-class {
     display: flex;
     font-weight: 300;
-    .set:first-child{
-        .caption{
+    .set:first-child {
+        .caption {
             margin-top: 0;
         }
     }
     .left {
         margin: 0 1rem;
         text-align: center;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             margin: 0 1em 0 0;
         }
         .photo-wrapper {
@@ -234,7 +238,7 @@ mat-form-field[appearance] {
     margin: 1rem;
     width: 100%;
     text-align: center;
-    @media (min-width:$md){
+    @media (min-width: $md) {
         display: flex;
         flex-direction: column;
         margin-top: 1rem;
@@ -246,14 +250,14 @@ mat-form-field[appearance] {
         align-items: center;
         justify-content: center;
         padding: 1rem;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding: .75rem 1rem;
         }
         border-bottom: 1px solid #fff;
         border-radius: 2px;
         background: #eff0f1;
         font-size: 1rem;
-        .title{
+        .title {
             display: inline-block;
             margin-left: .5rem;
             font-weight: 300;
@@ -284,9 +288,9 @@ mat-form-field[appearance] {
     }
     .stat-item {
         flex: auto;
-        display:inline-block;
+        display: inline-block;
         width: 50%;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             width: auto;
         }
         padding: 1rem;
@@ -302,9 +306,9 @@ mat-form-field[appearance] {
             font-size: 1.6rem;
         }
     }
-    #no-of-reservation{
+    #no-of-reservation {
         border-right: 1px solid #fff;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             border: 0;
             border-bottom: 1px solid #fff;
         }
@@ -349,12 +353,11 @@ mat-form-field[appearance] {
     color: darkgreen
 }
 
-
 #progress-bargraph {
     margin: 0;
     margin-bottom: 2.5rem;
-    @media (min-width:$md) {
-        margin-bottom: 3.5rem;     
+    @media (min-width: $md) {
+        margin-bottom: 3.5rem;
     }
     border-radius: 2px;
     &>* {
@@ -366,27 +369,33 @@ mat-form-field[appearance] {
         align-items: center;
         padding: 0;
         padding-left: $mobile-side-space;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding-left: $desktop-side-space;
         }
         background: #eff0f1;
         font-size: .85em;
-
-        .link-icon{
+        .link-icon {
             display: inline-block;
             padding: .75rem $mobile-side-space;
-            @media (min-width:$md) {
+            @media (min-width: $md) {
                 padding: .75rem $desktop-side-space;
             }
-            svg{
+            svg {
                 position: relative;
-                top:.125em;
+                top: .125em;
                 height: 1rem;
                 width: 1rem;
             }
         }
     }
-    .empty-progress-bar{
+    .level-evaluation {
+        padding: .5rem;
+        background: #fff;
+        font-size: .9em;
+        text-align: center;
+        color: grey;
+    }
+    .empty-progress-bar {
         padding: 2.5rem;
         background: #fff;
         font-size: .9em;
@@ -396,9 +405,9 @@ mat-form-field[appearance] {
     .panel-content {
         display: flex;
         align-items: flex-end;
-        padding:1.9rem $mobile-side-space 5.75rem $mobile-side-space;
-        @media (min-width:$md) {
-           padding: 1.9rem $desktop-side-space 5.75rem $desktop-side-space;
+        padding: 1.9rem $mobile-side-space 5.75rem $mobile-side-space;
+        @media (min-width: $md) {
+            padding: 1.9rem $desktop-side-space 5.75rem $desktop-side-space;
         }
         font-size: .9em;
         background: #fff;
@@ -411,7 +420,7 @@ mat-form-field[appearance] {
         .bar-item {
             position: relative;
             margin: 0 3px;
-            &:first-child{
+            &:first-child {
                 margin-left: 0;
             }
             border-top-right-radius: 2px;
@@ -425,7 +434,7 @@ mat-form-field[appearance] {
                 font-size: .9em;
             }
             .date {
-                display: inline-block; 
+                display: inline-block;
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -458,29 +467,28 @@ mat-form-field[appearance] {
 
 #my-introduction {
     margin-bottom: 2.5rem;
-    @media (min-width:$md) {
+    @media (min-width: $md) {
         margin: 0;
-        margin-bottom: 3.5rem;   
+        margin-bottom: 3.5rem;
     }
     background: #fff;
     font-size: .85em;
-    h2{
+    h2 {
         padding: 0;
         padding-left: $mobile-side-space;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding-left: $desktop-side-space;
         }
-        &>.title{
+        &>.title {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            .link-icon{
+            .link-icon {
                 padding: .75rem $mobile-side-space;
-                @media (min-width:$md) {
+                @media (min-width: $md) {
                     padding: .75rem $desktop-side-space;
                 }
-                svg{
+                svg {
                     position: relative;
                     top: .125em;
                     height: 1em;
@@ -492,9 +500,9 @@ mat-form-field[appearance] {
     .my-introduction-desc {
         margin: 2rem $mobile-side-space;
         padding: 1em 1.5rem;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             margin: 2rem $desktop-side-space;
-            padding: 1em 2rem;   
+            padding: 1em 2rem;
         }
         background: #eff0f1;
         line-height: 1.5rem;
@@ -514,19 +522,19 @@ mat-form-field[appearance] {
             width: 1rem;
             margin-right: .3rem;
         }
-        .note{
+        .note {
             margin: .75rem 0;
         }
     }
-    form{
+    form {
         display: block;
         .text-area {
             padding: 0 $mobile-side-space;
-            @media (min-width:$md) {
+            @media (min-width: $md) {
                 padding: 0 $desktop-side-space;
             }
         }
-        .buttons{
+        .buttons {
             padding: 0 $mobile-side-space;
             padding-bottom: 2rem;
             .button-with-icon {
@@ -535,13 +543,13 @@ mat-form-field[appearance] {
                 justify-content: center;
                 margin: 0;
                 width: 100%;
-                @media (min-width:$md){
+                @media (min-width: $md) {
                     display: inline-block;
                     width: auto;
                     margin: 1rem;
                     margin-bottom: 1.5rem;
                 }
-                button{
+                button {
                     text-align: center;
                 }
             }
@@ -552,26 +560,25 @@ mat-form-field[appearance] {
 #auction {
     margin-bottom: 2.5rem;
     background: #fff;
-    @media (min-width:$md) {
-        margin-bottom: 3.5rem;   
+    @media (min-width: $md) {
+        margin-bottom: 3.5rem;
     }
-    h2{
+    h2 {
         padding: 0;
         padding-left: $mobile-side-space;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             padding-left: $desktop-side-space;
         }
-        &>.title{
+        &>.title {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            .link-icon{
+            .link-icon {
                 padding: .75rem $mobile-side-space;
-                @media (min-width:$md) {
+                @media (min-width: $md) {
                     padding: .75rem $desktop-side-space;
                 }
-                svg{
+                svg {
                     position: relative;
                     top: .125em;
                     height: 1em;
@@ -582,15 +589,14 @@ mat-form-field[appearance] {
     }
     .auction-desc {
         margin-bottom: 1rem;
-        padding: 1rem $mobile-side-space;  
-        @media (min-width:$md) {
-            padding: 1.5rem $desktop-side-space;  
-        } 
+        padding: 1rem $mobile-side-space;
+        @media (min-width: $md) {
+            padding: 1.5rem $desktop-side-space;
+        }
         background: #eff0f1;
         font-size: .8em;
         line-height: 1.5rem;
         cursor: pointer;
-
         svg {
             position: relative;
             top: .125em;
@@ -598,24 +604,22 @@ mat-form-field[appearance] {
             height: 1em;
             width: 1em;
         }
-
-        .desc-title{
+        .desc-title {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            .start-button{
-                .app-button{
+            .start-button {
+                .app-button {
                     display: flex;
                     align-items: center;
                     margin-top: .5em;
                     padding: .35rem 1.7rem;
                     background: #FF7B0D;
                     font-size: .75rem;
-                    @media (min-width:$md) {
+                    @media (min-width: $md) {
                         margin-top: 0
                     }
-    
                     svg {
                         margin: 0;
                         margin-left: .4em;
@@ -642,10 +646,10 @@ mat-form-field[appearance] {
     }
     form {
         padding: $mobile-side-space;
-        @media (min-width:$md) {
+        @media (min-width: $md) {
             margin: 0;
-            padding: $desktop-side-space;  
-            background: #fff; 
+            padding: $desktop-side-space;
+            background: #fff;
         }
         font-size: .85em;
         animation: fadeIn .2s ease-in-out;
@@ -657,9 +661,9 @@ mat-form-field[appearance] {
                 opacity: 1;
             }
         }
-        mat-form-field{
+        mat-form-field {
             width: 40px;
-            @media (min-width:$md) {
+            @media (min-width: $md) {
                 width: unset;
             }
         }
@@ -670,21 +674,20 @@ mat-form-field[appearance] {
                 justify-content: space-around;
                 flex-wrap: wrap;
                 font-size: .85em;
-                @media (min-width:$md) {
+                @media (min-width: $md) {
                     justify-content: space-between;
                     margin-top: .5rem;
                     padding: 1em 0;
                     font-size: .9rem;
                 }
-                mat-checkbox{
+                mat-checkbox {
                     margin-top: 1rem;
                     margin-right: 1rem;
-                    @media (min-width:$md) {
+                    @media (min-width: $md) {
                         margin: 0;
                     }
                 }
             }
-
         }
         .time,
         .duration,
@@ -704,12 +707,12 @@ mat-form-field[appearance] {
 }
 
 #auction-application-list {
-    .list-container{
-        .button-hook{
+    .list-container {
+        .button-hook {
             position: relative;
-            &:first-child{
-                .right{
-                    border-top: 1px solid rgba(125, 125, 125, 0.2)!important;
+            &:first-child {
+                .right {
+                    border-top: 1px solid rgba(125, 125, 125, 0.2) !important;
                 }
             }
             .buttons {
@@ -723,8 +726,8 @@ mat-form-field[appearance] {
                 }
                 button {
                     padding: .65rem 1rem;
-                    @media (min-width:$md) {
-                        padding: .7rem 1rem; 
+                    @media (min-width: $md) {
+                        padding: .7rem 1rem;
                     }
                     border:0;
                     background: #fff;
@@ -736,52 +739,52 @@ mat-form-field[appearance] {
                     }
                 }
             }
-                .delete-application {
-                    mat-spinner{
-                        margin-right: .3rem;
-                    }
-                    @media (min-width:$md){
-                        font-size: .8rem !important;
-                    }
-                    svg {
-                        margin-right: .3em;
-                    }
-                    &:hover {
-                        color: darkred !important;
-                    }
-                    .text{
-                        display: none;
-                        @media (min-width:$md) {
-                            display: inline-flex;
-                            align-items: center;
-                        }
+            .delete-application {
+                mat-spinner {
+                    margin-right: .3rem;
+                }
+                @media (min-width:$md) {
+                    font-size: .8rem !important;
+                }
+                svg {
+                    margin-right: .3em;
+                }
+                &:hover {
+                    color: darkred !important;
+                }
+                .text {
+                    display: none;
+                    @media (min-width: $md) {
+                        display: inline-flex;
+                        align-items: center;
                     }
                 }
-                .reply-button {
-                    font-size: .7rem !important;
-                    @media (min-width:$md){
-                        font-size: .8rem !important;
-                    }
-                    &:hover {
-                        color: dodgerblue !important
-                    }
-                    svg {
-                        margin-right: .3em;
-                    }
+            }
+            .reply-button {
+                font-size: .7rem !important;
+                @media (min-width: $md) {
+                    font-size: .8rem !important;
                 }
+                &:hover {
+                    color: dodgerblue !important
+                }
+                svg {
+                    margin-right: .3em;
+                }
+            }
         }
-        .list-item{
+        .list-item {
             position: relative;
             display: flex;
             align-items: stretch;
             background: #fff;
-            &:hover{
+            &:hover {
                 background: rgba(125, 125, 125, 0.04);
             }
-            .left{
+            .left {
                 padding: 1rem $mobile-side-space;
                 padding-right: 1.5rem;
-                @media (min-width:$md) {
+                @media (min-width: $md) {
                     padding: 1rem $desktop-side-space;
                 }
                 .teacher-photo {
@@ -796,7 +799,7 @@ mat-form-field[appearance] {
                         width: 100%;
                     }
                 }
-                .teacher-name{
+                .teacher-name {
                     display: block;
                     padding-top: .5rem;
                     font-size: 1.1rem;
@@ -805,23 +808,23 @@ mat-form-field[appearance] {
                     text-align: center;
                 }
             }
-            .right{
+            .right {
                 display: flex;
                 flex-direction: column;
-                padding: 1.5rem 1rem!important;
-                padding-left: 0!important;
+                padding: 1.5rem 1rem !important;
+                padding-left: 0 !important;
                 flex: 100%;
-                padding: 1rem .5rem; 
-                @media (min-width:$md) {
-                    padding: 1rem; 
+                padding: 1rem .5rem;
+                @media (min-width: $md) {
+                    padding: 1rem;
                 }
                 border-bottom: 1px solid rgba(125, 125, 125, 0.2);
-                .title{
+                .title {
                     margin-top: .25em;
                     font-size: 1rem;
                     color: dimgray;
                 }
-                .text{
+                .text {
                     margin-top: 1.25em;
                     margin-bottom: .75em;
                     max-width: 730px;
@@ -833,31 +836,30 @@ mat-form-field[appearance] {
     }
 }
 
-#auction-student-offers{
-    padding: 2rem $mobile-side-space; 
+#auction-student-offers {
+    padding: 2rem $mobile-side-space;
     padding-top: 1.5rem;
-    @media (min-width:$md) {
-        padding: 1rem calc(#{$desktop-side-space} - .5rem) ;   
+    @media (min-width: $md) {
+        padding: 1rem calc(#{$desktop-side-space} - .5rem);
     }
-    background: rgba(#B1C5F4,0.4);
-    .col-12{
+    background: rgba(#B1C5F4, 0.4);
+    .col-12 {
         padding: 0;
     }
-    .title{
+    .title {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0; 
-        @media (min-width:$md) {
-            margin: .5rem;   
+        margin: 0;
+        @media (min-width: $md) {
+            margin: .5rem;
         }
         margin-bottom: .5em;
         padding: .45rem 1.8rem;
         background: #fff;
         color: dimgray;
         font-size: .85rem;
-
-        svg{
+        svg {
             position: relative;
             top: .125em;
             margin-right: .5rem;
@@ -865,28 +867,27 @@ mat-form-field[appearance] {
             width: 1.5em;
         }
     }
-    .auction-offer{
+    .auction-offer {
         display: flex;
-        margin: .5rem 0; 
-        @media (min-width:$md) {
-            margin: .5rem;   
+        margin: .5rem 0;
+        @media (min-width: $md) {
+            margin: .5rem;
         }
         padding: 1rem;
         background: #fff;
         font-size: .85rem;
         line-height: 1.6em;
-        &:hover{
+        &:hover {
             outline: 1px solid rgba(125, 125, 125, 0.4);
         }
-        
-        .left{
+        .left {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding-right: 1rem;
             width: 160px;
-            .student-photo{
+            .student-photo {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -894,17 +895,17 @@ mat-form-field[appearance] {
                 width: 40px;
                 border-radius: 50%;
                 overflow: hidden;
-                img{
+                img {
                     width: 100%;
                 }
             }
-            .student-name{
+            .student-name {
                 display: flex;
                 align-items: center;
-                padding-top: .35em ;
+                padding-top: .35em;
                 font-size: .8rem;
                 white-space: nowrap;
-                svg{
+                svg {
                     position: relative;
                     top: .125em;
                     height: 1em;
@@ -913,8 +914,8 @@ mat-form-field[appearance] {
                 }
             }
         }
-        .right{
-            b{
+        .right {
+            b {
                 color: #1B4AB5;
                 font-weight: normal;
             }
@@ -922,14 +923,13 @@ mat-form-field[appearance] {
     }
 }
 
-
 #teacher-list {
     margin: 0 -.1em;
     margin-bottom: 2rem;
     @media (min-width: $md) {
         margin-bottom: 1rem;
     }
-    .stars{
+    .stars {
         svg {
             position: relative;
             top: .125em;
@@ -967,7 +967,6 @@ mat-form-field[appearance] {
                 }
             }
         }
-        
     }
 }
 
@@ -975,13 +974,12 @@ mat-form-field[appearance] {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 2rem!important;
+    padding: 2rem !important;
     text-align: center;
     font-weight: bold;
     color: gray;
     font-size: 1rem;
-
-    svg{
+    svg {
         margin-bottom: 1rem;
         height: 3.75rem;
         width: 3.75rem;
@@ -1002,26 +1000,30 @@ mat-form-field[appearance] {
 [grade="5"] {
     color: #f06000;
 }
+
 [grade="4"] {
     color: #ff9900;
 }
+
 [grade="3"] {
     color: #4a8d23;
 }
+
 [grade="2"] {
     color: #272775;
 }
+
 [grade="1"] {
     color: #272727;
 }
 
 .loader,
-.mini-loader{
+.mini-loader {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    mat-spinner{
+    mat-spinner {
         margin-bottom: .6rem;
     }
 }

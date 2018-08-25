@@ -744,6 +744,7 @@
   "TO_REPLY": "回复",
   "YOU_DO_NOT_HAVE_RESERVATION": "哦！ 你没有保留。",
   "NO_LEARNING_PROGRESS": "由于您还没有任何课程，因此没有学习进度图表。",
+  "LEVEL_EVALUATION": "通过评估过去20届会议的详细标准对该级别进行评分。 每个评估中有五个标准，即Vacabulary，表达，语法，发音和语音传递。",
   "NO_BOOK_YET": "尚未设置教科书。",
   "NEXT_CLASS_TIME": "下一课的日期和时间",
 
