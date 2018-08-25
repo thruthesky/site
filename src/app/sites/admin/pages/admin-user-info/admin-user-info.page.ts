@@ -193,7 +193,10 @@ export class AdminUserInfoPage implements OnInit {
             this.show.loader.profileSaved = true;
             setTimeout(() => this.show.loader.profileSaved = false, 1000);
             this.a.toast('User information has been updated successfully.');
-        }, e => this.a.toast(e));
+        }, e => {
+            this.a.toast(e);
+            this.show.loader.updateProfile = false;
+        });
         return false;
     }
     onClickPointUpdate() {

@@ -1,6 +1,7 @@
 <h1>Teacher Payment Information List</h1>
 <div class="form">
     <form (ngSubmit)=" loadPaymentList() ">
+        <input type="number" name="teacher_id" [(ngModel)]="idx_teacher">
         <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
         <input type="number" name="date_end" [(ngModel)]="stat_date_end">
         <button type="submit">SUBMIT</button>
