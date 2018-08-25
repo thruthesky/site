@@ -14,6 +14,9 @@
                 <th>Domain</th>
                 <th>Company</th>
                 <th>Manager</th>
+                <th *ngIf=" a.isSuperManager ">Kakaotalk</th>
+                <th *ngIf=" a.isSuperManager ">No. of past</th>
+                <th *ngIf=" a.isSuperManager ">No. of future</th>
                 <th *ngIf=" a.isSuperManager ">No. of students</th>
                 <th *ngIf=" a.isSuperManager ">Delete</th>
             </tr>
@@ -33,6 +36,9 @@
                         {{ branch.manager_name }}
                     </a>
                 </td>
+                <td class="no-of-students" *ngIf=" a.isSuperManager ">{{ branch.kakaotalk_id }}</td>
+                <td class="no-of-students" *ngIf=" a.isSuperManager ">{{ branch.no_of_past }}</td>
+                <td class="no-of-students" *ngIf=" a.isSuperManager ">{{ branch.no_of_future }}</td>
                 <td class="no-of-students" *ngIf=" a.isSuperManager ">{{ branch.no_of_students }}</td>
                 <td class="delete" *ngIf=" a.isSuperManager " (click)=" onClickDelete( branch ) ">
                     <button>

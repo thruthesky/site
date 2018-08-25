@@ -50,8 +50,13 @@ gunzip 7-13.sql.gz
 mysql -uroot -p7777 -e "drop database ontue"
 mysql -uroot -p7777 -e "create database ontue"              ; you can make a new database on local server.
 mysql -uroot -p7777 ontue < 1-01.sql                        ; you can make a new database on local server.
-cd ~/wordpress/wp-content/uploads
-$ scp -r ontue@ontue.com:./www/wp-content/uploads/* .
+
+# Change siteurl and home to
+
+; ==> https://ontue.com:8443
+
+cd ~/wordpress/wp-content/uploads                           ; all the file download
+$ scp -r ontue@ontue.com:./www/wp-content/uploads/* .       ; but you may not need this.
 ````
 
 ## Installation

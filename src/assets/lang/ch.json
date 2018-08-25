@@ -329,13 +329,6 @@
   "PAYMENT_METHOD_SHORT": "付款",
   "PAYMENT_NO": "数",
   "AMOUNT": "量",
-
-
-  "CURRICULUM_PAGE_TITLE": "教材",
-  "CURRICULUM_PAGE_DESC": "我们将引导您完成课程",
-  "CURRICULUM_STAT_1": "#USERNAME的下一课是#BOOK。",
-  "CURRICULUM_STAT_2": "#USERNAME的教科书尚未设置。",
-
   
   "MY_POINT_PAGE_USER_POINT": "#USER_NAME的观点是#POINT",
   "MY_POINT_PAGE_REMINDER": "您可以在付款历史记录菜单中查看付款记录。",
@@ -534,19 +527,6 @@
   "WOORIBANK_NAME": "Wooribank",
   "TERMS_AND_CONDITIONS": "附带条约",
   "CONTACT": "接触",
-
-  "CURRICULUM_PAGE_BOOK_1": "儿童英语教科书",
-  "CURRICULUM_PAGE_TITLE_BOOK_2": "青少年和成人教材",
-  "CURRICULUM_PAGE_TITLE_TEXT_1": "英语课程中最重要的部分是课程材料的选择。",
-  "CURRICULUM_PAGE_TITLE_TEXT_2": "有各种课程，如基础英语，英语会话，商务英语和测试英语。 在Katok英语中，您可以信赖可靠的Let's Go（第4版）并排（第3版）两本教科书被采纳为正式教科书。",
-  "CURRICULUM_PAGE_TITLE_TEXT_3": "这两本教科书涵盖了从英语基本词汇到词汇，阅读，写作，听力和口语等所有内容，甚至包括基础英语，英语会话和商务英语。",
-  "CURRICULUM_PAGE_TITLE_TEXT_4": "Letsgo适合14岁以下，并排适合12岁至成人的成人。",
-  "CURRICULUM_PAGE_TITLE_TEXT_5": "课程资料将在上课前通过电子邮件或电话传送给学生。",
-  "CURRICULUM_PAGE_TITLE_TEXT_6": "但是，请在书店购买，以便为课程做准备和审查。",
-  "CURRICULUM_PAGE_TITLE_TEXT_7": "我们已经定制了一对一课程，以便您可以使用您拥有的课本上课。 您可以使用手机拍摄学生的课本并通过电子邮件发送给您。",
-  "CURRICULUM_PAGE_TITLE_TEXT_8": " 作为参考，如果您使用KakaoTalk的视频课程，很难打开教科书。 （教师的脸和学生的脸在KakaoTalk中占据整个屏幕。）因此，学生应在课前时间准备课本。",
-
-
 
 
   "YOU_ARE_TO_AGREE": "请点击条款和条件的同意按钮进行注册。",
@@ -780,10 +760,31 @@
 
   "ACADEMY_TEACHER": "学院老师",
 
-  "CURRICULUM_PHONICS_BOOK_1": "12岁及以下的零英语水平学习者。",
-  "CURRICULUM_PHONICS_TITLE_TEXT_1": "Phonics Race 1 to 4 - 本系列适用于12岁及以下的零英语水平学习者。",
-  "CURRICULUM_PHONICS_TITLE_TEXT_2": "没有任何英语背景的学生应该从英语字母的字母开始学习基础知识，如何编写它们，每个字母的声音以及每个字母声音开头的简单单词。 第一本书，Phonics Race 1，将有助于培养学生的阅读技巧。 课程中涉及的活动简单而重复，有助于更好地理解和帮助记忆。 他们还帮助培训学生遵循英语的简单说明。",
-  "CURRICULUM_PHONICS_TITLE_TEXT_3": "下一步是教授学生长短元音，字母组合和更简单的单词。 Phonics Race 2至4是完美的书籍。 难度逐渐增加，允许学生调整时间并使课程对学习者的压力减轻。 这些书中的活动不仅会发展阅读技巧，还会培养学生的听力技巧。 书中有趣和丰富多彩的图片有助于保持学生的兴趣和专注。"
+
+  "CURRICULUM_PAGE_TITLE": "教材",
+  "CURRICULUM_PAGE_DESC": "我们将引导您完成课程",
+  "CURRICULUM_STAT_1": "#USERNAME的下一课是#BOOK。",
+  "CURRICULUM_STAT_2": "#USERNAME的教科书尚未设置。",
+
+  "CURRICULUM_PAGE_TITLE_TEXT_1": "英语课程中最重要的部分是课程材料的选择。",
+  "CURRICULUM_PAGE_TITLE_TEXT_2": "有各种课程，如基础英语，英语会话，商务英语和测试英语。 在Katok英语中，您可以信赖可靠的Let's Go（第4版）并排（第3版）两本教科书被采纳为正式教科书。",
+
+  "CURRICULUM_PHONICS_TITLE": "12岁及以下的零英语水平学习者。",
+  "CURRICULUM_PHONICS_TEXT_1": "Phonics Race 1 to 4 - 本系列适用于12岁及以下的零英语水平学习者。",
+  "CURRICULUM_PHONICS_TEXT_2": "没有任何英语背景的学生应该从英语字母的字母开始学习基础知识，如何编写它们，每个字母的声音以及每个字母声音开头的简单单词。 第一本书，Phonics Race 1，将有助于培养学生的阅读技巧。 课程中涉及的活动简单而重复，有助于更好地理解和帮助记忆。 他们还帮助培训学生遵循英语的简单说明。",
+  "CURRICULUM_PHONICS_TEXT_3": "下一步是教授学生长短元音，字母组合和更简单的单词。 Phonics Race 2至4是完美的书籍。 难度逐渐增加，允许学生调整时间并使课程对学习者的压力减轻。 这些书中的活动不仅会发展阅读技巧，还会培养学生的听力技巧。 书中有趣和丰富多彩的图片有助于保持学生的兴趣和专注。",
+
+  "CURRICULUM_LETSGO_TITLE": "儿童英语教科书",
+  "CURRICULUM_LETSGO_TEXT_1": "这两本教科书涵盖了从英语基本词汇到词汇，阅读，写作，听力和口语等所有内容，甚至包括基础英语，英语会话和商务英语。",
+  "CURRICULUM_LETSGO_TEXT_2": "Letsgo适合14岁以下，并排适合12岁至成人的成人。",
+  "CURRICULUM_LETSGO_TEXT_3": "课程资料将在上课前通过电子邮件或电话传送给学生。",
+  
+  "CURRICULUM_SIDEBYSIDE_TITLE": "青少年和成人教材",
+  "CURRICULUM_SIDEBYSIDE_TEXT_1": "但是，请在书店购买，以便为课程做准备和审查。",
+  "CURRICULUM_SIDEBYSIDE_TEXT_2": "我们已经定制了一对一课程，以便您可以使用您拥有的课本上课。 您可以使用手机拍摄学生的课本并通过电子邮件发送给您。",
+  "CURRICULUM_SIDEBYSIDE_TEXT_3": " 作为参考，如果您使用KakaoTalk的视频课程，很难打开教科书。 （教师的脸和学生的脸在KakaoTalk中占据整个屏幕。）因此，学生应在课前时间准备课本。"
+
+
 
 
 

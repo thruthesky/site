@@ -382,7 +382,7 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
     teacher_name(sessions: Array<any> = null): string {
         let name = 'No Name';
         if (!sessions || !sessions.length) {
-            return name;
+            return this.re.teacher['name'];
         }
         const session = sessions[0];
         // console.log(session);

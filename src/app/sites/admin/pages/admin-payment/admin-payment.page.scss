@@ -13,11 +13,21 @@
 
 .custom-table{
     margin-top: 1em;
+    word-break: break-all;
     .payments{
         table-layout: unset;
         @media (min-width:$md) {
+            white-space: pre-wrap;
             table-layout: fixed!important;
         }
+    }
+    svg{
+        position: relative;
+        top: .125em;
+        margin-right: .5em;
+    }
+    .domain{
+        color: dimgray
     }
 }
 
