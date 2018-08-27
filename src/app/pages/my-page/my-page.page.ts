@@ -31,8 +31,8 @@ export class MyPagePage implements OnInit {
 
     auctions: AUCTIONS = null;
 
-    days = [ 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' ];
-    shortDays = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
+    days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    shortDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 
     constructor(
@@ -59,7 +59,7 @@ export class MyPagePage implements OnInit {
 
         this.loadTeachers();
 
-        a.lms.get_auctions({tz_offset: a.lms.getUserLocalTimezoneOffset()}).subscribe( res => {
+        a.lms.get_auctions({ tz_offset: a.lms.getUserLocalTimezoneOffset() }).subscribe(res => {
             // console.log('get_auctions: ', res);
             if (res && res['auction']) {
                 this.auctions = res['auction'];
@@ -120,18 +120,18 @@ export class MyPagePage implements OnInit {
     }
     onSubmitAuction(event: Event) {
         event.preventDefault();
-        if ( this.loader.auction ) {
+        if (this.loader.auction) {
             return;
         }
         // console.log('days', this.mypage.auction);
         const countDays = this.countDays(this.mypage.auction);
         // console.log('days', countDays);
-        if ( !countDays ) {
+        if (!countDays) {
             this.a.toast(this.a.ln['NO_DAY_SELECTED']);
             return;
         }
 
-        if ( !this.mypage.auction.point ) {
+        if (!this.mypage.auction.point) {
             this.a.toast(this.a.ln['NO_POINT_SELECTED']);
             return;
         }
@@ -150,7 +150,7 @@ export class MyPagePage implements OnInit {
         return false;
     }
     onDeleteAuction() {
-        if ( this.loader.auction ) {
+        if (this.loader.auction) {
             return;
         }
 
@@ -177,7 +177,7 @@ export class MyPagePage implements OnInit {
 
     }
     onDeleteApplication(application) {
-        if ( this.loader.deleteApplication ) {
+        if (this.loader.deleteApplication) {
             return;
         }
         const data: ModalData = {
@@ -209,14 +209,14 @@ export class MyPagePage implements OnInit {
     }
 
 
-    showDateSelected( auction ) {
+    showDateSelected(auction) {
         // console.log(auction);
 
         const countDays = this.countDays(auction);
         // console.log(countDays);
-        if ( countDays === 7) {
+        if (countDays === 7) {
             return 'day';
-        } else if ( countDays === 5 && !auction['sunday'] && !auction['saturday'] ) {
+        } else if (countDays === 5 && !auction['sunday'] && !auction['saturday']) {
             return 'M~F';
         } else if (countDays === 3 && auction['monday'] && auction['wednesday'] && auction['friday']) {
             return 'MWF';
@@ -224,7 +224,7 @@ export class MyPagePage implements OnInit {
             return 'T,TH';
         } else if (countDays === 1) {
             let day = '';
-            this.days.forEach( (v, i) => {
+            this.days.forEach((v, i) => {
                 if (auction[v] && auction[v] === 'Y') {
                     day = this.days[i];
                 }
@@ -232,8 +232,8 @@ export class MyPagePage implements OnInit {
             return day;
         } else {
             const d = [];
-            this.days.forEach( (v, i) => {
-                if ( auction[v] && auction[v] === 'Y'  ) {
+            this.days.forEach((v, i) => {
+                if (auction[v] && auction[v] === 'Y') {
                     d.push(this.shortDays[i]);
                 }
             });
@@ -243,8 +243,8 @@ export class MyPagePage implements OnInit {
 
     countDays(auction) {
         let cnt = 0;
-        this.days.forEach( v => {
-            if ( auction[v] && (auction[v] === 'Y' || auction[v] === true )  ) {
+        this.days.forEach(v => {
+            if (auction[v] && (auction[v] === 'Y' || auction[v] === true)) {
                 cnt++;
             }
         });
@@ -253,9 +253,9 @@ export class MyPagePage implements OnInit {
 
     onClickShowProgressModal(progress) {
 
-        const innerHTML = `<div>Teacher: ${ progress['teacher_name'] }.</div>
-                     <div>Date: ${ progress['date'] }.</div>
-                     <div>Comments: ${  progress['comment'] }</div>`;
+        const innerHTML = `<div>Teacher: ${progress['teacher_name']}.</div>
+                     <div>Date: ${ progress['date']}.</div>
+                     <div>Comments: ${  progress['comment']}</div>`;
         const data: ModalData = {
             content: innerHTML
         };
@@ -269,18 +269,19 @@ export class MyPagePage implements OnInit {
 
     checkMyClassSoftwareID(mypage) {
 
-        if ( mypage.class_software !== 'kakaotalk' ) {
+        if (mypage.class_software !== 'kakaotalk') {
             return;
         }
-        if ( mypage.class_software_id_check !== 'N' ) {
+        if (mypage.class_software_id_check !== 'N') {
             return;
         }
 
 
 
-        const content = `<div class="image"><img style="width: 100%" src="assets/img/find-kakaotalk-id.jpg"></div>`;
+        const desc = this.a.t('CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC', { class_software: this.a.t(mypage.class_software), class_software2: this.a.t(mypage.class_software), class_software3: this.a.t(mypage.class_software) });
+        const content = `${desc}<div class="image"><img style="width: 100%" src="assets/img/find-kakaotalk-id.jpg"></div>`;
         const data: ModalData = {
-            title: this.a.t('CLASS_SOFTWARE_ID_UNSEARCHABLE'),
+            title: this.a.t('CLASS_SOFTWARE_ID_UNSEARCHABLE', { class_software: this.a.t(mypage.class_software), class_software2: this.a.t(mypage.class_software) }),
             content: content,
             yes: this.a.t('UPDATE_PROFILE'),
             no: this.a.t('CLOSE')

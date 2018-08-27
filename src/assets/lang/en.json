@@ -136,7 +136,7 @@
   "MY_POINT": "My Point",
   "MY_ENGLISH_LEVEL": "My English Level",
   "MESSAGE": "Message",
-  
+
   "PROFILE": "Profile",
   "SIGN_UP": "Sign Up",
   "SCHEDULE_A_CLASS": "Shedule a class",
@@ -663,9 +663,9 @@
   "ACTIVE_TEACHER": "Active Teacher",
   "IDX_MISSING": "Wrong or Missing post number",
   "NO_VIDEO": "No Video",
-  "NO_SCHEDULE" : "No Schedule",
+  "NO_SCHEDULE": "No Schedule",
   "WARNING_NOT_RECOMMENDED_TEACHER": "Attention. You are viewing schedule with no star teacher.",
-  "RETURN_TO_LIST" : "Return to List",
+  "RETURN_TO_LIST": "Return to List",
   "Company Business Registration No": "Business Registration No",
   "Company Business Registration Other No": "Business Registration Other No",
   "DOMAIN_CHANGE_APPLICATION": "Your domain change application has been submitted. Head office will review your application.",
@@ -674,7 +674,7 @@
   "POINT_REFUND_REQUEST_DESC": "Please input the reason why you want to get your point back",
   "HEAD_OFFICE_CONTACTS": "Withcenter head office contacts",
 
-  
+
   "CHINESE_BANK_NAME": "SinWha",
   "CHINESE_BANK_ACCOUNT_HOLDER_NAME": "JaeHo Song",
   "CHINESE_BANK_DESC_2": "Total Amount: #amount (VAT #VAT% Inclusive)",
@@ -744,7 +744,7 @@
 
 
 
- 
+
   "MYPAGE": "My Page",
   "LOADING_MYPAGE": "Please wait while my page is loading.",
   "MYPAGE_DESCRIPTION": "You will see all of your learn information in this page.",
@@ -827,12 +827,12 @@
 
   "CURRICULUM_PAGE_TITLE_TEXT_1": "The most important part of the English language course is the choice of course materials.",
   "CURRICULUM_PAGE_TITLE_TEXT_2": "There are various courses such as Basic English, English Conversation, Business English, and Test English. In Katok English, you can trust the reliable Let's Go (4th edition) Side by Side (3rd Edition) Two textbooks are adopted as formal textbooks.",
-  
+
   "CURRICULUM_PHONICS_TITLE": "Zero-English level learners ages 12 and below.",
   "CURRICULUM_PHONICS_TEXT_1": "Phonics Race 1 to 4 - This series is for Zero-English level learners ages 12 and below.",
   "CURRICULUM_PHONICS_TEXT_2": "A student who does not have any background in English language should start learning the basics from the letters of the English Alphabet, how to write them, the sound of each and simple words that begin with each letter sound. The first book, Phonics Race 1, will aid in developing the reading skill of the student. The activities involved in the lessons are simple and repeated facilitating better understanding and aiding memorization. They also help in training the student to follow simple instructions in English.",
   "CURRICULUM_PHONICS_TEXT_3": "The next step is to teach the student long and short vowel sounds, letter combinations and more simple words. Phonics Race 2 to 4 are the perfect books to use. The level of difficulty increases gradually allowing time for the student to adjust and keeping the lessons less stressful for the learner. The activities in these books will develop not just the reading skill but also the listening skill of the student. Interesting and colorful pictures in the books help in maintaining the student's interest and focus.",
-  
+
   "CURRICULUM_LETSGO_TITLE": "English Textbook for Children ",
   "CURRICULUM_LETSGO_TEXT_1": "Let's Go is a suitable English textbook for children under 14 years old. Let's Go has everything from basic words in English to vocabulary, reading, writing, listening and speaking, and it even includes all the necessary courses for basic English and English conversation.",
   "CURRICULUM_LETSGO_TEXT_2": "",
@@ -844,9 +844,9 @@
   "CURRICULUM_SIDEBYSIDE_TEXT_3": "",
 
 
-  "CANDIDATE_TEACHERS_TITLE":"Candidate Teachers for Stars",
-  "CANDIDATE_TEACHERS_DESC":"These teachers completed our requirement's, but they are still in the preparation of teaching. You may reserve schedule on these teachers. But please be advised that you may experience inconvenience since these teachers are still preparing for teaching.",
+  "CANDIDATE_TEACHERS_TITLE": "Teachers in preparation",
+  "CANDIDATE_TEACHERS_DESC": "These teachers are in the preparation. Please be advised that you may experience inconvenience with these teachers since they are not 100% ready, yet.",
 
-  "CLASS_SOFTWARE_ID_UNSEARCHABLE":"Class software ID unsearchable."
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE": "Class software ID unsearchable."
 
 }
