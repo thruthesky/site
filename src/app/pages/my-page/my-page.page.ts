@@ -282,7 +282,7 @@ export class MyPagePage implements OnInit {
         const data: ModalData = {
             title: this.a.t('CLASS_SOFTWARE_ID_UNSEARCHABLE'),
             content: content,
-            yes: this.a.t('GOTO_PROFILE'),
+            yes: this.a.t('UPDATE_PROFILE'),
             no: this.a.t('CLOSE')
         };
         this.modal.confirm(data).subscribe(result => {
