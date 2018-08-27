@@ -48,11 +48,11 @@ export class AdminPaymentPage implements OnInit {
     };
     stat: STAT;
 
-    constructor(
-        public a: AppService,
-        public router: Router,
-        public activated: ActivatedRoute
-    ) {
+    domains: any = {};
+
+    constructor(public a: AppService,
+                public router: Router,
+                public activated: ActivatedRoute) {
         activated.paramMap.subscribe(params => {
             if (params.get('ID')) {
                 this.form.idx_student = params.get('ID');
@@ -65,7 +65,8 @@ export class AdminPaymentPage implements OnInit {
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 
     init() {
         this.re = [];
@@ -81,6 +82,7 @@ export class AdminPaymentPage implements OnInit {
             daily: {},
             dailyDates: []
         };
+        this.domains = {};
     }
 
     onSubmit(event?: Event) {
@@ -104,7 +106,7 @@ export class AdminPaymentPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            // console.log('re: ', re);
+            console.log('re: ', re);
             this.show.loader = false;
             this.re = re;
             this.statistics();
@@ -146,7 +148,7 @@ export class AdminPaymentPage implements OnInit {
         //     where.push(`p.state='refund'`);
         // }
 
-        if ( this.form.state !== 'all') {
+        if (this.form.state !== 'all') {
             where.push(`p.state='${this.form.state}'`);
         }
 
@@ -194,17 +196,71 @@ export class AdminPaymentPage implements OnInit {
                     } else {
                         this.stat.daily[date] = parseInt(pay.point, 10);
                     }
+                    if (!this.domains[pay.student.domain]) {
+                        this.domains[pay.student.domain] = {
+                            state: {},
+                            total_point: 0,
+                        };
+                    }
+                    if (!this.domains[pay.student.domain]['state']['approved']) {
+                        this.domains[pay.student.domain]['state']['approved'] = {
+                            count: 0,
+                            currency: {},
+                            point: {}
+                        };
+
+                    }
+
+                    if (!this.domains[pay.student.domain]['state']['approved']['currency'][pay.currency]) {
+                        this.domains[pay.student.domain]['state']['approved']['currency'][pay.currency] = 0;
+                        this.domains[pay.student.domain]['state']['approved']['point'][pay.currency] = 0;
+                    }
+                    this.domains[pay.student.domain]['state']['approved']['currency'][pay.currency] += parseFloat(pay.amount);
+                    this.domains[pay.student.domain]['state']['approved']['point'][pay.currency] += parseInt(pay.point, 10);
+                    this.domains[pay.student.domain]['total_point'] += parseInt(pay.point, 10);
+                    this.domains[pay.student.domain]['state']['approved']['count']++;
+
+
                 } else if (pay.state === 'refund') {
                     if (this.stat.refund) {
                         this.stat.refund += parseInt(pay.point, 10);
                     } else {
                         this.stat.refund = parseInt(pay.point, 10);
                     }
+
+                    if (!this.domains[pay.student.domain]) {
+                        this.domains[pay.student.domain] = {
+                            state: {},
+                            total_point: 0
+                        };
+                    }
+                    if (!this.domains[pay.student.domain]['state']['refund']) {
+                        this.domains[pay.student.domain]['state']['refund'] = {
+                            count: 0,
+                            currency: {},
+                            point: {}
+                        };
+
+                    }
+
+                    if (!this.domains[pay.student.domain]['state']['refund']['currency'][pay.currency]) {
+                        this.domains[pay.student.domain]['state']['refund']['currency'][pay.currency] = 0;
+                        this.domains[pay.student.domain]['state']['refund']['point'][pay.currency] = 0;
+                    }
+                    this.domains[pay.student.domain]['state']['refund']['currency'][pay.currency] += parseFloat(pay.amount);
+                    this.domains[pay.student.domain]['state']['refund']['point'][pay.currency] += parseInt(pay.point, 10);
+                    this.domains[pay.student.domain]['total_point'] -= parseInt(pay.point, 10);
+                    this.domains[pay.student.domain]['state']['refund']['count']++;
+
                 } else {
                     this.stat.fail++;
                 }
             }
+
+
+
         }
+        console.log('domains', this.domains);
         // console.log('this.stat.daily::' , this.stat.daily);
         this.stat.dailyDates = Object.keys(this.stat.daily).sort().reverse();
         this.stat.studentName = Object.keys(this.stat.student);

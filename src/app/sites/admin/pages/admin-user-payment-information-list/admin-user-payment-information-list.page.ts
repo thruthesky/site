@@ -24,7 +24,8 @@ export class AdminUserPaymentInformationListPage implements OnInit {
     paymentInfoView = false;
 
     constructor(public a: AppService,
-                public active: ActivatedRoute,) {
+                public active: ActivatedRoute
+    ) {
 
 
         active.paramMap.subscribe(params => {

@@ -382,7 +382,7 @@
                             </ng-container>
 
 
-                            <ng-container *ngIf=" ! book.refund_timeover && ! rejected( book ) && ! refunded( book )">
+                            <ng-container *ngIf=" ! book.refund_timeover && ! rejected( book ) && ! refunded( book ) && page != 'session-future'">
                                 <ng-container *ngIf="book.refund_request_at > 0 ">
                                     <button class="cancel-refund-request" (click)=" onClickCancelRefundRequest( book )">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
