@@ -156,3 +156,23 @@ main {
         }
     }
 }
+
+.candidate-teachers{
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 1px solid rgba(125, 125, 125, 0.2);
+    border-radius: 2px;
+    background: #fff;
+    .title{
+        font-size: 1.1rem;
+    }
+    .desc{
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #eee;
+        font-size: .9rem;
+    }
+    .container-fluid{
+        margin: 1rem 0;
+    }
+}
