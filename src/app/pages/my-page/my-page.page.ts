@@ -54,6 +54,7 @@ export class MyPagePage implements OnInit {
                 this.show.auction = true;
             }
             // console.log('mypage:after:load ', this.mypage);
+            this.checkMyClassSoftwareID(this.mypage);
         }, e => a.toast(e));
 
         this.loadTeachers();
@@ -261,6 +262,32 @@ export class MyPagePage implements OnInit {
         this.modal.alert(data).subscribe(result => {
             if (result) {
                 //
+            }
+        });
+    }
+
+
+    checkMyClassSoftwareID(mypage) {
+
+        if ( mypage.class_software !== 'kakaotalk' ) {
+            return;
+        }
+        if ( mypage.class_software_id_check !== 'N' ) {
+            return;
+        }
+
+
+
+        const content = `<div class="image"><img style="width: 100%" src="assets/img/find-kakaotalk-id.jpg"></div>`;
+        const data: ModalData = {
+            title: this.a.t('CLASS_SOFTWARE_ID_UNSEARCHABLE'),
+            content: content,
+            yes: this.a.t('GOTO_PROFILE'),
+            no: this.a.t('CLOSE')
+        };
+        this.modal.confirm(data).subscribe(result => {
+            if (result) {
+                this.a.open('register');
             }
         });
     }

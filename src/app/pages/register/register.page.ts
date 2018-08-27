@@ -322,6 +322,7 @@ export class RegisterPage implements OnInit {
         delete this.form.kakao_qrmark_string;
         this.show.updateLoader = true;
         this.show.updated = false;
+        this.form.class_software_id_check = '';
         this.a.user.update(this.form).subscribe((res: USER_UPDATE_RESPONSE) => {
             // console.log('updateUserInfo:', res);
             this.show.updateLoader = false;

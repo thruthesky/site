@@ -170,6 +170,7 @@ export class AdminUserInfoPage implements OnInit {
             phone_number: u.phone_number,
             class_software: u.class_software,
             class_software_id: u.class_software_id,
+            class_software_id_check: u.class_software_id_check,
             youtube_video_url: u.youtube_video_url,
             grade: u.grade,
             candidate: u.candidate,

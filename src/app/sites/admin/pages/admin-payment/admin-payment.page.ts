@@ -106,7 +106,7 @@ export class AdminPaymentPage implements OnInit {
             student_info: true,
             teacher_info: true
         }).subscribe(re => {
-            console.log('re: ', re);
+            // console.log('re: ', re);
             this.show.loader = false;
             this.re = re;
             this.statistics();
@@ -260,7 +260,7 @@ export class AdminPaymentPage implements OnInit {
 
 
         }
-        console.log('domains', this.domains);
+        // console.log('domains', this.domains);
         // console.log('this.stat.daily::' , this.stat.daily);
         this.stat.dailyDates = Object.keys(this.stat.daily).sort().reverse();
         this.stat.studentName = Object.keys(this.stat.student);

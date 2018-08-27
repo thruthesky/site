@@ -106,6 +106,7 @@ export interface MYPAGE {
     book_next: string;
     class_software: string;
     class_software_id: string;
+    class_software_id_check: string;
     no_of_total_sessions: number;
     no_of_reservation: number;
     no_of_past: number;

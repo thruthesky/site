@@ -278,6 +278,11 @@
                             <label>Class Software ID</label>
                             <input value="{{  user.class_software_id }}" [(ngModel)]=" user.class_software_id " name="class_software_id">
                         </div>
+                        <div>
+                            <label>Class Software ID Check</label>
+                            <input value="{{  user.class_software_id_check }}" [(ngModel)]=" user.class_software_id_check " name="class_software_id_check" maxlength="1">
+                            <small>Put 'N' if the messager ID is unsearchable. make sure you double check it first.</small>
+                        </div>
 
 
                         <div>
@@ -319,8 +324,8 @@
                         <div>
                             <label>Teacher Candidate</label>
                             <input value="{{  user.candidate }}" [(ngModel)]=" user.candidate " name="teacher_candidate">
+                            <small>Input 1 to 9 as listing priority. If it's 0 or empty, then the teacher is not candidate for star.</small>
                         </div>
-                        <div>Input 1 to 9 as listing priority. If it's 0 or empty, then the teacher is not candidate for star.</div>
 
                         <div>
                             <label>List Order</label>
