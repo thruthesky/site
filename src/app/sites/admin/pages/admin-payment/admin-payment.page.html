@@ -90,6 +90,22 @@
                 </div>
         </div>
         <div class="col-sm-12 col-md-8">
+            <div *ngIf=" domains ">
+                <div class="border mb-1" *ngFor="let domain of a.keys(domains)">
+                    <div>Domain: {{domain}} Total Point: {{domains[domain].total_point}}</div>
+                    <ng-container *ngFor="let state of a.keys(domains[domain]['state'])">
+                        <div>{{state}} Count: {{domains[domain]['state'][state].count}}</div>
+                        <div *ngFor="let currency of a.keys(domains[domain]['state'][state]['currency'])">
+                            <div class="row">
+                                <div class="col">{{currency}}</div>
+                                <div class="col">Amount: {{ a.shortNumber(domains[domain]['state'][state]['currency'][currency]) }}</div>
+                                <div class="col">Point: {{a.shortNumber(domains[domain]['state'][state]['point'][currency])}}</div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div>
                 <div class="title"><b>Successful Payment of Student:</b> If you click on student, you will see the payments of the student.</div>
                 <div class="students">
                     <span class="student" *ngFor="let student of stat.studentName"
@@ -102,6 +118,7 @@
                         <span class="point">{{ this.stat.student[student].point | number }}</span>
                     </span>
                 </div>
+            </div>
         </div>
     </div>
 </div>

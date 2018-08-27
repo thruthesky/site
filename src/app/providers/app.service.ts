@@ -777,6 +777,7 @@ export class AppService {
      * Return teacher name after sanitizing it.
      * @param name Teacher name
      * @param length Number of maximum name length
+     * @param def if name is empty
      */
     shortName(name: string, length = 8, def = 'No Name') {
 
