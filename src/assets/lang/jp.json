@@ -766,7 +766,8 @@
   "CANDIDATE_TEACHERS_TITLE":"準備中の教師",
   "CANDIDATE_TEACHERS_DESC":"これらの教師は準備中です。 100％準備ができていないため、これらの教師に不便を感じる可能性があります。",
 
-  "CLASS_SOFTWARE_ID_UNSEARCHABLE":"クラスソフトウェアIDは見分けがたい。"
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE":"クラスソフトウェアIDは見分けがたい。",
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC": "会員の #class_software ID は間違っているか検索はできません。正しい ＃class_software2 IDを更新してください。＃class_software3 IDが見つからない場合の相談をしてください。<br>カカオトークIDは以下のように見つけることができます。"
 
 
 

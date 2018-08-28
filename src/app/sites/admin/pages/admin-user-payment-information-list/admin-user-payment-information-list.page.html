@@ -1,9 +1,17 @@
 <h1>Teacher Payment Information List</h1>
+<ul>
+    <li>
+        By default it will search base on the given date and will check who had class with the given date.
+    </li>
+    <li>
+        You can search by teacher IDX's if you need a specific teacher. separated with comma. example: 1,2,3,4,5,6 or 7 only if only one teacher.
+    </li>
+</ul>
 <div class="form">
     <form (ngSubmit)=" loadPaymentList() ">
-        <label>Teacher ID: <input type="number" name="idx_teacher" [(ngModel)]="idx_teacher"></label>
-        <label *ngIf="!idx_teacher>0">Start Date: <input type="number" name="date_begin" [(ngModel)]="stat_date_begin"></label>
-        <label *ngIf="!idx_teacher>0">End Date: <input type="number" name="date_end" [(ngModel)]="stat_date_end"></label>
+        <label>Teacher ID: <input type="text" name="idx_teacher" [(ngModel)]="idx_teacher"></label>
+        <label *ngIf="!idx_teacher">Start Date: <input type="number" name="date_begin" [(ngModel)]="stat_date_begin"></label>
+        <label *ngIf="!idx_teacher">End Date: <input type="number" name="date_end" [(ngModel)]="stat_date_end"></label>
         <button type="submit">SUBMIT</button>
     </form>
 </div>
@@ -19,7 +27,7 @@
                     <span class="primary-photo" *ngIf="info['photoURL']">
                         <img src="{{info['photoURL']}}">
                     </span>
-                    <div class="name  {{ selectedID == info['idx_teacher']? 'selected' : ''}} ">{{ info['display_name'] }}</div>
+                    <div class="name  {{ selectedID == info['idx_teacher']? 'selected' : ''}} ">{{ info['<d></d>isplay_name'] }}</div>
 
                 </div>
             </div>

@@ -120,7 +120,7 @@ export class AdminMessageListPage implements OnInit {
             date_begin: this.stat_date_begin,
             date_end: this.stat_date_end
         }).subscribe(re => {
-            console.log('admin_message_list_by_idx_teacher', re);
+            // console.log('admin_message_list_by_idx_teacher', re);
             this.loader.teacher_message = false;
             this.teachers_message[ID] = re;
         }, e => {
@@ -143,7 +143,7 @@ export class AdminMessageListPage implements OnInit {
             date_begin: this.stat_date_begin,
             date_end: this.stat_date_end
         }).subscribe(re => {
-            console.log('admin_message_list_conversation', re);
+            // console.log('admin_message_list_conversation', re);
             this.loader.teacher_conversation = false;
             message['conversation'] = re;
         }, e => {

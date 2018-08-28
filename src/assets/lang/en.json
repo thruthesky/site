@@ -847,6 +847,7 @@
   "CANDIDATE_TEACHERS_TITLE": "Teachers in preparation",
   "CANDIDATE_TEACHERS_DESC": "These teachers are in the preparation. Please be advised that you may experience inconvenience with these teachers since they are not 100% ready, yet.",
 
-  "CLASS_SOFTWARE_ID_UNSEARCHABLE": "Class software ID unsearchable."
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE": "Class software ID unsearchable.",
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC": "Your #class_software ID is invalid or can not be retrieved. Please update the correct #class_software2 ID. #class_software3 If you can not find your ID, please contact us. <br> You can find your KakaoTalk ID as below."
 
 }
