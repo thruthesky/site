@@ -180,6 +180,11 @@ const routes: Routes = [
     loadChildren: './pages/register/register.page.module#RegisterPageModule'
   },
 
+  {
+    path: 'resign',
+    loadChildren: './pages/resign/resign.page.module#ResignPageModule'
+  },
+
 
   {
     path: 'message',

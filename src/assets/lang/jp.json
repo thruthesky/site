@@ -767,7 +767,15 @@
   "CANDIDATE_TEACHERS_DESC":"これらの教師は準備中です。 100％準備ができていないため、これらの教師に不便を感じる可能性があります。",
 
   "CLASS_SOFTWARE_ID_UNSEARCHABLE":"クラスソフトウェアIDは見分けがたい。",
-  "CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC": "会員の #class_software ID は間違っているか検索はできません。正しい ＃class_software2 IDを更新してください。＃class_software3 IDが見つからない場合の相談をしてください。<br>カカオトークIDは以下のように見つけることができます。"
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC": "会員の #class_software ID は間違っているか検索はできません。正しい ＃class_software2 IDを更新してください。＃class_software3 IDが見つからない場合の相談をしてください。<br>カカオトークIDは以下のように見つけることができます。",
+
+
+  "RESIGN_PAGE_TITLE": "メンバーシップを離れる",
+  "RESIGN_PAGE_DESC": "会員資格を離れると、あなたの情報はデータベースから削除され、あなたはあなたのスケジュールとポイントにアクセスできなくなります。",
+  "RESIGN_CONFIRM_TITLE": "メンバーシップを離れる",
+  "RESIGN_CONFIRM_CONTENT": "メンバーシップを終了しますか？",
+  "RESIGN_BUTTON_TEXT": "メンバーシップを今すぐ離れる",
+  "RESIGNED_ALERT_CONTENT": "あなたはメンバーシップを去りました。 ありがとうございました。"
 
 
 

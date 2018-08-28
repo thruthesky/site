@@ -791,7 +791,15 @@
   "CANDIDATE_TEACHERS_DESC": "这些老师正在准备中。 请注意，您可能会对这些教师造成不便，因为他们尚未做好100％的准备。",
 
   "CLASS_SOFTWARE_ID_UNSEARCHABLE": "类软件ID无法搜索。",
-  "CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC": "您的 #class_software ID无效或无法检索。 请更新正确的 ＃class_software2 ID。 ＃class_software3 如果您找不到您的ID，请与我们联系。<br>您可以在下面找到您的KakaoTalk ID。"
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC": "您的 #class_software ID无效或无法检索。 请更新正确的 ＃class_software2 ID。 ＃class_software3 如果您找不到您的ID，请与我们联系。<br>您可以在下面找到您的KakaoTalk ID。",
+
+
+  "RESIGN_PAGE_TITLE": "离开会员",
+  "RESIGN_PAGE_DESC": "如果您保留会员资格，您的信息将从数据库中删除，您将无法再访问您的日程安排和点数。",
+  "RESIGN_CONFIRM_TITLE": "离开会员",
+  "RESIGN_CONFIRM_CONTENT": "你确定要离开会员吗？",
+  "RESIGN_BUTTON_TEXT": "立即离开会员",
+  "RESIGNED_ALERT_CONTENT": "你已离开会员。 谢谢。"
 
 
 }

@@ -1016,4 +1016,13 @@ export class XapiLMSService extends Base {
         });
     }
 
+
+    resign(): Observable<any> {
+        const data: REQUEST = {
+            session_id: this.user.sessionId,
+            route: 'lms.resign'
+        };
+        return this.x.post(data);
+    }
+
 }
