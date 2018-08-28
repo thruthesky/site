@@ -1,9 +1,9 @@
 <h1>Teacher Payment Information List</h1>
 <div class="form">
     <form (ngSubmit)=" loadPaymentList() ">
-        <input type="number" name="teacher_id" [(ngModel)]="idx_teacher">
-        <input type="number" name="date_begin" [(ngModel)]="stat_date_begin">
-        <input type="number" name="date_end" [(ngModel)]="stat_date_end">
+        <label>Teacher ID: <input type="number" name="idx_teacher" [(ngModel)]="idx_teacher"></label>
+        <label *ngIf="!idx_teacher>0">Start Date: <input type="number" name="date_begin" [(ngModel)]="stat_date_begin"></label>
+        <label *ngIf="!idx_teacher>0">End Date: <input type="number" name="date_end" [(ngModel)]="stat_date_end"></label>
         <button type="submit">SUBMIT</button>
     </form>
 </div>
@@ -36,14 +36,14 @@
                     <div>Full Name: {{payment_information[selectedID]?.first_name}}
                         {{payment_information[selectedID]?.middle_name}} {{payment_information[selectedID]?.last_name}}
                     </div>
-                    <div>Payment Method: {{payment_information[selectedID].payment_method}}</div>
-                    <div>Phone Number: {{payment_information[selectedID].phone_number}}</div>
-                    <div>Email: {{payment_information[selectedID].email}}</div>
-                    <div>Address: {{payment_information[selectedID].address}}</div>
-                    <div>City: {{payment_information[selectedID].city}}</div>
-                    <div>Province: {{payment_information[selectedID].province}}</div>
-                    <div>Country: {{payment_information[selectedID].country}}</div>
-                    <div>ZipCode: {{payment_information[selectedID].zipcode}}</div>
+                    <div>Payment Method: {{payment_information[selectedID]?.payment_method}}</div>
+                    <div>Phone Number: {{payment_information[selectedID]?.phone_number}}</div>
+                    <div>Email: {{payment_information[selectedID]?.email}}</div>
+                    <div>Address: {{payment_information[selectedID]?.address}}</div>
+                    <div>City: {{payment_information[selectedID]?.city}}</div>
+                    <div>Province: {{payment_information[selectedID]?.province}}</div>
+                    <div>Country: {{payment_information[selectedID]?.country}}</div>
+                    <div>ZipCode: {{payment_information[selectedID]?.zipcode}}</div>
                 </div>
 
                 <div class="payment-information-history"  *ngIf="payment_information[selectedID]">

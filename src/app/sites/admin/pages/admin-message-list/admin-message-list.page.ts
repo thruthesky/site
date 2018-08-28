@@ -62,7 +62,7 @@ export class AdminMessageListPage implements OnInit {
             date_begin: this.stat_date_begin,
             date_end: this.stat_date_end
         }).subscribe(res => {
-            console.log('messages: ', res);
+            // console.log('messages: ', res);
             this.messages = res;
             this.loader.message = false;
         }, e => {
