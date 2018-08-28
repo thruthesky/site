@@ -200,16 +200,19 @@ export class AdminSidebarComponent implements OnInit {
     }
 
     checkSession(session) {
-        if ( session.stamp_checked > 0 ) {
+        if ( session.stamp_checked > 0 || session['alarm_checking']) {
             return;
         }
         this.alertUnChecked = false;
+        session['alarm_checking'] = true;
         this.a.lms.session_stamp_checked({idx: session.idx}).subscribe( re => {
             // console.log(re);
             session.stamp_checked = 1;
             this.alertMark = '';
+            session['alarm_checking'] = false;
         }, e => {
             this.a.toast(e);
+            session['alarm_checking'] = false;
         });
     }
 
