@@ -208,7 +208,9 @@
                 <td>{{ session.class_begin }}</td>
                 <td>{{ session.point }}</td>
                 <td>
-                    <button (click)="checkSession(session)" *ngIf="session.stamp_checked == 0; else stampChecked">N</button>
+                    <button (click)="checkSession(session)" *ngIf="session.stamp_checked == 0; else stampChecked">
+                        <span *ngIf="!session['alarm_checking']">N</span><mat-spinner *ngIf="session['alarm_checking']" [diameter]="14"></mat-spinner>
+                    </button>
                     <ng-template #stampChecked>Y</ng-template>
                 </td>
             </tr>
