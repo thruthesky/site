@@ -114,7 +114,7 @@
 
         <div class="candidate-teachers" *ngIf=" candidate_teachers && candidate_teachers.length ">
             <div class="title">{{ 'CANDIDATE_TEACHERS_TITLE' | t}}</div>
-            <div class="desc">{{ 'CANDIDATE_TEACHERS_DESC' | t}}</div>
+            <div class="desc" *ngIf="!a.isTeacher">{{ 'CANDIDATE_TEACHERS_DESC' | t}}</div>
             <div class="container-fluid" *ngIf=" re ">
                 <div class="row">
                     <a *ngFor="let teacher of candidate_teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-auto"

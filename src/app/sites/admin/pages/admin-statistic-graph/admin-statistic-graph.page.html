@@ -118,6 +118,7 @@
                         <div><b class="{{ classColor(info['total_percentage_of_minutes'])}}">TM:{{a.shortNumber(info['total_minutes_of_reservation'])}}/{{a.shortNumber(info['total_minutes_of_schedule'])}}({{info['total_percentage_of_minutes']}}%)</b></div>
                         <div>TP:{{a.shortNumber(info['total_point_of_reservation'])}}/{{a.shortNumber(info['total_point_of_schedule'])}}({{info['total_percentage_of_points']}}%)</div>
                         <div>PHP:{{info['total_teacher_earn_in_php'] | number }}</div>
+                        <!--<div>CBT:{{info['total_teacher_cancellation'] | number }}</div>-->
                     </td>
                     <td>
                         <div class="bars">
@@ -155,6 +156,8 @@
                                 <b>P</b>:{{a.shortNumber(stats['booking']['statistics'][info.idx_teacher][d]['point_of_reservation'])}}/{{a.shortNumber(stats['booking']['statistics'][info.idx_teacher][d]['point_of_schedule'])}}({{stats['booking']['statistics'][info.idx_teacher][d]['percentage_of_points']}}%)
                             </div>
                         </ng-container>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
                     </td>
                 </tr>
                 <tr class="bottom-total">
