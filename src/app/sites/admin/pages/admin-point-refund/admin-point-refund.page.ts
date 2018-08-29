@@ -39,7 +39,7 @@ export class AdminPointRefundPage implements OnInit {
 
     loadSessions() {
         this.a.lms.get_sessions_in_refund_progress( this.form ).subscribe(re => {
-            // console.log(re);
+            // console.log('get_sessions_in_refund_progress', re);
             this.re = re;
             this.pre();
         }, e => this.a.toast(e));

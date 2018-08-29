@@ -77,7 +77,7 @@ export class OntueHomePage {
                     }
                 });
 
-                console.log('checkTeacherInformation::res::', content);
+                // console.log('checkTeacherInformation::res::', content);
 
                 if ( content ) {
                     const data: ModalData = {

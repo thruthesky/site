@@ -103,7 +103,7 @@ export class AdminFreeClassListPage implements OnInit {
         this.a.scrollToTop();
         this.a.lms.admin_get_free_class_by_id({ID: ID}).subscribe( re => {
             this.student = re;
-            console.log('admin_get_free_class_by_id:: id', re);
+            // console.log('admin_get_free_class_by_id:: id', re);
             this.loader.student = false;
         }, e => {
             this.a.toast(e);
@@ -114,7 +114,7 @@ export class AdminFreeClassListPage implements OnInit {
     loadFreeClass() {
         this.loader.list = true;
         this.a.lms.admin_get_free_class_list_count({limit: 150}).subscribe( re => {
-            console.log('admin_get_free_class_list_count', re);
+            // console.log('admin_get_free_class_list_count', re);
             this.students = re;
             this.loader.list = false;
         }, e => {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../../../providers/app.service';
 
 @Component({
     selector: 'ontue-curriculum-page',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class OntueCurriculumPage implements OnInit {
-    constructor() { }
+    constructor(
+        public a: AppService
+    ) { }
 
     ngOnInit() { }
 }

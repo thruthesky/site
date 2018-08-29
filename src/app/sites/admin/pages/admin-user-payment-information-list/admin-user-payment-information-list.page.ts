@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AdminUserPaymentInformationListPage implements OnInit {
 
     ID: number = null;
-    idx_teacher: number = null;
+    idx_teacher: string = '';
     teachers = null;
     payment_information = null;
     selectedID = null;
@@ -70,10 +70,11 @@ export class AdminUserPaymentInformationListPage implements OnInit {
     loadPaymentList() {
         this.loader.record = true;
         this.a.lms.admin_user_payment_information_list({
+            idx_teacher: this.idx_teacher,
             date_begin: this.stat_date_begin,
             date_end: this.stat_date_end
         }).subscribe(res => {
-            console.log('messages: ', res);
+            // console.log('messages: ', res);
             this.teachers = res['teachers'];
             this.payment_information = res['payment_information'];
             this.loader.record = false;

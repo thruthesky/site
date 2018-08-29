@@ -847,6 +847,14 @@
   "CANDIDATE_TEACHERS_TITLE": "Teachers in preparation",
   "CANDIDATE_TEACHERS_DESC": "These teachers are in the preparation. Please be advised that you may experience inconvenience with these teachers since they are not 100% ready, yet.",
 
-  "CLASS_SOFTWARE_ID_UNSEARCHABLE": "Class software ID unsearchable."
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE": "Class software ID unsearchable.",
+  "CLASS_SOFTWARE_ID_UNSEARCHABLE_DESC": "Your #class_software ID is invalid or can not be retrieved. Please update the correct #class_software2 ID. #class_software3 If you can not find your ID, please contact us. <br> You can find your KakaoTalk ID as below.",
 
+
+  "RESIGN_PAGE_TITLE": "Leave Membership",
+  "RESIGN_PAGE_DESC": "If you leave membership, your information will be deleted from database and you can no longer access your schedule and point.",
+  "RESIGN_CONFIRM_TITLE": "Leave Membership",
+  "RESIGN_CONFIRM_CONTENT": "Are you sure you want to leave the membership?",
+  "RESIGN_BUTTON_TEXT": "Leave Membership Now",
+  "RESIGNED_ALERT_CONTENT": "You have left the membership. Thank you."
 }
