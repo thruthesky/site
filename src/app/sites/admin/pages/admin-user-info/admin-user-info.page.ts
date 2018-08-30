@@ -561,7 +561,7 @@ export class AdminUserInfoPage implements OnInit {
         // console.log(this.user);
         const sql = `SELECT sum(lms_reservation.point) as points, wp_users.domain
                      FROM lms_reservation, wp_users
-                     WHERE BRANCH AND lms_reservation.idx_student=wp_users.ID idx_student=${this.user.ID}
+                     WHERE BRANCH AND lms_reservation.idx_student=wp_users.ID AND idx_student=${this.user.ID}
                      GROUP BY idx_student
                      `;
         this.show.loader.totalPointReserved = true;
