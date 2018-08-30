@@ -32,17 +32,13 @@
 }
 
 .payment-domains{
-    padding: .5rem 1rem;
-    border: 1px solid rgba(125,125,125,0.3);
+    // padding: .5rem 1rem;
+    // border: 1px solid rgba(125,125,125,0.3);
     font-size: .9rem;
     .domain-title{
         display: flex;
         justify-content: space-between;
-        // background: #eee;
-    }
-    .approved-count{
-        // padding: .5em 1rem;
-        font-size: .85em;
+        padding: .35em 0;
     }
     .data{
         padding: 0 1rem;
