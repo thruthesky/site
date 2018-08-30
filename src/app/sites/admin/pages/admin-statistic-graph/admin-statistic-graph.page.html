@@ -87,6 +87,7 @@
         <div><b>*R</b>: no of Reservations</div>
         <div><b>*M</b>: no of Minutes</div>
         <div><b>*P</b>: no of Points</div>
+        <div><b>*CBT</b>: Cancel by Teacher</div>
         <div class="booking-statistic" *ngFor="let user_group of a.keys(stats['booking']['teacher_groups']).reverse()">
             <h2>User Group: {{ user_group }}</h2>
             <table>
@@ -118,7 +119,7 @@
                         <div><b class="{{ classColor(info['total_percentage_of_minutes'])}}">TM:{{a.shortNumber(info['total_minutes_of_reservation'])}}/{{a.shortNumber(info['total_minutes_of_schedule'])}}({{info['total_percentage_of_minutes']}}%)</b></div>
                         <div>TP:{{a.shortNumber(info['total_point_of_reservation'])}}/{{a.shortNumber(info['total_point_of_schedule'])}}({{info['total_percentage_of_points']}}%)</div>
                         <div>PHP:{{info['total_teacher_earn_in_php'] | number }}</div>
-                        <!--<div>CBT:{{info['total_teacher_cancellation'] | number }}</div>-->
+                        <div>CBT:{{info['total_teacher_cancellation'] | number }}</div>
                     </td>
                     <td>
                         <div class="bars">
