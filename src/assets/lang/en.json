@@ -29,6 +29,7 @@
   "LMS.ADMIN_ACCEPT_REFUND_REQUEST": "Refunded by admin",
   "LMS.SESSION_REFUND": "Refunded by teacher",
   "ADMIN.ADD": "Admin add",
+  "ADMIN.DEDUCT": "Admin Deduct",
   "ADMIN.REFUND": "Admin refund",
   "ADMIN.SUBTRACT": "Admin subtract",
   "PAYMENT.PAYPAL": "Paypal Payment",
