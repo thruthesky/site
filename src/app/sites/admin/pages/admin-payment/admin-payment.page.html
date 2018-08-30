@@ -90,12 +90,15 @@
                 </div>
         </div>
         <div class="col-sm-12 col-md-8">
-            <div *ngIf=" domains ">
-                <div class="border mb-1" *ngFor="let domain of a.keys(domains)">
-                    <div>Domain: {{domain}} Total Point: {{domains[domain].total_point}}</div>
+            <div class="payment-domains" *ngIf=" domains ">
+                <div class="mb-1" *ngFor="let domain of a.keys(domains)">
+                    <div  class="domain-title">
+                        <b>{{domain}}</b> 
+                        <span>Total Point: {{domains[domain].total_point | number}}</span>
+                    </div>
                     <ng-container *ngFor="let state of a.keys(domains[domain]['state'])">
-                        <div>{{state}} Count: {{domains[domain]['state'][state].count}}</div>
-                        <div *ngFor="let currency of a.keys(domains[domain]['state'][state]['currency'])">
+                        <div class="approved-count">{{state}} Count: {{domains[domain]['state'][state].count}}</div>
+                        <div class="data" *ngFor="let currency of a.keys(domains[domain]['state'][state]['currency'])">
                             <div class="row">
                                 <div class="col">{{currency}}</div>
                                 <div class="col">Amount: {{ a.shortNumber(domains[domain]['state'][state]['currency'][currency]) }}</div>

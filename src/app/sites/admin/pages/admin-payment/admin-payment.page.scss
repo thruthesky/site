@@ -31,7 +31,28 @@
     }
 }
 
-
+.payment-domains{
+    padding: .5rem 1rem;
+    border: 1px solid rgba(125,125,125,0.3);
+    font-size: .9rem;
+    .domain-title{
+        display: flex;
+        justify-content: space-between;
+        // background: #eee;
+    }
+    .approved-count{
+        // padding: .5em 1rem;
+        font-size: .85em;
+    }
+    .data{
+        padding: 0 1rem;
+        font-size: .9em;
+        &:last-child{
+            padding-bottom: .5em;
+            border-bottom: 1px solid rgba(125,125,125,0.3);
+        }
+    }
+}
 
 .loader{
     margin: 1em 0;
