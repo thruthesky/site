@@ -210,10 +210,10 @@ export class AdminSessionPage implements OnInit {
             where.push(`r.idx_schedule=${this.form.idx_schedule}`);
         }
         if (this.form.user_group) {
-            where.push(`u.user_group='${this.form.user_group}'`);
+            where.push(`wp_users.user_group='${this.form.user_group}'`);
         }
         if (this.form.grade) {
-            where.push(`u.grade=${this.form.grade}`);
+            where.push(`wp_users.grade=${this.form.grade}`);
         }
 
 
