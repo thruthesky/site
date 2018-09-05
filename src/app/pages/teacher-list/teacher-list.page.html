@@ -103,7 +103,7 @@
         <div class="teachers">
             <div class="container-fluid" *ngIf=" re ">
                 <div class="row">
-                    <a *ngFor="let teacher of teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-auto"
+                    <a *ngFor="let teacher of teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-auto pb-3"
                         routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
                         <app-teacher-list-profile-component [teacher]=" teacher "></app-teacher-list-profile-component>
                     </a>
@@ -114,7 +114,7 @@
 
         <div class="candidate-teachers" *ngIf=" candidate_teachers && candidate_teachers.length ">
             <div class="title">{{ 'CANDIDATE_TEACHERS_TITLE' | t}}</div>
-            <div class="desc" *ngIf=" a.isStudent ">{{ 'CANDIDATE_TEACHERS_DESC' | t}}</div>
+            <div class="desc" *ngIf=" ! a.site.teacherTheme ">{{ 'CANDIDATE_TEACHERS_DESC' | t}}</div>
                 <div class="row"  *ngIf=" re ">
                     <a *ngFor="let teacher of candidate_teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-auto"
                         routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
