@@ -1025,4 +1025,12 @@ export class XapiLMSService extends Base {
         return this.x.post(data);
     }
 
+    admin_configuration_setting() {
+        const data: REQUEST = {
+            session_id: this.user.sessionId,
+            route: 'lms.admin_configuration_setting'
+        };
+        return this.x.post(data);
+    }
+
 }

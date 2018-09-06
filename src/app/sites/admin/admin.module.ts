@@ -25,15 +25,16 @@ import { AdminNoOfUserPerEachDomainPage } from './pages/admin-no-of-user-per-eac
 import { AdminStatisticGraphPage } from './pages/admin-statistic-graph/admin-statistic-graph.page';
 import { AdminBranchListPage } from './pages/admin-branch-list/admin-branch-list.page';
 import { AdminBranchTeachersPage } from './pages/admin-branch-teachers/admin-branch-teachers.page';
-
-// COMPONENT
-import { AdminBranchEditComponent } from './components/admin-branch-edit/admin-branch-edit.component';
-import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { AdminMessageListPage } from './pages/admin-message-list/admin-message-list.page';
 import { AdminUserPaymentInformationListPage } from './pages/admin-user-payment-information-list/admin-user-payment-information-list.page';
 import { AdminStudentReservationPage } from './pages/admin-student-reservation/admin-student-reservation.page';
 import { AdminPromoMessagePage } from './pages/admin-promo-message/admin-promo-message.page';
 import { AdminFreeClassListPage } from './pages/admin-free-class-list/admin-free-class-list.page';
+import { AdminConfigurationSettingPage } from './pages/admin-configuration-setting/admin-configuration-setting.page';
+
+// COMPONENT
+import { AdminBranchEditComponent } from './components/admin-branch-edit/admin-branch-edit.component';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 
 const routes: Routes = [
     {
@@ -71,7 +72,8 @@ const routes: Routes = [
             { path: 'user-payment-information', component: AdminUserPaymentInformationListPage },
             { path: 'promo-message', component: AdminPromoMessagePage },
             { path: 'free-class-list/:ID', component: AdminFreeClassListPage },
-            { path: 'free-class-list', component: AdminFreeClassListPage }
+            { path: 'free-class-list', component: AdminFreeClassListPage },
+            { path: 'configuration-setting', component: AdminConfigurationSettingPage }
         ]
     }
 
@@ -115,7 +117,8 @@ const routes: Routes = [
         AdminUserPaymentInformationListPage,
         AdminStudentReservationPage,
         AdminPromoMessagePage,
-        AdminFreeClassListPage
+        AdminFreeClassListPage,
+        AdminConfigurationSettingPage
     ],
     entryComponents: [
         AdminLayoutPage,
@@ -140,7 +143,8 @@ const routes: Routes = [
         AdminUserPaymentInformationListPage,
         AdminStudentReservationPage,
         AdminPromoMessagePage,
-        AdminFreeClassListPage
+        AdminFreeClassListPage,
+        AdminConfigurationSettingPage
     ],
     providers: [],
     bootstrap: [AdminLayoutPage],

@@ -1,0 +1,176 @@
+<h2>Configuration Settings</h2>
+<!--<button (click)="loadConfiguration()">Reload</button>-->
+
+<section  *ngIf="configuration">
+<table>
+  <tr>
+    <td>Source</td>
+    <td>1CNY to KRW</td>
+    <td>1JPY to KRW</td>
+    <td>1PHP to KRW</td>
+    <td>1USD to KRW</td>
+  </tr>
+  <tr *ngFor="let s of a.keys(configuration['currency_info'])">
+    <td>{{s}}</td>
+    <td>{{configuration['currency_info'][s]['cny-to-krw']}}</td>
+    <td>{{configuration['currency_info'][s]['jpy-to-krw']}}</td>
+    <td>{{configuration['currency_info'][s]['php-to-krw']}}</td>
+    <td>{{configuration['currency_info'][s]['usd-to-krw']}}</td>
+  </tr>
+</table>
+
+<h3>Other Options</h3>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Value</td>
+  </tr>
+  <tr>
+    <td>Cancellable time for instant reservation</td>
+    <td>{{configuration.CANCELLABLE_TIME_FOR_INSTANT_RESERVATION}} minute</td>
+  </tr>
+  <tr>
+    <td>GCASH Transaction fee per 1000PHP</td>
+    <td>{{configuration.GCASH_TRANSACTION}} php</td>
+  </tr>
+  <tr>
+    <td>Low point per minute</td>
+    <td>{{configuration.LOW_POINT_PER_MINUTE}} point/min</td>
+  </tr>
+  <tr>
+    <td>Max cancellable time</td>
+    <td>{{configuration.MAX_CANCELLABLE_TIME}} seconds ( {{configuration.MAX_CANCELLABLE_TIME / 60}} min )</td>
+  </tr>
+  <tr>
+    <td>Max free class</td>
+    <td>{{configuration.MAX_FREE_CLASS}} successful reservation</td>
+  </tr>
+  <tr>
+    <td>Max free class limit</td>
+    <td>{{configuration.MAX_FREE_CLASS_LIMIT}}</td>
+  </tr>
+  <tr>
+    <td>Max free class minute</td>
+    <td>{{configuration.MAX_FREE_CLASS_MINUTES}} minute</td>
+  </tr>
+  <tr>
+    <td>Max free class with same teacher</td>
+    <td>{{configuration.MAX_FREE_CLASS_WITH_SAME_TEACHER}}</td>
+  </tr>
+  <tr>
+    <td>Max Grade</td>
+    <td>{{configuration.MAX_GRADE}}</td>
+  </tr>
+  <tr>
+    <td>Max low point reservation</td>
+    <td>{{configuration.MAX_LOW_POINT_RESERVATION}} reservation</td>
+  </tr>
+  <tr>
+    <td>Max point per minute</td>
+    <td>{{configuration.MAX_POINT_PER_MINUTE}} point/min</td>
+  </tr>
+  <tr>
+    <td>Max point per teacher grade</td>
+    <td>
+      <div *ngFor="let g of configuration['MAX_POINT_PER_TEACHER_GRADE']; let i = index">Grade {{ i }}:  {{g}} point/min</div>
+    </td>
+  </tr>
+  <tr>
+    <td>Max refundable time</td>
+    <td>{{configuration.MAX_REFUNDABLE_TIME}} seconds ({{ configuration.MAX_REFUNDABLE_TIME / (60 * 60 * 24)}} day)</td>
+  </tr>
+  <tr>
+    <td>Max reservable days per grade</td>
+    <td>
+      <div *ngFor="let g of configuration['MAX_RESERVABLE_DAYS_PER_GRADE']; let i = index">Grade {{ i }}:  {{g}} day</div>
+    </td>
+  </tr>
+  <tr>
+    <td>New Exchange Buyer Rate</td>
+    <td>{{configuration.NEW_EXCHANGE_BUYER_RATE}} %</td>
+  </tr>
+  <tr>
+    <td>New Exchange Seller Rate</td>
+    <td>{{configuration.NEW_EXCHANGE_SELLER_RATE}} %</td>
+  </tr>
+  <tr>
+    <td>Payment Computation days after cutoff</td>
+    <td>{{configuration.PAYMENT_COMPUTATION_DAYS_AFTER_CUTOFF}} day</td>
+  </tr>
+  <tr>
+    <td>Payment Computation days upto</td>
+    <td>{{configuration.PAYMENT_COMPUTATION_DAYS_UPTO}} day</td>
+  </tr>
+  <tr>
+    <td>Payment delay if USD is less than</td>
+    <td>{{configuration.PAYMENT_DELAY_IF_PHP_LESS_THAN}} PHP</td>
+  </tr>
+  <tr>
+    <td>Payment delay if USD is less than</td>
+    <td>{{configuration.PAYMENT_DELAY_IF_USD_LESS_THAN}} USD</td>
+  </tr>
+  <tr>
+    <td>Paypal teacher transfer fee</td>
+    <td>{{configuration.PAYPAL_TEACHER_FEE}} %</td>
+  </tr>
+  <tr>
+    <td>Paypal transaction fee</td>
+    <td>{{configuration.PAYPAL_TRANSACTION_FEE}} %</td>
+  </tr>
+  <tr>
+    <td>Paypal Branch transaction fee</td>
+    <td>{{configuration.PAYPAL_TRANSACTION_FEE_FOR_BRANCH}} %</td>
+  </tr>
+  <tr>
+    <td>Paypal Office transaction fee</td>
+    <td>{{configuration.PAYPAL_TRANSACTION_FEE_FOR_OFFICE}} %</td>
+  </tr>
+  <tr>
+    <td>Paypal Teacher transaction fee</td>
+    <td>{{configuration.PAYPAL_TRANSACTION_FEE_FOR_TEACHER}} %</td>
+  </tr>
+  <tr>
+    <td>1USD to Point</td>
+    <td>{{configuration.POINT_TO_USD}} point</td>
+  </tr>
+  <tr>
+    <td>Promo class Schedule</td>
+    <td>
+      <div *ngFor="let minute of a.keys(configuration['PROMO_CLASS_SCHEDULES']);">{{ minute }} minutes = {{configuration['PROMO_CLASS_SCHEDULES'][minute]}} points</div>
+    </td>
+  </tr>
+  <tr>
+    <td>VAT</td>
+    <td>{{configuration.VAT}} %</td>
+  </tr>
+  <tr>
+    <td>Western Union Transfer fee</td>
+    <td>
+    <div *ngFor="let cash of a.keys(configuration['WU_FEE']);">Less {{ cash }}PHP = {{configuration['WU_FEE'][cash]}} PHP</div>
+    </td>
+  </tr>
+  <tr>
+    <td>Exception Share</td>
+    <td>
+      <div *ngFor="let s of a.keys(configuration['exception_share'])">{{s}} : {{configuration.exception_share[s]}} % share</div>
+    </td>
+  </tr>
+  <tr>
+    <td>Share</td>
+    <td>
+      <div *ngFor="let s of a.keys(configuration['share'])">{{s}} : {{configuration.share[s]}} % share</div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>USD to KRW with seller rate</td>
+    <td>{{configuration.usd_to_krw_with_seller_rate}} KRW</td>
+  </tr>
+
+  <tr>
+    <td>USD to PHP with seller rate</td>
+    <td>{{configuration.usd_to_php_with_seller_rate}} PHP</td>
+  </tr>
+</table>
+
+</section>
