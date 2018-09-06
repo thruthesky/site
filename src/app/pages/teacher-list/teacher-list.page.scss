@@ -163,8 +163,10 @@ main {
     border: 1px solid rgba(125, 125, 125, 0.2);
     border-radius: 2px;
     background: #fff;
+    text-align: center;
     .title{
         font-size: 1.1rem;
+        color: green;
     }
     .desc{
         margin-top: 1rem;
@@ -172,7 +174,11 @@ main {
         background: #eee;
         font-size: .9rem;
     }
-    .container-fluid{
-        margin: 1rem 0;
+    .row{
+        justify-content: space-around;
+        a{
+            margin: .5em 0;
+            padding: 0 .5em;
+        }
     }
 }

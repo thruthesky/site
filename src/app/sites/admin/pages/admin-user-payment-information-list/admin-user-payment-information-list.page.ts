@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AdminUserPaymentInformationListPage implements OnInit {
 
     ID: number = null;
-    idx_teacher: string = '';
+    idx_teacher = '';
     teachers = null;
     payment_information = null;
     selectedID = null;

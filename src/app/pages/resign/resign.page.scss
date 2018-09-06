@@ -1,2 +1,43 @@
-@import '../../../theme/vars.scss';
-@import '../../../theme/katalkenglish-layout';
+.content{
+    min-height: 550px;
+    padding: 5rem 0;
+    text-align: center;
+    .resign-icon{
+        svg{
+            height: 16em;
+            width: 16em;
+            color: dimgray
+        }
+    }
+    .resign-panel{
+        margin-top: 3em;    
+        padding: 2em 3rem;
+        border: 1px solid rgba(125,125,125,0.3);
+        background: #fff;
+        .desc{
+            margin-bottom: 2em;
+        }
+        .app-button{
+            display: flex;
+            align-items: center;
+            margin: auto;
+            padding: 1rem 2rem!important;
+            border-radius: 4px;
+            background: #FE2525;
+            font-size: 1rem;
+            text-transform: uppercase;
+            &:hover{
+                outline: 3px solid #FE2525;
+                background: #fff;
+                color: #FE2525;
+            }
+            svg{
+                position: relative;
+                top: .125em;
+                margin-left: 1em;
+                height: 1.5em;
+                width: 1.5em;
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@ export interface AdminUserStatistics {
         keys: Array<string>;
         data: {};
     };
-    studnet: number;
+    student: number;
     teacher: number;
     domain: {
         [domain: string]: number;
@@ -48,6 +48,7 @@ export class AdminUserPage implements OnInit {
         timezone: '',
         order: 'ID',
         by: 'DESC',
+        list_unsearchable_id: '',
         display: {
             ID: true,
             phone_number: true,
@@ -101,7 +102,7 @@ export class AdminUserPage implements OnInit {
                 keys: [],
                 data: {}
             },
-            studnet: 0,
+            student: 0,
             teacher: 0,
             domain: {},
             timezone: {}
@@ -209,6 +210,9 @@ export class AdminUserPage implements OnInit {
         if (this.form.manager) {
             where.push(`manager<>''`);
         }
+        if (this.form.list_unsearchable_id) {
+            where.push(`class_software_id_checked='N'`);
+        }
 
         if (where.length) {
             return '(' + where.join(') AND (') + ')';
@@ -253,7 +257,7 @@ export class AdminUserPage implements OnInit {
             if (user.user_type === 'T') {
                 this.stat.teacher++;
             } else {
-                this.stat.studnet++;
+                this.stat.student++;
             }
             /**
              * Domain

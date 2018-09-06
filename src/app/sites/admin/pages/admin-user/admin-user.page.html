@@ -26,7 +26,6 @@
         </div>
     </div>
     <div>
-
         <div>
             Bookable Time:
             <input  class="bookable-time"type="text" name="bookable_time_begin" [(ngModel)]="form.bookable_time_begin"> ~
@@ -40,9 +39,15 @@
             Timezone:
             <input class="timezone" type="text" name="timezone" [(ngModel)]="form.timezone"> 
         </div>
+    </div>
+    <div>
         <div>
             Manager:
             <input type="checkbox" name="manager" [(ngModel)]="form.manager">
+        </div>
+        <div>
+            Unsearchable ID:
+            <input type="checkbox" name="manager" [(ngModel)]="form.list_unsearchable_id">
         </div>
     </div>
     <div>
@@ -181,7 +186,7 @@
             </div>
             <ng-container *ngIf=" form.display.stat.count_user_type ">
             <div class="stats-item">
-                Student: {{ this.stat.studnet }}
+                Student: {{ this.stat.student }}
             </div>
             <div class="stats-item">
                 Teacher: {{ this.stat.teacher }}
