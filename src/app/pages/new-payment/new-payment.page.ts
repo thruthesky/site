@@ -44,7 +44,7 @@ export class NewPaymentPage implements AfterViewInit {
         a.lms.payment_rate().subscribe(re => {
             this.loader.paymentRate = false;
             this.paymentRate = re;
-            // console.log('paymentRate: ', this.paymentRate);
+            console.log('paymentRate: ', this.paymentRate);
         }, () => { });
     }
 
