@@ -163,13 +163,21 @@ main {
     @media (min-width:$md) {
         padding: 2rem;
     }
-    // border: 1px solid rgba(125, 125, 125, 0.2);
-    // border-radius: 2px;
     background: #fff;
-    text-align: center;
     .title{
-        font-size: 1.1rem;
-        color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: .5em;
+        font-size: 1.2rem;
+        font-weight: 200;
+        color: dodgerblue;
+
+        svg{
+            margin-right: .75rem;
+            height: 1.5em;
+            width: 1.5em;
+        }
     }
     .desc{
         margin-top: 1rem;
