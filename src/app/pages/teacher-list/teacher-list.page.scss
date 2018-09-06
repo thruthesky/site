@@ -159,9 +159,12 @@ main {
 
 .candidate-teachers{
     margin-top: 3rem;
-    padding: 2rem;
-    border: 1px solid rgba(125, 125, 125, 0.2);
-    border-radius: 2px;
+    padding: 2rem 1rem;
+    @media (min-width:$md) {
+        padding: 2rem;
+    }
+    // border: 1px solid rgba(125, 125, 125, 0.2);
+    // border-radius: 2px;
     background: #fff;
     text-align: center;
     .title{
