@@ -586,8 +586,6 @@ export interface Branch {
 
 
 export interface LMS_INFO {
-    usd_exchange_rate: string;
-    php_exchange_rate: string;
     PAYPAL_STUDENT_FEE: string;
     MAX_FREE_CLASS: string;
     MAX_FREE_CLASS_WITH_SAME_TEACHER: string;
