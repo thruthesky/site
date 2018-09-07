@@ -120,12 +120,14 @@
                 <span>{{ 'CANDIDATE_TEACHERS_TITLE' | t}}</span>
             </div>
             <div class="desc" *ngIf=" ! a.site.teacherTheme ">{{ 'CANDIDATE_TEACHERS_DESC' | t}}</div>
+            <div class="container-fluid">
                 <div class="row"  *ngIf=" re ">
-                    <a *ngFor="let teacher of candidate_teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-auto"
+                    <a class="col-auto" *ngFor="let teacher of candidate_teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher"
                         routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
                         <app-teacher-list-profile-component [teacher]=" teacher "></app-teacher-list-profile-component>
                     </a>
                 </div>
+            </div>
         </div>
 
         <div class="loader" *ngIf=" show.loadTeacher  ">
