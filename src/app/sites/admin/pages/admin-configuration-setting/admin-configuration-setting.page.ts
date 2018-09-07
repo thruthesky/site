@@ -48,7 +48,7 @@ export interface ADMIN_CONFIG {
 export class AdminConfigurationSettingPage implements OnInit {
 
     loader = {
-        config: false
+        config: true
     };
 
     configuration: ADMIN_CONFIG = null;
@@ -66,6 +66,7 @@ export class AdminConfigurationSettingPage implements OnInit {
         this.a.lms.admin_configuration_setting().subscribe( re => {
             console.log('admin_configuration_setting', re);
             this.configuration = re;
+            this.loader.config = false
         });
     }
 

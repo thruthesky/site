@@ -1,6 +1,11 @@
 <h2>Configuration Settings</h2>
 <!--<button (click)="loadConfiguration()">Reload</button>-->
 
+<div class="loader" *ngIf=" loader.config">
+  <mat-spinner [diameter]="48"></mat-spinner>
+  <span>Loading...</span>
+</div>
+
 <section  *ngIf="configuration">
 <table>
   <tr>
