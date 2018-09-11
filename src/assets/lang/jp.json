@@ -312,6 +312,7 @@
   "1_POINT_IS": "1 POINTは0.001USドルです。",
   "VAT_1": "#AMOUNTウォン決済（VAT #RATE％別途）を選択しました。",
   "VAT_2": " #AMOUNTポイントが充電され、決済は約#USDドル（VAT含む）が請求されます。",
+  "PAYPAL_PAYMENT_DESC": " ",
   "PAYMENT_HISTORY_PAGE_TITLE": "支払歴",
   "PAYMENT_HISTORY_PAGE_DESC": "お支払い履歴を見ることができます",
   "PAYMENT_METHOD_SHORT": "支払う",

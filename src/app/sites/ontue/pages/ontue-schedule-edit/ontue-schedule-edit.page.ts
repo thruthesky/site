@@ -19,8 +19,8 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
     params;
 
 
-    php_to_kwr;
-    usd_to_kwr;
+    usd_to_point;
+    usd_to_php;
     share_teacher;
     transaction_fee;
     NEW_EXCHANGE_SELLER_RATE;
@@ -67,8 +67,8 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
             }
             this.a.lms.my_schedule_info().subscribe(re => {
                 // console.log('my_schedule_info', re);
-                this.php_to_kwr = re['php_to_kwr'];
-                this.usd_to_kwr = re['usd_to_kwr'];
+                this.usd_to_php = re['usd_to_php'];
+                this.usd_to_point = re['usd_to_point'];
                 this.share_teacher = re['share_teacher'];
                 this.transaction_fee = re['transaction_fee'];
                 this.NEW_EXCHANGE_SELLER_RATE = re['NEW_EXCHANGE_SELLER_RATE'];
@@ -171,21 +171,21 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
             return 0;
         }
         point = Math.ceil(point);
-        const php = parseFloat(this.php_to_kwr);
-        const usd = parseFloat(this.usd_to_kwr);
+        const php = parseFloat(this.usd_to_php);
         if (!php) {
             return 0;
         }
-        // console.log("php: ", this.payment_method);
+
+        const share = point * this.share_teacher / 100;
+        const usd = share / this.usd_to_point;
         if (this.payment_method === 'western-union') {
-            let p = Math.round(point / php * this.share_teacher / 100);
+            let p = Math.round(usd * php);
             p = Math.round(p - ( p * this.transaction_fee / 100));
-            return p + ' pesos';
+            return p + ' php';
         }
         if (this.payment_method === 'paypal') {
-            let u = Math.round(point / usd * this.share_teacher / 100);
-            u = Math.round(u - ( u * this.transaction_fee / 100));
-            return '$' + u;
+            const u = Math.round(usd - ( usd * this.transaction_fee / 100));
+            return '$ ' + u;
         }
     }
 

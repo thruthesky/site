@@ -93,7 +93,8 @@ main {
         font-size: .8em;
         text-align: center;
     }
-    .teachers {
+    .teachers,
+    .candidate-teachers {
         margin: .5em -.1em;
         .col-auto {
             padding: .4em .1em;
@@ -101,13 +102,13 @@ main {
         .row {
             justify-content: space-around;
             align-items: stretch;
-            @media screen and(max-width: $sm) {
+            @media (max-width: $sm) {
                 margin-right:0;
                 margin-left: 0;
             }
         }
 
-        @media screen and (max-width:$sm) {
+        @media (max-width:$sm) {
             .container-fluid {
                 padding-right: .4em;
                 padding-left: .4em;
@@ -158,17 +159,12 @@ main {
 }
 
 .candidate-teachers{
-    margin-top: 3rem;
-    padding: 2rem 1rem;
-    @media (min-width:$md) {
-        padding: 2rem;
-    }
-    background: #fff;
+    margin-top: 3rem!important;
     .title{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: .5em;
+        margin: 0 .5em .5em .5em;
         font-size: 1.2rem;
         font-weight: 200;
         color: dodgerblue;
@@ -184,12 +180,5 @@ main {
         padding: 1rem;
         background: #eee;
         font-size: .9rem;
-    }
-    .row{
-        justify-content: space-around;
-        a{
-            margin: .5em 0;
-            padding: 0 .5em;
-        }
     }
 }

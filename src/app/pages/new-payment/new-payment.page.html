@@ -144,7 +144,7 @@
             <!-- <button (click)=" onSelectBankTransaction() ">Change to Bank Transaction</button> -->
             <div class="paypal-button-wrapper">
                 <div class="vat">
-                    {{ 'VAT_2' | t:{ 'USD': amount_in_usd_with_tax(), 'VAT': a.vat } }}
+                    {{ 'VAT_2' | t:{ 'USD': amount_in_usd_with_tax(), 'VAT': a.vat, 'AMOUNT': amount | number } }}
                 </div>
 
                 <div class="paypal-button">

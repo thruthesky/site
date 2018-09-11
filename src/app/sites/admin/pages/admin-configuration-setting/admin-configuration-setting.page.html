@@ -1,20 +1,25 @@
 <h2>Configuration Settings</h2>
 <!--<button (click)="loadConfiguration()">Reload</button>-->
 
+<div class="loader" *ngIf=" loader.config">
+  <mat-spinner [diameter]="48"></mat-spinner>
+  <span>Loading...</span>
+</div>
+
 <section  *ngIf="configuration">
 <table>
   <tr>
     <td>Source</td>
-    <td>1CNY to KRW</td>
-    <td>1JPY to KRW</td>
-    <td>1PHP to KRW</td>
+    <td>1USD to CNY</td>
+    <td>1USD to JPY</td>
+    <td>1USD to PHP</td>
     <td>1USD to KRW</td>
   </tr>
   <tr *ngFor="let s of a.keys(configuration['currency_info'])">
     <td>{{s}}</td>
-    <td>{{configuration['currency_info'][s]['cny-to-krw']}}</td>
-    <td>{{configuration['currency_info'][s]['jpy-to-krw']}}</td>
-    <td>{{configuration['currency_info'][s]['php-to-krw']}}</td>
+    <td>{{configuration['currency_info'][s]['usd-to-cny']}}</td>
+    <td>{{configuration['currency_info'][s]['usd-to-jpy']}}</td>
+    <td>{{configuration['currency_info'][s]['usd-to-php']}}</td>
     <td>{{configuration['currency_info'][s]['usd-to-krw']}}</td>
   </tr>
 </table>
@@ -27,7 +32,7 @@
   </tr>
   <tr>
     <td>Cancellable time for instant reservation</td>
-    <td>{{configuration.CANCELLABLE_TIME_FOR_INSTANT_RESERVATION}} minute</td>
+    <td>{{configuration.CANCELLABLE_TIME_FOR_INSTANT_RESERVATION}} second ( {{configuration.CANCELLABLE_TIME_FOR_INSTANT_RESERVATION / 60}} minute )</td>
   </tr>
   <tr>
     <td>GCASH Transaction fee per 1000PHP</td>
