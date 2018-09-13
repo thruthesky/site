@@ -1,5 +1,10 @@
 # Site
 
+## Reminder
+
+* `sonub.com:8443` now has been changed to `local.wordpress.org`
+
+
 ## Reference
 
 * How to set admin
@@ -101,8 +106,7 @@ npm run serve:local:hmr             ; run locally with HMR. It is only working w
 npm run ssl                         ; run project with ssl. port is 9443. after run, access https://withcenter.katalkenglish.com:9443/
 npm run seo                         ; SEO TEST.
                                     ; It copies the build files into ~/www/wordpress.
-                                    ; You can access https://sonub.com:8443/
-                                    ; You may want to run `npm run serve:local` to see the changes on browser.
+                                    ; You can access http://local.wordpress.org/                                    ; You may want to run `npm run serve:local` to see the changes on browser.
 ````
 
 ### Working with SSL and Branch coding
@@ -128,12 +132,12 @@ npm run seo                         ; SEO TEST.
 
 ### Working SEO
 
-* Add branch domain at sonub.com:8443 server block.
+* Add branch domain at shttp://local.wordpress.org/wp-login.php server block.
   * add domains like
     * katalkenglish.org
     * ontue.org
     * withcenter.org
-    to server in sonub.com:8443 server block.
+    to server in http://local.wordpress.org/wp-login.php server block.
   * Access http://xxx.katalkenglish.com or http://katalkenglish.com
 
 ## Publish
