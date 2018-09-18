@@ -1,47 +1,50 @@
 <form (ngSubmit)=" onSubmitBranchInformation() " *ngIf=" branch?.idx ">
+    <div class="d-flex justify-content-between">
     <h2 class="form-title">Branch Site Configuration</h2>
+    <button class="px-3" *ngIf=" showEnableEditButton && !canEdit " (click)="enableEdit()">Enable Edit</button>
+    </div>
     <div class="information-input">
         <div class="website-information">
             <div>
                 <label>Site Name</label>
-                <input type="text" name="site_name" [(ngModel)]=" branch.site_name ">
+                <input type="text" name="site_name" [(ngModel)]=" branch.site_name " [disabled]=" !canEdit ">
                 <div class="note">Site name is different from site title or company name. Site name will be shown all over the website.
                 </div>
             </div>
             <div>
                 <label>TITLE</label>
-                <input type="text" name="html_title" [(ngModel)]=" branch.html_title ">
+                <input type="text" name="html_title" [(ngModel)]=" branch.html_title " [disabled]=" !canEdit ">
                 <div class="note">Input the title of website that will be displayed on web browser title. It will be displayed in HTML title
                     meta tag.
                 </div>
             </div>
             <div>
                 <label>Description</label>
-                <input type="text" name="html_description" [(ngModel)]=" branch.html_description ">
+                <input type="text" name="html_description" [(ngModel)]=" branch.html_description " [disabled]=" !canEdit ">
                 <div class="note">Input the description of website that would be appear on search engine. like google.com. It will be display
                     in HTML description meta tag.
                 </div>
             </div>
             <div>
                 <label>Keywords</label>
-                <input type="text" name="html_keywords" [(ngModel)]=" branch.html_keywords ">
+                <input type="text" name="html_keywords" [(ngModel)]=" branch.html_keywords " [disabled]=" !canEdit ">
                 <div class="note">Input the keywords of website. It will be displayed in HTML keywords meta tag..</div>
             </div>
             <div>
                 <label>HTML Header</label>
-                <textarea name="html_header" [(ngModel)]=" branch.html_header " placeholder="Input Javascript, CSS, HTML for head tag."></textarea>
+                <textarea name="html_header" [(ngModel)]=" branch.html_header " placeholder="Input Javascript, CSS, HTML for head tag." [disabled]=" !canEdit "></textarea>
                 <div class="note">You can add external services like google analytics and other. To add google analytics, (1) get google tracking
                     tag (2) save in html header. And it's done.
                 </div>
             </div>
             <div>
                 <label>HTML Footer</label>
-                <textarea name="html_footer" [(ngModel)]=" branch.html_footer " placeholder="Input Javascript, CSS, HTML that will be display at the bottom of the site."></textarea>
+                <textarea name="html_footer" [(ngModel)]=" branch.html_footer " [disabled]=" !canEdit " placeholder="Input Javascript, CSS, HTML that will be display at the bottom of the site."></textarea>
             </div>
 
             <div>
                 <label>Copyright at bottom of the site.</label>
-                <textarea name="copyright" [(ngModel)]=" branch.copyright " placeholder="Input copyright like (C) 2017-2018 All right reserved by Withcenter.com. email. contact. address. Business reg. no."></textarea>
+                <textarea name="copyright" [(ngModel)]=" branch.copyright " [disabled]=" !canEdit " placeholder="Input copyright like (C) 2017-2018 All right reserved by Withcenter.com. email. contact. address. Business reg. no."></textarea>
                 <div class="note">You can use simple HTML tags only.</div>
             </div>
 
@@ -53,27 +56,27 @@
 
                 <div class="choose-class-messenger">
                     <label>
-                        <input id="class_software_skype"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'skype'" [checked]=" branch.class_software ">
+                        <input id="class_software_skype"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'skype'" [checked]=" branch.class_software " [disabled]=" !canEdit ">
                         <span>Skype</span>
                     </label>
 
                     <label>
-                        <input id="class_software_kakaotalk"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'kakaotalk'" [checked]=" branch.class_software ">
+                        <input id="class_software_kakaotalk"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'kakaotalk'" [checked]=" branch.class_software " [disabled]=" !canEdit ">
                         <span>Kakaotalk</span>
                     </label>
 
                     <label>
-                        <input id="class_software_wechat"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'wechat'" [checked]=" branch.class_software ">
+                        <input id="class_software_wechat"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'wechat'" [checked]=" branch.class_software " [disabled]=" !canEdit ">
                         <span>WeChat</span>
                     </label>
 
                     <label>
-                        <input id="class_software_line"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'line'" [checked]=" branch.class_software ">
+                        <input id="class_software_line"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'line'" [checked]=" branch.class_software " [disabled]=" !canEdit ">
                         <span>Line</span>
                     </label>
 
                     <label>
-                        <input id="class_software_qq"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'qq'" [checked]=" branch.class_software ">
+                        <input id="class_software_qq"  type='radio' name='messenger' [(ngModel)]=" branch.class_software " [value]="'qq'" [checked]=" branch.class_software " [disabled]=" !canEdit ">
                         <span>QQ</span>
                     </label>
                 </div>
@@ -88,7 +91,7 @@
                 <div class="label">Branch Site Logo ( Preferred size: 200x48 )</div>
                 <label>
                     <div class="photo-upload-button">
-                        <input class="input-box" type="file" (change)="companyLogo.onChangeFile($event)" style="width:86px;">
+                        <input class="input-box" type="file" (change)="companyLogo.onChangeFile($event)" [disabled]=" !canEdit " style="width:86px;">
                     </div>
                     <div class="progress-bar" *ngIf="companyLogo.progressPercentage > 0">
                         <mat-progress-bar mode="determinate" [value]="companyLogo.progressPercentage">
@@ -113,46 +116,46 @@
             </div>
             <div>
                 <label>Company Name</label>
-                <input type="text" name="company_name" [(ngModel)]=" branch.company_name ">
+                <input type="text" name="company_name" [(ngModel)]=" branch.company_name " [disabled]=" !canEdit ">
             </div>
             <div>
                 <label>Company Phone</label>
-                <input type="text" name="company_phone" [(ngModel)]=" branch.company_phone ">
+                <input type="text" name="company_phone" [(ngModel)]=" branch.company_phone " [disabled]=" !canEdit ">
             </div>
             <div>
                 <label>Company Email</label>
-                <input type="text" name="company_email" [(ngModel)]=" branch.company_email ">
+                <input type="text" name="company_email" [(ngModel)]=" branch.company_email " [disabled]=" !canEdit ">
             </div>
             <div>
                 <label>Company Address</label>
-                <input type="text" name="company_address" [(ngModel)]=" branch.company_address ">
+                <input type="text" name="company_address" [(ngModel)]=" branch.company_address " [disabled]=" !canEdit ">
             </div>
             <div>
                 <label>{{ a.ln['COMPANY BUSINESS REGISTRATION NO'] }}</label>
-                <input type="text" name="company_business_registration_no" [(ngModel)]=" branch.company_business_registration_no ">
+                <input type="text" name="company_business_registration_no" [(ngModel)]=" branch.company_business_registration_no " [disabled]=" !canEdit ">
             </div>
             <div>
                 <label>{{ a.ln['COMPANY BUSINESS REGISTRATION OTHER NO'] }}</label>
-                <input type="text" name="company_business_registration_other_no" [(ngModel)]=" branch.company_business_registration_other_no ">
+                <input type="text" name="company_business_registration_other_no" [(ngModel)]=" branch.company_business_registration_other_no " [disabled]=" !canEdit ">
             </div>
             <div>
                 <label>Manager Name</label>
-                <input type="text" name="manager_name" [(ngModel)]=" branch.manager_name ">
+                <input type="text" name="manager_name" [(ngModel)]=" branch.manager_name " [disabled]=" !canEdit ">
             </div>
 
             <div>
                 <label>Manager Email</label>
-                <input type="text" name="manager_email" [(ngModel)]=" branch.manager_email ">
+                <input type="text" name="manager_email" [(ngModel)]=" branch.manager_email " [disabled]=" !canEdit ">
             </div>
 
             <div>
                 <label>Manager Phone</label>
-                <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone ">
+                <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone " [disabled]=" !canEdit ">
             </div>
 
             <div>
                 <label>Manager Payment Information</label>
-                <textarea name="manager_payment_information" [(ngModel)]=" branch.manager_payment_information " placeholder="Input payment information."></textarea>
+                <textarea name="manager_payment_information" [(ngModel)]=" branch.manager_payment_information " placeholder="Input payment information."  [disabled]=" !canEdit "></textarea>
                 <div class="note">For Paypal, input your email which is connected to paypal. For Bank account, input Bank information, bank account name and bank account number.
               </div>
             </div>
@@ -160,8 +163,7 @@
 
         </div>
     </div>
-
-    <div class="submit-button">
+    <div class="submit-button" *ngIf=" canEdit ">
         <button class="app-button" type="submit" *ngIf=" ! loader.branchUpdate ">Update Branch Information</button>
         <div class="loader" *ngIf=" loader.branchUpdate ">
             <mat-spinner [diameter]="48"></mat-spinner>

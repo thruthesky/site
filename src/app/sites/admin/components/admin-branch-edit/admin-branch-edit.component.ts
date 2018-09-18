@@ -18,7 +18,11 @@ interface Form {
 export class AdminBranchEditComponent implements OnInit {
 
     @Input() branch: Branch = <any>{};
+    @Input() canEdit = true;
+    @Input() showEnableEditButton = false;
     @Output() success = new EventEmitter<any>();
+
+
 
     loader = {
         branchUpdate: false,
@@ -76,6 +80,10 @@ export class AdminBranchEditComponent implements OnInit {
         }, e => {
             this.a.toast(e);
         });
+    }
+
+    enableEdit() {
+        this.canEdit = true;
     }
 
 }
