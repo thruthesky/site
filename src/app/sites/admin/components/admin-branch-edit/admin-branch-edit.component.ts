@@ -23,7 +23,8 @@ export class AdminBranchEditComponent implements OnInit {
     loader = {
         branchUpdate: false,
         get: false,
-        save: false
+        save: false,
+        show: false
     };
     form: Form = <any>{};
 

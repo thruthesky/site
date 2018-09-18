@@ -1,4 +1,4 @@
-<form (ngSubmit)=" onSubmitBranchInformation() " *ngIf=" branch ">
+<form (ngSubmit)=" onSubmitBranchInformation() " *ngIf=" branch?.idx ">
     <h2 class="form-title">Branch Site Configuration</h2>
     <div class="information-input">
         <div class="website-information">
@@ -149,6 +149,15 @@
                 <label>Manager Phone</label>
                 <input type="text" name="manager_phone" [(ngModel)]=" branch.manager_phone ">
             </div>
+
+            <div>
+                <label>Manager Payment Information</label>
+                <textarea name="manager_payment_information" [(ngModel)]=" branch.manager_payment_information " placeholder="Input payment information."></textarea>
+                <div class="note">For Paypal, input your email which is connected to paypal. For Bank account, input Bank information, bank account name and bank account number.
+              </div>
+            </div>
+
+
         </div>
     </div>
 

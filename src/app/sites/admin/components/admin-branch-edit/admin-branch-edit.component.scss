@@ -60,8 +60,12 @@ h2 {
         @media(min-width: $md) {
             width: 42%;
         }
-        input {
+        input,
+        textarea {
             width: 100%;
+        }
+        textarea {
+            height: 80px;
         }
     }
 }
