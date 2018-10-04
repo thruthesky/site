@@ -23,7 +23,8 @@ export class AdminSettingPage implements OnInit {
     loader = {
         branchUpdate: false,
         get: false,
-        save: false
+        save: false,
+        show: false
     };
     branch: Branch = <any>{};
 
@@ -42,10 +43,15 @@ export class AdminSettingPage implements OnInit {
 
     ngOnInit() { }
     getBranchInformation() {
+        this.loader.show = true;
         this.a.lms.branch_get().subscribe(re => {
             // console.log('re: ', re);
             this.branch = re;
-        }, e => this.a.toast(e));
+            this.loader.show = false;
+        }, e => {
+            this.a.toast(e);
+            this.loader.show = false;
+        });
     }
     onSubmitDomainChangeApplication() {
         if ( ! this.domain_change_application ) {
