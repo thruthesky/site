@@ -17,7 +17,7 @@
 
             <div>
                 <span>{{ re.teacher.nationality }}</span>
-                {{ 'AGE_GENDER' | t:{ age: re.teacher.age , gender: re.teacher.gender | t } }}
+                {{ 'AGE_GENDER' | t:{ age: re.teacher.age ? re.teacher.age : '', gender: re.teacher.gender ? re.teacher.gender : ''  | t } }}
             </div>
 
             <div>
