@@ -1611,7 +1611,7 @@ export class AppService {
              */
             // console.log('this.branch.info.class_software: ', this.branch.info.class_software);
             const myClassSoftware = this.lmsInfo('user.class_software');
-            if ( this.branch.info.class_software === KAKAOTALK || messenger === KAKAOTALK || myClassSoftware === KAKAOTALK) {
+            if ( this.site.isKatalkenglishDomain || this.branch.info.class_software === KAKAOTALK || messenger === KAKAOTALK || myClassSoftware === KAKAOTALK) {
                 if (this.isMobile()) {
                     document.location.href = this.kakaoUrls.student_kakaoplus_deeplink;
                 } else {

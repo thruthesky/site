@@ -51,7 +51,7 @@ export class SiteService {
         return window.location.hostname;
     }
 
-    private isKatalkenglishDomain() {
+    public isKatalkenglishDomain() {
         return this.getDomain().indexOf(SITE_KATALKENGLISH) !== -1;
     }
 
