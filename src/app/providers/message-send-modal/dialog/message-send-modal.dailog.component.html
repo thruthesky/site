@@ -6,7 +6,16 @@
     <mat-form-field appearance="outline" style="width: 100%">
         <mat-label>{{'MESSAGE_CONTENT_TITLE' | t}}</mat-label>
         <textarea name="message_content" matInput rows="5" [(ngModel)]="content"></textarea>
-        <mat-hint>{{ 'MESSAGE_CONTENT_HINT' | t }}</mat-hint>
+        <mat-hint>
+          <div>{{ 'MESSAGE_CONTENT_HINT' | t }}</div>
+          <ng-container *ngIf="a.isTeacher">
+            <div>Teacher must not use any specific branch link.</div>
+            <div>Instead use '#myProfileLink' template tag to generate the profile link.</div>
+            <div>*e.g. "Check my profile #myProfileLink."</div>
+            <div>student will receive "Check my profile www.studentbranch.com/schedule-table?idx_teacher=xxx"</div>
+          </ng-container>
+        </mat-hint>
+
     </mat-form-field>
 </div>
 <mat-dialog-actions align="end">
