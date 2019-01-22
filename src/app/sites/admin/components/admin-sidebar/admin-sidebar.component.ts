@@ -24,6 +24,7 @@ export class AdminSidebarComponent implements OnInit {
 
     alertUnChecked = false;
     alertMark = '';
+    alertMarkId;
 
     /**
      * quick search
@@ -254,6 +255,7 @@ export class AdminSidebarComponent implements OnInit {
                         this.alertUnChecked = true;
                         this.loadSessionOnGoing();
                         this.alertMark = session.class_begin;
+                        this.alertMarkId = session.idx;
                     } else {
                         this.alertUnChecked = false;
                     }

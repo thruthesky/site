@@ -176,7 +176,7 @@
                 <!-- {{ day | json }} -->
                 <div class="bar" [style.height]=" stat.daily_registration.data[day] + 'px' " [style.backgroundColor]="dailyColor(stat.daily_registration.data[day])">&nbsp;</div>
                 <div class="day">{{ stat.daily_registration.data[day] }}</div>
-                <div class="date">{{ day }}</div>
+                <div class="date">{{ day.substr(5) }}</div>
                 <!-- {{ stat.daily_registration.data[day] | json }} -->
             </div>
         </div>

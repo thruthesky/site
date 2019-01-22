@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -29,7 +29,7 @@ interface STAT {
     styleUrls: ['admin-payment.page.scss']
 })
 
-export class AdminPaymentPage implements OnInit {
+export class AdminPaymentPage implements OnInit, OnDestroy {
 
     re = [];
     form = {
@@ -49,7 +49,8 @@ export class AdminPaymentPage implements OnInit {
     stat: STAT;
 
     domains: any = {};
-
+    // utcTime: any;
+    // setUTCInterval;
     constructor(public a: AppService,
                 public router: Router,
                 public activated: ActivatedRoute) {
@@ -63,10 +64,34 @@ export class AdminPaymentPage implements OnInit {
             }
             this.onSubmit();
         });
+
+        // this.setUTCTime();
+        // this.setUTCInterval = setInterval( () => {
+        //     // console.log('setInterval', this.setUTCInterval);
+        //     this.setUTCTime();
+        // }, 10000);
+
     }
 
     ngOnInit() {
     }
+
+    ngOnDestroy() {
+        // console.log('ngOnDestroy', this.setUTCInterval);
+        // clearInterval(this.setUTCInterval);
+    }
+
+    // setUTCTime() {
+    //     const utc = this.a.getUTCYmdHisFromUserYmdHi(this.a.getYmdHi());
+    //     const hour = this.a.toInt(utc.substr(8, 2));
+    //     let ap = '';
+    //     if ( hour < 12) {
+    //         ap = 'am';
+    //     } else {
+    //         ap = 'pm';
+    //     }
+    //     this.utcTime = utc.substr(0, 4) + '/' + utc.substr(4, 2) + '/' + utc.substr(6, 2) + ' ' + hour + ':' + utc.substr(10, 2) + ' ' + ap;
+    // }
 
     init() {
         this.re = [];
@@ -129,13 +154,20 @@ export class AdminPaymentPage implements OnInit {
             // console.log('ymdhi: ', this.a.getYmdHi( new Date(this.form.date_begin) ));
             // console.log(new Date(this.form.date_begin));
             // console.log(this.form.date_begin.substr(0, 4), this.form.date_begin.substr(5, 2) - 1, this.form.date_begin.substr(8, 2));
-            const begin_stamp = new Date(this.form.date_begin.substr(0, 4), this.form.date_begin.substr(5, 2) - 1, this.form.date_begin.substr(8, 2), 0, 0, 0, 0) / 1000;
+            const year = this.a.toInt(this.form.date_begin.substr(0, 4));
+            const month = this.a.toInt(this.form.date_begin.substr(5, 2)) - 1;
+            const day = this.a.toInt(this.form.date_begin.substr(8, 2));
+            const begin_stamp = Math.round(new Date( year, month, day, 0, 0, 0, 0).getTime() / 1000);
             // const begin_stamp = new Date(this.form.date_begin).getTime() / 1000;
             where.push(`p.stamp_begin>=${begin_stamp}`);
         }
         if (this.form.date_end) {
             // console.log(new Date(this.form.date_end));
-            const stamp = Math.round(new Date(this.form.date_end.substr(0, 4), this.form.date_end.substr(5, 2) - 1, this.form.date_end.substr(8, 2), 0, 0, 0, 0) / 1000) + 60 * 60 * 24;
+
+            const year = this.a.toInt(this.form.date_end.substr(0, 4));
+            const month = this.a.toInt(this.form.date_end.substr(5, 2)) - 1;
+            const day = this.a.toInt(this.form.date_end.substr(8, 2));
+            const stamp = Math.round( new Date( year, month, day, 0, 0, 0, 0).getTime() / 1000) + 60 * 60 * 24;
             // const stamp = Math.round(new Date(this.form.date_end).getTime() / 1000) + 60 * 60 * 24;
             where.push(`p.stamp_begin<=${stamp}`);
         }

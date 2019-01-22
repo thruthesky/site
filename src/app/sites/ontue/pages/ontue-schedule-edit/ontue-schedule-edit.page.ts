@@ -126,6 +126,10 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
             return;
         }
         this.showLoader = true;
+        if (this.data.prere) {
+            this.data.prere = this.data.prere.trim();
+        }
+
         this.a.lms.schedule_edit(this.data).subscribe(re => {
             // console.log('re: ', re);
             this.showLoader = false;

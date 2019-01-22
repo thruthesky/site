@@ -227,7 +227,8 @@ export class AdminUserPage implements OnInit {
         }
         for (const user of this.re) {
             user.date = user.user_registered.substr(0, user.user_registered.indexOf(' '));
-            user.date = user.date.substr(5);
+            // console.log(user.date);
+            // user.date = user.date.substr(5);
         }
     }
 
