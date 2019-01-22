@@ -1935,8 +1935,19 @@ export class AppService {
         this.userTime = this.t('CURRENT_TIME', { ap: ap, hour: hour, minute: min, country: user['timezone_country'] });
 
         if (this.isManager) {
-            this.utcString = new Date().toUTCString();
-            this.localeString = new Date().toLocaleString();
+            this.utcString = (date.getUTCMonth() + 1) + '/'
+                + date.getUTCDate() + '/'
+                + date.getUTCFullYear() + ' '
+                + date.getUTCHours() + ':'
+                + date.getUTCMinutes() + ':'
+                + date.getUTCSeconds() + ' (UTC 0)';
+            this.localeString = (date.getMonth() + 1) + '/'
+                + date.getDate() + '/'
+                + date.getFullYear() + ' '
+                + date.getHours() + ':'
+                + date.getMinutes() + ':'
+                + date.getSeconds() + ' ('
+                + this.user.timezone + ')';
         }
         // console.log('userTime: ', this.userTime);
     }
