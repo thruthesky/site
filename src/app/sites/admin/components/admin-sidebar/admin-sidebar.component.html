@@ -169,7 +169,7 @@
         <ul>
           <li>Session ongoing is base on user timezone: {{a.user.timezone}}</li>
           <li>Timezone: {{ a.userTime }}</li>
-          <li *ngIf="alertUnChecked"><a href="#{{alertUnChecked}}{{alertMarkId}}">Unchecked Class: {{alertMarkId}}</a></li>
+          <li *ngIf="alertUnChecked" (click)="a.scrollIntoViewById(alertMark+''+alertMarkId)">Unchecked Class: {{alertMarkId}}</li>
         </ul>
         <audio autoplay loop *ngIf=" alertUnChecked ">
             <source src='../../../../../assets/sound/siren.mp3' type='audio/mpeg'>
