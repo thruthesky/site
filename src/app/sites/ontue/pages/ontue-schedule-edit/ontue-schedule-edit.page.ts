@@ -125,6 +125,22 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
             this.a.toast('Warning: Select Days! You need to select days to add/edit a schedule.');
             return;
         }
+        if (!this.data.class_begin_hour) {
+            this.a.toast('Warning: Please, input class begin hour. What hour the session will start?.');
+            return;
+        }
+        if (!this.data.class_begin_minute) {
+            this.a.toast('Warning: Please, input class begin minutes. What minutes the session will start?.');
+            return;
+        }
+        if (!this.data.duration || this.data.duration === 0) {
+            this.a.toast('Warning: Please, input duration. How long is the session?.');
+            return;
+        }
+        if (!this.data.point || this.data.point === 0) {
+            this.a.toast('Warning: Please, input points. How much points is the session?.');
+            return;
+        }
         this.showLoader = true;
         if (this.data.prere) {
             this.data.prere = this.data.prere.trim();
