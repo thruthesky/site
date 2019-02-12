@@ -652,6 +652,8 @@
   "NAME_REQUIRED": "请输入姓名。",
   "NICKNAME_REQUIRED": "请输入昵称。",
   "PHONE_NUMBER_REQUIRED": "请输入电话号码。",
+  "INPUT_NUMBER_ONLY": "请输入号码。 不允许使用空格，括号和连字符。",
+
 
   "KAKAOTALK": "Kakaotalk",
   "SKYPE": "Skype",

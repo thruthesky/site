@@ -202,7 +202,7 @@ export class RegisterPage implements OnInit {
         if (event) {
             event.preventDefault();
         }
-        if ( this.a.isLogout ) {
+        if (this.a.isLogout) {
             this.form.domain = this.a.site.getDomain();
         }
 
@@ -231,7 +231,7 @@ export class RegisterPage implements OnInit {
             }
 
             this.patchBirthday();
-            if ( this.a.isLogout ) {
+            if (this.a.isLogout) {
                 this.user_type = 'T';
             }
         }
@@ -240,10 +240,23 @@ export class RegisterPage implements OnInit {
         //     return this.a.toast('Teacher must upload QR Mark...');
         // }
 
+        if (!this.form.phone_number) {
+            return this.a.toast(this.a.t('PHONE_NUMBER_REQUIRED'));
+        }
+
+        this.form.phone_number = this.form.phone_number.replace(/[^0-9]+/g, '');
+        // this.form.phone_number = this.form.phone_number.replace(/\+/g, '');
+        // this.form.phone_number = this.form.phone_number.replace(/\-/g, '');
+        // this.form.phone_number = this.form.phone_number.replace(/\(/g, '');
+        // this.form.phone_number = this.form.phone_number.replace(/\)/g, '');
+        // this.form.phone_number = this.form.phone_number.replace(/\./g, ''); // ??
+
         console.log('this.form.phone_number', this.form.phone_number);
         if (!this.form.phone_number) {
             return this.a.toast(this.a.t('PHONE_NUMBER_REQUIRED'));
         }
+
+
         /**
          * If the site is katalkenglish.com, then it always uses kakaotalk
          */
@@ -520,7 +533,7 @@ export class RegisterPage implements OnInit {
         // console.log('this.form.class_software:', this.form.class_software);
         if (this.form.class_software !== void 0 && this.form.class_software) {
             return this.form.class_software;
-        } else  {
+        } else {
             return this.a.branch.info.class_software;
         }
     }
@@ -536,11 +549,28 @@ export class RegisterPage implements OnInit {
 
     checkPhoneNumber(e) {
         console.log('checkPhoneNumber::this.form.phone_number', this.form.phone_number);
-        console.log('checkPhoneNumber::event', e);
-        if (!((e.keyCode > 95 && e.keyCode < 106)
-            || (e.keyCode > 47 && e.keyCode < 58)
-            || e.keyCode === 8)) {
-            return false;
+        console.log('checkPhoneNumber::event', e.key);
+
+        const k = e.key;
+        if (k >= 0 && k <= 9) {
+            return true;
         }
+
+        if (k === '-' || k === '+' || k === '(' || k === ')' || k === ' ') {
+            return true;
+        }
+
+        if (e.keyCode === 8 || e.keyCode === 46 || e.keyCode === 35 || e.keyCode === 36 || e.keyCode === 37 || e.keyCode === 39) {
+            return true;
+        }
+
+        return false;
+
+
+        // if (!((e.keyCode > 95 && e.keyCode < 106)
+        //     || (e.keyCode > 47 && e.keyCode < 58)
+        //     || e.keyCode === 8)) {
+        //     return false;
+        // }
     }
 }

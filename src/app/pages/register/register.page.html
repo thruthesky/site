@@ -19,8 +19,7 @@
                 <div>
                     <button type="button" class="btn" [class.skip]="files && files.length">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"
-                            />
+                            <path fill="currentColor" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z" />
                         </svg>
                         <span>{{ 'UPDATE_PHOTO' | t }}</span>
                     </button>
@@ -31,8 +30,8 @@
                 </mat-progress-bar>
                 <span>{{ profilePhotoUpload.progressPercentage}}%</span>
             </div>
-            <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files" [showUploadedFiles]="false"
-                [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
+            <xapi-file-upload-component #profilePhotoUpload [title]="false" [fileSelectionButton]="false" [files]="files"
+                [showUploadedFiles]="false" [showProgressBar]="false" (success)="onSuccessUploadPicture($event)">
             </xapi-file-upload-component>
         </div>
 
@@ -84,11 +83,13 @@
                     <div class="col">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
-                            <input matInput id="phone_number" type="number"
-                                   name="phone_number" [(ngModel)]="form.phone_number"
-                                   (keypress)="checkPhoneNumber($event)"
-                            >
+                            <input matInput id="phone_number" type="text" name="phone_number" [(ngModel)]="form.phone_number"
+                                (keydown)="checkPhoneNumber($event)">
+                            <mat-hint>
+                                <span>{{ a.ln['INPUT_NUMBER_ONLY'] }}</span>
+                            </mat-hint>
                         </mat-form-field>
+
                     </div>
                 </div>
             </div>
@@ -116,7 +117,8 @@
                 <img src="../../../assets/img/messengers/{{ myClassSoftware() }}.png" (click)=" onClickUpdateClassSoftware() ">
                 <mat-hint>
                     <span [attr.data-input-id-for]="myClassSoftware()">{{ 'INPUT_'+ myClassSoftware() +'_ID' | t }}</span>
-                    <div class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() " *ngIf=" ! show.updateClassSoftware ">
+                    <div class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() "
+                        *ngIf=" ! show.updateClassSoftware ">
                         <span>{{ 'CHOOSE_ANOTHER_MESSENGER' | t }}</span>
                     </div>
                 </mat-hint>
@@ -134,40 +136,40 @@
                         </div>
                         <div class="messengers">
                             <label>
-                                <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.skype"
-                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.skype)">
+                                <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software"
+                                    [value]="a.classSoftware.skype" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.skype)">
                                 <div>
                                     <img src="../../../assets/img/messengers/skype.png">
                                 </div>
                                 <span>{{ 'SKYPE' | t }}</span>
                             </label>
                             <label>
-                                <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.kakaotalk"
-                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.kakaotalk)">
+                                <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software"
+                                    [value]="a.classSoftware.kakaotalk" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.kakaotalk)">
                                 <div>
                                     <img src="../../../assets/img/messengers/kakaotalk.png">
                                 </div>
                                 <span>{{ 'KAKAOTALK' | t }}</span>
                             </label>
                             <label>
-                                <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.wechat"
-                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.wechat)">
+                                <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software"
+                                    [value]="a.classSoftware.wechat" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.wechat)">
                                 <div>
                                     <img src="../../../assets/img/messengers/wechat.png">
                                 </div>
                                 <span>{{ 'WECHAT' | t }}</span>
                             </label>
                             <label>
-                                <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.line"
-                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.line)">
+                                <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software"
+                                    [value]="a.classSoftware.line" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.line)">
                                 <div>
                                     <img src="../../../assets/img/messengers/line.png">
                                 </div>
                                 <span>{{ 'LINE' | t }}</span>
                             </label>
                             <label>
-                                <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software" [value]="a.classSoftware.qq"
-                                    [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.qq)">
+                                <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software"
+                                    [value]="a.classSoftware.qq" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.qq)">
                                 <div>
                                     <img src="../../../assets/img/messengers/qq.png">
                                 </div>
@@ -233,10 +235,12 @@
                             <input class="removed" type="text" matInput value="dummy">
                             <div class="radio-group">
                                 <label>
-                                    <input type="radio" name="gender" value="M" [checked]=" form.gender == 'M' " [(ngModel)]="form.gender">Male
+                                    <input type="radio" name="gender" value="M" [checked]=" form.gender == 'M' "
+                                        [(ngModel)]="form.gender">Male
                                 </label>
                                 <label data-button="gender-female">
-                                    <input type="radio" name="gender" value="F" [checked]=" form.gender == 'F' " [(ngModel)]="form.gender">Female
+                                    <input type="radio" name="gender" value="F" [checked]=" form.gender == 'F' "
+                                        [(ngModel)]="form.gender">Female
                                 </label>
                             </div>
                         </mat-form-field>
@@ -258,7 +262,8 @@
 
                                 <label>{{ 'Day' | t }}
                                     <select [(ngModel)]="day" name="day">
-                                        <option *ngFor="let d of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]" value="{{ a.add0(d) }}">{{ a.add0(d) }}
+                                        <option *ngFor="let d of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]"
+                                            value="{{ a.add0(d) }}">{{ a.add0(d) }}
                                         </option>
                                     </select>
                                 </label>
@@ -268,7 +273,8 @@
                                         <option *ngFor="let y of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
                                                                                     21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
                                                                                     41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
-                                                                                    61,62,63,64,65,66,67,68,69,70]" value="{{ year_now - y -17 }}">{{ year_now - y -17 }}
+                                                                                    61,62,63,64,65,66,67,68,69,70]"
+                                            value="{{ year_now - y -17 }}">{{ year_now - y -17 }}
                                         </option>
                                     </select>
                                 </label>
@@ -287,12 +293,11 @@
                 <label>
                     <div class="qr-image">
                         <svg *ngIf="!qrmarks.length" class="qrmark-icon" viewBox="0 0 448 512">
-                            <path fill="currentColor" d="M0 224h192V32H0v192zM32 64h128v128H32V64zm224-32v192h192V32H256zm160 160H288V64h128v128zM0 480h192V288H0v192zm32-160h128v128H32V320zM64 96h64v64H64V96zm320 64h-64V96h64v64zM64 352h64v64H64v-64zm352-64h32v128H320v-32h-32v96h-32V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"
-                            />
+                            <path fill="currentColor" d="M0 224h192V32H0v192zM32 64h128v128H32V64zm224-32v192h192V32H256zm160 160H288V64h128v128zM0 480h192V288H0v192zm32-160h128v128H32V320zM64 96h64v64H64V96zm320 64h-64V96h64v64zM64 352h64v64H64v-64zm352-64h32v128H320v-32h-32v96h-32V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z" />
                         </svg>
                         <img class="qrmark-uploaded" *ngIf="qrmarks.length" src="{{qrmarks[0].url}}">
-                        <xapi-file-upload-component #QRMARKFileUpload [title]="false" [fileSelectionButton]="true" [files]="qrmarks" [showUploadedFiles]="false"
-                            [showProgressBar]="false" (success)="onSuccessUploadQRMark( $event )">
+                        <xapi-file-upload-component #QRMARKFileUpload [title]="false" [fileSelectionButton]="true"
+                            [files]="qrmarks" [showUploadedFiles]="false" [showProgressBar]="false" (success)="onSuccessUploadQRMark( $event )">
                         </xapi-file-upload-component>
                         <div class="progress-bar" *ngIf="QRMARKFileUpload.progressPercentage > 0">
                             <mat-progress-bar mode="determinate" [value]="QRMARKFileUpload.progressPercentage">
@@ -326,7 +331,8 @@
                     <div class="spin">
                         <mat-spinner [diameter]="40"></mat-spinner>
                     </div>
-                    There is something wrong in converting Kakao QR Mark into string. If this message does not appear within 10 seconds, please
+                    There is something wrong in converting Kakao QR Mark into string. If this message does not appear
+                    within 10 seconds, please
                     contact to admin.
                 </div>
             </div>

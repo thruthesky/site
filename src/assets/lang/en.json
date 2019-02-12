@@ -707,6 +707,7 @@
   "NAME_REQUIRED": "Please input name.",
   "NICKNAME_REQUIRED": "Please input nickname.",
   "PHONE_NUMBER_REQUIRED": "Please input phone number.",
+  "INPUT_NUMBER_ONLY": "Please input number only. Spaces, brackets, hypens are not allowed.",
 
   "KAKAOTALK": "Kakaotalk",
   "SKYPE": "Skype",

@@ -628,6 +628,8 @@
   "NAME_REQUIRED": "名前を入力してください。",
   "NICKNAME_REQUIRED": "ニックネームを入力してください。",
   "PHONE_NUMBER_REQUIRED": "電話番号を入力してください。",
+  "INPUT_NUMBER_ONLY": "数字のみを入力してください。 スペース、大括弧、ハイフンは使用できません。",
+
 
   "KAKAOTALK": "Kakaotalk",
   "SKYPE": "Skype",
