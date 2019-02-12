@@ -125,19 +125,19 @@ export class OntueScheduleEditPage implements OnInit, OnDestroy {
             this.a.toast('Warning: Select Days! You need to select days to add/edit a schedule.');
             return;
         }
-        if (!this.data.class_begin_hour) {
-            this.a.toast('Warning: Please, input class begin hour. What hour the session will start?.');
+        if (!this.data.class_begin_hour && (this.data.class_begin_hour < 0 || this.data.class_begin_hour > 23)) {
+            this.a.toast('Warning: Please, input class begin hour between 0-23. What hour the session will start?.');
             return;
         }
-        if (!this.data.class_begin_minute) {
-            this.a.toast('Warning: Please, input class begin minutes. What minutes the session will start?.');
+        if (!this.data.class_begin_minute && (this.data.class_begin_minute < 0 || this.data.class_begin_minute > 59)) {
+            this.a.toast('Warning: Please, input class begin minutes between 0-59. What minutes the session will start?.');
             return;
         }
-        if (!this.data.duration || this.data.duration === 0) {
-            this.a.toast('Warning: Please, input duration. How long is the session?.');
+        if (!this.data.duration || this.data.duration < 1 || this.data.duration > 120) {
+            this.a.toast('Warning: Please, input duration upto 120. How long is the session?.');
             return;
         }
-        if (!this.data.point || this.data.point === 0) {
+        if (!this.data.point || this.data.point < 1) {
             this.a.toast('Warning: Please, input points. How much points is the session?.');
             return;
         }

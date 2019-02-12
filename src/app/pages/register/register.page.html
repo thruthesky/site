@@ -84,7 +84,10 @@
                     <div class="col">
                         <mat-form-field appearance="outline">
                             <mat-label>{{ a.ln.PHONE_NUMBER }}</mat-label>
-                            <input matInput id="phone_number" type="number" name="phone_number" [(ngModel)]="form.phone_number">
+                            <input matInput id="phone_number" type="number"
+                                   name="phone_number" [(ngModel)]="form.phone_number"
+                                   (keypress)="checkPhoneNumber($event)"
+                            >
                         </mat-form-field>
                     </div>
                 </div>
