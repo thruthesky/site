@@ -172,10 +172,20 @@ export class AppService {
     /**
      * It update the time every 10 seconds to display user time.
      *      - It runs on booting
-     *      - and chagnes every 10 seconds.
+     *      - and changes every 10 seconds.
      */
     userTime = '';
 
+    /**
+     * It update the same time as the userTime;
+     *
+     */
+    utcString = '';
+    /**
+     * It update the same time as the userTime;
+     *
+     */
+    localeString = '';
 
     /**
      * User's point is updated in this variable. Use this variable whereever.
@@ -803,15 +813,54 @@ export class AppService {
 
 
 
-
-    dateTime(stamp: any) {
+    stampToDate(stamp: any) {
         stamp = parseInt(stamp, 10);
         if (!stamp) {
             return 0;
         }
-        const d = new Date(stamp * 1000);
-        return d.toLocaleString();
+        return new Date(stamp * 1000);
     }
+
+    dateTime(stamp: any) {
+        const date = this.stampToDate(stamp);
+        return date.toLocaleString();
+    }
+
+
+    /**
+     * Display utc short date
+     * @param stamp unix timestamp
+     * @param full - true return full shorten date today
+     *        full - false return time of today
+     * @returns mixed - return may be date or time.
+     */
+    utcShortDate(stamp, full = false) {
+        const d = new Date(stamp * 1000);
+        const today = new Date();
+        let dt;
+        if (!full && d.getUTCFullYear() === today.getUTCFullYear() && d.getUTCMonth() === today.getUTCMonth() && d.getUTCDate() === today.getUTCDate()) {
+            let ap = '';
+            const hour = d.getUTCHours();
+            if ( hour < 12 ) {
+               ap = 'am';
+            } else {
+                ap = 'pm';
+            }
+            dt = hour + ':' + this.add0(d.getUTCMinutes()) + ' ' + ap;
+        } else {
+            dt = d.getUTCFullYear().toString().substr(2, 2) + '-' + this.add0(d.getUTCMonth() + 1) + '-' + this.add0(d.getUTCDate());
+        }
+        return dt;
+    }
+
+    stampToUTCString(stamp: any) {
+        stamp = parseInt(stamp, 10);
+        if (!stamp) {
+            return 0;
+        }
+        return new Date(stamp * 1000).toUTCString();
+    }
+
 
     /**
      * return number of stars.
@@ -1884,6 +1933,22 @@ export class AppService {
         // }
 
         this.userTime = this.t('CURRENT_TIME', { ap: ap, hour: hour, minute: min, country: user['timezone_country'] });
+
+        if (this.isManager) {
+            this.utcString = (date.getUTCMonth() + 1) + '/'
+                + date.getUTCDate() + '/'
+                + date.getUTCFullYear() + ' '
+                + date.getUTCHours() + ':'
+                + date.getUTCMinutes() + ':'
+                + date.getUTCSeconds() + ' (UTC 0)';
+            this.localeString = (date.getMonth() + 1) + '/'
+                + date.getDate() + '/'
+                + date.getFullYear() + ' '
+                + date.getHours() + ':'
+                + date.getMinutes() + ':'
+                + date.getSeconds() + ' ('
+                + this.user.timezone + ')';
+        }
         // console.log('userTime: ', this.userTime);
     }
 
@@ -1914,7 +1979,7 @@ export class AppService {
      *
      *
      */
-    toInt(n: any) {
+    toInt(n: any): number {
         try {
             return parseInt(n, 10);
         } catch (e) {

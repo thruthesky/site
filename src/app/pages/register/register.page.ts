@@ -239,6 +239,8 @@ export class RegisterPage implements OnInit {
         // if (this.a.user.isLogin && this.user_type === 'T' && !this.qrmarks.length) {
         //     return this.a.toast('Teacher must upload QR Mark...');
         // }
+
+        console.log('this.form.phone_number', this.form.phone_number);
         if (!this.form.phone_number) {
             return this.a.toast(this.a.t('PHONE_NUMBER_REQUIRED'));
         }
@@ -529,5 +531,16 @@ export class RegisterPage implements OnInit {
 
     onChangeClassSoftware(name) {
         this.show.updateClassSoftware = false;
+    }
+
+
+    checkPhoneNumber(e) {
+        console.log('checkPhoneNumber::this.form.phone_number', this.form.phone_number);
+        console.log('checkPhoneNumber::event', e);
+        if (!((e.keyCode > 95 && e.keyCode < 106)
+            || (e.keyCode > 47 && e.keyCode < 58)
+            || e.keyCode === 8)) {
+            return false;
+        }
     }
 }

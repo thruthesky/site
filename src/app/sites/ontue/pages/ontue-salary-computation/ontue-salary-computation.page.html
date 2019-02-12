@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div>Teacher Share Points ({{payment_computation.teacher_share}}%)</div>
+                    <div>Teacher Share Points ({{payment_computation?.teacher_share}}%)</div>
                 </div>
                 <div class="col">
                     <div>{{ teacher_share }}</div>
@@ -58,7 +58,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div>Transaction Fee({{payment_computation.transaction_fee_teacher_share}}%)</div>
+                    <div>Transaction Fee({{payment_computation?.transaction_fee_teacher_share}}%)</div>
                 </div>
                 <div class="col">
                     <div>{{ paypal_transaction_fee }}</div>
@@ -122,7 +122,7 @@
         <div class="mb-3">
             <b>*Transaction Fee:</b> When the student buy points, paypal deduct a total of 4.7% from the total amount they pay.
             But we still give the full amount of points to student, that's why we need to deduct the 4.7% to the teacher, branch and company share.
-            Company, branch and teacher will share with this deduction. Since teacher share is 75% then we deduct 3.53% to teacher points.
+            Company, branch and teacher will share with this deduction. Since teacher share is {{payment_computation?.teacher_share}}% then we deduct {{payment_computation?.transaction_fee_teacher_share}}% to teacher points.
             And the remaining will be deducted to the company and branch.
         </div>
         <div class="mb-3">

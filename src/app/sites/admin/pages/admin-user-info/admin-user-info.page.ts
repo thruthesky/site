@@ -157,6 +157,9 @@ export class AdminUserInfoPage implements OnInit {
 
         // console.log(this.user);
         const u = this.user;
+        if ( u.class_software_id_check ) {
+            u.class_software_id_check = u.class_software_id_check.toUpperCase();
+        }
         const up = {
             route: 'lms.admin_user_update',
             session_id: this.a.user.sessionId,
