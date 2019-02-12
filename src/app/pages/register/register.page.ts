@@ -251,7 +251,7 @@ export class RegisterPage implements OnInit {
         // this.form.phone_number = this.form.phone_number.replace(/\)/g, '');
         // this.form.phone_number = this.form.phone_number.replace(/\./g, ''); // ??
 
-        console.log('this.form.phone_number', this.form.phone_number);
+        // console.log('this.form.phone_number', this.form.phone_number);
         if (!this.form.phone_number) {
             return this.a.toast(this.a.t('PHONE_NUMBER_REQUIRED'));
         }
@@ -548,8 +548,8 @@ export class RegisterPage implements OnInit {
 
 
     checkPhoneNumber(e) {
-        console.log('checkPhoneNumber::this.form.phone_number', this.form.phone_number);
-        console.log('checkPhoneNumber::event', e.key);
+        // console.log('checkPhoneNumber::this.form.phone_number', this.form.phone_number);
+        // console.log('checkPhoneNumber::event', e.key);
 
         const k = e.key;
         if (k >= 0 && k <= 9) {
