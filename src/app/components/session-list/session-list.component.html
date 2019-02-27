@@ -139,6 +139,10 @@
         <div class="number">{{re.total_session_refunded}}</div>
         <div>{{ 'REFUNDED_SESSIONS' | t}}</div>
     </div>
+    <div *ngIf=" past ">
+        <div class="number">{{re.total_reserve_points | number }}</div>
+        <div>{{ 'POINT_USED' | t}}</div>
+</div>
     <div *ngIf=" re.total_session_refund_in_progress ">
         <div>{{re.total_session_refund_in_progress}}</div>
         <div>{{ 'SESSIONS_IN_REFUND_PROGRESS' | t}}</div>

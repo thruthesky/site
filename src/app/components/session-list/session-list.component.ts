@@ -46,6 +46,9 @@ export class SessionListComponent implements OnInit {
     loadbook = false;
 
 
+    total_point_reserve = 0;
+    // point_reserve_loader = false;
+
     constructor(public a: AppService,
                 public modal: ModalService,
                 public messageSend: MessageSendModalService
@@ -154,6 +157,7 @@ export class SessionListComponent implements OnInit {
 
     updatePoint() {
         this.a.loadMyPoint(p => this.share.point = p);
+        // this.loadPointReserved();
     }
 
     onChangeSearchOption() {
@@ -394,6 +398,28 @@ export class SessionListComponent implements OnInit {
         });
 
     }
+
+    // loadPointReserved() {
+    //     // console.log(this.user);
+    //     const sql = `SELECT sum(lms_reservation.point) as points, wp_users.domain
+    //                  FROM lms_reservation, wp_users
+    //                  WHERE BRANCH AND lms_reservation.idx_student=wp_users.ID AND idx_student=${this.a.user.id}
+    //                  GROUP BY idx_student
+    //                  `;
+    //     this.point_reserve_loader = true;
+    //     this.a.lms.admin_query({
+    //         sql: sql
+    //     }).subscribe(re => {
+    //         console.log('payments: ', re);
+    //         this.point_reserve_loader = false;
+    //         if ( re && re.length ) {
+    //             this.total_point_reserve = re[0].points;
+    //         }
+    //     }, e => {
+    //         this.a.toast(e);
+    //         this.point_reserve_loader = false;
+    //     });
+    // }
 
 
 }

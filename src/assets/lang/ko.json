@@ -816,6 +816,7 @@
   "RESIGN_CONFIRM_TITLE": "회원탈퇴",
   "RESIGN_CONFIRM_CONTENT": "정말 회원 탈퇴를 하시겠습니까?",
   "RESIGN_BUTTON_TEXT": "회원 탈퇴 하기",
-  "RESIGNED_ALERT_CONTENT": "회원 탈퇴를 하였습니다."
+  "RESIGNED_ALERT_CONTENT": "회원 탈퇴를 하였습니다.",
+  "POINT_USED": "사용 된 포인트"
 
 }
