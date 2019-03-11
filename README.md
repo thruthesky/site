@@ -97,13 +97,24 @@ npm run e2e:remote:headless         ; cypress run headless with real server urls
 
 ## Run
 
+* Updated on 2019-03-11
+* Local backend server is set to `environment.local-backend-server.ts`
+
 ```` bash
+npm run ssl                         ; run project with ssl. port is 9443. after run, access
+                                    ; https://abc.katalkenglish.com:9443/         for student site
+                                    ; https://withcenter.katalkenglish.com:9443/  for withcenter site
+                                    ; https://ontue.katalkenglish.com:9443/     for teacher site.
+
+
+
+
 npm run s                           ; Run with workserver.
 ng s --disable-host-check
 npm run serve:local                 ; Run with local backend server.
 npm run serve:remote                ; Run on production server.
 npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
-npm run ssl                         ; run project with ssl. port is 9443. after run, access https://withcenter.katalkenglish.com:9443/
+
 npm run seo                         ; SEO TEST.
                                     ; It copies the build files into ~/www/wordpress.
                                     ; You can access http://local.wordpress.org/                                    ; You may want to run `npm run serve:local` to see the changes on browser.

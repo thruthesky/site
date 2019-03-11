@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
     hmr: false,
-    urlBackend: 'http://local.wordpress.org',
+    urlBackend: 'https://backend.katalkenglish.com',
     firebaseConfig: {
         apiKey: 'AIzaSyCF9jsyLjQEDi4963DpOYi2wV0j19XSM2Q',
         authDomain: 'ontue-30fb9.firebaseapp.com',

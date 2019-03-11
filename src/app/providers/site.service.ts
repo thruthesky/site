@@ -112,14 +112,14 @@ export class SiteService {
     getSite(): string {
         if (this.isAdminPath()) {
             return SITE_ADMIN;
+        } else if (this.isOntueDomain()) {
+            return SITE_ONTUE;
         } else if (this.isWithcenterDomain()) {
             return SITE_WITHCENTER;
         } else if (this.isKatalkenglishDomain()) {
             return SITE_KATALKENGLISH;
         } else if (this.isEnglishasDomain()) {
             return SITE_ENGLISHAS;
-        } else if (this.isOntueDomain()) {
-            return SITE_ONTUE;
         } else {
             return SITE_ENGLISHAS;
         }
