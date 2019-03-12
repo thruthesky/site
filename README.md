@@ -106,7 +106,7 @@ npm run ssl                         ; run project with ssl. port is 9443. after 
                                     ; https://withcenter.katalkenglish.com:9443/  for withcenter site
                                     ; https://ontue.katalkenglish.com:9443/     for teacher site.
 
-
+npm run ssl:live                    ; Runs the app locally by `ng serve` but uses production server backend.
 
 
 npm run s                           ; Run with workserver.
