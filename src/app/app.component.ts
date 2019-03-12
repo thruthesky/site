@@ -1,5 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AppService } from './providers/app.service';
+import { Platform } from '@ionic/angular';
+// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+// import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +10,33 @@ import { AppService } from './providers/app.service';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   constructor(
-    public a: AppService
+    public a: AppService,
+    private platform: Platform,
+    // private splashScreen: SplashScreen,
+    // private statusBar: StatusBar
   ) {
     // console.log(`AppComponent:constructor()`);
     // console.log(`current: ${a.color}, change: black`);
     // a.setColor('black');
 
+    this.initializeApp();
     this.openHomePage();
     this.a.onetimeInitPushMessage();
   }
 
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // console.log('platform: is cordova?: ', this.platform.is('cordova'));
+      // if (this.platform.is('cordova')) {
+      //   console.log('platform: cordova?', this.platform.is('cordova'));
+      //   this.statusBar.styleDefault();
+      //   this.splashScreen.hide();
+      // } else {
+      //   console.log('This is not cordovva');
+      // }
+    });
+  }
 
 
   ngAfterViewInit() {

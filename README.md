@@ -455,3 +455,19 @@ env['reloadTag'] = (new Date).getTime();
 ## Resources
 
 * logo icon svg is on tmp folder.
+
+## Cordova Serve & build
+
+@see [Document](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.w5ib9bbpzjcn)
+
+```` sh
+ionic cordova run android -l ; serve
+
+ionic cordova build android --prod --release ; build for release apk. It takes more a minute without printing any log on Mr. Song macbook.
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ontue ; signing signature
+
+rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk; Generating final realease apk
+````
+
+ionic cordova build android --prod --release && printf "asdf99" | jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ontue && rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk && adb shell am start -n com.ontue.www/com.ontue.www.MainActivity
