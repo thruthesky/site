@@ -455,3 +455,14 @@ env['reloadTag'] = (new Date).getTime();
 ## Resources
 
 * logo icon svg is on tmp folder.
+
+## Cordova Serve & build
+
+@see [Document](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.w5ib9bbpzjcn)
+
+```` sh
+ionic cordova run android -l ; serve
+ionic cordova build android --prod --release ; build for release apk
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ontue.apk
+
+````
