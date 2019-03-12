@@ -470,5 +470,4 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore 
 rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk; Generating final realease apk
 ````
 
-
-ionic cordova build android --prod --release && printf 'asdf99' | jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ontue && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk
+ionic cordova build android --prod --release && printf "asdf99" | jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ontue && rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk && adb shell am start -n com.ontue.www/com.ontue.www.MainActivity
