@@ -232,6 +232,7 @@ export class AppService {
         // public readonly branch: BranchService
     ) {
 
+        window['a'] = this;
         // console.log(`AppService::constructor()`);
         // this.setColor('white');
 

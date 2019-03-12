@@ -1,19 +1,22 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AppService } from './providers/app.service';
-import { Platform } from '@ionic/angular';
-// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-// import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Platform, ToastController } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
 })
 export class AppComponent implements OnInit, AfterViewInit {
+  lastTimeBackPress = 0;
+  timePeriodToExit = 2000;
   constructor(
     public a: AppService,
     private platform: Platform,
-    // private splashScreen: SplashScreen,
-    // private statusBar: StatusBar
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    private toast: ToastController
   ) {
     // console.log(`AppComponent:constructor()`);
     // console.log(`current: ${a.color}, change: black`);
@@ -27,14 +30,32 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // console.log('platform: is cordova?: ', this.platform.is('cordova'));
-      // if (this.platform.is('cordova')) {
-      //   console.log('platform: cordova?', this.platform.is('cordova'));
-      //   this.statusBar.styleDefault();
-      //   this.splashScreen.hide();
-      // } else {
-      //   console.log('This is not cordovva');
-      // }
+      // alert('platform: is cordova?: ' + this.platform.is('cordova'));
+      if (this.platform.is('cordova')) {
+        // alert('platform: cordova? ' + this.platform.is('cordova'));
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
+
+        // this.platform.backButton.subscribe(async () => {
+        //   if ( ! this.a.routeUrl || this.a.routeUrl === '/' || this.a.routeUrl === '/#' ) {
+        //     if (new Date().getTime() - this.lastTimeBackPress < this.timePeriodToExit) {
+        //       navigator['app'].exitApp(); // work in ionic 4
+        //     } else {
+        //       const toast = await this.toast.create({
+        //         message: 'Press back button again to exit App',
+        //         showCloseButton: true,
+        //         position: 'top',
+        //         closeButtonText: 'Done',
+        //         duration: this.timePeriodToExit
+        //       });
+        //       toast.present();
+        //       this.lastTimeBackPress = new Date().getTime();
+        //     }
+        //   }
+        // });
+      } else {
+        // alert('This is not cordovva');
+      }
     });
   }
 
