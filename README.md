@@ -462,9 +462,12 @@ env['reloadTag'] = (new Date).getTime();
 
 ```` sh
 ionic cordova run android -l ; serve
+
 ionic cordova build android --prod --release ; build for release apk. It takes more a minute without printing any log on Mr. Song macbook.
+
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ontue ; signing signature
-zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk ; Generating final realease apk
+
+rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk; Generating final realease apk
 ````
 
 
