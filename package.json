@@ -50,6 +50,7 @@
     "@ionic/angular": "^4.1.1",
     "bootstrap": "^4.1.1",
     "classlist.js": "^1.1.20150312",
+    "cordova-android": "7.0.0",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^2.0.0",
@@ -101,6 +102,8 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   }
 }

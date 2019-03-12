@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { texts } from './withenter-text';
-import { Library as _ } from '../../etc/library';
+import { Library } from '../../etc/library';
 
 export const WITHCENTER_LANGUAGE_CODE = 'withcenterLanguageCode';
 @Injectable()
@@ -30,16 +30,16 @@ export class WithcenterTextService {
 
     getLanguageCode(): string {
 
-        const ln = _.get(WITHCENTER_LANGUAGE_CODE);
+        const ln = Library.get(WITHCENTER_LANGUAGE_CODE);
         if (ln) {
             return ln;
         } else {
-            return _.getBrowserLanguage();
+            return Library.getBrowserLanguage();
         }
     }
 
     setLanguageCode(ln) {
-        _.set(WITHCENTER_LANGUAGE_CODE, ln);
+        Library.set(WITHCENTER_LANGUAGE_CODE, ln);
     }
 
 }

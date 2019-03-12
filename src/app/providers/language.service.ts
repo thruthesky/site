@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Library as _ } from '../etc/library';
+import { Library } from '../etc/library';
 
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -88,11 +88,11 @@ export class LanguageService {
      * @return language code.
      */
     getUserLanguage(): string {
-        const ln = _.get(LANGUAGE_CODE);
+        const ln = Library.get(LANGUAGE_CODE);
         if (ln && ln.length === 2) {
             return ln;
         } else {
-            return _.getBrowserLanguage();
+            return Library.getBrowserLanguage();
         }
     }
 
@@ -100,7 +100,7 @@ export class LanguageService {
      * Returns user's chosen language. If the user didn't select the language yet, it will return null.
      */
     getUserSelectedLanguage(): string {
-        return _.get(LANGUAGE_CODE);
+        return Library.get(LANGUAGE_CODE);
     }
 
 
@@ -116,7 +116,7 @@ export class LanguageService {
      *              a.language.setUserLanguage('en');
      */
     setUserLanguage(ln, callback?) {
-        _.set(LANGUAGE_CODE, ln);
+        Library.set(LANGUAGE_CODE, ln);
         this.change.emit(ln);
         this.loadUserLanguage(callback);
     }
@@ -247,7 +247,7 @@ export class LanguageService {
      *          {{ fire.ln.HOME }}
      */
     translate(code: string, info?): string {
-        return _.patchMarker(this.getText(code), info);
+        return Library.patchMarker(this.getText(code), info);
     }
 
     /**
