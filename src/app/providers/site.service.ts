@@ -31,7 +31,7 @@ export class SiteService {
     constructor() {
 
         // Base.collectionDomain = 'database';
-        this.is[this.getSite()] = true;             // =================> determin sites.
+        this.is[this.getSite()] = true;             // =================> determine sites.
 
 
     }
@@ -104,8 +104,8 @@ export class SiteService {
      *
      * It determins which site you are in.
      *
-     * @description It returns 'englishas' by default for any domain that is not one of ontue, withcenter, katalkenglish, engliasas.
-     *      This means, when you want to determin the site that the user is in, it will be 'englishas' if the site is not in the domain categories.
+     * @description It returns 'englishas' by default for any domain that is not one of ontue, withcenter, katalkenglish, englishas.
+     *      This means, when you want to determine the site that the user is in, it will be 'englishas' if the site is not in the domain categories.
      *
      *      So, if you use `a.site.is.englishas`, it means, any site that is not ontue, withcenter, katalkenglish.
      */

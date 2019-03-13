@@ -860,5 +860,6 @@
   "RESIGN_CONFIRM_CONTENT": "Are you sure you want to leave the membership?",
   "RESIGN_BUTTON_TEXT": "Leave Membership Now",
   "RESIGNED_ALERT_CONTENT": "You have left the membership. Thank you.",
-  "POINT_USED": "Point Used"
+  "POINT_USED": "Point Used",
+  "PAGE_TITLE_HELP": "Need Help: Click Here."
 }
