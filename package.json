@@ -33,7 +33,8 @@
     "delete-remote-js": "ssh ontue@ontue.com 'rm -f www/*.js'",
     "ssl": "ng serve --disable-host-check --configuration=local-backend-server --ssl --ssl-key './tmp/ssl/wild-katalkenglish/private.key' --ssl-cert './tmp/ssl/wild-katalkenglish/certificate.crt' --port 9443",
     "ssl:live": "ng serve --disable-host-check --ssl --ssl-key './tmp/ssl/wild-katalkenglish/private.key' --ssl-cert './tmp/ssl/wild-katalkenglish/certificate.crt' --port 9443",
-    "sssl": "ng serve --disable-host-check --configuration=local-backend-server --ssl --ssl-key ./tmp/ssl/wild-katalkenglish/private.key --ssl-cert ./tmp/ssl/wild-katalkenglish/certificate.crt --port 9443"
+    "sssl": "ng serve --disable-host-check --configuration=local-backend-server --ssl --ssl-key ./tmp/ssl/wild-katalkenglish/private.key --ssl-cert ./tmp/ssl/wild-katalkenglish/certificate.crt --port 9443",
+    "sssl:live": "ng serve --disable-host-check --ssl --ssl-key ./tmp/ssl/wild-katalkenglish/private.key --ssl-cert ./tmp/ssl/wild-katalkenglish/certificate.crt --port 9443"
   },
   "private": true,
   "dependencies": {

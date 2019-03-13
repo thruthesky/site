@@ -779,7 +779,8 @@
   "RESIGN_CONFIRM_CONTENT": "メンバーシップを終了しますか？",
   "RESIGN_BUTTON_TEXT": "メンバーシップを今すぐ離れる",
   "RESIGNED_ALERT_CONTENT": "あなたはメンバーシップを去りました。 ありがとうございました。",
-  "POINT_USED": "使用ポイント"
+  "POINT_USED": "使用ポイント",
+  "PAGE_TITLE_HELP": "助けが必要：ここをクリックしてください。"
 
 
 

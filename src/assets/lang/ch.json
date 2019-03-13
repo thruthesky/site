@@ -803,7 +803,8 @@
   "RESIGN_CONFIRM_CONTENT": "你确定要离开会员吗？",
   "RESIGN_BUTTON_TEXT": "立即离开会员",
   "RESIGNED_ALERT_CONTENT": "你已离开会员。 谢谢。",
-  "POINT_USED": "点使用"
+  "POINT_USED": "点使用",
+  "PAGE_TITLE_HELP": "需要帮助：点击这里。"
 
 
 }
