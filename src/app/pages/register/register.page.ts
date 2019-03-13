@@ -8,6 +8,7 @@ import { LoaderService } from '../../providers/loader/loader.service';
 import { ModalService, ModalData } from '../../providers/modal/modal.service';
 import { ForumService } from '../../providers/forum/forum.service.module';
 import { CLASS_SOFTWARE_KAKAOTALK, DEFAULT_CLASS_SOFTWARE } from '../../providers/defines';
+import { Library } from '../../etc/library';
 
 
 @Component({
@@ -203,7 +204,11 @@ export class RegisterPage implements OnInit {
             event.preventDefault();
         }
         if (this.a.isLogout) {
-            this.form.domain = this.a.site.getDomain();
+            if (Library.isCordova) {
+                this.form.domain = 'app.katalkenglish.com';
+            } else {
+                this.form.domain = this.a.site.getDomain();
+            }
         }
 
 

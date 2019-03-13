@@ -46,6 +46,8 @@ export class SiteService {
      *      abc.com
      *      www.abc.com
      *      subdomain.rootdomain.com
+     *
+     *      'localhost' for app.
      */
     getDomain() {
         return window.location.hostname;

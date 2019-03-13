@@ -281,6 +281,28 @@ export class Library {
         localStorage.setItem(key, JSON.stringify(data));
     }
 
+
+    /**
+     * Returns true if the app is
+     *      - not running on the web browser
+     *      - having 'cordova' global variable.
+     */
+    static get isCordova(): boolean {
+        if ( !Library.isWeb && window['cordova']) {
+            return true;
+        }
+        return false;
+    }
+
+    static get isWeb(): boolean {
+        if (document.URL.indexOf('http://') !== -1
+            || document.URL.indexOf('https://') !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 
