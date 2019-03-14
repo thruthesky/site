@@ -472,12 +472,13 @@ rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/app/build/outputs/ap
 
 #### Window Release
 ````
-ionic cordova run android -l ; serve
 
-ionic cordova build android --prod --release ; build for release apk. 
+ionic cordova run android -l
 
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/build/outputs/apk/android-release-unsigned.apk ontue ; signing signature
+ionic cordova build android --prod --release
 
-rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk  ; Generating final realease apk
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  platforms/android/build/outputs/apk/android-release-unsigned.apk ontue
+
+rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk
 
 ````
