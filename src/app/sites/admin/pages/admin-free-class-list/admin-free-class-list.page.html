@@ -57,7 +57,7 @@
         <div class="row">
             <div class="col-2">{{student.ID}}</div>
             <div class="col-3">{{student.display_name}}</div>
-            <div class="col-3"><img src="../../../../../assets/img/messengers/{{student.class_software}}.png">  {{student.class_software_id}}</div>
+            <div class="col-3"><img src="assets/img/messengers/{{student.class_software}}.png">  {{student.class_software_id}}</div>
             <div class="col-1" [class.by-id]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
             <div class="col-1" [class.by-class-software]="student.free_class_by_class_software_id>0">
                 {{student.free_class_by_class_software_id}}
@@ -227,7 +227,7 @@
                 <span>{{student.display_name}}</span>
             </a>
         </div>
-        <div class="col-3"><img src="../../../../../assets/img/messengers/{{student.class_software}}.png"> {{student.class_software_id}}</div>
+        <div class="col-3"><img src="assets/img/messengers/{{student.class_software}}.png"> {{student.class_software_id}}</div>
         <div class="col-1" [class.by-id]="student.free_class_by_id>0">{{student.free_class_by_id}}</div>
         <div class="col-1" [class.by-class-software]="student.free_class_by_class_software_id>0">
             {{student.free_class_by_class_software_id}}

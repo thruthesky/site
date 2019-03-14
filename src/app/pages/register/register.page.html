@@ -114,7 +114,7 @@
             <mat-form-field class="class-software" appearance="outline" *ngIf=" a.site.is.englishas && ! show.updateClassSoftware ">
                 <mat-label>{{ myClassSoftware() | t }} {{ 'ID' | t }}</mat-label>
                 <input matInput type="text" name="class_software_id" [(ngModel)]=" form.class_software_id ">
-                <img src="../../../assets/img/messengers/{{ myClassSoftware() }}.png" (click)=" onClickUpdateClassSoftware() ">
+                <img src="assets/img/messengers/{{ myClassSoftware() }}.png" (click)=" onClickUpdateClassSoftware() ">
                 <mat-hint>
                     <span [attr.data-input-id-for]="myClassSoftware()">{{ 'INPUT_'+ myClassSoftware() +'_ID' | t }}</span>
                     <div class="mat-custom-button" data-role='choose-another-messenger-app' (click)=" onClickUpdateClassSoftware() "
@@ -139,7 +139,7 @@
                                 <input type='radio' class="radio-skype" name='class_software' [(ngModel)]="form.class_software"
                                     [value]="a.classSoftware.skype" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.skype)">
                                 <div>
-                                    <img src="../../../assets/img/messengers/skype.png">
+                                    <img src="assets/img/messengers/skype.png">
                                 </div>
                                 <span>{{ 'SKYPE' | t }}</span>
                             </label>
@@ -147,7 +147,7 @@
                                 <input type='radio' class="radio-kakaotalk" name='class_software' [(ngModel)]="form.class_software"
                                     [value]="a.classSoftware.kakaotalk" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.kakaotalk)">
                                 <div>
-                                    <img src="../../../assets/img/messengers/kakaotalk.png">
+                                    <img src="assets/img/messengers/kakaotalk.png">
                                 </div>
                                 <span>{{ 'KAKAOTALK' | t }}</span>
                             </label>
@@ -155,7 +155,7 @@
                                 <input type='radio' class="radio-wechat" name='class_software' [(ngModel)]="form.class_software"
                                     [value]="a.classSoftware.wechat" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.wechat)">
                                 <div>
-                                    <img src="../../../assets/img/messengers/wechat.png">
+                                    <img src="assets/img/messengers/wechat.png">
                                 </div>
                                 <span>{{ 'WECHAT' | t }}</span>
                             </label>
@@ -163,7 +163,7 @@
                                 <input type='radio' class="radio-line" name='class_software' [(ngModel)]="form.class_software"
                                     [value]="a.classSoftware.line" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.line)">
                                 <div>
-                                    <img src="../../../assets/img/messengers/line.png">
+                                    <img src="assets/img/messengers/line.png">
                                 </div>
                                 <span>{{ 'LINE' | t }}</span>
                             </label>
@@ -171,7 +171,7 @@
                                 <input type='radio' class="radio-qq" name='class_software' [(ngModel)]="form.class_software"
                                     [value]="a.classSoftware.qq" [checked]="form.class_software" (ngModelChange)="onChangeClassSoftware(a.classSoftware.qq)">
                                 <div>
-                                    <img src="../../../assets/img/messengers/qq.png">
+                                    <img src="assets/img/messengers/qq.png">
                                 </div>
                                 <span>{{ 'QQ' | t }}</span>
                             </label>
@@ -195,32 +195,32 @@
                 <mat-form-field class="class-software mb-3" appearance="outline">
                     <mat-label>Input Kakaotalk ID</mat-label>
                     <input matInput type="text" name="kakaotalk" [(ngModel)]=" form.kakaotalk ">
-                    <img src="../../../assets/img/messengers/kakaotalk.png">
+                    <img src="assets/img/messengers/kakaotalk.png">
                     <mat-hint>Note* <b>Most Student uses kakaotalk, so you must create your kakaotalk account.</b></mat-hint>
                 </mat-form-field>
 
                 <mat-form-field class="class-software" appearance="outline">
                     <mat-label>Skype ID</mat-label>
                     <input matInput type="text" name="skype" [(ngModel)]=" form.skype ">
-                    <img src="../../../assets/img/messengers/skype.png">
+                    <img src="assets/img/messengers/skype.png">
                 </mat-form-field>
 
                 <mat-form-field class="class-software" appearance="outline">
                     <mat-label>Input WeChat ID</mat-label>
                     <input matInput type="text" name="wechat" [(ngModel)]=" form.wechat ">
-                    <img src="../../../assets/img/messengers/wechat.png">
+                    <img src="assets/img/messengers/wechat.png">
                 </mat-form-field>
 
                 <mat-form-field class="class-software" appearance="outline">
                     <mat-label>Input Line ID</mat-label>
                     <input matInput type="text" name="line" [(ngModel)]=" form.line ">
-                    <img src="../../../assets/img/messengers/line.png">
+                    <img src="assets/img/messengers/line.png">
                 </mat-form-field>
 
                 <mat-form-field class="class-software" appearance="outline">
                     <mat-label>Input QQ ID</mat-label>
                     <input matInput type="text" name="qq" [(ngModel)]=" form.qq ">
-                    <img src="../../../assets/img/messengers/qq.png">
+                    <img src="assets/img/messengers/qq.png">
                 </mat-form-field>
 
             </div>

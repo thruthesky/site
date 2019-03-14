@@ -255,7 +255,7 @@
                         </svg>
                     </span>
                     <span>
-                        <img src="../../../assets/img/messengers/{{ book.student_class_software }}.png" alt="messenger button image"> </span>
+                        <img src="assets/img/messengers/{{ book.student_class_software }}.png" alt="messenger button image"> </span>
                     <span *ngIf="a.isStudent">{{ my_teachers[book.idx_teacher][book.student_class_software] }}</span>
                     <span *ngIf="a.isTeacher">
                         <b>ID</b> : {{ book.student_class_software_id }}
@@ -420,7 +420,7 @@
                         <div *ngIf=" a.isMobileView() " class="add-friend d-flex" [class.teacher-id-button]="a.isTeacher" [class.student-id-button]="a.isStudent" (click)="a.isStudent?onClickTeacherMessengerID( book ) : '' ">
                             <span class="p-1">{{ 'ADD_FRIEND' | t }}</span>
                             <span class="w-24px">
-                                <img class="w-24px" src="../../../assets/img/messengers/{{ book.student_class_software }}.png"
+                                <img class="w-24px" src="assets/img/messengers/{{ book.student_class_software }}.png"
                                     alt="messenger button image">
                             </span>
                             <span class="p-1">
