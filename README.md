@@ -469,3 +469,14 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore 
 
 rm tmp/katalkenglish.apk && zipalign -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk tmp/katalkenglish.apk && adb uninstall com.ontue.www && adb install tmp/katalkenglish.apk; Generating final realease apk
 ````
+
+#### Window Release
+````
+ionic cordova run android -l ; serve
+
+ionic cordova build android --prod --release ; build for release apk. 
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ontue.keystore  'platforms/android/build/outputs/apk/android-release-unsigned.apk' ontue ; signing signature
+
+rm 'tmp/katalkenglish.apk' && zipalign -v 4 'platforms/android/build/outputs/apk/android-release-unsigned.apk' 'tmp/katalkenglish.apk' && adb uninstall com.ontue.www && adb install 'tmp/katalkenglish.apk'; Generating final realease apk
+````
