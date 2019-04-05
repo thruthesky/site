@@ -10,11 +10,11 @@
                         <span (click)=" a.scrollIntoViewById( 'franchise-service' ) ">{{ t.ln.videoenglish }}</span>
                         <span (click)=" a.scrollIntoViewById( 'franchise-start' ) ">{{ t.ln.startup }}</span>
                         <div class="flags">
-                              <img class="custom-icon" *ngIf="languageCode=='en'" src="../../../../../assets/img/language-flags/en-desktop.png" alt="">
-                              <img class="custom-icon ko-icon" *ngIf="languageCode=='ko'" src="../../../../../assets/img/language-flags/ko-desktop.png"
+                              <img class="custom-icon" *ngIf="languageCode=='en'" src="assets/img/language-flags/en-desktop.png" alt="">
+                              <img class="custom-icon ko-icon" *ngIf="languageCode=='ko'" src="assets/img/language-flags/ko-desktop.png"
                                     alt="">
-                              <img class="custom-icon" *ngIf="languageCode=='ch'" src="../../../../../assets/img/language-flags/ch-desktop.png" alt="">
-                              <img class="custom-icon" *ngIf="languageCode=='jp'" src="../../../../../assets/img/language-flags/jp-desktop.png" alt="">
+                              <img class="custom-icon" *ngIf="languageCode=='ch'" src="assets/img/language-flags/ch-desktop.png" alt="">
+                              <img class="custom-icon" *ngIf="languageCode=='jp'" src="assets/img/language-flags/jp-desktop.png" alt="">
                               <select [(ngModel)]="languageCode" (change)=" onChangeLanguageCode() ">
                                     <option value='ch'>ch</option>
                                     <option value='en'>en</option>
