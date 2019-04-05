@@ -244,6 +244,10 @@ export class AppService {
             // console.log('You did not choose a  language yet.');
             if (this.site.studentTheme) {
                 // console.log('You are using student theme, So we set Korean');
+                /**
+                 * @todo If there is no default language, then use browser language.
+                 * If browser language is not one of 'en', 'ko', 'ja', 'ch', then user 'ko'.
+                 */
                 languageCode = 'ko';
             } else {
                 // console.log('You are using teacher theme. So web set English');
