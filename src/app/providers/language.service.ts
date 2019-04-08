@@ -48,7 +48,7 @@ export class LanguageService {
     load: EventEmitter<any> = new EventEmitter();
 
     /**
-     * Fires when user changes langauge.
+     * Fires when user changes language.
      *
      * @description 'load' event is fired whenever a language file is loaded. It automatically fires by constructor.
      * while 'change' is only fired when user is selecting a language.
@@ -80,7 +80,7 @@ export class LanguageService {
             catch(e => alert(e.message));
     }
     /**
-     * Returns language code like 'ko', 'en', 'jp'.
+     * Returns language code like 'ko', 'en', 'zh', 'ja'.
      *
      * It first checks if user has selected his language manually.
      * If not, it returns browser language.
@@ -132,7 +132,7 @@ export class LanguageService {
      * @code You can load many languages. But the last one will be set as current language.
      *
      *          fire.loadLanguage('ko');
-     *          fire.loadLanguage('jp');
+     *          fire.loadLanguage('ja');
      *          fire.setLanguage('cn')
                     .catch( e => alert('Failed to load language file. ' + e.message) );
      *
