@@ -91,7 +91,7 @@
             <ng-container *ngIf="payment_information['payment_method'] != 'paypal' ">
                 <div class="row">
                     <div class="col">
-                        <div>Total Points</div>
+                        <div>USD to PHP Rate</div>
                     </div>
                     <div class="col">
                         <input id="usd-to-php" type="text" [(ngModel)]="payment_computation.usd_to_php_with_seller_rate" (keyup)="recompute()" />

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export interface PAYMENT_COMPUTATION_INFORMATION {
     NEW_EXCHANGE_SELLER_RATE: number;
-    WU: { any };
+    WU: { [key: string]: string };
     gcash_transaction: number;
     point_to_usd: number;
     teacher_share: number;
@@ -45,6 +45,8 @@ export class OntueSalaryComputationPage {
 
             if (params.total_points) {
                 this.total_points = params.total_points;
+            } else {
+                this.total_points = 0;
             }
         });
 
@@ -59,11 +61,35 @@ export class OntueSalaryComputationPage {
     }
 
     recompute() {
-        this.teacher_share = Math.round( (this.total_points * this.payment_computation.teacher_share / 100 ) * 100) / 100;
+        console.log(this.payment_information);
+        if (!this.total_points) {
+            return;
+        }
+        let point = '' + this.total_points;
+        point = point.replace(/,/g, '');
+        point = parseInt(point, 10);
+        this.teacher_share = Math.round( ( point * this.payment_computation.teacher_share / 100 ) * 100) / 100;
         this.paypal_transaction_fee = Math.round(( this.teacher_share * this.payment_computation.transaction_fee_teacher_share / 100) * 100 ) / 100;
         this.teacher_share_after_transaction_fee = Math.round( (this.teacher_share - this.paypal_transaction_fee) * 100 ) / 100;
         this.salary_in_usd = Math.round(this.teacher_share_after_transaction_fee / this.payment_computation['point_to_usd'] * 100 ) / 100;
-        this.salary_in_php = Math.round(this.salary_in_usd * this.payment_computation['usd_to_php_with_seller_rate'] * 100) / 100;
+        let in_php = Math.round(this.salary_in_usd * this.payment_computation['usd_to_php_with_seller_rate'] * 100) / 100;
+        if (this.payment_information.payment_method === 'western-union') {
+            const wu = this.payment_computation.WU;
+            let fee = 0;
+            Object.keys(wu).some(v => {
+                if ( in_php <= v) {
+                    fee = wu[v];
+                    return true;
+                }
+                return false;
+            });
+            in_php -= fee;
+        } else if (this.payment_information.payment_method === 'gcash') {
+            const gcash = this.payment_computation.gcash_transaction;
+            const gcash_fee = Math.ceil(in_php / 1000) * 20;
+            in_php -= gcash_fee;
+        }
+        this.salary_in_php = in_php;
     }
 }
 
