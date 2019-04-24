@@ -13,13 +13,17 @@
             <mat-form-field class="with-hint" appearance="outline">
                 <mat-label>Book(Page) from the recent session</mat-label>
                 <input type="text" matInput [(ngModel)]="book_used">
-                <mat-hint>book used for today session</mat-hint>
+                <mat-hint>book used for today session. (<span [matMenuTriggerFor]="menu">Previous Books</span>)</mat-hint>
             </mat-form-field>
+
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item *ngFor="let book of a.keys(previous_books)" (click)="book_used = previous_books[book]">{{previous_books[book]}}</button>
+            </mat-menu>
 
             <mat-form-field appearance="outline">
                 <mat-label>Book(Page) for the next session:</mat-label>
                 <input type="text" matInput [(ngModel)]="book_next">
-                <mat-hint>book you will use for the next session</mat-hint>
+                <mat-hint>book you will use for the next session.</mat-hint>
             </mat-form-field>
 
             <section  class="radio-group container-fluid">
