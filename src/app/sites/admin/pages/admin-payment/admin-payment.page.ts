@@ -40,7 +40,7 @@ export class AdminPaymentPage implements OnInit, OnDestroy {
         payment_method: '',
         order: 'stamp_begin',
         by: 'DESC',
-        limit: 500
+        limit: 1000
     };
     show = {
         loader: false,

@@ -861,5 +861,8 @@
   "RESIGN_BUTTON_TEXT": "Leave Membership Now",
   "RESIGNED_ALERT_CONTENT": "You have left the membership. Thank you.",
   "POINT_USED": "Point Used",
-  "PAGE_TITLE_HELP": "Need Help: Click Here."
+  "PAGE_TITLE_HELP": "Need Help: Click Here.",
+
+  "OPEN CLASS SOFTWARE": "Open #SOFTWARE",
+  "OPEN CLASS SOFTWARE CONFIRM": "Do you want to chat with #SOFTWARE?"
 }

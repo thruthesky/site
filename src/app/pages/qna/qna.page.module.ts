@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { QnAPage } from './qna.page';
 import { TranslatePipeModule } from '../../pipes/translate/translate.pipe.module';
+import { ModalServiceModule } from '../../providers/modal/modal.service.module';
 
 const routes: Routes = [
   { path: '', component: QnAPage }
@@ -11,7 +12,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    TranslatePipeModule
+    TranslatePipeModule,
+    ModalServiceModule
   ],
   exports: [
     RouterModule

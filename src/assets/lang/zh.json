@@ -804,7 +804,11 @@
   "RESIGN_BUTTON_TEXT": "立即离开会员",
   "RESIGNED_ALERT_CONTENT": "你已离开会员。 谢谢。",
   "POINT_USED": "点使用",
-  "PAGE_TITLE_HELP": "需要帮助：点击这里。"
+  "PAGE_TITLE_HELP": "需要帮助：点击这里。",
+
+
+  "OPEN CLASS SOFTWARE": "打开#SOFTWARE",
+  "OPEN CLASS SOFTWARE CONFIRM": "你想和#SOFTWARE聊天吗？"
 
 
 }

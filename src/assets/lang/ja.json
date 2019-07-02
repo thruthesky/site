@@ -780,7 +780,10 @@
   "RESIGN_BUTTON_TEXT": "メンバーシップを今すぐ離れる",
   "RESIGNED_ALERT_CONTENT": "あなたはメンバーシップを去りました。 ありがとうございました。",
   "POINT_USED": "使用ポイント",
-  "PAGE_TITLE_HELP": "助けが必要：ここをクリックしてください。"
+  "PAGE_TITLE_HELP": "助けが必要：ここをクリックしてください。",
+
+  "OPEN CLASS SOFTWARE": "#SOFTWAREを開く",
+  "OPEN CLASS SOFTWARE CONFIRM": "#SOFTWAREとチャットしたいですか？"
 
 
 
