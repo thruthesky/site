@@ -23,10 +23,10 @@ export class QnAPage implements OnInit {
 
     }
 
-    confirmContactAdmin(classSoftware) {
+    confirmContactAdmin(classSoftware: string) {
       const data: ModalData = {
-        title: this.a.t('OPEN CLASS SOFTWARE', {'SOFTWARE': classSoftware}),
-        content: this.a.t('OPEN CLASS SOFTWARE CONFIRM', {'SOFTWARE': classSoftware}),
+        title: this.a.t('OPEN CLASS SOFTWARE', {'SOFTWARE': this.a.t( classSoftware.toUpperCase() ) }),
+        content: this.a.t('OPEN CLASS SOFTWARE CONFIRM', {'SOFTWARE': this.a.t( classSoftware.toUpperCase() ) }),
         yes: this.a.t('YES'),
         no: this.a.t('CANCEL')
       };

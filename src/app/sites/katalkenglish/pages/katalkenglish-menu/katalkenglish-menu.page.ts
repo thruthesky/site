@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
+import { ModalData } from '../../../../providers/modal/modal.service';
 
 @Component({
     selector: 'katalkenglish-menu-page',
@@ -17,7 +18,6 @@ export class KatalkEnglishMenuPage {
         this.date_today = this.today.getFullYear() + '-' + this.a.add0(this.today.getMonth() + 1) + '-' + this.a.add0(this.today.getDate());
 
     }
-
 }
 
 

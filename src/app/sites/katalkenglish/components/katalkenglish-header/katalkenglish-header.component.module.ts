@@ -5,13 +5,15 @@ import { KatalkEnglishHeaderComponent } from './katalkenglish-header.component';
 
 import { FormsModule } from '@angular/forms';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
+import { ModalServiceModule } from '../../../../providers/modal/modal.service.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    TranslatePipeModule
+    TranslatePipeModule,
+    ModalServiceModule
   ],
   declarations: [
     KatalkEnglishHeaderComponent

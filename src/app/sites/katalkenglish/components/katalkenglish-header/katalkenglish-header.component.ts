@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
-// import { FireService } from '../../../../modules/firelibrary/core';
 import { XapiUserService } from '../../../../modules/xapi/xapi.module';
+import { ModalData, ModalService } from '../../../../providers/modal/modal.service';
 
 @Component({
   selector: 'katalkenglish-header',
@@ -14,8 +14,8 @@ export class KatalkEnglishHeaderComponent {
   isEdge = false;
   constructor(
     public a: AppService,
-    // public f: FireService,
-    public user: XapiUserService
+    public user: XapiUserService,
+    public modal: ModalService
   ) {
     this.isEdge = a.isEdge();
     // console.log(`HeaderComponent:constructor()`);
@@ -37,6 +37,22 @@ export class KatalkEnglishHeaderComponent {
     // console.log( this.selectedLanguage );
     this.a.language.setUserLanguage( this.selectedLanguage );
     // return false;
+  }
+
+  confirmContactAdmin(classSoftware) {
+    const data: ModalData = {
+      title: this.a.t('OPEN CLASS SOFTWARE', {'SOFTWARE': this.a.t( classSoftware.toUpperCase() )}),
+      content: this.a.t('OPEN CLASS SOFTWARE CONFIRM', {'SOFTWARE': this.a.t( classSoftware.toUpperCase() )}),
+      yes: this.a.t('YES'),
+      no: this.a.t('NO')
+    };
+    this.modal.confirm(data).subscribe(result => {
+      if ( result ) {
+        this.a.onClickContactAdmin(classSoftware);
+      } else {
+        this.a.open('qna');
+      }
+    });
   }
 }
 

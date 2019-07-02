@@ -16,7 +16,7 @@ const routes: Routes = [
         CommonModule,
         FormsModule,
         RouterModule.forChild(routes),
-        TranslatePipeModule,
+        TranslatePipeModule
     ],
     exports: [
         RouterModule
