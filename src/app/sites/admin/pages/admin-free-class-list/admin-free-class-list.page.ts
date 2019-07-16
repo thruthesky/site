@@ -68,7 +68,7 @@ export class AdminFreeClassListPage implements OnInit {
     };
 
     currentLimit: number;
-
+    currentPage: number;
     constructor(
         public a: AppService,
         public activated: ActivatedRoute
@@ -100,7 +100,7 @@ export class AdminFreeClassListPage implements OnInit {
         this.loadStudentFreeClass(this.form.ID);
 
         console.log(`${this.currentLimit} !== ${this.form.limit}`);
-        if (this.currentLimit !== this.form.limit) {
+        if (this.currentLimit !== this.form.limit || this.currentPage !== this.form.page_no) {
           this.loadFreeClass();
         }
     }
@@ -123,6 +123,7 @@ export class AdminFreeClassListPage implements OnInit {
     loadFreeClass() {
         this.loader.list = true;
         this.currentLimit = this.form.limit;
+        this.currentPage = this.form.page_no;
         this.a.lms.admin_get_free_class_list_count({limit: this.currentLimit, page_no: this.form.page_no}).subscribe( re => {
             // console.log('admin_get_free_class_list_count', re);
             this.students = re;
