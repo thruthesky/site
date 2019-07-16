@@ -99,12 +99,15 @@ npm run e2e:remote:headless         ; cypress run headless with real server urls
 
 * Updated on 2019-03-11
 * Local backend server is set to `environment.local-backend-server.ts`
+* NOTE FOR WINDOW OS if livereload error try using 8.X.X version of node.
 
 ```` bash
 npm run ssl                         ; run project with ssl. port is 9443. after run, access
                                     ; https://abc.katalkenglish.com:9443/         for student site
                                     ; https://withcenter.katalkenglish.com:9443/  for withcenter site
                                     ; https://ontue.katalkenglish.com:9443/     for teacher site.
+                                    
+                                    
 
 npm run ssl:live                    ; Runs the app locally by `ng serve` but uses production server backend.
 

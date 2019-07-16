@@ -31,6 +31,8 @@ export class AdminFreeClassListPage implements OnInit {
     book: BOOK = <BOOK>{};
     form = {
         ID: '',
+        limit: 150,
+        page_no: 1
     };
 
     loader = {
@@ -63,7 +65,10 @@ export class AdminFreeClassListPage implements OnInit {
         book_next: false,
         stamp_checked: false,
         class_software: false
-    }
+    };
+
+    currentLimit: number;
+
     constructor(
         public a: AppService,
         public activated: ActivatedRoute
@@ -94,6 +99,10 @@ export class AdminFreeClassListPage implements OnInit {
         console.log('onSubmit::', this.form);
         this.loadStudentFreeClass(this.form.ID);
 
+        console.log(`${this.currentLimit} !== ${this.form.limit}`);
+        if (this.currentLimit !== this.form.limit) {
+          this.loadFreeClass();
+        }
     }
 
 
@@ -113,7 +122,8 @@ export class AdminFreeClassListPage implements OnInit {
 
     loadFreeClass() {
         this.loader.list = true;
-        this.a.lms.admin_get_free_class_list_count({limit: 150}).subscribe( re => {
+        this.currentLimit = this.form.limit;
+        this.a.lms.admin_get_free_class_list_count({limit: this.currentLimit, page_no: this.form.page_no}).subscribe( re => {
             // console.log('admin_get_free_class_list_count', re);
             this.students = re;
             this.loader.list = false;
