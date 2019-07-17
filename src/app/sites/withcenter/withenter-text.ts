@@ -88,7 +88,7 @@ export const texts = {
 제7조 (회원의 포인트 환불)
 
 (1) 회원이 환불을 요구하는 경우 아래와 같이 환불 금액이 정해진다.
-(2) 결제 일로 부터 7일 이전 환불 요청 하는 경우, 남은 포인트의 1/3 환불.
+(2) 결제 일로 부터 7일 이전 환불 요청 하는 경우, 남은 포인트의 2/3 환불.
 (3) 결제 일로 부터 15일 이전 환불 요청하는 경우, 남은 포인트의 1/2 환불.
 (4) 결제 일로 부터 15일 이후 환불 요청하는 경우, 환불되지 아니한다.
 
@@ -172,7 +172,7 @@ Article 6 (Video English Service)
 Article 7 (Membership Point Refund)
 
 (1) When a member requests a refund, the refund amount is determined as follows.
-(2) If you request a refund before 7 days from the payment date, 1/3 of the remaining points will be refunded.
+(2) If you request a refund before 7 days from the payment date, 2/3 of the remaining points will be refunded.
 (3) If you request a refund before 15 days from the payment date, 1/2 of the remaining points will be refunded.
 (4) If refund is requested after 15 days from the payment date, refund will not be made.
 
