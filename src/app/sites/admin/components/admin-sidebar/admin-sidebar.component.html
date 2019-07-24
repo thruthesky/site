@@ -107,16 +107,42 @@
         </table>
     </section>
 
+    <section id="student-comment" *ngIf="comments && comments.length">
+      <h2>Student Comments</h2>
+      <div class="d-flex pb-1 bg-white font-weight-bold">
+        <div class="col-4">Name</div>
+        <div class="col-2">Rate</div>
+        <div class="col-3">Internet</div>
+        <div class="col-3">Camera</div>
+      </div>
+      <div *ngFor="let comment of comments; let o = odd" class="d-flex pb-1 {{ o ? 'bg-white' : 'bg-ghostwhite'}}">
+        <div class="col-4 d-flex">
+          <a class="link d-flex align-items-center mr-1" routerLink="/manager/user-info/{{comment.idx_teacher}}">
+            <svg viewBox="0 0 576 512">
+                <path fill="currentColor" d="M195.515 374.828c-4.686-4.686-4.686-12.284 0-16.971l323.15-323.15-.707-.707-89.958.342c-6.627 0-12-5.373-12-12v-9.999c0-6.628 5.372-12 12-12L564 0c6.627 0 12 5.372 12 12l-.343 136c0 6.627-5.373 12-12 12h-9.999c-6.627 0-12-5.373-12-12L542 58.042l-.707-.707-323.15 323.15c-4.686 4.686-12.284 4.686-16.971 0l-5.657-5.657zm232-155.633l-8 8A12 12 0 0 0 416 235.68V464c0 8.837-7.164 16-16 16H48c-8.836 0-16-7.163-16-16V112c0-8.837 7.164-16 16-16h339.976c3.183 0 6.235-1.264 8.485-3.515l8-8c7.56-7.56 2.206-20.485-8.485-20.485H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V227.681c0-10.691-12.926-16.045-20.485-8.486z"></path>
+            </svg>
+          </a>
+          <span>{{ a.preTeacherName(comment.teacher_name)}}</span>
+          <a class="link ml-2" href="/teacher-review-list?idx_teacher={{comment.idx_teacher}}" target="_blank">
+            <svg _ngcontent-c8="" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path _ngcontent-c8="" d="M416 448h-84c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h84c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32h-84c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h84c53 0 96 43 96 96v192c0 53-43 96-96 96zm-47-201L201 79c-15-15-41-4.5-41 17v96H24c-13.3 0-24 10.7-24 24v96c0 13.3 10.7 24 24 24h136v96c0 21.5 26 32 41 17l168-168c9.3-9.4 9.3-24.6 0-34z" fill="currentColor"></path></svg>
+          </a>
+        </div>
+        <div class="col-2">{{ comment.rate }}</div>
+        <div class="col-3">{{a.ln.INTERNET_STATUS[comment.internet]}}</div>
+        <div class="col-3">{{a.ln.CAMERA_STATUS[comment.camera]}}</div>
+      </div>
+    </section>
+
 
     <section id="reservation-stat" *ngIf="stats">
         <h2>Reservation Stat</h2>
         <div class="top-info">
             <div>
-                <span> No. of Reservation:</span>
+                <span>Reservation:</span>
                 <span>{{ stats['no_of_reservation'] }} </span>
             </div>
             <div>
-                <span> No. of Past: </span>
+                <span>Past: </span>
                 <span>{{ stats['no_of_past'] }}</span>
             </div>
         </div>

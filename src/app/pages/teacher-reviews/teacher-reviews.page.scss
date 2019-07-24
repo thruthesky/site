@@ -127,7 +127,7 @@ main{
         justify-content: space-between;
         align-items: center;
 
-        .teacher-name{
+        .teacher-name, .grade{
             display: flex;
             align-items: center;
             text-transform: uppercase;
@@ -146,6 +146,12 @@ main{
             }
         }
 
+    }
+
+    .grade {
+        display: flex;
+        align-items: center;
+        color:dodgerblue;
     }
 
     .extra {

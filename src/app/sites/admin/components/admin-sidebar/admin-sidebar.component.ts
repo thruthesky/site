@@ -30,6 +30,8 @@ export class AdminSidebarComponent implements OnInit {
      * quick search
      */
     uid = '';
+
+    comments = [];
     constructor(
         public a: AppService,
         public router: Router
@@ -52,6 +54,7 @@ export class AdminSidebarComponent implements OnInit {
         this.loadRefundRequest();
 
         // check there is a schedule that is not ready yet.
+        this.getClassComment();
     }
 
     ngOnInit() {
@@ -278,6 +281,21 @@ export class AdminSidebarComponent implements OnInit {
         const date = new Date(Y, m, d, H, i);
         return date.getTime();
     }
+
+    getClassComment() {
+      this.a.lms.get_latest_student_comment_to_teachers({
+        limit: 10,
+        page: 1,
+        maxRate: 3
+      }).subscribe(res => {
+        // console.log('loadClassComment:: ', res);
+        this.comments = res['comments'];
+      }, e => {
+        this.a.toast(e);
+      });
+
+    }
+
 
 }
 
