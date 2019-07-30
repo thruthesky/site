@@ -1,0 +1,157 @@
+<main data-role="teacher-list-page">
+
+    <header [class.display-option-true]="display_options">
+        <h1>
+            <div class="text">
+                <ng-container *ngIf=" mode == 'leveltest' ">{{ 'LEVELTEST_PAGE_TITLE' | t }}</ng-container>
+                <ng-container *ngIf=" mode != 'leveltest' ">{{ "SELECT_TEACHER_TO_RESERVE" | t }}</ng-container>
+            </div>
+        </h1>
+        <span data-button="teacher-list-search" class="option-icon" (click)=" onClickSearchOptions() " *ngIf=" ! display_options ">
+            <div class="text">{{ a.ln.TEACHER_LIST_OPTION_BUTTON }}</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                <path fill="currentColor" d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+                />
+            </svg>
+        </span>
+    </header>
+
+    <section class="content page-options" *ngIf=" display_options ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="title col-8">
+                    <div>{{ "TEACHER_LIST_OPTIONS" | t }}</div>
+                </div>
+                <div class="col-4">
+                    <button (click)=" display_options = false ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <path fill="currentColor" d="M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z"
+                            />
+                        </svg>
+                        <span>{{ 'CLOSE' | t }}</span>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-select [(value)]="gender" (selectionChange)=" onChangeOption() " placeholder="{{ 'GENDER' | t }}">
+                            <mat-option value="F">{{"FEMALE" | t}}</mat-option>
+                            <mat-option value="M">{{"MALE" | t}}</mat-option>
+                            <mat-option value="">{{"ALL" | t}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>{{ 'SEARCH_TEACHER_BY' | t }}</mat-label>
+                        <mat-select [(value)]="search" (selectionChange)=" onChangeOption() ">
+                            <mat-option value="">{{"ALL_TEACHER" | t}}</mat-option>
+                            <mat-option value="recommended">{{"RECOMMENDED_TEACHER" | t}}</mat-option>
+                            <mat-option value="active">{{"ACTIVE_TEACHER" | t}}</mat-option>
+                            <mat-option value="reservable">{{"RESERVABLE_TEACHER" | t}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>{{ a.ln.TEACHER_NAME }}</mat-label>
+                        <input matInput type="text" name="name" id="name" [(ngModel)]="teacher_name" (keyup)=" nameChange($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>{{ 'COUNTRY' | t }}</mat-label>
+                        <mat-select [(value)]="country" (selectionChange)=" onChangeOption() ">
+                            <mat-option value="">{{"All COUNTRY" | t}}</mat-option>
+                            <mat-option *ngFor="let c of countries" [value]="c">{{ c }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-desc">
+
+        <div *ngIf=" re && a.site.studentTheme ">
+            <div *ngIf="a.user.isLogin ">
+                <div>{{'TEACHER_LIST_IS_LOGIN' | t : { 'USERNAME' : a.user.name, 'TOTAL' : re.total, 'RESERVATIONS' :a.lmsInfoUserNoOfReservation,
+                    'PASTS' :a.lmsInfoUserNoOfPast } }}
+                </div>
+            </div>
+
+            <div *ngIf="a.user.isLogout ">
+                <div>{{'TEACHER_LIST_IS_LOGOUT' | t : { 'TOTAL' : re.total } }}</div>
+            </div>
+
+        </div>
+
+
+
+        <div *ngIf=" a.site.teacherTheme ">
+            {{ 'TEACHER_LIST_REMINDER' | t}}
+        </div>
+
+
+    </section>
+
+
+    <section class="page-body">
+        <div class="teachers">
+            <div class="container-fluid" *ngIf=" re ">
+                <div class="row no-gutters">
+                    <a *ngFor="let teacher of teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-6 col-md-4 col-lg-auto pb-3"
+                        routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
+                        <app-teacher-list-profile-component [teacher]=" teacher "></app-teacher-list-profile-component>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="candidate-teachers" *ngIf=" candidate_teachers && candidate_teachers.length ">
+            <div class="title">
+                <span>
+                    <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.91 192.02c-.7 0-1.39.02-2.06.05-49.8 2.84-140.51 13-201.84 47.57-61.33-34.57-152.05-44.73-201.84-47.57-.67-.04-1.36-.05-2.06-.05C31.71 192.01 0 206.36 0 242.22v178.05c0 26.69 21.25 48.7 48.34 50.12 34.41 1.81 120.56 9.08 177 37.47 4.68 2.37 9.66 3.5 14.66 3.84v.27h2.27c.09 0 .18.03.26.03h26.94c.09 0 .18-.03.26-.03H272v-.27c5-.34 9.98-1.48 14.66-3.84 56.44-28.39 142.59-35.65 177-37.47 27.09-1.42 48.34-23.44 48.34-50.12V242.22c0-35.86-31.71-50.2-52.09-50.2zM240 479.35c-.09-.04-.18-.02-.28-.07-59.59-29.97-144.43-38.45-189.7-40.84-10.1-.53-18.02-8.51-18.02-18.17V242.22c0-6.05 1.77-10 5.93-13.2 4.47-3.44 10.47-5.01 14.4-5.01 37.01 2.11 129.27 10.58 187.67 43.36v211.98zm240-59.08c0 9.66-7.92 17.64-18.03 18.17-45.27 2.38-130.11 10.86-189.76 40.87-.07.04-.14.02-.22.05V267.37c58.39-32.79 150.66-41.25 187.51-43.35l.39-.01c.2 0 20.09.49 20.09 18.21v178.05zM256 191.99c53.02 0 96-42.98 96-95.99S309.02 0 256 0s-96 42.98-96 95.99 42.98 96 96 96zM256 32c35.29 0 64 28.71 64 64s-28.71 64-64 64-64-28.71-64-64 28.71-64 64-64z"></path></svg>
+                </span>
+                <span>{{ 'CANDIDATE_TEACHERS_TITLE' | t}}</span>
+            </div>
+            <div class="desc" *ngIf=" ! a.site.teacherTheme ">{{ 'CANDIDATE_TEACHERS_DESC' | t}}</div>
+            <div class="container-fluid">
+                <div class="row"  *ngIf=" re ">
+                    <a class="col-auto" *ngFor="let teacher of candidate_teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher"
+                        routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
+                        <app-teacher-list-profile-component [teacher]=" teacher "></app-teacher-list-profile-component>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="loader" *ngIf=" show.loadTeacher  ">
+            <mat-spinner [diameter]="48"></mat-spinner>
+            <span>{{ 'IN LOADING' | t}}</span>
+        </div>
+
+        <div class="showmoreteacher-wrapper" *ngIf=" ! noMoreTeachers && ! show.loadTeacher">
+            <button (click)=" onClickShowMoreTeacher()">
+                <span> {{ 'INSTRUCTOR_MORE' | t}}</span>
+                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                    <path fill="currentColor" d="M348.5 264l-148 148.5c-4.7 4.7-12.3 4.7-17 0L35.5 264c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l115.4 116V44c0-6.6 5.4-12 12-12h10c6.6 0 12 5.4 12 12v311.9L324.4 240c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.6 4.7 12.2 0 16.9zM384 468v-8c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h360c6.6 0 12-5.4 12-12z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="no-more-teachers" *ngIf=" noMoreTeachers && gender == '' && search == 'recommended' ">
+
+            <div>{{ 'NO_MORE_TEACHERS' | t }}</div>
+            <button (click)="onClickShowAllTeachers() ">
+                <span>{{ 'GOTO_OPTIONS' | t}}</span>
+            </button>
+        </div>
+
+    </section>
+
+</main>

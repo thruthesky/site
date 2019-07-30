@@ -213,6 +213,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'teacher-list-v2',
+    loadChildren: './pages/teacher-list-v2/teacher-list.page.module#TeacherListPageModule'
+  },
+
+  {
     path: 'teacher-curriculum-vitae-view',
     loadChildren: './pages/teacher-curriculum-vitae-view/teacher-curriculum-vitae-view.page.module#TeacherCurriculumVitaeViewPageModule'
   },

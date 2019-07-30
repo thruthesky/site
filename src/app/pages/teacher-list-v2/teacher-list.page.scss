@@ -1,0 +1,184 @@
+@import '../../../theme/vars';
+header {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    .option-icon {
+        display: flex;
+        align-items: center;
+        padding: 0 2em;
+        font-size: .8rem;
+        svg {
+            height: 1em;
+            width: 1em;
+        }
+        .text {
+            white-space: nowrap;
+        }
+        cursor: pointer;
+    }
+}
+
+main {
+    min-height: 540px;
+    font-size: 14px;
+    padding-bottom: 4em;
+    .options-icon {
+        height: 1em;
+        margin-left: .5em;
+    }
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    .display-option-true {
+        border-bottom: 1px solid rgba(125, 125, 125, 0.1)
+    }
+    .page-options {
+        padding: 1em;
+        background: white;
+        mat-form-field {
+            margin-top: .5em;
+            padding: .8em 0;
+            width: 100%;
+        }
+        .title {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        mat-checkbox {
+            span {
+                font-size: .9em;
+                margin-left: .5em;
+                color: grey;
+            }
+        }
+        .checkboxes {
+            margin: 2em auto;
+            width: 90%;
+            text-align: left;
+            @media screen and (max-width: $sm) {
+                width: 95%
+            }
+            &>div {
+                margin: 1em 0;
+                @media screen and (max-width: $sm) {
+                    span {
+                        display: block;
+                    }
+                }
+            }
+        }
+        button {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            border: none;
+            background: none;
+            cursor: pointer;
+            svg {
+                height: 1.2em;
+                width: 1.2em;
+                margin-right: .3em;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .page-desc {
+        padding: 1.2em;
+        background-color: #e1e6e7;
+        font-size: .8em;
+        text-align: center;
+    }
+    .teachers,
+    .candidate-teachers {
+        margin: .5em -.1em;
+        .col-auto {
+            padding: .4em .1em;
+        }
+        .row {
+            justify-content: space-around;
+            align-items: stretch;
+            @media (max-width: $sm) {
+                margin-right:0;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width:$sm) {
+            .container-fluid {
+                padding-right: .4em;
+                padding-left: .4em;
+            }
+        }
+    }
+    #no-more-teachers,
+    .showmoreteacher-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 4em 1em;
+        @media screen and (max-width: $md) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        button {
+            display: flex;
+            align-items: center;
+            margin-left: 2em;
+            padding: .8em 1.3em;
+            border-radius: 2px;
+            border: none;
+            background: dodgerblue;
+            color: white;
+            cursor: pointer;
+            @media screen and (max-width: $md) {
+                margin: 0;
+                margin-top: 1em;
+            }
+            svg {
+                height: 1.2em;
+                margin-left: .4em;
+            }
+        }
+    }
+    .loader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        mat-spinner {
+            margin: .5em;
+        }
+    }
+}
+
+.candidate-teachers{
+    margin-top: 3rem!important;
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 .5em .5em .5em;
+        font-size: 1.2rem;
+        font-weight: 200;
+        color: dodgerblue;
+
+        svg{
+            margin-right: .75rem;
+            height: 1.5em;
+            width: 1.5em;
+        }
+    }
+    .desc{
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #eee;
+        font-size: .9rem;
+    }
+}

@@ -1,0 +1,136 @@
+@import './../../../../theme/vars.scss';
+$hover-padding-size: .2em;
+.profile-wrapper {
+    position: relative;
+    .hover-cover {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding-top: 3.5em;
+        background-color: rgba(#60738b, 0.4);
+        .icon {
+            height: 2em;
+            width: 2em;
+            color: white;
+        }
+    }
+    &:hover {
+        padding: $hover-padding-size;
+        border: 0;
+        .hover-cover {
+            top: $hover-padding-size;
+            left: $hover-padding-size;
+            right: $hover-padding-size;
+            bottom: $hover-padding-size;
+            display: block;
+            border: 1px solid rgba(grey, 0.2);
+            border-radius: 2px;
+        }
+    }
+}
+
+
+.teacher-profile-photo {
+    img {
+        width: 160px;
+        height: 160px;
+    }
+    @media (min-width:$sm) {
+        img {
+            width: 250px;
+            height: 250px;
+        }
+    }
+    @media (min-width:$lg) {
+        img {
+            width: 180px;
+            height: 180px;
+        }
+    }
+
+}
+
+.profile-wrapper {
+    margin: .4em auto;
+    width: 160px;
+    height: 100%;
+    border: 1px solid rgba(grey, 0.2);
+    border-radius: 2px;
+    background: white;
+    text-align: center;
+    overflow: hidden;
+    @media (min-width:$sm) {
+        width: 250px;
+    }
+    @media (min-width:$lg) {
+        width: 180px;
+    }
+    .name {
+        margin-top: .6em;
+        text-transform: uppercase;
+        font-size: 90%;
+        font-weight: 500;
+    }
+    .grade,
+    .reservation,
+    .no-video,
+    .no-schedule {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: .6em;
+        font-size: 80%;
+    }
+    .reservation {
+        color: #607d8b;
+    }
+    .no-video,
+    .no-schedule {
+        color: rgb(202, 0, 0);
+        svg {
+            color: #272727;
+            height: 1.2em;
+            width: 1.2em;
+            margin-right: .2em;
+        }
+    }
+    .grade {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: .75em;
+        .title {
+            margin-top: .1em;
+        }
+        .star {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: .2em;
+            svg {
+                height: 1em;
+                width: 1em;
+            }
+        }
+    }
+    .grade[grade="5"] {
+        color: #f06000;
+    }
+    .grade[grade="4"] {
+        color: #ff9900;
+    }
+    .grade[grade="3"] {
+        color: #4a8d23;
+    }
+    .grade[grade="2"] {
+        color: #272775;
+    }
+    .grade[grade="1"] {
+        color: #272727;
+    }
+}
+
