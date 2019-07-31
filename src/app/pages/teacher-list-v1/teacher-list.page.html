@@ -101,9 +101,9 @@
 
     <section class="page-body">
         <div class="teachers">
-            <div class="container-fluid p-0" *ngIf=" re ">
-                <div class="row no-gutters">
-                    <a *ngFor="let teacher of teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="teacher col-6 col-md-4 col-lg-auto pb-3"
+            <div class="container-fluid" *ngIf=" re ">
+                <div class="row">
+                    <a *ngFor="let teacher of teachers" [attr.data-teacher-name]=" teacher.display_name " data-button="teacher" class="col-auto pb-3"
                         routerLink="/schedule-table" [queryParams]="{idx_teacher: teacher.ID}">
                         <app-teacher-list-profile-component [teacher]=" teacher "></app-teacher-list-profile-component>
                     </a>

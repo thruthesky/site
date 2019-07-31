@@ -93,48 +93,28 @@ main {
         font-size: .8em;
         text-align: center;
     }
-
-    .page-body {
-        overflow: hidden;
-    }
-
-    .teachers {
-        margin: .5em 0;
-        padding-left: .5em;
-        @media (min-width:$lg) {
-            padding-left: 0;
-        }
-        .row {
-            justify-content: space-around;
-            align-items: stretch;
-            @media (min-width:$lg) {
-                margin-right: -0.2em;
-                margin-left: -0.2em;
-            }
-
-        }
-        .teacher {
-            padding-right: .5em;
-            @media (min-width:$lg) {
-                width: 20%;
-                padding-left: .2em;
-                padding-right: .2em;
-            }
-        }
-    }
-
+    .teachers,
     .candidate-teachers {
-        margin: .5em 0;
+        margin: .5em -.1em;
         .col-auto {
-            padding: .4em 0;
+            padding: .4em .1em;
         }
         .row {
             justify-content: space-around;
             align-items: stretch;
+            @media (max-width: $sm) {
+                margin-right:0;
+                margin-left: 0;
+            }
+        }
 
+        @media (max-width:$sm) {
+            .container-fluid {
+                padding-right: .4em;
+                padding-left: .4em;
+            }
         }
     }
-
     #no-more-teachers,
     .showmoreteacher-wrapper {
         display: flex;

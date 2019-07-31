@@ -1,4 +1,3 @@
-@import './../../../../theme/vars.scss';
 $hover-padding-size: .2em;
 .profile-wrapper {
     position: relative;
@@ -32,17 +31,9 @@ $hover-padding-size: .2em;
     }
 }
 
-
-.teacher-profile-photo {
-    img {
-        width: 100%;
-    }
-
-}
-
 .profile-wrapper {
     margin: .4em auto;
-    width:  100%;
+    width: 100px;
     height: 100%;
     border: 1px solid rgba(grey, 0.2);
     border-radius: 2px;
@@ -115,3 +106,9 @@ $hover-padding-size: .2em;
     }
 }
 
+
+.teacher-profile-photo {
+    img {
+        width: 100%;
+    }
+}
