@@ -213,8 +213,8 @@ const routes: Routes = [
   },
 
   {
-    path: 'teacher-list-v2',
-    loadChildren: './pages/teacher-list-v2/teacher-list.page.module#TeacherListPageModule'
+    path: 'teacher-list-v1',
+    loadChildren: './pages/teacher-list-v1/teacher-list.page.module#TeacherListPageModule'
   },
 
   {
