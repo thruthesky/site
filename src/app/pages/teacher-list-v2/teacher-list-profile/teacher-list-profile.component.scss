@@ -35,39 +35,20 @@ $hover-padding-size: .2em;
 
 .teacher-profile-photo {
     img {
-        width: 160px;
-        height: 160px;
-    }
-    @media (min-width:$sm) {
-        img {
-            width: 250px;
-            height: 250px;
-        }
-    }
-    @media (min-width:$lg) {
-        img {
-            width: 180px;
-            height: 180px;
-        }
+        width: 100%;
     }
 
 }
 
 .profile-wrapper {
     margin: .4em auto;
-    width: 160px;
+    width:  100%;
     height: 100%;
     border: 1px solid rgba(grey, 0.2);
     border-radius: 2px;
     background: white;
     text-align: center;
     overflow: hidden;
-    @media (min-width:$sm) {
-        width: 250px;
-    }
-    @media (min-width:$lg) {
-        width: 180px;
-    }
     .name {
         margin-top: .6em;
         text-transform: uppercase;
