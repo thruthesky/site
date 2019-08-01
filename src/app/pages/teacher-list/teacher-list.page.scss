@@ -131,6 +131,9 @@ main {
         .row {
             justify-content: space-around;
             align-items: stretch;
+            img {
+                width: 100px;
+            }
 
         }
     }
