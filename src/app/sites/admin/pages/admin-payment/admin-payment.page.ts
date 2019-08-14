@@ -150,24 +150,18 @@ export class AdminPaymentPage implements OnInit, OnDestroy {
             where.push(`p.payment_method='${this.form.payment_method}'`);
         }
         if (this.form.date_begin) {
-            // console.log('date_begin: ', this.form.date_begin);
-            // console.log('ymdhi: ', this.a.getYmdHi( new Date(this.form.date_begin) ));
-            // console.log(new Date(this.form.date_begin));
-            // console.log(this.form.date_begin.substr(0, 4), this.form.date_begin.substr(5, 2) - 1, this.form.date_begin.substr(8, 2));
             const year = this.a.toInt(this.form.date_begin.substr(0, 4));
             const month = this.a.toInt(this.form.date_begin.substr(5, 2)) - 1;
             const day = this.a.toInt(this.form.date_begin.substr(8, 2));
-            const begin_stamp = Math.round(new Date( year, month, day, 0, 0, 0, 0).getTime() / 1000);
+            const begin_stamp = Math.round( Date.UTC( year, month, day, 0, 0, 0, 0) / 1000);
             // const begin_stamp = new Date(this.form.date_begin).getTime() / 1000;
             where.push(`p.stamp_begin>=${begin_stamp}`);
         }
         if (this.form.date_end) {
-            // console.log(new Date(this.form.date_end));
-
             const year = this.a.toInt(this.form.date_end.substr(0, 4));
             const month = this.a.toInt(this.form.date_end.substr(5, 2)) - 1;
             const day = this.a.toInt(this.form.date_end.substr(8, 2));
-            const stamp = Math.round( new Date( year, month, day, 0, 0, 0, 0).getTime() / 1000) + 60 * 60 * 24;
+            const stamp = Math.round( Date.UTC(year, month, day, 0, 0, 0, 0) / 1000) + 60 * 60 * 24;
             // const stamp = Math.round(new Date(this.form.date_end).getTime() / 1000) + 60 * 60 * 24;
             where.push(`p.stamp_begin<=${stamp}`);
         }
