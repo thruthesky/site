@@ -66,7 +66,7 @@ export class AdminConfigurationSettingPage implements OnInit {
         this.a.lms.admin_configuration_setting().subscribe( re => {
             // console.log('admin_configuration_setting', re);
             this.configuration = re;
-            this.loader.config = false
+            this.loader.config = false;
         });
     }
 

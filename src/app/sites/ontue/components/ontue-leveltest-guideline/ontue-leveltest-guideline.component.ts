@@ -12,7 +12,7 @@ export class OntueLeveltestGuidelineComponent {
 
     view = 0;
     selectedVideo = null;
-    youtube = ['www.youtube.com/watch?v=Mw-be1sYQls', 'www.youtube.com/watch?v=I7Jol4-xGpA'];
+    youtube = ['www.youtube.com/watch?v=vk3drk7giYM', 'www.youtube.com/watch?v=I7Jol4-xGpA'];
     urlYoutube = null;
 
     constructor(public a: AppService,
