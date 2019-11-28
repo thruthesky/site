@@ -865,5 +865,6 @@
   "PAGE_TITLE_HELP": "Need Help: Click Here.",
 
   "OPEN CLASS SOFTWARE": "Open #SOFTWARE",
-  "OPEN CLASS SOFTWARE CONFIRM": "Do you want to chat with #SOFTWARE?"
+  "OPEN CLASS SOFTWARE CONFIRM": "Do you want to chat with #SOFTWARE?",
+  "TIMEZONE_COUNTRY_NOT_MATCH": "設定されていません。"
 }

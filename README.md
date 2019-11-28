@@ -99,7 +99,7 @@ npm run e2e:remote:headless         ; cypress run headless with real server urls
 
 * Updated on 2019-03-11
 * Local backend server is set to `environment.local-backend-server.ts`
-* NOTE FOR WINDOW OS if livereload error try using 8.X.X version of node.
+* NOTE FOR WINDOW OS if livereload error try using 8.X.X(8.9.0) version of node.
 
 ```` bash
 npm run ssl                         ; run project with ssl. port is 9443. after run, access

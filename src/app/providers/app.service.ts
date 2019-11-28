@@ -596,6 +596,14 @@ export class AppService {
         return `/post/${ID}`;
     }
 
+    openSettingsPage() {
+        this.open('/settings');
+    }
+
+    openMyPointPage() {
+        this.open('/my-point');
+    }
+
 
     /**
      * Display a toast/snack bar at the bottom of the page.

@@ -821,6 +821,8 @@
   "POINT_USED": "사용 된 포인트",
 
   "OPEN CLASS SOFTWARE": "#SOFTWARE 열기",
-  "OPEN CLASS SOFTWARE CONFIRM": "#SOFTWARE을 열어 채팅하시겠습니까?"
+  "OPEN CLASS SOFTWARE CONFIRM": "#SOFTWARE을 열어 채팅하시겠습니까?",
+
+  "TIMEZONE_COUNTRY_NOT_MATCH": "설정되지 않았습니다."
 
 }

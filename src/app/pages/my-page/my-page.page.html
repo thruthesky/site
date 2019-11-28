@@ -39,22 +39,26 @@
                             <mat-spinner [diameter]="20"></mat-spinner>
                         </div>
                     </div>
-                    <div class="set">
+                    <div class="set pointer" (click)="a.openMyPointPage()">
                         <div class="caption">{{ a.ln.POINT }}</div>
                         <div class="text" data-role="user-point" *ngIf="mypage.point">{{ mypage.point | number }}</div>
-                        <div *ngIf=" !mypage.point ">
+                        <div *ngIf=" loader.mypage ">
                             <mat-spinner [diameter]="20"></mat-spinner>
                         </div>
                     </div>
 
-                    <div class="set">
+                    <div class="set pointer" (click)="a.openSettingsPage()">
                         <div class="caption"> {{ a.ln.TIMEZONE }}</div>
-                        <div class="text" *ngIf=" mypage.timezone_country || mypage.timezone_country == '0' ">{{ mypage?.timezone_country }} ({{ mypage?.timezone }})</div>
-                        <div *ngIf=" !mypage.timezone_country && mypage.timezone_country != '0' ">
-                            <mat-spinner [diameter]="20"></mat-spinner>
+                        <div class="text">
+                            <span *ngIf=" mypage.timezone_country ">{{ mypage?.timezone_country }}</span>
+                            <span *ngIf=" !mypage.timezone_country">{{ a.ln.TIMEZONE_COUNTRY_NOT_MATCH }}</span>
+                            <span *ngIf=" mypage.timezone || mypage.timezone == '0' ">({{ mypage?.timezone }})</span>
+                        </div>
+                        <div *ngIf=" loader.mypage ">
+                                <mat-spinner [diameter]="20"></mat-spinner>
                         </div>
                     </div>
-                    <div class="set class-software" *ngIf="mypage?.class_software">
+                    <div class="set class-software pointer" *ngIf="mypage?.class_software" (click)="a.openProfile()">
                         <div class="caption">
                             <span>{{ mypage.class_software | t }} {{ a.ln.ID }}</span>
                         </div>

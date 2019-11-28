@@ -784,8 +784,8 @@
   "PAGE_TITLE_HELP": "助けが必要：ここをクリックしてください。",
 
   "OPEN CLASS SOFTWARE": "#SOFTWAREを開く",
-  "OPEN CLASS SOFTWARE CONFIRM": "#SOFTWAREとチャットしたいですか？"
+  "OPEN CLASS SOFTWARE CONFIRM": "#SOFTWAREとチャットしたいですか？",
 
-
+  "TIMEZONE_COUNTRY_NOT_MATCH": "設定されていません。"
 
 }
