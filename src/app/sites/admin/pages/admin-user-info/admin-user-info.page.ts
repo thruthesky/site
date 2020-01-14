@@ -382,7 +382,8 @@ export class AdminUserInfoPage implements OnInit {
         this.a.lms.admin_query({
             sql: sql,
             student_info: true,
-            teacher_info: true
+            teacher_info: true,
+            class_data: true
         }).subscribe(re => {
             // console.log('pointHistory: ', re);
             this.show.loader.loadPointHistory = false;

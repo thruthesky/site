@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../../providers/app.service';
+import { SESSION } from '../../../../modules/xapi/lms.service';
 
 interface POINT_HISTORY {
     action: string;
@@ -13,6 +14,7 @@ interface POINT_HISTORY {
     reason: string;
     stamp: number;
     point_change?: boolean;
+    class_data?: SESSION;
     student: {
         email: string;
         phone_number: string;
@@ -49,7 +51,14 @@ export class AdminPointHistoryPage implements OnInit {
 
     loader = {
         pointHistory: false
-    }
+    };
+
+    show = {
+      reason: true,
+      time: true,
+      idx_reservation: false,
+      class_data: false
+    };
 
     constructor(
         public a: AppService
@@ -104,10 +113,11 @@ export class AdminPointHistoryPage implements OnInit {
 					WHERE BRANCH ${q_user} ${q_actions} AND wp_users.ID=p.idx_student
 					ORDER BY idx DESC LIMIT ${this.limit}`,
             student_info: true,
-            teacher_info: true
+            teacher_info: true,
+            class_data: true
         })
             .subscribe((re: Array<POINT_HISTORY>) => {
-                // console.log('re: ', re);
+                console.log('re: ', re);
                 this.loader.pointHistory = false;
                 if (!re) {
                     return;
