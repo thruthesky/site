@@ -802,6 +802,7 @@
   "refund-past-class": "過去のクラスを払い戻します。",
   "paypal-payment-approved": "Paypalの支払いが承認されました。",
   "point refund by admin": "管理者が返金したポイント。",
-  "reservation": "予約"
+  "reservation": "予約",
+  "POINTS_AFTER": "後のポイント"
 
 }

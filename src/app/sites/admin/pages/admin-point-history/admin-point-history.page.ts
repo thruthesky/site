@@ -89,7 +89,7 @@ export class AdminPointHistoryPage implements OnInit {
             class_data: true
         })
             .subscribe((re: Array<POINT_HISTORY>) => {
-                console.log('re: ', re);
+                // console.log('re: ', re);
                 this.loader.pointHistory = false;
                 if (!re) {
                     return;

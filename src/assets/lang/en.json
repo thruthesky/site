@@ -882,7 +882,8 @@
   "refund-past-class": "Refund past class.",
   "paypal-payment-approved": "Paypal payment approved.",
   "point refund by admin": "Point refunded by admin.",
-  "reservation": "Reservation"
+  "reservation": "Reservation",
+  "POINTS_AFTER": "Points After"
 
 
 }

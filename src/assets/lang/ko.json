@@ -839,6 +839,7 @@
   "refund-past-class": "수업 전 환불.",
   "paypal-payment-approved": "페이팔 결제가 승인되었습니다.",
   "point refund by admin": "관리자가 포인트를 환불했습니다.",
-  "reservation": "예약"
+  "reservation": "예약",
+  "POINTS_AFTER": "후 포인트"
 
 }

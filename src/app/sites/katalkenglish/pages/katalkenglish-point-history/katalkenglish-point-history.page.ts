@@ -56,7 +56,7 @@ export class KatalkEnglishPointHistoryPage implements OnInit {
         data['date_end'] = d.getFullYear() + this.a.add0(d.getMonth() + 1) + this.a.add0(d.getDate());
       }
       this.a.lms.get_point_history(data).subscribe( res => {
-        console.log('pointHistory', res);
+        // console.log('pointHistory', res);
         this.showLoader = false;
         this.pointHistory = res['point_history'];
       }, e => {
