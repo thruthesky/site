@@ -575,6 +575,12 @@ export class XapiLMSService extends Base {
         return this.x.post(data);
     }
 
+    get_point_history(data) {
+      data['route'] = 'lms.get_point_history';
+      data['session_id'] = this.user.sessionId;
+      return this.x.post(data);
+    }
+
     // /**
     //  * @deprecated
     //  */

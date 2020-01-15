@@ -723,5 +723,34 @@ export interface MESSAGES_GROUP {
     }];
 }
 
+export interface POINT_HISTORY {
+  action: string;
+  after_point: string;
+  apply_point: string;
+  before_point: string;
+  idx: number;
+  idx_reservation: number;
+  idx_student: number;
+  idx_teacher: number;
+  reason: string;
+  stamp: number;
+  point_change?: boolean;
+  class_data?: SESSION;
+  student: {
+    email: string;
+    phone_number: string;
+    name: string;
+    display_name: string;
+    point: string;
+    kakaotalk_id: string;
+  };
+  teacher: {
+    email: string;
+    name: string;
+    display_name: string;
+    kakaotalk_id: string;
+    grade: number;
+  };
+}
 
 

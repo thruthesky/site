@@ -1,0 +1,77 @@
+
+@import '../../../../../theme/vars.scss';
+main{
+    margin-top: 2em;
+    min-height: 540px;
+    background: #fff;
+
+
+    .container-fluid{
+        text-align: center;
+
+        .row{
+            justify-content: center;
+            align-items: center;
+            padding: 1em 0;
+            @media screen and (min-width:$md) {
+                padding: 1em;
+            }
+            border-bottom:1px solid #e9ecef!important;
+
+            div{
+                padding: 0;
+
+                &.paymentId {
+                    word-break: break-all;
+                }
+            }
+
+            svg {
+                height: 0.8em;
+            }
+
+        }
+
+        .header{
+            position: sticky;
+            top:105px;
+            left: 0;
+            @media screen and (min-width:$md) {
+                top:63px;
+            }
+        }
+
+        .loader{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          mat-spinner{
+            margin: .5em;
+          }
+        }
+
+
+    }
+
+    .date{
+        padding: 0;
+        padding-left: .5em !important;
+        mat-form-field{
+            width: 100%;
+        }
+
+        .option {
+            padding-right: .5em !important;
+        }
+
+        @media screen and (min-width:$sm){
+
+        }
+
+        .col{
+            padding: 0;
+        }
+    }
+}

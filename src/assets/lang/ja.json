@@ -58,7 +58,7 @@
   "MY_POINT": "私のポイント",
   "MY_ENGLISH_LEVEL": "私の英語のレベル",
   "MESSAGE": "メッセージ",
-  
+
   "PROFILE": "プロフィール",
   "SIGN_UP": "会員登録",
   "SCHEDULE_A_CLASS": "授業の予約",
@@ -123,7 +123,7 @@
   "STUDENT_HELP_PAGE_SUB_HEADER_12": "決済したスオプリョグァポイントがいつまで使用可能である説明します。",
 
   "POINT_EXPIRE": "ポイントは、支払い日後3年間有効です。 ポイントは有効期限が切れ、有効期限が切れた後は使用されなくなります。",
-  
+
   "STUDENT_HELP_LOW_POINT_RESERVATION_TITLE": "多くの低ポイントサービスの制限",
   "STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE": "低点予約（＃ポイントポイント以下で10分）は#noのみに制限されます。",
   "STUDENT_HELP_LOW_POINT_RESERVATION_DESC": "私たちは1：1の高品質の英語教育を、世界で最も安い料金で提供しています。 一部の学生はサイト上であまりにも多くの予約を予約しています。 そして、それは他の学生のための可用性の欠如を引き起こす。 このため、低点予約の番号は#noのみに制限しています。",
@@ -504,7 +504,7 @@
   "HOW_TO_RESERVE": "クラスを予約するには、丸のアイコンをクリックしてください。",
   "YOU_ARE_TO_AGREE": "登録するには、利用規約の同意ボタンをクリックしてください。",
 
-  
+
   "KAKAOTALK_ID_IMPORTANT": "カカオトークIDをもう一度確認してください。 間違ったカカオトークIDのために多くの失敗したレッスンがあります。",
   "TOC_AGREE": "登録することで、私は同意する",
   "TOC_TITLE": "利用規約",
@@ -760,7 +760,7 @@
   "CURRICULUM_LETSGO_TEXT_1": "上記二つの教材は、英語の最も基礎的な単語から、語彙、リーディング、ライティング、リスニング、スピーキングなどすべての部分を取り揃えており基礎英語、英会話、ビジネス英語のような過程をまんべんなく含まれています。",
   "CURRICULUM_LETSGO_TEXT_2": "レッツゴーは14歳未満が適当であり、サイド・バイ・サイドは、12歳以上から大人まで適しています。",
   "CURRICULUM_LETSGO_TEXT_3": "教材は、授業時間の前に先生が生徒にメールまたはカトクに転送いたします。",
-  
+
   "CURRICULUM_SIDEBYSIDE_TITLE": "若者と大人のための英語教材",
   "CURRICULUM_SIDEBYSIDE_TEXT_1": "しかし、必要に応じて予習と復習をするために書店で購入をしてください。",
   "CURRICULUM_SIDEBYSIDE_TEXT_2": "私たちは、一対一のカスタムクラスを進行するので、学生が持っている教材で授業を行うことができます。生徒の教材を携帯電話に撮っ先生メールで送信して触れるされます。",
@@ -786,6 +786,22 @@
   "OPEN CLASS SOFTWARE": "#SOFTWAREを開く",
   "OPEN CLASS SOFTWARE CONFIRM": "#SOFTWAREとチャットしたいですか？",
 
-  "TIMEZONE_COUNTRY_NOT_MATCH": "設定されていません。"
+  "TIMEZONE_COUNTRY_NOT_MATCH": "設定されていません。",
+
+
+  "POINT_HISTORY_PAGE_TITLE": "ポイント履歴",
+  "POINT_HISTORY_PAGE_DESC": "過去および将来のポイント履歴の記録。",
+  "POINT_HISTORY": "ポイント履歴",
+  "CLASS_ID": "クラスID",
+  "REASON": "理由",
+  "SEARCH_LIMIT": "検索結果",
+
+  "cancelled by student": "学生によりキャンセルされました。",
+  "cancelled by teacher": "教師によりキャンセルされました。",
+  "cancelled by someone else": "他の人によってキャンセルされました。",
+  "refund-past-class": "過去のクラスを払い戻します。",
+  "paypal-payment-approved": "Paypalの支払いが承認されました。",
+  "point refund by admin": "管理者が返金したポイント。",
+  "reservation": "予約"
 
 }

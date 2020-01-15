@@ -811,7 +811,23 @@
   "OPEN CLASS SOFTWARE": "打开#SOFTWARE",
   "OPEN CLASS SOFTWARE CONFIRM": "你想和#SOFTWARE聊天吗？",
 
-  "TIMEZONE_COUNTRY_NOT_MATCH": "没有设置。"
+  "TIMEZONE_COUNTRY_NOT_MATCH": "没有设置。",
+
+
+  "POINT_HISTORY_PAGE_TITLE": "点历史",
+  "POINT_HISTORY_PAGE_DESC": "记录您过去和将来的点历史。",
+  "POINT_HISTORY": "点历史",
+  "CLASS_ID": "班级号",
+  "REASON": "原因",
+  "SEARCH_LIMIT": "搜索结果",
+
+  "cancelled by student": "被学生取消。",
+  "cancelled by teacher": "被老师取消。",
+  "cancelled by someone else": "被其他人取消。",
+  "refund-past-class": "退课。",
+  "paypal-payment-approved": "Paypal付款已批准。",
+  "point refund by admin": "点数由管理员退还。",
+  "reservation": "保留"
 
 
 }

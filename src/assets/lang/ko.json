@@ -823,6 +823,22 @@
   "OPEN CLASS SOFTWARE": "#SOFTWARE 열기",
   "OPEN CLASS SOFTWARE CONFIRM": "#SOFTWARE을 열어 채팅하시겠습니까?",
 
-  "TIMEZONE_COUNTRY_NOT_MATCH": "설정되지 않았습니다."
+  "TIMEZONE_COUNTRY_NOT_MATCH": "설정되지 않았습니다.",
+
+
+  "POINT_HISTORY_PAGE_TITLE": "포인트 이력",
+  "POINT_HISTORY_PAGE_DESC": "과거와 미래의 포인트 이력 기록.",
+  "POINT_HISTORY": "포인트 이력",
+  "CLASS_ID": "수업 ID",
+  "REASON": "이유",
+  "SEARCH_LIMIT": "검색 결과",
+
+  "cancelled by student": "학생이 취소했습니다.",
+  "cancelled by teacher": "교사가 취소했습니다.",
+  "cancelled by someone else": "다른 사람이 취소했습니다.",
+  "refund-past-class": "수업 전 환불.",
+  "paypal-payment-approved": "페이팔 결제가 승인되었습니다.",
+  "point refund by admin": "관리자가 포인트를 환불했습니다.",
+  "reservation": "예약"
 
 }

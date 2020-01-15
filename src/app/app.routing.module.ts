@@ -39,6 +39,10 @@ const routes: Routes = [
     loadChildren: './sites/katalkenglish/pages/katalkenglish-payment-history/katalkenglish-payment-history.page.module#KatalkEnglishPaymentHistoryPageModule'
   },
   {
+    path: 'point-history',
+    loadChildren: './sites/katalkenglish/pages/katalkenglish-point-history/katalkenglish-point-history.page.module#KatalkEnglishPointHistoryPageModule'
+  },
+  {
     path: 'welcome',
     loadChildren: './sites/katalkenglish/pages/katalkenglish-welcome/katalkenglish-welcome.page.module#KatalkEnglishWelcomePageModule'
   },

@@ -201,7 +201,7 @@
   "STUDENT_HELP_PAGE_HEADER_12": "Refund of tuition fee and validity period",
   "STUDENT_HELP_PAGE_SUB_HEADER_12": "Describe the amount of tuition you have paid and when your points will be available.",
   "POINT_EXPIRE": "Point is valid for 3 years after the payment date. Point will be expire and no longer used after expire.",
-  "STUDENT_HELP_LOW_POINT_RESERVATION_TITLE": "TOO MANY LOW POINT SERVATION LIMIT",
+  "STUDENT_HELP_LOW_POINT_RESERVATION_TITLE": "TOO MANY LOW POINT RESERVATION LIMIT",
   "STUDENT_HELP_LOW_POINT_RESERVATION_SUBTITLE": "Low point reservations (10 minutes with less than or equal to #point point) are limited to #no only.",
   "STUDENT_HELP_LOW_POINT_RESERVATION_DESC": "We serve high quality English education on 1:1, face to face servie with the lowest price in the world. Some students reserve too many reservations on the site. And it causes lack of availability for other students. For this reason, we limit no of low point reservations #no only.",
 
@@ -866,5 +866,23 @@
 
   "OPEN CLASS SOFTWARE": "Open #SOFTWARE",
   "OPEN CLASS SOFTWARE CONFIRM": "Do you want to chat with #SOFTWARE?",
-  "TIMEZONE_COUNTRY_NOT_MATCH": "設定されていません。"
+  "TIMEZONE_COUNTRY_NOT_MATCH": "設定されていません。",
+
+
+  "POINT_HISTORY_PAGE_TITLE": "Point History",
+  "POINT_HISTORY_PAGE_DESC": "Records of your past and future point history.",
+  "POINT_HISTORY": "Point History",
+  "CLASS_ID": "Class ID",
+  "REASON": "Reason",
+  "SEARCH_LIMIT": "Search Result",
+
+  "cancelled by student": "Cancelled by Student.",
+  "cancelled by teacher": "Cancelled by Teacher.",
+  "cancelled by someone else": "Cancelled by someone else.",
+  "refund-past-class": "Refund past class.",
+  "paypal-payment-approved": "Paypal payment approved.",
+  "point refund by admin": "Point refunded by admin.",
+  "reservation": "Reservation"
+
+
 }
