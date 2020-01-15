@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { KatalkEnglishPointHistoryPage } from './katalkenglish-Point-history.page';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Route } from '@angular/router';
 import { TranslatePipeModule } from '../../../../pipes/translate/translate.pipe.module';
 import { MaterialModule } from '../../../../app.material.module';
-import { FormsModule } from '@angular/forms';
+import { KatalkEnglishPointHistoryPage } from './katalkenglish-point-history.page';
 
 
 const appRoutes: Array<Route> = [

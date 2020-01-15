@@ -8,6 +8,7 @@ import { POINT_HISTORY } from '../../../../modules/xapi/interfaces';
     templateUrl: 'katalkenglish-point-history.page.html',
     styleUrls: ['katalkenglish-point-history.page.scss']
 })
+
 export class KatalkEnglishPointHistoryPage implements OnInit {
 
     pointHistory: Array<POINT_HISTORY> = [];
