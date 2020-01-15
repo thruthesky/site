@@ -34,11 +34,11 @@
 
         <div class="row">
             <div class="col-1">{{ 'CLASS_ID' | t }}</div>
-            <div class="col-1">{{ 'POINT_APPLIED' | t }}</div>
+            <div class="col-2">{{ 'POINT_APPLIED' | t }}</div>
             <div class="col-2">{{ 'POINTS_AFTER' | t }}</div>
             <div class="col-2">{{ 'TEACHER' | t }}</div>
             <div class="col-3">{{ 'REASON' | t }}</div>
-            <div class="col-3">{{ 'DATE' | t }}</div>
+            <div class="col-2">{{ 'DATE' | t }}</div>
         </div>
 
         <div class="loader" *ngIf=" showLoader ">
@@ -48,7 +48,7 @@
 
         <div class="row point" *ngFor="let point of pointHistory; even as o">
             <div class="col-1">{{ point?.idx }}</div>
-            <div class="col-1">{{ point?.apply_point | number }}</div>
+            <div class="col-2">{{ point?.apply_point | number }}</div>
             <div class="col-2">{{ point?.after_point | number }}</div>
             <div class="col-2">
               <div *ngIf="point.idx_teacher && point?.teacher?.display_name" routerLink="/schedule-table" [queryParams]="{idx_teacher: point.idx_teacher}">
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="col-3">{{ point.reason | t }}</div>
-            <div class="col-3">{{ a.shortDateTime( point.stamp ) }}</div>
+            <div class="col-2">{{ a.shortDateTime( point.stamp ) }}</div>
         </div>
     </div>
 </main>
