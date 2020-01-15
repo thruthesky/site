@@ -10,7 +10,7 @@ export const environment = {
         storageBucket: '',
         messagingSenderId: '1068647439857'
     },
-    reloadTag: 20200114, // This can be manually set for prod.
+    reloadTag: 20200115, // This can be manually set for prod.
     disableFirebaseUserActivityLog: false,
     categories: {
         teacher_reminders: 2,
