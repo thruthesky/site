@@ -883,7 +883,8 @@
   "paypal-payment-approved": "Paypal payment approved.",
   "point refund by admin": "Point refunded by admin.",
   "reservation": "Reservation",
-  "POINTS_AFTER": "Points After"
+  "POINTS_AFTER": "Points After",
+  "POINT_APPLIED": "Points Applied"
 
 
 }

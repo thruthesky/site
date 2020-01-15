@@ -828,7 +828,8 @@
   "paypal-payment-approved": "Paypal付款已批准。",
   "point refund by admin": "点数由管理员退还。",
   "reservation": "保留",
-  "POINTS_AFTER": "点后"
+  "POINTS_AFTER": "点后",
+  "POINT_APPLIED": "应用点"
 
 
 }

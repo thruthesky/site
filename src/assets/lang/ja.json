@@ -803,6 +803,7 @@
   "paypal-payment-approved": "Paypalの支払いが承認されました。",
   "point refund by admin": "管理者が返金したポイント。",
   "reservation": "予約",
-  "POINTS_AFTER": "後のポイント"
+  "POINTS_AFTER": "後のポイント",
+  "POINT_APPLIED": "適用ポイント"
 
 }
