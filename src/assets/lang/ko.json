@@ -826,12 +826,12 @@
   "TIMEZONE_COUNTRY_NOT_MATCH": "설정되지 않았습니다.",
 
 
-  "POINT_HISTORY_PAGE_TITLE": "포인트 이력",
-  "POINT_HISTORY_PAGE_DESC": "과거와 미래의 포인트 이력 기록.",
-  "POINT_HISTORY": "포인트 이력",
+  "POINT_HISTORY_PAGE_TITLE": "포인트 기록",
+  "POINT_HISTORY_PAGE_DESC": "수업 예약, 취소에 따른 포인트 변화 기록",
+  "POINT_HISTORY": "포인트 기록",
   "CLASS_ID": "수업 ID",
   "REASON": "이유",
-  "SEARCH_LIMIT": "검색 결과",
+  "SEARCH_LIMIT": "검색 목록 제한",
 
   "cancelled by student": "학생이 취소했습니다.",
   "cancelled by teacher": "교사가 취소했습니다.",
