@@ -117,7 +117,7 @@ export class AdminPaymentPage implements OnInit, OnDestroy {
         }
         // console.log('form:', this.form);
 
-        let sql = `SELECT p.idx, p.amount, p.currency, p.idx_student, p.payment_method, p.point, p.stamp_begin, p.state FROM lms_payment as p, wp_users WHERE BRANCH AND wp_users.ID = p.idx_student`;
+        let sql = `SELECT p.idx, p.amount, p.currency, p.idx_student, p.payment_method, p.point, p.stamp_begin, p.state, p.message FROM lms_payment as p, wp_users WHERE BRANCH AND wp_users.ID = p.idx_student`;
         const where = this.getWhere();
         if (where) {
             sql += ` AND ${where}`;
