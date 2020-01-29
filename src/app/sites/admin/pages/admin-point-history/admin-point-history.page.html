@@ -32,7 +32,7 @@
     <label><input type="checkbox" [(ngModel)]="show.class_data" name="class_data">Class Data</label>
   </div>
   <small class="text-danger">
-    Note: Class Date, Begin and End are base on UTC+0
+    Note: Class Date, Begin are base on student UTC.
   </small>
 </form>
 
@@ -93,8 +93,8 @@
                 </td>
                 <td *ngIf="show.class_data">
                   <div *ngIf="log.class_data">
-                    <div>Date: {{log.class_data?.date}}</div>
-                    <div>Time: {{log.class_data?.class_begin}}-{{log.class_data?.class_end}}</div>
+                    <div>Date: {{log.class_data?.date_display}}</div>
+                    <div>Time: {{log.class_data?.class_begin_display}}({{log.class_data?.duration}}min)</div>
                     <div>Reserved: {{log.class_data.stamp_reserve * 1000 | date:'yyyy-MM-dd HH:mm:ss z'}}</div>
                   </div>
                 </td>

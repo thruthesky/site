@@ -630,6 +630,9 @@
         <div class="col-sm-12 col-md-5">
             <section id="point-history">
                 <h2>Point History</h2>
+                <small class="text-danger">
+                  Note: Class Date, Begin are base on student UTC.
+                </small>
                 <div class="loader" *ngIf=" show.loader.loadPointHistory ">
                     <mat-spinner [diameter]="48"></mat-spinner>
                     Loading Payment Info...
@@ -672,9 +675,9 @@
                         </td>
                         <td>
                           <div *ngIf="log.class_data">
-                            <div>Date: {{log.class_data?.date}}</div>
-                            <div>Begin: {{log.class_data?.class_begin}}</div>
-                            <div>End: {{log.class_data?.class_end}}</div>
+                            <div>Date: {{log.class_data?.date_display}}</div>
+                            <div>Time: {{log.class_data?.class_begin_display}}</div>
+                            <div>Dur: {{log.class_data?.duration}}</div>
                             <div>Reserved: {{log.class_data.stamp_reserve * 1000 | date:'yyyy-MM-dd HH:mm:ss z'}}</div>
                           </div>
                         </td>
