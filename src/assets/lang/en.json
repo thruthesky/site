@@ -884,7 +884,8 @@
   "point refund by admin": "Point refunded by admin.",
   "reservation": "Reservation",
   "POINTS_AFTER": "Points After",
-  "POINT_APPLIED": "Points Applied"
-
+  "POINT_APPLIED": "Points Applied",
+    "POINT_HISTORY_CLASS_DATE_TIME": "Class Date/Time",
+    "POINT_HISTORY_ACTION_DATE_TIME": "Time of action"
 
 }

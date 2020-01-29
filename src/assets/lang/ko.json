@@ -829,7 +829,7 @@
   "POINT_HISTORY_PAGE_TITLE": "포인트 기록",
   "POINT_HISTORY_PAGE_DESC": "수업 예약, 취소에 따른 포인트 변화 기록",
   "POINT_HISTORY": "포인트 기록",
-  "CLASS_ID": "수업 ID",
+  "CLASS_ID": "수업 번호",
   "REASON": "이유",
   "SEARCH_LIMIT": "검색 목록 제한",
 
@@ -841,6 +841,8 @@
   "point refund by admin": "관리자가 포인트를 환불했습니다.",
   "reservation": "예약",
   "POINTS_AFTER": "적용 후 포인트",
-  "POINT_APPLIED": "적용 포인트"
+  "POINT_APPLIED": "적용 포인트",
+  "POINT_HISTORY_CLASS_DATE_TIME": "수업 날짜/시간",
+  "POINT_HISTORY_ACTION_DATE_TIME": "예약/취소 시간"
 
 }
