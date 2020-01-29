@@ -866,7 +866,7 @@
 
   "OPEN CLASS SOFTWARE": "Open #SOFTWARE",
   "OPEN CLASS SOFTWARE CONFIRM": "Do you want to chat with #SOFTWARE?",
-  "TIMEZONE_COUNTRY_NOT_MATCH": "設定されていません。",
+  "TIMEZONE_COUNTRY_NOT_MATCH": "Country not set.",
 
 
   "POINT_HISTORY_PAGE_TITLE": "Point History",
@@ -885,7 +885,7 @@
   "reservation": "Reservation",
   "POINTS_AFTER": "Points After",
   "POINT_APPLIED": "Points Applied",
-    "POINT_HISTORY_CLASS_DATE_TIME": "Class Date/Time",
-    "POINT_HISTORY_ACTION_DATE_TIME": "Time of action"
+  "POINT_HISTORY_CLASS_DATE_TIME": "Class Date/Time",
+  "POINT_HISTORY_ACTION_DATE_TIME": "Time of action"
 
 }
