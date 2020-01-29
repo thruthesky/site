@@ -723,6 +723,51 @@ export interface MESSAGES_GROUP {
     }];
 }
 
+export interface CLASS_DATA {
+  idx: number;
+  date: number;
+  class_begin: number;
+  class_end: number;
+  point: number;
+  idx_teacher: number;
+  idx_student: number;
+  idx_schedule: number;
+  stamp_reserve: number;
+  stamp_checked: number;
+  paid: number;
+  refund_request_at: number;
+  refund_request_message: string;
+  refund_reject_at: number;
+  refund_reject_message: string;
+  refund_done_point: number;
+  refund_done_at: number;
+  refund_done_by: number;
+  refund_settle_at: number;
+  refund_settle_message: string;
+  teacher_absent: string;
+  student_absent: string;
+  successful: string;
+  expression: number;
+  vocabulary: number;
+  grammar: number;
+  pronunciation: number;
+  speed: number;
+  comment: string;
+  book_used: string;
+  book_next: string;
+  domain: string;
+  class_id: string;
+  alert: string;
+  date_display: string;
+  class_begin_display: string;
+  duration: number;
+  student_name: string;
+  student_class_software: string;
+  student_class_software_id: string;
+  past: boolean;
+  refund_timeover: boolean;
+}
+
 export interface POINT_HISTORY {
   action: string;
   after_point: string;
@@ -735,7 +780,7 @@ export interface POINT_HISTORY {
   reason: string;
   stamp: number;
   point_change?: boolean;
-  class_data?: SESSION;
+  class_data?: CLASS_DATA;
   student: {
     email: string;
     phone_number: string;
@@ -752,5 +797,6 @@ export interface POINT_HISTORY {
     grade: number;
   };
 }
+
 
 

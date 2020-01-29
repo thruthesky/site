@@ -31,7 +31,8 @@ export class KatalkEnglishPointHistoryPage implements OnInit {
     }
 
     ngOnInit() {
-      const now = this.today.getFullYear() + '-' + this.a.add0(this.today.getMonth() + 1) + '-' + this.a.add0(this.today.getDate());
+      // const now = this.today.getFullYear() + '-' + this.a.add0(this.today.getMonth() + 1) + '-' + this.a.add0(this.today.getDate());
+      const now = this.today.getFullYear() + '-' + this.a.add0(this.today.getMonth() + 1) + '-01';
       this.date_begin = new Date(now);
       this.pointHistorySearch();
     }
@@ -56,7 +57,7 @@ export class KatalkEnglishPointHistoryPage implements OnInit {
         data['date_end'] = d.getFullYear() + this.a.add0(d.getMonth() + 1) + this.a.add0(d.getDate());
       }
       this.a.lms.get_point_history(data).subscribe( res => {
-        // console.log('pointHistory', res);
+        console.log('pointHistory', res);
         this.showLoader = false;
         this.pointHistory = res['point_history'];
       }, e => {
