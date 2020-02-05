@@ -151,7 +151,7 @@
   "MORNING": "오전",
   "AFTERNOON": "오후",
   "FULL DAY": "전체(오전 오후, 하루종일)",
-  "DIRECT-TIME": "시간 직접 선택:",
+  "DIRECT-TIME": "수업 시간 선택:",
   "TEACHER": "선생님",
   "TIME": "시간",
   "HOUR": "시간",
@@ -844,7 +844,9 @@
   "POINT_APPLIED": "적용 포인트",
   "POINT_HISTORY_CLASS_DATE_TIME": "수업 날짜/시간",
   "POINT_HISTORY_ACTION_DATE_TIME": "예약/취소 시간",
-  "BEGIN_HOUR": "시간 시작",
-  "END_HOUR": "타임 엔드"
+  "BEGIN_HOUR": "",
+  "END_HOUR": "",
+  "BEGIN_HOUR_KO": "시 부터",
+  "END_HOUR_KO": "시 까지"
 
 }

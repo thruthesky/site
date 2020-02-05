@@ -43,11 +43,13 @@
             <select name="class_begin_hour" class="p-1" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
                 <option *ngFor=" let h of formOptions.begin_hours " value="{{ h }}">{{ h }}</option>
             </select>
+            <span>{{ 'BEGIN_HOUR_KO' | t}}</span>
             ~
             <span>{{ 'END_HOUR' | t}}</span>
             <select name="class_end_hour" class="p-1" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
                 <option *ngFor=" let h of formOptions.end_hours " value="{{ h }}">{{ h }}</option>
             </select>
+            <span>{{ 'END_HOUR_KO' | t}}</span>
         </div>
     </div>
     <div class="minutes" *ngIf=" chip.show == 'minutes' ">

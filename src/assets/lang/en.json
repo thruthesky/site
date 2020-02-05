@@ -888,6 +888,8 @@
   "POINT_HISTORY_CLASS_DATE_TIME": "Class Date/Time",
   "POINT_HISTORY_ACTION_DATE_TIME": "Time of action",
   "BEGIN_HOUR": "Time Start",
-  "END_HOUR": "Time End"
+  "END_HOUR": "Time End",
+    "BEGIN_HOUR_KO": "",
+    "END_HOUR_KO": ""
 
 }

@@ -831,7 +831,9 @@
   "POINTS_AFTER": "点后",
   "POINT_APPLIED": "应用点",
   "BEGIN_HOUR": "时间开始",
-  "END_HOUR": "时间结束"
+  "END_HOUR": "时间结束",
+  "BEGIN_HOUR_KO": "",
+  "END_HOUR_KO": ""
 
 
 }
