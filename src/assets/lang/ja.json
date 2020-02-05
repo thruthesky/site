@@ -804,6 +804,8 @@
   "point refund by admin": "管理者が返金したポイント。",
   "reservation": "予約",
   "POINTS_AFTER": "後のポイント",
-  "POINT_APPLIED": "適用ポイント"
+  "POINT_APPLIED": "適用ポイント",
+  "BEGIN_HOUR": "タイムスタート",
+  "END_HOUR": "時間終了"
 
 }

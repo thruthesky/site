@@ -25,8 +25,8 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
 
     form = {
         teachers: [],
-        class_begin_hour: '0',
-        class_end_hour: '24',
+        class_begin_hour: '13',
+        class_end_hour: '14',
         duration: '0',
         min_duration: 0,
         max_duration: MAX_DURATION,

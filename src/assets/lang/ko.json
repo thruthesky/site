@@ -843,6 +843,8 @@
   "POINTS_AFTER": "적용 후 포인트",
   "POINT_APPLIED": "적용 포인트",
   "POINT_HISTORY_CLASS_DATE_TIME": "수업 날짜/시간",
-  "POINT_HISTORY_ACTION_DATE_TIME": "예약/취소 시간"
+  "POINT_HISTORY_ACTION_DATE_TIME": "예약/취소 시간",
+  "BEGIN_HOUR": "시간 시작",
+  "END_HOUR": "타임 엔드"
 
 }

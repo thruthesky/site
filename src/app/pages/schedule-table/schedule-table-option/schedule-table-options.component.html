@@ -19,20 +19,33 @@
         <a class="app-button" routerLink="/settings">{{ a.ln.UPDATE }}</a>
     </div>
 </div>
+<!--<div class="search-query">-->
+  <!--{{ 'SCHEDULE_TABLE_SEARCH_QUERY' | t:{-->
+    <!--'BEGIN': form.class_begin_hour,-->
+    <!--'END': form.class_end_hour,-->
+    <!--'DURATION':form.min_duration,-->
+    <!--'POINTS':form.min_point,-->
+    <!--'SEARCH_WEEKENDS': form.display_weekends-->
+    <!--'DAYS':form.days-->
+    <!--}}} -->
+<!--</div>-->
 <div class="search-contents" *ngIf="chip.show">
     <div class="hours" *ngIf="chip.show == 'hours'">
 
-        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">{{ 'MORNING' | t }}</div>
-        <div (click)=" form.class_begin_hour = 12; form.class_end_hour = 24; onSearchSubmit() ">{{'AFTERNOON' | t }}</div>
-        <div (click)=" form.class_begin_hour = 0; form.class_end_hour = 24; onSearchSubmit() ">{{'FULL DAY' | t }}</div>
+        <!--<div (click)=" form.class_begin_hour = 0; form.class_end_hour = 12; onSearchSubmit() ">{{ 'MORNING' | t }}</div>-->
+        <!--<div (click)=" form.class_begin_hour = 12; form.class_end_hour = 24; onSearchSubmit() ">{{'AFTERNOON' | t }}</div>-->
+        <!--<div (click)=" form.class_begin_hour = 0; form.class_end_hour = 24; onSearchSubmit() ">{{'FULL DAY' | t }}</div>-->
 
         <div class="select">
             <span>{{ 'DIRECT-TIME' | t}}</span>
-            <select name="class_begin_hour" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
+
+            <span>{{ 'BEGIN_HOUR' | t}}</span>
+            <select name="class_begin_hour" class="p-1" [(ngModel)]="form.class_begin_hour" (change)="onSearchSubmit()">
                 <option *ngFor=" let h of formOptions.begin_hours " value="{{ h }}">{{ h }}</option>
             </select>
             ~
-            <select name="class_end_hour" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
+            <span>{{ 'END_HOUR' | t}}</span>
+            <select name="class_end_hour" class="p-1" [(ngModel)]="form.class_end_hour" (change)="onSearchSubmit()">
                 <option *ngFor=" let h of formOptions.end_hours " value="{{ h }}">{{ h }}</option>
             </select>
         </div>
@@ -40,56 +53,57 @@
     <div class="minutes" *ngIf=" chip.show == 'minutes' ">
         <mat-form-field>
             <mat-select name="duaration" [(ngModel)]="form.min_duration" (selectionChange)="onSearchSubmit()">
-                <mat-option value="0">{{ 'MORE_THAN' | t:{'MIN':0} }}</mat-option>
-                <mat-option value="5">{{ 'MORE_THAN' | t:{'MIN':5} }}</mat-option>
-                <mat-option value="10">{{ 'MORE_THAN' | t:{'MIN':10} }}</mat-option>
-                <mat-option value="15">{{ 'MORE_THAN' | t:{'MIN':15} }}</mat-option>
-                <mat-option value="20">{{ 'MORE_THAN' | t:{'MIN':20} }}</mat-option>
-                <mat-option value="25">{{ 'MORE_THAN' | t:{'MIN':25} }}</mat-option>
-                <mat-option value="30">{{ 'MORE_THAN' | t:{'MIN':30} }}</mat-option>
-                <mat-option value="40">{{ 'MORE_THAN' | t:{'MIN':40} }}</mat-option>
-                <mat-option value="50">{{ 'MORE_THAN' | t:{'MIN':50} }}</mat-option>
-                <mat-option value="60">{{ 'MORE_THAN' | t:{'MIN':60} }}</mat-option>
+                <mat-option [value]="0">{{ 'MORE_THAN' | t:{'MIN':0} }}</mat-option>
+                <mat-option [value]="5">{{ 'MORE_THAN' | t:{'MIN':5} }}</mat-option>
+                <mat-option [value]="10">{{ 'MORE_THAN' | t:{'MIN':10} }}</mat-option>
+                <mat-option [value]="15">{{ 'MORE_THAN' | t:{'MIN':15} }}</mat-option>
+                <mat-option [value]="20">{{ 'MORE_THAN' | t:{'MIN':20} }}</mat-option>
+                <mat-option [value]="25">{{ 'MORE_THAN' | t:{'MIN':25} }}</mat-option>
+                <mat-option [value]="30">{{ 'MORE_THAN' | t:{'MIN':30} }}</mat-option>
+                <mat-option [value]="40">{{ 'MORE_THAN' | t:{'MIN':40} }}</mat-option>
+                <mat-option [value]="50">{{ 'MORE_THAN' | t:{'MIN':50} }}</mat-option>
+                <mat-option [value]="60">{{ 'MORE_THAN' | t:{'MIN':60} }}</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-select name="duaration" [(ngModel)]="form.max_duration" (selectionChange)="onSearchSubmit()">
-                <mat-option value="4">{{ 'LESS_THAN' | t:{'MIN':4} }}</mat-option>
-                <mat-option value="9">{{ 'LESS_THAN' | t:{'MIN':9} }}</mat-option>
-                <mat-option value="14">{{ 'LESS_THAN' | t:{'MIN':14} }}</mat-option>
-                <mat-option value="19">{{ 'LESS_THAN' | t:{'MIN':19} }}</mat-option>
-                <mat-option value="24">{{ 'LESS_THAN' | t:{'MIN':24} }}</mat-option>
-                <mat-option value="29">{{ 'LESS_THAN' | t:{'MIN':29} }}</mat-option>
-                <mat-option value="39">{{ 'LESS_THAN' | t:{'MIN':39} }}</mat-option>
-                <mat-option value="49">{{ 'LESS_THAN' | t:{'MIN':49} }}</mat-option>
-                <mat-option value="59">{{ 'LESS_THAN' | t:{'MIN':59} }}</mat-option>
-                <mat-option value="120">{{ 'LESS_THAN' | t:{'MIN':120} }}</mat-option>
-                <mat-option value="360">{{ 'LESS_THAN' | t:{'MIN':360} }}</mat-option>
+                <mat-option [value]="4">{{ 'LESS_THAN' | t:{'MIN':4} }}</mat-option>
+                <mat-option [value]="9">{{ 'LESS_THAN' | t:{'MIN':9} }}</mat-option>
+                <mat-option [value]="14">{{ 'LESS_THAN' | t:{'MIN':14} }}</mat-option>
+                <mat-option [value]="19">{{ 'LESS_THAN' | t:{'MIN':19} }}</mat-option>
+                <mat-option [value]="24">{{ 'LESS_THAN' | t:{'MIN':24} }}</mat-option>
+                <mat-option [value]="29">{{ 'LESS_THAN' | t:{'MIN':29} }}</mat-option>
+                <mat-option [value]="39">{{ 'LESS_THAN' | t:{'MIN':39} }}</mat-option>
+                <mat-option [value]="49">{{ 'LESS_THAN' | t:{'MIN':49} }}</mat-option>
+                <mat-option [value]="59">{{ 'LESS_THAN' | t:{'MIN':59} }}</mat-option>
+                <mat-option [value]="120">{{ 'LESS_THAN' | t:{'MIN':120} }}</mat-option>
+                <mat-option [value]="360">{{ 'LESS_THAN' | t:{'MIN':360} }}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     <div class="points" *ngIf=" chip.show == 'points' ">
         <mat-form-field>
             <mat-select placeholder="{{'ABOVE_POINT' | t }}" name="point" [(ngModel)]="form.min_point" (selectionChange)="onSearchSubmit()">
-                <mat-option value="0">0</mat-option>
-                <mat-option value="500">500</mat-option>
-                <mat-option value="1000">1000</mat-option>
-                <mat-option value="2000">2000</mat-option>
-                <mat-option value="3000">3000</mat-option>
-                <mat-option value="4000">4000</mat-option>
-                <mat-option value="5000">5000</mat-option>
+                <mat-option [value]="0">0</mat-option>
+                <mat-option [value]="500">500</mat-option>
+                <mat-option [value]="1000">1000</mat-option>
+                <mat-option [value]="2000">2000</mat-option>
+                <mat-option [value]="3000">3000</mat-option>
+                <mat-option [value]="4000">4000</mat-option>
+                <mat-option [value]="5000">5000</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-select placeholder="{{'BELOW_POINT' | t }}" name="point" [(ngModel)]="form.max_point" (selectionChange)="onSearchSubmit()">
-                <mat-option value="499">499</mat-option>
-                <mat-option value="999">999</mat-option>
-                <mat-option value="1999">1999</mat-option>
-                <mat-option value="2999">2999</mat-option>
-                <mat-option value="3999">3999</mat-option>
-                <mat-option value="4999">4999</mat-option>
-                <mat-option value="5999">5999</mat-option>
-                <mat-option value="9999">9999</mat-option>
+                <mat-option [value]="499">499</mat-option>
+                <mat-option [value]="999">999</mat-option>
+                <mat-option [value]="1999">1999</mat-option>
+                <mat-option [value]="2999">2999</mat-option>
+                <mat-option [value]="3999">3999</mat-option>
+                <mat-option [value]="4999">4999</mat-option>
+                <mat-option [value]="5999">5999</mat-option>
+                <mat-option [value]="9999">9999</mat-option>
+                <mat-option [value]="30000">30000</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
@@ -108,13 +122,13 @@
         <mat-form-field>
             <mat-label>{{ 'NO_OF_DAYS' |t}}</mat-label>
             <mat-select name="days" [(ngModel)]="form.days" (selectionChange)="onSearchSubmit(true)">
-                <mat-option value="5">5</mat-option>
-                <mat-option value="6">6</mat-option>
-                <mat-option value="7">7</mat-option>
-                <mat-option value="10">10</mat-option>
-                <mat-option value="12">12</mat-option>
-                <mat-option value="15">15</mat-option>
-                <mat-option value="20">20</mat-option>
+                <mat-option [value]="5">5</mat-option>
+                <mat-option [value]="6">6</mat-option>
+                <mat-option [value]="7">7</mat-option>
+                <mat-option [value]="10">10</mat-option>
+                <mat-option [value]="12">12</mat-option>
+                <mat-option [value]="15">15</mat-option>
+                <mat-option [value]="20">20</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
