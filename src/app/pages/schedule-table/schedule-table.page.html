@@ -13,7 +13,7 @@
     </header>
     <!--/multiple-teachers-->
 
-    <schedule-table-options-component [form]=" form " (change)=" onSearchSubmit() "></schedule-table-options-component>
+    <schedule-table-options-component [form]=" form " [chip]=" chip " (change)=" onSearchSubmit() "></schedule-table-options-component>
 
     <div class="schedule-loader" *ngIf=" show.schedule_loader ">
         <mat-spinner [diameter]="48" name="circles"></mat-spinner>

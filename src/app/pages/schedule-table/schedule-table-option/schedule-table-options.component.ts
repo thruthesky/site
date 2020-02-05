@@ -11,8 +11,8 @@ export class ScheduleTableOptionsComponent {
 
     @Input() form = null;
     @Output() change = new EventEmitter<void>();
-    chip = {
-        show: 'hours'
+    @Input() chip = {
+        show: ''
     };
 
     formOptions = {

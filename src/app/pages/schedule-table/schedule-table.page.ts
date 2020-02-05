@@ -41,6 +41,10 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
         useCache: true          /// ** Only first schedule table list will be cached.
     };
 
+    chip = {
+      show: ''
+    };
+
 
     defaultPhotoUrl;
     show = {
@@ -92,8 +96,13 @@ export class ScheduleTablePage implements OnInit, AfterViewInit, OnDestroy {
             this.params = params;
             if (params['idx_teacher']) {
                 this.form.teachers = [params['idx_teacher']];
+                this.form.class_begin_hour = '1';
+                this.form.class_end_hour = '24';
             } else {
                 this.form.teachers = [];
+                this.chip.show = 'hours';
+                this.form.class_begin_hour = '13';
+                this.form.class_end_hour = '14';
             }
             this.loadScheduleAndDisplay(this.form);
         });
