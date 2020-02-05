@@ -57,18 +57,15 @@
     padding-bottom: 1em;
     background: #fff;
     @media screen and (min-width:$lg) {
-        padding: 2em 0;
+        padding: 2em .5em;
     }
     .hours {
         display: flex;
         flex-direction: column;
-        @media screen and (min-width:$lg){
-            flex-direction: row;
-            justify-content: space-around
-        }
+        font-size: 1.5em;
         &>div{
             margin: .3em 0;
-            padding: .8em 2em;
+            padding: .5em;
             border-radius: 2px;
             border: 1px solid #e2e2e2;
             text-align: center;
@@ -79,6 +76,9 @@
             }
         }
         .select{
+            select {
+                font-size: 1em;
+            }
             span{
                 margin-right: .5em;
             }
