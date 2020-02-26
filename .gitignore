@@ -23,7 +23,7 @@ npm-debug.log*
 coverage/
 www/
 node_modules/
-tmp/
+
 temp/
 platforms/
 plugins/
