@@ -127,6 +127,7 @@ export class RegisterPage implements OnInit {
             this.form.phone_number = userData.phone_number;
             this.form.kakao_qrmark_URL = userData.kakao_qrmark_URL;
             this.form.bookable_time = userData.bookable_time;
+            this.form.reservable_days = userData.reservable_days;
             this.user_type = userData.user_type;
 
 

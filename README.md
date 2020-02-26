@@ -66,15 +66,9 @@ $ scp -r ontue@ontue.com:./www/wp-content/uploads/* .       ; but you may not ne
 
 ## Installation
 
-```` bash
-sudo npm i -g ionic@rc
-git clone https://github.com/thruthesky/site
-cd site
-npm i
-npm i rxjs-compat
-git submodule update --init
-npm run s
-````
+### Ionic installation on local computer
+
+* @see [Ionic Installation on Local Computer](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.8efya7wh2g3a)
 
 ### Update
 
@@ -97,31 +91,6 @@ npm run e2e:remote:headless         ; cypress run headless with real server urls
 
 ## Run
 
-* Updated on 2019-03-11
-* Local backend server is set to `environment.local-backend-server.ts`
-* NOTE FOR WINDOW OS if livereload error try using 8.X.X(8.9.0) version of node.
-
-```` bash
-npm run ssl                         ; run project with ssl. port is 9443. after run, access
-                                    ; https://abc.katalkenglish.com:9443/         for student site
-                                    ; https://withcenter.katalkenglish.com:9443/  for withcenter site
-                                    ; https://ontue.katalkenglish.com:9443/     for teacher site.
-
-
-
-npm run ssl:live                    ; Runs the app locally by `ng serve` but uses production server backend.
-
-
-npm run s                           ; Run with workserver.
-ng s --disable-host-check
-npm run serve:local                 ; Run with local backend server.
-npm run serve:remote                ; Run on production server.
-npm run serve:local:hmr             ; run locally with HMR. It is only working with global scss at this time. If you are going to work on global scss, you will need to copy final scss into component scss file.
-
-npm run seo                         ; SEO TEST.
-                                    ; It copies the build files into ~/www/wordpress.
-                                    ; You can access http://local.wordpress.org/                                    ; You may want to run `npm run serve:local` to see the changes on browser.
-````
 
 ### Working with SSL and Branch coding
 

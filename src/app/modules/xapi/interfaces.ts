@@ -101,6 +101,7 @@ export interface USER_REGISTER extends REQUEST {
     hobby?: string;
     youtube_video_url?: string;
     bookable_time?: number;
+    reservable_days?: number;
     block_free_class_until?: string;
     user_group?: string;
     grade?: string;
