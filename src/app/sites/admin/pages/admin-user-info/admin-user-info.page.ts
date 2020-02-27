@@ -180,6 +180,7 @@ export class AdminUserInfoPage implements OnInit {
             user_group: u.user_group,
             list_order: u.list_order,
             bookable_time: u.bookable_time,
+            reservable_days: u.reservable_days,
             block_free_class_until: u.block_free_class_until,
             timezone: u.timezone,
             // domain: u.domain,
