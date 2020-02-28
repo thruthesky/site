@@ -56,6 +56,9 @@ export class AdminUserInfoPage implements OnInit {
     total_point_paid = 0;
     total_point_reserve = 0;
 
+    pointAdjustment = 0;
+    autoComputePoint = 0;
+
     constructor(
         public active: ActivatedRoute,
         public router: Router,
@@ -490,6 +493,8 @@ export class AdminUserInfoPage implements OnInit {
         }
 
         this.pointForm.point = Math.round(usd * 1000);
+        this.autoComputePoint = this.pointForm.point;
+        this.pointAdjustment = 0;
     }
 
     onClickAutoRefundCompute() {
@@ -582,6 +587,10 @@ export class AdminUserInfoPage implements OnInit {
             this.a.toast(e);
             this.show.loader.totalPointReserved = false;
         });
+    }
+
+    onPointAdjustmentChange() {
+        this.pointForm.point = this.autoComputePoint + this.pointAdjustment;
     }
 }
 
