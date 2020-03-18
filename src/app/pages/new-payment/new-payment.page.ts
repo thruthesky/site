@@ -84,7 +84,7 @@ export class NewPaymentPage implements AfterViewInit {
          *      KWR should be bigger than 900 and smaller than 1300. Or else it is an error.
          */
         const usdKwr = this.a.floatval(this.paymentRate.USD_TO_KRW);
-        if (usdKwr < 900 || usdKwr > 1300) {
+        if (usdKwr < 900 || usdKwr > 1500) {
             return true;
         }
 
