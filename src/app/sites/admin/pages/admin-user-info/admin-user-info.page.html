@@ -168,6 +168,16 @@
                                         <input type="number" name="pointForm_point" [(ngModel)]="pointForm.point">
                                         <button class="auto-compute-button" type="button" (click)=" onClickAutoCompute() " *ngIf=" pointForm.apply == 'payment' ">Auto Compute</button>
                                         <button class="auto-compute-button" type="button" (click)=" onClickAutoRefundCompute() " *ngIf=" pointForm.apply == 'refund' ">Auto Compute</button>
+                                        <div class="point-adjustment">
+                                            <input class="w-100 px-0 py-3" type="range" name="pointAdjustment" [(ngModel)]="pointAdjustment" (ngModelChange)="onPointAdjustmentChange()" min="-100" max="100">
+                                            <div class="range">
+                                                <span>-100</span>
+                                                <span>0</span>
+                                                <span>+100</span>
+                                            </div>
+                                            <span class="notes">Drag left to decrease. Drag right to increase.</span>
+                                        </div>
+                                        
                                     </div>
                                     <div class="margin-top">
                                         <span class="label">Reason:</span>

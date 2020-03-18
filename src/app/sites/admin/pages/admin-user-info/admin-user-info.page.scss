@@ -479,3 +479,20 @@
 .payment-refunded{
     color:darkred;
 }
+
+.point-adjustment {
+    position: relative;
+    .range {
+        position: absolute;
+        top: 8px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .notes {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        text-align: center;
+    }
+}
