@@ -93,7 +93,7 @@ export class NewPaymentPage implements AfterViewInit {
          *     JYP should be bigger than 90 and smaller than 130.
          */
         const usdJyp = this.a.floatval(this.paymentRate.USD_TO_JPY);
-        if (usdJyp < 90 || usdJyp > 130) {
+        if (usdJyp < 50 || usdJyp > 180) {
             return true;
         }
         /**
@@ -101,7 +101,7 @@ export class NewPaymentPage implements AfterViewInit {
          *      CNY should be bigger 5 and smaller than 9.
          */
         const usdCny = this.a.floatval(this.paymentRate.USD_TO_CNY);
-        if (usdCny < 5 || usdCny > 9) {
+        if (usdCny < 3 || usdCny > 12) {
             return true;
         }
 

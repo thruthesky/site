@@ -139,6 +139,7 @@ then, access to https://thruthesky.github.io/site/
 * To publish production site.
 
 ```` sh
+; change node version to v8.9.0
 npm run publish
 npm run publish:all
 ````

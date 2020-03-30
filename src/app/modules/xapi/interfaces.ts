@@ -401,6 +401,7 @@ export interface SCHEDULE_COMPRESSED {
 
 
 export interface TEACHER {
+    ID?: any; /// What is this? This is used in schedule-table-profile.html but it is only declared on March 30, 2020.
     idx: string;
     name: string;
     photoURL: string;
