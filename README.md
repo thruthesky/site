@@ -8,7 +8,7 @@
 ## Reference
 
 * How to set admin
- Please see [LMS Management - Admin](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd)
+ Please see [LMS Build & Management Guide - Admin](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.asi8m5vfg5sd)
 
 * [Site and System Management](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.5fy66t330rxr)
 * [OnTue 2018 LMS Build Guide](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.zfa2sr5gxz1q)
@@ -91,6 +91,9 @@ npm run e2e:remote:headless         ; cypress run headless with real server urls
 
 ## Run
 
+### Running Angular Client Site
+
+* See [Buildeguide](https://docs.google.com/document/d/1ZpGsmKhnjqE9estnjr_vl9DcjdpeMSgxTz4B4eoTm7c/edit#heading=h.jlpo4rkh87r4)
 
 ### Working with SSL and Branch coding
 
@@ -417,6 +420,12 @@ env['reloadTag'] = (new Date).getTime();
     Then, the user will see 'mobile view' of 'schedule table' since it is cached.
     This is a very rare case. and we just ignore this.
     If the user visits another teacher's schedule table, it may look okay as in 'desktop view'.
+
+* Adding Kakaotalk friend on teacher's schedule table
+  * Not working on PC
+  * Not working with Chrome on iPhone
+  * Working on Android Web
+  * Working on Android App
 
 ## Known Problems
 
