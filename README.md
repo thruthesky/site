@@ -89,7 +89,12 @@ npm run e2e:remote                  ; cypress open with real server urls.
 npm run e2e:remote:headless         ; cypress run headless with real server urls. (*) This is preferred to run.
 ````
 
-## Run
+## Run & Serve
+
+* $ n                               ; change node version to 8.x.x
+* $ npm run ssl:live
+
+
 
 ### Running Angular Client Site
 

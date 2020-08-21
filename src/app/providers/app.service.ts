@@ -1695,6 +1695,20 @@ export class AppService {
         return false;
     }
 
+
+    isIos() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && ! window['MSStream'];
+    }
+    onClickEnglishFunApp() {
+        let url: string;
+        if ( this.isIos ) {
+            url = 'https://play.google.com/store/apps/details?id=com.englishfun.play';
+        } else {
+            url = 'https://apps.apple.com/app/id1526007266';
+        }
+        window.open(url);
+    }
+
     /**
      * Adds friend to user's Messenger
      *
