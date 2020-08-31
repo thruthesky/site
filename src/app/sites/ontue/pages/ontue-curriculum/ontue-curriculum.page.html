@@ -1,5 +1,5 @@
 <main>
-    <header >
+    <header>
         <h1>English Curriculumn</h1>
     </header>
     <section class="content">
@@ -10,7 +10,7 @@
             early impossible to have an orientation for each teacher with the curriculum.
             So, we ask teachers to view this page and learn what are our curriculumns and how to do it.
         </p>
-        
+
         <h3>We have only three official curriculum's.</h3>
 
         <h4>1. Level Test.</h4>
@@ -27,8 +27,9 @@
         </p>
 
         <p class="reminder">The goal of greeting is to choose what would be the next step.</p>
-            
-        <p>If the student can speak at all or very clumsy, then do level test with easy one. If the student is fluent in English, do level test with some more high level.</p>
+
+        <p>If the student can speak at all or very clumsy, then do level test with easy one. If the student is fluent in
+            English, do level test with some more high level.</p>
 
         <p>
             B) Teachers should prepare two kinds of level tests.
@@ -43,63 +44,84 @@
 
             Teachers can ask student to read very short sentence and let them find answers.
         </p>
-            
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <h4>2. Phonics Race 1 to 4</h4>
-                <div class="books">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h4>2. English Book App</h4>
+                    <!-- <div class="books">
                     <div><img src="assets/img/books/phonics-race-1.jpg"></div>
                     <div><img src="assets/img/books/phonics-race-2.jpg"></div>
                     <div><img src="assets/img/books/phonics-race-3.jpg"></div>
                     <div><img src="assets/img/books/phonics-race-4.jpg"></div>
+                </div> -->
+
+                    <div class='m-1'>
+                        <img class='w-100 pointer' src="assets/img/app-banner-wide-en.jpg"  (click)="a.onClickEnglishFunApp()">
+                    </div>
+                    <p>
+                       We have developped our own book for OnTue English class. 
+                    </p>
+                    <p>
+                        Most of the content of the book are simple.
+                        You need to controll not to go too fast with the book.
+                    </p>
+                    <p>
+                        Encourage student to download the app and read before the class time.
+                    </p>
+                    <p class="pointer" (click)="a.onClickEnglishFunApp()">
+                        [ Download ]
+                    </p>
                 </div>
-                <p>
-                    This series is for Zero-English level learners ages 12 and below.<br>
-                    A student who does not have any background in English language should start learning the basics from the letters of the English Alphabet, how to write them, the sound of each and simple words that begin with each letter sound.<br>
-                    The first book, Phonics Race 1, will aid in developing the reading skill of the student. The activities involved in the lessons are simple and repeated facilitating better understanding and aiding memorization.<br>
-                    They also help in training the student to follow simple instructions in English. The next step is to teach the student long and short vowel sounds, letter combinations and more simple words.<br>
-                    Phonics Race 2 to 4 are the perfect books to use. The level of difficulty increases gradually allowing time for the student to adjust and keeping the lessons less stressful for the learner. <br>
-                    The activities in these books will develop not just the reading skill but also the listening skill of the student. Interesting and colorful pictures in the books help in maintaining the student's interest and focus.<br>
-                </p>
-                 </div>
-            <div class="col-12">
-                <h4>3. Let's Go 4th Edition.</h4>
-                <div class="books">
-                    <div><img src="assets/img/books/letsgo-1.jpg"></div>
-                    <div><img src="assets/img/books/letsgo-2.jpg"></div>
-                    <div><img src="assets/img/books/letsgo-3.jpg"></div>
+                <div class="col-12">
+                    <h4>3. Let's Go 4th Edition.</h4>
+                    <div class="books">
+                        <div><img src="assets/img/books/letsgo-1.jpg"></div>
+                        <div><img src="assets/img/books/letsgo-2.jpg"></div>
+                        <div><img src="assets/img/books/letsgo-3.jpg"></div>
+                    </div>
+                    <p>Let's Go is a suitable English textbook for children under 14 years old. Let's Go has everything
+                        from basic words in English to vocabulary, reading, writing, listening and speaking, and it even
+                        includes all the necessary courses for basic English and English conversation.</p>
+                    <p>The class materials will be delivered to the students by e-mail or phone before the class time.
+                    </p>
+                    <p>{{ a.ln['CURRICULUM_LETSGO_TEXT_3'] }}</p>
                 </div>
-                <p>Let's Go is a suitable English textbook for children under 14 years old. Let's Go has everything from basic words in English to vocabulary, reading, writing, listening and speaking, and it even includes all the necessary courses for basic English and English conversation.</p>
-                <p>The class materials will be delivered to the students by e-mail or phone before the class time.</p>
-                <p>{{ a.ln['CURRICULUM_LETSGO_TEXT_3'] }}</p>
-            </div>
-            <div class="col-12">
-                <h4>4. Side By Side 3rd Edition.</h4>
+                <div class="col-12">
+                    <h4>4. Side By Side 3rd Edition.</h4>
                     <div class="books">
                         <div><img src="assets/img/books/sidebyside-1.jpg"></div>
                         <div><img src="assets/img/books/sidebyside-2.jpg"></div>
                         <div><img src="assets/img/books/sidebyside-3.jpg"></div>
                         <div><img src="assets/img/books/sidebyside-4.jpg"></div>
                     </div>
-                <p>Side by side is suitable for adults from 15 years old and above. Like Let's Go, you have everything from basic English, vocabulary, reading, writing, listening and speaking. You can learn basic English and English conversation as well as various situations.</p>
-                <p>We have customized one-to-one lessons so you can take lessons with the textbooks you have. You can take the textbook of the student with your mobile phone and send it to you by e-mail.</p>
+                    <p>Side by side is suitable for adults from 15 years old and above. Like Let's Go, you have
+                        everything from basic English, vocabulary, reading, writing, listening and speaking. You can
+                        learn basic English and English conversation as well as various situations.</p>
+                    <p>We have customized one-to-one lessons so you can take lessons with the textbooks you have. You
+                        can take the textbook of the student with your mobile phone and send it to you by e-mail.</p>
+                </div>
             </div>
         </div>
-    </div>
 
 
 
-        <p class="reminder"> Please be reminded that you can teach with your own materials or if students want to use their books, then you can ask student to send you copy of their books.</p>
+        <p class="reminder"> Please be reminded that you can teach with your own materials or if students want to use
+            their books, then you can ask student to send you copy of their books.</p>
 
         <p>There are lots of free English books and materials. For instance, Internet book search.</p>
-        
+
         <div class="book-sample">
-            <a href='https://www.pdfdrive.net/search?q=english+learning+books&pagecount=any&sortby=&searchin=&r=1' target='_blank'>1, </a>
-            <a href='https://www.pdfdrive.net/search?q=learn+english+for+children&pagecount=&sortby=&searchin=&r=1' target='_blank'>2, </a>
-            <a href='https://www.pdfdrive.net/search?q=learn+english+as+a+foreign+language&pagecount=any&sortby=&searchin=&r=1'>3, </a>
-            <a href="https://www.bloomsbury-international.com/en/student-ezone/e-book.html" target="_blank">Boolmsbury ebooks. </a>
+            <a href='https://www.pdfdrive.net/search?q=english+learning+books&pagecount=any&sortby=&searchin=&r=1'
+                target='_blank'>1, </a>
+            <a href='https://www.pdfdrive.net/search?q=learn+english+for+children&pagecount=&sortby=&searchin=&r=1'
+                target='_blank'>2, </a>
+            <a
+                href='https://www.pdfdrive.net/search?q=learn+english+as+a+foreign+language&pagecount=any&sortby=&searchin=&r=1'>3,
+            </a>
+            <a href="https://www.bloomsbury-international.com/en/student-ezone/e-book.html" target="_blank">Boolmsbury
+                ebooks. </a>
         </div>
     </section>
 </main>

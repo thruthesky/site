@@ -31,10 +31,15 @@ export class AppComponent implements OnInit, AfterViewInit {
   initializeApp() {
     this.platform.ready().then(() => {
       // alert('platform: is cordova?: ' + this.platform.is('cordova'));
+
+      this.a.isIos = this.platform.is('ios');
+
       if (this.platform.is('cordova')) {
         // alert('platform: cordova? ' + this.platform.is('cordova'));
         this.statusBar.styleDefault();
         this.splashScreen.hide();
+
+
 
         // this.platform.backButton.subscribe(async () => {
         //   if ( ! this.a.routeUrl || this.a.routeUrl === '/' || this.a.routeUrl === '/#' ) {

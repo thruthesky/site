@@ -92,7 +92,11 @@ npm run e2e:remote:headless         ; cypress run headless with real server urls
 ## Run & Serve
 
 * $ n                               ; change node version to 8.x.x
-* $ npm run ssl:live
+* $ npm run ssl:live                ; serve locally with remote database
+
+* then, access to `https://abc.katalkenglish.com:9443/` for student site.
+* then, access to `https://ontue.katalkenglish.com:9443/` for teacher site.
+* For withcenter site, access to `https://withcenter.katalkenglish.com:9443/`
 
 
 
@@ -145,6 +149,8 @@ git push
 then, access to https://thruthesky.github.io/site/
 
 * To publish production site.
+* Update `reloadTag` in `environment.prod.ts`
+* Then run below.
 
 ```` sh
 ; change node version to v8.9.0

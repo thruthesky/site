@@ -95,6 +95,8 @@ export class AppService {
 
     environment: Environment = environment;
 
+    isIos = false;
+
 
     classSoftware = {
         skype: SKYPE,
@@ -1696,15 +1698,13 @@ export class AppService {
     }
 
 
-    isIos() {
-        return /iPad|iPhone|iPod/.test(navigator.userAgent) && ! window['MSStream'];
-    }
+    
     onClickEnglishFunApp() {
         let url: string;
-        if ( this.isIos ) {
-            url = 'https://play.google.com/store/apps/details?id=com.englishfun.play';
-        } else {
+        if (this.isIos) {
             url = 'https://apps.apple.com/app/id1526007266';
+        } else {
+            url = 'https://play.google.com/store/apps/details?id=com.englishfun.play';
         }
         window.open(url);
     }
